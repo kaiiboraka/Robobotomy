@@ -12,8 +12,25 @@ config_version=5
 
 config/name="Robobotomy"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/image="uid://ddagsld40ed68"
+config/icon="uid://c7wscsdw2xd2f"
+
+[autoload]
+
+LayerNames="*res://addons/layerNames/generated/layerNames.gd"
 
 [dotnet]
 
 project/assembly_name="Robobotomy"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/explore-editor-theme/plugin.cfg", "res://addons/fancy_folder_colors/plugin.cfg", "res://addons/layerNames/plugin.cfg", "res://addons/plugin_refresher/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "pink",
+"res://Scripts/": "blue",
+"res://addons/": "gray"
+}
