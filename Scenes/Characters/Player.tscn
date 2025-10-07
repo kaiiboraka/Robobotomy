@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c5rju34ocg5dp"]
 
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_0el0d"]
-[ext_resource type="Script" uid="uid://orsaxc1ntupu" path="res://Scenes/Characters/Player.cs" id="1_7pt4t"]
+[ext_resource type="Script" uid="uid://orsaxc1ntupu" path="res://Scripts/Player.cs" id="1_7pt4t"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_o5en2"]
 [ext_resource type="Texture2D" uid="uid://c7wscsdw2xd2f" path="res://Assets/Images/icon.jpg" id="3_o5en2"]
 
