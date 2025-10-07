@@ -14,7 +14,9 @@ script = ExtResource("2_o5en2")
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 3
-collision_mask = 396
+collision_mask = 908
+platform_floor_layers = 8
+platform_wall_layers = 512
 script = ExtResource("1_7pt4t")
 
 [node name="PhysicalCollider3D" type="CollisionShape3D" parent="."]

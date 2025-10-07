@@ -23,7 +23,7 @@ config/icon="uid://c7wscsdw2xd2f"
 
 [autoload]
 
-LayerNames="*res://addons/layerNames/generated/LayerNames.cs"
+LayerNames="*res://addons/layerNames/generated/layerNames.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [dotnet]
@@ -95,3 +95,4 @@ Player_Move_Down={
 3d_physics/layer_7="Interactable"
 3d_physics/layer_8="HazardCollision"
 3d_physics/layer_9="HazardHitbox"
+3d_physics/layer_10="SolidWall"
