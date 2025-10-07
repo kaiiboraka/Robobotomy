@@ -1,15 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbk24fe7ef7m3"]
+[gd_scene load_steps=6 format=3 uid="uid://dbk24fe7ef7m3"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fy2dq"]
+size = Vector2(200, 200)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ws240"]
-data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+[sub_resource type="Gradient" id="Gradient_fy2dq"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ws240"]
+gradient = SubResource("Gradient_fy2dq")
+fill_from = Vector2(0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n0xv5"]
+albedo_texture = SubResource("GradientTexture2D_ws240")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fy2dq"]
+data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100, -100, 0, -100, 100, 0, -100)
 
 [node name="PlatformStatic" type="StaticBody3D"]
+collision_layer = 4
+collision_mask = 129
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_fy2dq")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_n0xv5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConcavePolygonShape3D_ws240")
+shape = SubResource("ConcavePolygonShape3D_fy2dq")

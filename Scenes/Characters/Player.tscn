@@ -1,13 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5rju34ocg5dp"]
+[gd_scene load_steps=8 format=3 uid="uid://c5rju34ocg5dp"]
+
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_0el0d"]
+[ext_resource type="Script" uid="uid://orsaxc1ntupu" path="res://Scenes/Characters/Player.cs" id="1_7pt4t"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_o5en2"]
+[ext_resource type="Texture2D" uid="uid://c7wscsdw2xd2f" path="res://Assets/Images/icon.jpg" id="3_o5en2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s3rgx"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4kc0k"]
 
-[node name="Player" type="CharacterBody3D"]
+[sub_resource type="Resource" id="Resource_7pt4t"]
+script = ExtResource("2_o5en2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 3
+collision_mask = 396
+script = ExtResource("1_7pt4t")
+
+[node name="PhysicalCollider3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_s3rgx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_4kc0k")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.23391402, 0, 0, 0, 0.23391402, 0, 0, 0, 1, 0, 0.35534823, 0.5082617)
+texture = ExtResource("3_o5en2")
+
+[node name="PhantomCamera3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.168207)
+script = ExtResource("1_0el0d")
+tween_resource = SubResource("Resource_7pt4t")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
