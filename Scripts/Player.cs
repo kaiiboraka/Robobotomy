@@ -39,5 +39,16 @@ public partial class Player : CharacterBody3D
 
 		Velocity = velocity;
 		MoveAndSlide();
+		
+		for (int i = 0; i < GetSlideCollisionCount(); i++)
+		{
+			KinematicCollision3D collision = GetSlideCollision(i);
+			if (collision.GetCollider() is RigidBody3D body)
+			{
+	   			Vector3 pushDir = -collision.GetNormal();
+				body.ApplyCentralForce(pushDir * (float)delta * 1200f);
+			}
+		}
+
 	}
 }
