@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://datnpjbne2ab8"]
+
+[ext_resource type="Script" uid="uid://c84w6lbfbrof4" path="res://Scenes/Environment/Triggers/unload_level_trigger.gd" id="1_mqo3l"]
+
+[node name="UnloadLevelTrigger" type="Area3D"]
+script = ExtResource("1_mqo3l")
+
+[connection signal="body_entered" from="." to="." method="_on_player_entered"]
