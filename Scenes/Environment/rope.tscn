@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://d031edjsrylll"]
+
+[ext_resource type="Script" uid="uid://81evvrguobb6" path="res://Scripts/Rope.gd" id="1_wl8ig"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qfcpu"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 10.0
+radial_segments = 16
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gj3y0"]
+size = Vector3(1.5, 10.5, 1)
+
+[node name="Rope" type="Node3D"]
+script = ExtResource("1_wl8ig")
+angularVelocity = -2.9494249284984033e-216
+weightPosition = 10.0
+
+[node name="Rope Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+mesh = SubResource("CylinderMesh_qfcpu")
+
+[node name="Grabable Area" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.25, 0)
+collision_layer = 64
+collision_mask = 0
+
+[node name="Grabable Shape" type="CollisionShape3D" parent="Grabable Area"]
+shape = SubResource("BoxShape3D_gj3y0")
