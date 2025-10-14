@@ -16,7 +16,7 @@ project_layer_names/c#_namespace="Robobotomy"
 [application]
 
 config/name="Robobotomy"
-run/main_scene="uid://c8d51hgqbd1dq"
+run/main_scene="uid://c87c5afrm7n7y"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 boot_splash/image="uid://ddagsld40ed68"
 config/icon="uid://c7wscsdw2xd2f"
@@ -25,6 +25,7 @@ config/icon="uid://c7wscsdw2xd2f"
 
 LayerNames="*res://addons/layerNames/generated/layerNames.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+LevelManager="*res://Scripts/Autoloads/level_manager.gd"
 
 [dotnet]
 
