@@ -43,6 +43,10 @@ folder_colors={
 "res://addons/": "gray"
 }
 
+[global_group]
+
+player=""
+
 [input]
 
 Player_Move_Right={
