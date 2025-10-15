@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5rju34ocg5dp"]
+[gd_scene load_steps=10 format=3 uid="uid://c5rju34ocg5dp"]
 
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_0el0d"]
 [ext_resource type="Script" uid="uid://orsaxc1ntupu" path="res://Scripts/Player.cs" id="1_7pt4t"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_o5en2"]
 [ext_resource type="Texture2D" uid="uid://c7wscsdw2xd2f" path="res://Assets/Images/icon.jpg" id="3_o5en2"]
+[ext_resource type="Script" uid="uid://cje12jp0lc21x" path="res://Scripts/interaction_area.gd" id="5_7qdam"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s3rgx"]
 
@@ -11,6 +12,9 @@
 
 [sub_resource type="Resource" id="Resource_7pt4t"]
 script = ExtResource("2_o5en2")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gc10f"]
+radius = 1.0
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 3
@@ -35,3 +39,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.168207)
 script = ExtResource("1_0el0d")
 tween_resource = SubResource("Resource_7pt4t")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="InteractionArea" type="Area3D" parent="."]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("5_7qdam")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_gc10f")

@@ -16,8 +16,8 @@ extends Interactable
 # Variables used for physics manipulation
 const ANGULAR_DAMPENING: float = 0.5
 var angle: float = 0.0
-@export var angularVelocity: float = 5.0 # NOTE: @export is meant for testing and debugging purposes only
-@export var weightPosition: float = 0 # NOTE: @export is meant for testing and debugging purposes only
+@export var angularVelocity: float = 0.0 # NOTE: @export is meant for testing and debugging purposes only
+@export var weightPosition: float = 0.0 # NOTE: @export is meant for testing and debugging purposes only
 var weightValue: float = 0.0
 
 
@@ -82,4 +82,5 @@ func get_tangental_velocity() -> Vector3:
 
 
 func get_rope_point() -> Vector3:
-	return Vector3(weightPosition * sin(angle), -weightPosition * cos(angle), 0)
+	#print("Weight Position: ", weightPosition, "\nX: ", weightPosition * sin(angle), "\nY: ", -weightPosition * cos(angle))
+	return Vector3(weightPosition * sin(angle), -weightPosition * cos(angle), 0) + global_position
