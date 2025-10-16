@@ -25,6 +25,8 @@ func _physics_process(delta: float) -> void:
 	if onRope and currInteraction is Rope:
 		var rope: Rope = currInteraction as Rope
 		global_position = rope.get_rope_point()
+		if Input.is_action_just_pressed("Player_Jump"):
+			stop_interaction()
 func interact() -> void:
 	var interactableCount: int = interactables.size()
 	if interactableCount == 0:

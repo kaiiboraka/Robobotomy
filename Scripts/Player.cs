@@ -14,9 +14,27 @@ public partial class Player : CharacterBody3D
 	{
 		Vector3 velocity = Velocity;
 		
-		if (onRope) {
+		// Get the input direction and handle the movement/deceleration.
+		// As good practice, you should replace UI actions with custom gameplay actions.
+		Vector2 inputDir = Input.GetVector("Player_Move_Left", "Player_Move_Right", "Player_Move_Up", "Player_Move_Down");
+		Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
+		
+		if (onRope) 
+		{
 			GlobalPosition = currInteraction.Call("get_rope_point").As<Vector3>();
-		} else {
+			
+			if (direction != Vector3.Zero)
+			{
+				currInteraction.Call("push_rope", direction, Speed * (float)delta);
+			}
+			
+			if (Input.IsActionJustPressed("Player_Jump"))
+			{
+				StopInteraction();
+			}
+		} 
+		else 
+		{
 			// Add the gravity.
 			if (!IsOnFloor())
 			{
@@ -29,10 +47,6 @@ public partial class Player : CharacterBody3D
 				velocity.Y = JumpVelocity;
 			}
 
-			// Get the input direction and handle the movement/deceleration.
-			// As good practice, you should replace UI actions with custom gameplay actions.
-			Vector2 inputDir = Input.GetVector("Player_Move_Left", "Player_Move_Right", "Player_Move_Up", "Player_Move_Down");
-			Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
 			if (direction != Vector3.Zero)
 			{
 				velocity.X = direction.X * Speed;
@@ -101,7 +115,8 @@ public partial class Player : CharacterBody3D
 		if (onRope)
 		{
 			onRope = false;
-			Velocity = currInteraction.Call("get_tangent_velocity").As<Vector3>();
+			Velocity = currInteraction.Call("get_tangental_velocity").As<Vector3>();
+			GD.Print(Velocity);
 		}
 		currInteraction = null;
 	}

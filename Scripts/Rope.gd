@@ -84,3 +84,12 @@ func get_tangental_velocity() -> Vector3:
 func get_rope_point() -> Vector3:
 	#print("Weight Position: ", weightPosition, "\nX: ", weightPosition * sin(angle), "\nY: ", -weightPosition * cos(angle))
 	return Vector3(weightPosition * sin(angle), -weightPosition * cos(angle), 0) + global_position
+
+
+func push_rope(dir: Vector3, force: float) -> void:
+	if weightPosition < 0.001:
+		return
+	var tangentDir = Vector3(cos(angle), -sin(angle), 0)
+	var tangentalForce = dir.dot(tangentDir) * force
+	var angularAccel = tangentalForce / weightPosition
+	angularVelocity += angularAccel
