@@ -1,15 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8d51hgqbd1dq"]
+[gd_scene load_steps=6 format=3 uid="uid://c8d51hgqbd1dq"]
 
 [ext_resource type="PackedScene" uid="uid://dbk24fe7ef7m3" path="res://Scenes/Environment/platform_plane.tscn" id="1_kpm7v"]
 [ext_resource type="PackedScene" uid="uid://c5rju34ocg5dp" path="res://Scenes/Characters/Player.tscn" id="2_amuju"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_00trf"]
+[ext_resource type="Script" uid="uid://bgtkbeb1cwefi" path="res://Scripts/limb_select.gd" id="5_dllra"]
+[ext_resource type="PackedScene" uid="uid://cuc1pbmga6imc" path="res://Scenes/Environment/cube_static.tscn" id="6_kwiqg"]
 
 [node name="LevelRoot" type="Node3D"]
 
 [node name="PlatformStatic" parent="." instance=ExtResource("1_kpm7v")]
-
-[node name="Player" parent="." instance=ExtResource("2_amuju")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6592422, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 1
@@ -21,3 +20,9 @@ process_priority = 300
 process_physics_priority = 300
 script = ExtResource("3_00trf")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
+[node name="LimbSelect" type="Node3D" parent="."]
+script = ExtResource("5_dllra")
+throwSpeed = 10.0
+
+[node name="Player" parent="LimbSelect" instance=ExtResource("2_amuju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6592422, 0)
