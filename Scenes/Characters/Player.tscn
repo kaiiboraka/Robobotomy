@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_0el0d"]
 [ext_resource type="Script" uid="uid://orsaxc1ntupu" path="res://Scripts/Player.cs" id="1_7pt4t"]
+[ext_resource type="Texture2D" uid="uid://y14b3b1s4nbo" path="res://Assets/Images/icon.png" id="2_7qdam"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_o5en2"]
-[ext_resource type="Texture2D" uid="uid://c7wscsdw2xd2f" path="res://Assets/Images/icon.jpg" id="3_o5en2"]
-[ext_resource type="Script" uid="uid://cje12jp0lc21x" path="res://Scripts/interaction_area.gd" id="5_7qdam"]
+[ext_resource type="Script" path="res://Scripts/interaction_area.gd" id="5_7qdam"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s3rgx"]
 
@@ -32,7 +32,7 @@ mesh = SubResource("CapsuleMesh_4kc0k")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.23391402, 0, 0, 0, 0.23391402, 0, 0, 0, 1, 0, 0.35534823, 0.5082617)
-texture = ExtResource("3_o5en2")
+texture = ExtResource("2_7qdam")
 
 [node name="PhantomCamera3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.168207)
