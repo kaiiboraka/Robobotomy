@@ -2,13 +2,23 @@
 class_name Rope
 extends Interactable
 
-## The length of the rope, with a minimum of 0 length.
+
+const MAX_CLIMB_HEIGHT: float = 0.5
+@export_group("Rope Shape")
+## The length of the rope, with a minimum of 0.1 length.
 @export_range(0.1, 10.0, 0.1, "or_greater") var ropeLength: float = 10.0:
 	set(value):
 		ropeLength = max(value, 0.1)
 		_update_rope_geometry()
+@export_group("Physics Parameters")
 ## Gravity of the rope. NOTE: THIS VARIABLE MAY BE CHANGED BY A GLOBAL GRAVITY VARIABLE LATER
 @export var gravity: float = -100.0
+## Launch force increases the force the Player is launched from jumping off of the rope
+@export var launchForce: float = 4.0
+## Climbing speed determines how fast the Player can climb the rope. This is a multiplier to their normal speed.
+@export var climbSpeed: float = 0.2
+## Slide speed determines how fast the Player slides down the rope. This is a mutliplier to their normal speed.
+@export var slideSpeed: float = 1.0
 # Variables used to manage the rope's geometry when it is changed in the editor
 @onready var ropeMesh: MeshInstance3D = $"Rope Mesh"
 @onready var grabArea: Area3D = $"Grabable Area"
@@ -16,6 +26,7 @@ extends Interactable
 # Variables used for physics manipulation
 const ANGULAR_DAMPENING: float = 0.5
 var angle: float = 0.0
+@export_group("Physics Debugging")
 @export var angularVelocity: float = 0.0 # NOTE: @export is meant for testing and debugging purposes only
 @export var weightPosition: float = 0.0 # NOTE: @export is meant for testing and debugging purposes only
 var weightValue: float = 0.0
@@ -76,9 +87,9 @@ func interact_with(grabber: CharacterBody3D, transferMomentum: bool = true) -> v
 
 
 func get_tangental_velocity() -> Vector3:
-	var tangent = Vector3(cos(angle), -sin(angle), 0)
+	var tangent = Vector3(cos(angle), sin(angle), 0)
 	var tangentSpeed = angularVelocity * weightPosition
-	return tangent * tangentSpeed
+	return tangent * tangentSpeed * launchForce
 
 
 func get_rope_point() -> Vector3:
@@ -93,3 +104,10 @@ func push_rope(dir: Vector3, force: float) -> void:
 	var tangentalForce = dir.dot(tangentDir) * force
 	var angularAccel = tangentalForce / weightPosition
 	angularVelocity += angularAccel
+
+
+func climb_rope(dir: Vector3, speed: float) -> void:
+	#print("Direction: ", dir, ", Speed: ", speed)
+	var dirSpeed: float = climbSpeed if dir.y < 0.0 else (slideSpeed if dir.y > 0.0 else 0.0)
+	weightPosition += dir.y * speed * dirSpeed
+	weightPosition = clampf(weightPosition, MAX_CLIMB_HEIGHT, ropeLength)

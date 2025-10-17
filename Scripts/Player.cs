@@ -26,6 +26,8 @@ public partial class Player : CharacterBody3D
 			if (direction != Vector3.Zero)
 			{
 				currInteraction.Call("push_rope", direction, Speed * (float)delta);
+				Vector3 climbDirection = (Transform.Basis * new Vector3(0, inputDir.Y, 0)).Normalized();
+				currInteraction.Call("climb_rope", climbDirection, Speed * (float)delta);
 			}
 			
 			if (Input.IsActionJustPressed("Player_Jump"))
@@ -116,7 +118,6 @@ public partial class Player : CharacterBody3D
 		{
 			onRope = false;
 			Velocity = currInteraction.Call("get_tangental_velocity").As<Vector3>();
-			GD.Print(Velocity);
 		}
 		currInteraction = null;
 	}
