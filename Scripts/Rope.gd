@@ -16,6 +16,9 @@ extends Interactable
 # Variables used for physics manipulation
 const ANGULAR_DAMPENING: float = 0.5
 var angle: float = 0.0
+
+@export_category("Read Only")
+#@export_group("velocity")
 @export var angularVelocity: float = 0.0 # NOTE: @export is meant for testing and debugging purposes only
 @export var weightPosition: float = 0.0 # NOTE: @export is meant for testing and debugging purposes only
 var weightValue: float = 0.0
