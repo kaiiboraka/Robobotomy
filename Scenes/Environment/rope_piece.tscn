@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://yvtcuq6ss8uf"]
+
+[ext_resource type="Script" uid="uid://bqtr438ndbrt3" path="res://Scripts/rope_piece.gd" id="1_h1p8o"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5aqdu"]
+top_radius = 0.1
+bottom_radius = 0.1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qrird"]
+size = Vector3(0.2, 2, 0.2)
+
+[node name="Rope Piece" type="RigidBody3D"]
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_h1p8o")
+
+[node name="Rope Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_5aqdu")
+skeleton = NodePath("../..")
+
+[node name="Rope Shape" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_qrird")
