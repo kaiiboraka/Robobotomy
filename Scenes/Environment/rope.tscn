@@ -14,8 +14,6 @@ size = Vector3(1.5, 10.5, 1)
 [node name="Rope" type="Node3D"]
 transform = Transform3D(0.9999998, -0.00055195164, 0, 0.00055195164, 0.9999998, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_wl8ig")
-climbSpeed = null
-slideSpeed = null
 
 [node name="Rope Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
