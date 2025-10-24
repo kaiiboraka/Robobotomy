@@ -11,7 +11,7 @@ extends Node
 # functions that can be called at any time to
 # 1. load the next level
 # 2. unload the previous level
-#
+# 
 # For the sake of having seamless transitions
 # between the puzzles and backgrounds and anything else
 # the loading of new scenes will happen on a separate
@@ -49,7 +49,7 @@ var main_scene: Main
 var loaded_levels: Array[Node3D] = []
 
 ## Loads the given level [br]
-##
+## 
 ## [b]Warning:[/b] Will likely cause pauses
 ## in the game to load the level
 ## @deprecated: Use load_threaded_level instead
@@ -106,3 +106,13 @@ func unload_level() -> void:
 	if len(loaded_levels) > 1:
 		loaded_levels[0].queue_free()
 		loaded_levels.pop_front()
+
+## Returns a Vector3 of the ending location of the oldest scene
+##[br][br]
+## Returns a Vector3 of the previous level's location or
+## [code]Vector3(0, 0, 0)[/code] if there is none.
+func get_previous_end() -> Vector3:
+	if len(loaded_levels) > 1:
+		return loaded_levels[-2].end_location
+	else:
+		return Vector3(0, 0, 0)
