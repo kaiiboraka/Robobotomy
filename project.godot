@@ -96,3 +96,4 @@ Player_Move_Down={
 3d_physics/layer_8="HazardCollision"
 3d_physics/layer_9="HazardHitbox"
 3d_physics/layer_10="SolidWall"
+3d_physics/layer_11="Button Weighted"

@@ -30,11 +30,11 @@ public partial class MyButton3D : Area3D
 	{
 		String ObjCollision = $"Collided with: {body.Name}";
 		GD.Print(ObjCollision);
-		// You can check the type or group of the 'body' here
-		if (body.Name == "Player")
+		// collide with weighted objects
+		if (body is IWeighted weighted)
 		{
 			// Handle collision with a RigidBody3D
-			currentWeight = RequiredWeight;
+			currentWeight += weighted.Weight;
 		}
 	}
 	
@@ -43,10 +43,10 @@ public partial class MyButton3D : Area3D
 		String ObjCollision = $"Body Exited: {body.Name}";
 		GD.Print(ObjCollision);
 		// You can check the type or group of the 'body' here
-		if (body.Name == "Player")
+		if (body is IWeighted weighted)
 		{
 			// Handle collision with a RigidBody3D
-			currentWeight = 0;
+			currentWeight -= weighted.Weight;
 		}
 	}
 	
