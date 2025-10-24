@@ -8,15 +8,7 @@ public partial class Player : CharacterBody3D
 	public const float JumpVelocity = 4.5f;
 	[Export]
 	public bool isSelected = true;
-    /*
-	0:false, #Head
-	1:false, #LeftArm
-	2:false, #RightArm
-	3:true, #Torso
-	4:false, #LeftLeg
-	5:false, #RightLeg
-
-	*/
+	public bool isRecalling = false;
 	public Godot.Collections.Dictionary bodyParts = new Godot.Collections.Dictionary()
 	{
 		{0, true}, //Head
@@ -27,9 +19,11 @@ public partial class Player : CharacterBody3D
 		{5, true } //RightLeg
 	};
 
+	private Area3D torsoArea;
+
 	public override void _Ready()
 	{
-        
+		
     }
 
 	public override void _PhysicsProcess(double delta)
@@ -46,12 +40,16 @@ public partial class Player : CharacterBody3D
 		{
 			if (!isSelected) //Stop moving if on floor
 			{
-				velocity = Vector3.Zero;
+				if (!isRecalling)
+				{
+					velocity = Vector3.Zero;
+				}
+
 			}
 
 		}
 
-		if (isSelected) //Am I selected?
+		if (isSelected && !isRecalling) //Am I selected?
 		{
 
 			if ((bool)bodyParts[4] == true || (bool)bodyParts[5] == true)
@@ -84,4 +82,9 @@ public partial class Player : CharacterBody3D
 		Velocity = velocity;
 		MoveAndSlide();
 	}
+
+	public void OnBodyEntered(Node3D body)
+    {
+        
+    }
 }

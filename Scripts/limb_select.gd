@@ -8,6 +8,7 @@ var selectedLimb:LimbTypes = LimbTypes.Torso #Which limb is selected?
 var cameraLimb:LimbTypes = LimbTypes.Torso #Which limb has the camera attached?
 
 @export var throwSpeed:float
+@export var recallSpeed:float
 
 var cam:Camera3D
 
@@ -37,6 +38,8 @@ var bodyObjects = {
 #X = recall (right now just teleports)
 #Right Click = Throw Limb
 
+static var Instance
+
 func _ready() -> void:
 	enum_to_node[0] = (load("res://Scenes/Characters/Head.tscn"))
 	enum_to_node[1] = (load("res://Scenes/Characters/Arm.tscn"))
@@ -45,6 +48,7 @@ func _ready() -> void:
 	enum_to_node[5] = (load("res://Scenes/Characters/Leg.tscn"))
 	bodyObjects[3] = get_node("Player")
 	cam = get_viewport().get_camera_3d()
+	Instance = self
 	pass
 
 var hasSwapped:bool = false
@@ -155,3 +159,8 @@ func _throwLimb(currentNode):
 	var mouse_position = cam.project_position(get_viewport().get_mouse_position(), abs(cam.position.z - bodyObjects[3].position.z))
 	var direction = bodyObjects[3].position.direction_to(Vector3(mouse_position.x,mouse_position.y,0))
 	currentNode.velocity = direction * throwSpeed
+
+func _recallLimb(currentNode):
+	currentNode.isRecalling = true
+	var direction = currentNode.position.direction_to(bodyObjects[3].position)
+	currentNode.velocity = direction * recallSpeed
