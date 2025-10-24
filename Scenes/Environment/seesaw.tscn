@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://pvwqjhr7eu4p"]
+
+[ext_resource type="Script" uid="uid://bs4mj2vxg077u" path="res://Scripts/seesaw.gd" id="1_238e2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2dscc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_82uhw"]
+
+[node name="Seesaw" type="RigidBody3D"]
+script = ExtResource("1_238e2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_2dscc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_82uhw")
+skeleton = NodePath("../CollisionShape3D")
