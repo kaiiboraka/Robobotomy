@@ -94,7 +94,7 @@ public partial class LimbSelect : Node
                 Node3D currentTarget = (Node3D)scene.Instantiate();
                 AddChild(currentTarget);
                 currentTarget.Position = bodyObjects[LimbTypes.Torso].Position;
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 6; i++)
                 {
                     LimbTypes limbParse = (LimbTypes)i;
                     if (limbParse == selectedLimb)
@@ -129,7 +129,6 @@ public partial class LimbSelect : Node
             }
             else
             {
-                GD.Print(limbParse.ToString());
                 cameraLimb = targetLimb;
                 ((Player)bodyObjects[limbParse]).isSelected = true;
                 Node3D phantomCamera = bodyObjects[limbParse].GetNode<Node3D>("PhantomCamera3D");
