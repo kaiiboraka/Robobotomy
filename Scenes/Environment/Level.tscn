@@ -3,12 +3,20 @@
 [ext_resource type="PackedScene" uid="uid://dbk24fe7ef7m3" path="res://Scenes/Environment/platform_plane.tscn" id="1_kpm7v"]
 [ext_resource type="PackedScene" uid="uid://c5rju34ocg5dp" path="res://Scenes/Characters/Player.tscn" id="2_amuju"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_00trf"]
-[ext_resource type="Script" uid="uid://6v72ypyccpji" path="res://Scripts/LimbSelect.cs" id="3_jwnvx"]
-[ext_resource type="PackedScene" uid="uid://cuc1pbmga6imc" path="res://Scenes/Environment/cube_static.tscn" id="6_kwiqg"]
+[ext_resource type="PackedScene" uid="uid://cyjrmdno75g7n" path="res://Scenes/Environment/Triggers/load_level_trigger.tscn" id="4_ubqhk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jwnvx"]
+size = Vector3(3.150879, 3.1435547, 3.6436768)
+[ext_resource type="PackedScene" path="res://Scenes/Environment/simple_box.tscn" id="4_ubqhk"]
+[ext_resource type="PackedScene" path="res://Scenes/Environment/rope.tscn" id="5_jwnvx"]
 
 [node name="LevelRoot" type="Node3D"]
 
 [node name="PlatformStatic" parent="." instance=ExtResource("1_kpm7v")]
+
+[node name="Player" parent="." instance=ExtResource("2_amuju")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("2_amuju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6592422, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 1
@@ -21,17 +29,23 @@ process_physics_priority = 300
 script = ExtResource("3_00trf")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.25924382, -0.9577284, 0.12469652, 0.7109356, 0.27662382, 0.6465678, -0.6537304, -0.07896736, 0.7525963, 0, 11.42713, 0)
+[node name="LoadLevelTrigger" parent="." instance=ExtResource("4_ubqhk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9447765, 0, 0)
 
-[node name="LimbSelect" type="Node3D" parent="."]
-script = ExtResource("3_jwnvx")
-throwSpeed = 10.0
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LoadLevelTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0754395, 1.0717773, 1.3218384)
+shape = SubResource("BoxShape3D_jwnvx")
+debug_color = Color(3.4466126, 4.2757597, 7.653768, 1)
+[node name="Simple Box" parent="." instance=ExtResource("4_ubqhk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
 
-[node name="Player" parent="LimbSelect" instance=ExtResource("2_amuju")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6592422, 0)
+[node name="Simple Box2" parent="." instance=ExtResource("4_ubqhk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 0)
 
-[node name="CubeStatic" parent="." instance=ExtResource("6_kwiqg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4991617, 0.39831877, 0)
-collision_layer = 4
-collision_mask = 128
+[node name="Simple Box3" parent="." instance=ExtResource("4_ubqhk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3, 0)
+
+[node name="Rope" parent="." instance=ExtResource("5_jwnvx")]
+transform = Transform3D(0.9999998, -0.00055195164, 0, 0.00055195164, 0.9999998, 0, 0, 0, 1, 7, 10, 0)
+readOnly_Jump = null
+readOnly_Speed = null

@@ -1,72 +1,53 @@
 using Godot;
-using PhantomCamera;
+using Godot.Collections;
 using System;
 
 public partial class Player : CharacterBody3D
 {
 	public const float Speed = 5.0f;
 	public const float JumpVelocity = 4.5f;
-	[Export]
-	public bool isSelected = true;
-	public bool isRecalling = false;
-	public Godot.Collections.Dictionary bodyParts = new Godot.Collections.Dictionary()
-	{
-		{0, true}, //Head
-		{1, true}, //LeftArm
-		{2, true}, //RightArm
-		{3, true }, //Torso
-		{4, true}, //LeftLeg
-		{5, true } //RightLeg
-	};
-
-	private Area3D torsoArea;
-
-	public override void _Ready()
-	{
-		
-    }
+	private Array<Node> interactables = new Array<Node>();
+	private Node currInteraction;
+	private bool onRope = false;
 
 	public override void _PhysicsProcess(double delta)
 	{
 
 		Vector3 velocity = Velocity;
-
-		// Add the gravity.
-		if (!IsOnFloor())
+		
+		// Get the input direction and handle the movement/deceleration.
+		// As good practice, you should replace UI actions with custom gameplay actions.
+		Vector2 inputDir = Input.GetVector("Player_Move_Left", "Player_Move_Right", "Player_Move_Up", "Player_Move_Down");
+		Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
+		
+		if (onRope) 
 		{
-			velocity += GetGravity() * (float)delta;
-		}
-		else
-		{
-			if (!isSelected) //Stop moving if on floor
+			GlobalPosition = currInteraction.Call("get_rope_point").As<Vector3>();
+			
+			if (direction != Vector3.Zero)
 			{
-				if (!isRecalling)
-				{
-					velocity = Vector3.Zero;
-				}
-
+				currInteraction.Call("push_rope", direction, Speed * (float)delta);
+			}
+			
+			if (Input.IsActionJustPressed("Player_Jump"))
+			{
+				StopInteraction();
+			}
+		} 
+		else 
+		{
+			// Add the gravity.
+			if (!IsOnFloor())
+			{
+				velocity += GetGravity() * (float)delta;
 			}
 
-		}
-
-		if (isSelected && !isRecalling) //Am I selected?
-		{
-
-			if ((bool)bodyParts[4] == true || (bool)bodyParts[5] == true)
+			// Handle Jump.
+			if (Input.IsActionJustPressed("Player_Jump") && IsOnFloor())
 			{
-				// Handle Jump.
-				if (Input.IsActionJustPressed("Player_Jump") && IsOnFloor())
-				{
-					velocity.Y = JumpVelocity;
-				}
+				velocity.Y = JumpVelocity;
 			}
 
-			// Get the input direction and handle the movement/deceleration.
-			// As good practice, you should replace UI actions with custom gameplay actions.
-
-
-			Vector2 inputDir = Input.GetVector("Player_Move_Left", "Player_Move_Right", "Player_Move_Up", "Player_Move_Down");
-			Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
 			if (direction != Vector3.Zero)
 			{
 				velocity.X = direction.X * Speed;
@@ -77,10 +58,68 @@ public partial class Player : CharacterBody3D
 				velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 				velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
 			}
+
+			Velocity = velocity;
+			MoveAndSlide();
 		}
-		//This runs regardless of selected or not
-		Velocity = velocity;
-		MoveAndSlide();
+		
+		for (int i = 0; i < GetSlideCollisionCount(); i++)
+		{
+			KinematicCollision3D collision = GetSlideCollision(i);
+			if (collision.GetCollider() is RigidBody3D body)
+			{
+	   			Vector3 pushDir = -collision.GetNormal();
+				body.ApplyCentralForce(pushDir * (float)delta * 1200f);
+			}
+		}
+
+	}
+	
+	public override void _UnhandledInput(InputEvent @event)
+	{
+		if (@event.IsActionPressed("Player_Interact"))
+		{
+			if (currInteraction == null)
+				Interact();
+			else
+				StopInteraction();
+		}
+	}
+	
+	public void AddInteractable(Node obj)
+	{
+		if (obj == null || !GodotObject.IsInstanceValid(obj))
+			return;
+		interactables.Add(obj);
+	}
+
+	public void RemoveInteractable(Node obj)
+	{
+		interactables.Remove(obj);
+		if (currInteraction == obj)
+			StopInteraction();
+	}
+	
+	public void Interact()
+	{
+		int interactableCount = interactables.Count;
+		if (interactableCount == 0)
+			return;
+
+		currInteraction = interactables[interactableCount - 1];
+		onRope = true;
+		currInteraction.Call("interact_with", this);
+	}
+
+	public void StopInteraction()
+	{
+		if (onRope)
+		{
+			onRope = false;
+			Velocity = currInteraction.Call("get_tangental_velocity").As<Vector3>();
+			GD.Print(Velocity);
+		}
+		currInteraction = null;
 	}
 
 	public void OnBodyEntered(Node3D body)
