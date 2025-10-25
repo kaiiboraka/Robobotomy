@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8ulb36qc0vgh"]
+
+[ext_resource type="PackedScene" uid="uid://dbk24fe7ef7m3" path="res://Scenes/Environment/platform_plane.tscn" id="1_8e5ay"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_fujqj"]
+[ext_resource type="Script" uid="uid://6v72ypyccpji" path="res://Scripts/LimbSelect.cs" id="3_evpp2"]
+[ext_resource type="PackedScene" uid="uid://c5rju34ocg5dp" path="res://Scenes/Characters/Player.tscn" id="4_h0um1"]
+[ext_resource type="PackedScene" uid="uid://cuc1pbmga6imc" path="res://Scenes/Environment/cube_static.tscn" id="5_6uba3"]
+[ext_resource type="Script" uid="uid://cnir3cv4b3e0a" path="res://Scripts/PlayerLimbs.cs" id="5_fujqj"]
+
+[node name="LevelRoot" type="Node3D"]
+
+[node name="PlatformStatic" parent="." instance=ExtResource("1_8e5ay")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6592422, 4.168)
+fov = 80.0
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_fujqj")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.25924382, -0.9577284, 0.12469652, 0.7109356, 0.27662382, 0.6465678, -0.6537304, -0.07896736, 0.7525963, 0, 11.42713, 0)
+
+[node name="LimbSelect" type="Node3D" parent="."]
+script = ExtResource("3_evpp2")
+throwSpeed = 10.0
+
+[node name="Player" parent="LimbSelect" instance=ExtResource("4_h0um1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6592422, 0)
+script = ExtResource("5_fujqj")
+
+[node name="CubeStatic" parent="." instance=ExtResource("5_6uba3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4991617, 0.39831877, 0)
+collision_layer = 4
+collision_mask = 128
