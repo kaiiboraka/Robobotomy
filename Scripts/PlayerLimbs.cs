@@ -6,8 +6,9 @@ public partial class PlayerLimbs : CharacterBody3D
 {
 	public const float Speed = 5.0f;
 	public const float JumpVelocity = 4.5f;
-	[Export]
-	public bool isSelected = true;
+
+	[Export] public bool isSelected = true;
+
 	public bool isRecalling = false;
 	public Godot.Collections.Dictionary bodyParts = new Godot.Collections.Dictionary()
 	{
