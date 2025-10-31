@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cohexjms8lefn"]
 
 [ext_resource type="Material" uid="uid://ctprc8cj5aju7" path="res://Assets/Materials/Basic Colors/Blue.tres" id="1_a28xg"]
-[ext_resource type="Script" uid="uid://orsaxc1ntupu" path="res://Scripts/Player.cs" id="1_tn8je"]
+[ext_resource type="Script" uid="uid://cnir3cv4b3e0a" path="res://Scripts/PlayerLimbs.cs" id="1_tn8je"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_n2wvn"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_3kll7"]
 
@@ -21,6 +21,7 @@ isSelected = false
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_00trf")
 surface_material_override/0 = ExtResource("1_a28xg")
+script = ExtResource("1_tn8je")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://ycadlvdlh6na"]
 
 [ext_resource type="Material" uid="uid://cjjlgffq2ycbp" path="res://Assets/Materials/Basic Colors/Red.tres" id="1_4kbgw"]
-[ext_resource type="Script" uid="uid://orsaxc1ntupu" path="res://Scripts/Player.cs" id="1_5palx"]
+[ext_resource type="Script" uid="uid://cnir3cv4b3e0a" path="res://Scripts/PlayerLimbs.cs" id="1_5palx"]
 [ext_resource type="Shape3D" uid="uid://kv8crqwo2clc" path="res://Assets/Shapes/LegShape.tres" id="1_ro0l1"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_0plw2"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_27wm3"]
@@ -14,7 +14,6 @@ script = ExtResource("5_27wm3")
 [node name="CharacterBody3D" type="CharacterBody3D"]
 collision_mask = 1164
 script = ExtResource("1_5palx")
-isSelected = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0, 0, 0)
