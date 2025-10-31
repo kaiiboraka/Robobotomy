@@ -60,7 +60,7 @@ public partial class LimbSelect : Node
                 bodyObjects[selectedLimb].QueueFree();
                 findLimb(selectedLimb).Visible = true;
                 bodyObjects[selectedLimb] = null;
-                ((Player)bodyObjects[LimbTypes.Torso]).bodyParts[(int)selectedLimb] = true;
+                ((PlayerLimbs)bodyObjects[LimbTypes.Torso]).bodyParts[(int)selectedLimb] = true;
                 selectedLimb = LimbTypes.Torso;
                 hasSwapped = true;
             }
@@ -75,7 +75,7 @@ public partial class LimbSelect : Node
                         bodyObjects[limbParse].QueueFree();
                         findLimb(limbParse).Visible = true;
                         bodyObjects[limbParse] = null;
-                        ((Player)bodyObjects[LimbTypes.Torso]).bodyParts[i] = true;
+                        ((PlayerLimbs)bodyObjects[LimbTypes.Torso]).bodyParts[i] = true;
                     }
                 }
             }
@@ -99,15 +99,15 @@ public partial class LimbSelect : Node
                     LimbTypes limbParse = (LimbTypes)i;
                     if (limbParse == selectedLimb)
                     {
-                        ((Player)currentTarget).bodyParts[i] = true;
+                        ((PlayerLimbs)currentTarget).bodyParts[i] = true;
                     }
                     else
                     {
-                        ((Player)currentTarget).bodyParts[i] = false;
+                        ((PlayerLimbs)currentTarget).bodyParts[i] = false;
                     }
                 }
                 bodyObjects[selectedLimb] = currentTarget;
-                ((Player)bodyObjects[LimbTypes.Torso]).bodyParts[(int)selectedLimb] = false;
+                ((PlayerLimbs)bodyObjects[LimbTypes.Torso]).bodyParts[(int)selectedLimb] = false;
                 findLimb(selectedLimb).Visible = false;
                 ThrowLimb(bodyObjects[selectedLimb]);
             }
@@ -123,14 +123,14 @@ public partial class LimbSelect : Node
             if (bodyObjects[limbParse] == null) continue;
             if (limbParse != targetLimb)
             {
-                ((Player)bodyObjects[limbParse]).isSelected = false;
+                ((PlayerLimbs)bodyObjects[limbParse]).isSelected = false;
                 Node3D phantomCamera = bodyObjects[limbParse].GetNode<Node3D>("PhantomCamera3D");
                 phantomCamera.Call("set_priority", 0);
             }
             else
             {
                 cameraLimb = targetLimb;
-                ((Player)bodyObjects[limbParse]).isSelected = true;
+                ((PlayerLimbs)bodyObjects[limbParse]).isSelected = true;
                 Node3D phantomCamera = bodyObjects[limbParse].GetNode<Node3D>("PhantomCamera3D");
                 phantomCamera.Call("set_priority", 1);
             }
@@ -141,7 +141,7 @@ public partial class LimbSelect : Node
     {
         Vector3 mousePosition = mainCamera.ProjectPosition(GetViewport().GetMousePosition(), Math.Abs(mainCamera.Position.Z - bodyObjects[LimbTypes.Torso].Position.Z));
         Vector3 direction = bodyObjects[LimbTypes.Torso].Position.DirectionTo(new Vector3(mousePosition.X, mousePosition.Y, 0));
-        ((Player)currentNode).Velocity = direction * throwSpeed;
+        ((PlayerLimbs)currentNode).Velocity = direction * throwSpeed;
 
     }
 
@@ -171,8 +171,8 @@ public partial class LimbSelect : Node
 
     private void recallLimb(Node3D currentNode)
     {
-        ((Player)currentNode).isRecalling = true;
+        ((PlayerLimbs)currentNode).isRecalling = true;
         Vector3 direction = currentNode.Position.DirectionTo(bodyObjects[LimbTypes.Torso].Position);
-        ((Player)currentNode).Velocity = direction * recallSpeed;
+        ((PlayerLimbs)currentNode).Velocity = direction * recallSpeed;
     }
 }

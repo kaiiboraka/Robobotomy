@@ -6,7 +6,7 @@ public partial class HingeDoorJacob : Node3D
 	[Export]
 	public float doorHeight;
 
-	MeshInstance3D hingeDoorMesh = ;
+	MeshInstance3D hingeDoorMesh;
 	// questions to answer:
 	// how do I procedurally create a mesh?
 	// how do I get a reference to 'Hinge Door Mesh' in the same way the Rope does?
