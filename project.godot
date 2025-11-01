@@ -16,7 +16,7 @@ project_layer_names/c#_namespace="Robobotomy"
 [application]
 
 config/name="Robobotomy"
-run/main_scene="uid://l0cs6ci58oc0"
+run/main_scene="uid://c8d51hgqbd1dq"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 boot_splash/image="uid://ddagsld40ed68"
 config/icon="uid://c7wscsdw2xd2f"
@@ -96,4 +96,4 @@ Player_Move_Down={
 3d_physics/layer_8="HazardCollision"
 3d_physics/layer_9="HazardHitbox"
 3d_physics/layer_10="SolidWall"
-3d_physics/layer_11="Button Weighted"
+3d_physics/layer_11="TorsoBox"
