@@ -14,6 +14,7 @@ public partial class Player : CharacterBody3D, IWeighted
 
 	public override void _PhysicsProcess(double delta)
 	{
+
 		Vector3 velocity = Velocity;
 		
 		// Get the input direction and handle the movement/deceleration.
@@ -122,4 +123,9 @@ public partial class Player : CharacterBody3D, IWeighted
 		}
 		currInteraction = null;
 	}
+
+	public void OnBodyEntered(Node3D body)
+    {
+        
+    }
 }
