@@ -22,6 +22,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_m4d4q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6592422, 0)
+collision_layer = 4099
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 1
@@ -36,8 +37,8 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Simple Box3" parent="." instance=ExtResource("4_0lf3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3, 0)
-collision_layer = 1028
-collision_mask = 1165
+collision_layer = 4100
+collision_mask = 5261
 
 [node name="Rope" parent="." instance=ExtResource("5_7rphv")]
 transform = Transform3D(0.9999998, -0.00055195164, 0, 0.00055195164, 0.9999998, 0, 0, 0, 1, 7, 10, 0)
@@ -51,8 +52,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6060871, 0)
 mesh = SubResource("CylinderMesh_1juug")
 
 [node name="Area3D" type="Area3D" parent="MyButton3D"]
-collision_layer = 1024
-collision_mask = 1025
+collision_layer = 2048
+collision_mask = 6144
 script = ExtResource("6_m4d4q")
 RequiredWeight = 5.0
 
@@ -70,8 +71,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6060871, 0)
 mesh = SubResource("CylinderMesh_1juug")
 
 [node name="Area3D" type="Area3D" parent="MyButton3D2"]
-collision_layer = 1024
-collision_mask = 1025
+collision_layer = 2048
+collision_mask = 6144
 script = ExtResource("6_m4d4q")
 RequiredWeight = 10.0
 

@@ -125,7 +125,7 @@ public partial class Player : CharacterBody3D, IWeighted
 	}
 
 	public void OnBodyEntered(Node3D body)
-    {
-        
-    }
+	{
+		
+	}
 }
