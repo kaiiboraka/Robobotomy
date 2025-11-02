@@ -29,18 +29,33 @@ public partial class LimbSelect : Node
     //Other vars
     public static LimbSelect instance;
     private Camera3D mainCamera;
+
+    //Singleton to allow for PlayerLimbs to access this script
+    public override void _EnterTree()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            QueueFree();
+        }
+    }
+
     public override void _Ready()
     {
+
+
         enumToNode.Add(LimbTypes.Head, GD.Load<PackedScene>("res://Scenes/Characters/Head.tscn"));
         enumToNode.Add(LimbTypes.LeftArm, GD.Load<PackedScene>("res://Scenes/Characters/Arm.tscn"));
         enumToNode.Add(LimbTypes.RightArm, GD.Load<PackedScene>("res://Scenes/Characters/Arm.tscn"));
         enumToNode.Add(LimbTypes.LeftLeg, GD.Load<PackedScene>("res://Scenes/Characters/Leg.tscn"));
         enumToNode.Add(LimbTypes.RightLeg, GD.Load<PackedScene>("res://Scenes/Characters/Leg.tscn"));
 
-        bodyObjects[LimbTypes.Torso] = GetNode<Player>("Player");
+        bodyObjects[LimbTypes.Torso] = GetNode<PlayerLimbs>("DetachablePlayer");
 
         mainCamera = GetViewport().GetCamera3D();
-        instance = this;
     }
 
     public override void _Process(double delta)
@@ -57,12 +72,7 @@ public partial class LimbSelect : Node
         {
             if (bodyObjects[selectedLimb] != null && selectedLimb != LimbTypes.Torso)
             {
-                bodyObjects[selectedLimb].QueueFree();
-                findLimb(selectedLimb).Visible = true;
-                bodyObjects[selectedLimb] = null;
-                ((PlayerLimbs)bodyObjects[LimbTypes.Torso]).bodyParts[(int)selectedLimb] = true;
-                selectedLimb = LimbTypes.Torso;
-                hasSwapped = true;
+                recallLimb(bodyObjects[selectedLimb]);
             }
             else if (selectedLimb == LimbTypes.Torso)
             {
@@ -72,10 +82,7 @@ public partial class LimbSelect : Node
                     LimbTypes limbParse = (LimbTypes)i;
                     if (bodyObjects[limbParse] != null)
                     {
-                        bodyObjects[limbParse].QueueFree();
-                        findLimb(limbParse).Visible = true;
-                        bodyObjects[limbParse] = null;
-                        ((PlayerLimbs)bodyObjects[LimbTypes.Torso]).bodyParts[i] = true;
+                        recallLimb(bodyObjects[limbParse]);
                     }
                 }
             }
@@ -92,6 +99,7 @@ public partial class LimbSelect : Node
             {
                 PackedScene scene = enumToNode[selectedLimb];
                 Node3D currentTarget = (Node3D)scene.Instantiate();
+                ((PlayerLimbs)currentTarget).bodyParts[3] = false;
                 AddChild(currentTarget);
                 currentTarget.Position = bodyObjects[LimbTypes.Torso].Position;
                 for (int i = 0; i < 6; i++)
@@ -145,24 +153,22 @@ public partial class LimbSelect : Node
 
     }
 
-    //Yes this could've been a dictionary but at this point I'm losing braincells
-    //Doesn't matter anyways because this is a prototype.
     private Node3D findLimb(LimbTypes limbToFind)
     {
         switch (limbToFind)
         {
             case LimbTypes.Head:
-                return GetNode<Node3D>("Player/Head");
+                return GetNode<Node3D>("DetachablePlayer/Head");
             case LimbTypes.LeftArm:
-                return GetNode<Node3D>("Player/Left Arm");
+                return GetNode<Node3D>("DetachablePlayer/Left Arm");
             case LimbTypes.Torso:
-                return GetNode<Node3D>("Player/Torso");
+                return GetNode<Node3D>("DetachablePlayer/Torso");
             case LimbTypes.RightArm:
-                return GetNode<Node3D>("Player/Right Arm");
+                return GetNode<Node3D>("DetachablePlayer/Right Arm");
             case LimbTypes.LeftLeg:
-                return GetNode<Node3D>("Player/Left Leg");
+                return GetNode<Node3D>("DetachablePlayer/Left Leg");
             case LimbTypes.RightLeg:
-                return GetNode<Node3D>("Player/Right Leg");
+                return GetNode<Node3D>("DetachablePlayer/Right Leg");
             default:
                 GD.Print("What");
                 return null;
@@ -172,7 +178,24 @@ public partial class LimbSelect : Node
     private void recallLimb(Node3D currentNode)
     {
         ((PlayerLimbs)currentNode).isRecalling = true;
-        Vector3 direction = currentNode.Position.DirectionTo(bodyObjects[LimbTypes.Torso].Position);
-        ((PlayerLimbs)currentNode).Velocity = direction * recallSpeed;
+        ((PlayerLimbs)currentNode).targetObject = bodyObjects[LimbTypes.Torso];
+        /*Vector3 direction = currentNode.Position.DirectionTo(bodyObjects[LimbTypes.Torso].Position);
+        ((PlayerLimbs)currentNode).Velocity = direction * recallSpeed;*/
+    }
+
+    //Called by Torso
+    public void limbIsRecalled(PlayerLimbs currentNode)
+    {
+        LimbTypes currentLimb = LimbTypes.Head;
+        for(int i = 0; i < 6; i++)
+        {
+            if((bool)currentNode.bodyParts[i]){ currentLimb = (LimbTypes)i; }
+        }
+        bodyObjects[currentLimb].QueueFree();
+        findLimb(currentLimb).Visible = true;
+        bodyObjects[currentLimb] = null;
+        ((PlayerLimbs)bodyObjects[LimbTypes.Torso]).bodyParts[(int)currentLimb] = true;
+        currentLimb = LimbTypes.Torso;
+        SwapCamera(currentLimb);
     }
 }

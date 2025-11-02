@@ -13,7 +13,7 @@ public partial class HingeDoorJacob : Node3D
 	// 
 	private void _update_hinge_door_geometry()
 	{
-		CylinderMesh hingeDoorMesh = hingeDoorMesh.mesh;
+		//CylinderMesh hingeDoorMesh = hingeDoorMesh.mesh;
 		//hingeDoorMesh.set_height(doorHeight);
 	}
 }
