@@ -1,5 +1,6 @@
 using Godot;
 using PhantomCamera;
+using Robobotomy;
 using System;
 
 public partial class PlayerLimbs : CharacterBody3D
@@ -22,15 +23,26 @@ public partial class PlayerLimbs : CharacterBody3D
 
 	private Area3D torsoArea;
 
+	public Node3D targetObject;
+
 	public override void _Ready()
 	{
-		
-    }
+		if ((bool)bodyParts[3])
+		{
+			Area3D area3D = GetNode<Area3D>("Area3D");
+			area3D.BodyEntered += OnBodyEntered;
+		}	
+	}
 
 	public override void _PhysicsProcess(double delta)
 	{
 
 		Vector3 velocity = Velocity;
+		if (isRecalling)
+		{
+			Vector3 direction = Position.DirectionTo(targetObject.Position);
+			velocity = direction * 5;
+		}
 
 		// Add the gravity.
 		if (!IsOnFloor())
@@ -85,7 +97,12 @@ public partial class PlayerLimbs : CharacterBody3D
 	}
 
 	public void OnBodyEntered(Node3D body)
-    {
-        
-    }
+	{
+		PlayerLimbs limb = (PlayerLimbs)body;
+		if (limb.isRecalling == false) return;
+		for(int i = 0; i < 6; i++)
+		{
+			if((bool)limb.bodyParts[i]){ LimbSelect.instance.limbIsRecalled(limb); break; }
+		}
+	}
 }

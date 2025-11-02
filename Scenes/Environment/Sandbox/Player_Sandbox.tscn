@@ -27,6 +27,7 @@ transform = Transform3D(0.25924382, -0.9577284, 0.12469652, 0.7109356, 0.2766238
 [node name="LimbSelect" type="Node3D" parent="."]
 script = ExtResource("3_evpp2")
 throwSpeed = 10.0
+recallSpeed = 5.0
 
 [node name="DetachablePlayer" parent="LimbSelect" instance=ExtResource("4_8e5ay")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.652, 0)
