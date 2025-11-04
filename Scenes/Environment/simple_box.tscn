@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://gl5j7l3w6avc"]
+[gd_scene load_steps=4 format=3 uid="uid://gl5j7l3w6avc"]
+
+[ext_resource type="Script" uid="uid://debr1yvhtiked" path="res://Scripts/SimpleBox.cs" id="1_41571"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nctj3"]
 
@@ -10,6 +12,7 @@ collision_mask = 141
 axis_lock_linear_z = true
 axis_lock_angular_y = true
 can_sleep = false
+script = ExtResource("1_41571")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_nctj3")

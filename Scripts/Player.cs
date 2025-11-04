@@ -2,8 +2,10 @@ using Godot;
 using Godot.Collections;
 using System;
 
-public partial class Player : CharacterBody3D
+public partial class Player : CharacterBody3D, IWeighted
 {
+	[Export] public float Weight { get; set; } = 5.0f;
+	
 	public const float Speed = 5.0f;
 	public const float JumpVelocity = 4.5f;
 	private Array<Node> interactables = new Array<Node>();
@@ -123,7 +125,7 @@ public partial class Player : CharacterBody3D
 	}
 
 	public void OnBodyEntered(Node3D body)
-    {
-        
-    }
+	{
+		
+	}
 }
