@@ -141,3 +141,5 @@ Player_Recall={
 3d_physics/layer_9="HazardHitbox"
 3d_physics/layer_10="SolidWall"
 3d_physics/layer_11="TorsoBox"
+3d_physics/layer_12="Button"
+3d_physics/layer_13="PushesButtons"
