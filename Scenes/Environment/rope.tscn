@@ -5,14 +5,14 @@
 [sub_resource type="CylinderMesh" id="CylinderMesh_qfcpu"]
 top_radius = 0.1
 bottom_radius = 0.1
-height = 10.0
+height = 5.0
 radial_segments = 16
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gj3y0"]
-size = Vector3(1.5, 10.5, 1)
+size = Vector3(1.5, 5.5, 1)
 
-[node name="Rope" type="Node3D"]
-transform = Transform3D(0.9999998, -0.00055195164, 0, 0.00055195164, 0.9999998, 0, 0, 0, 1, 0, 0, 0)
+[node name="Rope" type="Node3D" groups=["Climbable"]]
+transform = Transform3D(1, -4.7699523e-08, 0, 4.7699523e-08, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_wl8ig")
 
 [node name="Rope Mesh" type="MeshInstance3D" parent="."]

@@ -25,35 +25,47 @@ script = ExtResource("3_qfkay")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Simple Box" parent="." instance=ExtResource("4_crdeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.51278996, 0)
 
 [node name="Simple Box2" parent="." instance=ExtResource("4_crdeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.51278996, 0)
 
 [node name="Simple Box3" parent="." instance=ExtResource("4_crdeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.4526241, 0)
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 staticBox = true
 
 [node name="Simple Box5" parent="." instance=ExtResource("4_crdeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.75017, 3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.276139, 3.3810737, 0.044650078)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
 mass = 3.0
 sizePreset = 2
 boxSize = Vector3(3, 3, 3)
 weight = 3.0
+staticBox = true
 leftHandle = true
 rightHandle = true
 topHandle = true
 bottomHandle = true
 
 [node name="Simple Box4" parent="." instance=ExtResource("4_crdeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9800653, 3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9800653, 0.9836917, 0)
+axis_lock_angular_x = true
+axis_lock_angular_y = true
 mass = 2.0
 sizePreset = 1
 boxSize = Vector3(2, 2, 2)
 weight = 2.0
+staticBox = true
 rightHandle = true
 
 [node name="Rope" parent="." instance=ExtResource("5_t5gf7")]
-transform = Transform3D(0.9999998, -0.00055195164, 0, 0.00055195164, 0.9999998, 0, 0, 0, 1, 7, 12.748899, 0)
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 7, 12.748899, 0)
+
+[node name="Rope2" parent="." instance=ExtResource("5_t5gf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.095756, 10.100558, 0)
+ropeLength = 5.0

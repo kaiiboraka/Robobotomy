@@ -24,17 +24,25 @@ mesh = SubResource("BoxMesh_oevdu")
 [node name="Handles" type="Node3D" parent="."]
 
 [node name="Left Handle" parent="Handles" instance=ExtResource("2_qwqek")]
+process_mode = 4
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.75, 0, 0)
 visible = false
+isVertical = null
 
 [node name="Right Handle" parent="Handles" instance=ExtResource("2_qwqek")]
+process_mode = 4
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.75, 0, 0)
 visible = false
+isVertical = null
 
 [node name="Top Handle" parent="Handles" instance=ExtResource("2_qwqek")]
+process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 visible = false
+isVertical = true
 
 [node name="Bottom Handle" parent="Handles" instance=ExtResource("2_qwqek")]
+process_mode = 4
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, -0.75, 0)
 visible = false
+isVertical = true

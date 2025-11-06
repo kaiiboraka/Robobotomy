@@ -6,9 +6,12 @@ public partial class Player : CharacterBody3D
 {
 	public const float Speed = 5.0f;
 	public const float JumpVelocity = 4.5f;
+	
+	private const float weightLimit = 3.25f;
 	private Array<Node> interactables = new Array<Node>();
 	private Node currInteraction;
-	private bool onRope = false;
+	private bool climbing = false;
+	private float carryWeight = 0.0f;
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -19,7 +22,7 @@ public partial class Player : CharacterBody3D
 		Vector2 inputDir = Input.GetVector("Player_Move_Left", "Player_Move_Right", "Player_Move_Up", "Player_Move_Down");
 		Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
 		
-		if (onRope) 
+		if (climbing) 
 		{
 			GlobalPosition = currInteraction.Call("get_rope_point").As<Vector3>();
 			
@@ -37,6 +40,8 @@ public partial class Player : CharacterBody3D
 		} 
 		else 
 		{
+			float horizontalWeightFactor = Mathf.Max(0.0f, 1.0f - (carryWeight / weightLimit));
+			float verticalWeightFactor = Mathf.Max(0.0f, 1.0f - (carryWeight * 1.5f / weightLimit));
 			// Add the gravity.
 			if (!IsOnFloor())
 			{
@@ -46,18 +51,18 @@ public partial class Player : CharacterBody3D
 			// Handle Jump.
 			if (Input.IsActionJustPressed("Player_Jump") && IsOnFloor())
 			{
-				velocity.Y = JumpVelocity;
+				velocity.Y = JumpVelocity * verticalWeightFactor;
 			}
 
 			if (direction != Vector3.Zero)
 			{
-				velocity.X = direction.X * Speed;
-				velocity.Z = direction.Z * Speed;
+				velocity.X = direction.X * Speed * horizontalWeightFactor;
+				velocity.Z = direction.Z * Speed * horizontalWeightFactor;
 			}
 			else
 			{
-				velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-				velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
+				velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed) * horizontalWeightFactor;
+				velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed) * horizontalWeightFactor;
 			}
 
 			Velocity = velocity;
@@ -108,17 +113,26 @@ public partial class Player : CharacterBody3D
 			return;
 
 		currInteraction = interactables[interactableCount - 1];
-		onRope = true;
+		if (currInteraction.IsInGroup("Climbable"))
+		{
+			climbing = true;
+		}
 		currInteraction.Call("interact_with", this);
 	}
 
 	public void StopInteraction()
 	{
-		if (onRope)
+		if (climbing)
 		{
-			onRope = false;
+			climbing = false;
 			Velocity = currInteraction.Call("get_tangental_velocity").As<Vector3>();
 		}
+		currInteraction.Call("stop_interaction", this);
 		currInteraction = null;
+	}
+	
+	public void SetCarryWeight(float amount)
+	{
+		carryWeight = amount;
 	}
 }

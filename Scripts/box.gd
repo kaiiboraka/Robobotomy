@@ -1,10 +1,16 @@
 @tool
+class_name Box
 extends RigidBody3D
 
 enum SIZE_PRESET {SMALL, MEDIUM, LARGE}
 const SMALL_PRESET: Vector4 = Vector4(1.0, 1.0, 1.0, 1.0)
 const MEDIUM_PRESET: Vector4 = Vector4(2.0, 2.0, 2.0, 2.0)
 const LARGE_PRESET: Vector4 = Vector4(3.0, 3.0, 3.0, 3.0)
+const PRESETS: Dictionary = {
+	SIZE_PRESET.SMALL: SMALL_PRESET,
+	SIZE_PRESET.MEDIUM: MEDIUM_PRESET,
+	SIZE_PRESET.LARGE: LARGE_PRESET
+}
 @export_group("Physics Attributes")
 ## Determines the size and weight preset of the box. NOTE: These values can still be modified manually if desired,
 ## but will overwrite any manual changes to the size and weight of the box if selected.
@@ -27,29 +33,34 @@ const LARGE_PRESET: Vector4 = Vector4(3.0, 3.0, 3.0, 3.0)
 		weight = value
 		if Engine.is_editor_hint():
 			_set_weight()
-## Determines if the box is static in its rotation. If set to true, the box cannot be rotated on axis. If set to
-## false, the box can rotate on the X and Y axis, but not the Z axis.
+## Determines if the box is static in its rotation and velocity. If set to true, the box cannot be rotated on axis,
+## nor pushed without interacting with a handle. If set to false, the box can rotate on the X and Y axis, but not 
+## the Z axis, and can also likewise be pushed on the X and Y axis.
 @export var staticBox: bool = false:
 	set(value):
 		staticBox = value
 		if Engine.is_editor_hint():
 			_set_static()
 @export_group("Handles")
+## Set true to include a handle on the left side of the box.
 @export var leftHandle: bool = false:
 	set(value): 
 		leftHandle = value
 		if Engine.is_editor_hint():
 			_set_handles()
+## Set true to include a handle on the right side of the box.
 @export var rightHandle: bool = false:
 	set(value): 
 		rightHandle = value
 		if Engine.is_editor_hint():
 			_set_handles()
+## Set true to include a handle on top of the box.
 @export var topHandle: bool = false:
 	set(value): 
 		topHandle = value
 		if Engine.is_editor_hint():
 			_set_handles()
+## Set true to include a handle on the bottom of the box.
 @export var bottomHandle: bool = false:
 	set(value): 
 		bottomHandle = value
@@ -61,6 +72,29 @@ const LARGE_PRESET: Vector4 = Vector4(3.0, 3.0, 3.0, 3.0)
 @onready var handleArray: Array[BoxHandle] = [$"Handles/Left Handle", $"Handles/Right Handle", $"Handles/Top Handle", $"Handles/Bottom Handle"]
 @onready var meshInstance: MeshInstance3D = $MeshInstance3D
 @onready var collisionShape: CollisionShape3D = $CollisionShape3D
+var grabber: CharacterBody3D = null
+var grabberOffset: Vector3 = Vector3.ZERO
+var verticalGrab: bool = false
+
+
+func grab(interactor: Node3D, isVertical: bool = false) -> void:
+	var player: CharacterBody3D = interactor as CharacterBody3D
+	if !is_instance_valid(player):
+		return
+	
+	player.SetCarryWeight(weight)
+	grabber = player
+	grabberOffset = global_position - grabber.global_position
+	verticalGrab = isVertical
+
+
+func stop_grab(interactor: Node3D) -> void:
+	var player: CharacterBody3D = interactor as CharacterBody3D
+	if !is_instance_valid(player):
+		return
+	
+	player.SetCarryWeight(0.0)
+	grabber = null
 
 
 func _ready() -> void:
@@ -70,16 +104,19 @@ func _ready() -> void:
 	_set_handles()
 
 
+func _physics_process(_delta: float) -> void:
+	if grabber == null:
+		return
+	
+	if !verticalGrab:
+		global_position.x = grabber.global_position.x + grabberOffset.x
+	else:
+		global_position.y = grabber.global_position.y + grabberOffset.y
+
+
 func _set_preset() -> void:
-	if sizePreset == SIZE_PRESET.SMALL:
-		boxSize = Vector3(SMALL_PRESET.x, SMALL_PRESET.y, SMALL_PRESET.z)
-		weight = SMALL_PRESET.w
-	elif sizePreset == SIZE_PRESET.MEDIUM:
-		boxSize = Vector3(MEDIUM_PRESET.x, MEDIUM_PRESET.y, MEDIUM_PRESET.z)
-		weight = MEDIUM_PRESET.w
-	elif sizePreset == SIZE_PRESET.LARGE:
-		boxSize = Vector3(LARGE_PRESET.x, LARGE_PRESET.y, LARGE_PRESET.z)
-		weight = LARGE_PRESET.w
+	boxSize = Vector3(PRESETS[sizePreset].x, PRESETS[sizePreset].y, PRESETS[sizePreset].z)
+	weight = PRESETS[sizePreset].w
 	_set_geometry()
 	_set_weight()
 
@@ -91,6 +128,7 @@ func _set_geometry() -> void:
 	var shape: BoxShape3D = collisionShape.shape.duplicate() as BoxShape3D
 	shape.size = boxSize
 	collisionShape.shape = shape
+	_set_handles()
 
 
 func _set_weight() -> void:
@@ -98,6 +136,9 @@ func _set_weight() -> void:
 
 
 func _set_static() -> void:
+	axis_lock_linear_x = staticBox
+	axis_lock_linear_y = staticBox
+	axis_lock_linear_z = true
 	axis_lock_angular_x = staticBox
 	axis_lock_angular_y = staticBox
 	axis_lock_angular_z = true
@@ -112,20 +153,20 @@ func _set_handles() -> void:
 			handle.visible = true
 			if i == 0:
 				handle._set_geometry(Vector3(max(boxSize.y - 0.5, 0.1), 0.1, 0.1))
-				handle._set_grab_shape(Vector3(0.8, max(boxSize.y - 0.2, 0.1), 0.1))
+				handle._set_grab_shape(Vector3(max(boxSize.y - 0.2, 0.1), 0.8, 0.8))
 				handle.position.x = -(boxSize.x / 2 + 0.25)
 			elif i == 1:
 				handle._set_geometry(Vector3(max(boxSize.y - 0.5, 0.1), 0.1, 0.1))
-				handle._set_grab_shape(Vector3(0.8, max(boxSize.y - 0.2, 0.1), 0.1))
+				handle._set_grab_shape(Vector3(max(boxSize.y - 0.2, 0.1), 0.8, 0.8))
 				handle.position.x = boxSize.x / 2 + 0.25
 			elif i == 2:
 				handle._set_geometry(Vector3(max(boxSize.x - 0.5, 0.1), 0.1, 0.1))
-				handle._set_grab_shape(Vector3(max(boxSize.x - 0.2, 0.1), 0.8, 0.1))
+				handle._set_grab_shape(Vector3(max(boxSize.x - 0.2, 0.1), 0.8, 0.8))
 				handle.position.y = boxSize.y / 2 + 0.25
 			else:
 				handle._set_geometry(Vector3(max(boxSize.x - 0.5, 0.1), 0.1, 0.1))
-				handle._set_grab_shape(Vector3(max(boxSize.x - 0.2, 0.1), 0.8, 0.1))
+				handle._set_grab_shape(Vector3(max(boxSize.x - 0.2, 0.1), 0.8, 0.8))
 				handle.position.y = -(boxSize.y / 2 + 0.25)
 		else:
-			#handle.process_mode = Node.PROCESS_MODE_DISABLED
+			handle.process_mode = Node.PROCESS_MODE_DISABLED
 			handle.visible = false
