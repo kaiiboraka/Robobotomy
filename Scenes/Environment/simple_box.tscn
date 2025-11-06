@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://gl5j7l3w6avc"]
+[gd_scene load_steps=5 format=3 uid="uid://gl5j7l3w6avc"]
 
 [ext_resource type="Script" uid="uid://hcum4jsqijo1" path="res://Scripts/box.gd" id="1_41571"]
+[ext_resource type="PackedScene" uid="uid://lipiostj341j" path="res://Scenes/Environment/box_handle.tscn" id="2_qwqek"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_41571"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_qwqek"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_qwqek"]
+[sub_resource type="BoxMesh" id="BoxMesh_oevdu"]
 
 [node name="Simple Box" type="RigidBody3D"]
 collision_layer = 4
@@ -15,7 +16,25 @@ can_sleep = false
 script = ExtResource("1_41571")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_41571")
+shape = SubResource("BoxShape3D_qwqek")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_qwqek")
+mesh = SubResource("BoxMesh_oevdu")
+
+[node name="Handles" type="Node3D" parent="."]
+
+[node name="Left Handle" parent="Handles" instance=ExtResource("2_qwqek")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.75, 0, 0)
+visible = false
+
+[node name="Right Handle" parent="Handles" instance=ExtResource("2_qwqek")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.75, 0, 0)
+visible = false
+
+[node name="Top Handle" parent="Handles" instance=ExtResource("2_qwqek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+visible = false
+
+[node name="Bottom Handle" parent="Handles" instance=ExtResource("2_qwqek")]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, -0.75, 0)
+visible = false

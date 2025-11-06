@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://lipiostj341j"]
+
+[ext_resource type="Script" uid="uid://dcvnqdsmgr7ch" path="res://Scripts/box_handle.gd" id="1_deme2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_khtff"]
+albedo_color = Color(0.3032327, 0.30323288, 0.30323276, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_deme2"]
+material = SubResource("StandardMaterial3D_khtff")
+size = Vector3(0.5, 0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ys03"]
+size = Vector3(0.8, 0.8, 0.1)
+
+[node name="Box Handle" type="Node3D"]
+script = ExtResource("1_deme2")
+
+[node name="Handle Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_deme2")
+
+[node name="Grabbable Area" type="Area3D" parent="."]
+
+[node name="Grabbable Shape" type="CollisionShape3D" parent="Grabbable Area"]
+shape = SubResource("BoxShape3D_1ys03")

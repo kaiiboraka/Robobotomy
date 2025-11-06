@@ -35,19 +35,39 @@ const LARGE_PRESET: Vector4 = Vector4(3.0, 3.0, 3.0, 3.0)
 		if Engine.is_editor_hint():
 			_set_static()
 @export_group("Handles")
-@export var leftHandle: bool = false
-@export var rightHandle: bool = false
-@export var topHandle: bool = false
-@export var bottomHandle: bool = false
+@export var leftHandle: bool = false:
+	set(value): 
+		leftHandle = value
+		if Engine.is_editor_hint():
+			_set_handles()
+@export var rightHandle: bool = false:
+	set(value): 
+		rightHandle = value
+		if Engine.is_editor_hint():
+			_set_handles()
+@export var topHandle: bool = false:
+	set(value): 
+		topHandle = value
+		if Engine.is_editor_hint():
+			_set_handles()
+@export var bottomHandle: bool = false:
+	set(value): 
+		bottomHandle = value
+		if Engine.is_editor_hint():
+			_set_handles()
+@export_group("Read Only")
+## Holds the handles for the box. NOTE: SHOULD NOT BE CHANGED. IF YOU WANT TO ADD/REMOVE HANDLES,
+## GO TO THE HANDLES VARIABLE GROUP.
+@onready var handleArray: Array[BoxHandle] = [$"Handles/Left Handle", $"Handles/Right Handle", $"Handles/Top Handle", $"Handles/Bottom Handle"]
 @onready var meshInstance: MeshInstance3D = $MeshInstance3D
 @onready var collisionShape: CollisionShape3D = $CollisionShape3D
-var handleArray: Array = []
 
 
 func _ready() -> void:
 	_set_geometry()
 	_set_weight()
 	_set_static()
+	_set_handles()
 
 
 func _set_preset() -> void:
@@ -81,3 +101,31 @@ func _set_static() -> void:
 	axis_lock_angular_x = staticBox
 	axis_lock_angular_y = staticBox
 	axis_lock_angular_z = true
+
+
+func _set_handles() -> void:
+	for i in range(4):
+		var handle: BoxHandle = handleArray[i]
+		var active: bool = leftHandle if i == 0 else rightHandle if i == 1 else topHandle if i == 2 else bottomHandle
+		if active:
+			handle.process_mode = Node.PROCESS_MODE_INHERIT
+			handle.visible = true
+			if i == 0:
+				handle._set_geometry(Vector3(max(boxSize.y - 0.5, 0.1), 0.1, 0.1))
+				handle._set_grab_shape(Vector3(0.8, max(boxSize.y - 0.2, 0.1), 0.1))
+				handle.position.x = -(boxSize.x / 2 + 0.25)
+			elif i == 1:
+				handle._set_geometry(Vector3(max(boxSize.y - 0.5, 0.1), 0.1, 0.1))
+				handle._set_grab_shape(Vector3(0.8, max(boxSize.y - 0.2, 0.1), 0.1))
+				handle.position.x = boxSize.x / 2 + 0.25
+			elif i == 2:
+				handle._set_geometry(Vector3(max(boxSize.x - 0.5, 0.1), 0.1, 0.1))
+				handle._set_grab_shape(Vector3(max(boxSize.x - 0.2, 0.1), 0.8, 0.1))
+				handle.position.y = boxSize.y / 2 + 0.25
+			else:
+				handle._set_geometry(Vector3(max(boxSize.x - 0.5, 0.1), 0.1, 0.1))
+				handle._set_grab_shape(Vector3(max(boxSize.x - 0.2, 0.1), 0.8, 0.1))
+				handle.position.y = -(boxSize.y / 2 + 0.25)
+		else:
+			#handle.process_mode = Node.PROCESS_MODE_DISABLED
+			handle.visible = false
