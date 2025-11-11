@@ -15,7 +15,7 @@ axis_lock_angular_z = true
 can_sleep = false
 script = ExtResource("1_41571")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="Collision Shape" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_qwqek")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -25,19 +25,17 @@ mesh = SubResource("BoxMesh_oevdu")
 
 [node name="Left Handle" parent="Handles" instance=ExtResource("2_qwqek")]
 process_mode = 4
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.75, 0, 0)
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -1.75, 0, 0)
 visible = false
-isVertical = null
 
 [node name="Right Handle" parent="Handles" instance=ExtResource("2_qwqek")]
 process_mode = 4
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.75, 0, 0)
 visible = false
-isVertical = null
 
 [node name="Top Handle" parent="Handles" instance=ExtResource("2_qwqek")]
 process_mode = 4
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
 visible = false
 isVertical = true
 
@@ -46,3 +44,14 @@ process_mode = 4
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, -0.75, 0)
 visible = false
 isVertical = true
+
+[node name="Grab Joint" type="Generic6DOFJoint3D" parent="."]
+linear_limit_x/upper_distance = 0.1
+linear_limit_x/lower_distance = 0.05
+linear_limit_y/upper_distance = 0.2
+linear_limit_y/lower_distance = 0.1
+linear_limit_y/softness = 0.01
+linear_limit_y/restitution = 0.1
+linear_limit_z/enabled = false
+linear_spring_x/enabled = true
+linear_spring_y/enabled = true

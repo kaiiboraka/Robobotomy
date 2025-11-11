@@ -9,7 +9,7 @@ extends Interactable
 
 
 func interact_with(interactor: Node3D) -> void:
-	box.grab(interactor, isVertical)
+	box.grab(interactor)
 
 
 func stop_interaction(interactor: Node3D) -> void:

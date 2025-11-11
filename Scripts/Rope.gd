@@ -49,6 +49,8 @@ func _physics_process(delta: float) -> void:
 
 ## This function updates the length of the rope to match the ropeLength variable, and can be set in the editor
 func _update_rope_geometry() -> void: 
+	if ropeMesh == null or grabShape == null:
+		return
 	#Update the mesh length
 	var mesh = ropeMesh.mesh.duplicate() as CylinderMesh
 	mesh.height = ropeLength

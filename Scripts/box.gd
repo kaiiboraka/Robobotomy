@@ -71,21 +71,23 @@ const PRESETS: Dictionary = {
 ## GO TO THE HANDLES VARIABLE GROUP.
 @onready var handleArray: Array[BoxHandle] = [$"Handles/Left Handle", $"Handles/Right Handle", $"Handles/Top Handle", $"Handles/Bottom Handle"]
 @onready var meshInstance: MeshInstance3D = $MeshInstance3D
-@onready var collisionShape: CollisionShape3D = $CollisionShape3D
+@onready var collisionShape: CollisionShape3D = $"Collision Shape"
+@onready var grabJoint: Generic6DOFJoint3D = $"Grab Joint"
 var grabber: CharacterBody3D = null
 var grabberOffset: Vector3 = Vector3.ZERO
 var verticalGrab: bool = false
 
 
-func grab(interactor: Node3D, isVertical: bool = false) -> void:
+func grab(interactor: Node3D) -> void:
 	var player: CharacterBody3D = interactor as CharacterBody3D
 	if !is_instance_valid(player):
 		return
-	
 	player.SetCarryWeight(weight)
-	grabber = player
-	grabberOffset = global_position - grabber.global_position
-	verticalGrab = isVertical
+	
+	grabJoint.node_a = self.get_path()
+	grabJoint.node_b = player.get_path()
+	
+	axis_lock_linear_x = false
 
 
 func stop_grab(interactor: Node3D) -> void:
@@ -94,7 +96,10 @@ func stop_grab(interactor: Node3D) -> void:
 		return
 	
 	player.SetCarryWeight(0.0)
-	grabber = null
+	
+	grabJoint.node_a = ""
+	grabJoint.node_b = ""
+	_set_static()
 
 
 func _ready() -> void:
@@ -104,14 +109,14 @@ func _ready() -> void:
 	_set_handles()
 
 
-func _physics_process(_delta: float) -> void:
-	if grabber == null:
-		return
-	
-	if !verticalGrab:
-		global_position.x = grabber.global_position.x + grabberOffset.x
-	else:
-		global_position.y = grabber.global_position.y + grabberOffset.y
+#func _physics_process(_delta: float) -> void:
+	#if grabber != null:
+		#if !verticalGrab:
+			#var dir: Vector3 = (grabber.global_position - global_position).normalized()
+			#var pushStrength: float = grabber.velocity.x * 100
+			#apply_central_force(-dir * pushStrength)
+		#else:
+			#global_position.y = grabber.global_position.y + grabberOffset.y
 
 
 func _set_preset() -> void:
@@ -122,6 +127,8 @@ func _set_preset() -> void:
 
 
 func _set_geometry() -> void:
+	if meshInstance == null or collisionShape == null:
+		return
 	var mesh: BoxMesh = meshInstance.mesh.duplicate() as BoxMesh
 	mesh.size = boxSize
 	meshInstance.mesh = mesh
@@ -137,7 +144,7 @@ func _set_weight() -> void:
 
 func _set_static() -> void:
 	axis_lock_linear_x = staticBox
-	axis_lock_linear_y = staticBox
+	axis_lock_linear_y = false
 	axis_lock_linear_z = true
 	axis_lock_angular_x = staticBox
 	axis_lock_angular_y = staticBox
@@ -145,6 +152,8 @@ func _set_static() -> void:
 
 
 func _set_handles() -> void:
+	if handleArray.size() <= 0:
+		return
 	for i in range(4):
 		var handle: BoxHandle = handleArray[i]
 		var active: bool = leftHandle if i == 0 else rightHandle if i == 1 else topHandle if i == 2 else bottomHandle
