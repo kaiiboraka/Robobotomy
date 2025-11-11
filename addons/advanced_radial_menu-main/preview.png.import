@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddagsld40ed68"
-valid=false
+uid="uid://d2xmjcdkbbgq1"
+path="res://.godot/imported/preview.png-5334a8267a2d756fa53f64cb57b8481c.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Assets/Images/background.png"
+source_file="res://addons/advanced_radial_menu-main/preview.png"
+dest_files=["res://.godot/imported/preview.png-5334a8267a2d756fa53f64cb57b8481c.ctex"]
 
 [params]
 

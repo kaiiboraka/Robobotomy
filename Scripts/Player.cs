@@ -2,8 +2,10 @@ using Godot;
 using Godot.Collections;
 using System;
 
-public partial class Player : CharacterBody3D
+public partial class Player : CharacterBody3D, IWeighted
 {
+	[Export] public float Weight { get; set; } = 5.0f;
+	
 	public const float Speed = 5.0f;
 	public const float JumpVelocity = 4.5f;
 	
@@ -15,6 +17,7 @@ public partial class Player : CharacterBody3D
 
 	public override void _PhysicsProcess(double delta)
 	{
+
 		Vector3 velocity = Velocity;
 		
 		// Get the input direction and handle the movement/deceleration.
@@ -134,5 +137,10 @@ public partial class Player : CharacterBody3D
 	public void SetCarryWeight(float amount)
 	{
 		carryWeight = amount;
+  }
+
+	public void OnBodyEntered(Node3D body)
+	{
+		
 	}
 }

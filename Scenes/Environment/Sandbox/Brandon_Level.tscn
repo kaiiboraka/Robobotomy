@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpkhg7mm082j3"]
+
+[ext_resource type="PackedScene" uid="uid://dbk24fe7ef7m3" path="res://Scenes/Environment/platform_plane.tscn" id="1_woqwb"]
+[ext_resource type="PackedScene" uid="uid://c5rju34ocg5dp" path="res://Scenes/Characters/Player.tscn" id="2_jhc3l"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_y4rhl"]
+[ext_resource type="PackedScene" path="res://Scenes/Environment/simple_box.tscn" id="4_eie5w"]
+[ext_resource type="PackedScene" path="res://Scenes/Environment/rope.tscn" id="5_h3wgw"]
+
+[node name="LevelRoot" type="Node3D"]
+
+[node name="PlatformStatic" parent="." instance=ExtResource("1_woqwb")]
+
+[node name="Player" parent="." instance=ExtResource("2_jhc3l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6592422, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6592422, 4.168207)
+fov = 80.0
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("3_y4rhl")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="Simple Box" parent="." instance=ExtResource("4_eie5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
+
+[node name="Simple Box2" parent="." instance=ExtResource("4_eie5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 0)
+
+[node name="Simple Box3" parent="." instance=ExtResource("4_eie5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3, 0)
+
+[node name="Rope" parent="." instance=ExtResource("5_h3wgw")]
+transform = Transform3D(0.9999998, -0.00055195164, 0, 0.00055195164, 0.9999998, 0, 0, 0, 1, 7, 10, 0)
+readOnly_Jump = null
+readOnly_Speed = null

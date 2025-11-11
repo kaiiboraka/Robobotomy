@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv725fv7jxfv6"]
+
+[ext_resource type="Script" uid="uid://svp8dyuwan4v" path="res://Scripts/HingeDoorJacob.cs" id="1_ghb3b"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xx7xp"]
+
+[node name="HingeDoorJacob" type="Node3D"]
+script = ExtResource("1_ghb3b")
+
+[node name="Hinge Door Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_xx7xp")
