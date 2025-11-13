@@ -1,7 +1,8 @@
 @abstract class_name Interactable
 extends Node3D
 
-@abstract func interact_with(interactor: CharacterBody3D)
+@abstract func interact_with(interactor: Node3D) -> void
+@abstract func stop_interaction(interactor: Node3D) -> void
 
 func _on_interaction_area_entered(area: Area3D) -> void:
 	if area is InteractionArea:
