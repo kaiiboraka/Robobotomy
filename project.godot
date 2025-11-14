@@ -23,9 +23,9 @@ config/icon="uid://c7wscsdw2xd2f"
 
 [autoload]
 
-LayerNames="*res://addons/layerNames/generated/layerNames.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 LevelManager="*res://Scripts/Autoloads/level_manager.gd"
+LayerNames="*res://addons/layerNames/generated/layerNames.gd"
 
 [display]
 
