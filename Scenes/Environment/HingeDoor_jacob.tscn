@@ -45,7 +45,7 @@ axis_lock_angular_x = true
 axis_lock_angular_y = true
 
 [node name="Hinge Door Mesh" type="MeshInstance3D" parent="Door"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77, 0)
+transform = Transform3D(1, 0, 0, 0, 1.4723756, 0, 0, 0, 3.7271001, 0, 0.77, 0)
 mesh = SubResource("CylinderMesh_xx7xp")
 skeleton = NodePath("../..")
 

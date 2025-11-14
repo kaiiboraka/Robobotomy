@@ -10,11 +10,11 @@
 script = ExtResource("1_jjgbg")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_bo1nx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.8921561)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.062467813)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.276051)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.0975323)
 fov = 80.0
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
