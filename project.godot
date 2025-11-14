@@ -37,7 +37,7 @@ project/assembly_name="Robobotomy"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/explore-editor-theme/plugin.cfg", "res://addons/fancy_folder_colors/plugin.cfg", "res://addons/layerNames/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/plugin_refresher/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/advanced_radial_menu/plugin.cfg", "res://addons/explore-editor-theme/plugin.cfg", "res://addons/fancy_folder_colors/plugin.cfg", "res://addons/layerNames/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/plugin_refresher/plugin.cfg")
 
 [file_customization]
 
@@ -145,3 +145,7 @@ Player_Recall={
 3d_physics/layer_11="TorsoBox"
 3d_physics/layer_12="Button"
 3d_physics/layer_13="PushesButtons"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
