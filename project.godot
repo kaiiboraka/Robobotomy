@@ -23,9 +23,9 @@ config/icon="uid://c7wscsdw2xd2f"
 
 [autoload]
 
-LayerNames="*res://addons/layerNames/generated/layerNames.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 LevelManager="*res://Scripts/Autoloads/level_manager.gd"
+LayerNames="*res://addons/layerNames/generated/layerNames.gd"
 
 [display]
 
@@ -37,7 +37,7 @@ project/assembly_name="Robobotomy"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/explore-editor-theme/plugin.cfg", "res://addons/fancy_folder_colors/plugin.cfg", "res://addons/layerNames/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/plugin_refresher/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/advanced_radial_menu/plugin.cfg", "res://addons/explore-editor-theme/plugin.cfg", "res://addons/fancy_folder_colors/plugin.cfg", "res://addons/layerNames/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/plugin_refresher/plugin.cfg")
 
 [file_customization]
 
@@ -86,11 +86,13 @@ Player_Throw_Limb={
 }
 Player_Move_Up={
 "deadzone": 0.2,
-"events": []
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":119,"location":0,"echo":false,"script":null)
+]
 }
 Player_Move_Down={
 "deadzone": 0.2,
-"events": []
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
+]
 }
 Number1={
 "deadzone": 0.2,
@@ -141,3 +143,9 @@ Player_Recall={
 3d_physics/layer_9="HazardHitbox"
 3d_physics/layer_10="SolidWall"
 3d_physics/layer_11="TorsoBox"
+3d_physics/layer_12="Button"
+3d_physics/layer_13="PushesButtons"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"

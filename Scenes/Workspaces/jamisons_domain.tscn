@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgp65o7dppmmv"]
+
+[ext_resource type="PackedScene" uid="uid://dbk24fe7ef7m3" path="res://Scenes/Environment/platform_plane.tscn" id="1_e0svd"]
+[ext_resource type="PackedScene" uid="uid://c5rju34ocg5dp" path="res://Scenes/Characters/Player.tscn" id="2_7vdsx"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_qtruj"]
+[ext_resource type="PackedScene" uid="uid://gl5j7l3w6avc" path="res://Scenes/Environment/simple_box.tscn" id="4_x6hem"]
+[ext_resource type="PackedScene" uid="uid://d031edjsrylll" path="res://Scenes/Environment/rope.tscn" id="5_t74nw"]
+
+[node name="EnvironmentTest" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.76694536, 0.5023515, -0.083916664)
+
+[node name="PlatformStatic" parent="." instance=ExtResource("1_e0svd")]
+
+[node name="Player" parent="." instance=ExtResource("2_7vdsx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6592422, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6592422, 4.168207)
+fov = 80.0
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("3_qtruj")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="Simple Box" parent="." instance=ExtResource("4_x6hem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.51278996, 0)
+
+[node name="Simple Box2" parent="." instance=ExtResource("4_x6hem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.51278996, 0)
+
+[node name="Simple Box3" parent="." instance=ExtResource("4_x6hem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.4526241, 0)
+axis_lock_linear_x = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+staticBox = true
+leftHandle = true
+rightHandle = true
+
+[node name="Simple Box5" parent="." instance=ExtResource("4_x6hem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.276139, 3.3810737, 0.044650078)
+axis_lock_linear_x = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+mass = 3.0
+sizePreset = 2
+boxSize = Vector3(3, 3, 3)
+weight = 3.0
+staticBox = true
+leftHandle = true
+rightHandle = true
+
+[node name="Simple Box4" parent="." instance=ExtResource("4_x6hem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9800653, 0.9836917, 0)
+axis_lock_linear_x = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+mass = 2.0
+sizePreset = 1
+boxSize = Vector3(2, 2, 2)
+weight = 2.0
+staticBox = true
+rightHandle = true
+
+[node name="Rope" parent="." instance=ExtResource("5_t74nw")]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 7, 12.748899, 0)
+
+[node name="Rope2" parent="." instance=ExtResource("5_t74nw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.095756, 10.100558, 0)
+ropeLength = 5.0

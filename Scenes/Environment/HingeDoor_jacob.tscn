@@ -1,11 +1,54 @@
-[gd_scene load_steps=3 format=3 uid="uid://dv725fv7jxfv6"]
+[gd_scene load_steps=5 format=3 uid="uid://dg2v5675ajsfd"]
 
 [ext_resource type="Script" uid="uid://svp8dyuwan4v" path="res://Scripts/HingeDoorJacob.cs" id="1_ghb3b"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vb0lk"]
+height = 1.095
+radius = 0.1
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_xx7xp"]
+top_radius = 0.48
+bottom_radius = 0.48
+height = 1.54
 
-[node name="HingeDoorJacob" type="Node3D"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ghb3b"]
+height = 1.54
+radius = 0.48
+
+[node name="HingeDoorJacob" type="Node3D" node_paths=PackedStringArray("hingeDoorMesh", "doorCollisionShape")]
 script = ExtResource("1_ghb3b")
+doorHeight = 1.54
+doorRadius = 0.48
+hingeDoorMesh = NodePath("Door/Hinge Door Mesh")
+doorCollisionShape = NodePath("Door/Door Collision Shape")
 
-[node name="Hinge Door Mesh" type="MeshInstance3D" parent="."]
+[node name="HingeJoint3D" type="HingeJoint3D" parent="."]
+node_a = NodePath("../Door")
+node_b = NodePath("../Hinge")
+params/bias = 0.0
+angular_limit/enable = true
+
+[node name="Hinge" type="StaticBody3D" parent="."]
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_vb0lk")
+
+[node name="Door" type="RigidBody3D" parent="."]
+collision_layer = 4
+collision_mask = 141
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+
+[node name="Hinge Door Mesh" type="MeshInstance3D" parent="Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77, 0)
 mesh = SubResource("CylinderMesh_xx7xp")
+skeleton = NodePath("../..")
+
+[node name="Door Collision Shape" type="CollisionShape3D" parent="Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77, 0)
+shape = SubResource("CylinderShape3D_ghb3b")

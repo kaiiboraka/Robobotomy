@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c5rju34ocg5dp" path="res://Scenes/Characters/Player.tscn" id="2_747vs"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_eb4m7"]
 [ext_resource type="PackedScene" uid="uid://gl5j7l3w6avc" path="res://Scenes/Environment/simple_box.tscn" id="4_ejfj1"]
-[ext_resource type="PackedScene" uid="uid://d031edjsrylll" path="res://Scenes/Environment/rope.tscn" id="5_lg72p"]
+[ext_resource type="PackedScene" uid="uid://pvwqjhr7eu4p" path="res://Scenes/Environment/seesaw.tscn" id="6_747vs"]
 
 [node name="LevelRoot" type="Node3D"]
 
@@ -15,7 +15,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6592422, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6592422, 4.168207)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6592422, 4.16)
 fov = 80.0
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
@@ -25,15 +25,13 @@ script = ExtResource("3_eb4m7")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Simple Box" parent="." instance=ExtResource("4_ejfj1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.666735, 11.405434, -0.022739291)
 
 [node name="Simple Box2" parent="." instance=ExtResource("4_ejfj1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3368273, 1.4883089, 0)
 
 [node name="Simple Box3" parent="." instance=ExtResource("4_ejfj1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.93303, 0.57820344, 0.20981407)
 
-[node name="Rope" parent="." instance=ExtResource("5_lg72p")]
-transform = Transform3D(0.9999998, -0.00055195164, 0, 0.00055195164, 0.9999998, 0, 0, 0, 1, 7, 10, 0)
-readOnly_Jump = null
-readOnly_Speed = null
+[node name="Seesaw" parent="." instance=ExtResource("6_747vs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8226013, 0.6094389, 0)
