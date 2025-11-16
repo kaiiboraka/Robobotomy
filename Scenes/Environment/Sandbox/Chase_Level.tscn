@@ -5,3 +5,5 @@
 [node name="ChaseLevel" type="Node3D"]
 
 [node name="LightGrid" parent="." instance=ExtResource("1_u8xmd")]
+light_width = 10
+light_height = 10
