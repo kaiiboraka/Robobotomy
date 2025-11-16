@@ -69,36 +69,21 @@ const PRESETS: Dictionary = {
 @export_group("Read Only")
 ## Holds the handles for the box. NOTE: SHOULD NOT BE CHANGED. IF YOU WANT TO ADD/REMOVE HANDLES,
 ## GO TO THE HANDLES VARIABLE GROUP.
-@onready var handleArray: Array[BoxHandle] = [$"Handles/Left Handle", $"Handles/Right Handle", $"Handles/Top Handle", $"Handles/Bottom Handle"]
+@onready var handleArray: Array[Handle] = [$"Handles/Left Handle", $"Handles/Right Handle", $"Handles/Top Handle", $"Handles/Bottom Handle"]
 @onready var meshInstance: MeshInstance3D = $MeshInstance3D
 @onready var collisionShape: CollisionShape3D = $"Collision Shape"
-@onready var grabJoint: Generic6DOFJoint3D = $"Grab Joint"
 var grabber: CharacterBody3D = null
 var grabberOffset: Vector3 = Vector3.ZERO
 var verticalGrab: bool = false
 
 
-func grab(interactor: Node3D) -> void:
-	var player: CharacterBody3D = interactor as CharacterBody3D
-	if !is_instance_valid(player):
-		return
+func grab(player: CharacterBody3D) -> void:
 	player.SetCarryWeight(weight)
-	
-	grabJoint.node_a = self.get_path()
-	grabJoint.node_b = player.get_path()
-	
 	axis_lock_linear_x = false
 
 
-func stop_grab(interactor: Node3D) -> void:
-	var player: CharacterBody3D = interactor as CharacterBody3D
-	if !is_instance_valid(player):
-		return
-	
+func stop_grab(player: CharacterBody3D) -> void:
 	player.SetCarryWeight(0.0)
-	
-	grabJoint.node_a = ""
-	grabJoint.node_b = ""
 	_set_static()
 
 
@@ -155,7 +140,7 @@ func _set_handles() -> void:
 	if handleArray.size() <= 0:
 		return
 	for i in range(4):
-		var handle: BoxHandle = handleArray[i]
+		var handle: Handle = handleArray[i]
 		var active: bool = leftHandle if i == 0 else rightHandle if i == 1 else topHandle if i == 2 else bottomHandle
 		if active:
 			handle.process_mode = Node.PROCESS_MODE_INHERIT
