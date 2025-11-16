@@ -29,9 +29,12 @@ public partial class Player : CharacterBody3D, IWeighted
 		{
 			GlobalPosition = currInteraction.Call("get_rope_point").As<Vector3>();
 			
-			if (direction != Vector3.Zero)
+			if (direction.X != 0)
 			{
 				currInteraction.Call("push_rope", direction, Speed * (float)delta);
+			} 
+			else if (direction.Z != 0) 
+			{
 				Vector3 climbDirection = (Transform.Basis * new Vector3(0, inputDir.Y, 0)).Normalized();
 				currInteraction.Call("climb_rope", climbDirection, Speed * (float)delta);
 			}
