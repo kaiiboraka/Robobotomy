@@ -1,12 +1,14 @@
 @tool
-class_name LightGrid extends Node3D
+class_name LightGrid extends MeshInstance3D
 
-const PADDING : int = 1
-const LIGHT_SPACING : int = 2
+const PADDING : float = 1
+const LIGHT_SPACING : float = 2
 const BASE_LIGHT_POS = Vector3(PADDING, PADDING, 0)
 
 const MIN_LIGHT_WIDTH_OR_HEIGHT : int = 1
 const MAX_LIGHT_WIDTH_OR_HEIGHT : int = 10
+
+const BOX_MESH_THICKNESS : float = .1
 
 const light_scene := preload("uid://dx8q4j1vvqxrn")
 
@@ -23,7 +25,7 @@ const light_scene := preload("uid://dx8q4j1vvqxrn")
 	set(value):
 		light_height = clamp(value,MIN_LIGHT_WIDTH_OR_HEIGHT,MAX_LIGHT_WIDTH_OR_HEIGHT)
 		_generate_grid()
-@export_tool_button("Generate Grid") var generate_grid_action = _generate_grid
+#@export_tool_button("Generate Grid") var generate_grid_action = _generate_grid
 @export var activated_count: int = 0:
 	get:
 		return activated_count
@@ -39,6 +41,17 @@ func _ready() -> void:
 
 
 func _generate_grid() -> void:
+	
+	# Generate bounding box
+	var boxMesh := BoxMesh.new()
+	boxMesh.size = Vector3(
+		(2 * PADDING) + (light_width - 1) * LIGHT_SPACING,
+		(2 * PADDING) + (light_height - 1) * LIGHT_SPACING,
+		BOX_MESH_THICKNESS
+	)
+	self.mesh = boxMesh
+	
+	# Generate lights
 	get_children().map(func(child) : child.queue_free())
 	for i in range(light_count):
 		var light : LightGridLight = light_scene.instantiate()
@@ -46,9 +59,12 @@ func _generate_grid() -> void:
 		light.set_state(LightGridLight.LightStates.LIGHT_ON if i < activated_count else LightGridLight.LightStates.LIGHT_OFF)
 		@warning_ignore("integer_division")
 		light.position = BASE_LIGHT_POS + Vector3(
-			(i % light_width) * LIGHT_SPACING,
-			(i / light_width) * LIGHT_SPACING,
+			((i % light_width) * LIGHT_SPACING) - boxMesh.size.x / 2,
+			((i / light_width) * LIGHT_SPACING) - boxMesh.size.y / 2,
 			0
 		)
+	
+
+	
 	print("Grid Generated with {0} lights".format([light_count]))
 	
