@@ -1,6 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://gl5j7l3w6avc"]
-
-[ext_resource type="Script" uid="uid://debr1yvhtiked" path="res://Scripts/SimpleBox.cs" id="1_41571"]
+[gd_scene load_steps=5 format=3 uid="uid://gl5j7l3w6avc"]
 
 [ext_resource type="Script" uid="uid://hcum4jsqijo1" path="res://Scripts/box.gd" id="1_41571"]
 [ext_resource type="PackedScene" uid="uid://lipiostj341j" path="res://Scenes/Environment/box_handle.tscn" id="2_qwqek"]
@@ -49,11 +47,6 @@ isVertical = true
 
 [node name="Grab Joint" type="Generic6DOFJoint3D" parent="."]
 linear_limit_x/upper_distance = 0.1
-linear_limit_x/lower_distance = 0.05
-linear_limit_y/upper_distance = 0.2
-linear_limit_y/lower_distance = 0.1
-linear_limit_y/softness = 0.01
-linear_limit_y/restitution = 0.1
+linear_limit_x/lower_distance = 0.02
+linear_limit_y/enabled = false
 linear_limit_z/enabled = false
-linear_spring_x/enabled = true
-linear_spring_y/enabled = true

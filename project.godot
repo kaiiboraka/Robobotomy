@@ -145,3 +145,7 @@ Player_Recall={
 3d_physics/layer_11="TorsoBox"
 3d_physics/layer_12="Button"
 3d_physics/layer_13="PushesButtons"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
