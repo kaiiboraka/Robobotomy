@@ -5,11 +5,25 @@ const PADDING : int = 1
 const LIGHT_SPACING : int = 2
 const BASE_LIGHT_POS = Vector3(PADDING, PADDING, 0)
 
+const MIN_LIGHT_WIDTH_OR_HEIGHT : int = 1
+const MAX_LIGHT_WIDTH_OR_HEIGHT : int = 10
+
 const light_scene := preload("uid://dx8q4j1vvqxrn")
 
 @export_group("Light", "light")
-@export var light_width : int = 3
-@export var light_height : int = 4
+@export var light_width : int = 3:
+	get:
+		return light_width
+	set(value):
+		light_width = clamp(value,MIN_LIGHT_WIDTH_OR_HEIGHT,MAX_LIGHT_WIDTH_OR_HEIGHT)
+		generate_grid()
+
+@export var light_height : int = 4:
+	get:
+		return light_height
+	set(value):
+		light_height = clamp(value,MIN_LIGHT_WIDTH_OR_HEIGHT,MAX_LIGHT_WIDTH_OR_HEIGHT)
+		generate_grid()
 @export_tool_button("Generate Grid") var generate_grid_action = generate_grid
 @export var activated_count: int
 
