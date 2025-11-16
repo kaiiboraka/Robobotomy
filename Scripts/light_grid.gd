@@ -9,6 +9,9 @@ extends MeshInstance3D
 ## number of activated lights are set by the programmer. The [LightGrid] will immediately
 ## emit [signal all_lights_activated] when all the lights are activated.
 
+## Signal emited when all lights are activated.
+signal all_lights_activated
+
 const _PADDING : float = 1
 const _LIGHT_SPACING : float = 2
 const _BASE_LIGHT_POS = Vector3(_PADDING, _PADDING, 0)
@@ -47,12 +50,14 @@ const _LIGHT_SCENE := preload("uid://dx8q4j1vvqxrn")
 		_generate_grid()
 		if (activated_count == _light_count):
 			all_lights_activated.emit()
+
+# Internal
 var _light_count: int:
 	get:
 		return light_width * light_height
 
-## Signal emited when all lights are activated.
-signal all_lights_activated
+func _ready() -> void:
+	_generate_grid()
 
 ## Sets the percentage of activated lights with [code]0.0[/code] meaning no lights activated
 ## and [code]1.0[/code] meaning all lights activated. For example, calling this method
@@ -70,10 +75,7 @@ func get_light_count() -> int:
 func get_activated_count() -> int:
 	return activated_count
 
-func _ready() -> void:
-	_generate_grid()
-
-
+# Internal
 func _generate_grid() -> void:
 	
 	# Generate bounding box
@@ -103,4 +105,3 @@ func _generate_grid() -> void:
 
 	
 	print("Grid Generated with {0} lights".format([_light_count]))
-	

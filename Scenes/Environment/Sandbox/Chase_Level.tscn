@@ -4,13 +4,14 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_eev3h"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_eev3h"]
-size = Vector3(14, 8, 0.1)
+size = Vector3(10, 8, 0.1)
 
 [node name="ChaseLevel" type="Node3D"]
 
 [node name="LightGrid" parent="." instance=ExtResource("1_u8xmd")]
 mesh = SubResource("BoxMesh_eev3h")
-activated_count = 22
+light_width = 5
+activated_count = 15
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 1
