@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgp65o7dppmmv"]
+[gd_scene load_steps=8 format=3 uid="uid://cgp65o7dppmmv"]
 
 [ext_resource type="PackedScene" uid="uid://dbk24fe7ef7m3" path="res://Scenes/Environment/platform_plane.tscn" id="1_4r85m"]
 [ext_resource type="PackedScene" uid="uid://c5rju34ocg5dp" path="res://Scenes/Characters/Player.tscn" id="2_mfg41"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_kmi27"]
 [ext_resource type="PackedScene" uid="uid://gl5j7l3w6avc" path="res://Scenes/Environment/SimpleBox.tscn" id="4_nbr5m"]
 [ext_resource type="PackedScene" uid="uid://d031edjsrylll" path="res://Scenes/Environment/Rope.tscn" id="5_jdgyy"]
+[ext_resource type="PackedScene" uid="uid://dar6lwdrgm17r" path="res://Scenes/Environment/Ladder.tscn" id="6_mfg41"]
+[ext_resource type="PackedScene" uid="uid://cuc1pbmga6imc" path="res://Scenes/Environment/cube_static.tscn" id="7_kmi27"]
 
 [node name="EnvironmentTest" type="Node3D"]
 
@@ -53,7 +55,7 @@ leftHandle = true
 rightHandle = true
 
 [node name="Simple Box4" parent="." instance=ExtResource("4_nbr5m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9800653, 0.9836917, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.153195, 0.9836917, 0)
 axis_lock_linear_x = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
@@ -66,7 +68,21 @@ rightHandle = true
 
 [node name="Rope" parent="." instance=ExtResource("5_jdgyy")]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 7, 12.748899, 0)
+length = 10.0
+angularVelocity = 0.0
+upperClimbLimit = 0.5
+lowerClimbLimit = 0.0
 
 [node name="Rope2" parent="." instance=ExtResource("5_jdgyy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.095756, 10.100558, 0)
-ropeLength = 5.0
+length = 10.0
+angularVelocity = 0.0
+upperClimbLimit = 0.5
+lowerClimbLimit = 0.0
+
+[node name="Ladder" parent="." instance=ExtResource("6_mfg41")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0709267, 0, -0.00047683716)
+rungCount = 20
+
+[node name="CubeStatic" parent="." instance=ExtResource("7_kmi27")]
+transform = Transform3D(3.9979076, 0, 0, 0, 1, 0, 0, 0, 1, -4.7117186, 8.5008745, 0)

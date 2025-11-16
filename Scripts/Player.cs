@@ -134,7 +134,10 @@ public partial class Player : CharacterBody3D, IWeighted
 		if (climbing)
 		{
 			climbing = false;
-			Velocity = currInteraction.Call("get_tangental_velocity").As<Vector3>();
+			if (currInteraction.HasMethod("get_tangental_velocity")) 
+			{
+				Velocity = currInteraction.Call("get_tangental_velocity").As<Vector3>();
+			}
 		}
 		currInteraction.Call("stop_interaction", this);
 		currInteraction = null;

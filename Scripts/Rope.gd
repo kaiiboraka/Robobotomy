@@ -2,12 +2,11 @@
 class_name Rope
 extends Climbable
 
-const MAX_CLIMB_HEIGHT: float = 0.5
 @export_group("Rope Shape")
 ## The length of the rope, with a minimum of 0.1 length.
-@export_range(0.1, 10.0, 0.1, "or_greater") var ropeLength: float = 10.0:
+@export_range(0.1, 10.0, 0.1, "or_greater") var length: float = 10.0:
 	set(value):
-		ropeLength = max(value, 0.1)
+		length = max(value, 0.1)
 		if Engine.is_editor_hint():
 			_update_rope_geometry()
 @export_group("Physics Parameters")
@@ -20,7 +19,6 @@ const MAX_CLIMB_HEIGHT: float = 0.5
 # Variables used for physics manipulation
 @export_group("Physics Debugging")
 @export var angularVelocity: float = 0.0 # NOTE: @export is meant for testing and debugging purposes only
-@export var grabPosition: float = 0.0 # NOTE: @export is meant for testing and debugging purposes only
 # Variables used to manage the rope's geometry when it is changed in the editor
 @onready var ropeMesh: MeshInstance3D = $"Rope Mesh"
 @onready var grabArea: Area3D = $"Grabable Area"
@@ -33,7 +31,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	var pivotPoint: float = grabPosition if grabPosition > 0.001 else ropeLength
+	var pivotPoint: float = grabPosition if grabPosition > 0.001 else length
 	var angularAccel: float = (gravity / pivotPoint) * sin(angle)
 	angularVelocity += angularAccel * delta
 	angle += angularVelocity * delta
@@ -42,19 +40,19 @@ func _physics_process(delta: float) -> void:
 	#print("Angular Velocity: ", angularVelocity, ", Angular Acceleration: ", angularAccel, ", Angle: ", angle)
 
 
-## This function updates the length of the rope to match the ropeLength variable, and can be set in the editor
+## This function updates the length of the rope to match the length variable, and can be set in the editor
 func _update_rope_geometry() -> void: 
 	if ropeMesh == null or grabShape == null:
 		return
 	#Update the mesh length
 	var mesh = ropeMesh.mesh.duplicate() as CylinderMesh
-	mesh.height = ropeLength
+	mesh.height = length
 	#Update the area length
 	var shape = grabShape.shape.duplicate() as BoxShape3D
-	shape.size.y = ropeLength + 0.5
+	shape.size.y = length + 0.5
 	#Reposition mesh and area
-	ropeMesh.position = Vector3(0, -(ropeLength / 2), 0)
-	grabArea.position = Vector3(0, -((ropeLength + 0.5) / 2), 0)
+	ropeMesh.position = Vector3(0, -(length / 2), 0)
+	grabArea.position = Vector3(0, -((length + 0.5) / 2), 0)
 	#Set the mesh and area
 	ropeMesh.mesh = mesh
 	grabShape.shape = shape
@@ -114,4 +112,4 @@ func climb(dir: Vector3, speed: float) -> void:
 	#print("Direction: ", dir, ", Speed: ", speed)
 	var dirSpeed: float = climbSpeed if dir.y < 0.0 else (slideSpeed if dir.y > 0.0 else 0.0)
 	grabPosition += dir.y * speed * dirSpeed
-	grabPosition = clampf(grabPosition, MAX_CLIMB_HEIGHT, ropeLength)
+	grabPosition = clampf(grabPosition, lowerClimbLimit, length - upperClimbLimit)
