@@ -27,7 +27,10 @@ public partial class Player : CharacterBody3D, IWeighted
 		
 		if (climbing) 
 		{
-			GlobalPosition = currInteraction.Call("get_grab_point").As<Vector3>();
+			Vector3 target = currInteraction.Call("get_grab_point").As<Vector3>();
+			Vector3 newPos = GlobalPosition.Lerp(target, (float)delta * 10.0f);
+			Vector3 motion = newPos - GlobalPosition;
+			MoveAndCollide(motion);
 			
 			if (direction.X != 0)
 			{
