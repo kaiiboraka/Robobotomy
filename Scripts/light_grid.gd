@@ -52,7 +52,9 @@ func _generate_grid() -> void:
 	self.mesh = boxMesh
 	
 	# Generate lights
-	get_children().map(func(child) : child.queue_free())
+	for child in get_children():
+		if child is LightGridLight:
+			child.queue_free()
 	for i in range(light_count):
 		var light : LightGridLight = light_scene.instantiate()
 		add_child(light)

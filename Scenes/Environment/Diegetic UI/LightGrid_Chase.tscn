@@ -4,10 +4,12 @@
 [ext_resource type="Material" uid="uid://cct38rv0tpch7" path="res://Assets/Materials/Diagetic UI/box_mesh.tres" id="1_ww0rk"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ww0rk"]
-size = Vector3(6, 8, 0.1)
+size = Vector3(14, 8, 0.1)
 
 [node name="LightGrid" type="MeshInstance3D"]
 mesh = SubResource("BoxMesh_ww0rk")
 surface_material_override/0 = ExtResource("1_ww0rk")
 script = ExtResource("1_l5lym")
+light_width = 7
+activated_count = 1
 metadata/_custom_type_script = "uid://bqp8t5b7o1rrf"

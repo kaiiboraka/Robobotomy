@@ -1,9 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://bs6te3ydb8vbr"]
+[gd_scene load_steps=4 format=3 uid="uid://bs6te3ydb8vbr"]
 
 [ext_resource type="PackedScene" uid="uid://cyh3q0j5km2bb" path="res://Scenes/Environment/Diegetic UI/LightGrid_Chase.tscn" id="1_u8xmd"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_eev3h"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_eev3h"]
+size = Vector3(14, 8, 0.1)
 
 [node name="ChaseLevel" type="Node3D"]
 
 [node name="LightGrid" parent="." instance=ExtResource("1_u8xmd")]
-light_width = 10
-light_height = 10
+mesh = SubResource("BoxMesh_eev3h")
+activated_count = 22
+
+[node name="Camera3D" type="Camera3D" parent="."]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6592422, 4.16)
+fov = 80.0
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_eev3h")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
