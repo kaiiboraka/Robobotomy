@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs6te3ydb8vbr"]
+
+[ext_resource type="PackedScene" uid="uid://cyh3q0j5km2bb" path="res://Scenes/Environment/Diegetic UI/LightGrid_Chase.tscn" id="1_u8xmd"]
+
+[node name="ChaseLevel" type="Node3D"]
+
+[node name="LightGrid" parent="." instance=ExtResource("1_u8xmd")]
+light_width = 5
+light_height = 6
