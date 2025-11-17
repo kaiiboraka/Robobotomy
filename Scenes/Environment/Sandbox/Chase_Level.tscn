@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bs6te3ydb8vbr"]
 
-[ext_resource type="PackedScene" uid="uid://cyh3q0j5km2bb" path="res://Scenes/Environment/Diegetic UI/LightGrid_Chase.tscn" id="1_u8xmd"]
+[ext_resource type="PackedScene" uid="uid://cyh3q0j5km2bb" path="res://Scenes/Environment/Diegetic UI/LightGrid.tscn" id="1_u8xmd"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_eev3h"]
 [ext_resource type="PackedScene" uid="uid://dbk24fe7ef7m3" path="res://Scenes/Environment/platform_plane.tscn" id="2_pdjvp"]
 [ext_resource type="PackedScene" uid="uid://c5rju34ocg5dp" path="res://Scenes/Characters/Player.tscn" id="3_b55mh"]
