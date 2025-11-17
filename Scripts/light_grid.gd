@@ -7,10 +7,14 @@ extends MeshInstance3D
 ## The [LightGrid] node is a 3D node designed as a diagetic UI element for Robotomy.
 ## It displays to the user a grid of lights. The number of total lights and the
 ## number of activated lights are set by the programmer. The [LightGrid] will immediately
-## emit [signal all_lights_activated] when all the lights are activated.
+## emit [signal activated] when all the lights are activated.
 
 ## Signal emited when all lights are activated.
-signal all_lights_activated
+signal activated
+
+## Signal emitted when the [LightGrid] goes from a state where all lights are activated
+## to a state where not all lights are activated.
+signal deactivated
 
 const _PADDING : float = 1
 const _LIGHT_SPACING : float = 2
@@ -46,10 +50,14 @@ const _LIGHT_SCENE := preload("uid://dx8q4j1vvqxrn")
 	get:
 		return activated_count
 	set(value):
+		var old_activated_count := activated_count
 		activated_count = clamp(value,0,_light_count)
 		_generate_grid()
-		if (activated_count == _light_count):
-			all_lights_activated.emit()
+		if (old_activated_count != activated_count):
+			if (activated_count == _light_count):
+				activated.emit()
+			elif (old_activated_count == _light_count):
+				deactivated.emit()
 
 # Internal
 var _light_count: int:

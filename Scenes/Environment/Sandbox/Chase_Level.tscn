@@ -13,7 +13,7 @@ resource_name = "test_light_grid"
 script/source = "@tool
 extends LightGrid
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed(\"ui_up\"):
 		activated_count += 1
 	if Input.is_action_just_pressed(\"ui_down\"):
@@ -33,6 +33,7 @@ func open() -> void:
 	
 func closed() -> void:
 	print(\"door closed\")
+	self.show()
 	collisionShape.disabled = false
 "
 
@@ -84,5 +85,3 @@ shape = SubResource("BoxShape3D_pdjvp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="door"]
 mesh = SubResource("BoxMesh_b55mh")
-
-[connection signal="all_lights_activated" from="LightGrid" to="door" method="open"]
