@@ -26,12 +26,14 @@ script/source = "extends StaticBody3D
 
 @export var collisionShape : CollisionShape3D
 
-func open() -> void:
+
+func _on_light_grid_activated() -> void:
 	print(\"door opened\")
 	self.hide()
 	collisionShape.disabled = true
-	
-func closed() -> void:
+
+
+func _on_light_grid_deactivated() -> void:
 	print(\"door closed\")
 	self.show()
 	collisionShape.disabled = false
@@ -85,3 +87,6 @@ shape = SubResource("BoxShape3D_pdjvp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="door"]
 mesh = SubResource("BoxMesh_b55mh")
+
+[connection signal="activated" from="LightGrid" to="door" method="_on_light_grid_activated"]
+[connection signal="deactivated" from="LightGrid" to="door" method="_on_light_grid_deactivated"]

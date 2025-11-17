@@ -112,4 +112,4 @@ func _generate_grid() -> void:
 	
 
 	
-	print("Grid Generated with {0} lights".format([_light_count]))
+	print("LightGrid updated with {0} lights".format([_light_count]))
