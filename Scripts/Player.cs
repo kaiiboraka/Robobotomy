@@ -45,6 +45,7 @@ public partial class Player : CharacterBody3D, IWeighted
 			if (Input.IsActionJustPressed("Player_Jump"))
 			{
 				StopInteraction();
+				Velocity += new Vector3(0, JumpVelocity, 0);
 			}
 		} 
 		else 
@@ -110,9 +111,8 @@ public partial class Player : CharacterBody3D, IWeighted
 
 	public void RemoveInteractable(Node obj)
 	{
-		interactables.Remove(obj);
-		if (currInteraction == obj)
-			StopInteraction();
+		if (currInteraction != obj)
+			interactables.Remove(obj);
 	}
 	
 	public void Interact()
@@ -134,9 +134,9 @@ public partial class Player : CharacterBody3D, IWeighted
 		if (climbing)
 		{
 			climbing = false;
-			if (currInteraction.HasMethod("get_tangental_velocity")) 
+			if (currInteraction.HasMethod("jump_off")) 
 			{
-				Velocity = currInteraction.Call("get_tangental_velocity").As<Vector3>();
+				Velocity = currInteraction.Call("jump_off").As<Vector3>();
 			}
 		}
 		currInteraction.Call("stop_interaction", this);

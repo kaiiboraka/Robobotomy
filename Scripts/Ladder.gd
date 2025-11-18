@@ -86,6 +86,9 @@ func climb(dir: Vector3, speed: float) -> void:
 	grabPosition = clampf(grabPosition, lowerClimbLimit, length - upperClimbLimit)
 
 
+func jump_off() -> Vector3:
+	return Vector3.ZERO
+
 # NOTE: Ladders cannot be pushed, but perhaps later functionality could be added to do something else while pushing the ladder
 func push(_dir: Vector3, _force: float) -> void:
 	pass

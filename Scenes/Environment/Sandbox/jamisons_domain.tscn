@@ -68,17 +68,10 @@ rightHandle = true
 
 [node name="Rope" parent="." instance=ExtResource("5_jdgyy")]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 7, 12.748899, 0)
-length = 10.0
-angularVelocity = 0.0
-upperClimbLimit = 0.5
-lowerClimbLimit = 0.0
 
 [node name="Rope2" parent="." instance=ExtResource("5_jdgyy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.095756, 10.100558, 0)
-length = 10.0
-angularVelocity = 0.0
-upperClimbLimit = 0.5
-lowerClimbLimit = 0.0
+launchForce = 1.0
 
 [node name="Ladder" parent="." instance=ExtResource("6_mfg41")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0709267, 0, -0.00047683716)

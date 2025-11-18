@@ -23,7 +23,6 @@ extends Climbable
 @onready var ropeMesh: MeshInstance3D = $"Rope Mesh"
 @onready var grabArea: Area3D = $"Grabable Area"
 @onready var grabShape: CollisionShape3D = $"Grabable Area/Grabable Shape"
-var weightValue: float = 0.0
 var angle: float = 0.0
 
 func _ready() -> void:
@@ -71,11 +70,7 @@ func interact_with(interactor: Node3D, transferMomentum: bool = true) -> void:
 	
 	var distToRope = global_position - grabber.global_position
 	distToRope.z = 0
-	grabPosition = distToRope.length()
-	if (grabber.has_method("get_weight")):
-		weightValue = grabber.get_weight()
-	else:
-		weightValue = 10
+	grabPosition = clampf(distToRope.length(), lowerClimbLimit, length - upperClimbLimit)
 	
 	if (transferMomentum):
 		var ropeDir: Vector3 = distToRope.normalized()
@@ -88,8 +83,8 @@ func stop_interaction(_interactor: Node3D) -> void:
 	grabPosition = 0.0
 
 
-func get_tangental_velocity() -> Vector3:
-	var tangent = Vector3(cos(angle), sin(angle), 0)
+func jump_off() -> Vector3:
+	var tangent = Vector3(cos(angle), 0, 0)
 	var tangentSpeed = angularVelocity * grabPosition
 	return tangent * tangentSpeed * launchForce
 

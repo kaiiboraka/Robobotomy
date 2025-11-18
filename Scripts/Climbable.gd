@@ -15,3 +15,4 @@ var grabPosition: float = 0.0
 @abstract func get_grab_point() -> Vector3
 @abstract func climb(dir: Vector3, speed: float) -> void
 @abstract func push(dir: Vector3, force: float) -> void
+@abstract func jump_off() -> Vector3
