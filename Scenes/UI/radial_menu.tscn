@@ -1,0 +1,91 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2lsnrmivu4ky"]
+
+[ext_resource type="Script" uid="uid://c2ffje36dgcds" path="res://addons/advanced_radial_menu/radial_menu_class.gd" id="1_4gvu6"]
+[ext_resource type="Script" uid="uid://bcsoaj36akxti" path="res://Scenes/UI/radial_menu.gd" id="1_pvlir"]
+[ext_resource type="Texture2D" uid="uid://wlvqkc1fyj40" path="res://Assets/Images/icon_smaller.jpg" id="2_w1h4c"]
+
+[node name="RadialMenu" type="Control" node_paths=PackedStringArray("menu")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pvlir")
+menu = NodePath("RadialMenuAdvanced")
+
+[node name="RadialMenuAdvanced" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 13.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4gvu6")
+select_action_name = "ui_select"
+auto_sizing = false
+first_in_center = true
+circle_radius = 294
+arc_inner_radius = 99.666
+line_rotation_offset_default = -36
+children_size = 1
+children_auto_sizing_factor = 0.0
+metadata/_custom_type_script = "uid://c2ffje36dgcds"
+
+[node name="Torso" type="TextureRect" parent="RadialMenuAdvanced"]
+layout_mode = 0
+offset_left = 532.5
+offset_top = 271.5
+offset_right = 632.5
+offset_bottom = 375.5
+pivot_offset = Vector2(50, 52)
+texture = ExtResource("2_w1h4c")
+
+[node name="Head" type="TextureRect" parent="RadialMenuAdvanced"]
+layout_mode = 0
+offset_left = 532.5
+offset_top = 74.66701
+offset_right = 632.5
+offset_bottom = 178.667
+pivot_offset = Vector2(50, 52)
+texture = ExtResource("2_w1h4c")
+
+[node name="Left Arm" type="TextureRect" parent="RadialMenuAdvanced"]
+layout_mode = 0
+offset_left = 345.30072
+offset_top = 210.67525
+offset_right = 445.30072
+offset_bottom = 314.67523
+pivot_offset = Vector2(50, 52)
+texture = ExtResource("2_w1h4c")
+
+[node name="Left Leg" type="TextureRect" parent="RadialMenuAdvanced"]
+layout_mode = 0
+offset_left = 416.8045
+offset_top = 430.74127
+offset_right = 516.8045
+offset_bottom = 534.7413
+pivot_offset = Vector2(50, 52)
+texture = ExtResource("2_w1h4c")
+
+[node name="Right Leg" type="TextureRect" parent="RadialMenuAdvanced"]
+layout_mode = 0
+offset_left = 648.1955
+offset_top = 430.74127
+offset_right = 748.1955
+offset_bottom = 534.7413
+pivot_offset = Vector2(50, 52)
+texture = ExtResource("2_w1h4c")
+
+[node name="Right Arm" type="TextureRect" parent="RadialMenuAdvanced"]
+layout_mode = 0
+offset_left = 719.69934
+offset_top = 210.6753
+offset_right = 819.69934
+offset_bottom = 314.6753
+pivot_offset = Vector2(50, 52)
+texture = ExtResource("2_w1h4c")
+
+[connection signal="slot_selected" from="RadialMenuAdvanced" to="." method="_on_radial_menu_advanced_slot_selected"]
