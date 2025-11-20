@@ -23,10 +23,10 @@ config/icon="uid://c7wscsdw2xd2f"
 
 [autoload]
 
-LayerNames="*res://addons/layerNames/generated/layerNames.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 LevelManager="*res://Scripts/Autoloads/level_manager.gd"
 EventBus="*res://Scripts/Autoloads/event_bus.gd"
+LayerNames="*res://addons/layerNames/generated/layerNames.gd"
 
 [display]
 
@@ -38,7 +38,7 @@ project/assembly_name="Robobotomy"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/explore-editor-theme/plugin.cfg", "res://addons/fancy_folder_colors/plugin.cfg", "res://addons/layerNames/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/plugin_refresher/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/advanced_radial_menu/plugin.cfg", "res://addons/explore-editor-theme/plugin.cfg", "res://addons/fancy_folder_colors/plugin.cfg", "res://addons/layerNames/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/plugin_refresher/plugin.cfg")
 
 [file_customization]
 
@@ -153,3 +153,7 @@ Player_Recall={
 3d_physics/layer_11="TorsoBox"
 3d_physics/layer_12="Button"
 3d_physics/layer_13="PushesButtons"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
