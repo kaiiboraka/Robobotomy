@@ -1,20 +1,41 @@
-[gd_scene load_steps=6 format=3 uid="uid://c87c5afrm7n7y"]
+[gd_scene load_steps=10 format=3 uid="uid://c87c5afrm7n7y"]
 
 [ext_resource type="Script" uid="uid://d0nalugfmbfcp" path="res://Scenes/main.gd" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://c5rju34ocg5dp" path="res://Scenes/Characters/Player.tscn" id="2_bo1nx"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dbk24fe7ef7m3" path="res://Scenes/Environment/platform_plane.tscn" id="5_21xkr"]
 [ext_resource type="PackedScene" uid="uid://c5x262jkt8yf0" path="res://Scenes/UI/title_screen.tscn" id="5_kry3j"]
+[ext_resource type="PackedScene" uid="uid://b2lsnrmivu4ky" path="res://Scenes/UI/radial_menu.tscn" id="6_21xkr"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kry3j"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_21xkr"]
+sky_material = SubResource("ProceduralSkyMaterial_kry3j")
+
+[sub_resource type="Environment" id="Environment_6bp64"]
+background_mode = 2
+sky = SubResource("Sky_21xkr")
+tonemap_mode = 2
+glow_enabled = true
 
 [node name="Main" type="Node"]
 script = ExtResource("1_jjgbg")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6bp64")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_bo1nx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.8921561)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.062467813)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.276051)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.0975323)
 fov = 80.0
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
@@ -26,7 +47,10 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 [node name="PlatformStatic" parent="." instance=ExtResource("5_21xkr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1108615, 0)
 
+[node name="Limb_Select" type="CanvasLayer" parent="."]
+
+[node name="RadialMenu" parent="Limb_Select" instance=ExtResource("6_21xkr")]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 2
 
 [node name="TitleScreen" parent="CanvasLayer" instance=ExtResource("5_kry3j")]
