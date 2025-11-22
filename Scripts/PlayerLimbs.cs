@@ -105,4 +105,21 @@ public partial class PlayerLimbs : CharacterBody3D
 			if((bool)limb.bodyParts[i]){ LimbSelect.instance.limbIsRecalled(limb); break; }
 		}
 	}
+	
+	public bool onlyHasBodyPart(int bodyIndex)
+	{
+		for (int i = 0; i < 6; i++) 
+		{
+			if (i != bodyIndex && (bool)bodyParts[i])
+			{
+				return false;
+			} 
+			else if (i == bodyIndex && !(bool)bodyParts[i])
+			{
+				return false;
+			}
+			
+		}
+		return true;
+	}
 }

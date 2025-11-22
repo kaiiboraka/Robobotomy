@@ -25,6 +25,8 @@ extends Climbable
 @onready var grabShape: CollisionShape3D = $"Grabable Area/Grabable Shape"
 var angle: float = 0.0
 
+# BUG: Rope does not stop when the player collides into objects and will continue swinging.
+
 func _ready() -> void:
 	_update_rope_geometry()
 
