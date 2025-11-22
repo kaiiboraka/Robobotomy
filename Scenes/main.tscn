@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://c87c5afrm7n7y"]
 
 [ext_resource type="Script" uid="uid://d0nalugfmbfcp" path="res://Scenes/main.gd" id="1_jjgbg"]
-[ext_resource type="PackedScene" uid="uid://c5rju34ocg5dp" path="res://Scenes/Characters/Player.tscn" id="2_bo1nx"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dbk24fe7ef7m3" path="res://Scenes/Environment/platform_plane.tscn" id="5_21xkr"]
 [ext_resource type="PackedScene" uid="uid://c5x262jkt8yf0" path="res://Scenes/UI/title_screen.tscn" id="5_kry3j"]
+[ext_resource type="PackedScene" path="res://Scenes/Characters/ActualPlayer.tscn" id="6_6bp64"]
 [ext_resource type="PackedScene" uid="uid://b2lsnrmivu4ky" path="res://Scenes/UI/radial_menu.tscn" id="6_21xkr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kry3j"]
@@ -30,12 +30,9 @@ environment = SubResource("Environment_6bp64")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Player" parent="." groups=["player"] instance=ExtResource("2_bo1nx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.062467813)
-
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.0975323)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60415363, 2, 4.168)
 fov = 80.0
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
@@ -54,3 +51,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1108615, 0)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TitleScreen" parent="CanvasLayer" instance=ExtResource("5_kry3j")]
+
+[node name="Player" parent="." instance=ExtResource("6_6bp64")]

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://y14b3b1s4nbo" path="res://Assets/Images/icon.png" id="2_7qdam"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_o5en2"]
 [ext_resource type="Material" uid="uid://ctprc8cj5aju7" path="res://Assets/Materials/Basic Colors/Blue.tres" id="2_qkgjm"]
-[ext_resource type="Script" path="res://Scripts/interaction_area.gd" id="5_7qdam"]
+[ext_resource type="Script" uid="uid://cje12jp0lc21x" path="res://Scripts/interaction_area.gd" id="5_7qdam"]
 [ext_resource type="Material" uid="uid://chtkrq0krimql" path="res://Assets/Materials/Basic Colors/Purple.tres" id="5_w38he"]
 [ext_resource type="Material" uid="uid://cjjlgffq2ycbp" path="res://Assets/Materials/Basic Colors/Red.tres" id="6_meglp"]
 [ext_resource type="Material" uid="uid://chy2k6sku55kc" path="res://Assets/Materials/Basic Colors/Orange.tres" id="7_w6cdd"]
