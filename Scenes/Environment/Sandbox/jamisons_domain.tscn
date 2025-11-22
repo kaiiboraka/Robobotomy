@@ -71,11 +71,9 @@ transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 7, 12.74889
 
 [node name="Rope2" parent="." instance=ExtResource("5_jdgyy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.095756, 10.100558, 0)
-launchForce = 1.0
 
 [node name="Ladder" parent="." instance=ExtResource("6_mfg41")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0709267, 0, -0.00047683716)
-rungCount = 20
 
 [node name="CubeStatic" parent="." instance=ExtResource("7_kmi27")]
 transform = Transform3D(3.9979076, 0, 0, 0, 1, 0, 0, 0, 1, -4.7117186, 8.5008745, 0)

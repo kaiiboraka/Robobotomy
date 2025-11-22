@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://gl5j7l3w6avc"]
 
-[ext_resource type="Script" uid="uid://hcum4jsqijo1" path="res://Scripts/Box.gd" id="1_41571"]
+[ext_resource type="Script" uid="uid://ck2aty1s5xess" path="res://Scripts/Box.cs" id="1_tht3g"]
 [ext_resource type="PackedScene" uid="uid://lipiostj341j" path="res://Scenes/Environment/Handle.tscn" id="2_qwqek"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_tht3g"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_wo1n4"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_wo1n4"]
+[sub_resource type="BoxMesh" id="BoxMesh_xnoih"]
 
 [node name="Simple Box" type="RigidBody3D"]
 collision_layer = 4
@@ -13,13 +13,13 @@ collision_mask = 141
 axis_lock_linear_z = true
 axis_lock_angular_z = true
 can_sleep = false
-script = ExtResource("1_41571")
+script = ExtResource("1_tht3g")
 
 [node name="Collision Shape" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_tht3g")
+shape = SubResource("BoxShape3D_wo1n4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_wo1n4")
+mesh = SubResource("BoxMesh_xnoih")
 
 [node name="Handles" type="Node3D" parent="."]
 

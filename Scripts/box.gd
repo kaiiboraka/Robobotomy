@@ -94,16 +94,6 @@ func _ready() -> void:
 	_set_handles()
 
 
-#func _physics_process(_delta: float) -> void:
-	#if grabber != null:
-		#if !verticalGrab:
-			#var dir: Vector3 = (grabber.global_position - global_position).normalized()
-			#var pushStrength: float = grabber.velocity.x * 100
-			#apply_central_force(-dir * pushStrength)
-		#else:
-			#global_position.y = grabber.global_position.y + grabberOffset.y
-
-
 func _set_preset() -> void:
 	boxSize = Vector3(PRESETS[sizePreset].x, PRESETS[sizePreset].y, PRESETS[sizePreset].z)
 	weight = PRESETS[sizePreset].w

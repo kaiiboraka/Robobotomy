@@ -10,8 +10,8 @@ public partial class Player : CharacterBody3D, IWeighted
 	public const float JumpVelocity = 4.5f;
 	
 	private const float weightLimit = 3.25f;
-	private Array<Node> interactables = new Array<Node>();
-	private Node currInteraction;
+	private Array<Interactable> interactables = new Array<Interactable>();
+	private Interactable currInteraction;
 	private bool climbing = false;
 	private float carryWeight = 0.0f;
 
@@ -104,15 +104,14 @@ public partial class Player : CharacterBody3D, IWeighted
 	
 	public void AddInteractable(Node obj)
 	{
-		if (obj == null || !GodotObject.IsInstanceValid(obj))
-			return;
-		interactables.Add(obj);
+		if (obj is Interactable interactable && GodotObject.IsInstanceValid(interactable))
+			interactables.Add(interactable);
 	}
 
 	public void RemoveInteractable(Node obj)
 	{
-		if (currInteraction != obj)
-			interactables.Remove(obj);
+		if (obj is Interactable interactable && currInteraction != interactable)
+			interactables.Remove(interactable);
 	}
 	
 	public void Interact()
@@ -121,7 +120,16 @@ public partial class Player : CharacterBody3D, IWeighted
 		if (interactableCount == 0)
 			return;
 
-		currInteraction = interactables[interactableCount - 1];
+		Interactable closestInteractable = interactables[0];
+		for (int i = 1; i < interactableCount; i++)
+		{
+			float distanceTo = this.GlobalPosition.DistanceTo(interactables[i].GlobalPosition);
+			if (distanceTo < this.GlobalPosition.DistanceTo(closestInteractable.GlobalPosition))
+			{
+				closestInteractable = interactables[i];
+			}
+		}
+		currInteraction = closestInteractable;
 		if (currInteraction.IsInGroup("Climbable"))
 		{
 			climbing = true;
