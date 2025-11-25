@@ -38,10 +38,9 @@ public partial class Rope : Climbable
 
 	public override void _Ready()
 	{
-		_ropeMesh = GetNode<MeshInstance3D>("Rope Mesh");
-		_grabArea = GetNode<Area3D>("Grabable Area");
-		_grabShape = GetNode<CollisionShape3D>("Grabable Area/Grabable Shape");
-
+		_ropeMesh = GetNodeOrNull<MeshInstance3D>("Rope Mesh");
+		_grabArea = GetNodeOrNull<Area3D>("Grabable Area");
+		_grabShape = GetNodeOrNull<CollisionShape3D>("Grabable Area/Grabable Shape");
 		UpdateRopeGeometry();
 	}
 
@@ -64,7 +63,14 @@ public partial class Rope : Climbable
 	private void UpdateRopeGeometry()
 	{
 		if (_ropeMesh == null || _grabShape == null)
-			return;
+		{
+			_ropeMesh ??= GetNodeOrNull<MeshInstance3D>("Rope Mesh");
+			_grabArea ??= GetNodeOrNull<Area3D>("Grabable Area");
+			_grabShape ??= GetNodeOrNull<CollisionShape3D>("Grabable Area/Grabable Shape");
+			
+			if (_ropeMesh == null || _grabShape == null)
+				return; 
+		}
 
 		// Duplicate mesh
 		var mesh = _ropeMesh.Mesh.Duplicate() as CylinderMesh;

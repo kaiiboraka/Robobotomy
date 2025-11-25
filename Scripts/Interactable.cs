@@ -9,8 +9,8 @@ public abstract partial class Interactable : Node3D
 	{
 		if (area is InteractionArea)
 		{
-			Node3D player = area.GetParent<Node3D>();
-			player.Call("AddInteractable", this);
+			Player player = area.GetParent<Player>();
+			player.AddInteractable(this);
 		}
 	}
 
@@ -18,8 +18,8 @@ public abstract partial class Interactable : Node3D
 	{
 		if (area is InteractionArea)
 		{
-			Node3D player = area.GetParent<Node3D>();
-			player.Call("RemoveInteractable", this);
+			Player player = area.GetParent<Player>();
+			player.RemoveInteractable(this);
 		}
 	}
 }

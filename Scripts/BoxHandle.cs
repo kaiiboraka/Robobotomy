@@ -2,7 +2,7 @@ using Godot;
 
 [Tool]
 
-public partial class Handle : Interactable
+public partial class BoxHandle : Interactable
 {
 	// -------------------------
 	// EXPORTED VARIABLES

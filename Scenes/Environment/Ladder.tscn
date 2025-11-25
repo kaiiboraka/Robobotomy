@@ -19,6 +19,7 @@ size = Vector3(1.5, 10.5, 1)
 
 [node name="Ladder" type="Node3D" groups=["Climbable"]]
 script = ExtResource("1_acs8l")
+ClimbSpeed = 0.4
 
 [node name="Ladder Pole Left" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 5, 0)
@@ -38,5 +39,5 @@ collision_mask = 32
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.25, 0)
 shape = SubResource("BoxShape3D_rpjme")
 
-[connection signal="area_entered" from="Grabable Area" to="." method="_on_interaction_area_entered"]
-[connection signal="area_exited" from="Grabable Area" to="." method="_on_interaction_area_exited"]
+[connection signal="area_entered" from="Grabable Area" to="." method="OnInteractionAreaEntered"]
+[connection signal="area_exited" from="Grabable Area" to="." method="OnInteractionAreaExited"]

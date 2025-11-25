@@ -14,6 +14,7 @@ public partial class Player : CharacterBody3D, IWeighted
 	private Interactable currInteraction;
 	private bool climbing = false;
 	private float carryWeight = 0.0f;
+	private bool resetInteractable = false;
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -27,19 +28,20 @@ public partial class Player : CharacterBody3D, IWeighted
 		
 		if (climbing) 
 		{
-			Vector3 target = currInteraction.Call("get_grab_point").As<Vector3>();
+			Climbable climbable = currInteraction as Climbable;
+			Vector3 target = climbable.GetGrabPoint();
 			Vector3 newPos = GlobalPosition.Lerp(target, (float)delta * 10.0f);
 			Vector3 motion = newPos - GlobalPosition;
 			MoveAndCollide(motion);
 			
 			if (direction.X != 0)
 			{
-				currInteraction.Call("push", direction, Speed * (float)delta);
+				climbable.Push(direction, Speed * (float)delta);
 			} 
 			else if (direction.Z != 0) 
 			{
 				Vector3 climbDirection = (Transform.Basis * new Vector3(0, inputDir.Y, 0)).Normalized();
-				currInteraction.Call("climb", climbDirection, Speed * (float)delta);
+				climbable.Climb(climbDirection, Speed * (float)delta);
 			}
 			
 			if (Input.IsActionJustPressed("Player_Jump"))
@@ -110,8 +112,13 @@ public partial class Player : CharacterBody3D, IWeighted
 
 	public void RemoveInteractable(Node obj)
 	{
-		if (obj is Interactable interactable && currInteraction != interactable)
-			interactables.Remove(interactable);
+		if (obj is Interactable interactable)
+		{
+			if (currInteraction != interactable)
+				interactables.Remove(interactable);
+			else
+				resetInteractable = true;
+		}
 	}
 	
 	public void Interact()
@@ -134,7 +141,7 @@ public partial class Player : CharacterBody3D, IWeighted
 		{
 			climbing = true;
 		}
-		currInteraction.Call("interact_with", this);
+		currInteraction.InteractWith(this);
 	}
 
 	public void StopInteraction()
@@ -142,22 +149,22 @@ public partial class Player : CharacterBody3D, IWeighted
 		if (climbing)
 		{
 			climbing = false;
-			if (currInteraction.HasMethod("jump_off")) 
+			if (currInteraction is Climbable climbable)
 			{
-				Velocity = currInteraction.Call("jump_off").As<Vector3>();
+				Velocity = climbable.JumpOff();
 			}
 		}
-		currInteraction.Call("stop_interaction", this);
+		if (resetInteractable)
+			interactables.Remove(currInteraction);
+		resetInteractable = false;
+		currInteraction.StopInteraction(this);
 		currInteraction = null;
+		
+		
 	}
 	
 	public void SetCarryWeight(float amount)
 	{
 		carryWeight = amount;
   }
-
-	public void OnBodyEntered(Node3D body)
-	{
-		
-	}
 }

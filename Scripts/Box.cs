@@ -114,7 +114,7 @@ public partial class Box : RigidBody3D
 	// READ ONLY
 	// -------------------------
 	[ExportGroup("Read Only")]
-	private Handle[] handleArray;
+	private BoxHandle[] handleArray;
 
 	private MeshInstance3D meshInstance;
 	private CollisionShape3D collisionShape;
@@ -133,12 +133,12 @@ public partial class Box : RigidBody3D
 		meshInstance = GetNode<MeshInstance3D>("MeshInstance3D");
 		collisionShape = GetNode<CollisionShape3D>("Collision Shape");
 
-		handleArray = new Handle[]
+		handleArray = new BoxHandle[]
 		{
-			GetNode<Handle>("Handles/Left Handle"),
-			GetNode<Handle>("Handles/Right Handle"),
-			GetNode<Handle>("Handles/Top Handle"),
-			GetNode<Handle>("Handles/Bottom Handle"),
+			GetNode<BoxHandle>("Handles/Left Handle"),
+			GetNode<BoxHandle>("Handles/Right Handle"),
+			GetNode<BoxHandle>("Handles/Top Handle"),
+			GetNode<BoxHandle>("Handles/Bottom Handle"),
 		};
 
 		SetGeometry();
@@ -241,7 +241,7 @@ public partial class Box : RigidBody3D
 
 		for (int i = 0; i < 4; i++)
 		{
-			Handle handle = handleArray[i];
+			BoxHandle handle = handleArray[i];
 			bool active = handleFlags[i];
 
 			if (active)

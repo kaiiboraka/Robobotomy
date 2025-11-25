@@ -240,13 +240,13 @@ public partial class Ladder : Climbable
 
 	private void SetRungs()
 	{
-		foreach (var rung in _rungs)
+		foreach (LadderRung rung in _rungs)
 			rung.QueueFree();
 		_rungs.Clear();
 
 		for (int i = 0; i < RungCount; i++)
 		{
-			var newRung = RungScene.Instantiate<LadderRung>();
+			LadderRung newRung = RungScene.Instantiate<LadderRung>();
 			_rungContainer.AddChild(newRung);
 
 			if (Engine.IsEditorHint())
@@ -262,7 +262,7 @@ public partial class Ladder : Climbable
 	{
 		for (int i = 0; i < _rungs.Count; i++)
 		{
-			var rung = _rungs[i];
+			LadderRung rung = _rungs[i];
 			rung.Position = new Vector3(
 				rung.Position.X,
 				BottomRungGap + (_rungDensity * i),
