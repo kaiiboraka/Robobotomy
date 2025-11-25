@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmn7bmff4lgix"]
+[gd_scene load_steps=9 format=3 uid="uid://bmn7bmff4lgix"]
 
 [ext_resource type="PackedScene" uid="uid://datnpjbne2ab8" path="res://Scenes/Environment/Triggers/unload_level_trigger.tscn" id="1_egyj7"]
 [ext_resource type="Script" uid="uid://dq5u3iv60kcox" path="res://Scripts/base_level.gd" id="1_qbyb8"]
 [ext_resource type="PackedScene" uid="uid://cyjrmdno75g7n" path="res://Scenes/Environment/Triggers/load_level_trigger.tscn" id="2_chkfu"]
+[ext_resource type="PackedScene" uid="uid://d031edjsrylll" path="res://Scenes/Environment/rope.tscn" id="5_k2cfo"]
+[ext_resource type="PackedScene" uid="uid://gl5j7l3w6avc" path="res://Scenes/Environment/simple_box.tscn" id="5_y6cuf"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qbyb8"]
 
@@ -21,7 +23,7 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.46907234, 0.70375776, -8.0
 mesh = SubResource("BoxMesh_qbyb8")
 
 [node name="UnloadLevelTrigger" parent="." instance=ExtResource("1_egyj7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.544, 0.361, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.486364, 0.361, 0)
 level_to_load = "res://Scenes/sandbox_levels/sb_2.tscn"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="UnloadLevelTrigger"]
@@ -29,7 +31,7 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -3.7143745, 0, 0)
 shape = SubResource("BoxShape3D_y6cuf")
 
 [node name="LoadLevelTrigger" parent="." instance=ExtResource("2_chkfu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43, 0.385, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.694811, 0.385, 0)
 level_to_load = "res://Scenes/sandbox_levels/sb_2.tscn"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LoadLevelTrigger"]
@@ -38,7 +40,16 @@ shape = SubResource("BoxShape3D_k2cfo")
 debug_color = Color(0.78129786, 0.31292295, 0.7698305, 0.41960785)
 
 [node name="StartMarker" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.869389, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.811754, 0, 0)
 
 [node name="EndMarker" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.192423, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.457233, 0, 0)
+
+[node name="Simple Box" parent="." instance=ExtResource("5_y6cuf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.974504, -0.3446416, 0.012720585)
+
+[node name="Simple Box2" parent="." instance=ExtResource("5_y6cuf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5686054, -0.40731132, 0)
+
+[node name="Rope" parent="." instance=ExtResource("5_k2cfo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0)
