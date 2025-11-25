@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://dar6lwdrgm17r"]
+
+[ext_resource type="Script" uid="uid://bmtp24s41iin" path="res://Scripts/Ladder.cs" id="1_acs8l"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_acs8l"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 10.0
+radial_segments = 16
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bsldu"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 10.0
+radial_segments = 16
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rpjme"]
+size = Vector3(1.5, 10.5, 1)
+
+[node name="Ladder" type="Node3D" groups=["Climbable"]]
+script = ExtResource("1_acs8l")
+ClimbSpeed = 0.4
+
+[node name="Ladder Pole Left" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 5, 0)
+mesh = SubResource("CylinderMesh_acs8l")
+
+[node name="Ladder Pole Right" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 5, 0)
+mesh = SubResource("CylinderMesh_bsldu")
+
+[node name="Rungs" type="Node3D" parent="."]
+
+[node name="Grabable Area" type="Area3D" parent="."]
+collision_layer = 64
+collision_mask = 32
+
+[node name="Grabable Shape" type="CollisionShape3D" parent="Grabable Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.25, 0)
+shape = SubResource("BoxShape3D_rpjme")
+
+[connection signal="area_entered" from="Grabable Area" to="." method="OnInteractionAreaEntered"]
+[connection signal="area_exited" from="Grabable Area" to="." method="OnInteractionAreaExited"]

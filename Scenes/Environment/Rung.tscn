@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://3l8c2up5trrm"]
+
+[ext_resource type="Script" uid="uid://d2d6wkn45pmi4" path="res://Scripts/LadderRung.cs" id="1_mjgxj"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ejqqm"]
+top_radius = 0.1
+bottom_radius = 0.1
+radial_segments = 16
+cap_top = false
+cap_bottom = false
+
+[node name="Rung" type="Node3D"]
+script = ExtResource("1_mjgxj")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_ejqqm")

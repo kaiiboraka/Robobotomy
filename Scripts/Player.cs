@@ -10,10 +10,11 @@ public partial class Player : CharacterBody3D, IWeighted
 	public const float JumpVelocity = 4.5f;
 	
 	private const float weightLimit = 3.25f;
-	private Array<Node> interactables = new Array<Node>();
-	private Node currInteraction;
+	private Array<Interactable> interactables = new Array<Interactable>();
+	private Interactable currInteraction;
 	private bool climbing = false;
 	private float carryWeight = 0.0f;
+	private bool resetInteractable = false;
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -27,18 +28,26 @@ public partial class Player : CharacterBody3D, IWeighted
 		
 		if (climbing) 
 		{
-			GlobalPosition = currInteraction.Call("get_rope_point").As<Vector3>();
+			Climbable climbable = currInteraction as Climbable;
+			Vector3 target = climbable.GetGrabPoint();
+			Vector3 newPos = GlobalPosition.Lerp(target, (float)delta * 10.0f);
+			Vector3 motion = newPos - GlobalPosition;
+			MoveAndCollide(motion);
 			
-			if (direction != Vector3.Zero)
+			if (direction.X != 0)
 			{
-				currInteraction.Call("push_rope", direction, Speed * (float)delta);
+				climbable.Push(direction, Speed * (float)delta);
+			} 
+			else if (direction.Z != 0) 
+			{
 				Vector3 climbDirection = (Transform.Basis * new Vector3(0, inputDir.Y, 0)).Normalized();
-				currInteraction.Call("climb_rope", climbDirection, Speed * (float)delta);
+				climbable.Climb(climbDirection, Speed * (float)delta);
 			}
 			
 			if (Input.IsActionJustPressed("Player_Jump"))
 			{
 				StopInteraction();
+				Velocity += new Vector3(0, JumpVelocity, 0);
 			}
 		} 
 		else 
@@ -97,16 +106,19 @@ public partial class Player : CharacterBody3D, IWeighted
 	
 	public void AddInteractable(Node obj)
 	{
-		if (obj == null || !GodotObject.IsInstanceValid(obj))
-			return;
-		interactables.Add(obj);
+		if (obj is Interactable interactable && GodotObject.IsInstanceValid(interactable))
+			interactables.Add(interactable);
 	}
 
 	public void RemoveInteractable(Node obj)
 	{
-		interactables.Remove(obj);
-		if (currInteraction == obj)
-			StopInteraction();
+		if (obj is Interactable interactable)
+		{
+			if (currInteraction != interactable)
+				interactables.Remove(interactable);
+			else
+				resetInteractable = true;
+		}
 	}
 	
 	public void Interact()
@@ -115,12 +127,21 @@ public partial class Player : CharacterBody3D, IWeighted
 		if (interactableCount == 0)
 			return;
 
-		currInteraction = interactables[interactableCount - 1];
+		Interactable closestInteractable = interactables[0];
+		for (int i = 1; i < interactableCount; i++)
+		{
+			float distanceTo = this.GlobalPosition.DistanceTo(interactables[i].GlobalPosition);
+			if (distanceTo < this.GlobalPosition.DistanceTo(closestInteractable.GlobalPosition))
+			{
+				closestInteractable = interactables[i];
+			}
+		}
+		currInteraction = closestInteractable;
 		if (currInteraction.IsInGroup("Climbable"))
 		{
 			climbing = true;
 		}
-		currInteraction.Call("interact_with", this);
+		currInteraction.InteractWith(this);
 	}
 
 	public void StopInteraction()
@@ -128,19 +149,22 @@ public partial class Player : CharacterBody3D, IWeighted
 		if (climbing)
 		{
 			climbing = false;
-			Velocity = currInteraction.Call("get_tangental_velocity").As<Vector3>();
+			if (currInteraction is Climbable climbable)
+			{
+				Velocity = climbable.JumpOff();
+			}
 		}
-		currInteraction.Call("stop_interaction", this);
+		if (resetInteractable)
+			interactables.Remove(currInteraction);
+		resetInteractable = false;
+		currInteraction.StopInteraction(this);
 		currInteraction = null;
+		
+		
 	}
 	
 	public void SetCarryWeight(float amount)
 	{
 		carryWeight = amount;
   }
-
-	public void OnBodyEntered(Node3D body)
-	{
-		
-	}
 }
