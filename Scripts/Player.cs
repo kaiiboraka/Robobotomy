@@ -60,12 +60,12 @@ public partial class Player : CharacterBody3D, IWeighted
 			if (direction != Vector3.Zero)
 			{
 				velocity.X = direction.X * Speed * horizontalWeightFactor;
-				velocity.Z = direction.Z * Speed * horizontalWeightFactor;
+				// velocity.Z = direction.Z * Speed * horizontalWeightFactor;
 			}
 			else
 			{
 				velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed) * horizontalWeightFactor;
-				velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed) * horizontalWeightFactor;
+				// velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed) * horizontalWeightFactor;
 			}
 
 			Velocity = velocity;
