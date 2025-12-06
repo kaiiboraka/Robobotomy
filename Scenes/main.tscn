@@ -58,7 +58,8 @@ transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, -1.1108615, 0)
 [node name="TitleScreen" parent="CanvasLayer" instance=ExtResource("5_kry3j")]
 
 [node name="ControllPanel1" parent="." instance=ExtResource("7_6bp64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, -1)
+physics_interpolation_mode = 1
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.2881975, -1.0163441, 2.3115446e-07)
 
 [node name="Button" parent="." instance=ExtResource("8_344ge")]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -2.5644403, -1.1098899, -2.3996835)
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -7.926035, -1.11, 0)
