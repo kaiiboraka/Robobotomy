@@ -1,0 +1,4 @@
+res://addons/layerNames/generated/layerNames.gd
+res://addons/phantom_camera/themes/theme.tres
+res://Scenes/Workspaces/shading_workspace.tscn
+res://Assets/Materials/Shaders/Testing/celTest.tres

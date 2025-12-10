@@ -1,0 +1,673 @@
+[gd_resource type="VisualShader" load_steps=36 format=3 uid="uid://8bejtu65gcaq"]
+
+[ext_resource type="Texture2D" uid="uid://cq36strfh4f40" path="res://testDamageCube_initialShadingGroup_Normal.1001.png" id="1_3r75b"]
+[ext_resource type="Texture2D" uid="uid://odd0ol32esq" path="res://concreteTestTexs/Concrete_metallic.png" id="2_r5hx5"]
+[ext_resource type="Texture2D" uid="uid://i85x7hfacld8" path="res://concreteTestTexs/Concrete_basecolor.png" id="3_35ojm"]
+[ext_resource type="Texture2D" uid="uid://rt4su72xqqey" path="res://concreteTestTexs/Concrete_roughness.png" id="4_jupgj"]
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_3r75b"]
+parameter_name = "Edge_Map"
+qualifier = 2
+texture_type = 2
+texture_repeat = 1
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_3r75b"]
+size = Vector2(480, 160)
+expression = "// vec2 rotate(vec2 uv, vec2 pivot, float angle)
+// {
+uv = UV;
+vec2 pivot = vec2(0);
+
+mat2 rotation = mat2(vec2(sin(radians(angle)), -cos(radians(angle))),
+					vec2(cos(radians(angle)), sin(radians(angle))));
+	
+uv -= pivot;
+uv = uv * rotation;
+uv += pivot;
+	// return uv;
+// }
+
+// uv = rotate(UV, vec2(0.5), rotation);"
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_3r75b"]
+parameter_name = "Tiling"
+qualifier = 2
+hint = 2
+max = 20.0
+default_value_enabled = true
+default_value = 1.0
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_r5hx5"]
+parameter_name = "Rotation"
+qualifier = 2
+hint = 2
+max = 360.0
+step = 0.5
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_3r75b"]
+default_input_values = [0, 0.0, 1, 10.0]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_35ojm"]
+parameter_name = "Hue"
+qualifier = 2
+max = 10.0
+default_value_enabled = true
+default_value = 1.0
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_jupgj"]
+default_input_values = [0, 0.0, 1, 10.0]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_tjwq8"]
+parameter_name = "Saturation"
+qualifier = 2
+max = 10.0
+default_value_enabled = true
+default_value = 1.0
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_17scl"]
+default_input_values = [0, 0.0, 1, 10.0]
+operator = 2
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_tjwq8"]
+texture = ExtResource("1_3r75b")
+texture_type = 2
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_3jfbw"]
+parameter_name = "Value"
+qualifier = 2
+max = 10.0
+default_value_enabled = true
+default_value = 1.0
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_0jj1n"]
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_fvgnj"]
+parameter_name = "Total"
+qualifier = 2
+hint = 1
+max = 100.0
+default_value_enabled = true
+default_value = 1.0
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_n2nsb"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_widln"]
+
+[sub_resource type="VisualShaderNodeColorFunc" id="VisualShaderNodeColorFunc_u4nh1"]
+function = 2
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ac6oa"]
+texture = ExtResource("3_35ojm")
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_5w5t5"]
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_nadh4"]
+size = Vector2(620, 500)
+expression = "float minimum = min(min(rgb.x, rgb.y), rgb.z);
+float maximum = max(max(rgb.x, rgb.y), rgb.z);
+float delta = maximum - minimum;
+
+bool compare1;
+{
+    float a = delta;
+    float b = 0.0;
+    float absA = abs(a);
+    float absB = abs(b);
+    float diff = abs(a - b);
+
+    if (abs(a - b) < 0.00001) { // shortcut, handles infinities
+        compare1 = true;
+    } else if (a == 0.0 || b == 0.0 || (absA + absB < 1.17549435e-38)) {
+        // a or b is zero or both are extremely close to it
+        // relative error is less meaningful here
+        compare1 = diff < (0.00001 * 1.17549435e-38);
+    } else { // use relative error
+        compare1 = diff / min((absA + absB), 3.402823466e+38) < 0.00001;
+    }
+}
+
+bool compare2;
+{
+    float a = rgb.x;
+    float b = maximum;
+    float absA = abs(a);
+    float absB = abs(b);
+    float diff = abs(a - b);
+
+    if (abs(a - b) < 0.00001) { // shortcut, handles infinities
+        compare2 = true;
+    } else if (a == 0.0 || b == 0.0 || (absA + absB < 1.17549435e-38)) {
+        // a or b is zero or both are extremely close to it
+        // relative error is less meaningful here
+        compare2 = diff < (0.00001 * 1.17549435e-38);
+    } else { // use relative error
+        compare2 = diff / min((absA + absB), 3.402823466e+38) < 0.00001;
+    }
+}
+
+bool compare3;
+{
+    float a = rgb.y;
+    float b = maximum;
+    float absA = abs(a);
+    float absB = abs(b);
+    float diff = abs(a - b);
+
+    if (abs(a - b) < 0.00001) { // shortcut, handles infinities
+        compare3 = true;
+    } else if (a == 0.0 || b == 0.0 || (absA + absB < 1.17549435e-38)) {
+        // a or b is zero or both are extremely close to it
+        // relative error is less meaningful here
+        compare3 = diff < (0.00001 * 1.17549435e-38);
+    } else { // use relative error
+        compare3 = diff / min((absA + absB), 3.402823466e+38) < 0.00001;
+    }
+}
+
+// Get Hue
+float hue;
+
+if (compare1) {
+	hue = 0.0;
+} else {
+	if (compare2) {
+		hue = (rgb.y - rgb.z) / delta; // between yellow & magenta
+	} else if (compare3) {
+		hue = 2.0 + (rgb.z - rgb.x) / delta; // between cyan & yellow
+	} else {
+		hue = 4.0 + (rgb.x - rgb.y) / delta;// between magenta & cyan
+	}
+
+	hue /= 6.0;
+	if (hue < 0.0) {
+		hue += 1.0;
+	}
+}
+
+// Get Saturation
+float sat = abs(maximum - 0.0) < 0.00001 ? 0.0 : delta / maximum;
+
+// Get Value
+float val = maximum;
+
+// Set HSV
+vec3 hsv = vec3(100.0 * hue, sat, val);"
+
+[sub_resource type="VisualShaderNodeColorFunc" id="VisualShaderNodeColorFunc_3r75b"]
+function = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_17scl"]
+texture = ExtResource("2_r5hx5")
+
+[sub_resource type="VisualShaderNodeColorFunc" id="VisualShaderNodeColorFunc_r5hx5"]
+function = 1
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_35ojm"]
+size = Vector2(472, 280)
+expression = "// userIn *= 100.0;
+float hue = valsIn.x;
+float sat = valsIn.y;
+float val = valsIn.z;
+
+float hScale;
+float sScale;
+float vScale;
+
+if (hUserIn < 0.0) {
+	hScale = hue;
+} else if (hUserIn > 0.0) {
+	hScale = 1.0 - hue;
+}
+
+if (sUserIn < 0.0) {
+	sScale = sat;
+} else if (sUserIn > 0.0) {
+	sScale = 1.0 - sat;
+}
+
+if (vUserIn < 0.0) {
+	vScale = val;
+} else if (vUserIn > 0.0) {
+	vScale = 1.0 - val;
+}
+
+hOut = hue + (hUserIn * hScale);
+sOut = sat + (sUserIn * sScale);
+vOut = val + (vUserIn * vScale);
+
+// if (hOut > 1.0) {
+	// hOut = 1.0;
+// } else if (hOut < 0.0) {
+	// hOut = 0.0;
+// }
+
+valsOut = vec3(hOut, sOut, vOut);
+// vec3 valsOut = vec3(hue, sat, val);"
+
+[sub_resource type="VisualShaderNodeColorFunc" id="VisualShaderNodeColorFunc_jupgj"]
+function = 2
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_17scl"]
+parameter_name = "Saturation2"
+qualifier = 2
+hint = 1
+min = -1.0
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_0uy2x"]
+parameter_name = "Hue2"
+qualifier = 2
+hint = 1
+min = -1.0
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_0jj1n"]
+parameter_name = "Value2"
+qualifier = 2
+hint = 1
+min = -1.0
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_3jfbw"]
+default_input_values = [1, Vector2(5, 5), 2, Vector2(0, 0)]
+expanded_output_ports = [0]
+function = 1
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_0uy2x"]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_n2nsb"]
+texture = ExtResource("4_jupgj")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_r5hx5"]
+source = 5
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+instance uniform float Rotation : hint_range(0.0, 360.0, 0.5) = 0.0;
+instance uniform float Tiling : hint_range(0.0, 20.0, 0.10000000149012) = 1.0;
+uniform sampler2D tex_frg_26 : source_color;
+instance uniform float Hue2 : hint_range(-1.0, 1.0) = 0.0;
+instance uniform float Saturation2 : hint_range(-1.0, 1.0) = 0.0;
+instance uniform float Value2 : hint_range(-1.0, 1.0) = 0.0;
+uniform sampler2D tex_frg_3;
+uniform sampler2D tex_frg_8;
+uniform sampler2D Edge_Map : hint_normal, repeat_enable;
+
+
+
+void fragment() {
+// FloatParameter:14
+	float n_out14p0 = Rotation;
+
+
+	vec2 n_out11p0;
+// Expression:11
+	n_out11p0 = vec2(0.0, 0.0);
+	{
+		// vec2 rotate(vec2 n_out11p0, vec2 pivot, float n_out14p0)
+		// {
+		n_out11p0 = UV;
+		vec2 pivot = vec2(0);
+		
+		mat2 rotation = mat2(vec2(sin(radians(n_out14p0)), -cos(radians(n_out14p0))),
+							vec2(cos(radians(n_out14p0)), sin(radians(n_out14p0))));
+			
+		n_out11p0 -= pivot;
+		n_out11p0 = n_out11p0 * rotation;
+		n_out11p0 += pivot;
+			// return n_out11p0;
+		// }
+		
+		// n_out11p0 = rotate(UV, vec2(0.5), rotation);
+	}
+
+
+// FloatParameter:13
+	float n_out13p0 = Tiling;
+
+
+// VectorCompose:5
+	vec2 n_out5p0 = vec2(n_out13p0, n_out13p0);
+
+
+// UVFunc:4
+	vec2 n_in4p2 = vec2(0.00000, 0.00000);
+	vec2 n_out4p0 = (n_out11p0 - n_in4p2) * n_out5p0 + n_in4p2;
+
+
+// Texture2D:26
+	vec4 n_out26p0 = texture(tex_frg_26, n_out4p0);
+
+
+	vec3 n_out32p0;
+// ColorFunc:32
+	{
+		vec3 c = vec3(n_out26p0.xyz);
+		vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+		vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+		vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+		float d = q.x - min(q.w, q.y);
+		float e = 1.0e-10;
+		n_out32p0 = vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+	}
+
+
+// FloatParameter:34
+	float n_out34p0 = Hue2;
+
+
+// FloatParameter:33
+	float n_out33p0 = Saturation2;
+
+
+// FloatParameter:35
+	float n_out35p0 = Value2;
+
+
+	vec3 n_out31p0;
+	float n_out31p1;
+	float n_out31p2;
+	float n_out31p3;
+// Expression:31
+	n_out31p0 = vec3(0.0, 0.0, 0.0);
+	n_out31p1 = 0.0;
+	n_out31p2 = 0.0;
+	n_out31p3 = 0.0;
+	{
+		// userIn *= 100.0;
+		float hue = n_out32p0.x;
+		float sat = n_out32p0.y;
+		float val = n_out32p0.z;
+		
+		float hScale;
+		float sScale;
+		float vScale;
+		
+		if (n_out34p0 < 0.0) {
+			hScale = hue;
+		} else if (n_out34p0 > 0.0) {
+			hScale = 1.0 - hue;
+		}
+		
+		if (n_out33p0 < 0.0) {
+			sScale = sat;
+		} else if (n_out33p0 > 0.0) {
+			sScale = 1.0 - sat;
+		}
+		
+		if (n_out35p0 < 0.0) {
+			vScale = val;
+		} else if (n_out35p0 > 0.0) {
+			vScale = 1.0 - val;
+		}
+		
+		n_out31p1 = hue + (n_out34p0 * hScale);
+		n_out31p2 = sat + (n_out33p0 * sScale);
+		n_out31p3 = val + (n_out35p0 * vScale);
+		
+		// if (n_out31p1 > 1.0) {
+			// n_out31p1 = 1.0;
+		// } else if (n_out31p1 < 0.0) {
+			// n_out31p1 = 0.0;
+		// }
+		
+		n_out31p0 = vec3(n_out31p1, n_out31p2, n_out31p3);
+		// vec3 n_out31p0 = vec3(hue, sat, val);
+	}
+
+
+	vec3 n_out30p0;
+// ColorFunc:30
+	{
+		vec3 c = n_out31p0;
+		vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+		vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+		n_out30p0 = c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+	}
+
+
+// Texture2D:3
+	vec4 n_out3p0 = texture(tex_frg_3, n_out4p0);
+
+
+// Texture2D:8
+	vec4 n_out8p0 = texture(tex_frg_8, n_out4p0);
+
+
+	vec4 n_out9p0;
+// Texture2D:9
+	n_out9p0 = texture(Edge_Map, UV);
+
+
+// Output:0
+	ALBEDO = n_out30p0;
+	METALLIC = n_out3p0.x;
+	ROUGHNESS = n_out8p0.x;
+	NORMAL_MAP = vec3(n_out9p0.xyz);
+
+
+}
+"
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_tjwq8")
+nodes/fragment/2/position = Vector2(-1820, 600)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_17scl")
+nodes/fragment/3/position = Vector2(0, 100)
+nodes/fragment/4/node = SubResource("VisualShaderNodeUVFunc_3jfbw")
+nodes/fragment/4/position = Vector2(-320, 320)
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorCompose_0uy2x")
+nodes/fragment/5/position = Vector2(-520, 440)
+nodes/fragment/8/node = SubResource("VisualShaderNodeTexture_n2nsb")
+nodes/fragment/8/position = Vector2(0, 420)
+nodes/fragment/9/node = SubResource("VisualShaderNodeTexture_r5hx5")
+nodes/fragment/9/position = Vector2(-60, 740)
+nodes/fragment/10/node = SubResource("VisualShaderNodeTexture2DParameter_3r75b")
+nodes/fragment/10/position = Vector2(-400, 640)
+nodes/fragment/11/node = SubResource("VisualShaderNodeExpression_3r75b")
+nodes/fragment/11/position = Vector2(-840, 260)
+nodes/fragment/11/size = Vector2(480, 160)
+nodes/fragment/11/input_ports = "0,0,angle;"
+nodes/fragment/11/output_ports = "0,3,uv;"
+nodes/fragment/11/expression = "// vec2 rotate(vec2 uv, vec2 pivot, float angle)
+// {
+uv = UV;
+vec2 pivot = vec2(0);
+
+mat2 rotation = mat2(vec2(sin(radians(angle)), -cos(radians(angle))),
+					vec2(cos(radians(angle)), sin(radians(angle))));
+	
+uv -= pivot;
+uv = uv * rotation;
+uv += pivot;
+	// return uv;
+// }
+
+// uv = rotate(UV, vec2(0.5), rotation);"
+nodes/fragment/13/node = SubResource("VisualShaderNodeFloatParameter_3r75b")
+nodes/fragment/13/position = Vector2(-800, 440)
+nodes/fragment/14/node = SubResource("VisualShaderNodeFloatParameter_r5hx5")
+nodes/fragment/14/position = Vector2(-1120, 260)
+nodes/fragment/15/node = SubResource("VisualShaderNodeFloatOp_3r75b")
+nodes/fragment/15/position = Vector2(-1980, -2040)
+nodes/fragment/16/node = SubResource("VisualShaderNodeFloatParameter_35ojm")
+nodes/fragment/16/position = Vector2(-2260, -2100)
+nodes/fragment/17/node = SubResource("VisualShaderNodeFloatOp_jupgj")
+nodes/fragment/17/position = Vector2(-1980, -1720)
+nodes/fragment/18/node = SubResource("VisualShaderNodeFloatParameter_tjwq8")
+nodes/fragment/18/position = Vector2(-2260, -1780)
+nodes/fragment/19/node = SubResource("VisualShaderNodeFloatOp_17scl")
+nodes/fragment/19/position = Vector2(-1980, -1380)
+nodes/fragment/20/node = SubResource("VisualShaderNodeFloatParameter_3jfbw")
+nodes/fragment/20/position = Vector2(-2260, -1460)
+nodes/fragment/21/node = SubResource("VisualShaderNodeVectorCompose_0jj1n")
+nodes/fragment/21/position = Vector2(-1760, -1740)
+nodes/fragment/22/node = SubResource("VisualShaderNodeFloatParameter_fvgnj")
+nodes/fragment/22/position = Vector2(-2260, -2420)
+nodes/fragment/23/node = SubResource("VisualShaderNodeVectorOp_n2nsb")
+nodes/fragment/23/position = Vector2(-1560, -1980)
+nodes/fragment/24/node = SubResource("VisualShaderNodeVectorCompose_widln")
+nodes/fragment/24/position = Vector2(-1980, -2380)
+nodes/fragment/25/node = SubResource("VisualShaderNodeColorFunc_u4nh1")
+nodes/fragment/25/position = Vector2(-2740, -1920)
+nodes/fragment/26/node = SubResource("VisualShaderNodeTexture_ac6oa")
+nodes/fragment/26/position = Vector2(-1120, -40)
+nodes/fragment/27/node = SubResource("VisualShaderNodeVectorDecompose_5w5t5")
+nodes/fragment/27/position = Vector2(-2500, -1940)
+nodes/fragment/28/node = SubResource("VisualShaderNodeExpression_nadh4")
+nodes/fragment/28/position = Vector2(-3040, -740)
+nodes/fragment/28/size = Vector2(620, 500)
+nodes/fragment/28/input_ports = "0,4,rgb;"
+nodes/fragment/28/output_ports = "0,4,hsv;"
+nodes/fragment/28/expression = "float minimum = min(min(rgb.x, rgb.y), rgb.z);
+float maximum = max(max(rgb.x, rgb.y), rgb.z);
+float delta = maximum - minimum;
+
+bool compare1;
+{
+    float a = delta;
+    float b = 0.0;
+    float absA = abs(a);
+    float absB = abs(b);
+    float diff = abs(a - b);
+
+    if (abs(a - b) < 0.00001) { // shortcut, handles infinities
+        compare1 = true;
+    } else if (a == 0.0 || b == 0.0 || (absA + absB < 1.17549435e-38)) {
+        // a or b is zero or both are extremely close to it
+        // relative error is less meaningful here
+        compare1 = diff < (0.00001 * 1.17549435e-38);
+    } else { // use relative error
+        compare1 = diff / min((absA + absB), 3.402823466e+38) < 0.00001;
+    }
+}
+
+bool compare2;
+{
+    float a = rgb.x;
+    float b = maximum;
+    float absA = abs(a);
+    float absB = abs(b);
+    float diff = abs(a - b);
+
+    if (abs(a - b) < 0.00001) { // shortcut, handles infinities
+        compare2 = true;
+    } else if (a == 0.0 || b == 0.0 || (absA + absB < 1.17549435e-38)) {
+        // a or b is zero or both are extremely close to it
+        // relative error is less meaningful here
+        compare2 = diff < (0.00001 * 1.17549435e-38);
+    } else { // use relative error
+        compare2 = diff / min((absA + absB), 3.402823466e+38) < 0.00001;
+    }
+}
+
+bool compare3;
+{
+    float a = rgb.y;
+    float b = maximum;
+    float absA = abs(a);
+    float absB = abs(b);
+    float diff = abs(a - b);
+
+    if (abs(a - b) < 0.00001) { // shortcut, handles infinities
+        compare3 = true;
+    } else if (a == 0.0 || b == 0.0 || (absA + absB < 1.17549435e-38)) {
+        // a or b is zero or both are extremely close to it
+        // relative error is less meaningful here
+        compare3 = diff < (0.00001 * 1.17549435e-38);
+    } else { // use relative error
+        compare3 = diff / min((absA + absB), 3.402823466e+38) < 0.00001;
+    }
+}
+
+// Get Hue
+float hue;
+
+if (compare1) {
+	hue = 0.0;
+} else {
+	if (compare2) {
+		hue = (rgb.y - rgb.z) / delta; // between yellow & magenta
+	} else if (compare3) {
+		hue = 2.0 + (rgb.z - rgb.x) / delta; // between cyan & yellow
+	} else {
+		hue = 4.0 + (rgb.x - rgb.y) / delta;// between magenta & cyan
+	}
+
+	hue /= 6.0;
+	if (hue < 0.0) {
+		hue += 1.0;
+	}
+}
+
+// Get Saturation
+float sat = abs(maximum - 0.0) < 0.00001 ? 0.0 : delta / maximum;
+
+// Get Value
+float val = maximum;
+
+// Set HSV
+vec3 hsv = vec3(100.0 * hue, sat, val);"
+nodes/fragment/29/node = SubResource("VisualShaderNodeColorFunc_3r75b")
+nodes/fragment/29/position = Vector2(-1360, -1900)
+nodes/fragment/30/node = SubResource("VisualShaderNodeColorFunc_r5hx5")
+nodes/fragment/30/position = Vector2(0, -20)
+nodes/fragment/31/node = SubResource("VisualShaderNodeExpression_35ojm")
+nodes/fragment/31/position = Vector2(-520, -40)
+nodes/fragment/31/size = Vector2(472, 280)
+nodes/fragment/31/input_ports = "0,4,valsIn;1,0,hUserIn;2,0,sUserIn;3,0,vUserIn;"
+nodes/fragment/31/output_ports = "0,4,valsOut;1,0,hOut;2,0,sOut;3,0,vOut;"
+nodes/fragment/31/expression = "// userIn *= 100.0;
+float hue = valsIn.x;
+float sat = valsIn.y;
+float val = valsIn.z;
+
+float hScale;
+float sScale;
+float vScale;
+
+if (hUserIn < 0.0) {
+	hScale = hue;
+} else if (hUserIn > 0.0) {
+	hScale = 1.0 - hue;
+}
+
+if (sUserIn < 0.0) {
+	sScale = sat;
+} else if (sUserIn > 0.0) {
+	sScale = 1.0 - sat;
+}
+
+if (vUserIn < 0.0) {
+	vScale = val;
+} else if (vUserIn > 0.0) {
+	vScale = 1.0 - val;
+}
+
+hOut = hue + (hUserIn * hScale);
+sOut = sat + (sUserIn * sScale);
+vOut = val + (vUserIn * vScale);
+
+// if (hOut > 1.0) {
+	// hOut = 1.0;
+// } else if (hOut < 0.0) {
+	// hOut = 0.0;
+// }
+
+valsOut = vec3(hOut, sOut, vOut);
+// vec3 valsOut = vec3(hue, sat, val);"
+nodes/fragment/32/node = SubResource("VisualShaderNodeColorFunc_jupgj")
+nodes/fragment/32/position = Vector2(-740, -40)
+nodes/fragment/33/node = SubResource("VisualShaderNodeFloatParameter_17scl")
+nodes/fragment/33/position = Vector2(-1640, -360)
+nodes/fragment/34/node = SubResource("VisualShaderNodeFloatParameter_0uy2x")
+nodes/fragment/34/position = Vector2(-1900, -480)
+nodes/fragment/35/node = SubResource("VisualShaderNodeFloatParameter_0jj1n")
+nodes/fragment/35/position = Vector2(-1380, -220)
+nodes/fragment/connections = PackedInt32Array(4, 0, 3, 0, 4, 0, 8, 0, 5, 0, 4, 1, 3, 0, 0, 2, 8, 0, 0, 3, 10, 0, 9, 2, 9, 0, 0, 9, 11, 0, 4, 0, 14, 0, 11, 0, 13, 0, 5, 0, 13, 0, 5, 1, 16, 0, 15, 1, 18, 0, 17, 1, 20, 0, 19, 1, 15, 0, 21, 0, 17, 0, 21, 1, 19, 0, 21, 2, 22, 0, 24, 0, 22, 0, 24, 1, 22, 0, 24, 2, 24, 0, 23, 1, 21, 0, 23, 0, 27, 0, 15, 0, 27, 1, 17, 0, 27, 2, 19, 0, 25, 0, 27, 0, 23, 0, 29, 0, 33, 0, 31, 2, 35, 0, 31, 3, 34, 0, 31, 1, 31, 0, 30, 0, 26, 0, 32, 0, 4, 0, 26, 0, 30, 0, 0, 0, 32, 0, 31, 0)
