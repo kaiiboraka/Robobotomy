@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://cr4lq404y1tyx"]
+
+[ext_resource type="Shader" uid="uid://cmtlsmlahaq2c" path="res://Assets/Materials/Shaders/Testing/celTest.tres" id="1_axv11"]
+[ext_resource type="ArrayMesh" uid="uid://dokty7rvi5wdy" path="res://Assets/Materials/Shaders/Testing/concreteTestBlocks.obj" id="2_1b5j4"]
+
+[sub_resource type="Environment" id="Environment_5rjb7"]
+
+[sub_resource type="Gradient" id="Gradient_g6h5r"]
+offsets = PackedFloat32Array(0.5, 0.51)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_no7js"]
+gradient = SubResource("Gradient_g6h5r")
+
+[sub_resource type="Gradient" id="Gradient_1tbke"]
+offsets = PackedFloat32Array(0.58, 0.777)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qufh2"]
+gradient = SubResource("Gradient_1tbke")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3i8l0"]
+render_priority = 0
+shader = ExtResource("1_axv11")
+shader_parameter/albedo = Color(0, 0, 1, 1)
+shader_parameter/point_size = 0.0
+shader_parameter/roughness = 0.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/normal_scale = 0.0
+shader_parameter/uv1_scale = Vector3(0, 0, 0)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(0, 0, 0)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = SubResource("GradientTexture1D_no7js")
+shader_parameter/fresnel_gradient = SubResource("GradientTexture1D_qufh2")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5rjb7")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.857431, 1.3604076, 3.8573527)
+omni_range = 52.194046
+
+[node name="ConcreteTestBlocks" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_3i8l0")
+mesh = ExtResource("2_1b5j4")
