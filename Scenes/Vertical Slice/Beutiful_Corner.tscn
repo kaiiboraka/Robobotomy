@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpgupq5guqtyk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_clgom"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_fhxa0"]
+sky_material = SubResource("ProceduralSkyMaterial_clgom")
+
+[sub_resource type="Environment" id="Environment_kegy0"]
+background_mode = 2
+sky = SubResource("Sky_fhxa0")
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.047529034, 0.5045716, 0.71745884, 1)
+fog_light_energy = 1.13
+fog_density = 0.0165
+fog_aerial_perspective = 0.43
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0755
+
+[node name="Beutiful_Corner" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kegy0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.84495175, -0.5321395, 0.053699657, 0.099562734, -0.057848092, 0.9933484, -0.5254935, 0.8446783, 0.10186014, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+use_collision = true
+
+[node name="Floor" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(32.6512, 0, 0, 0, -0.100000024, 0, 0, 0, 19.756918, -1.0430841, 0.0092635155, 2.426883)
+size = Vector3(0.50439453, 1, 1)
+
+[node name="celeing" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(30.495203, 0, 0, 0, -0.100000024, 0, 0, 0, 19.378424, -1.3685765, 8.423673, 2.2323043)
+size = Vector3(0.50439453, 6.3514404, 1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/celeing"]
+transform = Transform3D(0.056489464, 0, -0.09136173, 0, 15.316719, 0, 0.009670127, 0, 0.5337029, -0.023163129, 0, -0.13500613)
+operation = 2
+
+[node name="Floor2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(3.3547585, 0, 0, 0, -0.100000024, 0, 0, 0, 24.746225, -0.5023308, 0.07462787, 1.4882544)
+size = Vector3(0.50439453, 1, 1)
+
+[node name="Wall" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.4337977, 0, 0, 0, -3.8306673, 0, 0, 0, 16.3796, -8.943621, 3.9740145, 2.7220006)
+size = Vector3(0.50439453, 2.1875, 1.2094727)
+
+[node name="Wall2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(24.590261, 0, 0, 0, -3.7671442, 0, 0, 0, -591.88715, -1.1917497, 3.9740145, 12.186031)
+size = Vector3(0.647522, 2.1875, 0.001)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(3.1102812, 0, 0.5279909, 0, 1, 0, -0.8333974, 0, 1.9704887, -4.9541345, 0, 1.6794503)
+size = Vector3(1, 3, 3)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(2.872534, 0, 0.95763046, 0, 4.8, 0, -0.76969314, 0, 3.5739255, -6.124786, 1.9184831, 3.2342935)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 3.3091104, 0, 0, 0, 1, -2.3547812, 0, 6.341564)
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(2.0087233, 0, 0, 0, 0.8376443, 0, 0, 0, 2.0087233, -2.4050608, 0, -3.3028564)
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.5101288, 0, 0, 0, 4.1556444, 0, 0, 0, 0.5101288, -2.4958165, 0, -1.8263822)
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.5101288, 0, 0, 0, 4.1556444, 0, 0, 0, 0.5101288, -5.040232, 2.3841855e-07, 5.0854173)
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.5101288, 0, 0, 0, 4.0926995, -0.08845141, 0, 0.7205486, 0.502402, -2.5447404, 0, 8.160098)
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.5101288, 0, 0, 0, 4.05173, 0.11336553, 0, -0.92350566, 0.49737272, -0.96866214, 0, -2.424734)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9998452, -0.017592013, 0, 0.017592013, 0.9998452, 0.114595294, 1.3015037, 3.046066)
+fov = 39.3

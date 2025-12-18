@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpgupq5guqtyk"]
-
-[ext_resource type="PackedScene" uid="uid://bjeeyxmwi3ns7" path="res://Assets/Models/NamelessV01.fbx" id="1_dndpv"]
-
-[node name="Slice" type="Node3D"]
-
-[node name="NamelessV01" parent="." instance=ExtResource("1_dndpv")]
-transform = Transform3D(20.79288, 0, 97.8144, 0, 100, 0, -97.8144, 0, 20.79288, -1.8702031, 0.10555506, 0.62903976)
