@@ -1,4 +1,18 @@
-res://addons/layerNames/generated/layerNames.gd
+res://Scenes/Vertical Slice/Beutiful_Corner.tscn
 res://addons/phantom_camera/themes/theme.tres
-res://Scenes/Workspaces/shading_workspace.tscn
-res://Assets/Materials/Shaders/Testing/celTest.tres
+res://Assets/Materials/Shaders/Testing/concreteTest.tres
+res://Scripts/Real Player Script/RightArm.cs
+res://Scripts/Real Player Script/LeftArm.cs
+res://Scripts/Player.cs
+res://Scripts/Autoloads/LimbSelect.cs
+res://Scripts/PlayerLimbs.cs
+res://Scripts/Real Player Script/Head.cs
+res://addons/layerNames/generated/LayerNames.cs
+res://Scripts/Real Player Script/Torso.cs
+res://Scripts/HingeDoorJacob.cs
+res://Scripts/SimpleBox.cs
+res://Scripts/Real Player Script/RightLeg.cs
+res://Scripts/Real Player Script/ActualPlayer.cs
+res://Scripts/Real Player Script/LeftLeg.cs
+res://Scripts/MyButton3D.cs
+res://addons/layerNames/generated/layerNames.gd
