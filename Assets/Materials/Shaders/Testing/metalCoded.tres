@@ -1,0 +1,97 @@
+[gd_resource type="Shader" load_steps=0 format=3 uid="uid://cwfjfvridlcyp"]
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+instance uniform float Rotation : hint_range(0.0, 360.0, 0.5) = 0.0;
+instance uniform float Tiling : hint_range(0.0, 20.0, 0.1) = 1.0;
+instance uniform float Pivot : hint_range(0.0, 10.0, 0.1) = 0.0;
+uniform sampler2D tex_frg_2 : source_color;
+instance uniform float Hue : hint_range(0.0, 1.0) = 0.0;
+instance uniform float Saturation : hint_range(0.0, 1.0) = 0.0;
+instance uniform float Value : hint_range(0.0, 1.0) = 0.0;
+uniform sampler2D inMetallic;
+uniform sampler2D inRoughness;
+uniform sampler2D Edge_Map : hint_normal, repeat_enable;
+
+
+void fragment() {
+	float rot = Rotation;
+
+	vec2 uv = UV;
+	vec2 pivot = vec2(Pivot);
+
+	mat2 rotation = mat2(vec2(sin(radians(rot)), -cos(radians(rot))),
+						vec2(cos(radians(rot)), sin(radians(rot))));
+
+	// Rotate the UV
+	uv -= pivot;
+	uv = uv * rotation;
+	uv += pivot;
+
+	vec2 tile = vec2(Tiling, Tiling);
+
+	vec4 tiledTex = texture(tex_frg_2, tile);
+
+	// Convert RGB to HSV
+	vec3 c = vec3(tiledTex.xyz);
+	vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+	vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+	vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+	float d = q.x - min(q.w, q.y);
+	float e = 1.0e-10;
+	vec3 hsv = vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+
+	float inHue = Hue;
+	float inSat = Saturation;
+	float inVal = Value;
+
+	// Grab converted HSV values
+	float hue = hsv.x;
+	float sat = hsv.y;
+	float val = hsv.z;
+
+	// Find the scales
+	float hScale;
+	float sScale;
+	float vScale;
+
+	if (inHue < 0.0) {
+		hScale = hue;
+	} else if (inHue > 0.0) {
+		hScale = 1.0 - hue;
+	}
+
+	if (inSat < 0.0) {
+		sScale = sat;
+	} else if (inSat > 0.0) {
+		sScale = 1.0 - sat;
+	}
+
+	if (inVal < 0.0) {
+		vScale = val;
+	} else if (inVal > 0.0) {
+		vScale = 1.0 - val;
+	}
+
+	float newHue = hue + (inHue * hScale);
+	float newSat = sat + (inSat * sScale);
+	float newVal = val + (inVal * vScale);
+	vec3 newHSV = vec3(newHue, newSat, newVal);
+
+	// Convert back to RGB
+	vec4 j = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+	vec3 l = abs(fract(j.xxx + K.xyz) * 6.0 - K.www);
+	vec3 newRGB = j.z * mix(K.xxx, clamp(l - K.xxx, 0.0, 1.0), j.y);
+
+	vec4 tiledMetal = texture(inMetallic, tile);
+	vec4 tiledRough = texture(inRoughness, tile);
+	vec4 tiledNormal = texture(Edge_Map, UV);
+
+	ALBEDO = newRGB;
+	METALLIC = tiledMetal.x;
+	ROUGHNESS = tiledRough.x;
+	NORMAL_MAP = vec3(tiledNormal.xyz);
+}
+"
