@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Robobotomy")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f6e6ac727ac23c198cf5eb580cb17906ad9c98dd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+75b7bcd2de7f4651b91f1a10c1130a6c8337f57c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Robobotomy")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Robobotomy")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
