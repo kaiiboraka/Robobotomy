@@ -1,4 +1,4 @@
-[gd_resource type="Shader" format=3 uid="uid://cmtlsmlahaq2c"]
+[gd_resource type="Shader" format=3 uid="uid://bduc6p20m0xim"]
 
 [resource]
 code = "
@@ -7,20 +7,32 @@ shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_toon, specular_toon;
 uniform vec4 albedo : source_color;
 uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
-uniform float point_size : hint_range(0, 128);
-uniform float roughness : hint_range(0, 1);
+//uniform float point_size : hint_range(0, 128);
+
+uniform sampler2D texture_emission : hint_default_black, filter_linear_mipmap, repeat_enable;
+uniform float emission : hint_range(0.0, 1.0, 0.1) = 1;
+//uniform float roughness : hint_range(0, 1);
 uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
-uniform vec4 metallic_texture_channel;
+uniform float metallic; // : hint_range(0.0, 1.0, 0.1);
+//uniform vec4 metallic_texture_channel;
 uniform sampler2D texture_roughness : hint_roughness_g, filter_linear_mipmap, repeat_enable;
-uniform float specular;
-uniform float metallic;
+uniform float roughness : hint_range(0, 1);
+
+
+//uniform sampler2D texture_opacity : hint_roughness_g, filter_linear_mipmap, repeat_enable;
+//uniform float opacity : hint_range(0, 1);
+//uniform sampler2D opacity;
+
+
+//uniform float specular;
+//uniform float metallic;
 uniform sampler2D texture_normal : hint_roughness_normal, filter_linear_mipmap, repeat_enable;
 uniform float normal_scale : hint_range(-16, 16);
 
 uniform vec3 uv1_scale;
 uniform vec3 uv1_offset;
-uniform vec3 uv2_scale;
-uniform vec3 uv2_offset;
+//uniform vec3 uv2_scale;
+//uniform vec3 uv2_offset;
 
 uniform sampler2D color_gradient;
 uniform sampler2D fresnel_gradient;
@@ -39,6 +51,7 @@ void fragment() {
 	vec2 base_uv = UV;
 	vec4 albedo_tex = texture(texture_albedo, base_uv);
 	ALBEDO = albedo.rgb * albedo_tex.rgb + (basic_fresnel * texture(fresnel_gradient, vec2(basic_fresnel, 0.0)).rgb * 1.0);
+	vec4 metallic_texture_channel = vec4(0.0, 0.0, 0.0, 0.0);
 	float metallic_tex = dot(texture(texture_metallic, base_uv), metallic_texture_channel);
 	METALLIC = metallic_tex * metallic;
 	vec4 roughness_texture_channel = vec4(0.0, 1.0, 0.0, 0.0);
@@ -47,6 +60,21 @@ void fragment() {
 	SPECULAR = 0.0;
 	NORMAL_MAP = texture(texture_normal, base_uv).rgb;
 	NORMAL_MAP_DEPTH = normal_scale;
+	
+	// Emission ???
+	vec4 emission_texture_channel = vec4(0.0, 1.0, 0.0, 0.0);
+	float emission_tex = dot(texture(texture_emission, base_uv), emission_texture_channel);
+	EMISSION = emission_tex * emission * vec3(1.0, 1.0, 1.0);
+	
+	// Opacity ???
+	//vec4 opacity_texture_channel = vec4(0.0, 1.0, 0.0, 0.0);
+	//float opacity_tex = dot(texture(texture_opacity, base_uv), opacity_texture_channel);
+	//ALPHA = opacity_tex * opacity * vec3(1.0, 1.0, 1.0);
+	//vec4 alphaTex = texture(opacity, base_uv);
+	//ALPHA_TEXTURE_COORDINATE = vec2(alphaTex.xy);
+	//ALPHA = alphaTex.x;
+	//ALPHA = 0.5;
+	
 }
 
 void light() {
