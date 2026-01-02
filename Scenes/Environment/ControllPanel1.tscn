@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://db5rdebx07aqd"]
+
+[ext_resource type="PackedScene" uid="uid://coohrx1ulw80h" path="res://Assets/Models/ControllPanel1.fbx" id="1_iplkl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iplkl"]
+
+[node name="ControllPanel1" instance=ExtResource("1_iplkl")]
+
+[node name="Modual" parent="Full_modual/Terminal_Base" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_iplkl")

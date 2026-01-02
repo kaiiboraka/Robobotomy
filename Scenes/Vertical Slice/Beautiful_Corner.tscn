@@ -1,0 +1,294 @@
+[gd_scene load_steps=46 format=3 uid="uid://bpgupq5guqtyk"]
+
+[ext_resource type="Shader" uid="uid://8bejtu65gcaq" path="res://Assets/Materials/Shaders/Testing/concreteTest.tres" id="1_1krl7"]
+[ext_resource type="Texture2D" uid="uid://ctybxaop6jxrr" path="res://Assets/Materials/Shaders/Testing/Concrete Maps/Concrete_basecolor.png" id="2_2dqvl"]
+[ext_resource type="Texture2D" uid="uid://dn2o72o1l4ru8" path="res://Assets/Robobotomy Art/2D/Chains/Chain 5.png" id="3_usww3"]
+[ext_resource type="Texture2D" uid="uid://dl71oer0po4d" path="res://Assets/Robobotomy Art/2D/Chains/Chain 1.png" id="4_u372d"]
+[ext_resource type="Texture2D" uid="uid://dcho4md82yryf" path="res://Assets/Robobotomy Art/2D/Chains/Chain 4.png" id="5_ai4pf"]
+[ext_resource type="Texture2D" uid="uid://cx7peja171t4c" path="res://Assets/Robobotomy Art/2D/Chains/Chain 6.png" id="6_sao02"]
+[ext_resource type="Texture2D" uid="uid://cjtf2sep7w8ac" path="res://Assets/Robobotomy Art/2D/Chains/Chain 2.png" id="7_wh327"]
+[ext_resource type="Texture2D" uid="uid://b1cgavnnkjlug" path="res://Assets/Robobotomy Art/2D/Chains/Chains 3.png" id="8_2c3rr"]
+[ext_resource type="Texture2D" uid="uid://245tavw6olsq" path="res://Assets/Robobotomy Art/2D/Dust/Dust (0).png" id="9_5e5an"]
+[ext_resource type="Texture2D" uid="uid://dwn7gurqys3sp" path="res://Assets/Robobotomy Art/2D/Dust/Dust (1).png" id="10_uaov4"]
+[ext_resource type="Texture2D" uid="uid://ncv7m20chadh" path="res://Assets/Robobotomy Art/2D/Dust/Dust (2).png" id="11_ckvth"]
+[ext_resource type="Texture2D" uid="uid://wix2kodi22oi" path="res://Assets/Robobotomy Art/2D/Dust/Dust (3).png" id="12_avtu8"]
+[ext_resource type="Texture2D" uid="uid://dt0q3m2pg70u6" path="res://Assets/Robobotomy Art/2D/Dust/Dust (4).png" id="13_78w0w"]
+[ext_resource type="Texture2D" uid="uid://chvsmt83kmp3q" path="res://Assets/Robobotomy Art/2D/Dust/Dust (5).png" id="14_gkdds"]
+[ext_resource type="Texture2D" uid="uid://dy6qqegwb83vb" path="res://Assets/Robobotomy Art/2D/Dust/Dust (6).png" id="15_tjkvv"]
+[ext_resource type="Texture2D" uid="uid://dcltywe85vcvt" path="res://Assets/Robobotomy Art/2D/Dust/Dust (7).png" id="16_8heir"]
+[ext_resource type="Texture2D" uid="uid://d0ojartg30lob" path="res://Assets/Robobotomy Art/2D/Dust/Dust (8).png" id="17_jwlm5"]
+[ext_resource type="Texture2D" uid="uid://drwah2sboa1qm" path="res://Assets/Robobotomy Art/2D/Dust/Dust (9).png" id="18_giovu"]
+[ext_resource type="Texture2D" uid="uid://uiqo8m1pctm7" path="res://Assets/Robobotomy Art/2D/Dust/Dust (10).png" id="19_y04dn"]
+[ext_resource type="Texture2D" uid="uid://bl5iyf6xyrlba" path="res://Assets/Robobotomy Art/2D/Dust/Dust (11).png" id="20_qcd5t"]
+[ext_resource type="Texture2D" uid="uid://ccqld45c46ya" path="res://Assets/Robobotomy Art/2D/Dust/Dust (12).png" id="21_8cphh"]
+[ext_resource type="Texture2D" uid="uid://7ytgnfxaumtr" path="res://Assets/Robobotomy Art/2D/Dust/Dust (13).png" id="22_ijh2y"]
+[ext_resource type="Texture2D" uid="uid://c3v6krlcsqcyi" path="res://Assets/Robobotomy Art/2D/Dust/Dust (14).png" id="23_lduwr"]
+[ext_resource type="Texture2D" uid="uid://0iy4qrxpi8d2" path="res://Assets/Robobotomy Art/2D/Dust/Dust (15).png" id="24_eglqw"]
+[ext_resource type="Texture2D" uid="uid://c3ghmfwulj2pe" path="res://Assets/Robobotomy Art/2D/Dust/Dust (17).png" id="25_sj2bw"]
+[ext_resource type="Texture2D" uid="uid://crlmr7hlq0a0t" path="res://Assets/Robobotomy Art/2D/Dust/Dust (18).png" id="26_jrynu"]
+[ext_resource type="Texture2D" uid="uid://ca4snbekg74vb" path="res://Assets/Robobotomy Art/2D/Wires/Big_Wires (1).png" id="27_cduj1"]
+[ext_resource type="Texture2D" uid="uid://cd0pvmb8gm1na" path="res://Assets/Robobotomy Art/2D/Wires/Big_Wires (2).png" id="28_7eq66"]
+[ext_resource type="Texture2D" uid="uid://cfg17lht2l7dp" path="res://Assets/Robobotomy Art/2D/Wires/Big_Wires (3).png" id="29_jnh8w"]
+[ext_resource type="Texture2D" uid="uid://dx85kmbj57tc5" path="res://Assets/Robobotomy Art/2D/Wires/Big_Wires (4).png" id="30_kvfnu"]
+[ext_resource type="Texture2D" uid="uid://bkkf3wo3f1gqb" path="res://Assets/Robobotomy Art/2D/Wires/Big_Wires (5).png" id="31_7pjub"]
+[ext_resource type="Texture2D" uid="uid://7jw8fkawhsic" path="res://Assets/Robobotomy Art/2D/Wires/Big_Wires (6).png" id="32_5eksb"]
+[ext_resource type="Texture2D" uid="uid://f60lyn2b6nsx" path="res://Assets/Robobotomy Art/2D/Wires/Big_Wires (7).png" id="33_ykxan"]
+[ext_resource type="Texture2D" uid="uid://d1mv5mrse5r13" path="res://Assets/Robobotomy Art/2D/Wires/Big_Wires (8).png" id="34_4s32m"]
+[ext_resource type="Texture2D" uid="uid://b3e14o0j22u8n" path="res://Assets/Robobotomy Art/2D/Wires/Big_Wires (9).png" id="35_3hif6"]
+[ext_resource type="Texture2D" uid="uid://bjxunhfbcus63" path="res://Assets/Robobotomy Art/2D/Wires/Big_Wires (10).png" id="36_vu5ng"]
+[ext_resource type="Texture2D" uid="uid://ti3c1g8b3xvj" path="res://Assets/Robobotomy Art/2D/Wires/Wire Conector (1).png" id="37_fbpb5"]
+[ext_resource type="Texture2D" uid="uid://njr2e1tgge5b" path="res://Assets/Robobotomy Art/2D/Wires/Wire Conector (2).png" id="38_jyc6m"]
+[ext_resource type="Texture2D" uid="uid://vs8kw2ktvviy" path="res://Assets/Robobotomy Art/2D/Wires/Wire Conector (3).png" id="39_apgab"]
+[ext_resource type="Texture2D" uid="uid://cyixiuapc443p" path="res://Assets/Robobotomy Art/2D/Wires/Wire Conector (4).png" id="40_t1kh3"]
+[ext_resource type="Texture2D" uid="uid://c8iieo5ohyn7w" path="res://Assets/Robobotomy Art/2D/Wires/Wire Conector (6).png" id="41_cmnmm"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_clgom"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_fhxa0"]
+sky_material = SubResource("ProceduralSkyMaterial_clgom")
+
+[sub_resource type="Environment" id="Environment_kegy0"]
+background_mode = 2
+sky = SubResource("Sky_fhxa0")
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.047529034, 0.5045716, 0.71745884, 1)
+fog_light_energy = 1.13
+fog_density = 0.0165
+fog_aerial_perspective = 0.43
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0755
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pwyat"]
+render_priority = 0
+shader = ExtResource("1_1krl7")
+shader_parameter/tex_frg_26 = ExtResource("2_2dqvl")
+
+[node name="Beutiful_Corner" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kegy0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.84495175, -0.5321395, 0.053699657, 0.099562734, -0.057848092, 0.9933484, -0.5254935, 0.8446783, 0.10186014, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+use_collision = true
+
+[node name="Floor" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(32.6512, 0, 0, 0, -0.100000024, 0, 0, 0, 19.756918, -1.0430841, 0.0092635155, 2.426883)
+size = Vector3(0.50439453, 1, 1)
+
+[node name="celeing" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(30.495203, 0, 0, 0, -0.100000024, 0, 0, 0, 19.378424, -1.3685765, 8.423673, 2.2323043)
+size = Vector3(0.50439453, 6.3514404, 1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/celeing"]
+transform = Transform3D(0.056489464, 0, -0.09136173, 0, 15.316719, 0, 0.009670127, 0, 0.5337029, -0.023163129, 0, -0.13500613)
+operation = 2
+
+[node name="Wall" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.4337977, 0, 0, 0, -3.8306673, 0, 0, 0, 16.3796, -8.943621, 3.9740145, 2.7220006)
+material_override = SubResource("ShaderMaterial_pwyat")
+size = Vector3(0.50439453, 2.1875, 1.2094727)
+
+[node name="Wall2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(24.590261, 0, 0, 0, -3.7671442, 0, 0, 0, -591.88715, -1.1917497, 3.9740145, 12.186031)
+size = Vector3(0.647522, 2.1875, 0.001)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(3.1102812, 0, 0.5279909, 0, 1, 0, -0.8333974, 0, 1.9704887, -4.9541345, 0, 1.6794503)
+size = Vector3(1, 3, 3)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(2.872534, 0, 0.95763046, 0, 4.8, 0, -0.76969314, 0, 3.5739255, -6.124786, 1.9184831, 3.2342935)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 3.3091104, 0, 0, 0, 1, -2.3547812, 0, 6.341564)
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(2.0087233, 0, 0, 0, 0.8376443, 0, 0, 0, 2.0087233, -2.4050608, 0, -3.3028564)
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.5101288, 0, 0, 0, 4.1556444, 0, 0, 0, 0.5101288, -2.4958165, 0, -1.8263822)
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.5101288, 0, 0, 0, 4.1556444, 0, 0, 0, 0.5101288, -5.040232, 2.3841855e-07, 5.0854173)
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.5101288, 0, 0, 0, 4.0926995, -0.08845141, 0, 0.7205486, 0.502402, -2.5447404, 0, 8.160098)
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.5101288, 0, 0, 0, 4.05173, 0.11336553, 0, -0.92350566, 0.49737272, -0.96866214, 0, -2.424734)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1.0000005, 0, 0, 0, 0.038406778, 0, -3.5527137e-15, 0, 67.98717, -5.6912825e-07, 0.011908174, -13.020137)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.99984527, -0.017592015, 0, 0.017592015, 0.99984527, -1.1874866, 1.0291599, 3.5358543)
+fov = 48.0
+
+[node name="Chain 1" type="Sprite3D" parent="."]
+transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 9.012341, 0, 0.6390753)
+texture = ExtResource("3_usww3")
+
+[node name="Chain 2" type="Sprite3D" parent="."]
+transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 9.45441, 0, 0.6390753)
+texture = ExtResource("4_u372d")
+
+[node name="Chain 3" type="Sprite3D" parent="."]
+transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 9.859519, 0, 0.6390753)
+texture = ExtResource("5_ai4pf")
+
+[node name="Chain 4" type="Sprite3D" parent="."]
+transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 10.330759, 0, 0.6390753)
+texture = ExtResource("6_sao02")
+
+[node name="Chain 5" type="Sprite3D" parent="."]
+transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 10.7486725, 0, 0.6390753)
+texture = ExtResource("7_wh327")
+
+[node name="Chain 6" type="Sprite3D" parent="."]
+transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 11.179459, 0, 0.6390753)
+texture = ExtResource("8_2c3rr")
+
+[node name="Dust 0" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 24.039227, 4.9024816, -7.0659156)
+texture = ExtResource("9_5e5an")
+
+[node name="Dust 1" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 35.489204, 4.2475405, -7.0659156)
+texture = ExtResource("10_uaov4")
+
+[node name="Dust 2" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 31.641712, 3.5136418, -7.0659146)
+texture = ExtResource("11_ckvth")
+
+[node name="Dust 3" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 27.60316, 3.0471907, -7.0659156)
+texture = ExtResource("12_avtu8")
+
+[node name="Dust 4" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 23.179087, 4.0009985, -7.0659156)
+texture = ExtResource("13_78w0w")
+
+[node name="Dust 5" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 19.214153, 3.694652, -7.0659156)
+texture = ExtResource("14_gkdds")
+
+[node name="Dust 6" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 14.653184, 4.2419457, -7.0659156)
+texture = ExtResource("15_tjkvv")
+
+[node name="Dust 7" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 36.86975, 2.7862856, -7.0659165)
+texture = ExtResource("16_8heir")
+
+[node name="Dust 8" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 36.515915, 1.3734007, -7.065914)
+texture = ExtResource("17_jwlm5")
+
+[node name="Dust 9" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 32.816116, 2.474777, -7.0659165)
+texture = ExtResource("18_giovu")
+
+[node name="Dust 10" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 33.646744, 1.2199476, -7.0659156)
+texture = ExtResource("19_y04dn")
+
+[node name="Dust 11" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 28.780102, 2.0003953, -7.0659156)
+texture = ExtResource("20_qcd5t")
+
+[node name="Dust 12" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 22.505611, 2.4926872, -7.065915)
+texture = ExtResource("21_8cphh")
+
+[node name="Dust 13" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 13.725531, 2.585803, -7.0659156)
+texture = ExtResource("22_ijh2y")
+
+[node name="Dust 14" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 17.147345, 1.964354, -7.0659156)
+texture = ExtResource("23_lduwr")
+
+[node name="Dust 15" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 14.697957, 0.8641486, -7.0659146)
+texture = ExtResource("24_eglqw")
+
+[node name="Dust 16" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 23.199068, 1.2927766, -7.0659156)
+texture = ExtResource("24_eglqw")
+
+[node name="Dust 17" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 31.949635, -0.2350936, -7.0659165)
+texture = ExtResource("25_sj2bw")
+
+[node name="Dust 18" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 16.931051, 0, -7.0659156)
+texture = ExtResource("26_jrynu")
+
+[node name="Big Wires 1" type="Sprite3D" parent="."]
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 12.688662, 1.0494314, 0.6134963)
+texture = ExtResource("27_cduj1")
+
+[node name="Big Wires 2" type="Sprite3D" parent="."]
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 15.433889, 1.0494314, 0.6134963)
+texture = ExtResource("28_7eq66")
+
+[node name="Big Wires 3" type="Sprite3D" parent="."]
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 17.728338, 1.0494314, 0.6134963)
+texture = ExtResource("29_jnh8w")
+
+[node name="Big Wires 4" type="Sprite3D" parent="."]
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 21.445326, 1.7578832, 0.6134963)
+texture = ExtResource("30_kvfnu")
+
+[node name="Big Wires 5" type="Sprite3D" parent="."]
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 25.198954, 1.0494314, 0.6134963)
+texture = ExtResource("31_7pjub")
+
+[node name="Big Wires 6" type="Sprite3D" parent="."]
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 18.959003, -0.06866586, 0.6134963)
+texture = ExtResource("32_5eksb")
+
+[node name="Big Wires 7" type="Sprite3D" parent="."]
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 27.344814, 1.0494314, 0.6134963)
+texture = ExtResource("33_ykxan")
+
+[node name="Big Wires 8" type="Sprite3D" parent="."]
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 21.556782, 1.0494314, 0.6134963)
+texture = ExtResource("34_4s32m")
+
+[node name="Big Wires 9" type="Sprite3D" parent="."]
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 24.237167, -0.29402506, 0.61349535)
+texture = ExtResource("35_3hif6")
+
+[node name="Big Wires 10" type="Sprite3D" parent="."]
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 30.150717, 0.7717246, 0.6134963)
+texture = ExtResource("36_vu5ng")
+
+[node name="Wire Conector 1" type="Sprite3D" parent="."]
+transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 8.56076, 1.2697777, 0.54695696)
+texture = ExtResource("37_fbpb5")
+
+[node name="Wire Conector 2" type="Sprite3D" parent="."]
+transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 9.152475, 1.2697777, 0.54695696)
+texture = ExtResource("38_jyc6m")
+
+[node name="Wire Conector 3" type="Sprite3D" parent="."]
+transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 9.852359, 1.2697777, 0.54695696)
+texture = ExtResource("39_apgab")
+
+[node name="Wire Conector 4" type="Sprite3D" parent="."]
+transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 10.3051815, 1.2697777, 0.54695696)
+texture = ExtResource("40_t1kh3")
+
+[node name="Wire Conector 5" type="Sprite3D" parent="."]
+transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 11.130004, 1.2697777, 0.54695696)
+texture = ExtResource("41_cmnmm")

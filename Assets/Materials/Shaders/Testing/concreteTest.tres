@@ -1,9 +1,4 @@
-[gd_resource type="VisualShader" load_steps=36 format=3 uid="uid://8bejtu65gcaq"]
-
-[ext_resource type="Texture2D" uid="uid://cq36strfh4f40" path="res://testDamageCube_initialShadingGroup_Normal.1001.png" id="1_3r75b"]
-[ext_resource type="Texture2D" uid="uid://odd0ol32esq" path="res://concreteTestTexs/Concrete_metallic.png" id="2_r5hx5"]
-[ext_resource type="Texture2D" uid="uid://i85x7hfacld8" path="res://concreteTestTexs/Concrete_basecolor.png" id="3_35ojm"]
-[ext_resource type="Texture2D" uid="uid://rt4su72xqqey" path="res://concreteTestTexs/Concrete_roughness.png" id="4_jupgj"]
+[gd_resource type="VisualShader" load_steps=32 format=3 uid="uid://8bejtu65gcaq"]
 
 [sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_3r75b"]
 parameter_name = "Edge_Map"
@@ -72,7 +67,6 @@ default_input_values = [0, 0.0, 1, 10.0]
 operator = 2
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_tjwq8"]
-texture = ExtResource("1_3r75b")
 texture_type = 2
 
 [sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_3jfbw"]
@@ -101,7 +95,6 @@ operator = 2
 function = 2
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ac6oa"]
-texture = ExtResource("3_35ojm")
 texture_type = 1
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_5w5t5"]
@@ -202,7 +195,6 @@ vec3 hsv = vec3(100.0 * hue, sat, val);"
 function = 1
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_17scl"]
-texture = ExtResource("2_r5hx5")
 
 [sub_resource type="VisualShaderNodeColorFunc" id="VisualShaderNodeColorFunc_r5hx5"]
 function = 1
@@ -282,7 +274,6 @@ function = 1
 op_type = 0
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_n2nsb"]
-texture = ExtResource("4_jupgj")
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_r5hx5"]
 source = 5
