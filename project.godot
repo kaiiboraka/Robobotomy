@@ -26,7 +26,7 @@ config/icon="uid://c7wscsdw2xd2f"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 LevelManager="*res://Scripts/Autoloads/level_manager.gd"
 EventBus="*res://Scripts/Autoloads/event_bus.gd"
-LayerNames="*res://addons/layerNames/generated/layerNames.gd"
+LayerNames="*res://addons/layerNames/generated/LayerNames.cs"
 LimbSelect="res://Scenes/Autoloads/LimbSelect.tscn"
 
 [display]

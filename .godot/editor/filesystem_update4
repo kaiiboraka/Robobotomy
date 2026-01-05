@@ -1,5 +1,5 @@
 res://addons/layerNames/generated/layerNames.gd
-res://Assets/Materials/Shaders/Testing/celTest.tres
-res://Assets/Materials/Shaders/Testing/procShader.tres
-res://Scenes/Workspaces/shading_workspace.tscn
+res://Scenes/Vertical Slice/Beautiful_Corner.tscn
 res://addons/phantom_camera/themes/theme.tres
+res://Assets/Materials/Shaders/Testing/concreteTest.tres
+res://Assets/Materials/Shaders/Testing/metalCoded.tres
