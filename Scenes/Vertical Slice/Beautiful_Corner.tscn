@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bpgupq5guqtyk"]
+[gd_scene load_steps=60 format=3 uid="uid://bpgupq5guqtyk"]
 
 [ext_resource type="Shader" uid="uid://8bejtu65gcaq" path="res://Assets/Materials/Shaders/Testing/concreteTest.tres" id="1_1krl7"]
 [ext_resource type="Texture2D" uid="uid://ctybxaop6jxrr" path="res://Assets/Materials/Shaders/Concrete Maps/Concrete_basecolor.png" id="2_2dqvl"]
@@ -41,6 +41,20 @@
 [ext_resource type="Texture2D" uid="uid://vs8kw2ktvviy" path="res://Assets/Robobotomy Art/2D/Wires/Wire Conector (3).png" id="39_apgab"]
 [ext_resource type="Texture2D" uid="uid://cyixiuapc443p" path="res://Assets/Robobotomy Art/2D/Wires/Wire Conector (4).png" id="40_t1kh3"]
 [ext_resource type="Texture2D" uid="uid://c8iieo5ohyn7w" path="res://Assets/Robobotomy Art/2D/Wires/Wire Conector (6).png" id="41_cmnmm"]
+[ext_resource type="PackedScene" uid="uid://bdgtqd836i72d" path="res://Assets/Robobotomy Art/3D/Chain.fbx" id="42_2dqvl"]
+[ext_resource type="PackedScene" uid="uid://coxs7i33d1ef8" path="res://Assets/Robobotomy Art/3D/Gear1.fbx" id="43_tjkvv"]
+[ext_resource type="PackedScene" uid="uid://c4dgw5ydpr4mx" path="res://Assets/Robobotomy Art/3D/Gear2.fbx" id="44_8heir"]
+[ext_resource type="PackedScene" uid="uid://d0xp14b4ir2eq" path="res://Assets/Robobotomy Art/3D/Gear3.fbx" id="45_jwlm5"]
+[ext_resource type="PackedScene" uid="uid://bjk81cb8pigg5" path="res://Assets/Robobotomy Art/3D/Gear4.fbx" id="46_giovu"]
+[ext_resource type="PackedScene" uid="uid://blespomnwaekm" path="res://Assets/Robobotomy Art/3D/Gear5.fbx" id="47_y04dn"]
+[ext_resource type="PackedScene" uid="uid://cgwosfdupnmv6" path="res://Assets/Robobotomy Art/3D/Gear6.fbx" id="48_qcd5t"]
+[ext_resource type="PackedScene" uid="uid://c7nmhc8s4ydu" path="res://Assets/Robobotomy Art/3D/Gear7.fbx" id="49_8cphh"]
+[ext_resource type="PackedScene" uid="uid://c58d4swmyxgbq" path="res://Assets/Robobotomy Art/3D/Gear8.fbx" id="50_ijh2y"]
+[ext_resource type="PackedScene" uid="uid://bf07367xtd2jp" path="res://Assets/Robobotomy Art/3D/Gear9.fbx" id="51_lduwr"]
+[ext_resource type="PackedScene" uid="uid://dvhdja1v5jtr8" path="res://Assets/Robobotomy Art/3D/Gear10.fbx" id="52_eglqw"]
+[ext_resource type="PackedScene" uid="uid://cqryufqes6uhe" path="res://Assets/Robobotomy Art/3D/Gear11.fbx" id="53_sj2bw"]
+[ext_resource type="PackedScene" uid="uid://bv7xhukucpjeq" path="res://Assets/Robobotomy Art/3D/Gear12.fbx" id="54_jrynu"]
+[ext_resource type="PackedScene" uid="uid://dnq64r7ln08gd" path="res://Assets/Robobotomy Art/3D/Gear13.fbx" id="55_cduj1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_clgom"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -292,3 +306,45 @@ texture = ExtResource("40_t1kh3")
 [node name="Wire Conector 5" type="Sprite3D" parent="."]
 transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 11.130004, 1.2697777, 0.54695696)
 texture = ExtResource("41_cmnmm")
+
+[node name="Chain" parent="." instance=ExtResource("42_2dqvl")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 8.699712, 0, 3.479205)
+
+[node name="Gear1" parent="." instance=ExtResource("43_tjkvv")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 12.526555, 0, 10.497437)
+
+[node name="Gear2" parent="." instance=ExtResource("44_8heir")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 12.304906, -9.536743e-07, 13.373432)
+
+[node name="Gear3" parent="." instance=ExtResource("45_jwlm5")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 15.31626, 0, 10.234568)
+
+[node name="Gear4" parent="." instance=ExtResource("46_giovu")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 15.161294, 0, 13.110338)
+
+[node name="Gear5" parent="." instance=ExtResource("47_y04dn")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 19.732182, 0, 11.378857)
+
+[node name="Gear6" parent="." instance=ExtResource("48_qcd5t")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 12.66489, 0, 16.05813)
+
+[node name="Gear7" parent="." instance=ExtResource("49_8cphh")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 14.859749, 0, 16.05813)
+
+[node name="Gear8" parent="." instance=ExtResource("50_ijh2y")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 12.526555, 0, 5.482699)
+
+[node name="Gear9" parent="." instance=ExtResource("51_lduwr")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 12.526555, 0, 5.482699)
+
+[node name="Gear10" parent="." instance=ExtResource("52_eglqw")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 15.306859, 0, 5.482699)
+
+[node name="Gear11" parent="." instance=ExtResource("53_sj2bw")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 15.306859, 0, 5.482699)
+
+[node name="Gear12" parent="." instance=ExtResource("54_jrynu")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 18.496092, 0, 5.482699)
+
+[node name="Gear13" parent="." instance=ExtResource("55_cduj1")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 18.496092, 0, 5.482699)
