@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://bpgupq5guqtyk"]
+[gd_scene load_steps=65 format=3 uid="uid://bpgupq5guqtyk"]
 
 [ext_resource type="Shader" uid="uid://8bejtu65gcaq" path="res://Assets/Materials/Shaders/Testing/concreteTest.tres" id="1_1krl7"]
 [ext_resource type="Texture2D" uid="uid://ctybxaop6jxrr" path="res://Assets/Materials/Shaders/Concrete Maps/Concrete_basecolor.png" id="2_2dqvl"]
@@ -55,6 +55,11 @@
 [ext_resource type="PackedScene" uid="uid://cqryufqes6uhe" path="res://Assets/Robobotomy Art/3D/Gear11.fbx" id="53_sj2bw"]
 [ext_resource type="PackedScene" uid="uid://bv7xhukucpjeq" path="res://Assets/Robobotomy Art/3D/Gear12.fbx" id="54_jrynu"]
 [ext_resource type="PackedScene" uid="uid://dnq64r7ln08gd" path="res://Assets/Robobotomy Art/3D/Gear13.fbx" id="55_cduj1"]
+[ext_resource type="PackedScene" uid="uid://cq5qqlxvmghkg" path="res://Assets/Robobotomy Art/3D/Ladder1.fbx" id="56_qcd5t"]
+[ext_resource type="PackedScene" uid="uid://cn0vfixluuhl1" path="res://Assets/Robobotomy Art/3D/Ladder2.fbx" id="57_8cphh"]
+[ext_resource type="PackedScene" uid="uid://0ogmufxuckiv" path="res://Assets/Robobotomy Art/3D/Ladder3.fbx" id="58_ijh2y"]
+[ext_resource type="PackedScene" uid="uid://d0it8xbtafj5s" path="res://Assets/Robobotomy Art/3D/Ladder4.fbx" id="59_lduwr"]
+[ext_resource type="PackedScene" uid="uid://1gsytf1lfktm" path="res://Assets/Robobotomy Art/3D/Ladder.fbx" id="60_eglqw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_clgom"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -348,3 +353,18 @@ transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 18.496092, 0, 5.482699)
 
 [node name="Gear13" parent="." instance=ExtResource("55_cduj1")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 18.496092, 0, 5.482699)
+
+[node name="Ladder1" parent="." instance=ExtResource("56_qcd5t")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 27.138067, 0, 6.602289)
+
+[node name="Ladder2" parent="." instance=ExtResource("57_8cphh")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 27.84885, 0, 6.602289)
+
+[node name="Ladder3" parent="." instance=ExtResource("58_ijh2y")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 27.861683, 1.8378612, 6.602289)
+
+[node name="Ladder4" parent="." instance=ExtResource("59_lduwr")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 28.546946, 0.75525963, 6.602289)
+
+[node name="Ladder" parent="." instance=ExtResource("60_eglqw")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 26.214243, 0, 6.2563443)
