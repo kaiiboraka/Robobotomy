@@ -91,7 +91,7 @@ shader_parameter/tex_frg_26 = ExtResource("2_2dqvl")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ijh2y"]
 albedo_texture = ExtResource("3_8cphh")
 
-[node name="Beutiful_Corner" type="Node3D"]
+[node name="Beautiful_Corner" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kegy0")
