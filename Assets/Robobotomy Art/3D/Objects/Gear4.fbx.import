@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://1gsytf1lfktm"
-path="res://.godot/imported/Ladder.fbx-df8f798ae296da8508ca9283c59e9f29.scn"
+uid="uid://bjk81cb8pigg5"
+path="res://.godot/imported/Gear4.fbx-506aa633f75ffe84e07f76db9ce7f85d.scn"
 
 [deps]
 
-source_file="res://Assets/Robobotomy Art/3D/Ladder.fbx"
-dest_files=["res://.godot/imported/Ladder.fbx-df8f798ae296da8508ca9283c59e9f29.scn"]
+source_file="res://Assets/Robobotomy Art/3D/Objects/Gear4.fbx"
+dest_files=["res://.godot/imported/Gear4.fbx-506aa633f75ffe84e07f76db9ce7f85d.scn"]
 
 [params]
 

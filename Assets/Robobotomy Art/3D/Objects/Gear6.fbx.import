@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c58d4swmyxgbq"
-path="res://.godot/imported/Gear8.fbx-1b2abe5ac6b4bea50f0c8ecdbcfe17ff.scn"
+uid="uid://cgwosfdupnmv6"
+path="res://.godot/imported/Gear6.fbx-66748d3ded65f90452a2489f31c460eb.scn"
 
 [deps]
 
-source_file="res://Assets/Robobotomy Art/3D/Gear8.fbx"
-dest_files=["res://.godot/imported/Gear8.fbx-1b2abe5ac6b4bea50f0c8ecdbcfe17ff.scn"]
+source_file="res://Assets/Robobotomy Art/3D/Objects/Gear6.fbx"
+dest_files=["res://.godot/imported/Gear6.fbx-66748d3ded65f90452a2489f31c460eb.scn"]
 
 [params]
 

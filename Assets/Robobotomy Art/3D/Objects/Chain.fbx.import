@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d0xp14b4ir2eq"
-path="res://.godot/imported/Gear3.fbx-0aca7938f13f402c616f902757719ee4.scn"
+uid="uid://bdgtqd836i72d"
+path="res://.godot/imported/Chain.fbx-cfd81cedb70d3b165305763c6421eb4d.scn"
 
 [deps]
 
-source_file="res://Assets/Robobotomy Art/3D/Gear3.fbx"
-dest_files=["res://.godot/imported/Gear3.fbx-0aca7938f13f402c616f902757719ee4.scn"]
+source_file="res://Assets/Robobotomy Art/3D/Objects/Chain.fbx"
+dest_files=["res://.godot/imported/Chain.fbx-cfd81cedb70d3b165305763c6421eb4d.scn"]
 
 [params]
 

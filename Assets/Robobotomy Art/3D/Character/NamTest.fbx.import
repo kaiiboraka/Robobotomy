@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cgwosfdupnmv6"
-path="res://.godot/imported/Gear6.fbx-f46020a845682569b08bf87cf6b14dc4.scn"
+uid="uid://dsh0mcfyklgg8"
+path="res://.godot/imported/NamTest.fbx-dabf968c7992ef63691d91c6a4570d77.scn"
 
 [deps]
 
-source_file="res://Assets/Robobotomy Art/3D/Gear6.fbx"
-dest_files=["res://.godot/imported/Gear6.fbx-f46020a845682569b08bf87cf6b14dc4.scn"]
+source_file="res://Assets/Robobotomy Art/3D/Character/NamTest.fbx"
+dest_files=["res://.godot/imported/NamTest.fbx-dabf968c7992ef63691d91c6a4570d77.scn"]
 
 [params]
 
