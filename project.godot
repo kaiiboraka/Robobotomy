@@ -27,7 +27,6 @@ PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_came
 LevelManager="*res://Scripts/Autoloads/level_manager.gd"
 EventBus="*res://Scripts/Autoloads/event_bus.gd"
 LayerNames="*res://addons/layerNames/generated/layerNames.gd"
-LimbSelect="res://Scenes/Autoloads/LimbSelect.tscn"
 
 [display]
 
