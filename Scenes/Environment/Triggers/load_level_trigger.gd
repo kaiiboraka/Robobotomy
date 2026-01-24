@@ -30,9 +30,10 @@ func _process(_delta: float) -> void:
 
 ## Loads the next level on a separate thread
 func _on_player_entered(_body: Node3D) -> void:
-	loading_finished = LevelManager.get_threaded_status(level_to_load)
-	if loading_finished:
-		LevelManager.load_threaded_level(level_to_load)
-	else:
-		loading_queued = true
-	triggered = true
+	if not triggered:
+		loading_finished = LevelManager.get_threaded_status(level_to_load)
+		if loading_finished:
+			LevelManager.load_threaded_level(level_to_load)
+		else:
+			loading_queued = true
+		triggered = true

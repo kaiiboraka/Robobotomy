@@ -18,6 +18,7 @@ var triggered := false
 ## of the next level. This should only activate for
 ## the player (its mask is for the player only)
 func _on_player_entered(_body: Node3D) -> void:
-	LevelManager.unload_level()
-	LevelManager.queue_threaded_load(level_to_load)
-	triggered = true
+	if not triggered:
+		LevelManager.unload_level()
+		LevelManager.queue_threaded_load(level_to_load)
+		triggered = true
