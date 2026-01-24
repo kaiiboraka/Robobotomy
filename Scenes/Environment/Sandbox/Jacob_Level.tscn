@@ -29,5 +29,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
 
 [node name="HingeDoorJacob" parent="." instance=ExtResource("5_v23sh")]
 transform = Transform3D(-0.9893563, 0.1455133, 0, -0.1455133, -0.9893563, 0, 0, 0, 1, 5.594255, 3.4354806, 0.6547723)
-doorHeight = 2.565
-doorRadius = 0.17
