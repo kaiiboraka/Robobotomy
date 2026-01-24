@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dbk24fe7ef7m3" path="res://Scenes/Environment/platform_plane.tscn" id="1_8e5ay"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_fujqj"]
-[ext_resource type="PackedScene" uid="uid://dodbf8xbi1m1" path="res://Scenes/Characters/ActualPlayer.tscn" id="4_8y70x"]
+[ext_resource type="PackedScene" path="res://Scenes/Characters/ActualPlayer.tscn" id="4_8y70x"]
 [ext_resource type="PackedScene" uid="uid://cuc1pbmga6imc" path="res://Scenes/Environment/cube_static.tscn" id="5_6uba3"]
 
 [node name="LevelRoot" type="Node3D"]
