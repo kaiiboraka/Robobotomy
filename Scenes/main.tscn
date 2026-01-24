@@ -1,13 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://c87c5afrm7n7y"]
+[gd_scene load_steps=11 format=3 uid="uid://c87c5afrm7n7y"]
 
 [ext_resource type="Script" uid="uid://d0nalugfmbfcp" path="res://Scenes/main.gd" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dbk24fe7ef7m3" path="res://Scenes/Environment/platform_plane.tscn" id="5_21xkr"]
 [ext_resource type="PackedScene" uid="uid://c5x262jkt8yf0" path="res://Scenes/UI/title_screen.tscn" id="5_kry3j"]
-[ext_resource type="PackedScene" path="res://Scenes/Characters/ActualPlayer.tscn" id="6_6bp64"]
+[ext_resource type="PackedScene" uid="uid://dodbf8xbi1m1" path="res://Scenes/Characters/ActualPlayer.tscn" id="6_6bp64"]
 [ext_resource type="PackedScene" uid="uid://b2lsnrmivu4ky" path="res://Scenes/UI/radial_menu.tscn" id="6_21xkr"]
-[ext_resource type="PackedScene" uid="uid://db5rdebx07aqd" path="res://Scenes/Environment/ControllPanel1.tscn" id="7_6bp64"]
-[ext_resource type="PackedScene" uid="uid://3mwuwbanau7c" path="res://Assets/Models/Button.fbx" id="8_344ge"]
+[ext_resource type="PackedScene" uid="uid://7d3uouecigol" path="res://Scenes/Environment/Sandbox/Button.fbx" id="8_344ge"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kry3j"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -54,10 +53,7 @@ transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, -1.1108615, 0)
 
 [node name="TitleScreen" parent="CanvasLayer" instance=ExtResource("5_kry3j")]
 
-[node name="ControllPanel1" parent="." instance=ExtResource("7_6bp64")]
-physics_interpolation_mode = 1
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.2881975, -1.0163441, 2.3115446e-07)
-
 [node name="Button" parent="." instance=ExtResource("8_344ge")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -7.926035, -1.11, 0)
+
 [node name="Player" parent="." instance=ExtResource("6_6bp64")]

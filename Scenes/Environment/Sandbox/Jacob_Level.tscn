@@ -1,21 +1,17 @@
 [gd_scene load_steps=6 format=3 uid="uid://hskffc5ptkfr"]
 
 [ext_resource type="PackedScene" uid="uid://dbk24fe7ef7m3" path="res://Scenes/Environment/platform_plane.tscn" id="1_w7orp"]
-[ext_resource type="PackedScene" uid="uid://c5rju34ocg5dp" path="res://Scenes/Characters/Player.tscn" id="2_4etgu"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_1mdn6"]
 [ext_resource type="PackedScene" uid="uid://gl5j7l3w6avc" path="res://Scenes/Environment/simple_box.tscn" id="4_1u2ve"]
 [ext_resource type="PackedScene" uid="uid://dg2v5675ajsfd" path="res://Scenes/Environment/HingeDoor_jacob.tscn" id="5_v23sh"]
+[ext_resource type="PackedScene" uid="uid://dodbf8xbi1m1" path="res://Scenes/Characters/ActualPlayer.tscn" id="5_yx0mv"]
 
 [node name="LevelRoot" type="Node3D"]
 
 [node name="PlatformStatic" parent="." instance=ExtResource("1_w7orp")]
 
-[node name="Player" parent="." instance=ExtResource("2_4etgu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6592422, 0)
-
 [node name="Camera3D" type="Camera3D" parent="."]
-physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6592422, 4.16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60415363, 2, 4.168)
 fov = 80.0
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
@@ -31,3 +27,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
 transform = Transform3D(-0.9893563, 0.1455133, 0, -0.1455133, -0.9893563, 0, 0, 0, 1, 5.594255, 3.4354806, 0.6547723)
 doorHeight = 2.565
 doorRadius = 0.17
+
+[node name="Player" parent="." instance=ExtResource("5_yx0mv")]
