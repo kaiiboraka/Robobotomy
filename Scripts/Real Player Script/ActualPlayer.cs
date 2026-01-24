@@ -2,32 +2,22 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+// myGDScriptNode.Connect("my_signal_with_params", Callable.From<string, int>(MySignalWithParamsHandler));
+
 public partial class ActualPlayer : Node
 {
 	private ISelectable selectedLimb;
-
-	public enum LimbTypes
-	{
-		Head = 1,
-		LeftArm = 2,
-		Torso = 3,
-		RightArm = 4,
-		LeftLeg = 5,
-		RightLeg = 6
-	}
-
+	public enum LimbTypes { Head, LeftArm, Torso, RightArm, LeftLeg, RightLeg }
 	public Dictionary<LimbTypes, ISelectable> starterLimbs = new Dictionary<LimbTypes, ISelectable>();
 	public static ActualPlayer instance;
-
-	public enum CharacterStates
-	{
-	}
-
+	public enum CharacterStates{}
 	private Label3D selectedText;
 	private Camera3D mainCamera;
-
 	public override void _Ready()
 	{
+		// Get the eventbus singleton
+		Node eventBus = (Node)GetNode("/root/EventBus");
+		eventBus.Connect("limb_selected", Callable.From<int>(selectLimb));
 		//Establish a singleton
 		if (instance == null)
 		{
@@ -37,7 +27,6 @@ public partial class ActualPlayer : Node
 		{
 			Free();
 		}
-
 		//Get the main Camera for throwing
 		mainCamera = GetViewport().GetCamera3D();
 
@@ -61,46 +50,46 @@ public partial class ActualPlayer : Node
 		((IHub)selectedLimb).AddConnection(starterLimbs[LimbTypes.RightLeg]);
 		((IHub)selectedLimb).AddConnection(starterLimbs[LimbTypes.Head]);
 	}
-
 	private LimbTypes throwingLimb;
-
-	public override void _Input(InputEvent @event)
-	{
-		base._Input(@event);
-
-		// TODO : move TrySelectLimb to be event driven via Input
-		if (@event.IsActionPressed("Number1"))
-		{
-		}
-	}
 
 	public override void _PhysicsProcess(double delta)
 	{
 		selectedLimb.MoveMe();
-
-		TrySelectLimb(LimbTypes.Head);
-		TrySelectLimb(LimbTypes.LeftArm);
-		TrySelectLimb(LimbTypes.Torso);
-		TrySelectLimb(LimbTypes.RightArm);
-		TrySelectLimb(LimbTypes.LeftArm);
-		TrySelectLimb(LimbTypes.RightArm);
-
+		if (Input.IsActionJustPressed("Number1")) { //Head
+			selectLimb(0);
+			}
+		if (Input.IsActionJustPressed("Number2")) { //LeftArm
+			selectLimb(1);
+			}
+		if (Input.IsActionJustPressed("Number3")) { //Torso
+			selectLimb(2);
+			}
+		if (Input.IsActionJustPressed("Number4")) { //RightArm
+			selectLimb(3);
+			}
+		if (Input.IsActionJustPressed("Number5")) { //LeftLeg
+			selectLimb(4);
+			}
+		if (Input.IsActionJustPressed("Number6")) { //RightLeg
+			selectLimb(5);
+			}
 		selectedText.Text = throwingLimb.ToString();
 
 		if (Input.IsActionJustPressed("Player_Throw_Limb"))
 		{
-			if (selectedLimb == starterLimbs[LimbTypes.Torso])
+			if(selectedLimb == starterLimbs[LimbTypes.Torso])
 			{
-				InitiateThrow(starterLimbs[throwingLimb], (IHub)starterLimbs[LimbTypes.Torso]);
+				initiateThrow(starterLimbs[throwingLimb], (IHub)starterLimbs[LimbTypes.Torso]);
 				throwingLimb = LimbTypes.Torso;
 			}
+			
 		}
 
 		if (Input.IsActionJustPressed("Player_Recall"))
 		{
-			if (selectedLimb == starterLimbs[LimbTypes.Torso])
+			if(selectedLimb == starterLimbs[LimbTypes.Torso])
 			{
-				foreach (ISelectable limb in starterLimbs.Values)
+				foreach(ISelectable limb in starterLimbs.Values)
 				{
 					if (limb.amIsolated)
 					{
@@ -118,20 +107,25 @@ public partial class ActualPlayer : Node
 		}
 	}
 
-	private void TrySelectLimb(LimbTypes which)
+
+	public void selectLimb(int limb)
 	{
-		if (Input.IsActionJustPressed($"Number{(int)which}"))
-		{ //Head
-			throwingLimb = which;
-			if (starterLimbs[throwingLimb].amIsolated) selectedLimb.Deselect();
-			selectedLimb = starterLimbs[throwingLimb].OnSelect();
+		/* 
+		Player Limb enum order is:
+		Head, Left Arm, Torso, Right Arm, Left Leg, Right Leg
+		*/ 
+		throwingLimb = (LimbTypes)limb;
+		if (starterLimbs[throwingLimb].amIsolated)
+		{
+			selectedLimb.Deselect();
 		}
+		selectedLimb = starterLimbs[throwingLimb].OnSelect();
 	}
 
-	private void InitiateThrow(ISelectable thrownLimb, IHub throwingLimb)
+	private void initiateThrow(ISelectable thrownLimb, IHub throwingLimb)
 	{
-		if (((Node3D)thrownLimb).GetParent().GetType() != typeof(Torso)) return;
-		if (throwingLimb.numArms == 0) return;
+		if(((Node3D)thrownLimb).GetParent().GetType() != typeof(Torso)) return;
+		if(throwingLimb.numArms == 0) return;
 		throwingLimb.RemoveConnection(thrownLimb);
 		ThrowLimb((Node3D)thrownLimb);
 	}
