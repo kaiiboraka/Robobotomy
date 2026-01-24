@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bjeeyxmwi3ns7"
-path="res://.godot/imported/NamelessV01.fbx-549d2d72777c3aa2dd6049c8229c1512.scn"
+uid="uid://dyjk1o3t7yynh"
+path="res://.godot/imported/robobotomyassetts_1.fbx-3c6474285d0a1136c57a9a8320bc7cc7.scn"
 
 [deps]
 
-source_file="res://Assets/Models/NamelessV01.fbx"
-dest_files=["res://.godot/imported/NamelessV01.fbx-549d2d72777c3aa2dd6049c8229c1512.scn"]
+source_file="res://Assets/Models/robobotomyassetts_1.fbx"
+dest_files=["res://.godot/imported/robobotomyassetts_1.fbx-3c6474285d0a1136c57a9a8320bc7cc7.scn"]
 
 [params]
 

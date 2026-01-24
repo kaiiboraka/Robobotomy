@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://cyh3q0j5km2bb" path="res://Scenes/Environment/Diegetic UI/LightGrid.tscn" id="1_u8xmd"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_eev3h"]
 [ext_resource type="PackedScene" uid="uid://dbk24fe7ef7m3" path="res://Scenes/Environment/platform_plane.tscn" id="2_pdjvp"]
-[ext_resource type="PackedScene" uid="uid://dodbf8xbi1m1" path="res://Scenes/Characters/ActualPlayer.tscn" id="4_pdjvp"]
+[ext_resource type="PackedScene" uid="uid://c5rju34ocg5dp" path="res://Scenes/Characters/Player.tscn" id="3_b55mh"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_kb03k"]
+[sub_resource type="BoxMesh" id="BoxMesh_pdjvp"]
 size = Vector3(4, 6, 0.1)
 
 [sub_resource type="GDScript" id="GDScript_b55mh"]
@@ -49,15 +49,19 @@ size = Vector3(1, 10, 5)
 
 [node name="LightGrid" parent="." instance=ExtResource("1_u8xmd")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2.1603565, 2.5133555, 0)
-mesh = SubResource("BoxMesh_kb03k")
+mesh = SubResource("BoxMesh_pdjvp")
 script = SubResource("GDScript_b55mh")
 light_width = 2
 light_height = 3
 
 [node name="PlatformStatic" parent="." instance=ExtResource("2_pdjvp")]
 
+[node name="Player" parent="." instance=ExtResource("3_b55mh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6592422, 0)
+
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60415363, 2, 4.168)
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6592422, 4.16)
 fov = 80.0
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
@@ -83,8 +87,6 @@ shape = SubResource("BoxShape3D_pdjvp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="door"]
 mesh = SubResource("BoxMesh_b55mh")
-
-[node name="Player" parent="." instance=ExtResource("4_pdjvp")]
 
 [connection signal="activated" from="LightGrid" to="door" method="_on_light_grid_activated"]
 [connection signal="deactivated" from="LightGrid" to="door" method="_on_light_grid_deactivated"]
