@@ -2,9 +2,9 @@
 
 [ext_resource type="Shader" uid="uid://8bejtu65gcaq" path="res://Assets/Materials/Shaders/Testing/concreteTest.tres" id="1_1krl7"]
 [ext_resource type="Texture2D" uid="uid://ctybxaop6jxrr" path="res://Assets/Materials/Shaders/Concrete Maps/Concrete_basecolor.png" id="2_2dqvl"]
-[ext_resource type="ArrayMesh" uid="uid://t8d3kgdr82fj" path="res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_medium.res" id="3_iv5s1"]
+[ext_resource type="ArrayMesh" uid="uid://d1iqktciv7tc8" path="res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_medium.res" id="3_iv5s1"]
 [ext_resource type="Texture2D" uid="uid://dn2o72o1l4ru8" path="res://Assets/Robobotomy Art/2D/Chains/Chain 5.png" id="3_usww3"]
-[ext_resource type="ArrayMesh" uid="uid://xs4st1qytb1" path="res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_short.res" id="4_t2hkb"]
+[ext_resource type="ArrayMesh" uid="uid://bs7mr6pntvtby" path="res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_short.res" id="4_t2hkb"]
 [ext_resource type="Texture2D" uid="uid://dl71oer0po4d" path="res://Assets/Robobotomy Art/2D/Chains/Chain 1.png" id="4_u372d"]
 [ext_resource type="Texture2D" uid="uid://dcho4md82yryf" path="res://Assets/Robobotomy Art/2D/Chains/Chain 4.png" id="5_ai4pf"]
 [ext_resource type="Script" uid="uid://dvhdc084jl6xm" path="res://Scripts/Tools/test_camera.gd" id="5_t2hkb"]
@@ -91,7 +91,7 @@
 [ext_resource type="ArrayMesh" uid="uid://b2g4xvdkvetdd" path="res://Scenes/Vertical Slice/3d assetts/kitbash/powercable_tee.res" id="88_r5u0n"]
 [ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Scenes/Vertical Slice/3d assetts/kitbash/scaffold.res" id="89_4pi8g"]
 [ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Scenes/Vertical Slice/3d assetts/kitbash/terminal.res" id="90_5i7sb"]
-[ext_resource type="ArrayMesh" uid="uid://xtnu212fgvcc" path="res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_long.res" id="91_0v81c"]
+[ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_long.res" id="91_0v81c"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_clgom"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)

@@ -16,8 +16,8 @@ project_layer_names/c#_namespace="Robobotomy"
 [application]
 
 config/name="Robobotomy"
-run/main_scene="uid://qnd58s5egvhu"
-config/features=PackedStringArray("4.5", "Forward Plus")
+run/main_scene="uid://0i11ws0p2ul1"
+config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 boot_splash/image="uid://c4l6sjl3ml1la"
 config/icon="uid://c7wscsdw2xd2f"
 
