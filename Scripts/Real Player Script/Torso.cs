@@ -12,6 +12,7 @@ public partial class Torso : RigidBody3D, ISelectable, IHub
     public Dictionary<ActualPlayer.LimbTypes, Socket> Sockets {get;set;}
     public List<ISelectable> myConnections { get; set; }
     public int numLegs { get; set; } = 0;
+    public bool amSelected {get;set;}
     public int numArms { get; set; } = 0;
 
     //Movement
@@ -72,7 +73,7 @@ public partial class Torso : RigidBody3D, ISelectable, IHub
             }
         };
 
-        
+        Movement._Ready(this);
 
     }
 
@@ -169,6 +170,10 @@ public partial class Torso : RigidBody3D, ISelectable, IHub
     }
 
     //Movement
+    public override void _IntegrateForces(PhysicsDirectBodyState3D state)
+    {
+        Movement._IntegrateForces(state, this);
+    }
     public void MoveMe() //This is ISelectable but it's movement so I put it in movement
     {
         for (int i = 0; i < myConnections.Count; i++)

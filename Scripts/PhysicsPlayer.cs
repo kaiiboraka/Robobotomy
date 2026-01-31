@@ -48,22 +48,6 @@ public partial class PhysicsPlayer : RigidBody3D
             // Simple deceleration by applying a force opposite the current velocity
             state.ApplyCentralForce(-currentHorizontalVelocity.Normalized() * Mass * Deceleration);
         }
-        /*
-        Vector3 targetVelocity = inputDir * MoveSpeed;
-        Vector3 currentVelocity = new Vector3(state.LinearVelocity.X, 0, 0);
-        Vector3 velocityChange = targetVelocity - currentVelocity;
-        
-        // Apply force to reach target velocity
-        if (velocityChange != Vector3.Zero)
-        {
-            Vector3 force = velocityChange * Mass / (float)state.Step;
-            state.ApplyCentralForce(force);
-        }
-        else // No input, apply a deceleration force
-        {
-            state.ApplyCentralForce(-currentVelocity.Normalized() * Mass * Deceleration);
-        }
-        */
         
         // Check if player is on ground
         bool foundGround = false;
@@ -86,7 +70,7 @@ public partial class PhysicsPlayer : RigidBody3D
             ApplyCentralImpulse(Vector3.Up * JumpForce * Mass);
         }
         
-        // --- FIXED GRAVITY LOGIC ---
+        // --- GRAVITY LOGIC ---
         Vector3 gravityVector = Vector3.Down * _baseGravity * Mass;
         // Always apply base gravity first
         state.ApplyCentralForce(gravityVector); 
@@ -102,7 +86,7 @@ public partial class PhysicsPlayer : RigidBody3D
             state.ApplyCentralForce(gravityVector * (JumpMultiplier - 1.0f));
         } 
         
-        // --- KEY FIX: CAP THE FALL SPEED ---
+        // --- CAP THE FALL SPEED ---
         // Clamp the Y velocity to ensure it never goes below -MaxFallSpeed
         state.LinearVelocity = new Vector3(
             state.LinearVelocity.X,
