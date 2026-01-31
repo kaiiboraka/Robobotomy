@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5x262jkt8yf0"]
+[gd_scene format=3 uid="uid://c5x262jkt8yf0"]
 
 [ext_resource type="Script" uid="uid://m7rqg5aha0v1" path="res://Scenes/UI/title_screen.gd" id="1_xsyet"]
 [ext_resource type="Texture2D" uid="uid://ddagsld40ed68" path="res://Assets/Images/background.jpg" id="2_dnytt"]
+[ext_resource type="Texture2D" uid="uid://bnmmm7p4xdi3o" path="res://Assets/Robobotomy Art/2D/UI/Robobotoy Old Title.png" id="3_kyvdy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bb5vv"]
 font_size = 45
 
-[node name="TitleScreen" type="Control"]
+[node name="TitleScreen" type="Control" unique_id=1878181165]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,7 +18,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_xsyet")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1190614879]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,7 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.013748739, 0.054101586, 0.16209865, 1)
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2113228493]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,36 +39,43 @@ grow_vertical = 2
 texture = ExtResource("2_dnytt")
 expand_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1683141901]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -1.0
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 1.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1461722975]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1760113117]
 layout_mode = 2
 size_flags_vertical = 1
-text = "Robobotomy"
 label_settings = SubResource("LabelSettings_bb5vv")
 
-[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=440715355]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Load Game"
 
-[node name="SceneToLoad" type="LineEdit" parent="CenterContainer/VBoxContainer"]
+[node name="SceneToLoad" type="LineEdit" parent="CenterContainer/VBoxContainer" unique_id=618434101]
 unique_name_in_owner = true
 layout_mode = 2
 placeholder_text = "(Optional) Scene File Path Here"
+
+[node name="RobobotoyOldTitle" type="Sprite2D" parent="CenterContainer/VBoxContainer" unique_id=1016019396]
+position = Vector2(50, 23.000011)
+scale = Vector2(0.13993742, 0.13993743)
+texture = ExtResource("3_kyvdy")
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
