@@ -14,6 +14,8 @@ public partial class PhysicsPlayer : RigidBody3D
     private bool _isGrounded = false;
     // Adjust this threshold to handle slopes
     private const float GroundNormalThreshold = 0.9f;
+    
+    private PhysicsMaterial _playerMaterial;
 
     public override void _Ready()
     {
@@ -24,6 +26,13 @@ public partial class PhysicsPlayer : RigidBody3D
         _baseGravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
         LinearDampMode = DampMode.Replace;
         LinearDamp = 0.0f; 
+        
+        // Cache the material from the PhysicsMaterialOverride slot
+        if (PhysicsMaterialOverride != null) {
+            _playerMaterial = PhysicsMaterialOverride;
+        } else {
+            GD.PrintErr("Please assign a PhysicsMaterial to the PhysicsMaterialOverride slot!");
+        }
     }
     public override void _IntegrateForces(PhysicsDirectBodyState3D state)
     {
@@ -39,7 +48,7 @@ public partial class PhysicsPlayer : RigidBody3D
             Vector3 targetVelocity = inputDir * MoveSpeed;
             Vector3 velocityChange = targetVelocity - currentHorizontalVelocity;
             
-            // We apply a force to match the desired speed instantly
+            // Apply a force to match the desired speed instantly
             // This method works better than complex force calculations inside IntegrateForces
             state.LinearVelocity += velocityChange; 
         }
@@ -68,6 +77,14 @@ public partial class PhysicsPlayer : RigidBody3D
         if (Input.IsActionJustPressed("ui_up") && _isGrounded)
         {
             ApplyCentralImpulse(Vector3.Up * JumpForce * Mass);
+        }
+        
+        // --- FRICTION TOGGLE ---
+        if (_playerMaterial != null)
+        {
+            // When grounded, use friction (e.g., 1.0) so you don't slide on slopes.
+            // When in air, use 0.0 to prevent sticking to walls.
+            //_playerMaterial.Friction = _isGrounded ? 1.0f : 0.0f;
         }
         
         // --- GRAVITY LOGIC ---
