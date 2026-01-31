@@ -13,6 +13,10 @@ config_version=5
 project_layer_names/output=2
 project_layer_names/c#_namespace="Robobotomy"
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Robobotomy"
