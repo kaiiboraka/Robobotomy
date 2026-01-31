@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjqsjecefodkk"]
+
+[ext_resource type="Script" uid="uid://bledahrwikdls" path="res://Scripts/Lighting/RotatingLight.gd" id="1_2okn3"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Key" type="SpotLight3D" parent="."]
+transform = Transform3D(0.77973145, 0, 0.6261141, 0, 1, 0, -0.6261141, 0, 0.77973145, 4.095356, -0.93501353, 2.2067022)
+spot_range = 3.543
+
+[node name="Fill" type="SpotLight3D" parent="."]
+transform = Transform3D(0.70143205, 0, -0.71273637, 0, 1, 0, 0.71273637, 0, 0.70143205, -2.985116, 0, 1.6845644)
+light_energy = 0.2
+
+[node name="Rim" type="SpotLight3D" parent="." node_paths=PackedStringArray("camera", "source_array", "orbitTarget")]
+transform = Transform3D(0.9949555, 0, -0.10031756, 0, 1, 0, 0.10031756, 0, 0.9949555, -0.25088185, -0.44300342, 4.5017347)
+spot_range = 6.132
+spot_attenuation = 0.5
+spot_angle = 83.18
+spot_angle_attenuation = 2.9281673
+script = ExtResource("1_2okn3")
+cameraOrSource = true
+camera = NodePath("")
+source_array = [NodePath(""), NodePath("")]
+orbitTarget = NodePath("")
+orbitDistance = 2.0
+towardsSource = true

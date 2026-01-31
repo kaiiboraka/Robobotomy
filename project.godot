@@ -20,7 +20,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Robobotomy"
-run/main_scene="uid://0i11ws0p2ul1"
+run/main_scene="uid://c87c5afrm7n7y"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 boot_splash/image="uid://c4l6sjl3ml1la"
 config/icon="uid://c7wscsdw2xd2f"
@@ -31,7 +31,6 @@ PhantomCameraManager="*uid://duq6jhf6unyis"
 LevelManager="*res://Scripts/Autoloads/level_manager.gd"
 EventBus="*res://Scripts/Autoloads/event_bus.gd"
 LayerNames="*uid://b5oond0fqbarv"
-LimbSelect="res://Scenes/Autoloads/LimbSelect.tscn"
 
 [display]
 

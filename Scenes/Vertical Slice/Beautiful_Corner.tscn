@@ -118,7 +118,7 @@ render_priority = 0
 shader = ExtResource("1_1krl7")
 shader_parameter/tex_frg_26 = ExtResource("2_2dqvl")
 
-[node name="Beutiful_Corner" type="Node3D"]
+[node name="Beautiful_Corner" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kegy0")
@@ -200,6 +200,10 @@ texture = ExtResource("7_wh327")
 transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 11.179459, 0, 0.6390753)
 texture = ExtResource("8_2c3rr")
 
+[node name="Chain 7" type="Sprite3D" parent="."]
+transform = Transform3D(0.07361869, 0, 0, 0, 0.07361869, 0, 0, 0, 0.5073237, -2.8280544, 1.9396122, 1.1309084)
+texture = ExtResource("8_2c3rr")
+
 [node name="Dust 0" type="Sprite3D" parent="."]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 24.039227, 4.9024816, -7.0659156)
 texture = ExtResource("9_5e5an")
@@ -252,9 +256,36 @@ texture = ExtResource("20_qcd5t")
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 22.505611, 2.4926872, -7.065915)
 texture = ExtResource("21_8cphh")
 
-[node name="Dust 19" type="Sprite3D" parent="."]
+[node name="Midground1" type="Node3D" parent="."]
+
+[node name="Dust 19" type="Sprite3D" parent="Midground1"]
 transform = Transform3D(0.21420093, 0, 0, 0, 0.21420093, 0, 0, 0, 0.62192243, -3.6969197, 0.21355939, -2.0710137)
+render_priority = 1
 texture = ExtResource("21_8cphh")
+
+[node name="Dust 21" type="Sprite3D" parent="Midground1"]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 3.0540662, 0.502218, -1.7175379)
+render_priority = 1
+texture = ExtResource("15_tjkvv")
+
+[node name="Midground2" type="Node3D" parent="."]
+
+[node name="Dust 20" type="Sprite3D" parent="Midground2"]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 0.72899127, 0.7341813, -0.5497289)
+render_priority = 2
+texture = ExtResource("26_jrynu")
+
+[node name="Foreground3" type="Node3D" parent="."]
+
+[node name="Big Wires 12" type="Sprite3D" parent="Foreground3"]
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, -3.6463974, 2.1694398, 1.0917041)
+render_priority = 3
+texture = ExtResource("29_jnh8w")
+
+[node name="Big Wires 11" type="Sprite3D" parent="Foreground3"]
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 4.3790016, 2.2052617, 1.1421208)
+render_priority = 3
+texture = ExtResource("33_ykxan")
 
 [node name="Dust 13" type="Sprite3D" parent="."]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 13.725531, 2.585803, -7.0659156)
@@ -304,12 +335,12 @@ texture = ExtResource("31_7pjub")
 transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 18.959003, -0.06866586, 0.6134963)
 texture = ExtResource("32_5eksb")
 
+[node name="Big Wires 13" type="Sprite3D" parent="."]
+transform = Transform3D(0.08094201, 0, 0, 0, 0.08094201, 0, 0, 0, 0.57425773, 3.3151422, 0.26957512, 1.1070123)
+texture = ExtResource("32_5eksb")
+
 [node name="Big Wires 7" type="Sprite3D" parent="."]
 transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 27.344814, 1.0494314, 0.6134963)
-texture = ExtResource("33_ykxan")
-
-[node name="Big Wires 11" type="Sprite3D" parent="."]
-transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 4.3790016, 2.2052617, 2.0404828)
 texture = ExtResource("33_ykxan")
 
 [node name="Big Wires 8" type="Sprite3D" parent="."]
@@ -587,3 +618,7 @@ mesh = ExtResource("67_latii")
 [node name="LadderLarge2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.25950328, 0, -0.07573172, 0, 0.270328, 0, 0.07573172, 0, -0.25950328, -3.945445, 0.9718144, -2.6881027)
 mesh = ExtResource("71_d216d")
+
+[node name="GearSpurwithspokes2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.81854963, 0.5090148, 0.26623395, 0.16826865, 0.23067078, -0.958372, -0.549238, 0.8292737, 0.103164166, -6.2961087, 0.035229295, -1.6542526)
+mesh = ExtResource("68_30kme")
