@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bjeeyxmwi3ns7"
-path="res://.godot/imported/NamelessV01.fbx-549d2d72777c3aa2dd6049c8229c1512.scn"
+uid="uid://coxs7i33d1ef8"
+path="res://.godot/imported/Gear1.fbx-8375ea1430625fba9dbda4320f55b247.scn"
 
 [deps]
 
-source_file="res://Assets/Models/NamelessV01.fbx"
-dest_files=["res://.godot/imported/NamelessV01.fbx-549d2d72777c3aa2dd6049c8229c1512.scn"]
+source_file="res://Assets/Robobotomy Art/3D/Objects/Gear1.fbx"
+dest_files=["res://.godot/imported/Gear1.fbx-8375ea1430625fba9dbda4320f55b247.scn"]
 
 [params]
 
@@ -17,7 +17,7 @@ nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
 nodes/apply_root_scale=true
-nodes/root_scale=100.0
+nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
 nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true

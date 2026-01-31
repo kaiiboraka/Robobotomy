@@ -1,7 +1,8 @@
-[gd_scene load_steps=46 format=3 uid="uid://bpgupq5guqtyk"]
+[gd_scene load_steps=68 format=3 uid="uid://bpgupq5guqtyk"]
 
 [ext_resource type="Shader" uid="uid://8bejtu65gcaq" path="res://Assets/Materials/Shaders/Testing/concreteTest.tres" id="1_1krl7"]
-[ext_resource type="Texture2D" uid="uid://ctybxaop6jxrr" path="res://Assets/Materials/Shaders/Testing/Concrete Maps/Concrete_basecolor.png" id="2_2dqvl"]
+[ext_resource type="Texture2D" uid="uid://ctybxaop6jxrr" path="res://Assets/Materials/Shaders/Concrete Maps/Concrete_basecolor.png" id="2_2dqvl"]
+[ext_resource type="Texture2D" uid="uid://bjxesltgc0q2x" path="res://Assets/Robobotomy Art/2D/Character/Eye.png" id="3_8cphh"]
 [ext_resource type="Texture2D" uid="uid://dn2o72o1l4ru8" path="res://Assets/Robobotomy Art/2D/Chains/Chain 5.png" id="3_usww3"]
 [ext_resource type="Texture2D" uid="uid://dl71oer0po4d" path="res://Assets/Robobotomy Art/2D/Chains/Chain 1.png" id="4_u372d"]
 [ext_resource type="Texture2D" uid="uid://dcho4md82yryf" path="res://Assets/Robobotomy Art/2D/Chains/Chain 4.png" id="5_ai4pf"]
@@ -41,6 +42,26 @@
 [ext_resource type="Texture2D" uid="uid://vs8kw2ktvviy" path="res://Assets/Robobotomy Art/2D/Wires/Wire Conector (3).png" id="39_apgab"]
 [ext_resource type="Texture2D" uid="uid://cyixiuapc443p" path="res://Assets/Robobotomy Art/2D/Wires/Wire Conector (4).png" id="40_t1kh3"]
 [ext_resource type="Texture2D" uid="uid://c8iieo5ohyn7w" path="res://Assets/Robobotomy Art/2D/Wires/Wire Conector (6).png" id="41_cmnmm"]
+[ext_resource type="PackedScene" uid="uid://bdgtqd836i72d" path="res://Assets/Robobotomy Art/3D/Objects/Chain.fbx" id="42_2dqvl"]
+[ext_resource type="PackedScene" uid="uid://coxs7i33d1ef8" path="res://Assets/Robobotomy Art/3D/Objects/Gear1.fbx" id="43_tjkvv"]
+[ext_resource type="PackedScene" uid="uid://c4dgw5ydpr4mx" path="res://Assets/Robobotomy Art/3D/Objects/Gear2.fbx" id="44_8heir"]
+[ext_resource type="PackedScene" uid="uid://d0xp14b4ir2eq" path="res://Assets/Robobotomy Art/3D/Objects/Gear3.fbx" id="45_jwlm5"]
+[ext_resource type="PackedScene" uid="uid://bjk81cb8pigg5" path="res://Assets/Robobotomy Art/3D/Objects/Gear4.fbx" id="46_giovu"]
+[ext_resource type="PackedScene" uid="uid://blespomnwaekm" path="res://Assets/Robobotomy Art/3D/Objects/Gear5.fbx" id="47_y04dn"]
+[ext_resource type="PackedScene" uid="uid://cgwosfdupnmv6" path="res://Assets/Robobotomy Art/3D/Objects/Gear6.fbx" id="48_qcd5t"]
+[ext_resource type="PackedScene" uid="uid://c7nmhc8s4ydu" path="res://Assets/Robobotomy Art/3D/Objects/Gear7.fbx" id="49_8cphh"]
+[ext_resource type="PackedScene" uid="uid://c58d4swmyxgbq" path="res://Assets/Robobotomy Art/3D/Objects/Gear8.fbx" id="50_ijh2y"]
+[ext_resource type="PackedScene" uid="uid://bf07367xtd2jp" path="res://Assets/Robobotomy Art/3D/Objects/Gear9.fbx" id="51_lduwr"]
+[ext_resource type="PackedScene" uid="uid://dvhdja1v5jtr8" path="res://Assets/Robobotomy Art/3D/Objects/Gear10.fbx" id="52_eglqw"]
+[ext_resource type="PackedScene" uid="uid://cqryufqes6uhe" path="res://Assets/Robobotomy Art/3D/Objects/Gear11.fbx" id="53_sj2bw"]
+[ext_resource type="PackedScene" uid="uid://bv7xhukucpjeq" path="res://Assets/Robobotomy Art/3D/Objects/Gear12.fbx" id="54_jrynu"]
+[ext_resource type="PackedScene" uid="uid://dnq64r7ln08gd" path="res://Assets/Robobotomy Art/3D/Objects/Gear13.fbx" id="55_cduj1"]
+[ext_resource type="PackedScene" uid="uid://cq5qqlxvmghkg" path="res://Assets/Robobotomy Art/3D/Objects/Ladder1.fbx" id="56_qcd5t"]
+[ext_resource type="PackedScene" uid="uid://cn0vfixluuhl1" path="res://Assets/Robobotomy Art/3D/Objects/Ladder2.fbx" id="57_8cphh"]
+[ext_resource type="PackedScene" uid="uid://0ogmufxuckiv" path="res://Assets/Robobotomy Art/3D/Objects/Ladder3.fbx" id="58_ijh2y"]
+[ext_resource type="PackedScene" uid="uid://d0it8xbtafj5s" path="res://Assets/Robobotomy Art/3D/Objects/Ladder4.fbx" id="59_lduwr"]
+[ext_resource type="PackedScene" uid="uid://1gsytf1lfktm" path="res://Assets/Robobotomy Art/3D/Objects/Ladder.fbx" id="60_eglqw"]
+[ext_resource type="PackedScene" uid="uid://dsh0mcfyklgg8" path="res://Assets/Robobotomy Art/3D/Character/NamTest.fbx" id="62_ijh2y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_clgom"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -67,7 +88,10 @@ render_priority = 0
 shader = ExtResource("1_1krl7")
 shader_parameter/tex_frg_26 = ExtResource("2_2dqvl")
 
-[node name="Beutiful_Corner" type="Node3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ijh2y"]
+albedo_texture = ExtResource("3_8cphh")
+
+[node name="Beautiful_Corner" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kegy0")
@@ -81,21 +105,27 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0
 use_collision = true
 
 [node name="Floor" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(32.6512, 0, 0, 0, -0.100000024, 0, 0, 0, 19.756918, -1.0430841, 0.0092635155, 2.426883)
-size = Vector3(0.50439453, 1, 1)
+transform = Transform3D(32.6512, 0, 0, 0, -0.100000024, 0, 0, 0, 19.756918, -1.0430841, 0.0092635155, 1.4380724)
+size = Vector3(0.50439453, 1, 1.1000977)
 
 [node name="celeing" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(30.495203, 0, 0, 0, -0.100000024, 0, 0, 0, 19.378424, -1.3685765, 8.423673, 2.2323043)
 size = Vector3(0.50439453, 6.3514404, 1)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/celeing"]
-transform = Transform3D(0.056489464, 0, -0.09136173, 0, 15.316719, 0, 0.009670127, 0, 0.5337029, -0.023163129, 0, -0.13500613)
+transform = Transform3D(0.056489464, 0, -0.09136173, 0, 15.316719, 0, 0.009670127, 0, 0.53370297, 0.07372679, 0, -0.13419047)
 operation = 2
+size = Vector3(0.8312988, 1, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D/celeing"]
+transform = Transform3D(0.056489464, 0, -0.09136173, 0, 15.316719, 0, 0.009670127, 0, 0.53370297, -0.059555057, 0, -0.09233005)
+operation = 2
+size = Vector3(1.25177, 1, 1)
 
 [node name="Wall" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(0.4337977, 0, 0, 0, -3.8306673, 0, 0, 0, 16.3796, -8.943621, 3.9740145, 2.7220006)
+transform = Transform3D(0.4337977, 0, 0, 0, -3.8306673, 0, 0, 0, 16.3796, -8.943621, 3.9740145, 1.5563136)
 material_override = SubResource("ShaderMaterial_pwyat")
-size = Vector3(0.50439453, 2.1875, 1.2094727)
+size = Vector3(0.50439453, 2.1875, 1.3518066)
 
 [node name="Wall2" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(24.590261, 0, 0, 0, -3.7671442, 0, 0, 0, -591.88715, -1.1917497, 3.9740145, 12.186031)
@@ -128,9 +158,10 @@ transform = Transform3D(0.5101288, 0, 0, 0, 4.05173, 0.11336553, 0, -0.92350566,
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1.0000005, 0, 0, 0, 0.038406778, 0, -3.5527137e-15, 0, 67.98717, -5.6912825e-07, 0.011908174, -13.020137)
+material_override = SubResource("StandardMaterial3D_ijh2y")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.99984527, -0.017592015, 0, 0.017592015, 0.99984527, -1.1874866, 1.0291599, 3.5358543)
+transform = Transform3D(1, 0, 0, 0, 0.99984527, -0.017592015, 0, 0.017592015, 0.99984527, -1.0729123, 1.0835036, 3.2251968)
 fov = 48.0
 
 [node name="Chain 1" type="Sprite3D" parent="."]
@@ -161,6 +192,18 @@ texture = ExtResource("8_2c3rr")
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 24.039227, 4.9024816, -7.0659156)
 texture = ExtResource("9_5e5an")
 
+[node name="Dust 23" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, -4.065667, 0.03681624, 0.9073789)
+texture = ExtResource("9_5e5an")
+
+[node name="Dust 19" type="Sprite3D" parent="."]
+transform = Transform3D(-0.33872566, 0, 0, 0, 0.25125322, 0, 0, 0, 1, -0.95539385, 0.101825416, 1.2442112)
+texture = ExtResource("9_5e5an")
+
+[node name="Dust 27" type="Sprite3D" parent="."]
+transform = Transform3D(-0.33872566, 0, 0, 0, 0.25125322, 0, 0, 0, 1, -1.2608438, 0.10755053, 0.15379131)
+texture = ExtResource("9_5e5an")
+
 [node name="Dust 1" type="Sprite3D" parent="."]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 35.489204, 4.2475405, -7.0659156)
 texture = ExtResource("10_uaov4")
@@ -177,12 +220,20 @@ texture = ExtResource("12_avtu8")
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 23.179087, 4.0009985, -7.0659156)
 texture = ExtResource("13_78w0w")
 
+[node name="Dust 24" type="Sprite3D" parent="."]
+transform = Transform3D(0.34394935, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 0.7027564, 0.12463343, 1.3414178)
+texture = ExtResource("13_78w0w")
+
 [node name="Dust 5" type="Sprite3D" parent="."]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 19.214153, 3.694652, -7.0659156)
 texture = ExtResource("14_gkdds")
 
 [node name="Dust 6" type="Sprite3D" parent="."]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 14.653184, 4.2419457, -7.0659156)
+texture = ExtResource("15_tjkvv")
+
+[node name="Dust 21" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, -3.2284393, 0.53343415, -2.5945702)
 texture = ExtResource("15_tjkvv")
 
 [node name="Dust 7" type="Sprite3D" parent="."]
@@ -203,6 +254,10 @@ texture = ExtResource("19_y04dn")
 
 [node name="Dust 11" type="Sprite3D" parent="."]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 28.780102, 2.0003953, -7.0659156)
+texture = ExtResource("20_qcd5t")
+
+[node name="Dust 25" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 1.0498633, 0.08884597, -0.66176534)
 texture = ExtResource("20_qcd5t")
 
 [node name="Dust 12" type="Sprite3D" parent="."]
@@ -229,8 +284,16 @@ texture = ExtResource("24_eglqw")
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 31.949635, -0.2350936, -7.0659165)
 texture = ExtResource("25_sj2bw")
 
+[node name="Dust 22" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, -3.2997375, 0.0983665, -1.3725479)
+texture = ExtResource("25_sj2bw")
+
 [node name="Dust 18" type="Sprite3D" parent="."]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 16.931051, 0, -7.0659156)
+texture = ExtResource("26_jrynu")
+
+[node name="Dust 20" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 0.4362992, 0.71409154, -2.736702)
 texture = ExtResource("26_jrynu")
 
 [node name="Big Wires 1" type="Sprite3D" parent="."]
@@ -292,3 +355,71 @@ texture = ExtResource("40_t1kh3")
 [node name="Wire Conector 5" type="Sprite3D" parent="."]
 transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 11.130004, 1.2697777, 0.54695696)
 texture = ExtResource("41_cmnmm")
+
+[node name="Eye" type="Sprite3D" parent="."]
+transform = Transform3D(0.00028267966, 0, 0.3873794, 0, 0.005, 0, -0.0049920026, 0, 0.021935917, -2.3484023, 0.908343, -0.20639409)
+texture = ExtResource("3_8cphh")
+
+[node name="Eye2" type="Sprite3D" parent="."]
+transform = Transform3D(-0.0039639417, 3.813456e-05, 0.21940167, 0.00011345579, 0.004997988, 0.006122843, 0.0030453717, -0.0001365639, 0.28535137, -2.3777068, 0.91032064, -0.1498946)
+texture = ExtResource("3_8cphh")
+
+[node name="Chain" parent="." instance=ExtResource("42_2dqvl")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 8.699712, 0, 3.479205)
+
+[node name="Gear1" parent="." instance=ExtResource("43_tjkvv")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 12.526555, 0, 10.497437)
+
+[node name="Gear2" parent="." instance=ExtResource("44_8heir")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 12.304906, -9.536743e-07, 13.373432)
+
+[node name="Gear3" parent="." instance=ExtResource("45_jwlm5")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 15.31626, 0, 10.234568)
+
+[node name="Gear4" parent="." instance=ExtResource("46_giovu")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 15.161294, 0, 13.110338)
+
+[node name="Gear5" parent="." instance=ExtResource("47_y04dn")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 19.732182, 0, 11.378857)
+
+[node name="Gear6" parent="." instance=ExtResource("48_qcd5t")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 12.66489, 0, 16.05813)
+
+[node name="Gear7" parent="." instance=ExtResource("49_8cphh")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 14.859749, 0, 16.05813)
+
+[node name="Gear8" parent="." instance=ExtResource("50_ijh2y")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 12.526555, 0, 5.482699)
+
+[node name="Gear9" parent="." instance=ExtResource("51_lduwr")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 12.526555, 0, 5.482699)
+
+[node name="Gear10" parent="." instance=ExtResource("52_eglqw")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 15.306859, 0, 5.482699)
+
+[node name="Gear11" parent="." instance=ExtResource("53_sj2bw")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 15.306859, 0, 5.482699)
+
+[node name="Gear12" parent="." instance=ExtResource("54_jrynu")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 18.496092, 0, 5.482699)
+
+[node name="Gear13" parent="." instance=ExtResource("55_cduj1")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 18.496092, 0, 5.482699)
+
+[node name="Ladder1" parent="." instance=ExtResource("56_qcd5t")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 27.138067, 0, 6.602289)
+
+[node name="Ladder2" parent="." instance=ExtResource("57_8cphh")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 27.84885, 0, 6.602289)
+
+[node name="Ladder3" parent="." instance=ExtResource("58_ijh2y")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 27.861683, 1.8378612, 6.602289)
+
+[node name="Ladder4" parent="." instance=ExtResource("59_lduwr")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 28.546946, 0.75525963, 6.602289)
+
+[node name="Ladder" parent="." instance=ExtResource("60_eglqw")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 26.214243, 0, 6.2563443)
+
+[node name="NamTest" parent="." instance=ExtResource("62_ijh2y")]
+transform = Transform3D(-4.5564604, 0, 29.651958, 0, 29.999994, 0, -29.651958, 0, -4.5564604, -2.4596314, 0.036276877, -0.22140563)
