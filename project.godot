@@ -13,20 +13,24 @@ config_version=5
 project_layer_names/output=2
 project_layer_names/c#_namespace="Robobotomy"
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Robobotomy"
 run/main_scene="uid://c87c5afrm7n7y"
-config/features=PackedStringArray("4.5", "C#", "Forward Plus")
+config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 boot_splash/image="uid://c4l6sjl3ml1la"
 config/icon="uid://c7wscsdw2xd2f"
 
 [autoload]
 
-PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+PhantomCameraManager="*uid://duq6jhf6unyis"
 LevelManager="*res://Scripts/Autoloads/level_manager.gd"
 EventBus="*res://Scripts/Autoloads/event_bus.gd"
-LayerNames="*res://addons/layerNames/generated/layerNames.gd"
+LayerNames="*uid://b5oond0fqbarv"
 
 [display]
 
