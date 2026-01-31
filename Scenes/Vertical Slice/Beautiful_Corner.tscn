@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://bpgupq5guqtyk"]
+[gd_scene load_steps=98 format=3 uid="uid://bpgupq5guqtyk"]
 
 [ext_resource type="Shader" uid="uid://8bejtu65gcaq" path="res://Assets/Materials/Shaders/Testing/concreteTest.tres" id="1_1krl7"]
 [ext_resource type="Texture2D" uid="uid://ctybxaop6jxrr" path="res://Assets/Materials/Shaders/Concrete Maps/Concrete_basecolor.png" id="2_2dqvl"]
@@ -44,6 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://vs8kw2ktvviy" path="res://Assets/Robobotomy Art/2D/Wires/Wire Conector (3).png" id="39_apgab"]
 [ext_resource type="Texture2D" uid="uid://cyixiuapc443p" path="res://Assets/Robobotomy Art/2D/Wires/Wire Conector (4).png" id="40_t1kh3"]
 [ext_resource type="Texture2D" uid="uid://c8iieo5ohyn7w" path="res://Assets/Robobotomy Art/2D/Wires/Wire Conector (6).png" id="41_cmnmm"]
+[ext_resource type="Script" uid="uid://bledahrwikdls" path="res://Scripts/Lighting/RotatingLight.gd" id="42_2dqvl"]
 [ext_resource type="ArrayMesh" uid="uid://pt55dusfqfr0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/bigwire.res" id="44_itrl0"]
 [ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Scenes/Vertical Slice/3d assetts/kitbash/button.res" id="45_u6h1n"]
 [ext_resource type="ArrayMesh" uid="uid://doxh8d0va3v1k" path="res://Scenes/Vertical Slice/3d assetts/kitbash/buttons_1x1.res" id="46_20x6s"]
@@ -124,7 +125,7 @@ shader_parameter/tex_frg_26 = ExtResource("2_2dqvl")
 environment = SubResource("Environment_kegy0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.84495175, -0.5321395, 0.053699657, 0.099562734, -0.057848092, 0.9933484, -0.5254935, 0.8446783, 0.10186014, 0, 0, 0)
+transform = Transform3D(-0.8449519, -0.53213966, 0.05369968, 0.09956275, -0.05784806, 0.9933483, -0.5254936, 0.84467804, 0.10186011, 0.55053043, 0.01863861, 16.97898)
 shadow_enabled = true
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
@@ -172,7 +173,7 @@ transform = Transform3D(0.42183423, -0.0023577549, 0.90667003, 0.03826874, -0.99
 mesh = ExtResource("4_t2hkb")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.99984527, -0.017592015, 0, 0.017592015, 0.99984527, -1.1874866, 1.0291599, 3.5358543)
+transform = Transform3D(1, 0, 0, 0, 0.99984527, -0.017592015, 0, 0.017592015, 0.99984527, -0.16055846, 2.529504, 5.949185)
 fov = 48.0
 script = ExtResource("5_t2hkb")
 
@@ -583,6 +584,18 @@ mesh = ExtResource("4_t2hkb")
 transform = Transform3D(1.4318489, 0.026262373, -0.5345205, -0.033943422, 1.107836, 0.012671348, 0.53467065, 0, 1.4322511, -6.4261036, 1.4068146, -2.313344)
 mesh = ExtResource("4_t2hkb")
 
+[node name="Adri practice" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.4318489, 0.026262373, -0.5345205, -0.033943422, 1.107836, 0.012671348, 0.53467065, 0, 1.4322511, 0.054216385, 1.4068146, 3.3880296)
+mesh = ExtResource("4_t2hkb")
+
+[node name="Adri practice3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.4318489, 0.026262373, -0.5345205, -0.033943422, 1.107836, 0.012671348, 0.53467065, 0, 1.4322511, 4.8195095, 1.4068146, 3.3880296)
+mesh = ExtResource("4_t2hkb")
+
+[node name="Adri practice2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.4318489, 0.026262373, -0.5345205, -0.033943422, 1.107836, 0.012671348, 0.53467065, 0, 1.4322511, -4.35954, 1.4068146, 4.3880296)
+mesh = ExtResource("4_t2hkb")
+
 [node name="Pipe1Short6" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.8698195, -0.20561229, -0.6980184, 0.2657485, 1.4466983, -0.099206015, 0.705033, -6.8025025e-10, 1.8886099, 2.9200306, -0.13171029, -2.2171245)
 mesh = ExtResource("4_t2hkb")
@@ -622,3 +635,16 @@ mesh = ExtResource("71_d216d")
 [node name="GearSpurwithspokes2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.81854963, 0.5090148, 0.26623395, 0.16826865, 0.23067078, -0.958372, -0.549238, 0.8292737, 0.103164166, -6.2961087, 0.035229295, -1.6542526)
 mesh = ExtResource("68_30kme")
+
+[node name="Rim" type="SpotLight3D" parent="." node_paths=PackedStringArray("camera", "source_array", "orbitTarget")]
+transform = Transform3D(0.22096416, 0, -0.97528195, 0, 1, 0, 0.97528195, 0, 0.22096416, -1.8963475, 1.4068146, 3.829958)
+spot_range = 2.181
+spot_attenuation = -0.55
+spot_angle = 31.18
+spot_angle_attenuation = 2.9281673
+script = ExtResource("42_2dqvl")
+camera = NodePath("../Camera3D")
+source_array = [NodePath("../Adri practice3"), NodePath("../Adri practice2")]
+orbitTarget = NodePath("../Adri practice")
+orbitDistance = 2.0
+towardsSource = true
