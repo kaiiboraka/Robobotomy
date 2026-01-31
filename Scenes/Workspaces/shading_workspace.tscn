@@ -1,10 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://cr4lq404y1tyx"]
 
-[ext_resource type="Shader" path="res://Assets/Materials/Shaders/Testing/procShader.tres" id="1_g6h5r"]
+[ext_resource type="Shader" uid="uid://cwfjfvridlcyp" path="res://Assets/Materials/Shaders/procShader.tres" id="1_g6h5r"]
 [ext_resource type="ArrayMesh" uid="uid://dokty7rvi5wdy" path="res://Assets/Materials/Shaders/Testing/concreteTestBlocks.obj" id="2_1b5j4"]
-[ext_resource type="Texture2D" path="res://Assets/Materials/Shaders/Testing/Concrete Maps/Concrete_basecolor.png" id="2_no7js"]
-[ext_resource type="Texture2D" path="res://Assets/Materials/Shaders/Testing/Concrete Maps/Concrete_metallic.png" id="3_1tbke"]
-[ext_resource type="Texture2D" path="res://Assets/Materials/Shaders/Testing/Concrete Maps/Concrete_roughness.png" id="4_qufh2"]
+[ext_resource type="Texture2D" uid="uid://ctybxaop6jxrr" path="res://Assets/Materials/Shaders/Concrete Maps/Concrete_basecolor.png" id="2_no7js"]
+[ext_resource type="Texture2D" uid="uid://cldhgso2wucug" path="res://Assets/Materials/Shaders/Concrete Maps/Concrete_metallic.png" id="3_1tbke"]
+[ext_resource type="Texture2D" uid="uid://flhbkakokxy4" path="res://Assets/Materials/Shaders/Concrete Maps/Concrete_roughness.png" id="4_qufh2"]
+
 
 [sub_resource type="Environment" id="Environment_5rjb7"]
 

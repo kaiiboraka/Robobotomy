@@ -1,10 +1,14 @@
-[gd_scene load_steps=46 format=3 uid="uid://bpgupq5guqtyk"]
+[gd_scene load_steps=52 format=3 uid="uid://bpgupq5guqtyk"]
 
 [ext_resource type="Shader" uid="uid://8bejtu65gcaq" path="res://Assets/Materials/Shaders/Testing/concreteTest.tres" id="1_1krl7"]
-[ext_resource type="Texture2D" uid="uid://ctybxaop6jxrr" path="res://Assets/Materials/Shaders/Testing/Concrete Maps/Concrete_basecolor.png" id="2_2dqvl"]
+[ext_resource type="Texture2D" uid="uid://ctybxaop6jxrr" path="res://Assets/Materials/Shaders/Concrete Maps/Concrete_basecolor.png" id="2_2dqvl"]
+[ext_resource type="Shader" uid="uid://cwfjfvridlcyp" path="res://Assets/Materials/Shaders/procShader.tres" id="3_ai4pf"]
 [ext_resource type="Texture2D" uid="uid://dn2o72o1l4ru8" path="res://Assets/Robobotomy Art/2D/Chains/Chain 5.png" id="3_usww3"]
+[ext_resource type="Texture2D" uid="uid://da8xe883ln4n7" path="res://Assets/Materials/Shaders/Concrete Maps/Concrete_normal.png" id="4_sao02"]
 [ext_resource type="Texture2D" uid="uid://dl71oer0po4d" path="res://Assets/Robobotomy Art/2D/Chains/Chain 1.png" id="4_u372d"]
 [ext_resource type="Texture2D" uid="uid://dcho4md82yryf" path="res://Assets/Robobotomy Art/2D/Chains/Chain 4.png" id="5_ai4pf"]
+[ext_resource type="Texture2D" uid="uid://cldhgso2wucug" path="res://Assets/Materials/Shaders/Concrete Maps/Concrete_metallic.png" id="5_wh327"]
+[ext_resource type="Texture2D" uid="uid://flhbkakokxy4" path="res://Assets/Materials/Shaders/Concrete Maps/Concrete_roughness.png" id="6_2c3rr"]
 [ext_resource type="Texture2D" uid="uid://cx7peja171t4c" path="res://Assets/Robobotomy Art/2D/Chains/Chain 6.png" id="6_sao02"]
 [ext_resource type="Texture2D" uid="uid://cjtf2sep7w8ac" path="res://Assets/Robobotomy Art/2D/Chains/Chain 2.png" id="7_wh327"]
 [ext_resource type="Texture2D" uid="uid://b1cgavnnkjlug" path="res://Assets/Robobotomy Art/2D/Chains/Chains 3.png" id="8_2c3rr"]
@@ -67,6 +71,18 @@ render_priority = 0
 shader = ExtResource("1_1krl7")
 shader_parameter/tex_frg_26 = ExtResource("2_2dqvl")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5e5an"]
+render_priority = 0
+shader = ExtResource("3_ai4pf")
+shader_parameter/Base_Color = ExtResource("2_2dqvl")
+shader_parameter/Metallic = ExtResource("5_wh327")
+shader_parameter/Roughness = ExtResource("6_2c3rr")
+shader_parameter/Edge_Map = ExtResource("4_sao02")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uaov4"]
+render_priority = 0
+shader = ExtResource("3_ai4pf")
+
 [node name="Beutiful_Corner" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -104,6 +120,7 @@ size = Vector3(0.647522, 2.1875, 0.001)
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(3.1102812, 0, 0.5279909, 0, 1, 0, -0.8333974, 0, 1.9704887, -4.9541345, 0, 1.6794503)
 size = Vector3(1, 3, 3)
+material = SubResource("ShaderMaterial_5e5an")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(2.872534, 0, 0.95763046, 0, 4.8, 0, -0.76969314, 0, 3.5739255, -6.124786, 1.9184831, 3.2342935)
@@ -116,6 +133,7 @@ transform = Transform3D(2.0087233, 0, 0, 0, 0.8376443, 0, 0, 0, 2.0087233, -2.40
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D"]
 transform = Transform3D(0.5101288, 0, 0, 0, 4.1556444, 0, 0, 0, 0.5101288, -2.4958165, 0, -1.8263822)
+material = SubResource("ShaderMaterial_uaov4")
 
 [node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D"]
 transform = Transform3D(0.5101288, 0, 0, 0, 4.1556444, 0, 0, 0, 0.5101288, -5.040232, 2.3841855e-07, 5.0854173)
