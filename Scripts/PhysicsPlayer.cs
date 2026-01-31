@@ -84,7 +84,7 @@ public partial class PhysicsPlayer : RigidBody3D
         {
             // When grounded, use friction (e.g., 1.0) so you don't slide on slopes.
             // When in air, use 0.0 to prevent sticking to walls.
-            //_playerMaterial.Friction = _isGrounded ? 1.0f : 0.0f;
+            _playerMaterial.Friction = _isGrounded ? 1.0f : 0.0f;
         }
         
         // --- GRAVITY LOGIC ---
