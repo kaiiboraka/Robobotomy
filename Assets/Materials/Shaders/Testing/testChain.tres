@@ -1,0 +1,142 @@
+[gd_resource type="VisualShader" load_steps=7 format=3 uid="uid://c6r7niap6bgk"]
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_c67o6"]
+parameter_name = "texture_albedo"
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_l4esa"]
+parameter_name = "fresnel_gradient"
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_hhlj7"]
+size = Vector2(1200, 340)
+expression = "// pow((1.0 - clamp(dot(normalize(normal), normalize(view)), 0.0, 1.0), amount);
+
+albedo = source_color;
+
+float basic_fresnel = pow((1.0 - clamp(dot(normalize(NORMAL), normalize(VIEW)), 0.0, 1.0)), 4.0);
+
+vec2 base_uv = UV;
+vec4 albedo_tex = texture(texture_albedo, base_uv);
+
+vec3 ouput = albedo.rgb * albedo_tex.rgb + (basic_fresnel * texture(fresnel_gradient, vec2(basic_fresnel, 0.0)).rgb * 1.0);"
+
+[sub_resource type="VisualShaderNodeVec4Parameter" id="VisualShaderNodeVec4Parameter_c67o6"]
+parameter_name = "albedo"
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_7trgj"]
+size = Vector2(400, 280)
+expression = "vec3 difOut = DIFFUSE_LIGHT;
+
+float dotProduct = clamp(dot(NORMAL, LIGHT), -0.9, 0.9);
+float sample = clamp((dotProduct + 1.0) * ATTENUATION / 2.1, 0.05, 0.95);
+vec4 shaded = texture(color_gradient, vec2(sample, 0.0));
+difOut += clamp((shaded.rgb * LIGHT_COLOR), 0.0, 1.0);
+
+// pow((1.0 - clamp(dot(normalize(normal), normalize(view)), 0.0, 1.0), amount);"
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_kjy3t"]
+parameter_name = "color_gradient3"
+texture_type = 3
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_toon, specular_toon;
+
+uniform sampler2D fresnel_gradient;
+uniform sampler2D texture_albedo;
+uniform vec4 albedo = vec4(0.000000, 0.000000, 0.000000, 0.000000);
+uniform sampler2D color_gradient3 : hint_anisotropy;
+
+
+
+void fragment() {
+// Vector4Parameter:5
+	vec4 n_out5p0 = albedo;
+
+
+	vec3 n_out4p0;
+// Expression:4
+	n_out4p0 = vec3(0.0, 0.0, 0.0);
+	{
+		// pow((1.0 - clamp(dot(normalize(normal), normalize(view)), 0.0, 1.0), amount);
+		
+		n_out5p0 = source_color;
+		
+		float basic_fresnel = pow((1.0 - clamp(dot(normalize(NORMAL), normalize(VIEW)), 0.0, 1.0)), 4.0);
+		
+		vec2 base_uv = UV;
+		vec4 albedo_tex = texture(texture_albedo, base_uv);
+		
+		vec3 ouput = n_out5p0.rgb * albedo_tex.rgb + (basic_fresnel * texture(fresnel_gradient, vec2(basic_fresnel, 0.0)).rgb * 1.0);
+	}
+
+
+// Output:0
+	ALBEDO = n_out4p0;
+
+
+}
+
+void light() {
+	vec3 n_out2p0;
+// Expression:2
+	n_out2p0 = vec3(0.0, 0.0, 0.0);
+	{
+		vec3 n_out2p0 = DIFFUSE_LIGHT;
+		
+		float dotProduct = clamp(dot(NORMAL, LIGHT), -0.9, 0.9);
+		float sample = clamp((dotProduct + 1.0) * ATTENUATION / 2.1, 0.05, 0.95);
+		vec4 shaded = texture(color_gradient3, vec2(sample, 0.0));
+		n_out2p0 += clamp((shaded.rgb * LIGHT_COLOR), 0.0, 1.0);
+		
+		// pow((1.0 - clamp(dot(normalize(normal), normalize(view)), 0.0, 1.0), amount);
+	}
+
+
+// Output:0
+	DIFFUSE_LIGHT = n_out2p0;
+
+
+}
+"
+modes/diffuse = 3
+modes/specular = 1
+nodes/vertex/0/position = Vector2(400, 160)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_c67o6")
+nodes/fragment/2/position = Vector2(-1480, 260)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture2DParameter_l4esa")
+nodes/fragment/3/position = Vector2(-1420, -180)
+nodes/fragment/4/node = SubResource("VisualShaderNodeExpression_hhlj7")
+nodes/fragment/4/position = Vector2(-1020, 140)
+nodes/fragment/4/size = Vector2(1200, 340)
+nodes/fragment/4/input_ports = "0,8,fresnel_gradient;1,8,texture_albedo;2,5,albedo;"
+nodes/fragment/4/output_ports = "0,4,output;"
+nodes/fragment/4/expression = "// pow((1.0 - clamp(dot(normalize(normal), normalize(view)), 0.0, 1.0), amount);
+
+albedo = source_color;
+
+float basic_fresnel = pow((1.0 - clamp(dot(normalize(NORMAL), normalize(VIEW)), 0.0, 1.0)), 4.0);
+
+vec2 base_uv = UV;
+vec4 albedo_tex = texture(texture_albedo, base_uv);
+
+vec3 ouput = albedo.rgb * albedo_tex.rgb + (basic_fresnel * texture(fresnel_gradient, vec2(basic_fresnel, 0.0)).rgb * 1.0);"
+nodes/fragment/5/node = SubResource("VisualShaderNodeVec4Parameter_c67o6")
+nodes/fragment/5/position = Vector2(-1100, 520)
+nodes/fragment/connections = PackedInt32Array(3, 0, 4, 0, 4, 0, 0, 0, 2, 0, 4, 1, 5, 0, 4, 2)
+nodes/light/2/node = SubResource("VisualShaderNodeExpression_7trgj")
+nodes/light/2/position = Vector2(-180, 80)
+nodes/light/2/size = Vector2(400, 280)
+nodes/light/2/input_ports = "0,8,color_gradient;"
+nodes/light/2/output_ports = "0,4,difOut;"
+nodes/light/2/expression = "vec3 difOut = DIFFUSE_LIGHT;
+
+float dotProduct = clamp(dot(NORMAL, LIGHT), -0.9, 0.9);
+float sample = clamp((dotProduct + 1.0) * ATTENUATION / 2.1, 0.05, 0.95);
+vec4 shaded = texture(color_gradient, vec2(sample, 0.0));
+difOut += clamp((shaded.rgb * LIGHT_COLOR), 0.0, 1.0);
+
+// pow((1.0 - clamp(dot(normalize(normal), normalize(view)), 0.0, 1.0), amount);"
+nodes/light/3/node = SubResource("VisualShaderNodeTexture2DParameter_kjy3t")
+nodes/light/3/position = Vector2(-560, 20)
+nodes/light/connections = PackedInt32Array(2, 0, 0, 0, 3, 0, 2, 0)

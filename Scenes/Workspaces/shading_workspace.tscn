@@ -1,0 +1,30 @@
+[gd_scene load_steps=8 format=3 uid="uid://cr4lq404y1tyx"]
+
+[ext_resource type="Shader" path="res://Assets/Materials/Shaders/Testing/procShader.tres" id="1_g6h5r"]
+[ext_resource type="ArrayMesh" uid="uid://dokty7rvi5wdy" path="res://Assets/Materials/Shaders/Testing/concreteTestBlocks.obj" id="2_1b5j4"]
+[ext_resource type="Texture2D" path="res://Assets/Materials/Shaders/Testing/Concrete Maps/Concrete_basecolor.png" id="2_no7js"]
+[ext_resource type="Texture2D" path="res://Assets/Materials/Shaders/Testing/Concrete Maps/Concrete_metallic.png" id="3_1tbke"]
+[ext_resource type="Texture2D" path="res://Assets/Materials/Shaders/Testing/Concrete Maps/Concrete_roughness.png" id="4_qufh2"]
+
+[sub_resource type="Environment" id="Environment_5rjb7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3i8l0"]
+render_priority = 0
+shader = ExtResource("1_g6h5r")
+shader_parameter/Base_Color = ExtResource("2_no7js")
+shader_parameter/Metallic = ExtResource("3_1tbke")
+shader_parameter/Roughness = ExtResource("4_qufh2")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5rjb7")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.857431, 1.3604076, 3.8573527)
+omni_range = 52.194046
+
+[node name="ConcreteTestBlocks" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_3i8l0")
+instance_shader_parameters/Tiling = 10.000000149012
+mesh = ExtResource("2_1b5j4")

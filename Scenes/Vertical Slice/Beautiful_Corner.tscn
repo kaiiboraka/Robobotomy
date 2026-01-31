@@ -1,0 +1,624 @@
+[gd_scene load_steps=97 format=3 uid="uid://bpgupq5guqtyk"]
+
+[ext_resource type="Shader" uid="uid://8bejtu65gcaq" path="res://Assets/Materials/Shaders/Testing/concreteTest.tres" id="1_1krl7"]
+[ext_resource type="Texture2D" uid="uid://ctybxaop6jxrr" path="res://Assets/Materials/Shaders/Concrete Maps/Concrete_basecolor.png" id="2_2dqvl"]
+[ext_resource type="ArrayMesh" uid="uid://d1iqktciv7tc8" path="res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_medium.res" id="3_iv5s1"]
+[ext_resource type="Texture2D" uid="uid://dn2o72o1l4ru8" path="res://Assets/Robobotomy Art/2D/Chains/Chain 5.png" id="3_usww3"]
+[ext_resource type="ArrayMesh" uid="uid://bs7mr6pntvtby" path="res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_short.res" id="4_t2hkb"]
+[ext_resource type="Texture2D" uid="uid://dl71oer0po4d" path="res://Assets/Robobotomy Art/2D/Chains/Chain 1.png" id="4_u372d"]
+[ext_resource type="Texture2D" uid="uid://dcho4md82yryf" path="res://Assets/Robobotomy Art/2D/Chains/Chain 4.png" id="5_ai4pf"]
+[ext_resource type="Script" uid="uid://dvhdc084jl6xm" path="res://Scripts/Tools/test_camera.gd" id="5_t2hkb"]
+[ext_resource type="Texture2D" uid="uid://cx7peja171t4c" path="res://Assets/Robobotomy Art/2D/Chains/Chain 6.png" id="6_sao02"]
+[ext_resource type="Texture2D" uid="uid://cjtf2sep7w8ac" path="res://Assets/Robobotomy Art/2D/Chains/Chain 2.png" id="7_wh327"]
+[ext_resource type="Texture2D" uid="uid://b1cgavnnkjlug" path="res://Assets/Robobotomy Art/2D/Chains/Chains 3.png" id="8_2c3rr"]
+[ext_resource type="Texture2D" uid="uid://245tavw6olsq" path="res://Assets/Robobotomy Art/2D/Dust/Dust (0).png" id="9_5e5an"]
+[ext_resource type="Texture2D" uid="uid://dwn7gurqys3sp" path="res://Assets/Robobotomy Art/2D/Dust/Dust (1).png" id="10_uaov4"]
+[ext_resource type="Texture2D" uid="uid://ncv7m20chadh" path="res://Assets/Robobotomy Art/2D/Dust/Dust (2).png" id="11_ckvth"]
+[ext_resource type="Texture2D" uid="uid://wix2kodi22oi" path="res://Assets/Robobotomy Art/2D/Dust/Dust (3).png" id="12_avtu8"]
+[ext_resource type="Texture2D" uid="uid://dt0q3m2pg70u6" path="res://Assets/Robobotomy Art/2D/Dust/Dust (4).png" id="13_78w0w"]
+[ext_resource type="Texture2D" uid="uid://chvsmt83kmp3q" path="res://Assets/Robobotomy Art/2D/Dust/Dust (5).png" id="14_gkdds"]
+[ext_resource type="Texture2D" uid="uid://dy6qqegwb83vb" path="res://Assets/Robobotomy Art/2D/Dust/Dust (6).png" id="15_tjkvv"]
+[ext_resource type="Texture2D" uid="uid://dcltywe85vcvt" path="res://Assets/Robobotomy Art/2D/Dust/Dust (7).png" id="16_8heir"]
+[ext_resource type="Texture2D" uid="uid://d0ojartg30lob" path="res://Assets/Robobotomy Art/2D/Dust/Dust (8).png" id="17_jwlm5"]
+[ext_resource type="Texture2D" uid="uid://drwah2sboa1qm" path="res://Assets/Robobotomy Art/2D/Dust/Dust (9).png" id="18_giovu"]
+[ext_resource type="Texture2D" uid="uid://uiqo8m1pctm7" path="res://Assets/Robobotomy Art/2D/Dust/Dust (10).png" id="19_y04dn"]
+[ext_resource type="Texture2D" uid="uid://bl5iyf6xyrlba" path="res://Assets/Robobotomy Art/2D/Dust/Dust (11).png" id="20_qcd5t"]
+[ext_resource type="Texture2D" uid="uid://ccqld45c46ya" path="res://Assets/Robobotomy Art/2D/Dust/Dust (12).png" id="21_8cphh"]
+[ext_resource type="Texture2D" uid="uid://7ytgnfxaumtr" path="res://Assets/Robobotomy Art/2D/Dust/Dust (13).png" id="22_ijh2y"]
+[ext_resource type="Texture2D" uid="uid://c3v6krlcsqcyi" path="res://Assets/Robobotomy Art/2D/Dust/Dust (14).png" id="23_lduwr"]
+[ext_resource type="Texture2D" uid="uid://0iy4qrxpi8d2" path="res://Assets/Robobotomy Art/2D/Dust/Dust (15).png" id="24_eglqw"]
+[ext_resource type="Texture2D" uid="uid://c3ghmfwulj2pe" path="res://Assets/Robobotomy Art/2D/Dust/Dust (17).png" id="25_sj2bw"]
+[ext_resource type="Texture2D" uid="uid://crlmr7hlq0a0t" path="res://Assets/Robobotomy Art/2D/Dust/Dust (18).png" id="26_jrynu"]
+[ext_resource type="Texture2D" uid="uid://ca4snbekg74vb" path="res://Assets/Robobotomy Art/2D/Wires/Big_Wires (1).png" id="27_cduj1"]
+[ext_resource type="Texture2D" uid="uid://cd0pvmb8gm1na" path="res://Assets/Robobotomy Art/2D/Wires/Big_Wires (2).png" id="28_7eq66"]
+[ext_resource type="Texture2D" uid="uid://cfg17lht2l7dp" path="res://Assets/Robobotomy Art/2D/Wires/Big_Wires (3).png" id="29_jnh8w"]
+[ext_resource type="Texture2D" uid="uid://dx85kmbj57tc5" path="res://Assets/Robobotomy Art/2D/Wires/Big_Wires (4).png" id="30_kvfnu"]
+[ext_resource type="Texture2D" uid="uid://bkkf3wo3f1gqb" path="res://Assets/Robobotomy Art/2D/Wires/Big_Wires (5).png" id="31_7pjub"]
+[ext_resource type="Texture2D" uid="uid://7jw8fkawhsic" path="res://Assets/Robobotomy Art/2D/Wires/Big_Wires (6).png" id="32_5eksb"]
+[ext_resource type="Texture2D" uid="uid://f60lyn2b6nsx" path="res://Assets/Robobotomy Art/2D/Wires/Big_Wires (7).png" id="33_ykxan"]
+[ext_resource type="Texture2D" uid="uid://d1mv5mrse5r13" path="res://Assets/Robobotomy Art/2D/Wires/Big_Wires (8).png" id="34_4s32m"]
+[ext_resource type="Texture2D" uid="uid://b3e14o0j22u8n" path="res://Assets/Robobotomy Art/2D/Wires/Big_Wires (9).png" id="35_3hif6"]
+[ext_resource type="Texture2D" uid="uid://bjxunhfbcus63" path="res://Assets/Robobotomy Art/2D/Wires/Big_Wires (10).png" id="36_vu5ng"]
+[ext_resource type="Texture2D" uid="uid://ti3c1g8b3xvj" path="res://Assets/Robobotomy Art/2D/Wires/Wire Conector (1).png" id="37_fbpb5"]
+[ext_resource type="Texture2D" uid="uid://njr2e1tgge5b" path="res://Assets/Robobotomy Art/2D/Wires/Wire Conector (2).png" id="38_jyc6m"]
+[ext_resource type="Texture2D" uid="uid://vs8kw2ktvviy" path="res://Assets/Robobotomy Art/2D/Wires/Wire Conector (3).png" id="39_apgab"]
+[ext_resource type="Texture2D" uid="uid://cyixiuapc443p" path="res://Assets/Robobotomy Art/2D/Wires/Wire Conector (4).png" id="40_t1kh3"]
+[ext_resource type="Texture2D" uid="uid://c8iieo5ohyn7w" path="res://Assets/Robobotomy Art/2D/Wires/Wire Conector (6).png" id="41_cmnmm"]
+[ext_resource type="ArrayMesh" uid="uid://pt55dusfqfr0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/bigwire.res" id="44_itrl0"]
+[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Scenes/Vertical Slice/3d assetts/kitbash/button.res" id="45_u6h1n"]
+[ext_resource type="ArrayMesh" uid="uid://doxh8d0va3v1k" path="res://Scenes/Vertical Slice/3d assetts/kitbash/buttons_1x1.res" id="46_20x6s"]
+[ext_resource type="ArrayMesh" uid="uid://cxeu82e0qsgql" path="res://Scenes/Vertical Slice/3d assetts/kitbash/buttons_1x2.res" id="47_lj686"]
+[ext_resource type="ArrayMesh" uid="uid://cvo0no0vpvcvy" path="res://Scenes/Vertical Slice/3d assetts/kitbash/buttons_1x3.res" id="48_1f8lv"]
+[ext_resource type="ArrayMesh" uid="uid://3opr7stj4wlh" path="res://Scenes/Vertical Slice/3d assetts/kitbash/buttons_2x3.res" id="49_ymajn"]
+[ext_resource type="ArrayMesh" uid="uid://dq0ogr20mo8rg" path="res://Scenes/Vertical Slice/3d assetts/kitbash/buttons_3x3.res" id="50_uhx7f"]
+[ext_resource type="ArrayMesh" uid="uid://c30g2pc1dcs7o" path="res://Scenes/Vertical Slice/3d assetts/kitbash/cableconnector.res" id="51_fnn60"]
+[ext_resource type="ArrayMesh" uid="uid://cux0e83pq4xyq" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_helical1.res" id="52_nruv6"]
+[ext_resource type="ArrayMesh" uid="uid://cdb0ivhnbqid5" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_helical2.res" id="53_1o705"]
+[ext_resource type="ArrayMesh" uid="uid://cjkcmukmea2h2" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_helicalwithholes.res" id="54_r5pee"]
+[ext_resource type="ArrayMesh" uid="uid://b80lj2w7reslv" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_internal.res" id="55_jlcko"]
+[ext_resource type="ArrayMesh" uid="uid://bwotwyj54b6aw" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_keyway1.res" id="56_penhn"]
+[ext_resource type="ArrayMesh" uid="uid://c6l4lrgihrl7k" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_keyway2.res" id="57_8qeui"]
+[ext_resource type="ArrayMesh" uid="uid://j3iceav5dwbr" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_nobore.res" id="58_sh1qt"]
+[ext_resource type="ArrayMesh" uid="uid://ctmqsm1xmvia" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_rack.res" id="59_nwvs3"]
+[ext_resource type="ArrayMesh" uid="uid://cl8ddskukauua" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spiralbevellarge.res" id="60_520ta"]
+[ext_resource type="ArrayMesh" uid="uid://d0ad87y13yuta" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spiralbevelsmall.res" id="61_d08y4"]
+[ext_resource type="ArrayMesh" uid="uid://dtfu8lm3bxlny" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spur1.res" id="62_lp33q"]
+[ext_resource type="ArrayMesh" uid="uid://be1g7qe7fjvr0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spur2.res" id="63_y77u3"]
+[ext_resource type="ArrayMesh" uid="uid://bxn60oqa572lh" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spur3.res" id="64_j0bok"]
+[ext_resource type="ArrayMesh" uid="uid://jr6eb5v2ixld" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spur4.res" id="65_q8ktq"]
+[ext_resource type="ArrayMesh" uid="uid://cgvxdv3x4vtr3" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spur5.res" id="66_g0s1a"]
+[ext_resource type="ArrayMesh" uid="uid://c7la0fp3apuk0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spurlargebore.res" id="67_latii"]
+[ext_resource type="ArrayMesh" uid="uid://c33fijy56uwom" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spurwithspokes.res" id="68_30kme"]
+[ext_resource type="ArrayMesh" uid="uid://c3erlqmxt2uo2" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_worm.res" id="69_qh3c7"]
+[ext_resource type="ArrayMesh" uid="uid://ytojh4ald4hx" path="res://Scenes/Vertical Slice/3d assetts/kitbash/ladder_base.res" id="70_7mw20"]
+[ext_resource type="ArrayMesh" uid="uid://bpc4opx2sgqfq" path="res://Scenes/Vertical Slice/3d assetts/kitbash/ladder_large.res" id="71_d216d"]
+[ext_resource type="ArrayMesh" uid="uid://bmqng3sw3pnya" path="res://Scenes/Vertical Slice/3d assetts/kitbash/ladder_mid.res" id="72_hrctq"]
+[ext_resource type="ArrayMesh" uid="uid://b02gmyrgfwjek" path="res://Scenes/Vertical Slice/3d assetts/kitbash/ladder_rung.res" id="73_nameg"]
+[ext_resource type="ArrayMesh" uid="uid://c86kbccnj7c1s" path="res://Scenes/Vertical Slice/3d assetts/kitbash/ladder_top1.res" id="74_fl8kt"]
+[ext_resource type="ArrayMesh" uid="uid://cy54skeqlwy3g" path="res://Scenes/Vertical Slice/3d assetts/kitbash/ladder_top2.res" id="75_ip7kf"]
+[ext_resource type="ArrayMesh" uid="uid://bw43rtwbo6wcp" path="res://Scenes/Vertical Slice/3d assetts/kitbash/lever.res" id="76_yidho"]
+[ext_resource type="ArrayMesh" uid="uid://c28ymrrtw8mgw" path="res://Scenes/Vertical Slice/3d assetts/kitbash/monkeybar_large.res" id="77_sve0w"]
+[ext_resource type="ArrayMesh" uid="uid://c0ojvrv4euw0g" path="res://Scenes/Vertical Slice/3d assetts/kitbash/monkeybar_med1.res" id="78_vt4f0"]
+[ext_resource type="ArrayMesh" uid="uid://cxyp3leppa31i" path="res://Scenes/Vertical Slice/3d assetts/kitbash/monkeybar_med2.res" id="79_dineu"]
+[ext_resource type="ArrayMesh" uid="uid://ce6wt4x1cmihc" path="res://Scenes/Vertical Slice/3d assetts/kitbash/monkeybar_small.res" id="80_mmmjb"]
+[ext_resource type="ArrayMesh" uid="uid://cvc5ryofaht3y" path="res://Scenes/Vertical Slice/3d assetts/kitbash/powercable_angle1.res" id="81_h1y2m"]
+[ext_resource type="ArrayMesh" uid="uid://cfafp67comdru" path="res://Scenes/Vertical Slice/3d assetts/kitbash/powercable_angle2.res" id="82_vse7a"]
+[ext_resource type="ArrayMesh" uid="uid://bdviyighm5kn8" path="res://Scenes/Vertical Slice/3d assetts/kitbash/powercable_curve1.res" id="83_psdkg"]
+[ext_resource type="ArrayMesh" uid="uid://cykmd4un63dvw" path="res://Scenes/Vertical Slice/3d assetts/kitbash/powercable_curve2.res" id="84_16isb"]
+[ext_resource type="ArrayMesh" uid="uid://ce8uysa742syr" path="res://Scenes/Vertical Slice/3d assetts/kitbash/powercable_large.res" id="85_4jomd"]
+[ext_resource type="ArrayMesh" uid="uid://h144fwo12pjh" path="res://Scenes/Vertical Slice/3d assetts/kitbash/powercable_med.res" id="86_1rmuy"]
+[ext_resource type="ArrayMesh" uid="uid://dnq8hgwyg8cj0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/powercable_small.res" id="87_yoqlr"]
+[ext_resource type="ArrayMesh" uid="uid://b2g4xvdkvetdd" path="res://Scenes/Vertical Slice/3d assetts/kitbash/powercable_tee.res" id="88_r5u0n"]
+[ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Scenes/Vertical Slice/3d assetts/kitbash/scaffold.res" id="89_4pi8g"]
+[ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Scenes/Vertical Slice/3d assetts/kitbash/terminal.res" id="90_5i7sb"]
+[ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_long.res" id="91_0v81c"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_clgom"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_fhxa0"]
+sky_material = SubResource("ProceduralSkyMaterial_clgom")
+
+[sub_resource type="Environment" id="Environment_kegy0"]
+background_mode = 2
+sky = SubResource("Sky_fhxa0")
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.047529034, 0.5045716, 0.71745884, 1)
+fog_light_energy = 1.13
+fog_density = 0.0165
+fog_aerial_perspective = 0.43
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0755
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pwyat"]
+render_priority = 0
+shader = ExtResource("1_1krl7")
+shader_parameter/tex_frg_26 = ExtResource("2_2dqvl")
+
+[node name="Beautiful_Corner" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kegy0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.84495175, -0.5321395, 0.053699657, 0.099562734, -0.057848092, 0.9933484, -0.5254935, 0.8446783, 0.10186014, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+use_collision = true
+
+[node name="Floor" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(32.6512, 0, 0, 0, -0.100000024, 0, 0, 0, 19.756918, -1.0430841, 0.0092635155, 2.426883)
+size = Vector3(0.50439453, 1, 1)
+
+[node name="celeing" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(30.495203, 0, 0, 0, -0.100000024, 0, 0, 0, 19.378424, -1.3685765, 8.423673, 2.2323043)
+size = Vector3(0.50439453, 6.3514404, 1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/celeing"]
+transform = Transform3D(0.056489464, 0, -0.09136173, 0, 15.316719, 0, 0.009670127, 0, 0.5337029, -0.023163129, 0, -0.13500613)
+operation = 2
+
+[node name="Wall" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.4337977, 0, 0, 0, -3.8306673, 0, 0, 0, 16.3796, -8.943621, 3.9740145, 2.7220006)
+material_override = SubResource("ShaderMaterial_pwyat")
+size = Vector3(0.50439453, 2.1875, 1.2094727)
+
+[node name="Wall2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(24.590261, 0, 0, 0, -3.7671442, 0, 0, 0, -591.88715, -1.1917497, 3.9740145, 12.186031)
+size = Vector3(0.647522, 2.1875, 0.001)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1.0000005, 0, 0, 0, 0.038406778, 0, -3.5527137e-15, 0, 67.98717, -5.6912825e-07, 0.011908174, -13.020137)
+
+[node name="Pipe1Medium" type="MeshInstance3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.2946972e-08, -8.138984e-09, 1, -0.18619823, 0.9825122, 0, -0.9825122, -0.18619823, -4.371139e-08, -0.91409004, -0.6766604, -2.4084482)
+mesh = ExtResource("3_iv5s1")
+
+[node name="Pipe1Short" type="MeshInstance3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.362542e-08, -2.7400922e-09, 1, -0.062686004, 0.9980333, 0, -0.9980333, -0.062686004, -4.371139e-08, -0.9600233, 1.8914645, -2.8803766)
+mesh = ExtResource("4_t2hkb")
+
+[node name="Pipe1Short2" type="MeshInstance3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.0056662797, -0.035938133, 0.999338, -0.15564178, 0.9871434, 0.036382083, -0.9877973, -0.15574488, -4.3682455e-08, -0.9600233, 3.3093696, -2.965079)
+mesh = ExtResource("4_t2hkb")
+
+[node name="Pipe1Short3" type="MeshInstance3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.42183423, -0.0023577549, 0.90667003, 0.03826874, -0.99905914, -0.02040279, 0.90586513, 0.043303702, -0.42134708, -2.5590146, 1.1927162, -1.7490333)
+mesh = ExtResource("4_t2hkb")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.99984527, -0.017592015, 0, 0.017592015, 0.99984527, -1.1874866, 1.0291599, 3.5358543)
+fov = 48.0
+script = ExtResource("5_t2hkb")
+
+[node name="Chain 1" type="Sprite3D" parent="."]
+transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 9.012341, 0, 0.6390753)
+texture = ExtResource("3_usww3")
+
+[node name="Chain 2" type="Sprite3D" parent="."]
+transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 9.45441, 0, 0.6390753)
+texture = ExtResource("4_u372d")
+
+[node name="Chain 3" type="Sprite3D" parent="."]
+transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 9.859519, 0, 0.6390753)
+texture = ExtResource("5_ai4pf")
+
+[node name="Chain 4" type="Sprite3D" parent="."]
+transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 10.330759, 0, 0.6390753)
+texture = ExtResource("6_sao02")
+
+[node name="Chain 5" type="Sprite3D" parent="."]
+transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 10.7486725, 0, 0.6390753)
+texture = ExtResource("7_wh327")
+
+[node name="Chain 6" type="Sprite3D" parent="."]
+transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 11.179459, 0, 0.6390753)
+texture = ExtResource("8_2c3rr")
+
+[node name="Chain 7" type="Sprite3D" parent="."]
+transform = Transform3D(0.07361869, 0, 0, 0, 0.07361869, 0, 0, 0, 0.5073237, -2.8280544, 1.9396122, 1.1309084)
+texture = ExtResource("8_2c3rr")
+
+[node name="Dust 0" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 24.039227, 4.9024816, -7.0659156)
+texture = ExtResource("9_5e5an")
+
+[node name="Dust 1" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 35.489204, 4.2475405, -7.0659156)
+texture = ExtResource("10_uaov4")
+
+[node name="Dust 2" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 31.641712, 3.5136418, -7.0659146)
+texture = ExtResource("11_ckvth")
+
+[node name="Dust 3" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 27.60316, 3.0471907, -7.0659156)
+texture = ExtResource("12_avtu8")
+
+[node name="Dust 4" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 23.179087, 4.0009985, -7.0659156)
+texture = ExtResource("13_78w0w")
+
+[node name="Dust 5" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 19.214153, 3.694652, -7.0659156)
+texture = ExtResource("14_gkdds")
+
+[node name="Dust 6" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 14.653184, 4.2419457, -7.0659156)
+texture = ExtResource("15_tjkvv")
+
+[node name="Dust 7" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 36.86975, 2.7862856, -7.0659165)
+texture = ExtResource("16_8heir")
+
+[node name="Dust 8" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 36.515915, 1.3734007, -7.065914)
+texture = ExtResource("17_jwlm5")
+
+[node name="Dust 9" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 32.816116, 2.474777, -7.0659165)
+texture = ExtResource("18_giovu")
+
+[node name="Dust 10" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 33.646744, 1.2199476, -7.0659156)
+texture = ExtResource("19_y04dn")
+
+[node name="Dust 11" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 28.780102, 2.0003953, -7.0659156)
+texture = ExtResource("20_qcd5t")
+
+[node name="Dust 12" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 22.505611, 2.4926872, -7.065915)
+texture = ExtResource("21_8cphh")
+
+[node name="Midground1" type="Node3D" parent="."]
+
+[node name="Dust 19" type="Sprite3D" parent="Midground1"]
+transform = Transform3D(0.21420093, 0, 0, 0, 0.21420093, 0, 0, 0, 0.62192243, -3.6969197, 0.21355939, -2.0710137)
+render_priority = 1
+texture = ExtResource("21_8cphh")
+
+[node name="Dust 21" type="Sprite3D" parent="Midground1"]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 3.0540662, 0.502218, -1.7175379)
+render_priority = 1
+texture = ExtResource("15_tjkvv")
+
+[node name="Midground2" type="Node3D" parent="."]
+
+[node name="Dust 20" type="Sprite3D" parent="Midground2"]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 0.72899127, 0.7341813, -0.5497289)
+render_priority = 2
+texture = ExtResource("26_jrynu")
+
+[node name="Foreground3" type="Node3D" parent="."]
+
+[node name="Big Wires 12" type="Sprite3D" parent="Foreground3"]
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, -3.6463974, 2.1694398, 1.0917041)
+render_priority = 3
+texture = ExtResource("29_jnh8w")
+
+[node name="Big Wires 11" type="Sprite3D" parent="Foreground3"]
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 4.3790016, 2.2052617, 1.1421208)
+render_priority = 3
+texture = ExtResource("33_ykxan")
+
+[node name="Dust 13" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 13.725531, 2.585803, -7.0659156)
+texture = ExtResource("22_ijh2y")
+
+[node name="Dust 14" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 17.147345, 1.964354, -7.0659156)
+texture = ExtResource("23_lduwr")
+
+[node name="Dust 15" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 14.697957, 0.8641486, -7.0659146)
+texture = ExtResource("24_eglqw")
+
+[node name="Dust 16" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 23.199068, 1.2927766, -7.0659156)
+texture = ExtResource("24_eglqw")
+
+[node name="Dust 17" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 31.949635, -0.2350936, -7.0659165)
+texture = ExtResource("25_sj2bw")
+
+[node name="Dust 18" type="Sprite3D" parent="."]
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 16.931051, 0, -7.0659156)
+texture = ExtResource("26_jrynu")
+
+[node name="Big Wires 1" type="Sprite3D" parent="."]
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 12.688662, 1.0494314, 0.6134963)
+texture = ExtResource("27_cduj1")
+
+[node name="Big Wires 2" type="Sprite3D" parent="."]
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 15.433889, 1.0494314, 0.6134963)
+texture = ExtResource("28_7eq66")
+
+[node name="Big Wires 3" type="Sprite3D" parent="."]
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 17.728338, 1.0494314, 0.6134963)
+texture = ExtResource("29_jnh8w")
+
+[node name="Big Wires 4" type="Sprite3D" parent="."]
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 21.445326, 1.7578832, 0.6134963)
+texture = ExtResource("30_kvfnu")
+
+[node name="Big Wires 5" type="Sprite3D" parent="."]
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 25.198954, 1.0494314, 0.6134963)
+texture = ExtResource("31_7pjub")
+
+[node name="Big Wires 6" type="Sprite3D" parent="."]
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 18.959003, -0.06866586, 0.6134963)
+texture = ExtResource("32_5eksb")
+
+[node name="Big Wires 13" type="Sprite3D" parent="."]
+transform = Transform3D(0.08094201, 0, 0, 0, 0.08094201, 0, 0, 0, 0.57425773, 3.3151422, 0.26957512, 1.1070123)
+texture = ExtResource("32_5eksb")
+
+[node name="Big Wires 7" type="Sprite3D" parent="."]
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 27.344814, 1.0494314, 0.6134963)
+texture = ExtResource("33_ykxan")
+
+[node name="Big Wires 8" type="Sprite3D" parent="."]
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 21.556782, 1.0494314, 0.6134963)
+texture = ExtResource("34_4s32m")
+
+[node name="Big Wires 9" type="Sprite3D" parent="."]
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 24.237167, -0.29402506, 0.61349535)
+texture = ExtResource("35_3hif6")
+
+[node name="Big Wires 10" type="Sprite3D" parent="."]
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 30.150717, 0.7717246, 0.6134963)
+texture = ExtResource("36_vu5ng")
+
+[node name="Wire Conector 1" type="Sprite3D" parent="."]
+transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 8.56076, 1.2697777, 0.54695696)
+texture = ExtResource("37_fbpb5")
+
+[node name="Wire Conector 2" type="Sprite3D" parent="."]
+transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 9.152475, 1.2697777, 0.54695696)
+texture = ExtResource("38_jyc6m")
+
+[node name="Wire Conector 3" type="Sprite3D" parent="."]
+transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 9.852359, 1.2697777, 0.54695696)
+texture = ExtResource("39_apgab")
+
+[node name="Wire Conector 4" type="Sprite3D" parent="."]
+transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 10.3051815, 1.2697777, 0.54695696)
+texture = ExtResource("40_t1kh3")
+
+[node name="Wire Conector 5" type="Sprite3D" parent="."]
+transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 11.130004, 1.2697777, 0.54695696)
+texture = ExtResource("41_cmnmm")
+
+[node name="Bigwire" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("44_itrl0")
+
+[node name="Button" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 9.358732)
+mesh = ExtResource("45_u6h1n")
+
+[node name="Buttons1x1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("46_20x6s")
+
+[node name="Buttons1x2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("47_lj686")
+
+[node name="Buttons1x3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("48_1f8lv")
+
+[node name="Buttons2x3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("49_ymajn")
+
+[node name="Buttons3x3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("50_uhx7f")
+
+[node name="Cableconnector" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("51_fnn60")
+
+[node name="GearHelical1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("52_nruv6")
+
+[node name="GearHelical2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("53_1o705")
+
+[node name="GearHelicalwithholes" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("54_r5pee")
+
+[node name="GearInternal" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 12.1575985)
+mesh = ExtResource("55_jlcko")
+
+[node name="GearKeyway1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("56_penhn")
+
+[node name="GearKeyway2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("57_8qeui")
+
+[node name="GearNobore" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("58_sh1qt")
+
+[node name="GearRack" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("59_nwvs3")
+
+[node name="GearSpiralbevellarge" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("60_520ta")
+
+[node name="GearSpiralbevelsmall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("61_d08y4")
+
+[node name="GearSpur1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("62_lp33q")
+
+[node name="GearSpur2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("63_y77u3")
+
+[node name="GearSpur3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("64_j0bok")
+
+[node name="GearSpur4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("65_q8ktq")
+
+[node name="GearSpur5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("66_g0s1a")
+
+[node name="GearSpurlargebore" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("67_latii")
+
+[node name="GearSpurwithspokes" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("68_30kme")
+
+[node name="GearWorm" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("69_qh3c7")
+
+[node name="LadderBase" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("70_7mw20")
+
+[node name="LadderLarge" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("71_d216d")
+
+[node name="LadderMid" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("72_hrctq")
+
+[node name="LadderRung" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("73_nameg")
+
+[node name="LadderTop1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("74_fl8kt")
+
+[node name="LadderTop2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("75_ip7kf")
+
+[node name="Lever" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("76_yidho")
+
+[node name="MonkeybarLarge" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("77_sve0w")
+
+[node name="MonkeybarMed1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("78_vt4f0")
+
+[node name="MonkeybarMed2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("79_dineu")
+
+[node name="MonkeybarSmall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("80_mmmjb")
+
+[node name="PowercableAngle1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("81_h1y2m")
+
+[node name="PowercableAngle2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("82_vse7a")
+
+[node name="PowercableCurve1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("83_psdkg")
+
+[node name="PowercableCurve2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("84_16isb")
+
+[node name="PowercableLarge" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("85_4jomd")
+
+[node name="PowercableMed" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("86_1rmuy")
+
+[node name="PowercableSmall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("87_yoqlr")
+
+[node name="PowercableTee" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("88_r5u0n")
+
+[node name="Scaffold" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("89_4pi8g")
+
+[node name="Scaffold2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.37516847, 0, -0.86733705, 0, 0.945, 0, 0.86733705, 0, 0.37516847, -2.6305878, 2.256092, -5.8509383)
+mesh = ExtResource("89_4pi8g")
+
+[node name="Scaffold3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.28509343, 0, -0.9340143, 0, 0.97655576, 0, 0.9340143, 0, 0.28509343, -2.718504, -0.5278959, -4.590471)
+mesh = ExtResource("89_4pi8g")
+
+[node name="Scaffold4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.9165142, 0, -0.33713898, 0, 0.97655576, 0, 0.33713898, 0, -0.9165142, -0.3832001, 0.5932126, -5.1655965)
+mesh = ExtResource("89_4pi8g")
+
+[node name="Terminal" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+mesh = ExtResource("90_5i7sb")
+
+[node name="Pipe1Short" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5252372, -0.07556391, 0, 0.104247674, 1.1055679, 0, 0, 0, 1.5287957, -6.3320093, -0.1344874, -2.313344)
+mesh = ExtResource("4_t2hkb")
+
+[node name="Pipe1Short2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.4318489, 0.026262373, -0.5345205, -0.033943422, 1.107836, 0.012671348, 0.53467065, 0, 1.4322511, -6.4261036, 1.4068146, -2.313344)
+mesh = ExtResource("4_t2hkb")
+
+[node name="Pipe1Short6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.8698195, -0.20561229, -0.6980184, 0.2657485, 1.4466983, -0.099206015, 0.705033, -6.8025025e-10, 1.8886099, 2.9200306, -0.13171029, -2.2171245)
+mesh = ExtResource("4_t2hkb")
+
+[node name="Pipe1Medium" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.0029037, -0.16678503, 0, 0.16678503, 1.0029037, 0, 0, 0, 1.0166775, -8.212106, -0.16094984, -2.6125011)
+mesh = ExtResource("3_iv5s1")
+
+[node name="Pipe1Short3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9725408, -0.23273253, 0, 0.23273253, 0.9725408, 0, 0, 0, 1, -8.673178, 2.4308245, -2.5693402)
+mesh = ExtResource("4_t2hkb")
+
+[node name="Pipe1Short4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9854382, 0.16732803, 0.030214645, 0.051072884, -0.12179198, -0.9912409, -0.16218233, 0.9783497, -0.12856439, -7.5533233, 0.20624135, -2.497282)
+mesh = ExtResource("4_t2hkb")
+
+[node name="Pipe1Long" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.99929076, 0.037655182, 0, -0.037655182, -0.99929076, 0, 0, 0, 1, 1.6544468, 5.178292, -2.5367718)
+mesh = ExtResource("91_0v81c")
+
+[node name="Pipe1Short5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.946108, 0, -0.32385138, 0, 1, 0, 0.32385138, 0, 0.946108, -5.670017, -0.040738463, -4.685781)
+mesh = ExtResource("4_t2hkb")
+
+[node name="Pipe1Medium2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.94151014, -0.093162045, -0.3238514, 0.09846873, 0.99514025, 0, 0.32227752, -0.031889226, 0.946108, -5.7114167, 1.3699666, -4.5421185)
+mesh = ExtResource("3_iv5s1")
+
+[node name="GearSpurlargebore2" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.3014607, -1.2874391, 0.154703, 0.65054417, 0.87375045, -2.4065547, 1.1217061, 2.1347632, 1.0782924, 0.41618973, 0.15856877, -2.5731747)
+mesh = ExtResource("67_latii")
+
+[node name="LadderLarge2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.25950328, 0, -0.07573172, 0, 0.270328, 0, 0.07573172, 0, -0.25950328, -3.945445, 0.9718144, -2.6881027)
+mesh = ExtResource("71_d216d")
+
+[node name="GearSpurwithspokes2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.81854963, 0.5090148, 0.26623395, 0.16826865, 0.23067078, -0.958372, -0.549238, 0.8292737, 0.103164166, -6.2961087, 0.035229295, -1.6542526)
+mesh = ExtResource("68_30kme")
