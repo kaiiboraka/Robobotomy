@@ -1,0 +1,74 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://rhm4e2m1rxkp"
+path="res://.godot/imported/pipes.fbx-b721421377909be7210e22406ad8dcfc.scn"
+
+[deps]
+
+source_file="res://Scenes/Vertical Slice/3d assetts/kitbash/pipes.fbx"
+dest_files=["res://.godot/imported/pipes.fbx-b721421377909be7210e22406ad8dcfc.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=100.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=true
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"meshes": {
+"pipe1_long": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_long.res",
+"save_to_file/path": "uid://dodoyqd473sd0"
+},
+"pipe1_medium": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_medium.res",
+"save_to_file/path": "uid://d1iqktciv7tc8"
+},
+"pipe1_short": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_short.res",
+"save_to_file/path": "uid://bs7mr6pntvtby"
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
+fbx/naming_version=2

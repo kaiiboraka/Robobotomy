@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dti4gnxwdtm3y"]
+
+[ext_resource type="Script" uid="uid://bledahrwikdls" path="res://Scripts/Lighting/RotatingLight.gd" id="1_jyio2"]
+
+[node name="RotatingSpot" type="SpotLight3D"]
+transform = Transform3D(-0.31491482, 0.39348105, -0.8637137, 0, 0.91001534, 0.41457462, 0.9491199, 0.13055569, -0.2865773, 0, 0, 0)
+spot_range = 6.132
+spot_attenuation = 0.5
+spot_angle = 83.18
+spot_angle_attenuation = 2.9281673
+script = ExtResource("1_jyio2")
+orbitDistance = 1.525
+towardsSource = true

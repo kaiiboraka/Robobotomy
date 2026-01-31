@@ -1,0 +1,470 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://dnvljxhvihm88"
+path="res://.godot/imported/Kitbash_combined1.fbx-27d4308f4cff60c6d20e0841fe4aa0a8.scn"
+
+[deps]
+
+source_file="res://Scenes/Vertical Slice/3d assetts/Kitbash_combined1.fbx"
+dest_files=["res://.godot/imported/Kitbash_combined1.fbx-27d4308f4cff60c6d20e0841fe4aa0a8.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=100.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=true
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"meshes": {
+"bigwire": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/bigwire.res",
+"save_to_file/path": "uid://pt55dusfqfr0"
+},
+"button": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/button.res",
+"save_to_file/path": "uid://u21du2joicp5"
+},
+"buttons_1x1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/buttons_1x1.res",
+"save_to_file/path": "uid://doxh8d0va3v1k"
+},
+"buttons_1x2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/buttons_1x2.res",
+"save_to_file/path": "uid://cxeu82e0qsgql"
+},
+"buttons_1x3": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/buttons_1x3.res",
+"save_to_file/path": "uid://cvo0no0vpvcvy"
+},
+"buttons_2x3": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/buttons_2x3.res",
+"save_to_file/path": "uid://3opr7stj4wlh"
+},
+"buttons_3x3": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/buttons_3x3.res",
+"save_to_file/path": "uid://dq0ogr20mo8rg"
+},
+"cableconnector": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/cableconnector.res",
+"save_to_file/path": "uid://c30g2pc1dcs7o"
+},
+"gear_helical1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/gear_helical1.res",
+"save_to_file/path": "uid://cux0e83pq4xyq"
+},
+"gear_helical2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/gear_helical2.res",
+"save_to_file/path": "uid://cdb0ivhnbqid5"
+},
+"gear_helicalwithholes": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/gear_helicalwithholes.res",
+"save_to_file/path": "uid://cjkcmukmea2h2"
+},
+"gear_internal": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/gear_internal.res",
+"save_to_file/path": "uid://b80lj2w7reslv"
+},
+"gear_keyway1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/gear_keyway1.res",
+"save_to_file/path": "uid://bwotwyj54b6aw"
+},
+"gear_keyway2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/gear_keyway2.res",
+"save_to_file/path": "uid://c6l4lrgihrl7k"
+},
+"gear_nobore": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/gear_nobore.res",
+"save_to_file/path": "uid://j3iceav5dwbr"
+},
+"gear_rack": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/gear_rack.res",
+"save_to_file/path": "uid://ctmqsm1xmvia"
+},
+"gear_spiralbevellarge": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spiralbevellarge.res",
+"save_to_file/path": "uid://cl8ddskukauua"
+},
+"gear_spiralbevelsmall": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spiralbevelsmall.res",
+"save_to_file/path": "uid://d0ad87y13yuta"
+},
+"gear_spur1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spur1.res",
+"save_to_file/path": "uid://dtfu8lm3bxlny"
+},
+"gear_spur2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spur2.res",
+"save_to_file/path": "uid://be1g7qe7fjvr0"
+},
+"gear_spur3": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spur3.res",
+"save_to_file/path": "uid://bxn60oqa572lh"
+},
+"gear_spur4": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spur4.res",
+"save_to_file/path": "uid://jr6eb5v2ixld"
+},
+"gear_spur5": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spur5.res",
+"save_to_file/path": "uid://cgvxdv3x4vtr3"
+},
+"gear_spurlargebore": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spurlargebore.res",
+"save_to_file/path": "uid://c7la0fp3apuk0"
+},
+"gear_spurwithspokes": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spurwithspokes.res",
+"save_to_file/path": "uid://c33fijy56uwom"
+},
+"gear_worm": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/gear_worm.res",
+"save_to_file/path": "uid://c3erlqmxt2uo2"
+},
+"ladder_base": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/ladder_base.res",
+"save_to_file/path": "uid://ytojh4ald4hx"
+},
+"ladder_large": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/ladder_large.res",
+"save_to_file/path": "uid://bpc4opx2sgqfq"
+},
+"ladder_mid": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/ladder_mid.res",
+"save_to_file/path": "uid://bmqng3sw3pnya"
+},
+"ladder_rung": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/ladder_rung.res",
+"save_to_file/path": "uid://b02gmyrgfwjek"
+},
+"ladder_top1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/ladder_top1.res",
+"save_to_file/path": "uid://c86kbccnj7c1s"
+},
+"ladder_top2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/ladder_top2.res",
+"save_to_file/path": "uid://cy54skeqlwy3g"
+},
+"lever": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/lever.res",
+"save_to_file/path": "uid://bw43rtwbo6wcp"
+},
+"monkeybar_large": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/monkeybar_large.res",
+"save_to_file/path": "uid://c28ymrrtw8mgw"
+},
+"monkeybar_med1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/monkeybar_med1.res",
+"save_to_file/path": "uid://c0ojvrv4euw0g"
+},
+"monkeybar_med2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/monkeybar_med2.res",
+"save_to_file/path": "uid://cxyp3leppa31i"
+},
+"monkeybar_small": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/monkeybar_small.res",
+"save_to_file/path": "uid://ce6wt4x1cmihc"
+},
+"powercable_angle1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/powercable_angle1.res",
+"save_to_file/path": "uid://cvc5ryofaht3y"
+},
+"powercable_angle2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/powercable_angle2.res",
+"save_to_file/path": "uid://cfafp67comdru"
+},
+"powercable_curve1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/powercable_curve1.res",
+"save_to_file/path": "uid://bdviyighm5kn8"
+},
+"powercable_curve2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/powercable_curve2.res",
+"save_to_file/path": "uid://cykmd4un63dvw"
+},
+"powercable_large": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/powercable_large.res",
+"save_to_file/path": "uid://ce8uysa742syr"
+},
+"powercable_med": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/powercable_med.res",
+"save_to_file/path": "uid://h144fwo12pjh"
+},
+"powercable_small": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/powercable_small.res",
+"save_to_file/path": "uid://dnq8hgwyg8cj0"
+},
+"powercable_tee": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/powercable_tee.res",
+"save_to_file/path": "uid://b2g4xvdkvetdd"
+},
+"scaffold": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/scaffold.res",
+"save_to_file/path": "uid://26n2k1a75nxn"
+},
+"terminal": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/terminal.res",
+"save_to_file/path": "uid://kbrrejogl5g4"
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
+fbx/naming_version=2

@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://uti8forgexgn"]
-
-[ext_resource type="Script" uid="uid://6v72ypyccpji" path="res://Scripts/Autoloads/LimbSelect.cs" id="1_r3qj1"]
-
-[node name="LimbSelect" type="Node"]
-script = ExtResource("1_r3qj1")
-throwSpeed = 10.0
-recallSpeed = 5.0
