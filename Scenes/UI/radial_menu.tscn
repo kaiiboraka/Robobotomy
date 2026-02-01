@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://c2ffje36dgcds" path="res://addons/advanced_radial_menu/radial_menu_class.gd" id="1_4gvu6"]
 [ext_resource type="Script" uid="uid://bcsoaj36akxti" path="res://Scenes/UI/radial_menu.gd" id="1_pvlir"]
 [ext_resource type="Texture2D" uid="uid://wlvqkc1fyj40" path="res://Assets/Images/icon_smaller.jpg" id="2_w1h4c"]
+[ext_resource type="Shader" uid="uid://pr6p256jd268" path="res://Assets/UI/shaders/crt.gdshader" id="4_r4tj4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b6mux"]
+shader = ExtResource("4_r4tj4")
 
 [node name="RadialMenu" type="Control" unique_id=135075730 node_paths=PackedStringArray("menu")]
 layout_mode = 3
@@ -87,5 +91,12 @@ offset_right = 819.69934
 offset_bottom = 314.6753
 pivot_offset = Vector2(50, 52)
 texture = ExtResource("2_w1h4c")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=388809351]
+material = SubResource("ShaderMaterial_b6mux")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.80946, 16.249456)
 
 [connection signal="slot_selected" from="RadialMenuAdvanced" to="." method="_on_radial_menu_advanced_slot_selected"]
