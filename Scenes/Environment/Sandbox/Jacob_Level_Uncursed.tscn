@@ -1,3 +1,16 @@
 [gd_scene format=3 uid="uid://csqa5fgdggleb"]
 
-[node name="JacobLevelUncursed" type="Node3D"]
+[ext_resource type="PackedScene" uid="uid://mgfaqbwixsqj" path="res://Scenes/Environment/hinge_uncursed.tscn" id="1_vgfim"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vgfim"]
+
+[node name="JacobLevelUncursed" type="Node3D" unique_id=770380683]
+
+[node name="Hinge" parent="." unique_id=6738442 instance=ExtResource("1_vgfim")]
+DoorMesh = SubResource("BoxMesh_vgfim")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1062719114]
+transform = Transform3D(0.9948826, 0, 0.10103895, -0.009979008, 0.99511087, 0.09825856, -0.10054495, -0.098764, 0.9900185, 1.593384, 1.3093939, 5.606873)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1577906880]
+transform = Transform3D(0.71129036, -0.012095565, 0.70279425, -0.64727503, 0.37855032, 0.6616151, -0.2740456, -0.9255016, 0.26143005, 3.1260798, 0, 0.514102)

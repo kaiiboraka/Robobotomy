@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://mgfaqbwixsqj"]
+
+[ext_resource type="Script" uid="uid://svp8dyuwan4v" path="res://Scripts/Hinge.cs" id="1_tdvt8"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mgp4v"]
+height = 1.0
+radius = 0.35
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tdvt8"]
+top_radius = 0.35
+bottom_radius = 0.35
+height = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mfs1p"]
+
+[node name="Hinge" type="Node3D" unique_id=6738442]
+script = ExtResource("1_tdvt8")
+
+[node name="HingeBase" type="StaticBody3D" parent="." unique_id=948151665]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HingeBase" unique_id=1466210379]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_mgp4v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="HingeBase/CollisionShape3D" unique_id=1238561654]
+mesh = SubResource("CylinderMesh_tdvt8")
+skeleton = NodePath("../..")
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="." unique_id=262063081]
+node_a = NodePath("../HingeBase")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1576785631]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=353369279]
+shape = SubResource("BoxShape3D_mfs1p")
+
+[node name="AttachedMesh" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D" unique_id=1755231833]
+skeleton = NodePath("../../..")
