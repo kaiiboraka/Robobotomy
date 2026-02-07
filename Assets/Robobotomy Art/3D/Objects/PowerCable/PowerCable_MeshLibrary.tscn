@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://c1rbsib2mw5h6"]
+
+[ext_resource type="ArrayMesh" uid="uid://db67rv3vsoiy2" path="res://Assets/Robobotomy Art/3D/Objects/PowerCable/Power_Cable_Conector.res" id="1_ldtxy"]
+[ext_resource type="ArrayMesh" uid="uid://es0a4ynwkplh" path="res://Assets/Robobotomy Art/3D/Objects/PowerCable/PowerCable1.res" id="2_m2gc4"]
+[ext_resource type="ArrayMesh" uid="uid://oxr6hega7fhy" path="res://Assets/Robobotomy Art/3D/Objects/PowerCable/PowerCable2.res" id="3_nedun"]
+[ext_resource type="ArrayMesh" uid="uid://bkyo86t5joq1q" path="res://Assets/Robobotomy Art/3D/Objects/PowerCable/PowerCable3.res" id="4_hgp4s"]
+[ext_resource type="ArrayMesh" uid="uid://du0kqomtfx3p5" path="res://Assets/Robobotomy Art/3D/Objects/PowerCable/PowerCable4.res" id="5_4tohr"]
+[ext_resource type="ArrayMesh" uid="uid://div8rb2yakur" path="res://Assets/Robobotomy Art/3D/Objects/PowerCable/PowerCable5.res" id="6_xwm0e"]
+[ext_resource type="ArrayMesh" uid="uid://8h2tdlkuw2yk" path="res://Assets/Robobotomy Art/3D/Objects/PowerCable/PowerCable6.res" id="7_65nl2"]
+[ext_resource type="ArrayMesh" uid="uid://74ql82k4kcmd" path="res://Assets/Robobotomy Art/3D/Objects/PowerCable/PowerCable7.res" id="8_whyyo"]
+[ext_resource type="ArrayMesh" uid="uid://bxitj22dxxn63" path="res://Assets/Robobotomy Art/3D/Objects/PowerCable/PowerCable8.res" id="9_tdo33"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fjtyv"]
+height = 1.0805054
+radius = 1.0151367
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_l85uu"]
+height = 1.0805054
+radius = 1.0151367
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_j5iff"]
+height = 0.8799896
+radius = 0.17773438
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8ck4e"]
+height = 1.4409313
+radius = 0.17773438
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ndbke"]
+points = PackedVector3Array(-0.5307671, 0.9608822, -0.88337696, 1.1372058, -0.7070769, 0.02019899, -0.5307671, 0.9608822, 0.8890754, 1.174085, 0.46508422, -0.8574142, 0.9962243, 0.99663997, -0.013821983, 1.2066593, -0.32470164, 0.8890754, -1.0171595, 0.9608822, -0.049200084, 1.2066593, -0.32470164, -0.88337696, 0.5247366, 0.98911786, 0.84674174, 0.52546114, 0.99051195, -0.84246534, -1.0171595, 1.0306214, 0.054898527, 1.1025879, -0.32470164, -0.8485039, 1.1633778, 0.8295664, -0.04717404, -0.5307671, 1.0306214, 0.8890754, -0.6002206, 1.0306214, -0.7791048, 1.1025879, -0.32470164, 0.85420233, -1.0171595, 0.9608822, 0.054898527, 1.1723382, 0.46459338, 0.86172044, 1.2066593, -0.7070769, -0.049200084, 1.1372058, -0.6722073, -0.118772656, 0.9632455, -0.56793857, 0.054898527, 0.5811423, 0.09237318, -0.88337696, 0.9947078, 0.99523556, 0.01949238, 1.1616207, 0.8284685, 0.052790236, 0.75488496, -0.39410073, -0.08372612, -0.5307671, 0.9261826, 0.81950283, -0.73912764, 0.9608822, -0.5355141, 1.2066593, -0.63750774, 0.22874321, 1.1372058, -0.32470164, 0.8890754, 1.1720414, -0.39410073, -0.7791048, -0.9823238, 1.0306214, -0.118772656, -0.704292, 0.7176452, -0.049200084)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3hj3b"]
+points = PackedVector3Array(1.1428932, -0.31980345, 0.80446136, 1.1738313, 0.80293506, -0.074190184, -0.50441587, 0.97941244, 0.83783966, 0.1038999, -0.37163013, -0.03905005, 1.1956758, -0.30951634, -0.8605282, 0.5122037, 0.98490465, -0.8582662, 0.53786993, 0.9693769, 0.8275993, -0.95456904, 0.96161574, -0.040442944, -0.14132886, 0.1335856, 0.7633882, -0.07129486, 0.16854772, -0.88352215, 1.1633261, -0.6602154, -0.040472813, 1.1795027, 0.4701822, 0.83306813, -0.43410233, 0.04038442, 0.024038859, 0.2788751, -0.11148536, 0.8686999, 1.1723281, 0.4680536, -0.84228414, 0.97813493, 0.9749147, 0.059571873, -0.18430382, -0.24921805, -0.0074111223, -0.49603623, 0.96800184, -0.84101844, 0.29587856, -0.08883773, -0.8079492, -0.93706906, 0.9482147, 0.05740103, 1.1481643, -0.6486048, 0.057606198, 0.1038999, -0.37799242, 0.024455935, -0.10620208, 0.16854772, -0.8483611, -0.42659768, 0.04192834, -0.03857517, 0.9725254, 0.96962845, -0.07412784, 1.1644608, 0.7972259, 0.091717936, -0.18006775, -0.21184306, 0.08698316, -0.9225234, 0.87275493, -0.0074111223, 1.02917, -0.63064814, 0.024289472, -0.90647435, 0.8614707, 0.023965236, -0.53488004, 0.19888508, -0.0074111223, 0.040928416, -0.02213576, -0.6690188)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6v2qa"]
+points = PackedVector3Array(-0.20691866, -0.36486498, 0.061249197, 0.80440503, 0.44451016, -0.8828651, -0.5132687, 0.98239684, 0.82585734, 1.001616, 0.99047893, -0.005880952, -0.9721098, 0.9894, -0.03797198, 0.12969619, -0.09493792, 0.87110317, 0.0625, -0.12864494, -0.81539154, 0.5157151, 0.9904623, -0.84784865, 0.5180758, 0.99392027, 0.84047246, -0.51078063, 1.0180714, -0.8828651, 1.1418651, 0.71430194, 0.061249197, 0.26451117, 0.006183237, -0.8828651, 0.80440503, 0.44451016, 0.87110317, -0.20691866, -0.36486498, -0.0730111, -0.95458865, 0.9781755, 0.057375968, -0.004696183, -0.19619444, 0.6012091, 0.0625, -0.162352, 0.7023335, 1.1418651, 0.71430194, -0.0730111, 0.0625, -0.162352, -0.7140954, 0.12969619, -0.09493792, -0.8828651, 0.83821446, 0.4782172, 0.8372806, 0.8720238, 0.51192427, -0.747918, 1.0406482, 0.6468878, 0.33131498, -0.7493372, 0.5607033, -0.005880952, -0.106124386, -0.29731557, -0.27560335, 0.60218257, 0.27611032, 0.87110317, 0.60218257, 0.27611032, -0.8828651, 0.9932359, 0.9845549, 0.025975486, 0.096098095, -0.12864494, 0.80362964, -0.4683238, 0.061249427, -0.005880952, -0.106124386, -0.29731557, 0.26384145, -0.9292908, 0.89990026, 0.024881937)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_i5s3t"]
+points = PackedVector3Array(-0.5005265, 0.9859129, -0.8583882, 1.1176746, 0.8050206, -0.04874862, -0.4997268, 0.9849247, 0.8592995, 0.21721984, -0.09503594, -0.8826746, -0.89667946, 0.6521638, -0.014483828, 0.8174533, 0.504956, 0.8848332, 0.525179, 0.9694834, -0.8376516, 0.5055182, 0.9875816, 0.862653, 0.21721984, -0.09503594, 0.8848332, -0.04915598, -0.39523757, -0.04874862, 0.8174533, 0.504956, -0.8826746, -0.6276599, 0.15080896, -0.014120706, -0.41602337, 0.5715761, 0.8848332, -0.9638881, 0.9705205, 0.048607033, -0.44965988, 0.5715761, -0.84910995, 0.9787695, 0.97704047, 0.049072623, -0.9654701, 0.9715585, -0.0463578, 0.117146105, -0.22841316, 0.55126286, 0.15036473, -0.19510317, -0.6489331, -0.44965988, 0.5715761, 0.85144156, 0.8508809, 0.53826606, 0.85144156, -0.04915598, -0.39523757, 0.051080275, 0.1837923, -0.12848306, 0.81804997, 0.1837923, -0.12848306, -0.8158913, -0.58610415, 0.15338884, 0.07675144, 0.8508809, 0.53826606, -0.84910995, 1.1176746, 0.8050206, 0.051080275, 0.9798441, 0.97781855, -0.046803284, -0.89520514, 0.65162337, 0.016781814, -0.6978732, 0.523106, 0.29728281, 0.15036473, -0.19510317, 0.61787313, -0.96507186, 0.907768, 0.016885497)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jsxu4"]
+points = PackedVector3Array(-0.3542349, 0.17168683, 0.017096443, 0.16413894, 0.34054613, 0.0056071407, 0.16471928, 0.34141698, -0.004609298, 0.3352259, -0.15712897, -0.015190396, -0.3542349, 0.09424127, -0.14893492, -0.33542973, -0.08389834, 0.14201735, 0.08430249, 0.34734696, 0.14287987, 0.3353662, -0.083913825, 0.14199054, 0.3542349, 0.09424127, -0.14893492, -0.33618692, -0.084300466, -0.14132093, -0.08343707, 0.34474865, -0.14040245, 0.3542349, 0.09424127, 0.14995079, -0.083139546, 0.34385538, 0.14091587, -0.3344077, -0.15656452, 0.016167952, 0.33612323, -0.084315985, -0.14129405, -0.3542349, 0.09424127, 0.14995079, 0.08460056, 0.34824184, -0.14236738, 0.3542349, 0.17168683, 0.017096443, -0.15549822, 0.34318137, 0.016051462, -0.33516255, -0.15713069, -0.01518743, 0.33447087, -0.15656282, 0.016170911, -0.3542349, 0.17168683, -0.016080571, 0.3542349, 0.17168683, -0.016080571, -0.15057285, 0.33529624, -0.024550833, -0.3542349, 0.1606083, -0.038198583, 0.3542349, 0.1606083, -0.038198583, -0.3542349, 0.12742479, 0.09459725, 0.3542349, 0.12737277, 0.09459725)
+
+[node name="Node3D" type="Node3D" unique_id=379100091]
+
+[node name="Power_Cable_Conector" type="MeshInstance3D" parent="." unique_id=347332846]
+transform = Transform3D(0, -0.21819216, 0, 0.16563475, 0, 0, 0, 0, 0.16563475, 0.7287283, 0.1532249, 1.4379374)
+mesh = ExtResource("1_ldtxy")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Power_Cable_Conector" unique_id=16001414]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Power_Cable_Conector/StaticBody3D" unique_id=894835048]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74642944, 0)
+shape = SubResource("CylinderShape3D_fjtyv")
+
+[node name="PowerCable9" type="MeshInstance3D" parent="." unique_id=1490992633]
+transform = Transform3D(-7.240125e-09, -0.21819216, 0, 0.16563475, -9.537482e-09, 0, 0, 0, 0.16563475, 1.1788244, 0.1532249, 0.4725876)
+mesh = ExtResource("2_m2gc4")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PowerCable9" unique_id=1425334751]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PowerCable9/StaticBody3D" unique_id=1400509911]
+shape = SubResource("CylinderShape3D_l85uu")
+
+[node name="PowerCable10" type="MeshInstance3D" parent="." unique_id=819208022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3849726, 0.15322489, 0.96303403)
+mesh = ExtResource("3_nedun")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PowerCable10" unique_id=1656078531]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PowerCable10/StaticBody3D" unique_id=1495144605]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.0015182495, 0, 0)
+shape = SubResource("CylinderShape3D_j5iff")
+
+[node name="PowerCable11" type="MeshInstance3D" parent="." unique_id=1842174409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6679623, 0.15322489, 1.4379373)
+mesh = ExtResource("4_hgp4s")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PowerCable11" unique_id=1597659213]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PowerCable11/StaticBody3D" unique_id=958131798]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.00081920624, 0, 0)
+shape = SubResource("CylinderShape3D_8ck4e")
+
+[node name="PowerCable12" type="MeshInstance3D" parent="." unique_id=1122313190]
+transform = Transform3D(0, -0.21819216, 0, 0.16563475, 0, 0, 0, 0, 0.16563475, 2.8208487, 0.1532249, 1.4379374)
+mesh = ExtResource("5_4tohr")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PowerCable12" unique_id=1370945475]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PowerCable12/StaticBody3D" unique_id=716280283]
+shape = SubResource("ConvexPolygonShape3D_ndbke")
+
+[node name="PowerCable13" type="MeshInstance3D" parent="." unique_id=941036783]
+transform = Transform3D(0, -0.21819216, 0, 0.16563475, 0, 0, 0, 0, 0.16563475, 3.247156, 0.1532249, 1.4379374)
+mesh = ExtResource("6_xwm0e")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PowerCable13" unique_id=1248675114]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PowerCable13/StaticBody3D" unique_id=173987052]
+shape = SubResource("ConvexPolygonShape3D_3hj3b")
+
+[node name="PowerCable14" type="MeshInstance3D" parent="." unique_id=1421881227]
+transform = Transform3D(0, -0.21819216, 0, 0.16563475, 0, 0, 0, 0, 0.16563475, 3.7292945, 0.1532249, 1.4379374)
+mesh = ExtResource("7_65nl2")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PowerCable14" unique_id=2094918186]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PowerCable14/StaticBody3D" unique_id=1322263300]
+shape = SubResource("ConvexPolygonShape3D_6v2qa")
+
+[node name="PowerCable15" type="MeshInstance3D" parent="." unique_id=1110743888]
+transform = Transform3D(0, -0.21819216, 0, 0.16563475, 0, 0, 0, 0, 0.16563475, 4.0961275, 0.1532249, 1.4379374)
+mesh = ExtResource("8_whyyo")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PowerCable15" unique_id=558047918]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PowerCable15/StaticBody3D" unique_id=365389425]
+shape = SubResource("ConvexPolygonShape3D_i5s3t")
+
+[node name="PowerCable16" type="MeshInstance3D" parent="." unique_id=697291155]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6685886, 0.1535401, 1.4379373)
+mesh = ExtResource("9_tdo33")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PowerCable16" unique_id=1500245783]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PowerCable16/StaticBody3D" unique_id=1926109731]
+shape = SubResource("ConvexPolygonShape3D_jsxu4")
