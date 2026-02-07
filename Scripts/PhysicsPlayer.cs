@@ -1,63 +1,40 @@
 using Godot;
-using System;
 
-public static class Movement
+namespace Robobotomy.Scripts;
+
+public partial class PhysicsPlayer : RigidBody3D
 {
-    public static float MoveSpeed = 5.0f;
-    public static float JumpForce = 5.0f;
-    public static float FallMultiplier = 3.0f;
-    public static float JumpMultiplier = 1.7f;
-    public static float Deceleration = 20.0f;
-    public static float MaxFallSpeed = 7.5f;
-    private static float _baseGravity;
-    private static bool _isGrounded = false;
+    [Export] public float MoveSpeed = 5.0f;
+    [Export] public float JumpForce = 5.0f;
+    [Export] public float FallMultiplier = 3.0f;
+    [Export] public float JumpMultiplier = 1.7f;
+    [Export] public float Deceleration = 20.0f;
+    [Export] public float MaxFallSpeed = 7.5f;
+    private float _baseGravity;
+    private bool _isGrounded = false;
     // Adjust this threshold to handle slopes
     private const float GroundNormalThreshold = 0.9f;
     
-    public static void MoveMe(RigidBody3D rb, bool isGrounded, int speed, int jumpHeight)
+    private PhysicsMaterial _playerMaterial;
+
+    public override void _Ready()
     {
-        Vector2 inputDir = Input.GetVector("Player_Move_Left", "Player_Move_Right", "Player_Move_Up", "Player_Move_Down");
-        Vector3 direction = (rb.Transform.Basis * new Vector3(inputDir.X, 0, 0)).Normalized();
-        Vector3 desiredVelocity = direction * speed;
-        Vector3 movement = desiredVelocity - rb.LinearVelocity;
-        movement[1] = 0;
-        rb.LinearVelocity += movement;
-        if (Input.IsActionJustPressed("Player_Jump"))
-        {
-            if (isGrounded)
-            {
-                rb.ApplyCentralImpulse(Vector3.Up * jumpHeight);
-            }
+        SetAxisLock(PhysicsServer3D.BodyAxis.AngularX, true);
+        SetAxisLock(PhysicsServer3D.BodyAxis.AngularZ, true);
+        
+        GravityScale = 0.0f; 
+        _baseGravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
+        LinearDampMode = DampMode.Replace;
+        LinearDamp = 0.0f; 
+        
+        // Cache the material from the PhysicsMaterialOverride slot
+        if (PhysicsMaterialOverride != null) {
+            _playerMaterial = PhysicsMaterialOverride;
+        } else {
+            GD.PrintErr("Please assign a PhysicsMaterial to the PhysicsMaterialOverride slot!");
         }
     }
-
-    public static bool OnHitFloor(Node3D body, int groundContacts)
-    {
-        groundContacts += 1;
-        return (groundContacts > 0);
-    }
-
-    public static bool OnLeaveFloor(Node3D body, int groundContacts)
-    {
-        groundContacts -= 1;
-        return groundContacts > 0;
-    }
-
-    
-
-    public static void _Ready(RigidBody3D rb)
-    {
-        rb.SetAxisLock(PhysicsServer3D.BodyAxis.AngularX, true);
-        rb.SetAxisLock(PhysicsServer3D.BodyAxis.AngularZ, true);
-        
-        rb.GravityScale = 0.0f; 
-        _baseGravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
-        rb.LinearDampMode = RigidBody3D.DampMode.Replace;
-        rb.LinearDamp = 0.0f; 
-    }
-    
-    
-    public static void _IntegrateForces(PhysicsDirectBodyState3D state, RigidBody3D rb)
+    public override void _IntegrateForces(PhysicsDirectBodyState3D state)
     {
         // Get input direction
         Vector3 inputDir = Vector3.Zero;
@@ -71,14 +48,14 @@ public static class Movement
             Vector3 targetVelocity = inputDir * MoveSpeed;
             Vector3 velocityChange = targetVelocity - currentHorizontalVelocity;
             
-            // We apply a force to match the desired speed instantly
+            // Apply a force to match the desired speed instantly
             // This method works better than complex force calculations inside IntegrateForces
             state.LinearVelocity += velocityChange; 
         }
         else // No input, apply a specific horizontal deceleration force
         {
             // Simple deceleration by applying a force opposite the current velocity
-            state.ApplyCentralForce(-currentHorizontalVelocity.Normalized() * rb.Mass * Deceleration);
+            state.ApplyCentralForce(-currentHorizontalVelocity.Normalized() * Mass * Deceleration);
         }
         
         // Check if player is on ground
@@ -99,11 +76,19 @@ public static class Movement
         // Handle Jump
         if (Input.IsActionJustPressed("ui_up") && _isGrounded)
         {
-            rb.ApplyCentralImpulse(Vector3.Up * JumpForce * rb.Mass);
+            ApplyCentralImpulse(Vector3.Up * JumpForce * Mass);
+        }
+        
+        // --- FRICTION TOGGLE ---
+        if (_playerMaterial != null)
+        {
+            // When grounded, use friction (e.g., 1.0) so you don't slide on slopes.
+            // When in air, use 0.0 to prevent sticking to walls.
+            _playerMaterial.Friction = _isGrounded ? 1.0f : 0.0f;
         }
         
         // --- GRAVITY LOGIC ---
-        Vector3 gravityVector = Vector3.Down * _baseGravity * rb.Mass;
+        Vector3 gravityVector = Vector3.Down * _baseGravity * Mass;
         // Always apply base gravity first
         state.ApplyCentralForce(gravityVector); 
 
@@ -126,7 +111,5 @@ public static class Movement
             state.LinearVelocity.Z
         );
     }
-    
-    
-
 }
+

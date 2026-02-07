@@ -7,6 +7,7 @@ public partial class LeftLeg : RigidBody3D, ISelectable
     public bool amIsolated { get; set; }
 
     public ActualPlayer.LimbTypes myType{get;set;}
+    public bool amSelected {get;set;}
 
 
     //Movement

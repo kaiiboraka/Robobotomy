@@ -7,6 +7,7 @@ public partial class LeftArm : RigidBody3D, ISelectable
     public virtual bool amIsolated { get; set; }
 
     public ActualPlayer.LimbTypes myType {get;set;}
+    public bool amSelected {get;set;}
 
     //Movement
     [Export] protected int speed = 3;
