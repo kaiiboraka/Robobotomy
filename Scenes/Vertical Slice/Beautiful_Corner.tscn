@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://bpgupq5guqtyk"]
+[gd_scene format=3 uid="uid://bpgupq5guqtyk"]
 
 [ext_resource type="Shader" uid="uid://8bejtu65gcaq" path="res://Assets/Materials/Shaders/Testing/concreteTest.tres" id="1_1krl7"]
 [ext_resource type="Texture2D" uid="uid://ctybxaop6jxrr" path="res://Assets/Materials/Shaders/Concrete Maps/Concrete_basecolor.png" id="2_2dqvl"]
@@ -118,507 +118,521 @@ render_priority = 0
 shader = ExtResource("1_1krl7")
 shader_parameter/tex_frg_26 = ExtResource("2_2dqvl")
 
-[node name="Beautiful_Corner" type="Node3D"]
+[sub_resource type="BoxMesh" id="BoxMesh_t2hkb"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[sub_resource type="BoxShape3D" id="BoxShape3D_itrl0"]
+
+[node name="Beautiful_Corner" type="Node3D" unique_id=2107564685]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1264735544]
 environment = SubResource("Environment_kegy0")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1148795049]
 transform = Transform3D(-0.84495175, -0.5321395, 0.053699657, 0.099562734, -0.057848092, 0.9933484, -0.5254935, 0.8446783, 0.10186014, 0, 0, 0)
 shadow_enabled = true
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1896190263]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 use_collision = true
 
-[node name="Floor" type="CSGBox3D" parent="CSGCombiner3D"]
+[node name="Floor" type="CSGBox3D" parent="CSGCombiner3D" unique_id=143286886]
 transform = Transform3D(32.6512, 0, 0, 0, -0.100000024, 0, 0, 0, 19.756918, -1.0430841, 0.0092635155, 2.426883)
 size = Vector3(0.50439453, 1, 1)
 
-[node name="celeing" type="CSGBox3D" parent="CSGCombiner3D"]
+[node name="celeing" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1564872977]
 transform = Transform3D(30.495203, 0, 0, 0, -0.100000024, 0, 0, 0, 19.378424, -1.3685765, 8.423673, 2.2323043)
 size = Vector3(0.50439453, 6.3514404, 1)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/celeing"]
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/celeing" unique_id=342206487]
 transform = Transform3D(0.056489464, 0, -0.09136173, 0, 15.316719, 0, 0.009670127, 0, 0.5337029, -0.023163129, 0, -0.13500613)
 operation = 2
 
-[node name="Wall" type="CSGBox3D" parent="CSGCombiner3D"]
+[node name="Wall" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1816648621]
 transform = Transform3D(0.4337977, 0, 0, 0, -3.8306673, 0, 0, 0, 16.3796, -8.943621, 3.9740145, 2.7220006)
 material_override = SubResource("ShaderMaterial_pwyat")
 size = Vector3(0.50439453, 2.1875, 1.2094727)
 
-[node name="Wall2" type="CSGBox3D" parent="CSGCombiner3D"]
+[node name="Wall2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1065461893]
 transform = Transform3D(24.590261, 0, 0, 0, -3.7671442, 0, 0, 0, -591.88715, -1.1917497, 3.9740145, 12.186031)
 size = Vector3(0.647522, 2.1875, 0.001)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1073492991]
 transform = Transform3D(1.0000005, 0, 0, 0, 0.038406778, 0, -3.5527137e-15, 0, 67.98717, -5.6912825e-07, 0.011908174, -13.020137)
 
-[node name="Pipe1Medium" type="MeshInstance3D" parent="CSGCombiner3D"]
+[node name="Pipe1Medium" type="MeshInstance3D" parent="CSGCombiner3D" unique_id=646718054]
 transform = Transform3D(-4.2946972e-08, -8.138984e-09, 1, -0.18619823, 0.9825122, 0, -0.9825122, -0.18619823, -4.371139e-08, -0.91409004, -0.6766604, -2.4084482)
 mesh = ExtResource("3_iv5s1")
 
-[node name="Pipe1Short" type="MeshInstance3D" parent="CSGCombiner3D"]
+[node name="Pipe1Short" type="MeshInstance3D" parent="CSGCombiner3D" unique_id=461268027]
 transform = Transform3D(-4.362542e-08, -2.7400922e-09, 1, -0.062686004, 0.9980333, 0, -0.9980333, -0.062686004, -4.371139e-08, -0.9600233, 1.8914645, -2.8803766)
 mesh = ExtResource("4_t2hkb")
 
-[node name="Pipe1Short2" type="MeshInstance3D" parent="CSGCombiner3D"]
+[node name="Pipe1Short2" type="MeshInstance3D" parent="CSGCombiner3D" unique_id=2127992741]
 transform = Transform3D(0.0056662797, -0.035938133, 0.999338, -0.15564178, 0.9871434, 0.036382083, -0.9877973, -0.15574488, -4.3682455e-08, -0.9600233, 3.3093696, -2.965079)
 mesh = ExtResource("4_t2hkb")
 
-[node name="Pipe1Short3" type="MeshInstance3D" parent="CSGCombiner3D"]
+[node name="Pipe1Short3" type="MeshInstance3D" parent="CSGCombiner3D" unique_id=1178229840]
 transform = Transform3D(0.42183423, -0.0023577549, 0.90667003, 0.03826874, -0.99905914, -0.02040279, 0.90586513, 0.043303702, -0.42134708, -2.5590146, 1.1927162, -1.7490333)
 mesh = ExtResource("4_t2hkb")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=509653888]
 transform = Transform3D(1, 0, 0, 0, 0.99984527, -0.017592015, 0, 0.017592015, 0.99984527, -1.1874866, 1.0291599, 3.5358543)
 fov = 48.0
 script = ExtResource("5_t2hkb")
 
-[node name="Chain 1" type="Sprite3D" parent="."]
+[node name="Chain 1" type="Sprite3D" parent="." unique_id=1451101306]
 transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 9.012341, 0, 0.6390753)
 texture = ExtResource("3_usww3")
 
-[node name="Chain 2" type="Sprite3D" parent="."]
+[node name="Cube" type="RigidBody3D" parent="." unique_id=1652931545]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.188353, 0.5980947, -0.013339758)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube" unique_id=1401451070]
+mesh = SubResource("BoxMesh_t2hkb")
+skeleton = NodePath("../../Chain 2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube" unique_id=384160385]
+shape = SubResource("BoxShape3D_itrl0")
+
+[node name="Chain 2" type="Sprite3D" parent="." unique_id=454430652]
 transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 9.45441, 0, 0.6390753)
 texture = ExtResource("4_u372d")
 
-[node name="Chain 3" type="Sprite3D" parent="."]
+[node name="Chain 3" type="Sprite3D" parent="." unique_id=1255429766]
 transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 9.859519, 0, 0.6390753)
 texture = ExtResource("5_ai4pf")
 
-[node name="Chain 4" type="Sprite3D" parent="."]
+[node name="Chain 4" type="Sprite3D" parent="." unique_id=1528044773]
 transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 10.330759, 0, 0.6390753)
 texture = ExtResource("6_sao02")
 
-[node name="Chain 5" type="Sprite3D" parent="."]
+[node name="Chain 5" type="Sprite3D" parent="." unique_id=161842231]
 transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 10.7486725, 0, 0.6390753)
 texture = ExtResource("7_wh327")
 
-[node name="Chain 6" type="Sprite3D" parent="."]
+[node name="Chain 6" type="Sprite3D" parent="." unique_id=365197272]
 transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 11.179459, 0, 0.6390753)
 texture = ExtResource("8_2c3rr")
 
-[node name="Chain 7" type="Sprite3D" parent="."]
+[node name="Chain 7" type="Sprite3D" parent="." unique_id=65567443]
 transform = Transform3D(0.07361869, 0, 0, 0, 0.07361869, 0, 0, 0, 0.5073237, -2.8280544, 1.9396122, 1.1309084)
 texture = ExtResource("8_2c3rr")
 
-[node name="Dust 0" type="Sprite3D" parent="."]
+[node name="Dust 0" type="Sprite3D" parent="." unique_id=343536185]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 24.039227, 4.9024816, -7.0659156)
 texture = ExtResource("9_5e5an")
 
-[node name="Dust 1" type="Sprite3D" parent="."]
+[node name="Dust 1" type="Sprite3D" parent="." unique_id=317427492]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 35.489204, 4.2475405, -7.0659156)
 texture = ExtResource("10_uaov4")
 
-[node name="Dust 2" type="Sprite3D" parent="."]
+[node name="Dust 2" type="Sprite3D" parent="." unique_id=105487280]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 31.641712, 3.5136418, -7.0659146)
 texture = ExtResource("11_ckvth")
 
-[node name="Dust 3" type="Sprite3D" parent="."]
+[node name="Dust 3" type="Sprite3D" parent="." unique_id=1751908944]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 27.60316, 3.0471907, -7.0659156)
 texture = ExtResource("12_avtu8")
 
-[node name="Dust 4" type="Sprite3D" parent="."]
+[node name="Dust 4" type="Sprite3D" parent="." unique_id=1242230098]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 23.179087, 4.0009985, -7.0659156)
 texture = ExtResource("13_78w0w")
 
-[node name="Dust 5" type="Sprite3D" parent="."]
+[node name="Dust 5" type="Sprite3D" parent="." unique_id=1827822406]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 19.214153, 3.694652, -7.0659156)
 texture = ExtResource("14_gkdds")
 
-[node name="Dust 6" type="Sprite3D" parent="."]
+[node name="Dust 6" type="Sprite3D" parent="." unique_id=291121939]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 14.653184, 4.2419457, -7.0659156)
 texture = ExtResource("15_tjkvv")
 
-[node name="Dust 7" type="Sprite3D" parent="."]
+[node name="Dust 7" type="Sprite3D" parent="." unique_id=1981128652]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 36.86975, 2.7862856, -7.0659165)
 texture = ExtResource("16_8heir")
 
-[node name="Dust 8" type="Sprite3D" parent="."]
+[node name="Dust 8" type="Sprite3D" parent="." unique_id=576352556]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 36.515915, 1.3734007, -7.065914)
 texture = ExtResource("17_jwlm5")
 
-[node name="Dust 9" type="Sprite3D" parent="."]
+[node name="Dust 9" type="Sprite3D" parent="." unique_id=498807468]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 32.816116, 2.474777, -7.0659165)
 texture = ExtResource("18_giovu")
 
-[node name="Dust 10" type="Sprite3D" parent="."]
+[node name="Dust 10" type="Sprite3D" parent="." unique_id=1261162807]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 33.646744, 1.2199476, -7.0659156)
 texture = ExtResource("19_y04dn")
 
-[node name="Dust 11" type="Sprite3D" parent="."]
+[node name="Dust 11" type="Sprite3D" parent="." unique_id=1032349805]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 28.780102, 2.0003953, -7.0659156)
 texture = ExtResource("20_qcd5t")
 
-[node name="Dust 12" type="Sprite3D" parent="."]
+[node name="Dust 12" type="Sprite3D" parent="." unique_id=1325542397]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 22.505611, 2.4926872, -7.065915)
 texture = ExtResource("21_8cphh")
 
-[node name="Midground1" type="Node3D" parent="."]
+[node name="Midground1" type="Node3D" parent="." unique_id=1424328199]
 
-[node name="Dust 19" type="Sprite3D" parent="Midground1"]
+[node name="Dust 19" type="Sprite3D" parent="Midground1" unique_id=29595649]
 transform = Transform3D(0.21420093, 0, 0, 0, 0.21420093, 0, 0, 0, 0.62192243, -3.6969197, 0.21355939, -2.0710137)
 render_priority = 1
 texture = ExtResource("21_8cphh")
 
-[node name="Dust 21" type="Sprite3D" parent="Midground1"]
+[node name="Dust 21" type="Sprite3D" parent="Midground1" unique_id=278413962]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 3.0540662, 0.502218, -1.7175379)
 render_priority = 1
 texture = ExtResource("15_tjkvv")
 
-[node name="Midground2" type="Node3D" parent="."]
+[node name="Midground2" type="Node3D" parent="." unique_id=1717896128]
 
-[node name="Dust 20" type="Sprite3D" parent="Midground2"]
+[node name="Dust 20" type="Sprite3D" parent="Midground2" unique_id=383965148]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 0.72899127, 0.7341813, -0.5497289)
 render_priority = 2
 texture = ExtResource("26_jrynu")
 
-[node name="Foreground3" type="Node3D" parent="."]
+[node name="Foreground3" type="Node3D" parent="." unique_id=1784141856]
 
-[node name="Big Wires 12" type="Sprite3D" parent="Foreground3"]
+[node name="Big Wires 12" type="Sprite3D" parent="Foreground3" unique_id=79130179]
 transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, -3.6463974, 2.1694398, 1.0917041)
 render_priority = 3
 texture = ExtResource("29_jnh8w")
 
-[node name="Big Wires 11" type="Sprite3D" parent="Foreground3"]
+[node name="Big Wires 11" type="Sprite3D" parent="Foreground3" unique_id=1437688602]
 transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 4.3790016, 2.2052617, 1.1421208)
 render_priority = 3
 texture = ExtResource("33_ykxan")
 
-[node name="Dust 13" type="Sprite3D" parent="."]
+[node name="Dust 13" type="Sprite3D" parent="." unique_id=203925395]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 13.725531, 2.585803, -7.0659156)
 texture = ExtResource("22_ijh2y")
 
-[node name="Dust 14" type="Sprite3D" parent="."]
+[node name="Dust 14" type="Sprite3D" parent="." unique_id=738217358]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 17.147345, 1.964354, -7.0659156)
 texture = ExtResource("23_lduwr")
 
-[node name="Dust 15" type="Sprite3D" parent="."]
+[node name="Dust 15" type="Sprite3D" parent="." unique_id=1653434581]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 14.697957, 0.8641486, -7.0659146)
 texture = ExtResource("24_eglqw")
 
-[node name="Dust 16" type="Sprite3D" parent="."]
+[node name="Dust 16" type="Sprite3D" parent="." unique_id=1931519965]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 23.199068, 1.2927766, -7.0659156)
 texture = ExtResource("24_eglqw")
 
-[node name="Dust 17" type="Sprite3D" parent="."]
+[node name="Dust 17" type="Sprite3D" parent="." unique_id=183586574]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 31.949635, -0.2350936, -7.0659165)
 texture = ExtResource("25_sj2bw")
 
-[node name="Dust 18" type="Sprite3D" parent="."]
+[node name="Dust 18" type="Sprite3D" parent="." unique_id=1205657693]
 transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 16.931051, 0, -7.0659156)
 texture = ExtResource("26_jrynu")
 
-[node name="Big Wires 1" type="Sprite3D" parent="."]
+[node name="Big Wires 1" type="Sprite3D" parent="." unique_id=1828927051]
 transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 12.688662, 1.0494314, 0.6134963)
 texture = ExtResource("27_cduj1")
 
-[node name="Big Wires 2" type="Sprite3D" parent="."]
+[node name="Big Wires 2" type="Sprite3D" parent="." unique_id=1249215590]
 transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 15.433889, 1.0494314, 0.6134963)
 texture = ExtResource("28_7eq66")
 
-[node name="Big Wires 3" type="Sprite3D" parent="."]
+[node name="Big Wires 3" type="Sprite3D" parent="." unique_id=143141442]
 transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 17.728338, 1.0494314, 0.6134963)
 texture = ExtResource("29_jnh8w")
 
-[node name="Big Wires 4" type="Sprite3D" parent="."]
+[node name="Big Wires 4" type="Sprite3D" parent="." unique_id=1442458164]
 transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 21.445326, 1.7578832, 0.6134963)
 texture = ExtResource("30_kvfnu")
 
-[node name="Big Wires 5" type="Sprite3D" parent="."]
+[node name="Big Wires 5" type="Sprite3D" parent="." unique_id=1737259842]
 transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 25.198954, 1.0494314, 0.6134963)
 texture = ExtResource("31_7pjub")
 
-[node name="Big Wires 6" type="Sprite3D" parent="."]
+[node name="Big Wires 6" type="Sprite3D" parent="." unique_id=1014301768]
 transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 18.959003, -0.06866586, 0.6134963)
 texture = ExtResource("32_5eksb")
 
-[node name="Big Wires 13" type="Sprite3D" parent="."]
+[node name="Big Wires 13" type="Sprite3D" parent="." unique_id=2015376028]
 transform = Transform3D(0.08094201, 0, 0, 0, 0.08094201, 0, 0, 0, 0.57425773, 3.3151422, 0.26957512, 1.1070123)
 texture = ExtResource("32_5eksb")
 
-[node name="Big Wires 7" type="Sprite3D" parent="."]
+[node name="Big Wires 7" type="Sprite3D" parent="." unique_id=816723570]
 transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 27.344814, 1.0494314, 0.6134963)
 texture = ExtResource("33_ykxan")
 
-[node name="Big Wires 8" type="Sprite3D" parent="."]
+[node name="Big Wires 8" type="Sprite3D" parent="." unique_id=824161475]
 transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 21.556782, 1.0494314, 0.6134963)
 texture = ExtResource("34_4s32m")
 
-[node name="Big Wires 9" type="Sprite3D" parent="."]
+[node name="Big Wires 9" type="Sprite3D" parent="." unique_id=564087655]
 transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 24.237167, -0.29402506, 0.61349535)
 texture = ExtResource("35_3hif6")
 
-[node name="Big Wires 10" type="Sprite3D" parent="."]
+[node name="Big Wires 10" type="Sprite3D" parent="." unique_id=2018478833]
 transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 30.150717, 0.7717246, 0.6134963)
 texture = ExtResource("36_vu5ng")
 
-[node name="Wire Conector 1" type="Sprite3D" parent="."]
+[node name="Wire Conector 1" type="Sprite3D" parent="." unique_id=344904642]
 transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 8.56076, 1.2697777, 0.54695696)
 texture = ExtResource("37_fbpb5")
 
-[node name="Wire Conector 2" type="Sprite3D" parent="."]
+[node name="Wire Conector 2" type="Sprite3D" parent="." unique_id=789622238]
 transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 9.152475, 1.2697777, 0.54695696)
 texture = ExtResource("38_jyc6m")
 
-[node name="Wire Conector 3" type="Sprite3D" parent="."]
+[node name="Wire Conector 3" type="Sprite3D" parent="." unique_id=488380542]
 transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 9.852359, 1.2697777, 0.54695696)
 texture = ExtResource("39_apgab")
 
-[node name="Wire Conector 4" type="Sprite3D" parent="."]
+[node name="Wire Conector 4" type="Sprite3D" parent="." unique_id=995998858]
 transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 10.3051815, 1.2697777, 0.54695696)
 texture = ExtResource("40_t1kh3")
 
-[node name="Wire Conector 5" type="Sprite3D" parent="."]
+[node name="Wire Conector 5" type="Sprite3D" parent="." unique_id=1099282277]
 transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 11.130004, 1.2697777, 0.54695696)
 texture = ExtResource("41_cmnmm")
 
-[node name="Bigwire" type="MeshInstance3D" parent="."]
+[node name="Bigwire" type="MeshInstance3D" parent="." unique_id=1392593067]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("44_itrl0")
 
-[node name="Button" type="MeshInstance3D" parent="."]
+[node name="Button" type="MeshInstance3D" parent="." unique_id=948824406]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 9.358732)
 mesh = ExtResource("45_u6h1n")
 
-[node name="Buttons1x1" type="MeshInstance3D" parent="."]
+[node name="Buttons1x1" type="MeshInstance3D" parent="." unique_id=652896106]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("46_20x6s")
 
-[node name="Buttons1x2" type="MeshInstance3D" parent="."]
+[node name="Buttons1x2" type="MeshInstance3D" parent="." unique_id=231444340]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("47_lj686")
 
-[node name="Buttons1x3" type="MeshInstance3D" parent="."]
+[node name="Buttons1x3" type="MeshInstance3D" parent="." unique_id=218658440]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("48_1f8lv")
 
-[node name="Buttons2x3" type="MeshInstance3D" parent="."]
+[node name="Buttons2x3" type="MeshInstance3D" parent="." unique_id=1169105504]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("49_ymajn")
 
-[node name="Buttons3x3" type="MeshInstance3D" parent="."]
+[node name="Buttons3x3" type="MeshInstance3D" parent="." unique_id=1086956688]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("50_uhx7f")
 
-[node name="Cableconnector" type="MeshInstance3D" parent="."]
+[node name="Cableconnector" type="MeshInstance3D" parent="." unique_id=761417239]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("51_fnn60")
 
-[node name="GearHelical1" type="MeshInstance3D" parent="."]
+[node name="GearHelical1" type="MeshInstance3D" parent="." unique_id=1820157225]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("52_nruv6")
 
-[node name="GearHelical2" type="MeshInstance3D" parent="."]
+[node name="GearHelical2" type="MeshInstance3D" parent="." unique_id=1614906493]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("53_1o705")
 
-[node name="GearHelicalwithholes" type="MeshInstance3D" parent="."]
+[node name="GearHelicalwithholes" type="MeshInstance3D" parent="." unique_id=11534335]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("54_r5pee")
 
-[node name="GearInternal" type="MeshInstance3D" parent="."]
+[node name="GearInternal" type="MeshInstance3D" parent="." unique_id=229010963]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 12.1575985)
 mesh = ExtResource("55_jlcko")
 
-[node name="GearKeyway1" type="MeshInstance3D" parent="."]
+[node name="GearKeyway1" type="MeshInstance3D" parent="." unique_id=1549555951]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("56_penhn")
 
-[node name="GearKeyway2" type="MeshInstance3D" parent="."]
+[node name="GearKeyway2" type="MeshInstance3D" parent="." unique_id=542755081]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("57_8qeui")
 
-[node name="GearNobore" type="MeshInstance3D" parent="."]
+[node name="GearNobore" type="MeshInstance3D" parent="." unique_id=405463937]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("58_sh1qt")
 
-[node name="GearRack" type="MeshInstance3D" parent="."]
+[node name="GearRack" type="MeshInstance3D" parent="." unique_id=1081676932]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("59_nwvs3")
 
-[node name="GearSpiralbevellarge" type="MeshInstance3D" parent="."]
+[node name="GearSpiralbevellarge" type="MeshInstance3D" parent="." unique_id=681220421]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("60_520ta")
 
-[node name="GearSpiralbevelsmall" type="MeshInstance3D" parent="."]
+[node name="GearSpiralbevelsmall" type="MeshInstance3D" parent="." unique_id=1246179148]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("61_d08y4")
 
-[node name="GearSpur1" type="MeshInstance3D" parent="."]
+[node name="GearSpur1" type="MeshInstance3D" parent="." unique_id=1817657143]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("62_lp33q")
 
-[node name="GearSpur2" type="MeshInstance3D" parent="."]
+[node name="GearSpur2" type="MeshInstance3D" parent="." unique_id=1193280255]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("63_y77u3")
 
-[node name="GearSpur3" type="MeshInstance3D" parent="."]
+[node name="GearSpur3" type="MeshInstance3D" parent="." unique_id=770501318]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("64_j0bok")
 
-[node name="GearSpur4" type="MeshInstance3D" parent="."]
+[node name="GearSpur4" type="MeshInstance3D" parent="." unique_id=1910101490]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("65_q8ktq")
 
-[node name="GearSpur5" type="MeshInstance3D" parent="."]
+[node name="GearSpur5" type="MeshInstance3D" parent="." unique_id=1471260784]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("66_g0s1a")
 
-[node name="GearSpurlargebore" type="MeshInstance3D" parent="."]
+[node name="GearSpurlargebore" type="MeshInstance3D" parent="." unique_id=436103404]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("67_latii")
 
-[node name="GearSpurwithspokes" type="MeshInstance3D" parent="."]
+[node name="GearSpurwithspokes" type="MeshInstance3D" parent="." unique_id=1901200130]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("68_30kme")
 
-[node name="GearWorm" type="MeshInstance3D" parent="."]
+[node name="GearWorm" type="MeshInstance3D" parent="." unique_id=1192212431]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("69_qh3c7")
 
-[node name="LadderBase" type="MeshInstance3D" parent="."]
+[node name="LadderBase" type="MeshInstance3D" parent="." unique_id=891608579]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("70_7mw20")
 
-[node name="LadderLarge" type="MeshInstance3D" parent="."]
+[node name="LadderLarge" type="MeshInstance3D" parent="." unique_id=613887620]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("71_d216d")
 
-[node name="LadderMid" type="MeshInstance3D" parent="."]
+[node name="LadderMid" type="MeshInstance3D" parent="." unique_id=1588679394]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("72_hrctq")
 
-[node name="LadderRung" type="MeshInstance3D" parent="."]
+[node name="LadderRung" type="MeshInstance3D" parent="." unique_id=2092147645]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("73_nameg")
 
-[node name="LadderTop1" type="MeshInstance3D" parent="."]
+[node name="LadderTop1" type="MeshInstance3D" parent="." unique_id=553673067]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("74_fl8kt")
 
-[node name="LadderTop2" type="MeshInstance3D" parent="."]
+[node name="LadderTop2" type="MeshInstance3D" parent="." unique_id=247765152]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("75_ip7kf")
 
-[node name="Lever" type="MeshInstance3D" parent="."]
+[node name="Lever" type="MeshInstance3D" parent="." unique_id=110013518]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("76_yidho")
 
-[node name="MonkeybarLarge" type="MeshInstance3D" parent="."]
+[node name="MonkeybarLarge" type="MeshInstance3D" parent="." unique_id=827829323]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("77_sve0w")
 
-[node name="MonkeybarMed1" type="MeshInstance3D" parent="."]
+[node name="MonkeybarMed1" type="MeshInstance3D" parent="." unique_id=236880631]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("78_vt4f0")
 
-[node name="MonkeybarMed2" type="MeshInstance3D" parent="."]
+[node name="MonkeybarMed2" type="MeshInstance3D" parent="." unique_id=1022393687]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("79_dineu")
 
-[node name="MonkeybarSmall" type="MeshInstance3D" parent="."]
+[node name="MonkeybarSmall" type="MeshInstance3D" parent="." unique_id=1728922065]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("80_mmmjb")
 
-[node name="PowercableAngle1" type="MeshInstance3D" parent="."]
+[node name="PowercableAngle1" type="MeshInstance3D" parent="." unique_id=1231403602]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("81_h1y2m")
 
-[node name="PowercableAngle2" type="MeshInstance3D" parent="."]
+[node name="PowercableAngle2" type="MeshInstance3D" parent="." unique_id=1142535747]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("82_vse7a")
 
-[node name="PowercableCurve1" type="MeshInstance3D" parent="."]
+[node name="PowercableCurve1" type="MeshInstance3D" parent="." unique_id=655749466]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("83_psdkg")
 
-[node name="PowercableCurve2" type="MeshInstance3D" parent="."]
+[node name="PowercableCurve2" type="MeshInstance3D" parent="." unique_id=2048506102]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("84_16isb")
 
-[node name="PowercableLarge" type="MeshInstance3D" parent="."]
+[node name="PowercableLarge" type="MeshInstance3D" parent="." unique_id=1264316928]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("85_4jomd")
 
-[node name="PowercableMed" type="MeshInstance3D" parent="."]
+[node name="PowercableMed" type="MeshInstance3D" parent="." unique_id=830170337]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("86_1rmuy")
 
-[node name="PowercableSmall" type="MeshInstance3D" parent="."]
+[node name="PowercableSmall" type="MeshInstance3D" parent="." unique_id=1609608688]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("87_yoqlr")
 
-[node name="PowercableTee" type="MeshInstance3D" parent="."]
+[node name="PowercableTee" type="MeshInstance3D" parent="." unique_id=1186372854]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("88_r5u0n")
 
-[node name="Scaffold" type="MeshInstance3D" parent="."]
+[node name="Scaffold" type="MeshInstance3D" parent="." unique_id=1873828275]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("89_4pi8g")
 
-[node name="Scaffold2" type="MeshInstance3D" parent="."]
+[node name="Scaffold2" type="MeshInstance3D" parent="." unique_id=579550297]
 transform = Transform3D(0.37516847, 0, -0.86733705, 0, 0.945, 0, 0.86733705, 0, 0.37516847, -2.6305878, 2.256092, -5.8509383)
 mesh = ExtResource("89_4pi8g")
 
-[node name="Scaffold3" type="MeshInstance3D" parent="."]
+[node name="Scaffold3" type="MeshInstance3D" parent="." unique_id=1162382824]
 transform = Transform3D(0.28509343, 0, -0.9340143, 0, 0.97655576, 0, 0.9340143, 0, 0.28509343, -2.718504, -0.5278959, -4.590471)
 mesh = ExtResource("89_4pi8g")
 
-[node name="Scaffold4" type="MeshInstance3D" parent="."]
+[node name="Scaffold4" type="MeshInstance3D" parent="." unique_id=560369521]
 transform = Transform3D(-0.9165142, 0, -0.33713898, 0, 0.97655576, 0, 0.33713898, 0, -0.9165142, -0.3832001, 0.5932126, -5.1655965)
 mesh = ExtResource("89_4pi8g")
 
-[node name="Terminal" type="MeshInstance3D" parent="."]
+[node name="Terminal" type="MeshInstance3D" parent="." unique_id=545931613]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("90_5i7sb")
 
-[node name="Pipe1Short" type="MeshInstance3D" parent="."]
+[node name="Pipe1Short" type="MeshInstance3D" parent="." unique_id=988037850]
 transform = Transform3D(1.5252372, -0.07556391, 0, 0.104247674, 1.1055679, 0, 0, 0, 1.5287957, -6.3320093, -0.1344874, -2.313344)
 mesh = ExtResource("4_t2hkb")
 
-[node name="Pipe1Short2" type="MeshInstance3D" parent="."]
+[node name="Pipe1Short2" type="MeshInstance3D" parent="." unique_id=2099919346]
 transform = Transform3D(1.4318489, 0.026262373, -0.5345205, -0.033943422, 1.107836, 0.012671348, 0.53467065, 0, 1.4322511, -6.4261036, 1.4068146, -2.313344)
 mesh = ExtResource("4_t2hkb")
 
-[node name="Pipe1Short6" type="MeshInstance3D" parent="."]
+[node name="Pipe1Short6" type="MeshInstance3D" parent="." unique_id=64032179]
 transform = Transform3D(1.8698195, -0.20561229, -0.6980184, 0.2657485, 1.4466983, -0.099206015, 0.705033, -6.8025025e-10, 1.8886099, 2.9200306, -0.13171029, -2.2171245)
 mesh = ExtResource("4_t2hkb")
 
-[node name="Pipe1Medium" type="MeshInstance3D" parent="."]
+[node name="Pipe1Medium" type="MeshInstance3D" parent="." unique_id=2055304797]
 transform = Transform3D(1.0029037, -0.16678503, 0, 0.16678503, 1.0029037, 0, 0, 0, 1.0166775, -8.212106, -0.16094984, -2.6125011)
 mesh = ExtResource("3_iv5s1")
 
-[node name="Pipe1Short3" type="MeshInstance3D" parent="."]
+[node name="Pipe1Short3" type="MeshInstance3D" parent="." unique_id=967008260]
 transform = Transform3D(0.9725408, -0.23273253, 0, 0.23273253, 0.9725408, 0, 0, 0, 1, -8.673178, 2.4308245, -2.5693402)
 mesh = ExtResource("4_t2hkb")
 
-[node name="Pipe1Short4" type="MeshInstance3D" parent="."]
+[node name="Pipe1Short4" type="MeshInstance3D" parent="." unique_id=270615163]
 transform = Transform3D(0.9854382, 0.16732803, 0.030214645, 0.051072884, -0.12179198, -0.9912409, -0.16218233, 0.9783497, -0.12856439, -7.5533233, 0.20624135, -2.497282)
 mesh = ExtResource("4_t2hkb")
 
-[node name="Pipe1Long" type="MeshInstance3D" parent="."]
+[node name="Pipe1Long" type="MeshInstance3D" parent="." unique_id=1829020830]
 transform = Transform3D(-0.99929076, 0.037655182, 0, -0.037655182, -0.99929076, 0, 0, 0, 1, 1.6544468, 5.178292, -2.5367718)
 mesh = ExtResource("91_0v81c")
 
-[node name="Pipe1Short5" type="MeshInstance3D" parent="."]
+[node name="Pipe1Short5" type="MeshInstance3D" parent="." unique_id=954843691]
 transform = Transform3D(0.946108, 0, -0.32385138, 0, 1, 0, 0.32385138, 0, 0.946108, -5.670017, -0.040738463, -4.685781)
 mesh = ExtResource("4_t2hkb")
 
-[node name="Pipe1Medium2" type="MeshInstance3D" parent="."]
+[node name="Pipe1Medium2" type="MeshInstance3D" parent="." unique_id=1660899770]
 transform = Transform3D(0.94151014, -0.093162045, -0.3238514, 0.09846873, 0.99514025, 0, 0.32227752, -0.031889226, 0.946108, -5.7114167, 1.3699666, -4.5421185)
 mesh = ExtResource("3_iv5s1")
 
-[node name="GearSpurlargebore2" type="MeshInstance3D" parent="."]
+[node name="GearSpurlargebore2" type="MeshInstance3D" parent="." unique_id=1517482994]
 transform = Transform3D(2.3014607, -1.2874391, 0.154703, 0.65054417, 0.87375045, -2.4065547, 1.1217061, 2.1347632, 1.0782924, 0.41618973, 0.15856877, -2.5731747)
 mesh = ExtResource("67_latii")
 
-[node name="LadderLarge2" type="MeshInstance3D" parent="."]
+[node name="LadderLarge2" type="MeshInstance3D" parent="." unique_id=1658895709]
 transform = Transform3D(-0.25950328, 0, -0.07573172, 0, 0.270328, 0, 0.07573172, 0, -0.25950328, -3.945445, 0.9718144, -2.6881027)
 mesh = ExtResource("71_d216d")
 
-[node name="GearSpurwithspokes2" type="MeshInstance3D" parent="."]
+[node name="GearSpurwithspokes2" type="MeshInstance3D" parent="." unique_id=544296233]
 transform = Transform3D(0.81854963, 0.5090148, 0.26623395, 0.16826865, 0.23067078, -0.958372, -0.549238, 0.8292737, 0.103164166, -6.2961087, 0.035229295, -1.6542526)
 mesh = ExtResource("68_30kme")
