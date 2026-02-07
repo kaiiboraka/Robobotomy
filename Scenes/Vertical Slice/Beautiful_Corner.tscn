@@ -118,6 +118,10 @@ render_priority = 0
 shader = ExtResource("1_1krl7")
 shader_parameter/tex_frg_26 = ExtResource("2_2dqvl")
 
+[sub_resource type="BoxMesh" id="BoxMesh_t2hkb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_itrl0"]
+
 [node name="Beautiful_Corner" type="Node3D" unique_id=2107564685]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1264735544]
@@ -179,6 +183,16 @@ script = ExtResource("5_t2hkb")
 [node name="Chain 1" type="Sprite3D" parent="." unique_id=1451101306]
 transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 9.012341, 0, 0.6390753)
 texture = ExtResource("3_usww3")
+
+[node name="Cube" type="RigidBody3D" parent="." unique_id=1652931545]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.188353, 0.5980947, -0.013339758)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube" unique_id=1401451070]
+mesh = SubResource("BoxMesh_t2hkb")
+skeleton = NodePath("../../Chain 2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube" unique_id=384160385]
+shape = SubResource("BoxShape3D_itrl0")
 
 [node name="Chain 2" type="Sprite3D" parent="." unique_id=454430652]
 transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 9.45441, 0, 0.6390753)
