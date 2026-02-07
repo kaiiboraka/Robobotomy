@@ -15,10 +15,10 @@ var triggered := false
 @onready var collision: CollisionShape3D = $CollisionShape3D
 
 ## Unloads the previous level and queues the loading
-## of the next level if the triggering body is of 
-## the group "player"
-func _on_player_entered(body: Node3D) -> void:
-	if body in get_tree().get_nodes_in_group("player") and not triggered:
+## of the next level. This should only activate for
+## the player (its mask is for the player only)
+func _on_player_entered(_body: Node3D) -> void:
+	if not triggered:
 		LevelManager.unload_level()
 		LevelManager.queue_threaded_load(level_to_load)
 		triggered = true

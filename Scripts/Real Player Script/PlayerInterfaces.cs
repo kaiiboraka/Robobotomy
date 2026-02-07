@@ -5,7 +5,7 @@ using Godot;
 public interface ISelectable
 {
     bool amIsolated { get; set; }
-
+    bool amSelected { get; set; }
     ActualPlayer.LimbTypes myType {get;set;}
     ISelectable OnSelect();
     void OnConnect(Vector3 Position, IHub parent)
