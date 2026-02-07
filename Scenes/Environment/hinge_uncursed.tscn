@@ -18,21 +18,23 @@ script = ExtResource("1_tdvt8")
 
 [node name="HingeBase" type="StaticBody3D" parent="." unique_id=948151665]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HingeBase" unique_id=1466210379]
+[node name="HingeBaseCollision" type="CollisionShape3D" parent="HingeBase" unique_id=1466210379]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 shape = SubResource("CylinderShape3D_mgp4v")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HingeBase/CollisionShape3D" unique_id=1238561654]
+[node name="HingeBaseMesh" type="MeshInstance3D" parent="HingeBase/HingeBaseCollision" unique_id=1238561654]
 mesh = SubResource("CylinderMesh_tdvt8")
 skeleton = NodePath("../..")
 
 [node name="HingeJoint3D" type="HingeJoint3D" parent="." unique_id=262063081]
 node_a = NodePath("../HingeBase")
+node_b = NodePath("../HingeArm")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1576785631]
+[node name="HingeArm" type="RigidBody3D" parent="." unique_id=1576785631]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=353369279]
+[node name="HingeArmCollision" type="CollisionShape3D" parent="HingeArm" unique_id=353369279]
 shape = SubResource("BoxShape3D_mfs1p")
 
-[node name="AttachedMesh" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D" unique_id=1755231833]
+[node name="HingeArmMesh" type="MeshInstance3D" parent="HingeArm/HingeArmCollision" unique_id=1755231833]
+unique_name_in_owner = true
 skeleton = NodePath("../../..")

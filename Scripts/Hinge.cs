@@ -1,11 +1,13 @@
 using Godot;
 using System;
+
 // Hinge Door Specs:
 // this is a Hinge object
 // the level designer can do the following:
-	// attach a mesh that will rotate around the Hinge
-	// define angle constraints (display debug lines in viewport?)
-	// set the size of the hinge?
+// attach a mesh that will rotate around the Hinge
+// define angle constraints (display debug lines in viewport?)
+// set the size of the hinge?
+
 [Tool]
 public partial class Hinge : Node3D
 {
@@ -52,20 +54,25 @@ public partial class Hinge : Node3D
 	private float baseRadius;
 
 	[Export]
-	public Mesh DoorMesh { get => doorMesh; set
+	public Mesh ArmMesh { get => armMesh; set
 		{
-			doorMesh = value;
+			armMesh = value;
 		}
 	}
-	private Mesh doorMesh;	
+	private Mesh armMesh;	
 	
-	private MeshInstance3D _hingeDoorMesh;
+	private MeshInstance3D armMeshInstance;
 	private CollisionShape3D doorCollisionShape;
 
 
 	public override void _Ready()
 	{
-		GD.Print(doorMesh);
+		GD.Print("armMesh: ", armMesh);
+		armMeshInstance = GetNode<MeshInstance3D>("%HingeArmMesh");
+		if(armMesh != null) {
+			armMeshInstance.Mesh = armMesh;
+			GD.Print(armMeshInstance.Mesh);
+		}
 	}
 
 }
