@@ -95,8 +95,10 @@ texture = ExtResource("2_w1h4c")
 [node name="ColorRect" type="ColorRect" parent="." unique_id=388809351]
 material = SubResource("ShaderMaterial_b6mux")
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 554.0
+offset_top = 4.0000005
+offset_right = 594.0
+offset_bottom = 44.0
 scale = Vector2(28.80946, 16.249456)
 
 [connection signal="slot_selected" from="RadialMenuAdvanced" to="." method="_on_radial_menu_advanced_slot_selected"]
