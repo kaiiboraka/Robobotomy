@@ -22,6 +22,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_xsyet")
+default_scene = "uid://dmefqrw20pemv"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1190614879]
 layout_mode = 1
