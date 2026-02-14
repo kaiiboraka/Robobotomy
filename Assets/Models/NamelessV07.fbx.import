@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://7d3uouecigol"
-path="res://.godot/imported/Button.fbx-f3b69f87166c30df1cdefa18a5b2b477.scn"
+uid="uid://caj74qdlqfqfr"
+path="res://.godot/imported/NamelessV07.fbx-4828f1dc8440b1a3dd405f6b87a0a19f.scn"
 
 [deps]
 
-source_file="res://Scenes/Environment/Sandbox/Button.fbx"
-dest_files=["res://.godot/imported/Button.fbx-f3b69f87166c30df1cdefa18a5b2b477.scn"]
+source_file="res://Assets/Models/NamelessV07.fbx"
+dest_files=["res://.godot/imported/NamelessV07.fbx-4828f1dc8440b1a3dd405f6b87a0a19f.scn"]
 
 [params]
 

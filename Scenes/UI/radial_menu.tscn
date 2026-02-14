@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2lsnrmivu4ky"]
+[gd_scene format=3 uid="uid://b2lsnrmivu4ky"]
 
 [ext_resource type="Script" uid="uid://c2ffje36dgcds" path="res://addons/advanced_radial_menu/radial_menu_class.gd" id="1_4gvu6"]
 [ext_resource type="Script" uid="uid://bcsoaj36akxti" path="res://Scenes/UI/radial_menu.gd" id="1_pvlir"]
 [ext_resource type="Texture2D" uid="uid://wlvqkc1fyj40" path="res://Assets/Images/icon_smaller.jpg" id="2_w1h4c"]
+[ext_resource type="Shader" uid="uid://pr6p256jd268" path="res://Assets/UI/shaders/crt.gdshader" id="4_r4tj4"]
 
-[node name="RadialMenu" type="Control" node_paths=PackedStringArray("menu")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b6mux"]
+shader = ExtResource("4_r4tj4")
+
+[node name="RadialMenu" type="Control" unique_id=135075730 node_paths=PackedStringArray("menu")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +18,7 @@ grow_vertical = 2
 script = ExtResource("1_pvlir")
 menu = NodePath("RadialMenuAdvanced")
 
-[node name="RadialMenuAdvanced" type="Control" parent="."]
+[node name="RadialMenuAdvanced" type="Control" parent="." unique_id=1506787732]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,7 +38,7 @@ children_size = 1
 children_auto_sizing_factor = 0.0
 metadata/_custom_type_script = "uid://c2ffje36dgcds"
 
-[node name="Torso" type="TextureRect" parent="RadialMenuAdvanced"]
+[node name="Torso" type="TextureRect" parent="RadialMenuAdvanced" unique_id=1177217145]
 layout_mode = 0
 offset_left = 532.5
 offset_top = 271.5
@@ -43,7 +47,7 @@ offset_bottom = 375.5
 pivot_offset = Vector2(50, 52)
 texture = ExtResource("2_w1h4c")
 
-[node name="Head" type="TextureRect" parent="RadialMenuAdvanced"]
+[node name="Head" type="TextureRect" parent="RadialMenuAdvanced" unique_id=1999113102]
 layout_mode = 0
 offset_left = 532.5
 offset_top = 74.66701
@@ -52,7 +56,7 @@ offset_bottom = 178.667
 pivot_offset = Vector2(50, 52)
 texture = ExtResource("2_w1h4c")
 
-[node name="Left Arm" type="TextureRect" parent="RadialMenuAdvanced"]
+[node name="Left Arm" type="TextureRect" parent="RadialMenuAdvanced" unique_id=1180951296]
 layout_mode = 0
 offset_left = 345.30072
 offset_top = 210.67525
@@ -61,7 +65,7 @@ offset_bottom = 314.67523
 pivot_offset = Vector2(50, 52)
 texture = ExtResource("2_w1h4c")
 
-[node name="Left Leg" type="TextureRect" parent="RadialMenuAdvanced"]
+[node name="Left Leg" type="TextureRect" parent="RadialMenuAdvanced" unique_id=1419109198]
 layout_mode = 0
 offset_left = 416.8045
 offset_top = 430.74127
@@ -70,7 +74,7 @@ offset_bottom = 534.7413
 pivot_offset = Vector2(50, 52)
 texture = ExtResource("2_w1h4c")
 
-[node name="Right Leg" type="TextureRect" parent="RadialMenuAdvanced"]
+[node name="Right Leg" type="TextureRect" parent="RadialMenuAdvanced" unique_id=1142089909]
 layout_mode = 0
 offset_left = 648.1955
 offset_top = 430.74127
@@ -79,7 +83,7 @@ offset_bottom = 534.7413
 pivot_offset = Vector2(50, 52)
 texture = ExtResource("2_w1h4c")
 
-[node name="Right Arm" type="TextureRect" parent="RadialMenuAdvanced"]
+[node name="Right Arm" type="TextureRect" parent="RadialMenuAdvanced" unique_id=514849934]
 layout_mode = 0
 offset_left = 719.69934
 offset_top = 210.6753
@@ -87,5 +91,12 @@ offset_right = 819.69934
 offset_bottom = 314.6753
 pivot_offset = Vector2(50, 52)
 texture = ExtResource("2_w1h4c")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=388809351]
+material = SubResource("ShaderMaterial_b6mux")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.80946, 16.249456)
 
 [connection signal="slot_selected" from="RadialMenuAdvanced" to="." method="_on_radial_menu_advanced_slot_selected"]

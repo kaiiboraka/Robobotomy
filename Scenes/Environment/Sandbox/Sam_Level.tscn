@@ -1,37 +1,50 @@
-[gd_scene load_steps=6 format=3 uid="uid://qnd58s5egvhu"]
+[gd_scene format=3 uid="uid://qnd58s5egvhu"]
 
 [ext_resource type="PackedScene" uid="uid://dbk24fe7ef7m3" path="res://Scenes/Environment/platform_plane.tscn" id="1_t36wy"]
-[ext_resource type="PackedScene" uid="uid://c5rju34ocg5dp" path="res://Scenes/Characters/Player.tscn" id="2_747vs"]
+[ext_resource type="PackedScene" uid="uid://8m5udpdfeosa" path="res://Scenes/Environment/Sandbox/Physics_Player_Sandbox.tscn" id="2_t36wy"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_eb4m7"]
 [ext_resource type="PackedScene" uid="uid://gl5j7l3w6avc" path="res://Scenes/Environment/simple_box.tscn" id="4_ejfj1"]
 [ext_resource type="PackedScene" uid="uid://pvwqjhr7eu4p" path="res://Scenes/Environment/seesaw.tscn" id="6_747vs"]
 
-[node name="LevelRoot" type="Node3D"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t36wy"]
 
-[node name="PlatformStatic" parent="." instance=ExtResource("1_t36wy")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_t36wy"]
 
-[node name="Player" parent="." instance=ExtResource("2_747vs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6592422, 0)
+[node name="LevelRoot" type="Node3D" unique_id=1132322188]
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="PlatformStatic" parent="." unique_id=1999693724 instance=ExtResource("1_t36wy")]
+
+[node name="PhysicsPlayer" parent="." unique_id=1587803193 instance=ExtResource("2_t36wy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1069078, 0)
+physics_material_override = SubResource("PhysicsMaterial_t36wy")
+linear_damp_mode = 1
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1697502124]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6592422, 4.16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1069078, 4.16)
 fov = 80.0
 
-[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=402658568]
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("3_eb4m7")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="Simple Box" parent="." instance=ExtResource("4_ejfj1")]
+[node name="Simple Box" parent="." unique_id=862870006 instance=ExtResource("4_ejfj1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.666735, 11.405434, -0.022739291)
 
-[node name="Simple Box2" parent="." instance=ExtResource("4_ejfj1")]
+[node name="Simple Box2" parent="." unique_id=1838293810 instance=ExtResource("4_ejfj1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3368273, 1.4883089, 0)
 
-[node name="Simple Box3" parent="." instance=ExtResource("4_ejfj1")]
+[node name="Simple Box3" parent="." unique_id=1106132404 instance=ExtResource("4_ejfj1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.93303, 0.57820344, 0.20981407)
 
-[node name="Seesaw" parent="." instance=ExtResource("6_747vs")]
+[node name="Seesaw" parent="." unique_id=513108233 instance=ExtResource("6_747vs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8226013, 0.6094389, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=628502819]
+collision_layer = 517
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1676483117]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 4.5269675, 2.0354905, 0)
+shape = SubResource("BoxShape3D_t36wy")
