@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5x262jkt8yf0"]
+[gd_scene format=3 uid="uid://c5x262jkt8yf0"]
 
 [ext_resource type="Script" uid="uid://m7rqg5aha0v1" path="res://Scenes/UI/title_screen.gd" id="1_xsyet"]
 [ext_resource type="Texture2D" uid="uid://ddagsld40ed68" path="res://Assets/Images/background.jpg" id="2_dnytt"]
@@ -6,7 +6,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_bb5vv"]
 font_size = 45
 
-[node name="TitleScreen" type="Control"]
+[node name="TitleScreen" type="Control" unique_id=464083475]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,8 +16,9 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_xsyet")
+default_scene = "uid://dmefqrw20pemv"
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=962122645]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,7 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.013748739, 0.054101586, 0.16209865, 1)
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=973624455]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,7 +39,7 @@ grow_vertical = 2
 texture = ExtResource("2_dnytt")
 expand_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=439952759]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 15
@@ -48,24 +49,24 @@ offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=96287532]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1948486703]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Robobotomy"
 label_settings = SubResource("LabelSettings_bb5vv")
 
-[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1187278532]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Load Game"
 
-[node name="SceneToLoad" type="LineEdit" parent="CenterContainer/VBoxContainer"]
+[node name="SceneToLoad" type="LineEdit" parent="CenterContainer/VBoxContainer" unique_id=1686245942]
 unique_name_in_owner = true
 layout_mode = 2
 placeholder_text = "(Optional) Scene File Path Here"
