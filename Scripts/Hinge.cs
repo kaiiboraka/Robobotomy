@@ -57,6 +57,7 @@ public partial class Hinge : Node3D
 	public Mesh ArmMesh { get => armMesh; set
 		{
 			armMesh = value;
+			UpdateArmMesh();
 		}
 	}
 	private Mesh armMesh;	
@@ -67,11 +68,13 @@ public partial class Hinge : Node3D
 
 	public override void _Ready()
 	{
-		GD.Print("armMesh: ", armMesh);
+		UpdateArmMesh();
+	}
+	private void UpdateArmMesh()
+	{
 		armMeshInstance = GetNode<MeshInstance3D>("%HingeArmMesh");
 		if(armMesh != null) {
 			armMeshInstance.Mesh = armMesh;
-			GD.Print(armMeshInstance.Mesh);
 		}
 	}
 
