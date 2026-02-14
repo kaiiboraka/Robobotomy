@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://csqa5fgdggleb"]
 
 [ext_resource type="PackedScene" uid="uid://mgfaqbwixsqj" path="res://Scenes/Environment/hinge_uncursed.tscn" id="1_vgfim"]
-[ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_long.res" id="2_prjws"]
 
 [node name="JacobLevelUncursed" type="Node3D" unique_id=770380683]
 
 [node name="Hinge" parent="." unique_id=6738442 instance=ExtResource("1_vgfim")]
-ArmMesh = ExtResource("2_prjws")
+ArmLength = 5.46
+ArmWidth = 0.245
+Depth = 1.765
+BaseRadius = 1.37
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1062719114]
 transform = Transform3D(0.9948826, 0, 0.10103895, -0.009979008, 0.99511087, 0.09825856, -0.10054495, -0.098764, 0.9900185, 1.593384, 1.3093939, 5.606873)

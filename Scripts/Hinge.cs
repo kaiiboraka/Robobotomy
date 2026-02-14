@@ -28,6 +28,8 @@ public partial class Hinge : Node3D
 	public float ArmLength { get => armLength; set
 		{
 			armLength = value;
+			UpdateArmCollision();
+			UpdateArmMesh();
 		}
 	}
 	private float armLength;
@@ -35,6 +37,7 @@ public partial class Hinge : Node3D
 	public float ArmWidth { get => armWidth; set
 		{
 			armWidth = value;
+			UpdateArmCollision();
 		}
 	}
 	private float armWidth;
@@ -42,6 +45,9 @@ public partial class Hinge : Node3D
 	public float Depth { get => depth; set
 		{
 			depth = value;
+			UpdateBaseMesh();
+			UpdateBaseCollision();
+			UpdateArmCollision();
 		}
 	}
 	private float depth;
@@ -49,6 +55,9 @@ public partial class Hinge : Node3D
 	public float BaseRadius { get => baseRadius; set
 		{
 			baseRadius = value;
+			UpdateBaseMesh();
+			UpdateArmMesh();
+			UpdateBaseCollision();
 		}
 	}
 	private float baseRadius;
@@ -63,19 +72,56 @@ public partial class Hinge : Node3D
 	private Mesh armMesh;	
 	
 	private MeshInstance3D armMeshInstance;
-	private CollisionShape3D doorCollisionShape;
+	private MeshInstance3D baseMeshInstance;
+	private CollisionShape3D baseCollisionShape;
+	private CollisionShape3D armCollisionShape;
 
 
 	public override void _Ready()
 	{
 		UpdateArmMesh();
+		UpdateBaseMesh();
+		UpdateBaseCollision();
 	}
 	private void UpdateArmMesh()
 	{
 		armMeshInstance = GetNode<MeshInstance3D>("%HingeArmMesh");
 		if(armMesh != null) {
 			armMeshInstance.Mesh = armMesh;
+			armMeshInstance.Position = new Vector3(0, BaseRadius-armLength/2, 0);
 		}
 	}
-
+	private void UpdateBaseMesh()
+	{
+		baseMeshInstance = GetNode<MeshInstance3D>("%HingeBaseMesh");
+		CylinderMesh baseMesh = baseMeshInstance.Mesh as CylinderMesh;
+		if(baseMesh != null) {
+			baseMesh.TopRadius = BaseRadius;
+			baseMesh.BottomRadius = BaseRadius;
+			baseMesh.Height = Depth;
+		}
+		baseMeshInstance.Mesh = baseMesh;
+	}
+	private void UpdateBaseCollision()
+	{
+		baseCollisionShape = GetNode<CollisionShape3D>("%HingeBaseCollision");
+		CylinderShape3D shape = baseCollisionShape.Shape as CylinderShape3D;
+		if (shape != null)
+		{
+			shape.Radius = BaseRadius;
+			shape.Height = Depth;
+		}
+		baseCollisionShape.Shape = shape;
+	}
+	private void UpdateArmCollision()
+	{
+		armCollisionShape = GetNode<CollisionShape3D>("%HingeArmCollision");
+		BoxShape3D shape = armCollisionShape.Shape as BoxShape3D;
+		if(shape != null)
+		{
+			shape.Size = new Vector3(ArmWidth, ArmLength, Depth);
+			armCollisionShape.Position = new Vector3(0, ArmLength/2, 0);
+		}
+		armCollisionShape.Shape = shape;
+	}
 }

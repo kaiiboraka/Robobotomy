@@ -1,40 +1,56 @@
 [gd_scene format=3 uid="uid://mgfaqbwixsqj"]
 
 [ext_resource type="Script" uid="uid://svp8dyuwan4v" path="res://Scripts/Hinge.cs" id="1_tdvt8"]
+[ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_long.res" id="2_tdvt8"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_mgp4v"]
-height = 1.0
-radius = 0.35
+height = 0.92
+radius = 0.87
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_tdvt8"]
-top_radius = 0.35
-bottom_radius = 0.35
-height = 1.0
+top_radius = 0.87
+bottom_radius = 0.87
+height = 0.92
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mfs1p"]
+size = Vector3(1.315, 5.15, 1.595)
 
 [node name="Hinge" type="Node3D" unique_id=6738442]
 script = ExtResource("1_tdvt8")
+UpperAngle = 0.285
+LowerAngle = 0.115
+ArmLength = 5.15
+ArmWidth = 1.315
+Depth = 1.595
+BaseRadius = 1.92
+ArmMesh = ExtResource("2_tdvt8")
 
 [node name="HingeBase" type="StaticBody3D" parent="." unique_id=948151665]
 
 [node name="HingeBaseCollision" type="CollisionShape3D" parent="HingeBase" unique_id=1466210379]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 shape = SubResource("CylinderShape3D_mgp4v")
 
 [node name="HingeBaseMesh" type="MeshInstance3D" parent="HingeBase/HingeBaseCollision" unique_id=1238561654]
+unique_name_in_owner = true
 mesh = SubResource("CylinderMesh_tdvt8")
 skeleton = NodePath("../..")
 
 [node name="HingeJoint3D" type="HingeJoint3D" parent="." unique_id=262063081]
+unique_name_in_owner = true
 node_a = NodePath("../HingeBase")
 node_b = NodePath("../HingeArm")
 
 [node name="HingeArm" type="RigidBody3D" parent="." unique_id=1576785631]
 
 [node name="HingeArmCollision" type="CollisionShape3D" parent="HingeArm" unique_id=353369279]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.575, 0)
 shape = SubResource("BoxShape3D_mfs1p")
 
 [node name="HingeArmMesh" type="MeshInstance3D" parent="HingeArm/HingeArmCollision" unique_id=1755231833]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6550001, 0)
+mesh = ExtResource("2_tdvt8")
 skeleton = NodePath("../../..")
