@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://db5rdebx07aqd"]
+[gd_scene format=3 uid="uid://db5rdebx07aqd"]
 
 [ext_resource type="PackedScene" uid="uid://coohrx1ulw80h" path="res://Assets/Models/ControllPanel1.fbx" id="1_iplkl"]
 
