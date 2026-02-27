@@ -20,7 +20,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Robobotomy"
-run/main_scene="uid://c87c5afrm7n7y"
+run/main_scene="uid://cu5sqddigjqg"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 boot_splash/image="uid://c4l6sjl3ml1la"
 config/icon="uid://c7wscsdw2xd2f"
@@ -46,7 +46,7 @@ naming/scene_name_casing=1
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/advanced_radial_menu/plugin.cfg", "res://addons/explore-editor-theme/plugin.cfg", "res://addons/fancy_folder_colors/plugin.cfg", "res://addons/layerNames/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/plugin_refresher/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg", "res://addons/advanced_radial_menu/plugin.cfg", "res://addons/explore-editor-theme/plugin.cfg", "res://addons/fancy_folder_colors/plugin.cfg", "res://addons/layerNames/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/plugin_refresher/plugin.cfg")
 
 [file_customization]
 
@@ -158,6 +158,7 @@ ui_scroll_down={
 
 [layer_names]
 
+3d_render/layer_10="Cards"
 3d_physics/layer_1="PlayerCollision"
 3d_physics/layer_2="PlayerHurtbox"
 3d_physics/layer_3="SolidGround"

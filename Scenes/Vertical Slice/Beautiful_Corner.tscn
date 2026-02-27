@@ -92,6 +92,7 @@
 [ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Scenes/Vertical Slice/3d assetts/kitbash/scaffold.res" id="89_4pi8g"]
 [ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Scenes/Vertical Slice/3d assetts/kitbash/terminal.res" id="90_5i7sb"]
 [ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_long.res" id="91_0v81c"]
+[ext_resource type="PackedScene" uid="uid://dsh0mcfyklgg8" path="res://Assets/Robobotomy Art/3D/Character/NamTest.fbx" id="93_itrl0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_clgom"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -506,7 +507,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("70_7mw20")
 
 [node name="LadderLarge" type="MeshInstance3D" parent="." unique_id=613887620]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.691098, 0, 5.0212545)
 mesh = ExtResource("71_d216d")
 
 [node name="LadderMid" type="MeshInstance3D" parent="." unique_id=1588679394]
@@ -522,15 +523,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("74_fl8kt")
 
 [node name="LadderTop2" type="MeshInstance3D" parent="." unique_id=247765152]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.55309, 0, 8.371615)
 mesh = ExtResource("75_ip7kf")
 
 [node name="Lever" type="MeshInstance3D" parent="." unique_id=110013518]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.712315, -4.7683716e-07, 4.7955265)
 mesh = ExtResource("76_yidho")
 
 [node name="MonkeybarLarge" type="MeshInstance3D" parent="." unique_id=827829323]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.354185, 0, 5.1058865)
 mesh = ExtResource("77_sve0w")
 
 [node name="MonkeybarMed1" type="MeshInstance3D" parent="." unique_id=236880631]
@@ -594,7 +595,7 @@ transform = Transform3D(-0.9165142, 0, -0.33713898, 0, 0.97655576, 0, 0.33713898
 mesh = ExtResource("89_4pi8g")
 
 [node name="Terminal" type="MeshInstance3D" parent="." unique_id=545931613]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.67327, 0.64241874, -0.04028225)
 mesh = ExtResource("90_5i7sb")
 
 [node name="Pipe1Short" type="MeshInstance3D" parent="." unique_id=988037850]
@@ -644,3 +645,9 @@ mesh = ExtResource("71_d216d")
 [node name="GearSpurwithspokes2" type="MeshInstance3D" parent="." unique_id=544296233]
 transform = Transform3D(0.81854963, 0.5090148, 0.26623395, 0.16826865, 0.23067078, -0.958372, -0.549238, 0.8292737, 0.103164166, -6.2961087, 0.035229295, -1.6542526)
 mesh = ExtResource("68_30kme")
+
+[node name="NamTest" parent="." unique_id=1066746990 instance=ExtResource("93_itrl0")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, -1.1892421, 0.031194976, 0.08543983)
+
+[node name="NamTest2" parent="." unique_id=1305131712 instance=ExtResource("93_itrl0")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, -1.8309488, 0.031195212, 0.084834814)
