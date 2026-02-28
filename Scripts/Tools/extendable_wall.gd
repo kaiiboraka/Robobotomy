@@ -6,22 +6,29 @@ extends StaticBody3D
 		length = value
 		_sync_children()
 
-@export_node_path("MeshInstance3D") var mesh_path
-@export_node_path("CollisionShape3D") var shape_path
-
-@onready var mesh_node: MeshInstance3D = get_node_or_null(mesh_path)
-@onready var shape_node: CollisionShape3D = get_node_or_null(shape_path)
+# Internal references
+var mesh_node: MeshInstance3D
+var shape_node: CollisionShape3D
 
 func _ready():
-	if not Engine.is_editor_hint(): return
+	# Hard-coded node names
+	mesh_node = get_node_or_null("BoxMesh")
+	shape_node = get_node_or_null("BoxShape")
 	
-	# Connect to the Resource signals directly
+	if not Engine.is_editor_hint(): 
+		_sync_children() # Ensure physics matches visual on game start
+		return
+	
+	# Connect to Resource signals for the 'reverse' update in editor
 	if mesh_node and mesh_node.mesh:
-		mesh_node.mesh.changed.connect(_on_child_resource_changed)
+		if not mesh_node.mesh.changed.is_connected(_on_resource_changed):
+			mesh_node.mesh.changed.connect(_on_resource_changed)
+			
 	if shape_node and shape_node.shape:
-		shape_node.shape.changed.connect(_on_child_resource_changed)
+		if not shape_node.shape.changed.is_connected(_on_resource_changed):
+			shape_node.shape.changed.connect(_on_resource_changed)
 
-func _on_child_resource_changed():
+func _on_resource_changed():
 	# If you change the BoxMesh size.x in the inspector, 
 	# this updates the parent 'length'
 	var new_length = length
