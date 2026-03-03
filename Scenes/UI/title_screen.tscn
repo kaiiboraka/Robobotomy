@@ -1,11 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5x262jkt8yf0"]
+[gd_scene format=3 uid="uid://c5x262jkt8yf0"]
 
 [ext_resource type="Script" uid="uid://m7rqg5aha0v1" path="res://Scenes/UI/title_screen.gd" id="1_xsyet"]
+[ext_resource type="Texture2D" uid="uid://ddagsld40ed68" path="res://Assets/Images/background.jpg" id="2_dnytt"]
+[ext_resource type="FontFile" uid="uid://7uu10pqkn1mk" path="res://Assets/Fonts/pixel.ttf" id="3_bnqst"]
+[ext_resource type="Texture2D" uid="uid://m4pxuo4kpaxe" path="res://Assets/UI/RobobotomyTitle1.png" id="4_2br5b"]
+[ext_resource type="Shader" uid="uid://pr6p256jd268" path="res://Assets/UI/shaders/crt.gdshader" id="5_wv540"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bb5vv"]
 font_size = 45
 
-[node name="TitleScreen" type="Control"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dsf7a"]
+shader = ExtResource("5_wv540")
+
+[node name="TitleScreen" type="Control" unique_id=1878181165]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,8 +22,9 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_xsyet")
+default_scene = "uid://dmefqrw20pemv"
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1190614879]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,35 +33,61 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.013748739, 0.054101586, 0.16209865, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2113228493]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_dnytt")
+expand_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1683141901]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 1.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1461722975]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1760113117]
 layout_mode = 2
 size_flags_vertical = 1
-text = "Robobotomy"
 label_settings = SubResource("LabelSettings_bb5vv")
 
-[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=440715355]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_bnqst")
+theme_override_font_sizes/font_size = 13
 text = "Load Game"
 
-[node name="SceneToLoad" type="LineEdit" parent="CenterContainer/VBoxContainer"]
+[node name="SceneToLoad" type="LineEdit" parent="CenterContainer/VBoxContainer" unique_id=618434101]
 unique_name_in_owner = true
 layout_mode = 2
 placeholder_text = "(Optional) Scene File Path Here"
+
+[node name="ColorRect2" type="ColorRect" parent="CenterContainer/VBoxContainer" unique_id=1917001054]
+material = SubResource("ShaderMaterial_dsf7a")
+layout_mode = 2
+
+[node name="RobobotomyTitle1" type="Sprite2D" parent="CenterContainer/VBoxContainer/ColorRect2" unique_id=405279459]
+position = Vector2(54, -104)
+scale = Vector2(0.25045404, 0.25045404)
+texture = ExtResource("4_2br5b")
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

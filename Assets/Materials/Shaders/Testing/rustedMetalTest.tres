@@ -1,0 +1,419 @@
+[gd_resource type="VisualShader" load_steps=25 format=3 uid="uid://2o0y74kigool"]
+
+[ext_resource type="Texture2D" uid="uid://d2i4y8mqp3afs" path="res://rustedMetalTestTexs/RustedMetal_basecolor.png" id="1_aq8ta"]
+[ext_resource type="Texture2D" uid="uid://d0c6mgx76d13b" path="res://rustedMetalTestTexs/RustedMetal_roughness.png" id="2_4rw58"]
+[ext_resource type="Texture2D" uid="uid://blu5mr26ybjln" path="res://metalTestTexs/Metal_height.png" id="3_1rg2e"]
+[ext_resource type="Texture2D" uid="uid://cexh5qpy06qdp" path="res://rustedMetalTestTexs/RustedMetal_metallic.png" id="4_1rg2e"]
+[ext_resource type="Texture2D" uid="uid://k4dm5vk17yt0" path="res://metalTestTexs/Metal_normal.png" id="5_p8e1t"]
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_eleml"]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_s37jl"]
+source = 5
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_ycref"]
+parameter_name = "Edge_Map"
+qualifier = 2
+texture_type = 2
+texture_repeat = 1
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_6wba8"]
+size = Vector2(480, 160)
+expression = "// vec2 rotate(vec2 uv, vec2 pivot, float angle)
+// {
+uv = UV;
+vec2 pivot = vec2(0);
+
+mat2 rotation = mat2(vec2(sin(radians(angle)), -cos(radians(angle))),
+					vec2(cos(radians(angle)), sin(radians(angle))));
+	
+uv -= pivot;
+uv = uv * rotation;
+uv += pivot;
+	// return uv;
+// }
+
+// uv = rotate(UV, vec2(0.5), rotation);"
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_y31gy"]
+parameter_name = "Rotation"
+qualifier = 2
+hint = 2
+max = 360.0
+step = 0.5
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeColorFunc" id="VisualShaderNodeColorFunc_aq8ta"]
+function = 1
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_4rw58"]
+size = Vector2(472, 280)
+expression = "// userIn *= 100.0;
+float hue = valsIn.x;
+float sat = valsIn.y;
+float val = valsIn.z;
+
+float hScale;
+float sScale;
+float vScale;
+
+if (hUserIn < 0.0) {
+	hScale = hue;
+} else if (hUserIn > 0.0) {
+	hScale = 1.0 - hue;
+}
+
+if (sUserIn < 0.0) {
+	sScale = sat;
+} else if (sUserIn > 0.0) {
+	sScale = 1.0 - sat;
+}
+
+if (vUserIn < 0.0) {
+	vScale = val;
+} else if (vUserIn > 0.0) {
+	vScale = 1.0 - val;
+}
+
+hOut = hue + (hUserIn * hScale);
+sOut = sat + (sUserIn * sScale);
+vOut = val + (vUserIn * vScale);
+
+// if (hOut > 1.0) {
+	// hOut = 1.0;
+// } else if (hOut < 0.0) {
+	// hOut = 0.0;
+// }
+
+valsOut = vec3(hOut, sOut, vOut);
+// vec3 valsOut = vec3(hue, sat, val);"
+
+[sub_resource type="VisualShaderNodeColorFunc" id="VisualShaderNodeColorFunc_1rg2e"]
+function = 2
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_2h7um"]
+parameter_name = "Saturation"
+qualifier = 2
+hint = 1
+min = -1.0
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_p8e1t"]
+parameter_name = "Hue"
+qualifier = 2
+hint = 1
+min = -1.0
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_m073r"]
+texture = ExtResource("1_aq8ta")
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_5epto"]
+parameter_name = "Value"
+qualifier = 2
+hint = 1
+min = -1.0
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_6inus"]
+texture = ExtResource("2_4rw58")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_4xsqp"]
+texture = ExtResource("3_1rg2e")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_385wk"]
+texture = ExtResource("4_1rg2e")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_oab6n"]
+texture = ExtResource("5_p8e1t")
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_p66q7"]
+default_input_values = [1, Vector2(5, 5), 2, Vector2(0, 0)]
+expanded_output_ports = [0]
+function = 1
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_1hu25"]
+parameter_name = "Tiling"
+qualifier = 2
+hint = 2
+max = 20.0
+default_value_enabled = true
+default_value = 1.0
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_csojv"]
+expanded_output_ports = [0]
+parameter_name = "Vector2Parameter"
+qualifier = 2
+default_value_enabled = true
+default_value = Vector2(1, 1)
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+instance uniform float Rotation : hint_range(0.0, 360.0, 0.5) = 0.0;
+instance uniform float Tiling : hint_range(0.0, 20.0, 0.10000000149012) = 1.0;
+uniform sampler2D tex_frg_2 : source_color;
+instance uniform float Hue : hint_range(-1.0, 1.0) = 0.0;
+instance uniform float Saturation : hint_range(-1.0, 1.0) = 0.0;
+instance uniform float Value : hint_range(-1.0, 1.0) = 0.0;
+uniform sampler2D tex_frg_5;
+uniform sampler2D tex_frg_3;
+uniform sampler2D Edge_Map : hint_normal, repeat_enable;
+
+
+
+void fragment() {
+// FloatParameter:14
+	float n_out14p0 = Rotation;
+
+
+	vec2 n_out13p0;
+// Expression:13
+	n_out13p0 = vec2(0.0, 0.0);
+	{
+		// vec2 rotate(vec2 n_out13p0, vec2 pivot, float n_out14p0)
+		// {
+		n_out13p0 = UV;
+		vec2 pivot = vec2(0);
+		
+		mat2 rotation = mat2(vec2(sin(radians(n_out14p0)), -cos(radians(n_out14p0))),
+							vec2(cos(radians(n_out14p0)), sin(radians(n_out14p0))));
+			
+		n_out13p0 -= pivot;
+		n_out13p0 = n_out13p0 * rotation;
+		n_out13p0 += pivot;
+			// return n_out13p0;
+		// }
+		
+		// n_out13p0 = rotate(UV, vec2(0.5), rotation);
+	}
+
+
+// FloatParameter:8
+	float n_out8p0 = Tiling;
+
+
+// VectorCompose:10
+	vec2 n_out10p0 = vec2(n_out8p0, n_out8p0);
+
+
+// UVFunc:7
+	vec2 n_in7p2 = vec2(0.00000, 0.00000);
+	vec2 n_out7p0 = (n_out13p0 - n_in7p2) * n_out10p0 + n_in7p2;
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, n_out7p0);
+
+
+	vec3 n_out17p0;
+// ColorFunc:17
+	{
+		vec3 c = vec3(n_out2p0.xyz);
+		vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+		vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+		vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+		float d = q.x - min(q.w, q.y);
+		float e = 1.0e-10;
+		n_out17p0 = vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+	}
+
+
+// FloatParameter:19
+	float n_out19p0 = Hue;
+
+
+// FloatParameter:18
+	float n_out18p0 = Saturation;
+
+
+// FloatParameter:20
+	float n_out20p0 = Value;
+
+
+	vec3 n_out16p0;
+	float n_out16p1;
+	float n_out16p2;
+	float n_out16p3;
+// Expression:16
+	n_out16p0 = vec3(0.0, 0.0, 0.0);
+	n_out16p1 = 0.0;
+	n_out16p2 = 0.0;
+	n_out16p3 = 0.0;
+	{
+		// userIn *= 100.0;
+		float hue = n_out17p0.x;
+		float sat = n_out17p0.y;
+		float val = n_out17p0.z;
+		
+		float hScale;
+		float sScale;
+		float vScale;
+		
+		if (n_out19p0 < 0.0) {
+			hScale = hue;
+		} else if (n_out19p0 > 0.0) {
+			hScale = 1.0 - hue;
+		}
+		
+		if (n_out18p0 < 0.0) {
+			sScale = sat;
+		} else if (n_out18p0 > 0.0) {
+			sScale = 1.0 - sat;
+		}
+		
+		if (n_out20p0 < 0.0) {
+			vScale = val;
+		} else if (n_out20p0 > 0.0) {
+			vScale = 1.0 - val;
+		}
+		
+		n_out16p1 = hue + (n_out19p0 * hScale);
+		n_out16p2 = sat + (n_out18p0 * sScale);
+		n_out16p3 = val + (n_out20p0 * vScale);
+		
+		// if (n_out16p1 > 1.0) {
+			// n_out16p1 = 1.0;
+		// } else if (n_out16p1 < 0.0) {
+			// n_out16p1 = 0.0;
+		// }
+		
+		n_out16p0 = vec3(n_out16p1, n_out16p2, n_out16p3);
+		// vec3 n_out16p0 = vec3(hue, sat, val);
+	}
+
+
+	vec3 n_out15p0;
+// ColorFunc:15
+	{
+		vec3 c = n_out16p0;
+		vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+		vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+		n_out15p0 = c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+	}
+
+
+// Texture2D:5
+	vec4 n_out5p0 = texture(tex_frg_5, n_out7p0);
+
+
+// Texture2D:3
+	vec4 n_out3p0 = texture(tex_frg_3, n_out7p0);
+
+
+	vec4 n_out11p0;
+// Texture2D:11
+	n_out11p0 = texture(Edge_Map, UV);
+
+
+// Output:0
+	ALBEDO = n_out15p0;
+	METALLIC = n_out5p0.x;
+	ROUGHNESS = n_out3p0.x;
+	NORMAL_MAP = vec3(n_out11p0.xyz);
+
+
+}
+"
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_m073r")
+nodes/fragment/2/position = Vector2(-1120, -40)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_6inus")
+nodes/fragment/3/position = Vector2(0, 400)
+nodes/fragment/4/node = SubResource("VisualShaderNodeTexture_4xsqp")
+nodes/fragment/4/position = Vector2(-1960, 780)
+nodes/fragment/5/node = SubResource("VisualShaderNodeTexture_385wk")
+nodes/fragment/5/position = Vector2(0, 80)
+nodes/fragment/6/node = SubResource("VisualShaderNodeTexture_oab6n")
+nodes/fragment/6/position = Vector2(-1960, 1080)
+nodes/fragment/7/node = SubResource("VisualShaderNodeUVFunc_p66q7")
+nodes/fragment/7/position = Vector2(-320, 320)
+nodes/fragment/8/node = SubResource("VisualShaderNodeFloatParameter_1hu25")
+nodes/fragment/8/position = Vector2(-800, 440)
+nodes/fragment/9/node = SubResource("VisualShaderNodeVec2Parameter_csojv")
+nodes/fragment/9/position = Vector2(-1960, 1380)
+nodes/fragment/10/node = SubResource("VisualShaderNodeVectorCompose_eleml")
+nodes/fragment/10/position = Vector2(-520, 440)
+nodes/fragment/11/node = SubResource("VisualShaderNodeTexture_s37jl")
+nodes/fragment/11/position = Vector2(-60, 720)
+nodes/fragment/12/node = SubResource("VisualShaderNodeTexture2DParameter_ycref")
+nodes/fragment/12/position = Vector2(-400, 620)
+nodes/fragment/13/node = SubResource("VisualShaderNodeExpression_6wba8")
+nodes/fragment/13/position = Vector2(-840, 260)
+nodes/fragment/13/size = Vector2(480, 160)
+nodes/fragment/13/input_ports = "0,0,angle;"
+nodes/fragment/13/output_ports = "0,3,uv;"
+nodes/fragment/13/expression = "// vec2 rotate(vec2 uv, vec2 pivot, float angle)
+// {
+uv = UV;
+vec2 pivot = vec2(0);
+
+mat2 rotation = mat2(vec2(sin(radians(angle)), -cos(radians(angle))),
+					vec2(cos(radians(angle)), sin(radians(angle))));
+	
+uv -= pivot;
+uv = uv * rotation;
+uv += pivot;
+	// return uv;
+// }
+
+// uv = rotate(UV, vec2(0.5), rotation);"
+nodes/fragment/14/node = SubResource("VisualShaderNodeFloatParameter_y31gy")
+nodes/fragment/14/position = Vector2(-1120, 260)
+nodes/fragment/15/node = SubResource("VisualShaderNodeColorFunc_aq8ta")
+nodes/fragment/15/position = Vector2(0, -20)
+nodes/fragment/16/node = SubResource("VisualShaderNodeExpression_4rw58")
+nodes/fragment/16/position = Vector2(-520, -40)
+nodes/fragment/16/size = Vector2(472, 280)
+nodes/fragment/16/input_ports = "0,4,valsIn;1,0,hUserIn;2,0,sUserIn;3,0,vUserIn;"
+nodes/fragment/16/output_ports = "0,4,valsOut;1,0,hOut;2,0,sOut;3,0,vOut;"
+nodes/fragment/16/expression = "// userIn *= 100.0;
+float hue = valsIn.x;
+float sat = valsIn.y;
+float val = valsIn.z;
+
+float hScale;
+float sScale;
+float vScale;
+
+if (hUserIn < 0.0) {
+	hScale = hue;
+} else if (hUserIn > 0.0) {
+	hScale = 1.0 - hue;
+}
+
+if (sUserIn < 0.0) {
+	sScale = sat;
+} else if (sUserIn > 0.0) {
+	sScale = 1.0 - sat;
+}
+
+if (vUserIn < 0.0) {
+	vScale = val;
+} else if (vUserIn > 0.0) {
+	vScale = 1.0 - val;
+}
+
+hOut = hue + (hUserIn * hScale);
+sOut = sat + (sUserIn * sScale);
+vOut = val + (vUserIn * vScale);
+
+// if (hOut > 1.0) {
+	// hOut = 1.0;
+// } else if (hOut < 0.0) {
+	// hOut = 0.0;
+// }
+
+valsOut = vec3(hOut, sOut, vOut);
+// vec3 valsOut = vec3(hue, sat, val);"
+nodes/fragment/17/node = SubResource("VisualShaderNodeColorFunc_1rg2e")
+nodes/fragment/17/position = Vector2(-740, -40)
+nodes/fragment/18/node = SubResource("VisualShaderNodeFloatParameter_2h7um")
+nodes/fragment/18/position = Vector2(-1640, -360)
+nodes/fragment/19/node = SubResource("VisualShaderNodeFloatParameter_p8e1t")
+nodes/fragment/19/position = Vector2(-1900, -480)
+nodes/fragment/20/node = SubResource("VisualShaderNodeFloatParameter_5epto")
+nodes/fragment/20/position = Vector2(-1380, -220)
+nodes/fragment/connections = PackedInt32Array(3, 0, 0, 3, 5, 0, 0, 2, 7, 0, 2, 0, 7, 0, 5, 0, 7, 0, 3, 0, 8, 0, 10, 0, 8, 0, 10, 1, 10, 0, 7, 1, 12, 0, 11, 2, 11, 0, 0, 9, 14, 0, 13, 0, 13, 0, 7, 0, 18, 0, 16, 2, 20, 0, 16, 3, 19, 0, 16, 1, 17, 0, 16, 0, 16, 0, 15, 0, 2, 0, 17, 0, 15, 0, 0, 0)

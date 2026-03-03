@@ -1,0 +1,491 @@
+[gd_resource type="VisualShader" load_steps=31 format=3 uid="uid://cb7fbr35uracd"]
+
+[ext_resource type="Texture2D" uid="uid://cjtuaoasjgctf" path="res://woodTestTexs/Wood_normal.png" id="1_tqoia"]
+[ext_resource type="Texture2D" uid="uid://d31a1cteo1fqg" path="res://woodTestTexs/Wood_metallic.png" id="2_xfhhh"]
+[ext_resource type="Texture2D" uid="uid://dfpt0crgschcy" path="res://woodTestTexs/Wood_basecolor.png" id="3_8vvd8"]
+[ext_resource type="Texture2D" uid="uid://w6gdqfkjdrwg" path="res://woodTestTexs/Wood_roughness.png" id="4_mdtmc"]
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_tqoia"]
+parameter_name = "Edge_Map"
+qualifier = 2
+texture_type = 2
+texture_repeat = 1
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_xfhhh"]
+size = Vector2(480, 160)
+expression = "// vec2 rotate(vec2 uv, vec2 pivot, float angle)
+// {
+uv = UV;
+vec2 pivot = vec2(0);
+
+mat2 rotation = mat2(vec2(sin(radians(angle)), -cos(radians(angle))),
+					vec2(cos(radians(angle)), sin(radians(angle))));
+	
+uv -= pivot;
+uv = uv * rotation;
+uv += pivot;
+	// return uv;
+// }
+
+// uv = rotate(UV, vec2(0.5), rotation);"
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_tqoia"]
+parameter_name = "Tiling"
+qualifier = 2
+hint = 2
+max = 20.0
+default_value_enabled = true
+default_value = 1.0
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_xfhhh"]
+parameter_name = "Rotation"
+qualifier = 2
+hint = 2
+max = 360.0
+step = 0.5
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_tqoia"]
+default_input_values = [0, 0.0, 1, 10.0]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_xfhhh"]
+default_input_values = [0, 0.0, 1, 10.0]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_mdtmc"]
+parameter_name = "Total"
+qualifier = 2
+hint = 1
+max = 100.0
+default_value_enabled = true
+default_value = 1.0
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_cchad"]
+texture = ExtResource("1_tqoia")
+texture_type = 2
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_cchad"]
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_d6v4c"]
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_a1k30"]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_d8o8o"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeColorFunc" id="VisualShaderNodeColorFunc_pjfcd"]
+function = 1
+
+[sub_resource type="VisualShaderNodeColorFunc" id="VisualShaderNodeColorFunc_po7uh"]
+function = 2
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_6g5m2"]
+parameter_name = "Value"
+qualifier = 2
+hint = 1
+min = -1.0
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_1fwek"]
+parameter_name = "Saturation"
+qualifier = 2
+hint = 1
+min = -1.0
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_yvtq4"]
+parameter_name = "Hue"
+qualifier = 2
+hint = 1
+min = -1.0
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_peyqo"]
+size = Vector2(472, 280)
+expression = "// userIn *= 100.0;
+float hue = valsIn.x;
+float sat = valsIn.y;
+float val = valsIn.z;
+
+float hScale;
+float sScale;
+float vScale;
+
+if (hUserIn < 0.0) {
+	hScale = hue;
+} else if (hUserIn > 0.0) {
+	hScale = 1.0 - hue;
+}
+
+if (sUserIn < 0.0) {
+	sScale = sat;
+} else if (sUserIn > 0.0) {
+	sScale = 1.0 - sat;
+}
+
+if (vUserIn < 0.0) {
+	vScale = val;
+} else if (vUserIn > 0.0) {
+	vScale = 1.0 - val;
+}
+
+hOut = hue + (hUserIn * hScale);
+sOut = sat + (sUserIn * sScale);
+vOut = val + (vUserIn * vScale);
+
+// if (hOut > 1.0) {
+	// hOut = 1.0;
+// } else if (hOut < 0.0) {
+	// hOut = 0.0;
+// }
+
+valsOut = vec3(hOut, sOut, vOut);
+// vec3 valsOut = vec3(hue, sat, val);"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_d6v4c"]
+texture = ExtResource("2_xfhhh")
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_tqoia"]
+size = Vector2(339.99994, 320)
+expression = "// userIn *= 100.0;
+valOut = val + userIn;
+
+if (valOut > 1.0) {
+	valOut = 1.0;
+} else if (valOut < 0.0) {
+	valOut = 0.0;
+}"
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_8vvd8"]
+size = Vector2(339.99994, 320)
+expression = "// userIn *= 100.0;
+satOut = sat + userIn;
+
+if (satOut > 1.0) {
+	satOut = 1.0;
+} else if (satOut < 0.0) {
+	satOut = 0.0;
+}"
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_a1k30"]
+default_input_values = [1, Vector2(5, 5), 2, Vector2(0, 0)]
+function = 1
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_d8o8o"]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_po7uh"]
+texture = ExtResource("3_8vvd8")
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_6g5m2"]
+texture = ExtResource("4_mdtmc")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_xfhhh"]
+source = 5
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+instance uniform float Rotation : hint_range(0.0, 360.0, 0.5) = 0.0;
+instance uniform float Tiling : hint_range(0.0, 20.0, 0.10000000149012) = 1.0;
+uniform sampler2D tex_frg_7 : source_color;
+instance uniform float Hue : hint_range(-1.0, 1.0) = 0.0;
+instance uniform float Saturation : hint_range(-1.0, 1.0) = 0.0;
+instance uniform float Value : hint_range(-1.0, 1.0) = 0.0;
+uniform sampler2D tex_frg_3;
+uniform sampler2D tex_frg_8;
+uniform sampler2D Edge_Map : hint_normal, repeat_enable;
+
+
+
+void fragment() {
+// FloatParameter:15
+	float n_out15p0 = Rotation;
+
+
+	vec2 n_out13p0;
+// Expression:13
+	n_out13p0 = vec2(0.0, 0.0);
+	{
+		// vec2 rotate(vec2 n_out13p0, vec2 pivot, float n_out15p0)
+		// {
+		n_out13p0 = UV;
+		vec2 pivot = vec2(0);
+		
+		mat2 rotation = mat2(vec2(sin(radians(n_out15p0)), -cos(radians(n_out15p0))),
+							vec2(cos(radians(n_out15p0)), sin(radians(n_out15p0))));
+			
+		n_out13p0 -= pivot;
+		n_out13p0 = n_out13p0 * rotation;
+		n_out13p0 += pivot;
+			// return n_out13p0;
+		// }
+		
+		// n_out13p0 = rotate(UV, vec2(0.5), rotation);
+	}
+
+
+// FloatParameter:14
+	float n_out14p0 = Tiling;
+
+
+// VectorCompose:5
+	vec2 n_out5p0 = vec2(n_out14p0, n_out14p0);
+
+
+// UVFunc:4
+	vec2 n_in4p2 = vec2(0.00000, 0.00000);
+	vec2 n_out4p0 = (n_out13p0 - n_in4p2) * n_out5p0 + n_in4p2;
+
+
+// Texture2D:7
+	vec4 n_out7p0 = texture(tex_frg_7, n_out4p0);
+
+
+	vec3 n_out25p0;
+// ColorFunc:25
+	{
+		vec3 c = vec3(n_out7p0.xyz);
+		vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+		vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+		vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+		float d = q.x - min(q.w, q.y);
+		float e = 1.0e-10;
+		n_out25p0 = vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+	}
+
+
+// FloatParameter:28
+	float n_out28p0 = Hue;
+
+
+// FloatParameter:27
+	float n_out27p0 = Saturation;
+
+
+// FloatParameter:26
+	float n_out26p0 = Value;
+
+
+	vec3 n_out29p0;
+	float n_out29p1;
+	float n_out29p2;
+	float n_out29p3;
+// Expression:29
+	n_out29p0 = vec3(0.0, 0.0, 0.0);
+	n_out29p1 = 0.0;
+	n_out29p2 = 0.0;
+	n_out29p3 = 0.0;
+	{
+		// userIn *= 100.0;
+		float hue = n_out25p0.x;
+		float sat = n_out25p0.y;
+		float val = n_out25p0.z;
+		
+		float hScale;
+		float sScale;
+		float vScale;
+		
+		if (n_out28p0 < 0.0) {
+			hScale = hue;
+		} else if (n_out28p0 > 0.0) {
+			hScale = 1.0 - hue;
+		}
+		
+		if (n_out27p0 < 0.0) {
+			sScale = sat;
+		} else if (n_out27p0 > 0.0) {
+			sScale = 1.0 - sat;
+		}
+		
+		if (n_out26p0 < 0.0) {
+			vScale = val;
+		} else if (n_out26p0 > 0.0) {
+			vScale = 1.0 - val;
+		}
+		
+		n_out29p1 = hue + (n_out28p0 * hScale);
+		n_out29p2 = sat + (n_out27p0 * sScale);
+		n_out29p3 = val + (n_out26p0 * vScale);
+		
+		// if (n_out29p1 > 1.0) {
+			// n_out29p1 = 1.0;
+		// } else if (n_out29p1 < 0.0) {
+			// n_out29p1 = 0.0;
+		// }
+		
+		n_out29p0 = vec3(n_out29p1, n_out29p2, n_out29p3);
+		// vec3 n_out29p0 = vec3(hue, sat, val);
+	}
+
+
+	vec3 n_out24p0;
+// ColorFunc:24
+	{
+		vec3 c = n_out29p0;
+		vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+		vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+		n_out24p0 = c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+	}
+
+
+// Texture2D:3
+	vec4 n_out3p0 = texture(tex_frg_3, n_out4p0);
+
+
+// Texture2D:8
+	vec4 n_out8p0 = texture(tex_frg_8, n_out4p0);
+
+
+	vec4 n_out9p0;
+// Texture2D:9
+	n_out9p0 = texture(Edge_Map, UV);
+
+
+// Output:0
+	ALBEDO = n_out24p0;
+	METALLIC = n_out3p0.x;
+	ROUGHNESS = n_out8p0.x;
+	NORMAL_MAP = vec3(n_out9p0.xyz);
+
+
+}
+"
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_cchad")
+nodes/fragment/2/position = Vector2(-2140, 560)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_d6v4c")
+nodes/fragment/3/position = Vector2(20, 100)
+nodes/fragment/4/node = SubResource("VisualShaderNodeUVFunc_a1k30")
+nodes/fragment/4/position = Vector2(-300, 320)
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorCompose_d8o8o")
+nodes/fragment/5/position = Vector2(-500, 440)
+nodes/fragment/7/node = SubResource("VisualShaderNodeTexture_po7uh")
+nodes/fragment/7/position = Vector2(-1100, -40)
+nodes/fragment/8/node = SubResource("VisualShaderNodeTexture_6g5m2")
+nodes/fragment/8/position = Vector2(20, 420)
+nodes/fragment/9/node = SubResource("VisualShaderNodeTexture_xfhhh")
+nodes/fragment/9/position = Vector2(-40, 740)
+nodes/fragment/10/node = SubResource("VisualShaderNodeTexture2DParameter_tqoia")
+nodes/fragment/10/position = Vector2(-380, 640)
+nodes/fragment/13/node = SubResource("VisualShaderNodeExpression_xfhhh")
+nodes/fragment/13/position = Vector2(-820, 260)
+nodes/fragment/13/size = Vector2(480, 160)
+nodes/fragment/13/input_ports = "0,0,angle;"
+nodes/fragment/13/output_ports = "0,3,uv;"
+nodes/fragment/13/expression = "// vec2 rotate(vec2 uv, vec2 pivot, float angle)
+// {
+uv = UV;
+vec2 pivot = vec2(0);
+
+mat2 rotation = mat2(vec2(sin(radians(angle)), -cos(radians(angle))),
+					vec2(cos(radians(angle)), sin(radians(angle))));
+	
+uv -= pivot;
+uv = uv * rotation;
+uv += pivot;
+	// return uv;
+// }
+
+// uv = rotate(UV, vec2(0.5), rotation);"
+nodes/fragment/14/node = SubResource("VisualShaderNodeFloatParameter_tqoia")
+nodes/fragment/14/position = Vector2(-780, 440)
+nodes/fragment/15/node = SubResource("VisualShaderNodeFloatParameter_xfhhh")
+nodes/fragment/15/position = Vector2(-1100, 260)
+nodes/fragment/16/node = SubResource("VisualShaderNodeFloatOp_tqoia")
+nodes/fragment/16/position = Vector2(-3280, -940)
+nodes/fragment/17/node = SubResource("VisualShaderNodeFloatOp_xfhhh")
+nodes/fragment/17/position = Vector2(-3280, -620)
+nodes/fragment/19/node = SubResource("VisualShaderNodeFloatParameter_mdtmc")
+nodes/fragment/19/position = Vector2(-3560, -1320)
+nodes/fragment/20/node = SubResource("VisualShaderNodeVectorDecompose_cchad")
+nodes/fragment/20/position = Vector2(-3800, -840)
+nodes/fragment/21/node = SubResource("VisualShaderNodeVectorCompose_d6v4c")
+nodes/fragment/21/position = Vector2(-3280, -1280)
+nodes/fragment/22/node = SubResource("VisualShaderNodeVectorCompose_a1k30")
+nodes/fragment/22/position = Vector2(-3060, -640)
+nodes/fragment/23/node = SubResource("VisualShaderNodeVectorOp_d8o8o")
+nodes/fragment/23/position = Vector2(-2860, -960)
+nodes/fragment/24/node = SubResource("VisualShaderNodeColorFunc_pjfcd")
+nodes/fragment/24/position = Vector2(20, -20)
+nodes/fragment/25/node = SubResource("VisualShaderNodeColorFunc_po7uh")
+nodes/fragment/25/position = Vector2(-720, -40)
+nodes/fragment/26/node = SubResource("VisualShaderNodeFloatParameter_6g5m2")
+nodes/fragment/26/position = Vector2(-1360, -220)
+nodes/fragment/27/node = SubResource("VisualShaderNodeFloatParameter_1fwek")
+nodes/fragment/27/position = Vector2(-1620, -360)
+nodes/fragment/28/node = SubResource("VisualShaderNodeFloatParameter_yvtq4")
+nodes/fragment/28/position = Vector2(-1880, -480)
+nodes/fragment/29/node = SubResource("VisualShaderNodeExpression_peyqo")
+nodes/fragment/29/position = Vector2(-500, -40)
+nodes/fragment/29/size = Vector2(472, 280)
+nodes/fragment/29/input_ports = "0,4,valsIn;1,0,hUserIn;2,0,sUserIn;3,0,vUserIn;"
+nodes/fragment/29/output_ports = "0,4,valsOut;1,0,hOut;2,0,sOut;3,0,vOut;"
+nodes/fragment/29/expression = "// userIn *= 100.0;
+float hue = valsIn.x;
+float sat = valsIn.y;
+float val = valsIn.z;
+
+float hScale;
+float sScale;
+float vScale;
+
+if (hUserIn < 0.0) {
+	hScale = hue;
+} else if (hUserIn > 0.0) {
+	hScale = 1.0 - hue;
+}
+
+if (sUserIn < 0.0) {
+	sScale = sat;
+} else if (sUserIn > 0.0) {
+	sScale = 1.0 - sat;
+}
+
+if (vUserIn < 0.0) {
+	vScale = val;
+} else if (vUserIn > 0.0) {
+	vScale = 1.0 - val;
+}
+
+hOut = hue + (hUserIn * hScale);
+sOut = sat + (sUserIn * sScale);
+vOut = val + (vUserIn * vScale);
+
+// if (hOut > 1.0) {
+	// hOut = 1.0;
+// } else if (hOut < 0.0) {
+	// hOut = 0.0;
+// }
+
+valsOut = vec3(hOut, sOut, vOut);
+// vec3 valsOut = vec3(hue, sat, val);"
+nodes/fragment/30/node = SubResource("VisualShaderNodeExpression_tqoia")
+nodes/fragment/30/position = Vector2(-3560, -360)
+nodes/fragment/30/size = Vector2(339.99994, 320)
+nodes/fragment/30/input_ports = "0,0,val;1,0,userIn;"
+nodes/fragment/30/output_ports = "0,0,valOut;"
+nodes/fragment/30/expression = "// userIn *= 100.0;
+valOut = val + userIn;
+
+if (valOut > 1.0) {
+	valOut = 1.0;
+} else if (valOut < 0.0) {
+	valOut = 0.0;
+}"
+nodes/fragment/31/node = SubResource("VisualShaderNodeExpression_8vvd8")
+nodes/fragment/31/position = Vector2(-4480, -580)
+nodes/fragment/31/size = Vector2(339.99994, 320)
+nodes/fragment/31/input_ports = "0,0,sat;1,0,userIn;"
+nodes/fragment/31/output_ports = "0,0,satOut;"
+nodes/fragment/31/expression = "// userIn *= 100.0;
+satOut = sat + userIn;
+
+if (satOut > 1.0) {
+	satOut = 1.0;
+} else if (satOut < 0.0) {
+	satOut = 0.0;
+}"
+nodes/fragment/connections = PackedInt32Array(4, 0, 7, 0, 4, 0, 3, 0, 4, 0, 8, 0, 5, 0, 4, 1, 3, 0, 0, 2, 8, 0, 0, 3, 10, 0, 9, 2, 9, 0, 0, 9, 13, 0, 4, 0, 15, 0, 13, 0, 14, 0, 5, 0, 14, 0, 5, 1, 16, 0, 22, 0, 17, 0, 22, 1, 19, 0, 21, 0, 19, 0, 21, 1, 19, 0, 21, 2, 21, 0, 23, 1, 22, 0, 23, 0, 20, 0, 16, 0, 20, 1, 17, 0, 7, 0, 25, 0, 20, 1, 31, 0, 27, 0, 29, 2, 26, 0, 29, 3, 28, 0, 29, 1, 29, 0, 24, 0, 24, 0, 0, 0, 25, 0, 29, 0)

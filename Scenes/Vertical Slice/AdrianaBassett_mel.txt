@@ -1,0 +1,233 @@
+//roof
+polyCylinder -r 1 -h 2 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1;
+rotate -r -ws -fo 90 0 0 ;
+move -r 0 2 0 ;
+select -r pCylinder1.f[9:18] pCylinder1.f[29:38] pCylinder1.f[49:58] ;
+doDelete;
+select -r pCylinder1.f[10:29] ;
+doDelete;
+
+select -r pCylinder1 ;
+move -r 0 0 -4 ;
+duplicate -rr;
+move -r 0 0 1;
+move -r 0 -.7 0 ;
+scale -r .6 .6 .6;
+
+//conduct main
+polyCylinder -r 1 -h 6 -sx 20 -sy 3 -sz 3 -ax 0 0 1 -rcp 0 -cuv 3 -ch 1;
+select -r pCylinder2.f[80:99] ;
+select -r pCylinder2.f[120:139] pCylinder2.f[160:179];
+move -r 0 0 -0.05 ;
+select -r pCylinder2.f[160:179];
+move -r 0 0 0.1;
+
+polyCube -w 0.6 -h 0.5 -d 0.2 -sx 3 -sy 3 -sz 3 -ax 0 1 0 -cuv 4 -ch 1;
+move -r 0 1.2 2.9;
+select -add pCube1.e[6:8] pCube1.e[21:23] pCube1.e[87:89] pCube1.e[99:101] ;
+select -r pCube1.f[13] ;
+move -r 0 0.1 0 ;
+
+polyTorus -r 1 -sr 0.01 -tw 0 -sx 40 -sy 10 -ax 0 0 1 -cuv 1 -ch 1;
+move -r 0 0 3 ;
+polyTorus -r 1 -sr 0.01 -tw 0 -sx 40 -sy 10 -ax 0 0 1 -cuv 1 -ch 1;
+move -r 0 0 -3 ;
+duplicate -rr;
+float $a = 1.0;
+for ($i = 0; $i<3; $i++){
+    duplicate -rr;
+    $a = $a * 1.168;
+    move -r 0 0 $a ;
+}
+polyCylinder -r 0.15 -h 1 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1;
+move -r 0 1.43151 2.12635 ;
+polyCylinder -r 0.232 -h 0.2 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1;
+
+move -r 0 1.775455 2.134985 ;
+select -r pTorus5 ;
+duplicate -rr;
+
+polyCube -w 2 -h 3 -d 2 -sx 1 -sy 1 -sz 1 -ax 0 1 0 -cuv 4 -ch 1;
+move -r 0 0 -4 ;
+move -r 0 0.67 0 ;
+
+polyCube -w 2 -h 1 -d 6 -sx 1 -sy 1 -sz 1 -ax 0 1 0 -cuv 4 -ch 1;
+move -r 0 0 -1.5;
+
+duplicate -rr;
+move -r 0 0 -1.2 ;
+
+polyCube -w 2 -h 1 -d 1 -sx 1 -sy 1 -sz 1 -ax 0 1 0 -cuv 4 -ch 1;
+
+move -r 0 0.8 -5 ;
+duplicate -rr;
+scale -r 1.2 0.161 1.2 ;
+move -r 0 0.5 0 ;
+
+//wheels
+polyTorus -r 0.5 -sr 0.05 -tw 0 -sx 16 -sy 3 -ax 1 0 0 -cuv 1 -ch 1;
+move -r 1 -1 1 ;
+duplicate -rr;
+move -rpr -x -1 ;
+select -r pTorus8 pTorus7 ;
+duplicate -rr;
+move -rpr -z -.7 ;
+duplicate -rr;
+move -r 0 0 -1.2 ;
+duplicate -rr;
+move -r 0 0 -1.2 ;
+
+
+polyCube -w 0.05 -h 1 -d 0.05 -sx 1 -sy 1 -sz 1 -ax 0 1 0 -cuv 4 -ch 1;
+
+move -rpr -1 -1 1 ;
+
+for ($i = 0; $i<5; $i++){
+   duplicate -rr;
+rotate -r -os -fo 30 0 0 ;
+}
+
+select -tgl pCube7 ;
+select -tgl pCube8 ;
+select -tgl pCube9 ;
+select -tgl pCube10 ;
+select -tgl pCube11 ;
+
+duplicate -rr;
+move -rpr -x 1 ;
+
+select -tgl pCube7 ;
+select -tgl pCube12 ;
+select -tgl pCube11 ;
+select -tgl pCube10 ;
+select -tgl pCube9 ;
+select -tgl pCube8 ;
+
+duplicate -rr;
+
+move -rpr -z -.7 ;
+
+duplicate -rr;
+move -r 0 0 -1.2 ;
+duplicate -rr;
+move -r 0 0 -1.2 ;
+
+polyCylinder -r 0.23 -h 0.2 -sx 20 -sy 1 -sz 1 -ax 0 0 1 -rcp 0 -cuv 3 -ch 1;
+move -rpr -0.40 0.35 3 ;
+duplicate -rr;
+move -r 0.8 0 0 ;
+duplicate -rr;
+move -r -0.4 0.6 0 ;
+
+//more details
+
+polyCylinder -r 0.23 -h 0.2 -sx 20 -sy 1 -sz 1 -ax 1 0 0 -rcp 0 -cuv 3 -ch 1;
+move -r 1 -0.228025 -4.989544 ;
+duplicate -rr;
+move -r 0 0 0.7;
+
+select -tgl pCylinder9 ;
+duplicate -rr;
+move -r -2 0 0 ;
+polyCone -r 0.9 -h 1 -sx 4 -sy 1 -sz 0 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1;
+
+move -r 0 0 3.021839 ;
+move -r 0 -0.3 0 ;
+select -r pCone1.vtx[0:3] ;
+move -r 0 0 0.412934 ;
+
+select -r pTorus7 ;
+for ($t = 0; $t<5; $t++){
+    duplicate -rr;
+    move -r 0 0 -0.02 ;
+}
+
+select -r pTorus10 ;
+select -tgl pTorus12 ;
+select -tgl pTorus14 ;
+duplicate -rr;
+
+move -rpr -x -1 ;
+
+//other carts 
+
+polyCube -w 1 -h 3 -d 8 -sx 1 -sy 1 -sz 1 -ax 0 1 0 -cuv 4 -ch 1;
+
+move -rpr -y 1 ;
+move -rpr -z -10 ;
+
+polyCube -w 1.6 -h 1.4 -d 8 -sx 1 -sy 1 -sz 1 -ax 0 1 0 -cuv 4 -ch 1;
+move -rpr -z -10 ;
+select -r pCylinder1 ;
+
+duplicate -rr;
+move -rpr -z -10 ;
+scale -r 1 4.51937 1 ;
+
+select -r pTorus14 pCube51 pCube53 pCube47 pCube54 pCube44 pTorus23 pCube50 pCube48 pCube45 pCube43 pCube46 pCube52 pCube49 ;
+duplicate -rr;
+
+move -rpr -z -7 ;
+for ($t = 0; $t<5; $t++){
+    if($t!=2){
+    duplicate -rr;}
+    move -r 0 0 -1.2 ;
+}
+
+polyCube -w 1.4 -h 0.8 -d 0.6 -sx 1 -sy 1 -sz 1 -ax 0 1 0 -cuv 4 -ch 1;
+
+move -rpr -z -7 ;
+move -rpr -y 1.5 ;
+
+polyCube -w 1.2 -h 1.6 -d 1 -sx 1 -sy 1 -sz 1 -ax 0 1 0 -cuv 4 -ch 1;
+move -rpr -z -7 ;
+move -rpr -y 1.5 ;
+
+select -tgl pCube117 ;
+
+duplicate -rr;
+move -rpr -z -9 ;
+duplicate -rr;
+move -rpr -z -11;
+duplicate -rr;
+move -rpr -z -13 ;
+
+polyCube -w 0.6 -h 0.6 -d 0.2 -sx 1 -sy 1 -sz 1 -ax 0 1 0 -cuv 4 -ch 1;
+
+move -rpr -y 3 ;
+move -rpr -z -4.5 ;
+duplicate -rr;
+move -rpr -z -7 ;
+duplicate -rr;
+
+move -rpr -z -13 ;
+
+select -r pCube127 pCube126 pCube92 pCube82 pCube115 pCube108 pCube99 pCube118 pCube110 pCube88 pCube100 pCube93 pCube95 pCube103 pCube113 pTorus31 pCube107 pCube83 pCube84 pCube119 pCube117 pCube91 pCube114 pCube85 pCube109 pCube96 pCube122 pTorus33 pTorus29 pCube90 pCube120 pCube111 pTorus28 pTorus30 pCube112 pCube81 pCube102 pCube124 pCube123 pCube105 pCube94 pCube89 pCube98 pCube73 pCube55 pCube61 pCube79 pCube77 pCube70 pCube76 pCube66 pCube58 pCube60 pCube63 pCube69 pCube64 pCube57 pCube75 pCube80 pCube65 pCube72 pCube56 pCube59 pTorus27 pCube68 pTorus25 pCube78 pCube71 pCube97 pTorus32 pCube104 pCube121 pCube87 pCube116 pCube86 pCube106 pCube101 pCube62 pTorus26 pCube74 pTorus24 pCube67 pCylinder13 ;
+
+duplicate -rr;
+manipPivot -o 180 0 90 ;
+move -r -ls -wd 0 0 -9 ;
+duplicate -rr;
+manipPivot -o 180 0 90 ;
+move -r -ls -wd 0 0 -9 ;
+duplicate -rr;
+manipPivot -o 180 0 90 ;
+move -r -ls -wd 0 0 -9 ;
+duplicate -rr;
+manipPivot -o 180 0 90 ;
+move -r -ls -wd 0 0 -9 ;
+
+select -r pCylinder13 ;
+select -tgl pCylinder14 ;
+select -tgl pCylinder15 ;
+select -tgl pCylinder16 ;
+select -tgl pCylinder17 ;
+
+scale -r 1 0.9 1 ;
+
+select -r pCube345 ;
+scale -r 1 2 7 ;
+duplicate -rr;
+scale -r 1.2 0.2 1.2 ;
+move -r 0 0.65 0 ;
+

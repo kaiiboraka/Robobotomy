@@ -6,6 +6,7 @@ public partial class Head : RigidBody3D, ISelectable
     //ISelectable
     public bool amIsolated { get; set; }
     public ActualPlayer.LimbTypes myType{get;set;}
+    public bool amSelected {get;set;}
 
     //Movement
     [Export] private int speed = 3;
@@ -15,6 +16,7 @@ public partial class Head : RigidBody3D, ISelectable
     private bool isGrounded;
     [Export]private int groundContacts;
     private Area3D jumpArea;
+    
 
     //Ready
     public override void _Ready()

@@ -1,5 +1,6 @@
 godot/
-.godot/*
+.godot
+.godot/editor
 .ignore/
 /android/
 
@@ -35,3 +36,17 @@ dist/
 
 # Gemini
 .gemini/
+.godot/uid_cache.bin
+.godot/mono/metadata/ide_messaging_meta.txt
+.godot/imported/NamelessV01.fbx-549d2d72777c3aa2dd6049c8229c1512.scn
+.godot/imported/NamelessV01.fbx-549d2d72777c3aa2dd6049c8229c1512.md5
+.godot/editor/recent_dirs
+.godot/editor/quick_open_dialog_cache.cfg
+.godot/editor/project_metadata.cfg
+.godot/editor/filesystem_update4
+.godot/editor/filesystem_cache10
+.godot/editor/editor_layout.cfg
+.godot/editor/create_recent.Node
+.godot/editor/Beautiful_Corner.tscn-folding-88817e0e7fc5004b806a8eddcea7ab92.cfg
+.godot/editor/Beautiful_Corner.tscn-editstate-88817e0e7fc5004b806a8eddcea7ab92.cfg
+
