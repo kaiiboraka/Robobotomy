@@ -2,7 +2,11 @@
 
 [ext_resource type="Script" uid="uid://c2ffje36dgcds" path="res://addons/advanced_radial_menu/radial_menu_class.gd" id="1_4gvu6"]
 [ext_resource type="Script" uid="uid://bcsoaj36akxti" path="res://Scenes/UI/radial_menu.gd" id="1_pvlir"]
-[ext_resource type="Texture2D" uid="uid://wlvqkc1fyj40" path="res://Assets/Images/icon_smaller.jpg" id="2_w1h4c"]
+[ext_resource type="Texture2D" uid="uid://6g1uehk4sxwp" path="res://Assets/UI/Pixel Art/Nam_Torso.png" id="3_r4tj4"]
+[ext_resource type="Texture2D" uid="uid://s0h7bj8yn7rd" path="res://Assets/UI/Pixel Art/Nam_Head.png" id="4_b6mux"]
+[ext_resource type="Texture2D" uid="uid://cuamrmgx12j3s" path="res://Assets/UI/Pixel Art/Nam_Arm.png" id="5_4cf1o"]
+[ext_resource type="Texture2D" uid="uid://c7cvs44ojokq5" path="res://Assets/UI/Pixel Art/Nam_leg.png" id="6_4cf1o"]
+[ext_resource type="Texture2D" uid="uid://dlb3oiwmbycxe" path="res://Assets/UI/Pixel Art/Pixel Perfect ROBOBOTOMY.png" id="7_s2vpv"]
 
 [node name="RadialMenu" type="Control" unique_id=135075730 node_paths=PackedStringArray("menu")]
 layout_mode = 3
@@ -28,64 +32,84 @@ select_action_name = "ui_select"
 auto_sizing = false
 first_in_center = true
 circle_radius = 294
+arc_color = Color(1, 1, 1, 0)
 arc_inner_radius = 99.666
 line_rotation_offset_default = -36
+line_color = Color(0, 1, 1, 1)
 children_size = 1
 children_auto_sizing_factor = 0.0
 metadata/_custom_type_script = "uid://c2ffje36dgcds"
 
 [node name="Torso" type="TextureRect" parent="RadialMenuAdvanced" unique_id=1177217145]
+texture_filter = 3
 layout_mode = 0
-offset_left = 532.5
-offset_top = 271.5
-offset_right = 632.5
-offset_bottom = 375.5
-pivot_offset = Vector2(50, 52)
-texture = ExtResource("2_w1h4c")
+offset_left = 916.5
+offset_top = 449.5
+offset_right = 1016.5
+offset_bottom = 629.5
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(50, 90)
+texture = ExtResource("3_r4tj4")
 
 [node name="Head" type="TextureRect" parent="RadialMenuAdvanced" unique_id=1999113102]
+texture_filter = 3
 layout_mode = 0
-offset_left = 532.5
-offset_top = 74.66701
-offset_right = 632.5
-offset_bottom = 178.667
-pivot_offset = Vector2(50, 52)
-texture = ExtResource("2_w1h4c")
+offset_left = 856.5
+offset_top = 247.667
+offset_right = 1076.5
+offset_bottom = 437.667
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(110, 95)
+texture = ExtResource("4_b6mux")
 
 [node name="Left Arm" type="TextureRect" parent="RadialMenuAdvanced" unique_id=1180951296]
+texture_filter = 3
 layout_mode = 0
-offset_left = 345.30072
-offset_top = 210.67525
-offset_right = 445.30072
-offset_bottom = 314.67523
-pivot_offset = Vector2(50, 52)
-texture = ExtResource("2_w1h4c")
+offset_left = 669.3007
+offset_top = 408.67526
+offset_right = 889.3007
+offset_bottom = 548.6753
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(110, 70.000015)
+texture = ExtResource("5_4cf1o")
 
 [node name="Left Leg" type="TextureRect" parent="RadialMenuAdvanced" unique_id=1419109198]
+texture_filter = 1
 layout_mode = 0
-offset_left = 416.8045
-offset_top = 430.74127
-offset_right = 516.8045
-offset_bottom = 534.7413
-pivot_offset = Vector2(50, 52)
-texture = ExtResource("2_w1h4c")
+offset_left = 745.8045
+offset_top = 558.7413
+offset_right = 955.8045
+offset_bottom = 838.7413
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(105, 140)
+texture = ExtResource("6_4cf1o")
 
 [node name="Right Leg" type="TextureRect" parent="RadialMenuAdvanced" unique_id=1142089909]
+texture_filter = 1
 layout_mode = 0
-offset_left = 648.1955
-offset_top = 430.74127
-offset_right = 748.1955
-offset_bottom = 534.7413
-pivot_offset = Vector2(50, 52)
-texture = ExtResource("2_w1h4c")
+offset_left = 977.1955
+offset_top = 558.7413
+offset_right = 1187.1956
+offset_bottom = 838.7413
+scale = Vector2(-0.6, 0.6)
+pivot_offset = Vector2(105.00003, 140)
+texture = ExtResource("6_4cf1o")
 
 [node name="Right Arm" type="TextureRect" parent="RadialMenuAdvanced" unique_id=514849934]
+texture_filter = 3
 layout_mode = 0
-offset_left = 719.69934
-offset_top = 210.6753
-offset_right = 819.69934
-offset_bottom = 314.6753
-pivot_offset = Vector2(50, 52)
-texture = ExtResource("2_w1h4c")
+offset_left = 1043.6993
+offset_top = 408.6753
+offset_right = 1263.6993
+offset_bottom = 548.6753
+scale = Vector2(-0.6, 0.6)
+pivot_offset = Vector2(110, 70)
+texture = ExtResource("5_4cf1o")
+
+[node name="PixelPerfectRobobotomy" type="Sprite2D" parent="." unique_id=383106860]
+modulate = Color(1, 1, 1, 0.16862746)
+texture_filter = 1
+position = Vector2(960, 540)
+texture = ExtResource("7_s2vpv")
 
 [connection signal="slot_selected" from="RadialMenuAdvanced" to="." method="_on_radial_menu_advanced_slot_selected"]

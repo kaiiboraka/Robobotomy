@@ -94,6 +94,9 @@
 [ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Assets/Robobotomy Art/3D/Objects/pipe1_long.res" id="91_0v81c"]
 [ext_resource type="Texture2D" uid="uid://cg76upv0jtajq" path="res://Assets/Materials/Shaders/Metal Maps/Metal_basecolor.png" id="92_u6h1n"]
 [ext_resource type="PackedScene" uid="uid://dsh0mcfyklgg8" path="res://Assets/Robobotomy Art/3D/Character/NamTest.fbx" id="93_itrl0"]
+[ext_resource type="PackedScene" uid="uid://cm25ac4a1w6vt" path="res://Assets/Robobotomy Art/3D/Objects/Head Pipes/Head Pipes.fbx" id="95_1f8lv"]
+[ext_resource type="PackedScene" uid="uid://g0v3th7stns1" path="res://Assets/Robobotomy Art/3D/Objects/Head Pipes/Head Pipes 2.fbx" id="96_ymajn"]
+[ext_resource type="PackedScene" uid="uid://cqoo5pdrpftt2" path="res://Assets/Robobotomy Art/3D/Objects/Head Pipes/Head Pipes Grables.fbx" id="97_uhx7f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_clgom"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -268,7 +271,7 @@ mesh = ExtResource("4_t2hkb")
 skeleton = NodePath("../CSGCombiner3D")
 
 [node name="Chain 1" type="Sprite3D" parent="." unique_id=1451101306]
-transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 9.012341, 0, 0.6390753)
+transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 65.1387, 0, 0.6390753)
 texture = ExtResource("3_usww3")
 
 [node name="Cube" type="RigidBody3D" parent="." unique_id=1652931545]
@@ -285,23 +288,23 @@ transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_itrl0")
 
 [node name="Chain 2" type="Sprite3D" parent="." unique_id=454430652]
-transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 9.45441, 0, 0.6390753)
+transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 65.58077, 0, 0.6390753)
 texture = ExtResource("4_u372d")
 
 [node name="Chain 3" type="Sprite3D" parent="." unique_id=1255429766]
-transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 9.859519, 0, 0.6390753)
+transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 65.98588, 0, 0.6390753)
 texture = ExtResource("5_ai4pf")
 
 [node name="Chain 4" type="Sprite3D" parent="." unique_id=1528044773]
-transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 10.330759, 0, 0.6390753)
+transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 66.457115, 0, 0.6390753)
 texture = ExtResource("6_sao02")
 
 [node name="Chain 5" type="Sprite3D" parent="." unique_id=161842231]
-transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 10.7486725, 0, 0.6390753)
+transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 66.87503, 0, 0.6390753)
 texture = ExtResource("7_wh327")
 
 [node name="Chain 6" type="Sprite3D" parent="." unique_id=365197272]
-transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 11.179459, 0, 0.6390753)
+transform = Transform3D(0.14511186, 0, 0, 0, 0.14511186, 0, 0, 0, 1, 67.30582, 0, 0.6390753)
 texture = ExtResource("8_2c3rr")
 
 [node name="Chain 8" type="Sprite3D" parent="." unique_id=1607996417]
@@ -313,83 +316,80 @@ transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 7.124275
 texture = ExtResource("8_2c3rr")
 
 [node name="Dust 0" type="Sprite3D" parent="." unique_id=343536185]
-transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 24.039227, 4.9024816, -7.0659156)
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 48.95698, 4.9024816, 1.9456668)
 texture = ExtResource("9_5e5an")
 
 [node name="Dust 1" type="Sprite3D" parent="." unique_id=317427492]
-transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 35.489204, 4.2475405, -7.0659156)
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 60.40696, 4.2475405, 1.9456668)
+texture = ExtResource("10_uaov4")
+
+[node name="Dust 22" type="Sprite3D" parent="." unique_id=1910456439]
+transform = Transform3D(0.77935857, 0, 0, 0, 0.77935857, 0, 0, 0, 1, -0.8457048, 0.289109, -0.13583207)
+texture = ExtResource("10_uaov4")
+
+[node name="Dust 24" type="Sprite3D" parent="." unique_id=281434009]
+transform = Transform3D(-0.854949, 0, 0, 0, 0.5931556, 0, 0, 0, 1, 0.6864486, 0.20911849, 0.29060352)
 texture = ExtResource("10_uaov4")
 
 [node name="Dust 2" type="Sprite3D" parent="." unique_id=105487280]
-transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 31.641712, 3.5136418, -7.0659146)
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 56.559464, 3.5136418, 1.9456677)
 texture = ExtResource("11_ckvth")
 
 [node name="Dust 3" type="Sprite3D" parent="." unique_id=1751908944]
-transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 27.60316, 3.0471907, -7.0659156)
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 52.520916, 3.0471907, 1.9456668)
 texture = ExtResource("12_avtu8")
 
 [node name="Dust 4" type="Sprite3D" parent="." unique_id=1242230098]
-transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 23.179087, 4.0009985, -7.0659156)
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 48.096844, 4.0009985, 1.9456668)
 texture = ExtResource("13_78w0w")
 
 [node name="Dust 5" type="Sprite3D" parent="." unique_id=1827822406]
-transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 19.214153, 3.694652, -7.0659156)
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 44.13191, 3.694652, 1.9456668)
 texture = ExtResource("14_gkdds")
 
 [node name="Dust 6" type="Sprite3D" parent="." unique_id=291121939]
-transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 14.653184, 4.2419457, -7.0659156)
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 39.570942, 4.2419457, 1.9456668)
 texture = ExtResource("15_tjkvv")
 
 [node name="Dust 21" type="Sprite3D" parent="." unique_id=978039071]
-transform = Transform3D(-1.3943859, 0, 0, 0, 1.526827, 0, 0, 0, 4.433071, 9.345428, 3.868901, -10.691491)
+transform = Transform3D(-1.3943859, 0, 0, 0, 1.526827, 0, 0, 0, 4.433071, 6.281189, 3.868901, -10.691491)
 texture = ExtResource("15_tjkvv")
 
 [node name="Dust 7" type="Sprite3D" parent="." unique_id=1981128652]
-transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 36.86975, 2.7862856, -7.0659165)
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 61.787506, 2.7862856, 1.9456658)
 texture = ExtResource("16_8heir")
 
 [node name="Dust 8" type="Sprite3D" parent="." unique_id=576352556]
-transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 36.515915, 1.3734007, -7.065914)
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 61.43367, 1.3734007, 1.9456682)
 texture = ExtResource("17_jwlm5")
 
 [node name="Dust 9" type="Sprite3D" parent="." unique_id=498807468]
-transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 32.816116, 2.474777, -7.0659165)
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 57.73387, 2.474777, 1.9456658)
 texture = ExtResource("18_giovu")
 
 [node name="Dust 10" type="Sprite3D" parent="." unique_id=1261162807]
-transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 33.646744, 1.2199476, -7.0659156)
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 58.5645, 1.2199476, 1.9456668)
 texture = ExtResource("19_y04dn")
 
 [node name="Dust 11" type="Sprite3D" parent="." unique_id=1032349805]
-transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 28.780102, 2.0003953, -7.0659156)
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 53.697857, 2.0003953, 1.9456668)
+texture = ExtResource("20_qcd5t")
+
+[node name="Dust 23" type="Sprite3D" parent="." unique_id=1290749084]
+transform = Transform3D(2.2343554, 0, 0, 0, 2.2343554, 0, 0, 0, 6.487347, 0.71723056, 2.7254386, -13.234664)
 texture = ExtResource("20_qcd5t")
 
 [node name="Dust 12" type="Sprite3D" parent="." unique_id=1325542397]
-transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 22.505611, 2.4926872, -7.065915)
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 47.423367, 2.4926872, 1.9456673)
 texture = ExtResource("21_8cphh")
 
 [node name="Midground1" type="Node3D" parent="." unique_id=1424328199]
-
-[node name="Dust 19" type="Sprite3D" parent="Midground1" unique_id=29595649]
-transform = Transform3D(0.21420093, 0, 0, 0, 0.21420093, 0, 0, 0, 0.62192243, -3.6969197, 0.21355939, -1.13076)
-render_priority = 1
-texture = ExtResource("21_8cphh")
 
 [node name="Dust 22" type="Sprite3D" parent="Midground1" unique_id=1331394849]
 transform = Transform3D(0.21420093, 0, 0, 0, 0.0999722, 0, 0, 0, 0.62192243, -1.3166611, 0.30147815, 1.8715382)
 modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 render_priority = 1
 texture = ExtResource("21_8cphh")
-
-[node name="Dust 20" type="Sprite3D" parent="Midground1" unique_id=518687750]
-transform = Transform3D(0.3932781, 0, 0, 0, 0.21420093, 0, 0, 0, 0.62192243, 0.15692687, 0.14761138, -2.6138463)
-render_priority = 1
-texture = ExtResource("21_8cphh")
-
-[node name="Dust 21" type="Sprite3D" parent="Midground1" unique_id=278413962]
-transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 3.0540662, 0.502218, -1.7175379)
-render_priority = 1
-texture = ExtResource("15_tjkvv")
 
 [node name="Midground2" type="Node3D" parent="." unique_id=1717896128]
 
@@ -407,13 +407,6 @@ modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 render_priority = 2
 texture = ExtResource("26_jrynu")
 
-[node name="Dust 21" type="Sprite3D" parent="Midground2" unique_id=1520853220]
-transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 1.269572, 0.77731144, -0.32935178)
-layers = 513
-modulate = Color(0.44404542, 0.44404542, 0.44404542, 1)
-render_priority = 2
-texture = ExtResource("26_jrynu")
-
 [node name="Foreground3" type="Node3D" parent="." unique_id=1784141856]
 
 [node name="Big Wires 12" type="Sprite3D" parent="Foreground3" unique_id=79130179]
@@ -427,11 +420,11 @@ render_priority = 3
 texture = ExtResource("33_ykxan")
 
 [node name="Dust 13" type="Sprite3D" parent="." unique_id=203925395]
-transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 13.725531, 2.585803, -7.0659156)
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 38.643288, 2.585803, 1.9456668)
 texture = ExtResource("22_ijh2y")
 
 [node name="Dust 14" type="Sprite3D" parent="." unique_id=738217358]
-transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 17.147345, 1.964354, -7.0659156)
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 42.0651, 1.964354, 1.9456668)
 texture = ExtResource("23_lduwr")
 
 [node name="Dust 20" type="Sprite3D" parent="." unique_id=1413735752]
@@ -439,27 +432,27 @@ transform = Transform3D(-2.486727, 0, 0, 0, 2.1299357, 0, 0, 0, 1, -11.85003, 2.
 texture = ExtResource("23_lduwr")
 
 [node name="Dust 15" type="Sprite3D" parent="." unique_id=1653434581]
-transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 14.697957, 0.8641486, -7.0659146)
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 39.615715, 0.8641486, 1.9456677)
 texture = ExtResource("24_eglqw")
 
 [node name="Dust 16" type="Sprite3D" parent="." unique_id=1931519965]
-transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 23.199068, 1.2927766, -7.0659156)
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 48.116825, 1.2927766, 1.9456668)
 texture = ExtResource("24_eglqw")
 
 [node name="Dust 17" type="Sprite3D" parent="." unique_id=183586574]
-transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 31.949635, -0.2350936, -7.0659165)
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 56.867386, -0.2350936, 1.9456658)
 texture = ExtResource("25_sj2bw")
 
 [node name="Dust 18" type="Sprite3D" parent="." unique_id=1205657693]
-transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 16.931051, 0, -7.0659156)
+transform = Transform3D(0.34441742, 0, 0, 0, 0.34441742, 0, 0, 0, 1, 41.84881, 0, 1.9456668)
 texture = ExtResource("26_jrynu")
 
 [node name="Dust 19" type="Sprite3D" parent="." unique_id=119331874]
-transform = Transform3D(1.3287625, 0, 0, 0, 1.3287625, 0, 0, 0, 3.8580003, -8.471838, 1.1141129, -9.130449)
+transform = Transform3D(1.3287625, 0, 0, 0, 1.3287625, 0, 0, 0, 3.8580003, -8.4568, 1.1141133, -9.164455)
 texture = ExtResource("26_jrynu")
 
 [node name="Big Wires 1" type="Sprite3D" parent="." unique_id=1828927051]
-transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 12.611296, 1.0494314, 0.60970867)
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 68.57841, 1.0494314, 0.60970867)
 texture = ExtResource("27_cduj1")
 
 [node name="Big Wires 11" type="Sprite3D" parent="." unique_id=2196730]
@@ -467,23 +460,23 @@ transform = Transform3D(0.09465478, 0, 0, 0, 0.09465478, 0, 0, 0, 0.70717746, 1.
 texture = ExtResource("27_cduj1")
 
 [node name="Big Wires 2" type="Sprite3D" parent="." unique_id=1249215590]
-transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 15.433889, 1.0494314, 0.6134963)
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 71.401, 1.0494314, 0.6134963)
 texture = ExtResource("28_7eq66")
 
 [node name="Big Wires 3" type="Sprite3D" parent="." unique_id=143141442]
-transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 17.728338, 1.0494314, 0.6134963)
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 73.69545, 1.0494314, 0.6134963)
 texture = ExtResource("29_jnh8w")
 
 [node name="Big Wires 4" type="Sprite3D" parent="." unique_id=1442458164]
-transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 21.445326, 1.7578832, 0.6134963)
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 77.41244, 1.7578832, 0.6134963)
 texture = ExtResource("30_kvfnu")
 
 [node name="Big Wires 5" type="Sprite3D" parent="." unique_id=1737259842]
-transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 25.198954, 1.0494314, 0.6134963)
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 81.16606, 1.0494314, 0.6134963)
 texture = ExtResource("31_7pjub")
 
 [node name="Big Wires 6" type="Sprite3D" parent="." unique_id=1014301768]
-transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 18.959003, -0.06866586, 0.6134963)
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 74.92611, -0.06866586, 0.6134963)
 texture = ExtResource("32_5eksb")
 
 [node name="Big Wires 13" type="Sprite3D" parent="." unique_id=2015376028]
@@ -491,39 +484,39 @@ transform = Transform3D(0.08094201, 0, 0, 0, 0.08094201, 0, 0, 0, 0.57425773, -3
 texture = ExtResource("32_5eksb")
 
 [node name="Big Wires 7" type="Sprite3D" parent="." unique_id=816723570]
-transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 27.344814, 1.0494314, 0.6134963)
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 83.31193, 1.0494314, 0.6134963)
 texture = ExtResource("33_ykxan")
 
 [node name="Big Wires 8" type="Sprite3D" parent="." unique_id=824161475]
-transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 21.556782, 1.0494314, 0.6134963)
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 77.52389, 1.0494314, 0.6134963)
 texture = ExtResource("34_4s32m")
 
 [node name="Big Wires 9" type="Sprite3D" parent="." unique_id=564087655]
-transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 24.237167, -0.29402506, 0.61349535)
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 80.20428, -0.29402506, 0.61349535)
 texture = ExtResource("35_3hif6")
 
 [node name="Big Wires 10" type="Sprite3D" parent="." unique_id=2018478833]
-transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 30.150717, 0.7717246, 0.6134963)
+transform = Transform3D(0.14095066, 0, 0, 0, 0.14095066, 0, 0, 0, 1, 86.11783, 0.7717246, 0.6134963)
 texture = ExtResource("36_vu5ng")
 
 [node name="Wire Conector 1" type="Sprite3D" parent="." unique_id=344904642]
-transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 8.56076, 1.2697777, 0.54695696)
+transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 64.90399, 1.0102261, 0.54695696)
 texture = ExtResource("37_fbpb5")
 
 [node name="Wire Conector 2" type="Sprite3D" parent="." unique_id=789622238]
-transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 9.152475, 1.2697777, 0.54695696)
+transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 65.495705, 1.0102261, 0.54695696)
 texture = ExtResource("38_jyc6m")
 
 [node name="Wire Conector 3" type="Sprite3D" parent="." unique_id=488380542]
-transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 9.852359, 1.2697777, 0.54695696)
+transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 66.19559, 1.0102261, 0.54695696)
 texture = ExtResource("39_apgab")
 
 [node name="Wire Conector 4" type="Sprite3D" parent="." unique_id=995998858]
-transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 10.3051815, 1.2697777, 0.54695696)
+transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 66.648415, 1.0102261, 0.54695696)
 texture = ExtResource("40_t1kh3")
 
 [node name="Wire Conector 5" type="Sprite3D" parent="." unique_id=1099282277]
-transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 11.130004, 1.2697777, 0.54695696)
+transform = Transform3D(0.07977823, 0, 0, 0, 0.07977823, 0, 0, 0, 1, 67.473236, 1.0102261, 0.54695696)
 texture = ExtResource("41_cmnmm")
 
 [node name="Bigwire" type="MeshInstance3D" parent="." unique_id=1392593067]
@@ -802,3 +795,12 @@ mesh = ExtResource("68_30kme")
 
 [node name="NamTest" parent="." unique_id=1066746990 instance=ExtResource("93_itrl0")]
 transform = Transform3D(-1.0927847e-06, 0, 25, 0, 25, 0, -25, 0, -1.0927847e-06, -2.8528287, 0.031194976, 0.08543983)
+
+[node name="Head Pipes" parent="." unique_id=1904202407 instance=ExtResource("95_1f8lv")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 16.089724, 4.4872513, -1.7067604)
+
+[node name="Head Pipes 2" parent="." unique_id=78087901 instance=ExtResource("96_ymajn")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 24.771696, 4.498307, -2.1045551)
+
+[node name="Head Pipes Grables" parent="." unique_id=1684799269 instance=ExtResource("97_uhx7f")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 20.588865, 2.452398, -2.218431)
