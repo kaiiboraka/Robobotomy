@@ -124,7 +124,7 @@ public partial class Ladder : Climbable
 	private float _rungDensity = 1.0f;
 
 
-	public override void _Ready()
+	public override void _EnterTree()
 	{
 		_leftPole = GetNode<MeshInstance3D>("Ladder Pole Left");
 		_rightPole = GetNode<MeshInstance3D>("Ladder Pole Right");
@@ -198,6 +198,9 @@ public partial class Ladder : Climbable
 
 	private void SetLength()
 	{
+		if (_leftPoleMesh == null) 
+			return;
+		
 		_leftPoleMesh.Height = Length;
 		_rightPoleMesh.Height = Length;
 
