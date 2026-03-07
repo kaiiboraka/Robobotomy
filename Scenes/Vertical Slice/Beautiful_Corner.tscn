@@ -92,7 +92,6 @@
 [ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Assets/Robobotomy Art/3D/Objects/terminal.res" id="90_5i7sb"]
 [ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Assets/Robobotomy Art/3D/Objects/pipe1_long.res" id="91_0v81c"]
 [ext_resource type="Texture2D" uid="uid://d2djqd8vqwn38" path="res://Assets/Materials/Shaders/Metal Maps/Metal_metallic.png" id="93_fnn60"]
-[ext_resource type="PackedScene" uid="uid://dsh0mcfyklgg8" path="res://Assets/Robobotomy Art/3D/Character/NamIdlePoze.fbx" id="93_itrl0"]
 [ext_resource type="Texture2D" uid="uid://bvtq6v2ixvrsh" path="res://Assets/Materials/Shaders/Metal Maps/Metal_normal.png" id="94_nruv6"]
 [ext_resource type="PackedScene" uid="uid://cm25ac4a1w6vt" path="res://Assets/Robobotomy Art/3D/Objects/Head Pipes/Head Pipes.fbx" id="95_1f8lv"]
 [ext_resource type="Texture2D" uid="uid://8fu1o08kxoar" path="res://Assets/Materials/Shaders/Metal Maps/Metal_roughness.png" id="95_1o705"]
@@ -367,7 +366,7 @@ operation = 2
 size = Vector3(2.7104778, 1, 6.6793365)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=509653888]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2135487, 1.696732, 6.628353)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1875105, 1.696732, 6.628353)
 fov = 50.0
 script = ExtResource("5_t2hkb")
 moveSpeed = 0.05
@@ -377,7 +376,7 @@ wheelSpeed = 0.05
 transform = Transform3D(-1.0927847e-06, 0, 25, 0, 25.000002, 0, -25.000002, 0, -1.0927848e-06, -1.4539434, -1.0860994, -6.5793)
 skeleton = NodePath("NamTest")
 
-[node name="NamTest" parent="Camera3D/MeshInstance3D46" unique_id=1109599076 instance=ExtResource("93_itrl0")]
+[node name="NamTest" parent="Camera3D/MeshInstance3D46" unique_id=1109599076]
 transform = Transform3D(0.99999994, 0, 3.5527137e-15, 0, 0.99999994, 0, -3.5527137e-15, 0, 1, 0, -0.023177506, 0)
 
 [node name="Pipe1Medium3" type="MeshInstance3D" parent="." unique_id=646718054]
@@ -673,7 +672,7 @@ texture = ExtResource("12_avtu8")
 
 [node name="Dust 46" type="Sprite3D" parent="." unique_id=1302958679]
 transform = Transform3D(0.42351863, 0, 0, 0, 0.38995805, 0, 0, 0, 1.1652617, -29.271418, 0.0580495, 2.6106312)
-modulate = Color(0.30938485, 0.30938527, 0.30938515, 1)
+modulate = Color(0.2824075, 0.28240746, 0.28240746, 1)
 texture = ExtResource("12_avtu8")
 
 [node name="Dust 44" type="Sprite3D" parent="Dust 46" unique_id=1943097298]
@@ -764,7 +763,7 @@ texture = ExtResource("21_8cphh")
 [node name="Midground2" type="Node3D" parent="." unique_id=1717896128]
 
 [node name="Dust 22" type="Sprite3D" parent="Midground2" unique_id=496037162]
-transform = Transform3D(-0.44057804, 0, 0, 0, 0.22231652, 0, 0, 0, 0.9997604, -29.366392, 0.82955563, 3.7119517)
+transform = Transform3D(-0.44057804, 0, 0, 0, 0.22231652, 0, 0, 0, 0.9997604, -29.370047, 0.82996535, 3.7106364)
 layers = 513
 modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 render_priority = 2
