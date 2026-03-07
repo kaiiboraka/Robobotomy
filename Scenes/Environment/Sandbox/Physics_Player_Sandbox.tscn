@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://8m5udpdfeosa"]
+[gd_scene load_steps=0 format=3 uid="uid://8m5udpdfeosa"]
 
 [ext_resource type="Script" uid="uid://bbsnfh5argctm" path="res://Scripts/PhysicsPlayer.cs" id="1_e82sd"]
 [ext_resource type="Material" uid="uid://ctprc8cj5aju7" path="res://Assets/Materials/Basic Colors/Blue.tres" id="2_2idhx"]
@@ -7,7 +7,7 @@
 [ext_resource type="Material" uid="uid://chtkrq0krimql" path="res://Assets/Materials/Basic Colors/Purple.tres" id="5_31qj3"]
 [ext_resource type="Material" uid="uid://cjjlgffq2ycbp" path="res://Assets/Materials/Basic Colors/Red.tres" id="6_7ka0c"]
 [ext_resource type="Material" uid="uid://chy2k6sku55kc" path="res://Assets/Materials/Basic Colors/Orange.tres" id="7_n47st"]
-[ext_resource type="Script" path="res://Scripts/interaction_area.gd" id="8_x0y33"]
+[ext_resource type="Script" uid="uid://bp2odad4ftm6q" path="res://Scripts/InteractionArea.cs" id="5_7qdam"]
 [ext_resource type="Texture2D" uid="uid://y14b3b1s4nbo" path="res://Assets/Images/icon.png" id="9_4b2fe"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s3rgx"]

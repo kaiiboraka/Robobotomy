@@ -1,22 +1,23 @@
 [gd_scene load_steps=4 format=3 uid="uid://d031edjsrylll"]
 
-[ext_resource type="Script" uid="uid://81evvrguobb6" path="res://Scripts/Rope.gd" id="1_wl8ig"]
+[ext_resource type="Script" uid="uid://dge2xk6cwsew6" path="res://Scripts/Rope.cs" id="1_adlam"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_wl8ig"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_adlam"]
 top_radius = 0.1
 bottom_radius = 0.1
 height = 10.0
 radial_segments = 16
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_qfcpu"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_mcna5"]
 size = Vector3(1.5, 10.5, 1)
 
 [node name="Rope" type="Node3D" groups=["Climbable"]]
-script = ExtResource("1_wl8ig")
+transform = Transform3D(1, 2e-44, 0, -2e-44, 1, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_adlam")
 
 [node name="Rope Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
-mesh = SubResource("CylinderMesh_wl8ig")
+mesh = SubResource("CylinderMesh_adlam")
 
 [node name="Grabable Area" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.25, 0)
@@ -24,7 +25,7 @@ collision_layer = 64
 collision_mask = 32
 
 [node name="Grabable Shape" type="CollisionShape3D" parent="Grabable Area"]
-shape = SubResource("BoxShape3D_qfcpu")
+shape = SubResource("BoxShape3D_mcna5")
 
-[connection signal="area_entered" from="Grabable Area" to="." method="_on_interaction_area_entered"]
-[connection signal="area_exited" from="Grabable Area" to="." method="_on_interaction_area_exited"]
+[connection signal="area_entered" from="Grabable Area" to="." method="OnInteractionAreaEntered"]
+[connection signal="area_exited" from="Grabable Area" to="." method="OnInteractionAreaExited"]
