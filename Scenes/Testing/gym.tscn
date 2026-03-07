@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://dmefqrw20pemv"]
+
+[ext_resource type="PackedScene" uid="uid://dbk24fe7ef7m3" path="res://Scenes/Environment/platform_plane.tscn" id="1_nwv8u"]
+[ext_resource type="PackedScene" uid="uid://gl5j7l3w6avc" path="res://Scenes/Environment/simple_box.tscn" id="2_uk5sn"]
+[ext_resource type="PackedScene" uid="uid://d031edjsrylll" path="res://Scenes/Environment/rope.tscn" id="3_vr2ic"]
+[ext_resource type="PackedScene" uid="uid://dg2v5675ajsfd" path="res://Scenes/Environment/HingeDoor_jacob.tscn" id="4_040rw"]
+[ext_resource type="PackedScene" uid="uid://pvwqjhr7eu4p" path="res://Scenes/Environment/seesaw.tscn" id="5_hfmfs"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_uk5sn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vr2ic"]
+size = Vector3(1.0756226, 2.816208, 1)
+
+[node name="Gym" type="Node3D" unique_id=1468774947]
+
+[node name="PlatformStatic" parent="." unique_id=1076647956 instance=ExtResource("1_nwv8u")]
+
+[node name="Simple Box" parent="." unique_id=721998183 instance=ExtResource("2_uk5sn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6014295, 0.74538517, 0)
+
+[node name="Gym Welcome" type="Label3D" parent="." unique_id=1525466051]
+transform = Transform3D(1, 0, 0, 0, 0.7009342, 0.71322596, 0, -0.71322596, 0.7009342, 0.051551342, 0.36260664, 2.5304399)
+text = "Gym"
+font_size = 64
+outline_size = 19
+
+[node name="Ropes Label" type="Label3D" parent="." unique_id=155881223]
+transform = Transform3D(1, 0, 0, 0, 0.7009342, 0.71322596, 0, -0.71322596, 0.7009342, -6.563844, 0.36260664, 2.5304399)
+text = "Ropes
+"
+font_size = 64
+outline_size = 19
+
+[node name="Hinge Door Label" type="Label3D" parent="." unique_id=180099318]
+transform = Transform3D(1, 0, 0, 0, 0.7009342, 0.71322596, 0, -0.71322596, 0.7009342, -24.32957, 0.36260664, 2.5304399)
+text = "Hinge Doors"
+font_size = 64
+outline_size = 19
+
+[node name="SeeSaw Label" type="Label3D" parent="." unique_id=443643724]
+transform = Transform3D(1, 0, 0, 0, 0.7009342, 0.71322596, 0, -0.71322596, 0.7009342, -38.672684, 0.36260664, 2.5304399)
+text = "SeeSaws"
+font_size = 64
+outline_size = 19
+
+[node name="BoxesLabel" type="Label3D" parent="." unique_id=39482206]
+transform = Transform3D(1, 0, 0, 0, 0.7009342, 0.71322596, 0, -0.71322596, 0.7009342, 6.8489294, 0.36260664, 2.5304399)
+text = "Boxes
+"
+font_size = 64
+outline_size = 19
+
+[node name="Buttons Label" type="Label3D" parent="." unique_id=1513301176]
+transform = Transform3D(1, 0, 0, 0, 0.7009342, 0.71322596, 0, -0.71322596, 0.7009342, 23.175741, 0.36260664, 2.5304399)
+text = "Buttons
+"
+font_size = 64
+outline_size = 19
+
+[node name="BackgroundInterest" type="MeshInstance3D" parent="." unique_id=1033543500]
+transform = Transform3D(21.249088, 7.433801, 8.320267, -6.0518513, 30.9332, 0, -9.142511, -3.1984248, 19.338024, 0, 0, -49.801003)
+mesh = SubResource("BoxMesh_uk5sn")
+
+[node name="BackgroundInterest2" type="MeshInstance3D" parent="." unique_id=233720784]
+transform = Transform3D(0.11485289, 0.10816001, 14.342124, 2.8063133, 57.557354, -0.043687932, -15.989428, 10.102701, 0.095352195, 61.583885, 0, -49.801003)
+mesh = SubResource("BoxMesh_uk5sn")
+
+[node name="BackgroundInterest3" type="MeshInstance3D" parent="." unique_id=854885998]
+transform = Transform3D(6.7898083, -17.705639, -8.030751, 3.2141747, 53.888638, 2.4430346, 3.0052981, -17.632067, 15.530876, -57.82998, 0, -49.801003)
+mesh = SubResource("BoxMesh_uk5sn")
+
+[node name="Rope" parent="." unique_id=711893260 instance=ExtResource("3_vr2ic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6133633, 10.616564, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=286307608]
+collision_mask = 100
+
+[node name="Box Limiter" type="CollisionShape3D" parent="StaticBody3D" unique_id=476551488]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.279541, 0.5002571, 0)
+shape = SubResource("BoxShape3D_vr2ic")
+
+[node name="HingeDoorJacob" parent="." unique_id=1852264278 instance=ExtResource("4_040rw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.582546, 0.38615036, 0)
+doorHeight = 2.54
+
+[node name="Seesaw" parent="." unique_id=2059985946 instance=ExtResource("5_hfmfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.94777, 0.517251, 0)

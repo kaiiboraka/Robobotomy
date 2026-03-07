@@ -5,15 +5,15 @@ using System.Runtime.CompilerServices;
 
 public partial class Torso : RigidBody3D, ISelectable, IHub
 {
-    //ISelectable
-    public bool amIsolated{ get; set; }
-    public ActualPlayer.LimbTypes myType{get;set;}
-    //IHub
-    public Dictionary<ActualPlayer.LimbTypes, Socket> Sockets {get;set;}
-    public List<ISelectable> myConnections { get; set; }
-    public int numLegs { get; set; } = 0;
-    public bool amSelected {get;set;}
-    public int numArms { get; set; } = 0;
+	//ISelectable
+	public bool amIsolated{ get; set; }
+	public ActualPlayer.LimbTypes myType{get;set;}
+	//IHub
+	public Dictionary<ActualPlayer.LimbTypes, Socket> Sockets {get;set;}
+	public List<ISelectable> myConnections { get; set; }
+	public int numLegs { get; set; } = 0;
+	public bool amSelected {get;set;}
+	public int numArms { get; set; } = 0;
 
 	//Movement
 	[Export] private int speed = 3;
@@ -73,7 +73,7 @@ public partial class Torso : RigidBody3D, ISelectable, IHub
 			}
 		};
 
-        Movement._Ready(this);
+		Movement._Ready(this);
 
 	}
 
@@ -169,19 +169,19 @@ public partial class Torso : RigidBody3D, ISelectable, IHub
 		}
 	}
 
-    //Movement
-    public override void _IntegrateForces(PhysicsDirectBodyState3D state)
-    {
-        Movement._IntegrateForces(state, this);
-    }
-    public void MoveMe() //This is ISelectable but it's movement so I put it in movement
-    {
-        for (int i = 0; i < myConnections.Count; i++)
-        {
-            myConnections[i].ConnectedBehavior();
-        }
-        Movement.MoveMe(this, isGrounded, speed, 5);
-    }
+	//Movement
+	public override void _IntegrateForces(PhysicsDirectBodyState3D state)
+	{
+		Movement._IntegrateForces(state, this);
+	}
+	public void MoveMe() //This is ISelectable but it's movement so I put it in movement
+	{
+		for (int i = 0; i < myConnections.Count; i++)
+		{
+			myConnections[i].ConnectedBehavior();
+		}
+		Movement.MoveMe(this, isGrounded, speed, 5);
+	}
 
 	//Doesn't do anything without legs
 	public void OnHitFloor(Node3D body)

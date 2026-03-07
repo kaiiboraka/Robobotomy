@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cfynvl6qv6736"]
+
+[ext_resource type="MeshLibrary" uid="uid://cpwr0fxwfjkl5" path="res://Assets/Robobotomy Art/3D/Objects/PowerCable/PowerCable_MeshLibrary.tres" id="1_oysiv"]
+
+[node name="Node3D" type="Node3D" unique_id=1101791235]
+
+[node name="GridMap" type="GridMap" parent="." unique_id=626908200]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh_library = ExtResource("1_oysiv")
+cell_size = Vector3(0.25, 0.25, 0.25)
+data = {
+"cells": PackedInt32Array(2, 65534, 917505, 3, 65534, 917505, 4, 65534, 917505, 1, 65534, 917505, 0, 65534, 917505, 65535, 65534, 917505, 65534, 65534, 917505, 65533, 65534, 917505, 65532, 65534, 917505, 65531, 65534, 917505, 5, 65534, 1114117, 5, 65535, 917509, 6, 65535, 1114117, 6, 0, 1376261, 65530, 65534, 1376264)
+}

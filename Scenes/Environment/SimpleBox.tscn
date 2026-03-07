@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://gl5j7l3w6avc"]
+
+[ext_resource type="Script" uid="uid://ck2aty1s5xess" path="res://Scripts/Box.cs" id="1_tht3g"]
+[ext_resource type="PackedScene" uid="uid://lipiostj341j" path="res://Scenes/Environment/Handle.tscn" id="2_qwqek"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wo1n4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xnoih"]
+
+[node name="Simple Box" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 141
+axis_lock_linear_z = true
+axis_lock_angular_z = true
+can_sleep = false
+script = ExtResource("1_tht3g")
+
+[node name="Collision Shape" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_wo1n4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_xnoih")
+
+[node name="Handles" type="Node3D" parent="."]
+
+[node name="Left Handle" parent="Handles" instance=ExtResource("2_qwqek")]
+process_mode = 4
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -1.75, 0, 0)
+visible = false
+
+[node name="Right Handle" parent="Handles" instance=ExtResource("2_qwqek")]
+process_mode = 4
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.75, 0, 0)
+visible = false
+
+[node name="Top Handle" parent="Handles" instance=ExtResource("2_qwqek")]
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
+visible = false
+isVertical = true
+
+[node name="Bottom Handle" parent="Handles" instance=ExtResource("2_qwqek")]
+process_mode = 4
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, -0.75, 0)
+visible = false
+isVertical = true

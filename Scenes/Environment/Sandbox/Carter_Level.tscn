@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://btf4pey8s6tmt"]
+
+[ext_resource type="PackedScene" uid="uid://dodbf8xbi1m1" path="res://Scenes/Characters/ActualPlayer.tscn" id="1_b246n"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lh8xa"]
+size = Vector3(10, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yrtpk"]
+size = Vector3(10, 1, 1)
+
+[node name="Node3D" type="Node3D" unique_id=1010345093]
+
+[node name="floor" type="StaticBody3D" parent="." unique_id=277861494]
+collision_layer = 4
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor" unique_id=1809654368]
+mesh = SubResource("BoxMesh_lh8xa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor" unique_id=1122669279]
+shape = SubResource("BoxShape3D_yrtpk")
+
+[node name="floor2" type="StaticBody3D" parent="." unique_id=591786507]
+transform = Transform3D(-0.5780855, 0.8159762, 0, -0.8159762, -0.5780855, 0, 0, 0, 1, 7.551346, 3.5386496, 4.7683716e-07)
+collision_layer = 4
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor2" unique_id=1848034898]
+mesh = SubResource("BoxMesh_lh8xa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor2" unique_id=1768392430]
+shape = SubResource("BoxShape3D_yrtpk")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=586933289]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2416348, 6.3725796, 22.386898)
+fov = 42.6
+
+[node name="Player" parent="." unique_id=64555096 instance=ExtResource("1_b246n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.021482497, 0)
+
+[editable path="Player"]
