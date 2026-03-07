@@ -48,7 +48,7 @@
 [ext_resource type="ArrayMesh" uid="uid://doxh8d0va3v1k" path="res://Assets/Robobotomy Art/3D/Objects/buttons_1x1.res" id="46_20x6s"]
 [ext_resource type="ArrayMesh" uid="uid://cxeu82e0qsgql" path="res://Assets/Robobotomy Art/3D/Objects/buttons_1x2.res" id="47_lj686"]
 [ext_resource type="ArrayMesh" uid="uid://cvo0no0vpvcvy" path="res://Assets/Robobotomy Art/3D/Objects/buttons_1x3.res" id="48_1f8lv"]
-[ext_resource type="ArrayMesh" uid="uid://3opr7stj4wlh" path="res://Assets/Robobotomy Art/3D/Objects/buttons_2x3.res" id="49_ymajn"]
+[ext_resource type="ArrayMesh" uid="uid://3opr7stj4wlh" path="res://Scenes/Vertical Slice/3d assetts/kitbash/buttons_2x3.res" id="49_ymajn"]
 [ext_resource type="ArrayMesh" uid="uid://dq0ogr20mo8rg" path="res://Assets/Robobotomy Art/3D/Objects/buttons_3x3.res" id="50_uhx7f"]
 [ext_resource type="ArrayMesh" uid="uid://c30g2pc1dcs7o" path="res://Assets/Robobotomy Art/3D/Objects/cableconnector.res" id="51_fnn60"]
 [ext_resource type="ArrayMesh" uid="uid://cux0e83pq4xyq" path="res://Assets/Robobotomy Art/3D/Objects/gear_helical1.res" id="52_nruv6"]
@@ -92,7 +92,6 @@
 [ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Assets/Robobotomy Art/3D/Objects/terminal.res" id="90_5i7sb"]
 [ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Assets/Robobotomy Art/3D/Objects/pipe1_long.res" id="91_0v81c"]
 [ext_resource type="Texture2D" uid="uid://d2djqd8vqwn38" path="res://Assets/Materials/Shaders/Metal Maps/Metal_metallic.png" id="93_fnn60"]
-[ext_resource type="PackedScene" uid="uid://dsh0mcfyklgg8" path="res://Assets/Robobotomy Art/3D/Character/NamIdlePoze.fbx" id="93_itrl0"]
 [ext_resource type="Texture2D" uid="uid://bvtq6v2ixvrsh" path="res://Assets/Materials/Shaders/Metal Maps/Metal_normal.png" id="94_nruv6"]
 [ext_resource type="PackedScene" uid="uid://cm25ac4a1w6vt" path="res://Assets/Robobotomy Art/3D/Objects/Head Pipes/Head Pipes.fbx" id="95_1f8lv"]
 [ext_resource type="Texture2D" uid="uid://8fu1o08kxoar" path="res://Assets/Materials/Shaders/Metal Maps/Metal_roughness.png" id="95_1o705"]
@@ -377,7 +376,7 @@ wheelSpeed = 0.05
 transform = Transform3D(-1.0927847e-06, 0, 25, 0, 25.000002, 0, -25.000002, 0, -1.0927848e-06, -1.4539434, -1.0860994, -6.5793)
 skeleton = NodePath("NamTest")
 
-[node name="NamTest" parent="Camera3D/MeshInstance3D46" unique_id=1109599076 instance=ExtResource("93_itrl0")]
+[node name="NamTest" parent="Camera3D/MeshInstance3D46" unique_id=1109599076]
 transform = Transform3D(0.99999994, 0, 3.5527137e-15, 0, 0.99999994, 0, -3.5527137e-15, 0, 1, 0, -0.023177506, 0)
 
 [node name="Pipe1Medium3" type="MeshInstance3D" parent="." unique_id=646718054]
