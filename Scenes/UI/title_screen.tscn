@@ -87,10 +87,11 @@ position = Vector2(960, 540)
 texture = ExtResource("3_wv540")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=331176144]
+light_mask = 0
 texture_filter = 1
 material = SubResource("ShaderMaterial_wv540")
 layout_mode = 0
-offset_right = 40.0
+offset_right = 19.958334
 offset_bottom = 40.0
 scale = Vector2(48, 20.15)
 

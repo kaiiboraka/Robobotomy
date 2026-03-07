@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dgoqhuaqsm30g"]
+[gd_scene format=3 uid="uid://dgoqhuaqsm30g"]
 
 [ext_resource type="Script" uid="uid://bv8j1juis6km2" path="res://Scripts/Real Player Script/Torso.cs" id="1_fwjro"]
 [ext_resource type="Material" uid="uid://chtkrq0krimql" path="res://Assets/Materials/Basic Colors/Purple.tres" id="2_sw5vf"]
@@ -16,32 +16,32 @@ script = ExtResource("3_sw5vf")
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w24nb"]
 height = 1.466
 
-[node name="Torso" type="RigidBody3D"]
+[node name="Torso" type="RigidBody3D" unique_id=381647224]
 collision_layer = 3
 collision_mask = 908
 lock_rotation = true
 script = ExtResource("1_fwjro")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1423875386]
 transform = Transform3D(1, 0, 0, 0, 0.4769894, 0, 0, 0, 1, 0, 0, 0)
 material_override = ExtResource("2_sw5vf")
 mesh = SubResource("CapsuleMesh_656bm")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1920081872]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07662338, 0)
 shape = SubResource("CapsuleShape3D_8y70x")
 
-[node name="PhantomCamera3D" type="Node3D" parent="."]
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=319423957]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.168)
 script = ExtResource("2_w24nb")
 tween_resource = SubResource("Resource_bcp5y")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="JumpArea" type="Area3D" parent="."]
+[node name="JumpArea" type="Area3D" parent="." unique_id=1778012778]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.036596715, 0)
 collision_layer = 0
 collision_mask = 12
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpArea" unique_id=1623829685]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.052340806, 0)
 shape = SubResource("CapsuleShape3D_w24nb")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://clesw0vcam4s2"]
+[gd_scene format=3 uid="uid://clesw0vcam4s2"]
 
 [ext_resource type="Script" uid="uid://cy38n2iex4csr" path="res://Scripts/Real Player Script/LeftArm.cs" id="1_7lajw"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_7lajw"]
@@ -8,40 +8,42 @@
 [sub_resource type="BoxMesh" id="BoxMesh_13ayn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8y70x"]
-height = 1.4658203
+radius = 0.22705078
+height = 1.0771484
 
 [sub_resource type="Resource" id="Resource_bcp5y"]
 script = ExtResource("3_rk8tc")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w24nb"]
-height = 1.5654297
+radius = 0.17138672
+height = 0.9530029
 
-[node name="LeftArm" type="RigidBody3D"]
+[node name="LeftArm" type="RigidBody3D" unique_id=1281946609]
 collision_layer = 3
 collision_mask = 908
 lock_rotation = true
 script = ExtResource("1_7lajw")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0, 0, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=522111275]
+transform = Transform3D(0.25, 0, 0, 0, 0.75, 0, 0, 0, 0.2991663, 0, 0, 0)
 material_override = ExtResource("2_rk8tc")
 mesh = SubResource("BoxMesh_13ayn")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07662338, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1118851668]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.011267245, 0)
 shape = SubResource("CapsuleShape3D_8y70x")
 
-[node name="PhantomCamera3D" type="Node3D" parent="."]
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=61425743]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.168)
 script = ExtResource("2_7lajw")
 tween_resource = SubResource("Resource_bcp5y")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="JumpArea" type="Area3D" parent="."]
+[node name="JumpArea" type="Area3D" parent="." unique_id=2051181203]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.036596715, 0)
 collision_layer = 0
 collision_mask = 12
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114746094, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpArea" unique_id=1983442455]
+transform = Transform3D(1.2278285, 0, 0, 0, 1.0791311, 0, 0, 0, 1.2817864, 0, 0.023986816, 0)
 shape = SubResource("CapsuleShape3D_w24nb")
