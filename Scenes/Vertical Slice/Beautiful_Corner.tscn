@@ -164,7 +164,7 @@ transform = Transform3D(-4.2946972e-08, -8.138984e-09, 1, -0.18619823, 0.9825122
 mesh = ExtResource("3_iv5s1")
 
 [node name="Pipe1Short" type="MeshInstance3D" parent="CSGCombiner3D" unique_id=461268027]
-transform = Transform3D(-4.362542e-08, -2.7400922e-09, 1, -0.062686004, 0.9980333, 0, -0.9980333, -0.062686004, -4.371139e-08, -0.9600233, 1.8914645, -2.8803766)
+transform = Transform3D(-4.362542e-08, -2.7400922e-09, 1, -0.062686004, 0.9980333, 0, -0.9980333, -0.062686004, -4.371139e-08, -0.9600233, 1.8914645, -2.858627)
 mesh = ExtResource("4_t2hkb")
 
 [node name="Pipe1Short2" type="MeshInstance3D" parent="CSGCombiner3D" unique_id=2127992741]
@@ -398,11 +398,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 9.358732)
 mesh = ExtResource("45_u6h1n")
 
 [node name="Buttons1x1" type="MeshInstance3D" parent="." unique_id=652896106]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.396186, 0, 5.0212545)
 mesh = ExtResource("46_20x6s")
 
 [node name="Buttons1x2" type="MeshInstance3D" parent="." unique_id=231444340]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.513202, 0.28338602, 5.0212545)
 mesh = ExtResource("47_lj686")
 
 [node name="Buttons1x3" type="MeshInstance3D" parent="." unique_id=218658440]
@@ -418,11 +418,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("50_uhx7f")
 
 [node name="Cableconnector" type="MeshInstance3D" parent="." unique_id=761417239]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.307588, 0, 3.416098)
 mesh = ExtResource("51_fnn60")
 
 [node name="GearHelical1" type="MeshInstance3D" parent="." unique_id=1820157225]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.850922, 0, 6.224067)
 mesh = ExtResource("52_nruv6")
 
 [node name="GearHelical2" type="MeshInstance3D" parent="." unique_id=1614906493]
@@ -446,7 +446,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.128572, 0.9506216, 5.02125
 mesh = ExtResource("57_8qeui")
 
 [node name="GearNobore" type="MeshInstance3D" parent="." unique_id=405463937]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, -1.5022959, 5.0212545)
 mesh = ExtResource("58_sh1qt")
 
 [node name="GearRack" type="MeshInstance3D" parent="." unique_id=1081676932]
@@ -454,7 +454,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("59_nwvs3")
 
 [node name="GearSpiralbevellarge" type="MeshInstance3D" parent="." unique_id=681220421]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.812871, -2.3953753, 5.0212545)
 mesh = ExtResource("60_520ta")
 
 [node name="GearSpiralbevelsmall" type="MeshInstance3D" parent="." unique_id=1246179148]
@@ -466,7 +466,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("62_lp33q")
 
 [node name="GearSpur2" type="MeshInstance3D" parent="." unique_id=1193280255]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.76696, -1.3903451, 5.0212545)
 mesh = ExtResource("63_y77u3")
 
 [node name="GearSpur3" type="MeshInstance3D" parent="." unique_id=770501318]
@@ -478,7 +478,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("65_q8ktq")
 
 [node name="GearSpur5" type="MeshInstance3D" parent="." unique_id=1471260784]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0.65150565, 5.0212545)
 mesh = ExtResource("66_g0s1a")
 
 [node name="GearSpurlargebore" type="MeshInstance3D" parent="." unique_id=436103404]
@@ -494,19 +494,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.032937, 0, 5.0212545)
 mesh = ExtResource("69_qh3c7")
 
 [node name="LadderBase" type="MeshInstance3D" parent="." unique_id=891608579]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, -5.73144, 5.0212545)
 mesh = ExtResource("70_7mw20")
 
 [node name="LadderLarge" type="MeshInstance3D" parent="." unique_id=613887620]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.247089, 0, 5.0212545)
 mesh = ExtResource("71_d216d")
 
 [node name="LadderMid" type="MeshInstance3D" parent="." unique_id=1588679394]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, -2.7763586, 5.0212545)
 mesh = ExtResource("72_hrctq")
 
 [node name="LadderRung" type="MeshInstance3D" parent="." unique_id=2092147645]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, -0.83602804, 5.0212545)
 mesh = ExtResource("73_nameg")
 
 [node name="LadderTop1" type="MeshInstance3D" parent="." unique_id=553673067]
@@ -514,7 +514,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("74_fl8kt")
 
 [node name="LadderTop2" type="MeshInstance3D" parent="." unique_id=247765152]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 1.2007644, 5.0212545)
 mesh = ExtResource("75_ip7kf")
 
 [node name="Lever" type="MeshInstance3D" parent="." unique_id=110013518]
@@ -554,11 +554,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("84_16isb")
 
 [node name="PowercableLarge" type="MeshInstance3D" parent="." unique_id=1264316928]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.64311, 0, 6.2163696)
 mesh = ExtResource("85_4jomd")
 
 [node name="PowercableMed" type="MeshInstance3D" parent="." unique_id=830170337]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.779043, 0, 5.0212545)
 mesh = ExtResource("86_1rmuy")
 
 [node name="PowercableSmall" type="MeshInstance3D" parent="." unique_id=1609608688]
@@ -566,7 +566,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
 mesh = ExtResource("87_yoqlr")
 
 [node name="PowercableTee" type="MeshInstance3D" parent="." unique_id=1186372854]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 0, 5.0212545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.021803, 1.2741464, 5.0212545)
 mesh = ExtResource("88_r5u0n")
 
 [node name="Scaffold" type="MeshInstance3D" parent="." unique_id=1873828275]

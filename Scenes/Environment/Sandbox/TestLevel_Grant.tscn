@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://yoijiuu7sj1t" path="res://Scenes/Environment/Sandbox/testCharacter_Brandon.gd" id="2_fs2tq"]
 [ext_resource type="PackedScene" uid="uid://d031edjsrylll" path="res://Scenes/Environment/rope.tscn" id="3_8frum"]
 [ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Assets/Robobotomy Art/3D/Objects/terminal.res" id="4_juitu"]
+[ext_resource type="ArrayMesh" uid="uid://bpc4opx2sgqfq" path="res://Assets/Robobotomy Art/3D/Objects/ladder_large.res" id="5_juitu"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jgnlr"]
 
@@ -19,7 +20,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.957615, 0, 0)
 
 [node name="ExtendableWall6" parent="." unique_id=337504282 instance=ExtResource("1_1acot")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06711531, 15.065191, 0)
-length = 9.046
+length = 9.504
+
+[node name="ExtendableWall7" parent="." unique_id=766229603 instance=ExtResource("1_1acot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.095279, 9.689269, -1.0841465)
+length = 5.38
 
 [node name="ExtendableWall2" parent="." unique_id=1717117548 instance=ExtResource("1_1acot")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.19281, 0)
@@ -63,5 +68,10 @@ transform = Transform3D(1, 0, 0, 0, 0.39641345, 0, 0, 0, 1, -4.0920534, 18.82257
 transform = Transform3D(1, 0, 0, 0, 0.533508, 0, 0, 0, 1, -0.18063164, 14.991442, 0.04120612)
 
 [node name="Terminal" type="MeshInstance3D" parent="." unique_id=363801429]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2763739, 15.896997, 0.024341345)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.018197, 11.068653, 0.024341345)
 mesh = ExtResource("4_juitu")
+
+[node name="LadderLarge" type="MeshInstance3D" parent="." unique_id=1158676392]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -15.097352, 8.058329, 0.6402478)
+mesh = ExtResource("5_juitu")
+skeleton = NodePath("../ExtendableWall6")
