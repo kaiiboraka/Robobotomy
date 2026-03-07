@@ -48,8 +48,19 @@ transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0.0115174055, 0)
 
 [node name="RadialMenu" parent="Limb_Select" unique_id=1963425204 instance=ExtResource("6_21xkr")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=329523238]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=425260321]
 
-[node name="TitleScreen" parent="CanvasLayer" unique_id=1147069505 instance=ExtResource("5_kry3j")]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer" unique_id=316348862]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_shrink = 6
+
+[node name="TitleScreen" parent="CanvasLayer/SubViewportContainer" unique_id=1147069505 instance=ExtResource("5_kry3j")]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 6
 
 [node name="Player" parent="." unique_id=802775193 instance=ExtResource("6_6bp64")]

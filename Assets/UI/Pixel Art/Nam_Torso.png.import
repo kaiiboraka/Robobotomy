@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mkpu42xvutx3"
-path="res://.godot/imported/NamUITest.png-ce93b71f7917fa51c4e399c59b46a15f.ctex"
+uid="uid://6g1uehk4sxwp"
+path="res://.godot/imported/Nam_Torso.png-29ec52e83fec7d63819b7e042571967b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/NamUITest.png"
-dest_files=["res://.godot/imported/NamUITest.png-ce93b71f7917fa51c4e399c59b46a15f.ctex"]
+source_file="res://Assets/UI/Pixel Art/Nam_Torso.png"
+dest_files=["res://.godot/imported/Nam_Torso.png-29ec52e83fec7d63819b7e042571967b.ctex"]
 
 [params]
 
