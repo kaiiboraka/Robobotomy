@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cr4lq404y1tyx"]
+[gd_scene format=3 uid="uid://cr4lq404y1tyx"]
 
 [ext_resource type="Shader" path="res://Assets/Materials/Shaders/Testing/procShader.tres" id="1_g6h5r"]
 [ext_resource type="ArrayMesh" uid="uid://dokty7rvi5wdy" path="res://Assets/Materials/Shaders/Testing/concreteTestBlocks.obj" id="2_1b5j4"]
