@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dg2v5675ajsfd"]
+[gd_scene format=3 uid="uid://dg2v5675ajsfd"]
 
 [ext_resource type="Script" uid="uid://svp8dyuwan4v" path="res://Scripts/HingeDoorJacob.cs" id="1_ghb3b"]
 

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bns61k02jrmoo"]
+
+[ext_resource type="PackedScene" uid="uid://caj74qdlqfqfr" path="res://Assets/Models/NamelessV07.fbx" id="1_us15p"]
+
+[node name="Character" type="CharacterBody3D" unique_id=1583363387]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1430961964]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=647820913]
+
+[node name="NamelessV07" parent="." unique_id=296770905 instance=ExtResource("1_us15p")]
