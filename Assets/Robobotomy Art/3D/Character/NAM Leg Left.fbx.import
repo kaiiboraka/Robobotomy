@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dsh0mcfyklgg8"
-path="res://.godot/imported/NamTest.fbx-dabf968c7992ef63691d91c6a4570d77.scn"
+uid="uid://d2su1dvlmmbej"
+path="res://.godot/imported/NAM Leg Left.fbx-f10a44b00a5dfde1761318d29046d3cf.scn"
 
 [deps]
 
-source_file="res://Assets/Robobotomy Art/3D/Character/NamTest.fbx"
-dest_files=["res://.godot/imported/NamTest.fbx-dabf968c7992ef63691d91c6a4570d77.scn"]
+source_file="res://Assets/Robobotomy Art/3D/Character/NAM Leg Left.fbx"
+dest_files=["res://.godot/imported/NAM Leg Left.fbx-f10a44b00a5dfde1761318d29046d3cf.scn"]
 
 [params]
 

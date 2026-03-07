@@ -33,3 +33,4 @@ collision_mask = 128
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.021482497, 0)
 
 [node name="Gym" parent="." unique_id=1468774947 instance=ExtResource("5_3dfbi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017604828, 0, -0.0012769699)
