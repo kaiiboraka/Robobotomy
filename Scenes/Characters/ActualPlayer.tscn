@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://0nxi375snik3" path="res://Scenes/Characters/Limbs/RightArm.tscn" id="5_2wngs"]
 [ext_resource type="PackedScene" uid="uid://ep2c8eoh0i32" path="res://Scenes/Characters/Limbs/RightLeg.tscn" id="6_c1ek1"]
 [ext_resource type="PackedScene" uid="uid://dxubgecu6o687" path="res://Scenes/Characters/Limbs/Head.tscn" id="7_tfysi"]
-[ext_resource type="Script" uid="uid://m65d7iwmd4m6" path="res://Scripts/StateMachine/player_state_machine.gd" id="8_yjb03"]
-[ext_resource type="Script" uid="uid://bjtnes8q1l5pw" path="res://Scripts/StateMachine/idle_state.gd" id="9_26nah"]
+[ext_resource type="Script" uid="uid://m65d7iwmd4m6" path="res://Scripts/Nameless/StateMachine/player_state_machine.gd" id="8_yjb03"]
+[ext_resource type="Script" uid="uid://bjtnes8q1l5pw" path="res://Scripts/Nameless/StateMachine/idle_state.gd" id="9_26nah"]
 
 [node name="Player" type="Node3D" unique_id=64555096]
 script = ExtResource("1_1rcpu")
