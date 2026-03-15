@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://b88eqpunyrl1b"]
+
+[ext_resource type="Script" uid="uid://yoijiuu7sj1t" path="res://Scenes/Environment/Sandbox/testCharacter_Brandon.gd" id="1_a1wxf"]
+[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/ExtendableWall.tscn" id="2_3fmni"]
+[ext_resource type="PackedScene" uid="uid://dg2v5675ajsfd" path="res://Scenes/Environment/HingeDoor_jacob.tscn" id="3_gfe6p"]
+[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Assets/Robobotomy Art/3D/Objects/button.res" id="4_2sn6v"]
+[ext_resource type="ArrayMesh" uid="uid://bs7mr6pntvtby" path="res://Assets/Robobotomy Art/3D/Objects/pipe1_short.res" id="5_2sn6v"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gfe6p"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2sn6v"]
+
+[node name="TestLevelGrant2" type="Node3D" unique_id=7950399]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1332146915]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.954145, 1.6463666, 0)
+collision_layer = 3
+collision_mask = 12
+script = ExtResource("1_a1wxf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=2115320897]
+mesh = SubResource("CapsuleMesh_gfe6p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=413271780]
+shape = SubResource("CapsuleShape3D_2sn6v")
+
+[node name="ExtendableWall2" parent="." unique_id=1149585584 instance=ExtResource("2_3fmni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.002563, 0.30068588, 0)
+
+[node name="ExtendableWall8" parent="." unique_id=1723927277 instance=ExtResource("2_3fmni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.12764, 12.936079, 0)
+
+[node name="ExtendableWall3" parent="." unique_id=1488710678 instance=ExtResource("2_3fmni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.002563, 18.280285, 0)
+
+[node name="ExtendableWall4" parent="." unique_id=325557542 instance=ExtResource("2_3fmni")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -30.273617, 22.454176, 0)
+
+[node name="ExtendableWall5" parent="." unique_id=1652919744 instance=ExtResource("2_3fmni")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 4.2224083, 22.454176, 0)
+
+[node name="ExtendableWall6" parent="." unique_id=667167294 instance=ExtResource("2_3fmni")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -12.7591305, 30.912031, 0)
+
+[node name="ExtendableWall7" parent="." unique_id=1121499684 instance=ExtResource("2_3fmni")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -12.7591305, 6.32203, 0)
+length = 4.297
+
+[node name="HingeDoorJacob" parent="." unique_id=1328876358 instance=ExtResource("3_gfe6p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.696413, 1.2145324, 0)
+doorHeight = 2.5
+
+[node name="Button" type="MeshInstance3D" parent="." unique_id=164134816]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5460362, 0.98145914, -0.14753819)
+mesh = ExtResource("4_2sn6v")
+
+[node name="Button2" type="MeshInstance3D" parent="." unique_id=2016892728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5546899, 13.633127, -0.14753819)
+mesh = ExtResource("4_2sn6v")
+
+[node name="Pipe1Short6" type="MeshInstance3D" parent="Button2" unique_id=1024180256]
+transform = Transform3D(2.0159163, 0, 0, 0, 1.4612366, 0, 0, 0, 2.0159163, 2.5768452, -2.4616365, -2.2171245)
+mesh = ExtResource("5_2sn6v")
+
+[node name="Pipe1Short7" type="MeshInstance3D" parent="Button2" unique_id=959348306]
+transform = Transform3D(2.0159163, 0, 0, 0, 1.4612366, 0, 0, 0, 2.0159163, 2.5768452, -4.4752483, -2.2171245)
+mesh = ExtResource("5_2sn6v")
+
+[node name="Pipe1Short17" type="MeshInstance3D" parent="Button2" unique_id=945570133]
+transform = Transform3D(2.0159163, 0, 0, 0, 1.4612366, 0, 0, 0, 2.0159163, -17.101341, -7.64326, -2.212916)
+mesh = ExtResource("5_2sn6v")
+
+[node name="Pipe1Short18" type="MeshInstance3D" parent="Button2" unique_id=1096342333]
+transform = Transform3D(2.0159163, 0, 0, 0, 1.4612366, 0, 0, 0, 2.0159163, -17.101341, -9.656872, -2.212916)
+mesh = ExtResource("5_2sn6v")
+
+[node name="Pipe1Short19" type="MeshInstance3D" parent="Button2" unique_id=565431]
+transform = Transform3D(2.0159163, 0, 0, 0, 1.4612366, 0, 0, 0, 2.0159163, -17.101341, -11.576553, -2.212916)
+mesh = ExtResource("5_2sn6v")
+
+[node name="Pipe1Short8" type="MeshInstance3D" parent="Button2" unique_id=710831694]
+transform = Transform3D(-8.8118504e-08, 1.4612366, 0, -2.0159163, -6.387268e-08, 0, 0, 0, 2.0159163, 0.10665345, -4.9506054, -2.2171245)
+mesh = ExtResource("5_2sn6v")
+
+[node name="Pipe1Short9" type="MeshInstance3D" parent="Button2" unique_id=2091005554]
+transform = Transform3D(-8.8118504e-08, 1.4612366, 0, -2.0159163, -6.387268e-08, 0, 0, 0, 2.0159163, -1.9105663, -4.9506054, -2.2171245)
+mesh = ExtResource("5_2sn6v")
+
+[node name="Pipe1Short10" type="MeshInstance3D" parent="Button2" unique_id=442250452]
+transform = Transform3D(-8.8118504e-08, 1.4612366, 0, -2.0159163, -6.387268e-08, 0, 0, 0, 2.0159163, -3.9380527, -4.9506054, -2.2171245)
+mesh = ExtResource("5_2sn6v")
+
+[node name="Pipe1Short11" type="MeshInstance3D" parent="Button2" unique_id=669781553]
+transform = Transform3D(-8.8118504e-08, 1.4612366, 0, -2.0159163, -6.387268e-08, 0, 0, 0, 2.0159163, -6.015053, -4.9506054, -2.2171245)
+mesh = ExtResource("5_2sn6v")
+
+[node name="Pipe1Short12" type="MeshInstance3D" parent="Button2" unique_id=40517678]
+transform = Transform3D(-8.8118504e-08, 1.4612366, 0, -2.0159163, -6.387268e-08, 0, 0, 0, 2.0159163, -8.046026, -4.9506054, -2.2171245)
+mesh = ExtResource("5_2sn6v")
+
+[node name="Pipe1Short13" type="MeshInstance3D" parent="Button2" unique_id=197055041]
+transform = Transform3D(-8.8118504e-08, 1.4612366, 0, -2.0159163, -6.387268e-08, 0, 0, 0, 2.0159163, -10.107838, -4.9506054, -2.2171245)
+mesh = ExtResource("5_2sn6v")
+
+[node name="Pipe1Short14" type="MeshInstance3D" parent="Button2" unique_id=1666018427]
+transform = Transform3D(-8.8118504e-08, 1.4612366, 0, -2.0159163, -6.387268e-08, 0, 0, 0, 2.0159163, -12.2226925, -4.9506054, -2.2171245)
+mesh = ExtResource("5_2sn6v")
+
+[node name="Pipe1Short15" type="MeshInstance3D" parent="Button2" unique_id=434420568]
+transform = Transform3D(-8.8118504e-08, 1.4612366, 0, -2.0159163, -6.387268e-08, 0, 0, 0, 2.0159163, -14.235279, -4.9506054, -2.2171245)
+mesh = ExtResource("5_2sn6v")
+
+[node name="Pipe1Short16" type="MeshInstance3D" parent="Button2" unique_id=1599416397]
+transform = Transform3D(-8.8118504e-08, 1.4612366, 0, -2.0159163, -6.387268e-08, 0, 0, 0, 2.0159163, -16.276384, -4.9506054, -2.2171245)
+mesh = ExtResource("5_2sn6v")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1255649433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.002563, 9.419312, 35.580982)
+current = true
+fov = 30.0

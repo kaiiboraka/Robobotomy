@@ -15,9 +15,6 @@ height = 3.510254
 collision_layer = 3
 collision_mask = 12
 script = ExtResource("1_2swo8")
-speed = 10.0
-gravity = -50.0
-jump_impulse = -15.0
 
 [node name="NamelessV07" parent="." unique_id=296770905 instance=ExtResource("1_us15p")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)

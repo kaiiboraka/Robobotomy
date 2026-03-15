@@ -53,5 +53,4 @@ transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0.0115174055, 0)
 [node name="TitleScreen" parent="CanvasLayer" unique_id=1147069505 instance=ExtResource("5_kry3j")]
 
 [node name="Character" parent="." unique_id=1583363387 instance=ExtResource("6_6bp64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.27745676, 0)
-gravity = -1.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.008671522, 0)

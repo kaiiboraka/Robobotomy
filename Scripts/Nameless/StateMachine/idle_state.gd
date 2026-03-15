@@ -5,10 +5,9 @@ func enter(previous_state_path: String, data := {}) -> void:
 	player.velocity.x = 0.0
 	#player.animation_player.play("idle")
 
-func physics_process(_delta: float) -> void:
-	player.velocity.y += player.gravity * _delta
+func physics_process(delta: float) -> void:
+	player.velocity.z = 0;
 	player.move_and_slide()
-	print("Idle")
 
 	if not player.is_on_floor():
 		finished.emit(FALLING)
@@ -16,3 +15,6 @@ func physics_process(_delta: float) -> void:
 		finished.emit(JUMPING)
 	elif Input.is_action_pressed("Player_Move_Left") or Input.is_action_pressed("Player_Move_Right"):
 		finished.emit(WALKING)
+		
+func exit() -> void:
+	print("Idle exited")

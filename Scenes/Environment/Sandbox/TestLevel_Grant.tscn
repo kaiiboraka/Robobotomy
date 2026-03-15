@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://brny4d7lnny58"]
+
+[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/ExtendableWall.tscn" id="1_1acot"]
+[ext_resource type="Script" uid="uid://yoijiuu7sj1t" path="res://Scenes/Environment/Sandbox/testCharacter_Brandon.gd" id="2_fs2tq"]
+[ext_resource type="PackedScene" uid="uid://d031edjsrylll" path="res://Scenes/Environment/rope.tscn" id="3_8frum"]
+[ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Assets/Robobotomy Art/3D/Objects/terminal.res" id="4_juitu"]
+[ext_resource type="ArrayMesh" uid="uid://bpc4opx2sgqfq" path="res://Assets/Robobotomy Art/3D/Objects/ladder_large.res" id="5_juitu"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jgnlr"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8frum"]
+
+[node name="TestLevelGrant" type="Node3D" unique_id=1702760423]
+
+[node name="ExtendableWall" parent="." unique_id=1149585584 instance=ExtResource("1_1acot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.490704, 0, 0)
+
+[node name="ExtendableWall5" parent="." unique_id=2078337221 instance=ExtResource("1_1acot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.957615, 0, 0)
+
+[node name="ExtendableWall6" parent="." unique_id=337504282 instance=ExtResource("1_1acot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06711531, 15.065191, 0)
+length = 9.504
+
+[node name="ExtendableWall7" parent="." unique_id=766229603 instance=ExtResource("1_1acot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.147186, 9.689269, -1.0841465)
+length = 5.38
+
+[node name="ExtendableWall2" parent="." unique_id=1717117548 instance=ExtResource("1_1acot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.19281, 0)
+
+[node name="ExtendableWall3" parent="." unique_id=225892838 instance=ExtResource("1_1acot")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -16.93893, 22.300823, 0)
+
+[node name="ExtendableWall4" parent="." unique_id=657451753 instance=ExtResource("1_1acot")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 17.171947, 22.300823, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=417492924]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.118626, 35.580982)
+current = true
+fov = 30.0
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=678151769]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.002563, 1.6463666, 0)
+collision_layer = 3
+collision_mask = 12
+script = ExtResource("2_fs2tq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=985708023]
+mesh = SubResource("CapsuleMesh_jgnlr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=697931286]
+shape = SubResource("CapsuleShape3D_8frum")
+
+[node name="Rope" parent="." unique_id=198104916 instance=ExtResource("3_8frum")]
+transform = Transform3D(1, 0, 0, 0, 0.39641345, 0, 0, 0, 1, 4.10797, 18.836712, 1.0904002)
+
+[node name="Rope2" parent="." unique_id=997431730 instance=ExtResource("3_8frum")]
+transform = Transform3D(1, 0, 0, 0, 0.39641345, 0, 0, 0, 1, 4.10797, 18.836712, -1.1154885)
+
+[node name="Rope3" parent="." unique_id=579459088 instance=ExtResource("3_8frum")]
+transform = Transform3D(1, 0, 0, 0, 0.39641345, 0, 0, 0, 1, -4.0920534, 18.822578, 1.0904002)
+
+[node name="Rope4" parent="." unique_id=1012782372 instance=ExtResource("3_8frum")]
+transform = Transform3D(1, 0, 0, 0, 0.39641345, 0, 0, 0, 1, -4.0920534, 18.822578, -1.1154885)
+
+[node name="Rope5" parent="." unique_id=902117889 instance=ExtResource("3_8frum")]
+transform = Transform3D(1, 0, 0, 0, 0.533508, 0, 0, 0, 1, -0.18063164, 14.991442, 0.04120612)
+
+[node name="Terminal" type="MeshInstance3D" parent="." unique_id=363801429]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6585798, 16.00009, 0.024341345)
+mesh = ExtResource("4_juitu")
+
+[node name="LadderLarge" type="MeshInstance3D" parent="." unique_id=1158676392]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -15.097352, 8.058329, 0.6402478)
+mesh = ExtResource("5_juitu")
+skeleton = NodePath("../ExtendableWall6")
