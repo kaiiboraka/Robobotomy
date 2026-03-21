@@ -11,6 +11,9 @@ func _input(event: InputEvent) -> void:
 		moveSpeed += wheelSpeed;
 	if (event.is_action_pressed("ui_scroll_down")):
 		moveSpeed -= wheelSpeed;
+	# Reset height to 0
+	if event.is_action_pressed("Player_Recall"):
+		position.y = 1.697
 	moveSpeed = clamp(moveSpeed, 0.01, 100)
 	pass
 
@@ -19,3 +22,8 @@ func _process(delta: float) -> void:
 		position = position + Vector3(-moveSpeed, 0, 0);
 	if (Input.is_action_pressed("ui_right")):
 		position = position + Vector3(moveSpeed, 0, 0);
+	# Up / Down (NEW)
+	if Input.is_action_pressed("ui_up"):
+		position += Vector3(0, moveSpeed, 0)
+	if Input.is_action_pressed("ui_down"):
+		position += Vector3(0, -moveSpeed, 0)
