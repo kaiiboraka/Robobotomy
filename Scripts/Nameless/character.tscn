@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://bns61k02jrmoo"]
+
+[ext_resource type="Script" uid="uid://dinm6607n8npe" path="res://Scripts/Nameless/character.gd" id="1_2swo8"]
+[ext_resource type="PackedScene" uid="uid://caj74qdlqfqfr" path="res://Assets/Models/NamelessV07.fbx" id="1_us15p"]
+[ext_resource type="Script" uid="uid://bjtnes8q1l5pw" path="res://Scripts/Nameless/StateMachine/idle_state.gd" id="3_7ofet"]
+[ext_resource type="Script" uid="uid://m65d7iwmd4m6" path="res://Scripts/Nameless/StateMachine/player_state_machine.gd" id="3_l2ws1"]
+[ext_resource type="Script" uid="uid://dv7ondbr4s0lg" path="res://Scripts/Nameless/StateMachine/walk_state.gd" id="4_14l40"]
+[ext_resource type="Script" uid="uid://l15abrep6elo" path="res://Scripts/Nameless/StateMachine/jump_state.gd" id="5_7ofet"]
+[ext_resource type="Script" uid="uid://bnty5eu71jqu8" path="res://Scripts/Nameless/StateMachine/fall_state.gd" id="7_mlckh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_us15p"]
+height = 3.510254
+
+[node name="Character" type="CharacterBody3D" unique_id=1583363387]
+collision_layer = 3
+collision_mask = 12
+script = ExtResource("1_2swo8")
+
+[node name="NamelessV07" parent="." unique_id=296770905 instance=ExtResource("1_us15p")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1430961964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5495272, 0)
+shape = SubResource("CapsuleShape3D_us15p")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1624717868]
+script = ExtResource("3_l2ws1")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1778177461]
+script = ExtResource("3_7ofet")
+
+[node name="Walking" type="Node" parent="StateMachine" unique_id=848350452]
+script = ExtResource("4_14l40")
+
+[node name="Jumping" type="Node" parent="StateMachine" unique_id=788965682]
+script = ExtResource("5_7ofet")
+
+[node name="Falling" type="Node" parent="StateMachine" unique_id=1031315074]
+script = ExtResource("7_mlckh")
+
+[node name="Landing" type="Node" parent="StateMachine" unique_id=1225492755]
+
+[node name="PushingBox" type="Node" parent="StateMachine" unique_id=1461741736]
+
+[node name="PullingBox" type="Node" parent="StateMachine" unique_id=1141451553]
+
+[node name="HoldingRope" type="Node" parent="StateMachine" unique_id=257019030]
+
+[node name="ClimbingRope" type="Node" parent="StateMachine" unique_id=829841339]
+
+[node name="SwingingRope" type="Node" parent="StateMachine" unique_id=1721298827]
+
+[node name="HoldingLedge" type="Node" parent="StateMachine" unique_id=1370081200]
+
+[node name="ClimbingLedge" type="Node" parent="StateMachine" unique_id=364164336]
+
+[node name="ThrowingHead" type="Node" parent="StateMachine" unique_id=833680483]
+
+[node name="ThrowingLimb" type="Node" parent="StateMachine" unique_id=1728969334]
+
+[node name="DetachingHead" type="Node" parent="StateMachine" unique_id=759976602]
+
+[node name="DetachingLimb" type="Node" parent="StateMachine" unique_id=1017192611]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=943246084]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=441519371]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5588987, 4.665174)
+current = true
