@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dodbf8xbi1m1"]
+[gd_scene format=3 uid="uid://dodbf8xbi1m1"]
 
 [ext_resource type="Script" uid="uid://dx5u6yigdna1g" path="res://Scripts/Real Player Script/ActualPlayer.cs" id="1_1rcpu"]
 [ext_resource type="PackedScene" uid="uid://clesw0vcam4s2" path="res://Scenes/Characters/Limbs/LeftArm.tscn" id="2_yjb03"]
@@ -8,33 +8,33 @@
 [ext_resource type="PackedScene" uid="uid://ep2c8eoh0i32" path="res://Scenes/Characters/Limbs/RightLeg.tscn" id="6_c1ek1"]
 [ext_resource type="PackedScene" uid="uid://dxubgecu6o687" path="res://Scenes/Characters/Limbs/Head.tscn" id="7_tfysi"]
 
-[node name="Player" type="Node3D"]
+[node name="Player" type="Node3D" unique_id=64555096]
 script = ExtResource("1_1rcpu")
 
-[node name="LeftArm" parent="." instance=ExtResource("2_yjb03")]
+[node name="LeftArm" parent="." unique_id=1892609314 instance=ExtResource("2_yjb03")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60415363, 2, 0)
 speed = 10
 
-[node name="LeftLeg" parent="." instance=ExtResource("3_26nah")]
+[node name="LeftLeg" parent="." unique_id=478996792 instance=ExtResource("3_26nah")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19947183, 1.3558416, 2.3841858e-07)
 speed = 10
 
-[node name="Torso" parent="." instance=ExtResource("4_487q6")]
+[node name="Torso" parent="." unique_id=230784563 instance=ExtResource("4_487q6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 speed = 10
 
-[node name="Label3D" type="Label3D" parent="Torso"]
+[node name="Label3D" type="Label3D" parent="Torso" unique_id=1353181972]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13185143, 0.88159037)
 text = "Torso"
 
-[node name="RightArm" parent="." instance=ExtResource("5_2wngs")]
+[node name="RightArm" parent="." unique_id=952945989 instance=ExtResource("5_2wngs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.64, 2, 0)
 speed = 10
 
-[node name="RightLeg" parent="." instance=ExtResource("6_c1ek1")]
+[node name="RightLeg" parent="." unique_id=156984842 instance=ExtResource("6_c1ek1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20941591, 1.2842379, 0)
 speed = 10
 
-[node name="Head" parent="." instance=ExtResource("7_tfysi")]
+[node name="Head" parent="." unique_id=1371523250 instance=ExtResource("7_tfysi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.73, 0)
 speed = 10

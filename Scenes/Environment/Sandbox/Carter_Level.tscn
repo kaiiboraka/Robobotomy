@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://btf4pey8s6tmt"]
+
+[ext_resource type="PackedScene" uid="uid://dodbf8xbi1m1" path="res://Scenes/Characters/ActualPlayer.tscn" id="1_b246n"]
+[ext_resource type="PackedScene" uid="uid://dg2v5675ajsfd" path="res://Scenes/Environment/HingeDoor_jacob.tscn" id="1_m02tj"]
+[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/ExtendableWall.tscn" id="2_v1i2c"]
+[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Assets/Robobotomy Art/3D/Objects/button.res" id="4_wm86n"]
+[ext_resource type="ArrayMesh" uid="uid://doxh8d0va3v1k" path="res://Assets/Robobotomy Art/3D/Objects/buttons_1x1.res" id="5_suoqg"]
+[ext_resource type="PackedScene" uid="uid://gl5j7l3w6avc" path="res://Scenes/Environment/simple_box.tscn" id="6_suoqg"]
+
+[node name="Node3D" type="Node3D" unique_id=1010345093]
+
+[node name="HingeDoorJacob" parent="." unique_id=83414414 instance=ExtResource("1_m02tj")]
+transform = Transform3D(1.1468229, 0, 0, 0, 4.4129353, 0, 0, 0, 0.93352544, 18.799036, 1.2068224, -0.0873971)
+doorHeight = 1.0
+
+[node name="ExtendableWall" parent="." unique_id=1149585584 instance=ExtResource("2_v1i2c")]
+transform = Transform3D(0.8793546, 0, 0, 0, 5.422315, 0, 0, 0, 0.93352544, 34.94561, -2.3297462, -0.0873971)
+
+[node name="ExtendableWall8" parent="." unique_id=1914570456 instance=ExtResource("2_v1i2c")]
+transform = Transform3D(0.3619011, 0, 0, 0, 5.422315, 0, 0, 0, 0.93352544, 42.71237, 2.6206608, -0.0873971)
+
+[node name="ExtendableWall2" parent="." unique_id=1970770264 instance=ExtResource("2_v1i2c")]
+transform = Transform3D(0.2093466, 0, 0, 0, 5.422315, 0, 0, 0, 0.93352544, -1.5111065, -2.3297462, -0.0873971)
+
+[node name="ExtendableWall4" parent="." unique_id=1854049941 instance=ExtResource("2_v1i2c")]
+transform = Transform3D(0.4984347, 0, 0, 0, 5.422315, 0, 0, 0, 0.93352544, -18.903187, -2.3297467, -0.08726168)
+
+[node name="ExtendableWall9" parent="." unique_id=81998585 instance=ExtResource("2_v1i2c")]
+transform = Transform3D(0.9980737, 0, 0, 0, 5.422315, 0, 0, 0, 0.93352544, -50.17089, -2.3297467, -0.08726168)
+
+[node name="ExtendableWall17" parent="." unique_id=1782268957 instance=ExtResource("2_v1i2c")]
+transform = Transform3D(0.9980737, 0, 0, 0, 5.422315, 0, 0, 0, 0.93352544, -88.65299, -2.3297467, -0.08726168)
+
+[node name="ExtendableWall18" parent="." unique_id=575105129 instance=ExtResource("2_v1i2c")]
+transform = Transform3D(0.16711086, 6.549602, 0, -0.18422647, 5.9411073, 0, 0, 0, 0.9335255, -95.273636, -0.1369133, -0.08726168)
+
+[node name="ExtendableWall20" parent="." unique_id=1071609255 instance=ExtResource("2_v1i2c")]
+transform = Transform3D(0.16711086, 6.549602, 0, -0.18422647, 5.9411073, 0, 0, 0, 0.9335255, -86.31334, -0.1369133, -0.08726168)
+
+[node name="ExtendableWall19" parent="." unique_id=774959575 instance=ExtResource("2_v1i2c")]
+transform = Transform3D(0.0068624765, 8.839373, 0, -0.24863295, 0.2439723, 0, 0, 0, 0.9335255, -89.98752, 1.0264587, -0.08726168)
+
+[node name="ExtendableWall21" parent="." unique_id=1166522931 instance=ExtResource("2_v1i2c")]
+transform = Transform3D(0.01037146, 5.584771, 0, -0.3757662, 0.15414324, 0, 0, 0, 0.9335255, -90.641335, 13.58646, -0.08726168)
+
+[node name="ExtendableWall10" parent="." unique_id=969662590 instance=ExtResource("2_v1i2c")]
+transform = Transform3D(0.12544282, 0, 0, 0, 4.541713, 0, 0, 0, 0.93352544, -46.258408, 2.618095, -0.08726168)
+
+[node name="ExtendableWall13" parent="." unique_id=629376720 instance=ExtResource("2_v1i2c")]
+transform = Transform3D(0.19620089, 0, 0, 0, 6.00903, 0, 0, 0, 0.93352544, -40.745647, 2.618095, -0.08726168)
+
+[node name="ExtendableWall11" parent="." unique_id=669597308 instance=ExtResource("2_v1i2c")]
+transform = Transform3D(0.12544282, 0, 0, 0, 4.541713, 0, 0, 0, 0.93352544, -44.338, 5.1781473, -0.08726168)
+
+[node name="ExtendableWall12" parent="." unique_id=958418509 instance=ExtResource("2_v1i2c")]
+transform = Transform3D(0.12544282, 0, 0, 0, 4.541713, 0, 0, 0, 0.93352544, -42.313965, 7.659223, -0.08726168)
+
+[node name="ExtendableWall14" parent="." unique_id=630534229 instance=ExtResource("2_v1i2c")]
+transform = Transform3D(0.09632813, 0, 0, 0, 0.38901654, 0, 0, 0, 0.93352544, -52.723175, 10.42791, -0.08726168)
+
+[node name="ExtendableWall15" parent="." unique_id=1494226614 instance=ExtResource("2_v1i2c")]
+transform = Transform3D(0.010730897, 0, 0, 0, 15.143471, 0, 0, 0, 0.07546541, -54.107365, 18.05371, -1.1793323)
+
+[node name="ExtendableWall16" parent="." unique_id=753597176 instance=ExtResource("2_v1i2c")]
+transform = Transform3D(0.010730897, 0, 0, 0, 15.143471, 0, 0, 0, 0.07546541, -51.41069, 18.05371, -1.1793323)
+
+[node name="ExtendableWall6" parent="." unique_id=2013048171 instance=ExtResource("2_v1i2c")]
+transform = Transform3D(0.104988925, 0, 0, 0, 5.422315, 0, 0, 0, 0.93352544, -19.030777, 6.7017846, -0.08726168)
+
+[node name="ExtendableWall7" parent="." unique_id=1819254559 instance=ExtResource("2_v1i2c")]
+transform = Transform3D(0.46461186, 0, 0, 0, 5.422315, 0, 0, 0, 0.93352544, -19.030777, 7.871719, -0.08726168)
+
+[node name="ExtendableWall5" parent="." unique_id=362531025 instance=ExtResource("2_v1i2c")]
+transform = Transform3D(0.007576174, 0, 0, 0, 3.7203054, 0, 0, 0, 0.93352544, -19.08279, 2.255674, -0.08726168)
+
+[node name="ExtendableWall3" parent="." unique_id=1973951477 instance=ExtResource("2_v1i2c")]
+transform = Transform3D(0.23925689, -0.6903095, 0, 0.0657496, 2.5119743, 0, 0, 0, 0.93352544, 4.9713583, -0.46138573, -0.0873971)
+
+[node name="Button3" type="MeshInstance3D" parent="." unique_id=36308591]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.334406, 0.59986275, -0.5898628)
+mesh = ExtResource("4_wm86n")
+
+[node name="Buttons1x1" type="MeshInstance3D" parent="." unique_id=244621211]
+transform = Transform3D(-0.0790681, 0, -0.9968692, 0, 1, 0, 0.9968692, 0, -0.0790681, -11.367156, 1.9904485, -1.3246415)
+mesh = ExtResource("5_suoqg")
+
+[node name="Button4" type="MeshInstance3D" parent="." unique_id=1296958593]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.038704, 0.59986275, -0.5898628)
+mesh = ExtResource("4_wm86n")
+
+[node name="Buttons1x2" type="MeshInstance3D" parent="." unique_id=1509706894]
+transform = Transform3D(-0.0790681, 0, -0.9968692, 0, 1, 0, 0.9968692, 0, -0.0790681, -25.071453, 1.9904485, -1.3246415)
+mesh = ExtResource("5_suoqg")
+
+[node name="Simple Box3" parent="." unique_id=1099357675 instance=ExtResource("6_suoqg")]
+transform = Transform3D(1.224726, 0, 0, 0, 1.224726, 0, 0, 0, 1.644214, 42.318962, 6.1384583, -4.7683716e-07)
+
+[node name="Simple Box4" parent="." unique_id=95521909 instance=ExtResource("6_suoqg")]
+transform = Transform3D(2.476881, 0, 0, 0, 2.476881, 0, 0, 0, 1.644214, 39.847992, 6.784211, 0)
+
+[node name="Button" type="MeshInstance3D" parent="." unique_id=1997828575]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.28892, 10.148533, -0.2190814)
+mesh = ExtResource("4_wm86n")
+
+[node name="Player" parent="." unique_id=64555096 instance=ExtResource("1_b246n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.064514, 2.8276749, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=586933289]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.977646, 6.3725796, 22.386898)
+fov = 42.6
+
+[editable path="Player"]

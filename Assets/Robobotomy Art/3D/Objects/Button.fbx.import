@@ -1,0 +1,128 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://7d3uouecigol"
+path="res://.godot/imported/Button.fbx-e159388ebbf765ccd3e234ac81bf7457.scn"
+
+[deps]
+
+source_file="res://Assets/Robobotomy Art/3D/Objects/Button.fbx"
+dest_files=["res://.godot/imported/Button.fbx-e159388ebbf765ccd3e234ac81bf7457.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=100.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=true
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"meshes": {
+"PowerCable1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Objects/PowerCable/PowerCable1.res",
+"save_to_file/path": "uid://c8dw7f5xr672t"
+},
+"PowerCable2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Objects/PowerCable/PowerCable2.res",
+"save_to_file/path": "uid://do555h70mdig6"
+},
+"PowerCable3": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Objects/PowerCable/PowerCable3.res",
+"save_to_file/path": "uid://cppjk6rqxluxs"
+},
+"PowerCable4": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Objects/PowerCable/PowerCable4.res",
+"save_to_file/path": "uid://dwwiv30orj2ha"
+},
+"PowerCable5": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Objects/PowerCable/PowerCable5.res",
+"save_to_file/path": "uid://cj4sapo10ptq4"
+},
+"PowerCable6": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Objects/PowerCable/PowerCable6.res",
+"save_to_file/path": "uid://buyq5gc534ohr"
+},
+"PowerCable7": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Objects/PowerCable/PowerCable7.res",
+"save_to_file/path": "uid://dt2eovfn1xc5t"
+},
+"PowerCable8": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Objects/PowerCable/PowerCable8.res",
+"save_to_file/path": "uid://cwg8qdh7v2ym"
+},
+"Power_Cable_Conector": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Objects/PowerCable/Power_Cable_Conector.res",
+"save_to_file/path": "uid://db67rv3vsoiy2"
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
+fbx/naming_version=2
