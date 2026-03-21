@@ -5,7 +5,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 	player.velocity.x = 0.0
 	#player.animation_player.play("idle")
 
-func physics_process(delta: float) -> void:
+func physics_process(_delta: float) -> void:
 	player.velocity.z = 0;
 	player.move_and_slide()
 
@@ -17,4 +17,4 @@ func physics_process(delta: float) -> void:
 		finished.emit(WALKING)
 		
 func exit() -> void:
-	print("Idle exited")
+	pass

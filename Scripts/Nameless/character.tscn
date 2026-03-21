@@ -38,6 +38,30 @@ script = ExtResource("5_7ofet")
 [node name="Falling" type="Node" parent="StateMachine" unique_id=1031315074]
 script = ExtResource("7_mlckh")
 
+[node name="Landing" type="Node" parent="StateMachine" unique_id=1225492755]
+
+[node name="PushingBox" type="Node" parent="StateMachine" unique_id=1461741736]
+
+[node name="PullingBox" type="Node" parent="StateMachine" unique_id=1141451553]
+
+[node name="HoldingRope" type="Node" parent="StateMachine" unique_id=257019030]
+
+[node name="ClimbingRope" type="Node" parent="StateMachine" unique_id=829841339]
+
+[node name="SwingingRope" type="Node" parent="StateMachine" unique_id=1721298827]
+
+[node name="HoldingLedge" type="Node" parent="StateMachine" unique_id=1370081200]
+
+[node name="ClimbingLedge" type="Node" parent="StateMachine" unique_id=364164336]
+
+[node name="ThrowingHead" type="Node" parent="StateMachine" unique_id=833680483]
+
+[node name="ThrowingLimb" type="Node" parent="StateMachine" unique_id=1728969334]
+
+[node name="DetachingHead" type="Node" parent="StateMachine" unique_id=759976602]
+
+[node name="DetachingLimb" type="Node" parent="StateMachine" unique_id=1017192611]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=943246084]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=441519371]
