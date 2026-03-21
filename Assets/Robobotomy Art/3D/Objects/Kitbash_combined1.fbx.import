@@ -90,7 +90,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Objects/buttons_2x3.res",
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/buttons_2x3.res",
 "save_to_file/path": "uid://3opr7stj4wlh"
 },
 "buttons_3x3": {
