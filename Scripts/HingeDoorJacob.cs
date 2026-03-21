@@ -26,6 +26,7 @@ public partial class HingeDoorJacob : Node3D
 		collisionMesh.Radius = doorRadius;
 		doorCollisionShape.Position = new Vector3(0, doorHeight/2, 0);
 	}
+
 	public override void _Ready()
 	{		
 		_UpdateHingeDoorGeometry();

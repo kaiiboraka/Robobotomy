@@ -13,24 +13,29 @@ config_version=5
 project_layer_names/output=2
 project_layer_names/c#_namespace="Robobotomy"
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Robobotomy"
-run/main_scene="uid://qnd58s5egvhu"
-config/features=PackedStringArray("4.5", "Forward Plus")
+run/main_scene="uid://c87c5afrm7n7y"
+config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 boot_splash/image="uid://c4l6sjl3ml1la"
 config/icon="uid://c7wscsdw2xd2f"
 
 [autoload]
 
-PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+PhantomCameraManager="*uid://duq6jhf6unyis"
 LevelManager="*res://Scripts/Autoloads/level_manager.gd"
 EventBus="*res://Scripts/Autoloads/event_bus.gd"
-LayerNames="*res://addons/layerNames/generated/layerNames.gd"
-LimbSelect="res://Scenes/Autoloads/LimbSelect.tscn"
+LayerNames="*uid://b5oond0fqbarv"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 
 [dotnet]
@@ -43,7 +48,7 @@ naming/scene_name_casing=1
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/advanced_radial_menu/plugin.cfg", "res://addons/explore-editor-theme/plugin.cfg", "res://addons/fancy_folder_colors/plugin.cfg", "res://addons/layerNames/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/plugin_refresher/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg", "res://addons/advanced_radial_menu/plugin.cfg", "res://addons/explore-editor-theme/plugin.cfg", "res://addons/fancy_folder_colors/plugin.cfg", "res://addons/layerNames/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/plugin_refresher/plugin.cfg")
 
 [file_customization]
 
@@ -155,6 +160,7 @@ ui_scroll_down={
 
 [layer_names]
 
+3d_render/layer_10="Cards"
 3d_physics/layer_1="PlayerCollision"
 3d_physics/layer_2="PlayerHurtbox"
 3d_physics/layer_3="SolidGround"
