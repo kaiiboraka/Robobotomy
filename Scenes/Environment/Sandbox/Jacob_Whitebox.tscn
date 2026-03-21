@@ -1,12 +1,9 @@
 [gd_scene format=3 uid="uid://dp2fw4dg0bdoh"]
 
-[ext_resource type="PackedScene" uid="uid://dbk24fe7ef7m3" path="res://Scenes/Environment/platform_plane.tscn" id="1_oaoqy"]
+[ext_resource type="PackedScene" path="res://Scenes/Environment/ExtendableWall.tscn" id="2_oaoqy"]
 [ext_resource type="PackedScene" uid="uid://dodbf8xbi1m1" path="res://Scenes/Characters/ActualPlayer.tscn" id="2_tx3h6"]
 
 [node name="JacobWhitebox" type="Node3D" unique_id=700048835]
-
-[node name="PlatformStatic" parent="." unique_id=865842098 instance=ExtResource("1_oaoqy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13841486, -1.1920929e-07, 1.0375907)
 
 [node name="Player" parent="." unique_id=959285026 instance=ExtResource("2_tx3h6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.606164, -1.1920929e-07, -0.105113745)
@@ -15,3 +12,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.606164, -1.1920929e-07, -0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0832033, 8.192757)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1057492017]
+
+[node name="ExtendableWall" parent="." unique_id=1149585584 instance=ExtResource("2_oaoqy")]
+length = 50.393
