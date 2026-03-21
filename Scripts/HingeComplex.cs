@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Runtime.CompilerServices;
 
 // Hinge Door Specs:
 // this is a Hinge object
@@ -11,19 +12,31 @@ using System;
 [Tool]
 public partial class Hinge : Node3D
 {
-	[Export]
-	public float UpperAngle { get => upperAngle;  set {
-			upperAngle = value;
-		}
+	public enum Direction
+	{
+		CounterClockwise,
+		Clockwise
 	}
-	private float upperAngle;
 	[Export]
-	public float LowerAngle { get => lowerAngle; set
+	public float SwingDistance {get => swingDistance; set
 		{
-			lowerAngle = value;
+			swingDistance = value;
+			UpdateHingeJoint();
 		}
 	}
+	private float swingDistance;
+	private float upperAngle;
 	private float lowerAngle;
+	
+	[Export]
+	public Direction SwingDirection {get => swingDirection; set
+		{
+			swingDirection = value;
+			UpdateHingeJoint();
+		}
+	}
+	private Direction swingDirection;
+
 	[Export]
 	public float ArmLength { get => armLength; set
 		{
@@ -75,6 +88,7 @@ public partial class Hinge : Node3D
 	private MeshInstance3D baseMeshInstance;
 	private CollisionShape3D baseCollisionShape;
 	private CollisionShape3D armCollisionShape;
+	private HingeJoint3D hingeJoint;
 
 
 	public override void _Ready()
@@ -82,6 +96,7 @@ public partial class Hinge : Node3D
 		UpdateArmMesh();
 		UpdateBaseMesh();
 		UpdateBaseCollision();
+		UpdateHingeJoint();
 	}
 	private void UpdateArmMesh()
 	{
@@ -124,4 +139,18 @@ public partial class Hinge : Node3D
 		}
 		armCollisionShape.Shape = shape;
 	}
+	private void UpdateHingeJoint()
+	{
+		hingeJoint = GetNode<HingeJoint3D>("%HingeJoint3D");
+		lowerAngle = -90;
+		upperAngle = lowerAngle+swingDistance;
+		hingeJoint.SetFlag(HingeJoint3D.Flag.UseLimit, true);
+		hingeJoint.SetParam(HingeJoint3D.Param.LimitUpper, upperAngle);
+		hingeJoint.SetParam(HingeJoint3D.Param.LimitLower, lowerAngle);
+	}
+	public override void _PhysicsProcess(double delta)
+	{
+		base._PhysicsProcess(delta);
+	}
+
 }
