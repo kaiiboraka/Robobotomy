@@ -9,7 +9,6 @@ extends SpotLight3D
 @export var towardsSource: bool
 #rim light: towards source is off. camera or source is camera
 #main cell light: towards source is on, source is array
-
 func _process(_delta):
 	if not orbitTarget:
 		return
@@ -17,7 +16,8 @@ func _process(_delta):
 	var closest_node
 	#if not camera or not orbitTarget:
 	#	return
-	
+	var thisColor = Color(1,0,1,0);
+	light_color = thisColor;
 	#if not camera:
 		#if cameraOrSource:
 			#return #if there is no camera but theres supposed to be nothing will happen
