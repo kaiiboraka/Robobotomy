@@ -1,9 +1,39 @@
-[gd_scene load_steps=2 format=3 uid="uid://dti4gnxwdtm3y"]
+[gd_scene format=3 uid="uid://dti4gnxwdtm3y"]
 
 [ext_resource type="Script" uid="uid://bledahrwikdls" path="res://Scripts/Lighting/RotatingLight.gd" id="1_jyio2"]
+[ext_resource type="PackedScene" uid="uid://bjeeyxmwi3ns7" path="res://Assets/Models/NamelessV01.fbx" id="2_ikpqj"]
+[ext_resource type="Shader" uid="uid://w8u6tc0q3mmt" path="res://Assets/Materials/Shaders/adricell.gdshader" id="3_xl27e"]
+[ext_resource type="ArrayMesh" uid="uid://bcud0cj0dinjw" path="res://Assets/Robobotomy Art/3D/headtest.res" id="4_neupn"]
 
-[node name="RotatingSpot" type="SpotLight3D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uw2x0"]
+render_priority = 0
+shader = ExtResource("3_xl27e")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/use_stepped = true
+shader_parameter/steps = 1.0
+shader_parameter/step_smoothness = 0.0
+shader_parameter/shadow_tint = Color(0, 0, 0, 1)
+shader_parameter/shadow_tint_amount = 0.4
+shader_parameter/specular = 0.0
+shader_parameter/normal_strength = 0.0
+shader_parameter/diffuse_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_osjsk"]
+render_priority = 0
+shader = ExtResource("3_xl27e")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/use_stepped = true
+shader_parameter/steps = 1.0
+shader_parameter/step_smoothness = 0.0
+shader_parameter/shadow_tint = Color(0, 0, 0, 1)
+shader_parameter/shadow_tint_amount = 0.4
+shader_parameter/specular = 0.0
+shader_parameter/normal_strength = 0.0
+shader_parameter/diffuse_color = Color(1, 1, 1, 1)
+
+[node name="RotatingSpot" type="SpotLight3D" unique_id=1906181569]
 transform = Transform3D(-0.31491482, 0.39348105, -0.8637137, 0, 0.91001534, 0.41457462, 0.9491199, 0.13055569, -0.2865773, 0, 0, 0)
+light_color = Color(1, 0, 1, 1)
 spot_range = 6.132
 spot_attenuation = 0.5
 spot_angle = 83.18
@@ -11,3 +41,15 @@ spot_angle_attenuation = 2.9281673
 script = ExtResource("1_jyio2")
 orbitDistance = 1.525
 towardsSource = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=35530425]
+transform = Transform3D(1, 0, 0, -7.450581e-09, 1, 1.4901161e-08, 0, 1.4901161e-08, 1, 13.9465275, 1.9184072, -4.211015)
+
+[node name="NamelessV01" parent="." unique_id=1158972833 instance=ExtResource("2_ikpqj")]
+transform = Transform3D(-12.596594, 5.9604645e-07, 37.964798, 15.739242, 36.40061, 5.2222276, -34.548546, 16.582987, -11.463093, 0, 0, 0)
+
+[node name="Headtest" type="MeshInstance3D" parent="." unique_id=911159095]
+transform = Transform3D(-31.491486, 1.4901161e-06, 94.911995, 39.348106, 91.001526, 13.055569, -86.37137, 41.457466, -28.657732, 0.14663042, 0.08799841, -0.19316176)
+material_override = SubResource("ShaderMaterial_uw2x0")
+mesh = ExtResource("4_neupn")
+surface_material_override/0 = SubResource("ShaderMaterial_osjsk")

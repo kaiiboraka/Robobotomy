@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://0nxi375snik3" path="res://Scenes/Characters/Limbs/RightArm.tscn" id="5_2wngs"]
 [ext_resource type="PackedScene" uid="uid://ep2c8eoh0i32" path="res://Scenes/Characters/Limbs/RightLeg.tscn" id="6_c1ek1"]
 [ext_resource type="PackedScene" uid="uid://dxubgecu6o687" path="res://Scenes/Characters/Limbs/Head.tscn" id="7_tfysi"]
+[ext_resource type="Script" uid="uid://m65d7iwmd4m6" path="res://Scripts/Nameless/StateMachine/player_state_machine.gd" id="8_yjb03"]
+[ext_resource type="Script" uid="uid://bjtnes8q1l5pw" path="res://Scripts/Nameless/StateMachine/idle_state.gd" id="9_26nah"]
 
 [node name="Player" type="Node3D" unique_id=64555096]
 script = ExtResource("1_1rcpu")
@@ -38,3 +40,10 @@ speed = 10
 [node name="LeftLeg" parent="." unique_id=156984842 instance=ExtResource("6_c1ek1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2225709, 1.2842379, 0)
 speed = 10
+
+[node name="PlayerStateMachine" type="Node" parent="." unique_id=528034645]
+script = ExtResource("8_yjb03")
+
+[node name="IdleState" type="Node" parent="PlayerStateMachine" unique_id=1494271126]
+script = ExtResource("9_26nah")
+metadata/_custom_type_script = "uid://bjtnes8q1l5pw"
