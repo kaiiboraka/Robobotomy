@@ -325,6 +325,34 @@ transform = Transform3D(10.000001, 0, 0, 0, 10.000001, 0, 0, 0, 9.999999, -2.127
 text = "start
 "
 
+[node name="1" type="Label3D" parent="." unique_id=900863137]
+transform = Transform3D(10.000001, 0, 0, 0, 10.000001, 0, 0, 0, 9.999999, 42.820656, -0.80472463, 0.7822803)
+text = "1"
+
+[node name="2" type="Label3D" parent="." unique_id=1818890876]
+transform = Transform3D(10.000001, 0, 0, 0, 10.000001, 0, 0, 0, 9.999999, 75.10064, -1.3618598, 0.7822803)
+text = "2"
+
+[node name="3" type="Label3D" parent="." unique_id=902216973]
+transform = Transform3D(10.000001, 0, 0, 0, 10.000001, 0, 0, 0, 9.999999, 131.57916, 5.113228, 0.7822803)
+text = "3"
+
+[node name="4" type="Label3D" parent="." unique_id=1498826354]
+transform = Transform3D(10.000001, 0, 0, 0, 10.000001, 0, 0, 0, 9.999999, 182.07799, 4.926319, 0.7822803)
+text = "4"
+
+[node name="5" type="Label3D" parent="." unique_id=909154611]
+transform = Transform3D(10.000001, 0, 0, 0, 10.000001, 0, 0, 0, 9.999999, 186.39877, 15.603393, 0.7822784)
+text = "5"
+
+[node name="6" type="Label3D" parent="." unique_id=2043771854]
+transform = Transform3D(10.000001, 0, 0, 0, 10.000001, 0, 0, 0, 9.999999, 231.59558, -2.8908205, 0.7822784)
+text = "6"
+
+[node name="7" type="Label3D" parent="." unique_id=900519694]
+transform = Transform3D(10.000001, 0, 0, 0, 10.000001, 0, 0, 0, 9.999999, 311.484, 6.4219203, 0.7822746)
+text = "7"
+
 [node name="Head" type="MeshInstance3D" parent="." unique_id=910629086]
 transform = Transform3D(76.16809, -27.610252, 58.61822, 25.277353, 95.96059, 12.353983, -59.66136, 5.407343, 80.070496, -46.931637, 0.98298377, -0.09438473)
 mesh = ExtResource("7_7ovnm")
