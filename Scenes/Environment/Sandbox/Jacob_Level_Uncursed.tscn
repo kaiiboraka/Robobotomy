@@ -35,6 +35,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5015848, -1.1290178, -0.07
 
 [node name="WhiteboxPlayer" parent="." unique_id=1178845950 instance=ExtResource("2_prjws")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.018315, 1.5, 0.05712223)
+collision_layer = 1
+collision_mask = 4
 
 [node name="MovingObjectPath" type="Path3D" parent="." unique_id=2116635611]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6355915, -1.108599, -0.07102585)
@@ -42,14 +44,15 @@ curve = SubResource("Curve3D_prjws")
 script = ExtResource("3_de7ma")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="MovingObjectPath" unique_id=681635224]
-transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 0, 0, 0)
+transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 0.014783595, 1.3509932, 0)
+progress = 1.3513628
 rotation_mode = 0
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="MovingObjectPath/PathFollow3D" unique_id=557242104]
 remote_path = NodePath("../../AnimatableBody3D")
 
 [node name="AnimatableBody3D" type="AnimatableBody3D" parent="MovingObjectPath" unique_id=170005970]
-transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 0, 0, 0)
+transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 0.014783382, 1.3509932, 0)
 collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MovingObjectPath/AnimatableBody3D" unique_id=1956241473]
@@ -82,3 +85,6 @@ debug_color = Color(0, 1.3930205, 1.6095817, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24720168, 0)
 visible = false
 shape = SubResource("ConcavePolygonShape3D_u2ftd")
+
+[connection signal="body_entered" from="button/ButtonTriggerArea" to="MovingObjectPath" method="_on_activated"]
+[connection signal="body_exited" from="button/ButtonTriggerArea" to="MovingObjectPath" method="_on_deactivated"]

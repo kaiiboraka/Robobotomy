@@ -45,3 +45,7 @@ func _sync_children():
 		mesh_node.mesh.size.x = length
 	if shape_node and shape_node.shape:
 		shape_node.shape.size.x = length
+
+
+func _on_deactivated_continuous(body: Node3D) -> void:
+	pass # Replace with function body.
