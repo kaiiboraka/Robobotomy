@@ -1,23 +1,24 @@
 extends CharacterBody3D
-class_name Pusher
+class_name Crane
 
 var started := false
 var extending := true
-var move_speed := 4
 var push_force := 0.5
 
-@onready var total_time = $Timer.wait_time
+@export var move_speed: float = 4.0
+@export var total_time: float
 
+func _ready() -> void:
+	$Timer.wait_time = total_time
 
 func _physics_process(_delta: float) -> void:
 	if started:
 		if extending:
-			velocity.x = move_speed
+			velocity.y = -move_speed
 		else:
-			velocity.x = -move_speed
+			velocity.y = move_speed
 	else:
-		velocity.x = 0
-	push_head_only()
+		velocity.y = 0
 	move_and_slide()
 	
 func _on_timer_timeout() -> void:
@@ -39,13 +40,3 @@ func _on_area_3d_body_exited(_body: Node3D) -> void:
 	$Timer.start()
 	started = true
 	extending = false
-
-
-func push_head_only() -> void:
-	for i in get_slide_collision_count():
-		var c := get_slide_collision(i)
-		var collider := c.get_collider()
-		if collider is RigidBody3D and collider.name == "Head":
-			var push_dir := -c.get_normal()
-			push_dir.y = 0.0
-			collider.apply_central_impulse(push_dir * push_force)
