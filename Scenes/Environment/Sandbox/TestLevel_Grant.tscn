@@ -23,7 +23,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06711531, 15.065191, 0)
 length = 9.504
 
 [node name="ExtendableWall7" parent="." unique_id=766229603 instance=ExtResource("1_1acot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.095279, 9.689269, -1.0841465)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.147186, 9.689269, -1.0841465)
 length = 5.38
 
 [node name="ExtendableWall2" parent="." unique_id=1717117548 instance=ExtResource("1_1acot")]
@@ -68,7 +68,7 @@ transform = Transform3D(1, 0, 0, 0, 0.39641345, 0, 0, 0, 1, -4.0920534, 18.82257
 transform = Transform3D(1, 0, 0, 0, 0.533508, 0, 0, 0, 1, -0.18063164, 14.991442, 0.04120612)
 
 [node name="Terminal" type="MeshInstance3D" parent="." unique_id=363801429]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.018197, 11.068653, 0.024341345)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6585798, 16.00009, 0.024341345)
 mesh = ExtResource("4_juitu")
 
 [node name="LadderLarge" type="MeshInstance3D" parent="." unique_id=1158676392]

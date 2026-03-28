@@ -2,21 +2,22 @@
 
 [ext_resource type="Script" uid="uid://cy38n2iex4csr" path="res://Scripts/Real Player Script/LeftArm.cs" id="1_7lajw"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_7lajw"]
-[ext_resource type="Material" uid="uid://chy2k6sku55kc" path="res://Assets/Materials/Basic Colors/Orange.tres" id="2_rk8tc"]
+[ext_resource type="ArrayMesh" uid="uid://sonjf7e31t6f" path="res://Assets/Robobotomy Art/3D/Character/Arm Left.res" id="3_my4g3"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_rk8tc"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_13ayn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtqub"]
+albedo_color = Color(0.5092, 0.63784, 0.67, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8y70x"]
-radius = 0.22705078
-height = 1.0771484
+radius = 0.16503906
+height = 1.5945282
 
 [sub_resource type="Resource" id="Resource_bcp5y"]
 script = ExtResource("3_rk8tc")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w24nb"]
-radius = 0.17138672
-height = 0.9530029
+radius = 0.13232422
+height = 1.4954491
 
 [node name="LeftArm" type="RigidBody3D" unique_id=1281946609]
 collision_layer = 3
@@ -25,12 +26,12 @@ lock_rotation = true
 script = ExtResource("1_7lajw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=522111275]
-transform = Transform3D(0.25, 0, 0, 0, 0.75, 0, 0, 0, 0.2991663, 0, 0, 0)
-material_override = ExtResource("2_rk8tc")
-mesh = SubResource("BoxMesh_13ayn")
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_rtqub")
+mesh = ExtResource("3_my4g3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1118851668]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.011267245, 0)
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.007873535, 0.018938705, 0)
 shape = SubResource("CapsuleShape3D_8y70x")
 
 [node name="PhantomCamera3D" type="Node3D" parent="." unique_id=61425743]
@@ -45,5 +46,5 @@ collision_layer = 0
 collision_mask = 12
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="JumpArea" unique_id=1983442455]
-transform = Transform3D(1.2278285, 0, 0, 0, 1.0791311, 0, 0, 0, 1.2817864, 0, 0.023986816, 0)
+transform = Transform3D(-5.367009e-08, -1.079131, 0, 1.2278285, -4.7170314e-08, 0, 0, 0, 1.2817864, -0.008926742, 0.06085655, 0)
 shape = SubResource("CapsuleShape3D_w24nb")

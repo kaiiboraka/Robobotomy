@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://bpgupq5guqtyk"]
 
+[ext_resource type="PackedScene" uid="uid://caj74qdlqfqfr" path="res://Assets/Models/NamelessV07.fbx" id="2_1o705"]
 [ext_resource type="Texture2D" uid="uid://ctybxaop6jxrr" path="res://Assets/Materials/Shaders/Concrete Maps/Concrete_basecolor.png" id="2_2dqvl"]
 [ext_resource type="ArrayMesh" uid="uid://d1iqktciv7tc8" path="res://Assets/Robobotomy Art/3D/Objects/pipe1_medium.res" id="3_iv5s1"]
 [ext_resource type="Texture2D" uid="uid://dn2o72o1l4ru8" path="res://Assets/Robobotomy Art/2D/Chains/Chain 5.png" id="3_usww3"]
@@ -48,7 +49,7 @@
 [ext_resource type="ArrayMesh" uid="uid://doxh8d0va3v1k" path="res://Assets/Robobotomy Art/3D/Objects/buttons_1x1.res" id="46_20x6s"]
 [ext_resource type="ArrayMesh" uid="uid://cxeu82e0qsgql" path="res://Assets/Robobotomy Art/3D/Objects/buttons_1x2.res" id="47_lj686"]
 [ext_resource type="ArrayMesh" uid="uid://cvo0no0vpvcvy" path="res://Assets/Robobotomy Art/3D/Objects/buttons_1x3.res" id="48_1f8lv"]
-[ext_resource type="ArrayMesh" uid="uid://3opr7stj4wlh" path="res://Assets/Robobotomy Art/3D/Objects/buttons_2x3.res" id="49_ymajn"]
+[ext_resource type="ArrayMesh" uid="uid://3opr7stj4wlh" path="res://Scenes/Vertical Slice/3d assetts/kitbash/buttons_2x3.res" id="49_ymajn"]
 [ext_resource type="ArrayMesh" uid="uid://dq0ogr20mo8rg" path="res://Assets/Robobotomy Art/3D/Objects/buttons_3x3.res" id="50_uhx7f"]
 [ext_resource type="ArrayMesh" uid="uid://c30g2pc1dcs7o" path="res://Assets/Robobotomy Art/3D/Objects/cableconnector.res" id="51_fnn60"]
 [ext_resource type="ArrayMesh" uid="uid://cux0e83pq4xyq" path="res://Assets/Robobotomy Art/3D/Objects/gear_helical1.res" id="52_nruv6"]
@@ -93,10 +94,15 @@
 [ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Assets/Robobotomy Art/3D/Objects/pipe1_long.res" id="91_0v81c"]
 [ext_resource type="Texture2D" uid="uid://d2djqd8vqwn38" path="res://Assets/Materials/Shaders/Metal Maps/Metal_metallic.png" id="93_fnn60"]
 [ext_resource type="Texture2D" uid="uid://bvtq6v2ixvrsh" path="res://Assets/Materials/Shaders/Metal Maps/Metal_normal.png" id="94_nruv6"]
+[ext_resource type="Texture2D" uid="uid://63kkn77plbga" path="res://Assets/Materials/Shaders/Wood Maps/Wood_basecolor.png" id="94_sh1qt"]
 [ext_resource type="PackedScene" uid="uid://cm25ac4a1w6vt" path="res://Assets/Robobotomy Art/3D/Objects/Head Pipes/Head Pipes.fbx" id="95_1f8lv"]
 [ext_resource type="Texture2D" uid="uid://8fu1o08kxoar" path="res://Assets/Materials/Shaders/Metal Maps/Metal_roughness.png" id="95_1o705"]
+[ext_resource type="Texture2D" uid="uid://b33v0h512jtjv" path="res://Assets/Materials/Shaders/Wood Maps/Wood_metallic.png" id="95_nwvs3"]
+[ext_resource type="Texture2D" uid="uid://pqiwsjy3mbv2" path="res://Assets/Materials/Shaders/Wood Maps/Wood_roughness.png" id="96_520ta"]
 [ext_resource type="PackedScene" uid="uid://g0v3th7stns1" path="res://Assets/Robobotomy Art/3D/Objects/Head Pipes/Head Pipes 2.fbx" id="96_ymajn"]
 [ext_resource type="PackedScene" uid="uid://cqoo5pdrpftt2" path="res://Assets/Robobotomy Art/3D/Objects/Head Pipes/Head Pipes Grables.fbx" id="97_uhx7f"]
+[ext_resource type="Shader" uid="uid://cwfjfvridlcyp" path="res://Assets/Materials/Shaders/procShader.tres" id="99_d08y4"]
+[ext_resource type="Texture2D" uid="uid://cg76upv0jtajq" path="res://Assets/Materials/Shaders/Metal Maps/Metal_basecolor.png" id="100_lp33q"]
 [ext_resource type="Texture2D" uid="uid://fj4lgwj1jq2s" path="res://Assets/Materials/Shaders/Concrete Maps/Concrete_height.png" id="100_r5pee"]
 [ext_resource type="Texture2D" uid="uid://cldhgso2wucug" path="res://Assets/Materials/Shaders/Concrete Maps/Concrete_metallic.png" id="101_jlcko"]
 [ext_resource type="Texture2D" uid="uid://da8xe883ln4n7" path="res://Assets/Materials/Shaders/Concrete Maps/Concrete_normal.png" id="102_penhn"]
@@ -188,6 +194,125 @@ albedo_texture = ExtResource("2_2dqvl")
 [sub_resource type="BoxMesh" id="BoxMesh_8qeui"]
 material = SubResource("StandardMaterial3D_penhn")
 
+[sub_resource type="Shader" id="Shader_y77u3"]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+instance uniform float Rotation : hint_range(0.0, 360.0, 0.5) = 0.0;
+instance uniform float Pivot : hint_range(0.0, 2.0, 0.05) = 0.0;
+instance uniform float Tiling : hint_range(0.0, 20.0, 0.1) = 1.0;
+uniform sampler2D Base_Color : source_color;
+instance uniform float Hue : hint_range(-1.0, 1.0) = 0.0;
+instance uniform float Saturation : hint_range(-1.0, 1.0) = 0.0;
+instance uniform float Value : hint_range(-1.0, 1.0) = 0.0;
+uniform sampler2D Metallic;
+uniform sampler2D Roughness;
+uniform sampler2D Edge_Map : hint_normal, repeat_enable;
+
+
+//uniform sampler2D Test_Alpha : source_color;
+
+
+vec2 rotateUVs(float angle, vec2 pivot, vec2 uvs) {
+	mat2 rotation = mat2(vec2(cos(radians(angle)), -sin(radians(angle))), vec2(sin(radians(angle)), cos(radians(angle))));
+	
+	uvs -= pivot;
+	uvs *= rotation;
+	uvs += pivot;
+	
+	return uvs;
+}
+
+vec2 tileUVs(float scale, vec2 uvs) {
+	vec2 tileScale = vec2(scale, scale);
+	vec2 tiledUVs = uvs * tileScale;
+	
+	return tiledUVs;
+}
+
+vec3 rgbToHSV(vec4 baseRGB) {
+	vec3 c = vec3(baseRGB.xyz);
+	vec4 eq = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+	vec4 m1 = mix(vec4(c.bg, eq.wz), vec4(c.gb, eq.xy), step(c.b, c.g));
+	vec4 m2 = mix(vec4(m1.xyw, c.r), vec4(c.r, m1.yzx), step(m1.x, c.r));
+	float m = m2.x - min(m2.w, m2.y);
+	float e = 1.0e-10;
+	vec3 hsv = vec3(abs(m2.z + (m2.w - m2.y) / (6.0 * m + e)), m / (m2.x + e), m2.x);
+	
+	return hsv;
+}
+
+vec3 scaleHSV(float inHue, float inSat, float inVal, vec3 hsv) {
+	float hue = hsv.x;
+	float sat = hsv.y;
+	float val = hsv.z;
+	
+	float hScale = (inHue < 0.0) ? hue : 1.0 - hue;
+	float sScale = (inSat < 0.0) ? sat : 1.0 - sat;
+	float vScale = (inVal < 0.0) ? val : 1.0 - val;
+	
+	// Scale the HSV Values
+	float outHue = hue + (inHue * hScale);
+	float outSat = sat + (inSat * sScale);
+	float outVal = val + (inVal * vScale);
+	
+	vec3 scaledHSV = vec3(outHue, outSat, outVal);
+	
+	return scaledHSV;
+}
+
+vec3 hsvToRGB(vec3 hsv) {
+	vec4 eq = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+	vec3 ab = abs(fract(hsv.xxx + eq.xyz) * 6.0 - eq.www);
+	vec3 rgb = hsv.z * mix(eq.xxx, clamp(ab - eq.xxx, 0.0, 1.0), hsv.y);
+	
+	return rgb;
+}
+
+void fragment() {
+	// Rotate and Pivot the maps/Uvs
+	vec2 uvs = UV;
+	vec2 pivot = vec2(Pivot);
+	uvs = rotateUVs(Rotation, pivot, uvs);
+
+	// Tile the UVs
+	vec2 tiledUVs = tileUVs(Tiling, uvs);
+
+	// Tile Base Color
+	vec4 tiledBase = texture(Base_Color, tiledUVs);
+
+	// Convert RGB to HSV
+	vec3 hsv = rgbToHSV(tiledBase);
+
+	// Get New HSV Values
+	vec3 newHSV = scaleHSV(Hue, Saturation, Value, hsv);
+
+	// Convert HSV to RGB
+	vec3 newRGB = hsvToRGB(newHSV);
+
+	// Tile Remaining Maps
+	vec4 metallic = texture(Metallic, tiledUVs);
+	vec4 roughness = texture(Roughness, tiledUVs);
+	vec4 normals = texture(Edge_Map, UV);
+
+	// Assign Tiled/Modified Maps
+	ALBEDO = newRGB;
+	METALLIC = metallic.x;
+	ROUGHNESS = roughness.x;
+	NORMAL_MAP = vec3(normals.xyz);
+	
+	//vec4 alphaTex = texture(Test_Alpha, tiledUVs);
+	////ALPHA_TEXTURE_COORDINATE = vec2(alphaTex.xy);
+	//ALPHA = alphaTex.y;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j0bok"]
+render_priority = 0
+shader = SubResource("Shader_y77u3")
+shader_parameter/Base_Color = ExtResource("94_sh1qt")
+shader_parameter/Metallic = ExtResource("95_nwvs3")
+shader_parameter/Roughness = ExtResource("96_520ta")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nwvs3"]
 albedo_color = Color(0.4506483, 0.4506483, 0.45064825, 1)
 
@@ -239,6 +364,13 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_bu4ix")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q8ktq"]
+render_priority = 0
+shader = ExtResource("99_d08y4")
+shader_parameter/Base_Color = ExtResource("100_lp33q")
+shader_parameter/Metallic = ExtResource("93_fnn60")
+shader_parameter/Roughness = ExtResource("95_1o705")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85fuy"]
 resource_name = "standardSurface1"
@@ -366,7 +498,7 @@ operation = 2
 size = Vector3(2.7104778, 1, 6.6793365)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=509653888]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1875105, 1.696732, 6.628353)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.455235, 1.696732, 6.628353)
 fov = 50.0
 script = ExtResource("5_t2hkb")
 moveSpeed = 0.05
@@ -376,8 +508,8 @@ wheelSpeed = 0.05
 transform = Transform3D(-1.0927847e-06, 0, 25, 0, 25.000002, 0, -25.000002, 0, -1.0927848e-06, -1.4539434, -1.0860994, -6.5793)
 skeleton = NodePath("NamTest")
 
-[node name="NamTest" parent="Camera3D/MeshInstance3D46" unique_id=1109599076]
-transform = Transform3D(0.99999994, 0, 3.5527137e-15, 0, 0.99999994, 0, -3.5527137e-15, 0, 1, 0, -0.023177506, 0)
+[node name="NamelessV07" parent="Camera3D" unique_id=812852790 instance=ExtResource("2_1o705")]
+transform = Transform3D(10.98241, 0, 22.458553, 0, 25, 0, -22.458553, 0, 10.98241, -1.4419823, -1.696732, -6.6066647)
 
 [node name="Pipe1Medium3" type="MeshInstance3D" parent="." unique_id=646718054]
 transform = Transform3D(5.1487403, 0, 0, 0, 6.0709405, 0, 0, 0, 5.148741, -4.49532, -1.1002443, -3.2318575)
@@ -1127,6 +1259,9 @@ mesh = ExtResource("89_4pi8g")
 
 [node name="Scaffold2" type="MeshInstance3D" parent="." unique_id=1355732096]
 transform = Transform3D(-0.009347487, 0.00515259, 0.28220734, -1.4551915e-11, 0.282321, -0.005154666, -0.32929194, -0.00014626466, -0.008010914, -1.367739, -0.554335, 0.17615986)
+material_override = SubResource("ShaderMaterial_j0bok")
+instance_shader_parameters/Pivot = 0.0
+instance_shader_parameters/Rotation = 0.0
 mesh = ExtResource("89_4pi8g")
 
 [node name="Scaffold3" type="MeshInstance3D" parent="." unique_id=1244897942]
@@ -1139,6 +1274,13 @@ mesh = ExtResource("89_4pi8g")
 
 [node name="Scaffold8" type="MeshInstance3D" parent="." unique_id=15834982]
 transform = Transform3D(0.032792494, -0.001004957, 0.28096375, 0.00014982659, 0.28236625, 0.0009971262, -0.32778832, 2.8527284e-05, 0.028108545, 0.0075828433, -0.5459672, 0.20572168)
+material_override = SubResource("ShaderMaterial_j0bok")
+instance_shader_parameters/Hue = 0.0
+instance_shader_parameters/Pivot = 0.0
+instance_shader_parameters/Rotation = 0.0
+instance_shader_parameters/Saturation = 0.0
+instance_shader_parameters/Tiling = 1.0
+instance_shader_parameters/Value = 0.0
 mesh = ExtResource("89_4pi8g")
 
 [node name="Scaffold15" type="MeshInstance3D" parent="." unique_id=437304898]
@@ -1259,7 +1401,8 @@ mesh = ExtResource("4_t2hkb")
 
 [node name="Pipe1Medium2" type="MeshInstance3D" parent="." unique_id=1660899770]
 transform = Transform3D(0.9278224, -0.18511093, -0.3238514, 0.1956552, 0.9806729, 0, 0.31759223, -0.063363194, 0.946108, 6.9820666, 1.3699657, -0.6242158)
-material_override = SubResource("StandardMaterial3D_nameg")
+material_override = SubResource("ShaderMaterial_q8ktq")
+instance_shader_parameters/Tiling = 4.0000000596048
 mesh = ExtResource("3_iv5s1")
 
 [node name="Pipe1Medium6" type="MeshInstance3D" parent="." unique_id=1978159122]
