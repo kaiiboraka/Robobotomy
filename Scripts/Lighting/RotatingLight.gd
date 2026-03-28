@@ -2,59 +2,49 @@
 extends SpotLight3D
 
 @export var cameraOrSource: bool
-@export var camera : Camera3D#
+@export var camera : Camera3D
 @export var source_array : Array[Node3D] = []
-@export var orbitTarget : Node3D #torus
-@export var orbitDistance : float #how far the light should be
+@export var orbitTarget : Node3D 
+@export var orbitDistance : float 
 @export var towardsSource: bool
-#rim light: towards source is off. camera or source is camera
-#main cell light: towards source is on, source is array
-func _process(_delta):
+
+@export_range(0.1, 20.0) var smooth_speed: float = 5.0 
+
+func _process(delta):
 	if not orbitTarget:
 		return
+	
 	var obj_pos = orbitTarget.global_position
-	var closest_node
-	#if not camera or not orbitTarget:
-	#	return
-	var thisColor = Color(1,0,1,0);
-	light_color = thisColor;
-	#if not camera:
-		#if cameraOrSource:
-			#return #if there is no camera but theres supposed to be nothing will happen
+	var source_pos: Vector3
 	
-	if not source_array: #Camera
-		print("aaaa")
-		if not cameraOrSource:
-			return #if there is no source array but its not on camera nothing will happen 
-			
-			
-	else: #Source
-		closest_node = source_array[0]
-		for node in source_array:
-			if node:
-				#return
-				if abs(closest_node.global_position-obj_pos) > abs(node.global_position-obj_pos):
-					closest_node = node
-	
-	# 1. Get the direction from the cameraor source  to the object
-	var source_pos
+#finding source
 	if cameraOrSource:
+		if not camera: return
 		source_pos = camera.global_position
 	else:
-		if closest_node:
-			source_pos = closest_node.global_position
-		else:
-			print("there has been an error")
-			
-			
-			
-	var direction = (obj_pos - source_pos).normalized()
-	if towardsSource :
-		global_position = obj_pos - (direction * orbitDistance)
+		if source_array.is_empty(): return
+		var closest_node = source_array[0]
+		for node in source_array:
+			if node and node.global_position.distance_to(obj_pos) < closest_node.global_position.distance_to(obj_pos):
+				closest_node = node
+		source_pos = closest_node.global_position
+
+	# (The vector from the object to where the light wants to be)
+	var target_dir: Vector3
+	if towardsSource:
+		target_dir = (source_pos - obj_pos).normalized()
 	else:
-	# 2. Set the light's position on the opposite side
-	# It is the target's position + the same vector direction
-		global_position = obj_pos + (direction * orbitDistance)
+		target_dir = (obj_pos - source_pos).normalized()
 	
-	# 3. Ensure the light actually faces the object (if it's a Spot/Directional light)
+	var current_dir = (global_position - obj_pos).normalized()
+	
+	if current_dir.is_zero_approx():
+		current_dir = Vector3.BACK 
+
+	# This moves the vector along an arc instead of a straight line
+	var next_dir = current_dir.slerp(target_dir, delta * smooth_speed)
+	
+	global_position = obj_pos + (next_dir * orbitDistance)
+	
+	
 	look_at(obj_pos)
