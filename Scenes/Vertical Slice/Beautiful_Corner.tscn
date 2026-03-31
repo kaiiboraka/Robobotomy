@@ -100,6 +100,7 @@
 [ext_resource type="Texture2D" uid="uid://b33v0h512jtjv" path="res://Assets/Materials/Shaders/Wood/Wood_metallic.png" id="95_nwvs3"]
 [ext_resource type="Texture2D" uid="uid://pqiwsjy3mbv2" path="res://Assets/Materials/Shaders/Wood/Wood_roughness.png" id="96_520ta"]
 [ext_resource type="PackedScene" uid="uid://g0v3th7stns1" path="res://Assets/Robobotomy Art/3D/Objects/Head Pipes/Head Pipes 2.fbx" id="96_ymajn"]
+[ext_resource type="Script" uid="uid://cfkqlq2txbxwv" path="res://Assets/Materials/Shaders/texturePopulator.gd" id="97_nwvs3"]
 [ext_resource type="PackedScene" uid="uid://cqoo5pdrpftt2" path="res://Assets/Robobotomy Art/3D/Objects/Head Pipes/Head Pipes Grables.fbx" id="97_uhx7f"]
 [ext_resource type="Shader" uid="uid://cwfjfvridlcyp" path="res://Assets/Materials/Shaders/procShader.tres" id="99_d08y4"]
 [ext_resource type="Texture2D" uid="uid://cg76upv0jtajq" path="res://Assets/Materials/Shaders/Metal Maps/Metal_basecolor.png" id="100_lp33q"]
@@ -1267,6 +1268,7 @@ mesh = ExtResource("89_4pi8g")
 [node name="Scaffold3" type="MeshInstance3D" parent="." unique_id=1244897942]
 transform = Transform3D(-0.04608869, -0.0036896695, 0.27956653, -0.0004812868, 0.28234392, 0.0036680298, -0.3261842, 0.000104737235, -0.039507184, -2.9806836, -0.53989106, 0.19262382)
 mesh = ExtResource("89_4pi8g")
+script = ExtResource("97_nwvs3")
 
 [node name="Scaffold4" type="MeshInstance3D" parent="." unique_id=2015712640]
 transform = Transform3D(-0.009347487, 0, 0.28225437, 0, 0.28236806, 0, -0.32929194, 0, -0.008012249, -4.4836745, -0.54329777, 0.26461077)
