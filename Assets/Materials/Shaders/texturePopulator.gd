@@ -1,34 +1,42 @@
-extends Node3D
+#extends Node3D
 #extends MeshInstance3D
-#extends GeometryInstance3D
+extends GeometryInstance3D
 
 var shader: Shader = preload("res://Assets/Materials/Shaders/Wood/woodShader.tres")
+var baseColor := preload("res://Assets/Materials/Shaders/Wood/Wood_basecolor.png")
+var height := preload("res://Assets/Materials/Shaders/Wood/Wood_height.png")
+var metallic := preload("res://Assets/Materials/Shaders/Wood/Wood_metallic.png")
+var normal := preload("res://Assets/Materials/Shaders/Wood/Wood_normal.png")
+var roughness := preload("res://Assets/Materials/Shaders/Wood/Wood_roughness.png")
+#var params := FileAccess.open("res://Assets/Materials/Shaders/Wood/woodParams.txt", FileAccess.READ)
 
 func populateShader(dir: String) -> ShaderMaterial:
 	var path := "res://Assets/Materials/Shaders/" + dir
 	var folder := DirAccess.open(path)
 	
-	var params
+	#var params = load("res://Assets/Materials/Shaders/Wood/woodParams.txt")
+	var params := FileAccess.open("res://Assets/Materials/Shaders/Wood/woodParams.txt", FileAccess.READ)
 	var mat := ShaderMaterial.new()
-	var baseColor
-	var height
-	var metallic
-	var normal
-	var roughness
+	mat.shader = shader
+	#var baseColor
+	#var height
+	#var metallic
+	#var normal
+	#var roughness
 	
-	var i := 0
-	
-	for file in folder.get_files():
-		if i == 0: params = FileAccess.open(path + "/" + file, FileAccess.READ)
-		elif i == 1: mat.shader = load(path + "/" + file)
-		elif i == 2: baseColor = load(path + "/" + file)
-		elif i == 3: height = load(path + "/" + file)
-		elif i == 4: metallic = load(path + "/" + file)
-		elif i == 5: normal = load(path + "/" + file)
-		elif i == 6: roughness = load(path + "/" + file)
-		i += 1
+	#var i = 0
+	#
+	#for file in folder.get_files():
+		#if i == 0: params = FileAccess.open(path + "/" + file, FileAccess.READ)
+		#elif i == 1: mat.shader = load(path + "/" + file)
+		#elif i == 2: baseColor = load(path + "/" + file)
+		#elif i == 3: height = load(path + "/" + file)
+		#elif i == 4: metallic = load(path + "/" + file)
+		#elif i == 5: normal = load(path + "/" + file)
+		#elif i == 6: roughness = load(path + "/" + file)
+		#i += 1
 		
-	mat.set_shader_parameter("Base_color", baseColor)
+	mat.set_shader_parameter("Base_Color", baseColor)
 	mat.set_shader_parameter("Metallic", metallic)
 	mat.set_shader_parameter("Edge_Map", normal)
 	mat.set_shader_parameter("Roughness", roughness)
@@ -36,7 +44,7 @@ func populateShader(dir: String) -> ShaderMaterial:
 	var hue
 	var sat
 	var val
-	i = 0
+	var i = 0
 	
 	while not params.eof_reached():
 		var line = params.get_line()
@@ -45,7 +53,17 @@ func populateShader(dir: String) -> ShaderMaterial:
 		elif i == 2: val = float(line)
 		elif i > 2: break
 		i += 1
-		
+	
+	# Jitter the values a bit for variety in the objects
+	randomize()
+	var jitterH = randf_range(-0.1, 0.1)
+	var jitterS = randf_range(-0.1, 0.1)
+	var jitterV = randf_range(-0.1, 0.1)
+	#if dir == "Wood":
+	hue += jitterH
+	sat += jitterS
+	val += jitterV
+	
 	mat.set_shader_parameter("Hue", hue)
 	mat.set_shader_parameter("Saturation", sat)
 	mat.set_shader_parameter("Value", val)
@@ -54,69 +72,17 @@ func populateShader(dir: String) -> ShaderMaterial:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var mesh_instance: GeometryInstance3D = $MeshInstance3D
+	#var mesh_instance: GeometryInstance3D = $MeshInstance3D
+
+	#var mesh = self.mesh
 	
-	# Grab all the right shader and params files to populate
-	var parentDir := "res://Assets/Materials/Shaders/"
-	#var dirs = ["Wood", "Metal", "Concrete"]
-	#var dirs = ["Wood"]
-	#for dir in dirs:
-	var path = parentDir + "Wood"
-	var folder := DirAccess.open(path)
-	var mesh = self.mesh
-	var i := 0
-	var params
-	var mat := ShaderMaterial.new()
-	var baseColor
-	var height
-	var metallic
-	var normal
-	var roughness
-	for file in folder.get_files():
-		if i == 0: params = FileAccess.open(path + "/" + file, FileAccess.READ)
-		elif i == 1: mat.shader = load(path + "/" + file)
-		elif i == 2: baseColor = load(path + "/" + file)
-		elif i == 3: height = load(path + "/" + file)
-		elif i == 4: metallic = load(path + "/" + file)
-		elif i == 5: normal = load(path + "/" + file)
-		elif i == 6: roughness = load(path + "/" + file)
-		i += 1
-	# Populate the shader with the needed params and textures
-	var hue
-	var sat
-	var val
-	i = 0
-	while not params.eof_reached():
-		var line = params.get_line()
-		if i == 0: hue = float(line)
-		elif i == 1: sat = float(line)
-		elif i == 2: val = float(line)
-		elif i > 2: break
-		i += 1
-		
-	mat.set_shader_parameter("Hue", hue)
-	mat.set_shader_parameter("Saturation", sat)
-	mat.set_shader_parameter("Value", val)
+	var mat = populateShader("Wood")
 	
-	mat.set_shader_parameter("Base_color", baseColor)
-	mat.set_shader_parameter("Metallic", metallic)
-	mat.set_shader_parameter("Edge_Map", normal)
-	mat.set_shader_parameter("Roughness", roughness)
+	self.material_override = mat
 	
-	self.set_surface_override_material(0, mat)
-		
-	#var dir := DirAccess.open(parentDir)
-	#var shaders := []
-	#var shaderRegex = RegEx.new()
-	#shaderRegex.compile("\b(?:wood|metal|concrete)Shader.tres\b")
-	#var params := []
-	#var paramsRegex = RegEx.new()
-	#paramsRegex.compile("")
-	#for file in dir.get_files():
-		#if shaderRegex.search(file):
-			#shaders.append(load(parentDir + "/" + file))
-		#elif paramsRegex.search(file):
-			#params.append(load(parentDir + "/" + file))
+	print(mat.shader)
+	
+	#self.set_surface_override_material(0, mat)
 	
 	pass # Replace with function body.
 

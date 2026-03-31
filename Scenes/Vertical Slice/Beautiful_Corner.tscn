@@ -1257,13 +1257,18 @@ mesh = ExtResource("88_r5u0n")
 [node name="Scaffold" type="MeshInstance3D" parent="." unique_id=1873828275]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.9593, 0, 5.0212545)
 mesh = ExtResource("89_4pi8g")
+script = ExtResource("97_nwvs3")
 
 [node name="Scaffold2" type="MeshInstance3D" parent="." unique_id=1355732096]
 transform = Transform3D(-0.009347487, 0.00515259, 0.28220734, -1.4551915e-11, 0.282321, -0.005154666, -0.32929194, -0.00014626466, -0.008010914, -1.367739, -0.554335, 0.17615986)
 material_override = SubResource("ShaderMaterial_j0bok")
+instance_shader_parameters/Hue = 0.0
 instance_shader_parameters/Pivot = 0.0
 instance_shader_parameters/Rotation = 0.0
+instance_shader_parameters/Saturation = 0.0
+instance_shader_parameters/Value = -0.4289999728775
 mesh = ExtResource("89_4pi8g")
+script = ExtResource("97_nwvs3")
 
 [node name="Scaffold3" type="MeshInstance3D" parent="." unique_id=1244897942]
 transform = Transform3D(-0.04608869, -0.0036896695, 0.27956653, -0.0004812868, 0.28234392, 0.0036680298, -0.3261842, 0.000104737235, -0.039507184, -2.9806836, -0.53989106, 0.19262382)
@@ -1273,6 +1278,7 @@ script = ExtResource("97_nwvs3")
 [node name="Scaffold4" type="MeshInstance3D" parent="." unique_id=2015712640]
 transform = Transform3D(-0.009347487, 0, 0.28225437, 0, 0.28236806, 0, -0.32929194, 0, -0.008012249, -4.4836745, -0.54329777, 0.26461077)
 mesh = ExtResource("89_4pi8g")
+script = ExtResource("97_nwvs3")
 
 [node name="Scaffold8" type="MeshInstance3D" parent="." unique_id=15834982]
 transform = Transform3D(0.032792494, -0.001004957, 0.28096375, 0.00014982659, 0.28236625, 0.0009971262, -0.32778832, 2.8527284e-05, 0.028108545, 0.0075828433, -0.5459672, 0.20572168)
@@ -1284,59 +1290,71 @@ instance_shader_parameters/Saturation = 0.0
 instance_shader_parameters/Tiling = 1.0
 instance_shader_parameters/Value = 0.0
 mesh = ExtResource("89_4pi8g")
+script = ExtResource("97_nwvs3")
 
 [node name="Scaffold15" type="MeshInstance3D" parent="." unique_id=437304898]
 transform = Transform3D(0.005608073, 0.00013272406, 0.98504245, -0.022452211, 0.28214043, -6.608009e-05, -0.5587772, -0.011335341, 0.009888902, -2.3174372, -0.54828304, 1.6502733)
 material_override = SubResource("StandardMaterial3D_nwvs3")
 mesh = ExtResource("89_4pi8g")
+script = ExtResource("97_nwvs3")
 
 [node name="Scaffold16" type="MeshInstance3D" parent="." unique_id=156932248]
 transform = Transform3D(0.005608073, 0.00013272406, 0.98504245, -0.022452211, 0.28214043, -6.608009e-05, -0.5587772, -0.011335341, 0.009888902, 2.5939088, -0.53406733, 2.0616138)
 material_override = SubResource("StandardMaterial3D_nwvs3")
 mesh = ExtResource("89_4pi8g")
+script = ExtResource("97_nwvs3")
 
 [node name="Scaffold10" type="MeshInstance3D" parent="." unique_id=777555557]
 transform = Transform3D(0.13388312, -0.0010049571, 0.2579945, 0.0005069063, 0.28236625, 0.0009066231, -0.30099106, 2.8527298e-05, 0.114759445, -0.7755983, 0.047386497, 3.919379)
 material_override = SubResource("StandardMaterial3D_520ta")
 mesh = ExtResource("89_4pi8g")
+script = ExtResource("97_nwvs3")
 
 [node name="Scaffold11" type="MeshInstance3D" parent="." unique_id=1107766127]
 transform = Transform3D(0.075945795, -0.0010049571, 0.4496331, 0.00030268016, 0.28236625, 0.0015895072, -0.32055062, 2.852728e-05, 0.10652988, 1.3225334, -0.03513089, 4.1201987)
 material_override = SubResource("StandardMaterial3D_520ta")
 mesh = ExtResource("89_4pi8g")
+script = ExtResource("97_nwvs3")
 
 [node name="Scaffold14" type="MeshInstance3D" parent="." unique_id=397304632]
 transform = Transform3D(0.31359237, -0.0014974202, 0.31340978, 0.0011542428, 0.42073533, 0.0010891485, -0.37761882, 4.2506574e-05, 0.26027346, 4.38399, -0.024219695, 3.9688106)
 material_override = SubResource("StandardMaterial3D_520ta")
 mesh = ExtResource("89_4pi8g")
+script = ExtResource("97_nwvs3")
 
 [node name="Scaffold12" type="MeshInstance3D" parent="." unique_id=648572478]
 transform = Transform3D(0.08290931, -0.0010049571, 0.27327698, 0.00032728896, 0.28236625, 0.00096542854, -0.31882048, 2.8527307e-05, 0.07106671, -2.422438, 0.10023665, 3.2718332)
 material_override = SubResource("StandardMaterial3D_520ta")
 mesh = ExtResource("89_4pi8g")
+script = ExtResource("97_nwvs3")
 
 [node name="Scaffold13" type="MeshInstance3D" parent="." unique_id=686494846]
 transform = Transform3D(-0.08517199, -0.0010049572, 0.27276528, -0.000270982, 0.28236625, 0.0009781629, -0.31822357, 2.852735e-05, -0.073006004, -3.9099529, 0.09490966, 3.596498)
 material_override = SubResource("StandardMaterial3D_520ta")
 mesh = ExtResource("89_4pi8g")
+script = ExtResource("97_nwvs3")
 
 [node name="Scaffold9" type="MeshInstance3D" parent="." unique_id=1936418735]
 transform = Transform3D(0.009956589, -0.001004957, 0.6617924, 6.8702466e-05, 0.28236625, 0.0023533353, -0.3292741, 2.8527298e-05, 0.020011788, 4.135869, -0.5312785, 0.24610417)
 mesh = ExtResource("89_4pi8g")
+script = ExtResource("97_nwvs3")
 
 [node name="Scaffold7" type="MeshInstance3D" parent="." unique_id=1898436053]
 transform = Transform3D(-0.009347487, 0, 0.28225437, 0, 0.28236806, 0, -0.32929194, 0, -0.008012249, -5.92936, -0.54329777, 0.3056489)
 mesh = ExtResource("89_4pi8g")
+script = ExtResource("97_nwvs3")
 
 [node name="Scaffold5" type="MeshInstance3D" parent="." unique_id=913778126]
 transform = Transform3D(-0.02841631, 0.008883821, -0.44063768, -0.4526191, 0.062496882, 0.037303634, 0.28044897, 0.10176443, 0.015557343, -7.145539, -0.0676419, 3.1179388)
 material_override = SubResource("StandardMaterial3D_r5pee")
 mesh = ExtResource("89_4pi8g")
+script = ExtResource("97_nwvs3")
 
 [node name="Scaffold17" type="MeshInstance3D" parent="." unique_id=52568272]
 transform = Transform3D(0.5258497, 0.0051541235, -0.08828804, -0.0871397, 0.011204468, -0.54193306, -0.014556672, 0.119116224, 0.05479621, -5.5710807, -0.23366922, 4.6734357)
 material_override = SubResource("StandardMaterial3D_r5pee")
 mesh = ExtResource("89_4pi8g")
+script = ExtResource("97_nwvs3")
 
 [node name="Terminal" type="MeshInstance3D" parent="." unique_id=545931613]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.967823, 0.64241874, 5.050987)
