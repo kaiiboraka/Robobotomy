@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fj4lgwj1jq2s"
-path.s3tc="res://.godot/imported/Concrete_height.png-b73b08d9e193232b31148913f7ab5460.s3tc.ctex"
+uid="uid://8fu1o08kxoar"
+path.s3tc="res://.godot/imported/Metal_roughness.png-785e22e0d66b0ec4f9fd54b96c860121.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Materials/Shaders/Concrete Maps/Concrete_height.png"
-dest_files=["res://.godot/imported/Concrete_height.png-b73b08d9e193232b31148913f7ab5460.s3tc.ctex"]
+source_file="res://Assets/Materials/Shaders/Metal/Metal_roughness.png"
+dest_files=["res://.godot/imported/Metal_roughness.png-785e22e0d66b0ec4f9fd54b96c860121.s3tc.ctex"]
 
 [params]
 

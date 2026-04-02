@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cldhgso2wucug"
-path.s3tc="res://.godot/imported/Concrete_metallic.png-112182717d2501c80262460548b26c02.s3tc.ctex"
+uid="uid://d2djqd8vqwn38"
+path.s3tc="res://.godot/imported/Metal_metallic.png-9d7d6202ec09c1389be72cc63b673d14.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Materials/Shaders/Concrete Maps/Concrete_metallic.png"
-dest_files=["res://.godot/imported/Concrete_metallic.png-112182717d2501c80262460548b26c02.s3tc.ctex"]
+source_file="res://Assets/Materials/Shaders/Metal/Metal_metallic.png"
+dest_files=["res://.godot/imported/Metal_metallic.png-9d7d6202ec09c1389be72cc63b673d14.s3tc.ctex"]
 
 [params]
 

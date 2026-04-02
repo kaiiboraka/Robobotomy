@@ -2,7 +2,7 @@
 #extends MeshInstance3D
 extends GeometryInstance3D
 
-var shader: Shader = preload("res://Assets/Materials/Shaders/Wood/woodShader.tres")
+var shader: Shader = preload("res://Assets/Materials/Shaders/procShader.tres")
 var baseColor := preload("res://Assets/Materials/Shaders/Wood/Wood_basecolor.png")
 var height := preload("res://Assets/Materials/Shaders/Wood/Wood_height.png")
 var metallic := preload("res://Assets/Materials/Shaders/Wood/Wood_metallic.png")
@@ -44,6 +44,12 @@ func populateShader(dir: String) -> ShaderMaterial:
 	var hue
 	var sat
 	var val
+	var hueMin
+	var hueMax
+	var satMin
+	var satMax
+	var valMin
+	var valMax
 	var i = 0
 	
 	while not params.eof_reached():
@@ -51,18 +57,26 @@ func populateShader(dir: String) -> ShaderMaterial:
 		if i == 0: hue = float(line)
 		elif i == 1: sat = float(line)
 		elif i == 2: val = float(line)
-		elif i > 2: break
+		elif i == 3: hueMin = float(line)
+		elif i == 4: hueMax = float(line)
+		elif i == 5: satMin = float(line)
+		elif i == 6: satMax = float(line)
+		elif i == 7: valMin = float(line)
+		elif i == 8: valMax = float(line)
+		elif i > 8: break
 		i += 1
 	
 	# Jitter the values a bit for variety in the objects
 	randomize()
-	var jitterH = randf_range(-0.1, 0.1)
-	var jitterS = randf_range(-0.1, 0.1)
-	var jitterV = randf_range(-0.1, 0.1)
+	var jitterH = randf_range(hueMin, hueMax)
+	var jitterS = randf_range(satMin, satMax)
+	var jitterV = randf_range(valMin, valMax)
 	#if dir == "Wood":
 	hue += jitterH
 	sat += jitterS
 	val += jitterV
+	
+	print(hue, sat, val)
 	
 	mat.set_shader_parameter("Hue", hue)
 	mat.set_shader_parameter("Saturation", sat)

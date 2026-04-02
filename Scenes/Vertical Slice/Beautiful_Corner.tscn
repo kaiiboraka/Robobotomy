@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://bpgupq5guqtyk"]
 
 [ext_resource type="PackedScene" uid="uid://caj74qdlqfqfr" path="res://Assets/Models/NamelessV07.fbx" id="2_1o705"]
-[ext_resource type="Texture2D" uid="uid://ctybxaop6jxrr" path="res://Assets/Materials/Shaders/Concrete Maps/Concrete_basecolor.png" id="2_2dqvl"]
+[ext_resource type="Texture2D" uid="uid://ctybxaop6jxrr" path="res://Assets/Materials/Shaders/Concrete/Concrete_basecolor.png" id="2_2dqvl"]
 [ext_resource type="ArrayMesh" uid="uid://d1iqktciv7tc8" path="res://Assets/Robobotomy Art/3D/Objects/pipe1_medium.res" id="3_iv5s1"]
 [ext_resource type="Texture2D" uid="uid://dn2o72o1l4ru8" path="res://Assets/Robobotomy Art/2D/Chains/Chain 5.png" id="3_usww3"]
 [ext_resource type="ArrayMesh" uid="uid://bs7mr6pntvtby" path="res://Assets/Robobotomy Art/3D/Objects/pipe1_short.res" id="4_t2hkb"]
@@ -92,22 +92,22 @@
 [ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Assets/Robobotomy Art/3D/Objects/scaffold.res" id="89_4pi8g"]
 [ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Assets/Robobotomy Art/3D/Objects/terminal.res" id="90_5i7sb"]
 [ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Assets/Robobotomy Art/3D/Objects/pipe1_long.res" id="91_0v81c"]
-[ext_resource type="Texture2D" uid="uid://d2djqd8vqwn38" path="res://Assets/Materials/Shaders/Metal Maps/Metal_metallic.png" id="93_fnn60"]
-[ext_resource type="Texture2D" uid="uid://bvtq6v2ixvrsh" path="res://Assets/Materials/Shaders/Metal Maps/Metal_normal.png" id="94_nruv6"]
+[ext_resource type="Texture2D" uid="uid://d2djqd8vqwn38" path="res://Assets/Materials/Shaders/Metal/Metal_metallic.png" id="93_fnn60"]
+[ext_resource type="Texture2D" uid="uid://bvtq6v2ixvrsh" path="res://Assets/Materials/Shaders/Metal/Metal_normal.png" id="94_nruv6"]
 [ext_resource type="Texture2D" uid="uid://63kkn77plbga" path="res://Assets/Materials/Shaders/Wood/Wood_basecolor.png" id="94_sh1qt"]
 [ext_resource type="PackedScene" uid="uid://cm25ac4a1w6vt" path="res://Assets/Robobotomy Art/3D/Objects/Head Pipes/Head Pipes.fbx" id="95_1f8lv"]
-[ext_resource type="Texture2D" uid="uid://8fu1o08kxoar" path="res://Assets/Materials/Shaders/Metal Maps/Metal_roughness.png" id="95_1o705"]
+[ext_resource type="Texture2D" uid="uid://8fu1o08kxoar" path="res://Assets/Materials/Shaders/Metal/Metal_roughness.png" id="95_1o705"]
 [ext_resource type="Texture2D" uid="uid://b33v0h512jtjv" path="res://Assets/Materials/Shaders/Wood/Wood_metallic.png" id="95_nwvs3"]
 [ext_resource type="Texture2D" uid="uid://pqiwsjy3mbv2" path="res://Assets/Materials/Shaders/Wood/Wood_roughness.png" id="96_520ta"]
 [ext_resource type="PackedScene" uid="uid://g0v3th7stns1" path="res://Assets/Robobotomy Art/3D/Objects/Head Pipes/Head Pipes 2.fbx" id="96_ymajn"]
-[ext_resource type="Script" uid="uid://cfkqlq2txbxwv" path="res://Assets/Materials/Shaders/texturePopulator.gd" id="97_nwvs3"]
+[ext_resource type="Script" uid="uid://cfkqlq2txbxwv" path="res://Assets/Materials/Shaders/woodPopulator.gd" id="97_nwvs3"]
 [ext_resource type="PackedScene" uid="uid://cqoo5pdrpftt2" path="res://Assets/Robobotomy Art/3D/Objects/Head Pipes/Head Pipes Grables.fbx" id="97_uhx7f"]
 [ext_resource type="Shader" uid="uid://cwfjfvridlcyp" path="res://Assets/Materials/Shaders/procShader.tres" id="99_d08y4"]
-[ext_resource type="Texture2D" uid="uid://cg76upv0jtajq" path="res://Assets/Materials/Shaders/Metal Maps/Metal_basecolor.png" id="100_lp33q"]
-[ext_resource type="Texture2D" uid="uid://fj4lgwj1jq2s" path="res://Assets/Materials/Shaders/Concrete Maps/Concrete_height.png" id="100_r5pee"]
-[ext_resource type="Texture2D" uid="uid://cldhgso2wucug" path="res://Assets/Materials/Shaders/Concrete Maps/Concrete_metallic.png" id="101_jlcko"]
-[ext_resource type="Texture2D" uid="uid://da8xe883ln4n7" path="res://Assets/Materials/Shaders/Concrete Maps/Concrete_normal.png" id="102_penhn"]
-[ext_resource type="Texture2D" uid="uid://flhbkakokxy4" path="res://Assets/Materials/Shaders/Concrete Maps/Concrete_roughness.png" id="103_8qeui"]
+[ext_resource type="Texture2D" uid="uid://cg76upv0jtajq" path="res://Assets/Materials/Shaders/Metal/Metal_basecolor.png" id="100_lp33q"]
+[ext_resource type="Texture2D" uid="uid://fj4lgwj1jq2s" path="res://Assets/Materials/Shaders/Concrete/Concrete_height.png" id="100_r5pee"]
+[ext_resource type="Texture2D" uid="uid://cldhgso2wucug" path="res://Assets/Materials/Shaders/Concrete/Concrete_metallic.png" id="101_jlcko"]
+[ext_resource type="Texture2D" uid="uid://da8xe883ln4n7" path="res://Assets/Materials/Shaders/Concrete/Concrete_normal.png" id="102_penhn"]
+[ext_resource type="Texture2D" uid="uid://flhbkakokxy4" path="res://Assets/Materials/Shaders/Concrete/Concrete_roughness.png" id="103_8qeui"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_clgom"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -370,6 +370,9 @@ shadow_mesh = SubResource("ArrayMesh_bu4ix")
 render_priority = 0
 shader = ExtResource("99_d08y4")
 shader_parameter/Base_Color = ExtResource("100_lp33q")
+shader_parameter/Hue = 0.0
+shader_parameter/Saturation = 0.0
+shader_parameter/Value = 0.0
 shader_parameter/Metallic = ExtResource("93_fnn60")
 shader_parameter/Roughness = ExtResource("95_1o705")
 
@@ -1283,10 +1286,10 @@ script = ExtResource("97_nwvs3")
 [node name="Scaffold8" type="MeshInstance3D" parent="." unique_id=15834982]
 transform = Transform3D(0.032792494, -0.001004957, 0.28096375, 0.00014982659, 0.28236625, 0.0009971262, -0.32778832, 2.8527284e-05, 0.028108545, 0.0075828433, -0.5459672, 0.20572168)
 material_override = SubResource("ShaderMaterial_j0bok")
-instance_shader_parameters/Hue = 0.0
+instance_shader_parameters/Hue = 0.05000004987499995
 instance_shader_parameters/Pivot = 0.0
 instance_shader_parameters/Rotation = 0.0
-instance_shader_parameters/Saturation = 0.0
+instance_shader_parameters/Saturation = -0.07399995601499998
 instance_shader_parameters/Tiling = 1.0
 instance_shader_parameters/Value = 0.0
 mesh = ExtResource("89_4pi8g")
