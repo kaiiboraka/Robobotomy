@@ -1,1 +1,31 @@
-* text=auto eol=lf
+# Explicitly set text types for Godot-specific files
+*.cs text eol=lf
+*.gd text eol=lf
+*.gdshader text eol=lf
+*.gdshaderinc text eol=lf
+*.godot text eol=lf
+*.tres text eol=lf
+*.tscn text eol=lf
+*.cfg text eol=lf
+*.import text eol=lf
+*.gdignore text eol=lf
+
+# More files that are textual
+*.md text eol=lf
+*.obj text eol=lf
+*.txt text eol=lf
+*.svg text eol=lf
+
+# Utility files
+*.dat text eol=lf
+*.bat text eol=lf
+*.sln text eol=lf
+*.csproj text eol=lf
+
+# Mark common binary files as binary
+*.fbx binary
+*.gif binary
+*.jpg binary
+*.png binary
+*.res binary
+*.ttf binary
