@@ -9,6 +9,7 @@
 *.cfg text eol=lf
 *.import text eol=lf
 *.gdignore text eol=lf
+editorconfig text eol=lf
 
 # More files that are textual
 *.md text eol=lf
@@ -16,11 +17,17 @@
 *.txt text eol=lf
 *.svg text eol=lf
 
+# Git files
+.gitattributes text eol=lf
+.gitignore text eol=lf
+
 # Utility files
 *.dat text eol=lf
 *.bat text eol=lf
 *.sln text eol=lf
 *.csproj text eol=lf
+*.old text eol=lf
+*.csproj.old.* text eol=lf
 
 # Mark common binary files as binary
 *.fbx binary
