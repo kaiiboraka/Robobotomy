@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://63kkn77plbga"
-path.s3tc="res://.godot/imported/Wood_basecolor.png-7d322059875e6d69540a312aa557cb7e.s3tc.ctex"
+path.s3tc="res://.godot/imported/Wood_basecolor.png-297a2e109f0a85318f2527bdb38a2d99.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Materials/Shaders/Wood Maps/Wood_basecolor.png"
-dest_files=["res://.godot/imported/Wood_basecolor.png-7d322059875e6d69540a312aa557cb7e.s3tc.ctex"]
+source_file="res://Assets/Materials/Shaders/Wood/Wood_basecolor.png"
+dest_files=["res://.godot/imported/Wood_basecolor.png-297a2e109f0a85318f2527bdb38a2d99.s3tc.ctex"]
 
 [params]
 

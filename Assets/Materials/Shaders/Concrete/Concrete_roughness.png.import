@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pqiwsjy3mbv2"
-path.s3tc="res://.godot/imported/Wood_roughness.png-d59bbf46742941e6e88d0501a89c4880.s3tc.ctex"
+uid="uid://flhbkakokxy4"
+path.s3tc="res://.godot/imported/Concrete_roughness.png-af15580635614e05e5e488c4512dea78.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Materials/Shaders/Wood Maps/Wood_roughness.png"
-dest_files=["res://.godot/imported/Wood_roughness.png-d59bbf46742941e6e88d0501a89c4880.s3tc.ctex"]
+source_file="res://Assets/Materials/Shaders/Concrete/Concrete_roughness.png"
+dest_files=["res://.godot/imported/Concrete_roughness.png-af15580635614e05e5e488c4512dea78.s3tc.ctex"]
 
 [params]
 

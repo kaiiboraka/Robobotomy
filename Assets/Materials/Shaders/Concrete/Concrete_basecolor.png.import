@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fj4lgwj1jq2s"
-path.s3tc="res://.godot/imported/Concrete_height.png-b73b08d9e193232b31148913f7ab5460.s3tc.ctex"
+uid="uid://ctybxaop6jxrr"
+path.s3tc="res://.godot/imported/Concrete_basecolor.png-a7e53edf0affcbbb9bb1f3a86a89d7a0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Materials/Shaders/Concrete Maps/Concrete_height.png"
-dest_files=["res://.godot/imported/Concrete_height.png-b73b08d9e193232b31148913f7ab5460.s3tc.ctex"]
+source_file="res://Assets/Materials/Shaders/Concrete/Concrete_basecolor.png"
+dest_files=["res://.godot/imported/Concrete_basecolor.png-a7e53edf0affcbbb9bb1f3a86a89d7a0.s3tc.ctex"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8fu1o08kxoar"
-path.s3tc="res://.godot/imported/Metal_roughness.png-7c8337625662138cd3ea05b03d7ca33e.s3tc.ctex"
+uid="uid://crqdhymeg637t"
+path.s3tc="res://.godot/imported/Metal_height.png-9cd63e594e700f52f5ad0d89281c3477.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Materials/Shaders/Metal Maps/Metal_roughness.png"
-dest_files=["res://.godot/imported/Metal_roughness.png-7c8337625662138cd3ea05b03d7ca33e.s3tc.ctex"]
+source_file="res://Assets/Materials/Shaders/Metal/Metal_height.png"
+dest_files=["res://.godot/imported/Metal_height.png-9cd63e594e700f52f5ad0d89281c3477.s3tc.ctex"]
 
 [params]
 

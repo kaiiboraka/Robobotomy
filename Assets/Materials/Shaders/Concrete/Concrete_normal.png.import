@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctybxaop6jxrr"
-path.s3tc="res://.godot/imported/Concrete_basecolor.png-f0334b53c2b1421a1dc385a6696f5dae.s3tc.ctex"
+uid="uid://da8xe883ln4n7"
+path.s3tc="res://.godot/imported/Concrete_normal.png-9bfae6533168e991c0d32572e8aceec4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Materials/Shaders/Concrete Maps/Concrete_basecolor.png"
-dest_files=["res://.godot/imported/Concrete_basecolor.png-f0334b53c2b1421a1dc385a6696f5dae.s3tc.ctex"]
+source_file="res://Assets/Materials/Shaders/Concrete/Concrete_normal.png"
+dest_files=["res://.godot/imported/Concrete_normal.png-9bfae6533168e991c0d32572e8aceec4.s3tc.ctex"]
 
 [params]
 
@@ -22,12 +22,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://Assets/Materials/Shaders/Concrete Maps/Concrete_normal.png"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2
