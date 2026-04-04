@@ -4,30 +4,28 @@
 [ext_resource type="PackedScene" uid="uid://dodbf8xbi1m1" path="res://Scenes/Characters/ActualPlayer.tscn" id="2_4etgu"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_1mdn6"]
 [ext_resource type="PackedScene" uid="uid://gl5j7l3w6avc" path="res://Scenes/Environment/SimpleBox.tscn" id="4_1u2ve"]
-[ext_resource type="PackedScene" uid="uid://dg2v5675ajsfd" path="res://Scenes/Environment/HingeDoor_jacob.tscn" id="5_v23sh"]
+[ext_resource type="PackedScene" uid="uid://bmswce2kxaau0" path="res://Scenes/Environment/hinge_simple.tscn" id="5_v23sh"]
 
-[node name="LevelRoot" type="Node3D"]
+[node name="LevelRoot" type="Node3D" unique_id=689661122]
 
-[node name="PlatformStatic" parent="." instance=ExtResource("1_w7orp")]
+[node name="PlatformStatic" parent="." unique_id=1296588908 instance=ExtResource("1_w7orp")]
 
-[node name="Player" parent="." instance=ExtResource("2_4etgu")]
+[node name="Player" parent="." unique_id=1390409401 instance=ExtResource("2_4etgu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6592422, 0)
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=416159751]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6592422, 4.16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.07635, 4.168)
 fov = 80.0
 
-[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1403826269]
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("3_1mdn6")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="Simple Box" parent="." instance=ExtResource("4_1u2ve")]
+[node name="Simple Box" parent="." unique_id=1702358804 instance=ExtResource("4_1u2ve")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
 
-[node name="HingeDoorJacob" parent="." instance=ExtResource("5_v23sh")]
+[node name="HingeSimple" parent="." unique_id=1315568489 instance=ExtResource("5_v23sh")]
 transform = Transform3D(-0.9893563, 0.1455133, 0, -0.1455133, -0.9893563, 0, 0, 0, 1, 5.594255, 3.4354806, 0.6547723)
-doorHeight = 2.565
-doorRadius = 0.17
