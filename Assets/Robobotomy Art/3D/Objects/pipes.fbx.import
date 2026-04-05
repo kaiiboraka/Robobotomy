@@ -45,7 +45,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Objects/pipe1_long.res",
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_long.res",
 "save_to_file/path": "uid://dodoyqd473sd0"
 },
 "pipe1_medium": {
@@ -54,7 +54,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Objects/pipe1_medium.res",
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_medium.res",
 "save_to_file/path": "uid://d1iqktciv7tc8"
 },
 "pipe1_short": {
@@ -63,7 +63,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Objects/pipe1_short.res",
+"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_short.res",
 "save_to_file/path": "uid://bs7mr6pntvtby"
 }
 }

@@ -1,18 +1,13 @@
 extends CharacterBody3D
+class_name Pusher
 
 var started := false
 var extending := true
 var move_speed := 4
 var push_force := 0.5
 
-func _on_area_3d_body_entered(_body: Node3D) -> void:
-	if $Timer.is_stopped():
-		$Timer.start()
-	started = true
-	extending = true
+@onready var total_time = $Timer.wait_time
 
-func _on_timer_timeout() -> void:
-	started = false
 
 func _physics_process(_delta: float) -> void:
 	if started:
@@ -24,10 +19,24 @@ func _physics_process(_delta: float) -> void:
 		velocity.x = 0
 	push_head_only()
 	move_and_slide()
+	
+func _on_timer_timeout() -> void:
+	$Timer.wait_time = total_time
+	started = false
+
+func _on_area_3d_body_entered(_body: Node3D) -> void:
+	var elapsed_time = total_time - $Timer.time_left
+	$Timer.stop()
+	$Timer.wait_time = elapsed_time
+	$Timer.start()
+	started = true
+	extending = true
 
 func _on_area_3d_body_exited(_body: Node3D) -> void:
-	if $Timer.is_stopped():
-		$Timer.start()
+	var elapsed_time = total_time - $Timer.time_left
+	$Timer.stop()
+	$Timer.wait_time = elapsed_time
+	$Timer.start()
 	started = true
 	extending = false
 
