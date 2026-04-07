@@ -1,12 +1,9 @@
 [gd_scene format=3 uid="uid://dp2fw4dg0bdoh"]
 
 [ext_resource type="PackedScene" path="res://Scenes/Environment/ExtendableWall.tscn" id="2_oaoqy"]
-[ext_resource type="PackedScene" uid="uid://dodbf8xbi1m1" path="res://Scenes/Characters/ActualPlayer.tscn" id="2_tx3h6"]
+[ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scripts/Nameless/character.tscn" id="2_tx3h6"]
 
 [node name="JacobWhitebox" type="Node3D" unique_id=700048835]
-
-[node name="Player" parent="." unique_id=959285026 instance=ExtResource("2_tx3h6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.606164, -1.1920929e-07, -0.105113745)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1669002829]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0832033, 8.192757)
@@ -15,3 +12,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0832033, 8.192757)
 
 [node name="ExtendableWall" parent="." unique_id=1149585584 instance=ExtResource("2_oaoqy")]
 length = 50.393
+
+[node name="Character" parent="." unique_id=1583363387 instance=ExtResource("2_tx3h6")]

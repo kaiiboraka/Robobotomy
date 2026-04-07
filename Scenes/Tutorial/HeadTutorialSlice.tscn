@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://boty8rtka3suh"]
 
 [ext_resource type="PackedScene" path="res://Scenes/Environment/ExtendableWall.tscn" id="1_e8oxe"]
-[ext_resource type="ArrayMesh" uid="uid://c7la0fp3apuk0" path="res://Assets/Robobotomy Art/3D/Objects/gear_spurlargebore.res" id="2_vkmec"]
-[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Assets/Robobotomy Art/3D/Objects/button.res" id="3_jsw4j"]
+[ext_resource type="ArrayMesh" uid="uid://c7la0fp3apuk0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spurlargebore.res" id="2_vkmec"]
+[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Scenes/Vertical Slice/3d assetts/kitbash/button.res" id="3_jsw4j"]
 [ext_resource type="Script" uid="uid://bn1h6n23eiqbl" path="res://Scripts/HeadTutorialSlice/pusher.gd" id="3_vkmec"]
-[ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Assets/Robobotomy Art/3D/Objects/pipe1_long.res" id="4_3u1ho"]
-[ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Assets/Robobotomy Art/3D/Objects/scaffold.res" id="5_1lny6"]
+[ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_long.res" id="4_3u1ho"]
+[ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Scenes/Vertical Slice/3d assetts/kitbash/scaffold.res" id="5_1lny6"]
 [ext_resource type="Script" uid="uid://b26n1tg25oibu" path="res://Scripts/HeadTutorialSlice/crane.gd" id="6_3u1ho"]
-[ext_resource type="ArrayMesh" path="res://Assets/Robobotomy Art/3D/Character/Head.res" id="6_3x4w6"]
+[ext_resource type="ArrayMesh" uid="uid://c8kdmnehigaay" path="res://Assets/Robobotomy Art/3D/Character/Head.res" id="6_3x4w6"]
 [ext_resource type="Script" uid="uid://b2l8jd0y7jvnx" path="res://Scripts/button.gd" id="7_sqr0g"]
 [ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scripts/Nameless/character.tscn" id="9_jsw4j"]
 
@@ -147,7 +147,7 @@ transform = Transform3D(4.028868, -1.0067238, 0, 0.8698215, 4.662977, 0, 0, 0, 4
 mesh = ExtResource("4_3u1ho")
 
 [node name="Pipe1Long12" type="MeshInstance3D" parent="." unique_id=1784188606]
-transform = Transform3D(0.084231995, -6.7157393, 0, 4.1208344, 0.1372732, 0, 0, 0, 4.272667, 27.79535, 15.473823, 0.09094143)
+transform = Transform3D(0.8177353, -6.583412, -0.032893613, 4.03585, 1.3336561, -0.18132563, 0.17773634, 0.005920752, 4.2686906, 27.79535, 11.8565035, 0.09094143)
 mesh = ExtResource("4_3u1ho")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1175594815]
@@ -187,9 +187,11 @@ skeleton = NodePath("../Cylindar4")
 
 [node name="Crane" type="CharacterBody3D" parent="." unique_id=656079092]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.400375, 9.422726, 1.9073486e-06)
+collision_layer = 12
+collision_mask = 0
 script = ExtResource("6_3u1ho")
 move_speed = 8.0
-total_time = 2.0
+total_time = 1.5
 
 [node name="crane" parent="Crane" unique_id=1059586162 instance=ExtResource("1_e8oxe")]
 transform = Transform3D(0.459, 0, 0, 0, 1.382, 0, 0, 0, 1, 0, 0, 0)
@@ -222,6 +224,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15190125, 0.1005249, -0.00
 shape = SubResource("BoxShape3D_2hb4p")
 
 [node name="Timer" type="Timer" parent="Crane" unique_id=1419932259]
+wait_time = 0.001
+one_shot = true
 
 [node name="Head" type="RigidBody3D" parent="." unique_id=2132714625]
 transform = Transform3D(1, -5.2359876e-05, 0, 5.2359876e-05, 1, 0, 0, 0, 1, -18.315262, 8.373186, 0)
@@ -288,7 +292,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="Character" parent="." unique_id=1583363387 instance=ExtResource("9_jsw4j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.615856, 0.9262495, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.926102, 0.9262495, 0)
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="." unique_id=1226348915]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9866142, 0, 0)

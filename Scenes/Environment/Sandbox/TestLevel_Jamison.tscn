@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://b3xbuy2cr0kqc"]
+[gd_scene format=3 uid="uid://c5y3ww34o7a4m"]
 
-[ext_resource type="PackedScene" uid="uid://dodbf8xbi1m1" path="res://Scenes/Characters/ActualPlayer.tscn" id="1_elkbp"]
-[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/ExtendableWall.tscn" id="2_7rw42"]
-[ext_resource type="PackedScene" uid="uid://gl5j7l3w6avc" path="res://Scenes/Environment/SimpleBox.tscn" id="3_vuikh"]
-[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Assets/Robobotomy Art/3D/Objects/button.res" id="4_bde0f"]
+[ext_resource type="PackedScene" path="res://Scenes/Environment/ExtendableWall.tscn" id="2_7rw42"]
+[ext_resource type="PackedScene" path="res://Scenes/Environment/SimpleBox.tscn" id="3_vuikh"]
+[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Scenes/Vertical Slice/3d assetts/kitbash/button.res" id="4_bde0f"]
 [ext_resource type="Material" uid="uid://cjjlgffq2ycbp" path="res://Assets/Materials/Basic Colors/Red.tres" id="5_j7jpj"]
-[ext_resource type="PackedScene" uid="uid://d031edjsrylll" path="res://Scenes/Environment/Rope.tscn" id="6_330lm"]
+[ext_resource type="PackedScene" uid="uid://d031edjsrylll" path="res://Scenes/Environment/rope.tscn" id="6_330lm"]
+[ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scripts/Nameless/character.tscn" id="7_330lm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vrgj1"]
 sky_top_color = Color(0.122083716, 0.1548169, 0.19841826, 1)
@@ -89,8 +89,6 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=349653926]
 environment = SubResource("Environment_rdq3i")
-
-[node name="Player" parent="." unique_id=64555096 instance=ExtResource("1_elkbp")]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=590919272]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.327354, 54.309273)
@@ -298,3 +296,5 @@ mesh = SubResource("BoxMesh_bqnqb")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Wires" unique_id=1747172926]
 transform = Transform3D(-4.371139e-08, -0.456467, 0, 1, -1.9952807e-08, 0, 0, 0, 1, 23.3673, 27.95154, -2.1781197)
 mesh = SubResource("BoxMesh_heuar")
+
+[node name="Character" parent="." unique_id=1583363387 instance=ExtResource("7_330lm")]
