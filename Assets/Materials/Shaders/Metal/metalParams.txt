@@ -1,0 +1,13 @@
+0.0
+0.0
+0.0
+
+Order of params:
+Hue
+Saturation
+Value
+
+Good Example:
+0.5
+0.0
+0.0

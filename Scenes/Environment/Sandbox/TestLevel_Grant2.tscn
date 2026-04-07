@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://yoijiuu7sj1t" path="res://Scenes/Environment/Sandbox/testCharacter_Brandon.gd" id="1_a1wxf"]
 [ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/ExtendableWall.tscn" id="2_3fmni"]
-[ext_resource type="PackedScene" uid="uid://dg2v5675ajsfd" path="res://Scenes/Environment/HingeDoor_jacob.tscn" id="3_gfe6p"]
-[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Assets/Robobotomy Art/3D/Objects/button.res" id="4_2sn6v"]
-[ext_resource type="ArrayMesh" uid="uid://bs7mr6pntvtby" path="res://Assets/Robobotomy Art/3D/Objects/pipe1_short.res" id="5_2sn6v"]
+[ext_resource type="PackedScene" uid="uid://bmswce2kxaau0" path="res://Scenes/Environment/hinge_simple.tscn" id="3_gfe6p"]
+[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Scenes/Vertical Slice/3d assetts/kitbash/button.res" id="4_2sn6v"]
+[ext_resource type="ArrayMesh" uid="uid://bs7mr6pntvtby" path="res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_short.res" id="5_2sn6v"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gfe6p"]
 
@@ -46,9 +46,8 @@ transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -12.
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -12.7591305, 6.32203, 0)
 length = 4.297
 
-[node name="HingeDoorJacob" parent="." unique_id=1328876358 instance=ExtResource("3_gfe6p")]
+[node name="HingeSimple" parent="." unique_id=1328876358 instance=ExtResource("3_gfe6p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.696413, 1.2145324, 0)
-doorHeight = 2.5
 
 [node name="Button" type="MeshInstance3D" parent="." unique_id=164134816]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5460362, 0.98145914, -0.14753819)
