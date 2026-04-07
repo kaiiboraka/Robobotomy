@@ -7,6 +7,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 
 func physics_process(_delta: float) -> void:
 	player.velocity.z = 0;
+	player.velocity += player.get_platform_velocity()
 	player.move_and_slide()
 
 	if not player.is_on_floor():
