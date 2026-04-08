@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dodbf8xbi1m1" path="res://Scenes/Characters/ActualPlayer.tscn" id="1_b246n"]
 [ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/ExtendableWall.tscn" id="2_v1i2c"]
-[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Assets/Robobotomy Art/3D/Objects/button.res" id="4_wm86n"]
-[ext_resource type="ArrayMesh" uid="uid://doxh8d0va3v1k" path="res://Assets/Robobotomy Art/3D/Objects/buttons_1x1.res" id="5_suoqg"]
+[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Scenes/Vertical Slice/3d assetts/kitbash/button.res" id="4_wm86n"]
+[ext_resource type="ArrayMesh" uid="uid://doxh8d0va3v1k" path="res://Scenes/Vertical Slice/3d assetts/kitbash/buttons_1x1.res" id="5_suoqg"]
 [ext_resource type="PackedScene" uid="uid://gl5j7l3w6avc" path="res://Scenes/Environment/SimpleBox.tscn" id="6_suoqg"]
 
 [node name="Node3D" type="Node3D" unique_id=1010345093]
