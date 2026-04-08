@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://dbk24fe7ef7m3" path="res://Scenes/Environment/platform_plane.tscn" id="1_8e5ay"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_fujqj"]
-[ext_resource type="PackedScene" uid="uid://dodbf8xbi1m1" path="res://Scenes/Characters/ActualPlayer.tscn" id="4_8y70x"]
 [ext_resource type="PackedScene" uid="uid://dmefqrw20pemv" path="res://Scenes/Testing/gym.tscn" id="5_3dfbi"]
 [ext_resource type="PackedScene" uid="uid://cuc1pbmga6imc" path="res://Scenes/Environment/cube_static.tscn" id="5_6uba3"]
+[ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scripts/Nameless/character.tscn" id="5_08ukk"]
 
 [node name="LevelRoot" type="Node3D" unique_id=2115854773]
 
@@ -29,8 +29,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4991617, 0.39831877, 0)
 collision_layer = 4
 collision_mask = 128
 
-[node name="Player" parent="." unique_id=1039534645 instance=ExtResource("4_8y70x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.021482497, 0)
-
 [node name="Gym" parent="." unique_id=1468774947 instance=ExtResource("5_3dfbi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017604828, 0, -0.0012769699)
+
+[node name="Character" parent="." unique_id=1583363387 instance=ExtResource("5_08ukk")]

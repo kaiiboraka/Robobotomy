@@ -6,7 +6,7 @@ var extending := true
 var push_force := 0.5
 
 @export var move_speed: float = 4.0
-@export var total_time: float
+@export var total_time: float = 0.01
 
 func _ready() -> void:
 	$Timer.wait_time = total_time
