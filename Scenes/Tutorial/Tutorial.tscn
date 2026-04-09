@@ -1,14 +1,13 @@
 [gd_scene format=3 uid="uid://t48dk4ejgiod"]
 
-[ext_resource type="PackedScene" path="res://Scenes/Environment/ExtendableWall.tscn" id="1_w7w38"]
-[ext_resource type="Script" uid="uid://dvhdc084jl6xm" path="res://Scripts/Tools/test_camera.gd" id="2_0yr2e"]
+[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/ExtendableWall.tscn" id="1_w7w38"]
 [ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Scenes/Vertical Slice/3d assetts/kitbash/button.res" id="2_n3ycm"]
-[ext_resource type="PackedScene" uid="uid://caj74qdlqfqfr" path="res://Assets/Models/NamelessV07.fbx" id="3_w7w38"]
 [ext_resource type="ArrayMesh" uid="uid://c7la0fp3apuk0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spurlargebore.res" id="5_q5gud"]
 [ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_long.res" id="6_tq6py"]
 [ext_resource type="ArrayMesh" uid="uid://c8kdmnehigaay" path="res://Assets/Robobotomy Art/3D/Character/Head.res" id="7_7ovnm"]
 [ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Scenes/Vertical Slice/3d assetts/kitbash/scaffold.res" id="8_q5gud"]
-[ext_resource type="ArrayMesh" path="res://Assets/Robobotomy Art/3D/Character/Leg Left.res" id="10_q5gud"]
+[ext_resource type="ArrayMesh" uid="uid://gengofm32pp4" path="res://Assets/Robobotomy Art/3D/Character/Leg Left.res" id="10_q5gud"]
+[ext_resource type="PackedScene" uid="uid://dodbf8xbi1m1" path="res://Scenes/Characters/ActualPlayer.tscn" id="10_wspkt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0yr2e"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -34,16 +33,6 @@ volumetric_fog_density = 0.0005
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=223076818]
 environment = SubResource("Environment_w7w38")
-
-[node name="Nameless2" type="Camera3D" parent="." unique_id=735426219]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8574982, 2.6669006, 17.684376)
-fov = 50.0
-script = ExtResource("2_0yr2e")
-moveSpeed = 0.05
-wheelSpeed = 0.05
-
-[node name="NamelessV07" parent="Nameless2" unique_id=1885040782 instance=ExtResource("3_w7w38")]
-transform = Transform3D(43.92964, 0, 89.83421, 0, 100, 0, -89.83421, 0, 43.92964, -1.4419823, -1.696732, -17.77098)
 
 [node name="ExtendableWall" parent="." unique_id=1149585584 instance=ExtResource("1_w7w38")]
 transform = Transform3D(0.7438598, 0, 0, 0, 1, 0, 0, 0, 1, -4.1552525, 0.07100725, 0)
@@ -410,3 +399,6 @@ mesh = ExtResource("10_q5gud")
 [node name="LegLeft2" type="MeshInstance3D" parent="." unique_id=1631389459]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 309.8089, 16.301914, -0.07286453)
 mesh = ExtResource("10_q5gud")
+
+[node name="Player" parent="." unique_id=64555096 instance=ExtResource("10_wspkt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.117342, 0.5710068, -0.046440125)
