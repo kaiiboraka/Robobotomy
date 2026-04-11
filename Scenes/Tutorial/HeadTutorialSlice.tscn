@@ -10,6 +10,7 @@
 [ext_resource type="ArrayMesh" uid="uid://c8kdmnehigaay" path="res://Assets/Robobotomy Art/3D/Character/Head.res" id="6_3x4w6"]
 [ext_resource type="Script" uid="uid://b2l8jd0y7jvnx" path="res://Scripts/button.gd" id="7_sqr0g"]
 [ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scripts/Nameless/character.tscn" id="9_jsw4j"]
+[ext_resource type="Script" uid="uid://dtahhowrgytm7" path="res://Scripts/HeadTutorialSlice/teleportal.gd" id="11_1lny6"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_huync"]
 
@@ -56,6 +57,11 @@ points = PackedVector3Array(-0.4006516, -0.14164478, 1.3215531, -1.3895456, -0.1
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3x4w6"]
 points = PackedVector3Array(-1.0664295, 0.09409404, -0.90574163, 0, 0.1549208, -0.76390004, 0, -0.15958749, -0.76390004, -1.3952099, 0.10322523, 0.043934338, -0.94396484, -0.33941022, 0.089904785, -0.045057952, -0.33941022, -1.2586491, -0.94396484, 0.33474353, 0.089904785, -0.076385185, 0.29894498, -1.196588, -1.1418222, -0.25199395, -0.5976841, -0.59936506, -0.062269874, -1.2741129, -1.0285236, 0.28756502, -0.6742857, -0.7640145, -0.15958749, 0.089904785, -1.2583851, -0.33941022, 0.044873178, 0, 0.33474353, -0.9438768, -0.31486908, 0.1795781, -1.3211716, -1.3263465, -0.06300614, -0.47206685, 0, -0.33941022, -0.9438768, -0.9479518, -0.17383502, -0.97921985, -0.8090725, 0.24479917, 0.089904785, -1.2698029, 0.21394019, -0.39894938, -0.057124607, 0.14243108, -1.3777813, -0.6808209, 0.24825805, -1.0985132, -0.6810334, -0.28993866, -1.019322, -1.2007335, 0.29869953, 0.00818907, -0.3077454, -0.064018585, -1.3739328, 0, -0.33941022, -1.2586491, -0.7585765, 0.05685981, -1.1876796, -1.3939234, -0.10769102, 0.042567424, -0.5241313, -0.21689276, -1.2205939, -0.8090725, -0.24946585, 0.089904785, -0.7640145, 0.1549208, 0.089904785, -0.5236814, 0.29099026, -1.1045549)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3x4w6"]
+size = Vector3(1.5551758, 2.1846924, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3x4w6"]
 
 [node name="HeadTutorialSlice" type="Node3D" unique_id=1736808347]
 
@@ -122,10 +128,6 @@ shape = SubResource("ConvexPolygonShape3D_huync")
 transform = Transform3D(-0.08433521, 42.166264, 0, -4.2718344, -0.8324516, 0, 0, 0, 4.272667, -124.555695, 41.640945, 0.090937614)
 mesh = ExtResource("4_3u1ho")
 
-[node name="Pipe1Long7" type="MeshInstance3D" parent="." unique_id=1401436130]
-transform = Transform3D(-1.8016502e-07, -9.395281, 0, 4.121695, -4.1068077e-07, 0, 0, 0, 4.272667, -24.20813, 34.015522, 0.09093952)
-mesh = ExtResource("4_3u1ho")
-
 [node name="Pipe1Long8" type="MeshInstance3D" parent="." unique_id=1725819717]
 transform = Transform3D(-1.8016502e-07, -5.5598006, 0, 4.121695, -2.430266e-07, 0, 0, 0, 4.272667, -2.8271484, 33.86768, 0.09093952)
 mesh = ExtResource("4_3u1ho")
@@ -147,7 +149,7 @@ transform = Transform3D(4.028868, -1.0067238, 0, 0.8698215, 4.662977, 0, 0, 0, 4
 mesh = ExtResource("4_3u1ho")
 
 [node name="Pipe1Long12" type="MeshInstance3D" parent="." unique_id=1784188606]
-transform = Transform3D(0.8177353, -6.583412, -0.032893613, 4.03585, 1.3336561, -0.18132563, 0.17773634, 0.005920752, 4.2686906, 27.79535, 11.8565035, 0.09094143)
+transform = Transform3D(0.084231995, -6.7157393, 0, 4.1208344, 0.1372732, 0, 0, 0, 4.272667, 27.79535, 15.473823, 0.09094143)
 mesh = ExtResource("4_3u1ho")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1175594815]
@@ -187,11 +189,11 @@ skeleton = NodePath("../Cylindar4")
 
 [node name="Crane" type="CharacterBody3D" parent="." unique_id=656079092]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.400375, 9.422726, 1.9073486e-06)
-collision_layer = 12
+collision_layer = 520
 collision_mask = 0
 script = ExtResource("6_3u1ho")
 move_speed = 8.0
-total_time = 1.5
+total_time = 2.0
 
 [node name="crane" parent="Crane" unique_id=1059586162 instance=ExtResource("1_e8oxe")]
 transform = Transform3D(0.459, 0, 0, 0, 1.382, 0, 0, 0, 1, 0, 0, 0)
@@ -224,7 +226,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15190125, 0.1005249, -0.00
 shape = SubResource("BoxShape3D_2hb4p")
 
 [node name="Timer" type="Timer" parent="Crane" unique_id=1419932259]
-wait_time = 0.001
 one_shot = true
 
 [node name="Head" type="RigidBody3D" parent="." unique_id=2132714625]
@@ -292,7 +293,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="Character" parent="." unique_id=1583363387 instance=ExtResource("9_jsw4j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.926102, 0.9262495, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.615856, 0.9262495, 0)
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="." unique_id=1226348915]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9866142, 0, 0)
@@ -319,6 +320,104 @@ shape = SubResource("ConvexPolygonShape3D_1lny6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.652916, 0.8519678, 0)
 shape = SubResource("ConvexPolygonShape3D_3x4w6")
 
+[node name="Teleportal" type="Area3D" parent="." unique_id=1898710224 node_paths=PackedStringArray("output_location")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.947084, 15.608429, 0)
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("11_1lny6")
+output_location = NodePath("../TP_Location1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Teleportal" unique_id=1602097442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2775879, -0.070251465, 0)
+shape = SubResource("BoxShape3D_3x4w6")
+
+[node name="Teleportal2" type="Area3D" parent="." unique_id=1271028772 node_paths=PackedStringArray("output_location")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -184.40569, 1.891654, 0)
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("11_1lny6")
+output_location = NodePath("../TP_Location2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Teleportal2" unique_id=1034819517]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2775879, -0.070251465, 0)
+shape = SubResource("BoxShape3D_3x4w6")
+
+[node name="Teleportal3" type="Area3D" parent="." unique_id=642395985 node_paths=PackedStringArray("output_location")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -207.57419, 1.891654, 0)
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("11_1lny6")
+output_location = NodePath("../TP_Location3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Teleportal3" unique_id=2118129122]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2775879, -0.070251465, 0)
+shape = SubResource("BoxShape3D_3x4w6")
+
+[node name="ExtendableWall" parent="." unique_id=1245952744 instance=ExtResource("1_e8oxe")]
+transform = Transform3D(0.7438598, 0, 0, 0, 1, 0, 0, 0, 1, -161.63077, 0.07100725, 0)
+
+[node name="ExtendableWall4" parent="." unique_id=1678141431 instance=ExtResource("1_e8oxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -191.8142, 0.07100725, 0)
+
+[node name="ExtendableWall6" parent="." unique_id=1649216819 instance=ExtResource("1_e8oxe")]
+transform = Transform3D(0.6273151, 0, 0, 0, 1, 0, 0, 0, 1, -196.9453, 19.236908, 0)
+
+[node name="ExtendableWall5" parent="." unique_id=1379871126 instance=ExtResource("1_e8oxe")]
+transform = Transform3D(-0.050156895, 0.99578255, 0, -0.5443934, -0.091744974, 0, 0, 0, 1, -207.88669, 10.266996, 0)
+
+[node name="Cube3" type="MeshInstance3D" parent="." unique_id=1110377769]
+transform = Transform3D(-0.3388159, -3.003021, 0, 16.589762, -0.061331294, 0, 0, 0, 3.0036478, -186.60426, 10.718708, 0)
+mesh = SubResource("BoxMesh_3x4w6")
+
+[node name="Pipe1Long" type="MeshInstance3D" parent="." unique_id=1299616]
+transform = Transform3D(0.024235684, -2.0025306, 0, 4.2725983, 0.01135906, 0, 0, 0, 4.272667, -184.72893, 2.038621, 0.090937614)
+mesh = ExtResource("4_3u1ho")
+
+[node name="Pipe1Long13" type="MeshInstance3D" parent="." unique_id=1059002441]
+transform = Transform3D(0.024235684, -1.1918784, 0, 4.2725983, 0.006760755, 0, 0, 0, 4.272667, -207.60963, 2.1684084, 0.090937614)
+mesh = ExtResource("4_3u1ho")
+
+[node name="Pipe1Long14" type="MeshInstance3D" parent="." unique_id=86797895]
+transform = Transform3D(4.263621, 0.33166295, 0, -0.27788284, 5.088782, 0, 0, 0, 4.272667, -211.70311, 1.8443903, 0.090937614)
+mesh = ExtResource("4_3u1ho")
+
+[node name="Pipe1Long15" type="MeshInstance3D" parent="." unique_id=1041757577]
+transform = Transform3D(0.9894564, 22.022284, 0, -4.15652, 5.2423882, 0, 0, 0, 4.272667, -210.85176, 21.262184, 0.090937614)
+mesh = ExtResource("4_3u1ho")
+
+[node name="Pipe1Long4" type="MeshInstance3D" parent="." unique_id=68105242]
+transform = Transform3D(0.06905049, -8.253848, 0, 4.272109, 0.13340767, 0, 0, 0, 4.272667, -123.78792, 15.399529, 0.09093952)
+mesh = ExtResource("4_3u1ho")
+
+[node name="Pipe1Long5" type="MeshInstance3D" parent="." unique_id=727618344]
+transform = Transform3D(-0.89191157, -8.073065, 0, 4.1785374, -1.723201, 0, 0, 0, 4.272667, -91.771164, 21.93195, 0.09093952)
+mesh = ExtResource("4_3u1ho")
+
+[node name="Pipe1Long6" type="MeshInstance3D" parent="." unique_id=1820102558]
+transform = Transform3D(-1.6303241, -7.6303554, 0, 3.9493954, -3.1498373, 0, 0, 0, 4.272667, -61.721466, 34.192978, 0.09093952)
+mesh = ExtResource("4_3u1ho")
+
+[node name="Pipe1Long18" type="MeshInstance3D" parent="." unique_id=917336888]
+transform = Transform3D(-1.8016502e-07, -9.395281, 0, 4.121695, -4.1068077e-07, 0, 0, 0, 4.272667, -24.896881, 34.015522, 0.09093952)
+mesh = ExtResource("4_3u1ho")
+
+[node name="seecret head puzzle" type="Label3D" parent="." unique_id=114866394]
+transform = Transform3D(9.997976, -0.079318665, -0.18492506, 0.06779734, 9.980808, -0.61553895, 0.18945232, 0.61416024, 9.979323, -199.32149, 4.9107156, 0.24212494)
+text = "Seecret head puzzle"
+
+[node name="Head2" type="MeshInstance3D" parent="." unique_id=1508757314]
+transform = Transform3D(76.16809, -27.610252, 58.61822, 25.277353, 95.96059, 12.353983, -59.66136, 5.407343, 80.070496, -204.40715, 0.98298377, -0.09438473)
+mesh = ExtResource("6_3x4w6")
+
+[node name="TP_Location1" type="Node3D" parent="." unique_id=235897032]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -156.38829, 16.094002, -0.2215867)
+
+[node name="TP_Location2" type="Node3D" parent="." unique_id=844418488]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -193.2101, 2.1365058, 0.010622263)
+
+[node name="TP_Location3" type="Node3D" parent="." unique_id=1961865197]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.566425, 19.182293, 0.05531931)
+
 [connection signal="body_entered" from="Area3D2" to="Crane" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D2" to="Crane" method="_on_area_3d_body_exited"]
 [connection signal="body_entered" from="Area3D3" to="Crane" method="_on_area_3d_body_entered"]
@@ -330,3 +429,6 @@ shape = SubResource("ConvexPolygonShape3D_3x4w6")
 [connection signal="body_exited" from="Area3D" to="Pusher" method="_on_area_3d_body_exited"]
 [connection signal="timeout" from="Pusher3/Timer" to="Pusher3" method="_on_timer_timeout"]
 [connection signal="timeout" from="Pusher/Timer" to="Pusher" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Teleportal" to="Teleportal" method="_on_body_entered"]
+[connection signal="body_entered" from="Teleportal2" to="Teleportal2" method="_on_body_entered"]
+[connection signal="body_entered" from="Teleportal3" to="Teleportal3" method="_on_body_entered"]
