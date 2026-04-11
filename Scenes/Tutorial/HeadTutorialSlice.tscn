@@ -1,15 +1,16 @@
 [gd_scene format=3 uid="uid://boty8rtka3suh"]
 
 [ext_resource type="PackedScene" path="res://Scenes/Environment/ExtendableWall.tscn" id="1_e8oxe"]
-[ext_resource type="ArrayMesh" uid="uid://c7la0fp3apuk0" path="res://Assets/Robobotomy Art/3D/Objects/gear_spurlargebore.res" id="2_vkmec"]
-[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Assets/Robobotomy Art/3D/Objects/button.res" id="3_jsw4j"]
+[ext_resource type="ArrayMesh" uid="uid://c7la0fp3apuk0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spurlargebore.res" id="2_vkmec"]
+[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Scenes/Vertical Slice/3d assetts/kitbash/button.res" id="3_jsw4j"]
 [ext_resource type="Script" uid="uid://bn1h6n23eiqbl" path="res://Scripts/HeadTutorialSlice/pusher.gd" id="3_vkmec"]
-[ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Assets/Robobotomy Art/3D/Objects/pipe1_long.res" id="4_3u1ho"]
-[ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Assets/Robobotomy Art/3D/Objects/scaffold.res" id="5_1lny6"]
+[ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_long.res" id="4_3u1ho"]
+[ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Scenes/Vertical Slice/3d assetts/kitbash/scaffold.res" id="5_1lny6"]
 [ext_resource type="Script" uid="uid://b26n1tg25oibu" path="res://Scripts/HeadTutorialSlice/crane.gd" id="6_3u1ho"]
-[ext_resource type="ArrayMesh" path="res://Assets/Robobotomy Art/3D/Character/Head.res" id="6_3x4w6"]
+[ext_resource type="ArrayMesh" uid="uid://c8kdmnehigaay" path="res://Assets/Robobotomy Art/3D/Character/Head.res" id="6_3x4w6"]
 [ext_resource type="Script" uid="uid://b2l8jd0y7jvnx" path="res://Scripts/button.gd" id="7_sqr0g"]
 [ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scripts/Nameless/character.tscn" id="9_jsw4j"]
+[ext_resource type="Script" uid="uid://dtahhowrgytm7" path="res://Scripts/HeadTutorialSlice/teleportal.gd" id="11_1lny6"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_huync"]
 
@@ -59,6 +60,8 @@ points = PackedVector3Array(-1.0664295, 0.09409404, -0.90574163, 0, 0.1549208, -
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3x4w6"]
 size = Vector3(1.5551758, 2.1846924, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3x4w6"]
 
 [node name="HeadTutorialSlice" type="Node3D" unique_id=1736808347]
 
@@ -125,10 +128,6 @@ shape = SubResource("ConvexPolygonShape3D_huync")
 transform = Transform3D(-0.08433521, 42.166264, 0, -4.2718344, -0.8324516, 0, 0, 0, 4.272667, -124.555695, 41.640945, 0.090937614)
 mesh = ExtResource("4_3u1ho")
 
-[node name="Pipe1Long7" type="MeshInstance3D" parent="." unique_id=1401436130]
-transform = Transform3D(-1.8016502e-07, -9.395281, 0, 4.121695, -4.1068077e-07, 0, 0, 0, 4.272667, -24.20813, 34.015522, 0.09093952)
-mesh = ExtResource("4_3u1ho")
-
 [node name="Pipe1Long8" type="MeshInstance3D" parent="." unique_id=1725819717]
 transform = Transform3D(-1.8016502e-07, -5.5598006, 0, 4.121695, -2.430266e-07, 0, 0, 0, 4.272667, -2.8271484, 33.86768, 0.09093952)
 mesh = ExtResource("4_3u1ho")
@@ -190,6 +189,8 @@ skeleton = NodePath("../Cylindar4")
 
 [node name="Crane" type="CharacterBody3D" parent="." unique_id=656079092]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.400375, 9.422726, 1.9073486e-06)
+collision_layer = 520
+collision_mask = 0
 script = ExtResource("6_3u1ho")
 move_speed = 8.0
 total_time = 2.0
@@ -318,12 +319,103 @@ shape = SubResource("ConvexPolygonShape3D_1lny6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.652916, 0.8519678, 0)
 shape = SubResource("ConvexPolygonShape3D_3x4w6")
 
-[node name="Teleportal" type="Area3D" parent="." unique_id=1898710224]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.947084, 11.808292, 0)
+[node name="Teleportal" type="Area3D" parent="." unique_id=1898710224 node_paths=PackedStringArray("output_location")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.947084, 15.608429, 0)
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("11_1lny6")
+output_location = NodePath("../TP_Location1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Teleportal" unique_id=1602097442]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2775879, -0.070251465, 0)
 shape = SubResource("BoxShape3D_3x4w6")
+
+[node name="Teleportal2" type="Area3D" parent="." unique_id=1271028772 node_paths=PackedStringArray("output_location")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -184.40569, 1.891654, 0)
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("11_1lny6")
+output_location = NodePath("../TP_Location2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Teleportal2" unique_id=1034819517]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2775879, -0.070251465, 0)
+shape = SubResource("BoxShape3D_3x4w6")
+
+[node name="Teleportal3" type="Area3D" parent="." unique_id=642395985 node_paths=PackedStringArray("output_location")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -207.57419, 1.891654, 0)
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("11_1lny6")
+output_location = NodePath("../TP_Location3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Teleportal3" unique_id=2118129122]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2775879, -0.070251465, 0)
+shape = SubResource("BoxShape3D_3x4w6")
+
+[node name="ExtendableWall" parent="." unique_id=1245952744 instance=ExtResource("1_e8oxe")]
+transform = Transform3D(0.7438598, 0, 0, 0, 1, 0, 0, 0, 1, -161.63077, 0.07100725, 0)
+
+[node name="ExtendableWall4" parent="." unique_id=1678141431 instance=ExtResource("1_e8oxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -191.8142, 0.07100725, 0)
+
+[node name="ExtendableWall6" parent="." unique_id=1649216819 instance=ExtResource("1_e8oxe")]
+transform = Transform3D(0.6273151, 0, 0, 0, 1, 0, 0, 0, 1, -196.9453, 19.236908, 0)
+
+[node name="ExtendableWall5" parent="." unique_id=1379871126 instance=ExtResource("1_e8oxe")]
+transform = Transform3D(-0.050156895, 0.99578255, 0, -0.5443934, -0.091744974, 0, 0, 0, 1, -207.88669, 10.266996, 0)
+
+[node name="Cube3" type="MeshInstance3D" parent="." unique_id=1110377769]
+transform = Transform3D(-0.3388159, -3.003021, 0, 16.589762, -0.061331294, 0, 0, 0, 3.0036478, -186.60426, 10.718708, 0)
+mesh = SubResource("BoxMesh_3x4w6")
+
+[node name="Pipe1Long" type="MeshInstance3D" parent="." unique_id=1299616]
+transform = Transform3D(0.024235684, -2.0025306, 0, 4.2725983, 0.01135906, 0, 0, 0, 4.272667, -184.72893, 2.038621, 0.090937614)
+mesh = ExtResource("4_3u1ho")
+
+[node name="Pipe1Long13" type="MeshInstance3D" parent="." unique_id=1059002441]
+transform = Transform3D(0.024235684, -1.1918784, 0, 4.2725983, 0.006760755, 0, 0, 0, 4.272667, -207.60963, 2.1684084, 0.090937614)
+mesh = ExtResource("4_3u1ho")
+
+[node name="Pipe1Long14" type="MeshInstance3D" parent="." unique_id=86797895]
+transform = Transform3D(4.263621, 0.33166295, 0, -0.27788284, 5.088782, 0, 0, 0, 4.272667, -211.70311, 1.8443903, 0.090937614)
+mesh = ExtResource("4_3u1ho")
+
+[node name="Pipe1Long15" type="MeshInstance3D" parent="." unique_id=1041757577]
+transform = Transform3D(0.9894564, 22.022284, 0, -4.15652, 5.2423882, 0, 0, 0, 4.272667, -210.85176, 21.262184, 0.090937614)
+mesh = ExtResource("4_3u1ho")
+
+[node name="Pipe1Long4" type="MeshInstance3D" parent="." unique_id=68105242]
+transform = Transform3D(0.06905049, -8.253848, 0, 4.272109, 0.13340767, 0, 0, 0, 4.272667, -123.78792, 15.399529, 0.09093952)
+mesh = ExtResource("4_3u1ho")
+
+[node name="Pipe1Long5" type="MeshInstance3D" parent="." unique_id=727618344]
+transform = Transform3D(-0.89191157, -8.073065, 0, 4.1785374, -1.723201, 0, 0, 0, 4.272667, -91.771164, 21.93195, 0.09093952)
+mesh = ExtResource("4_3u1ho")
+
+[node name="Pipe1Long6" type="MeshInstance3D" parent="." unique_id=1820102558]
+transform = Transform3D(-1.6303241, -7.6303554, 0, 3.9493954, -3.1498373, 0, 0, 0, 4.272667, -61.721466, 34.192978, 0.09093952)
+mesh = ExtResource("4_3u1ho")
+
+[node name="Pipe1Long18" type="MeshInstance3D" parent="." unique_id=917336888]
+transform = Transform3D(-1.8016502e-07, -9.395281, 0, 4.121695, -4.1068077e-07, 0, 0, 0, 4.272667, -24.896881, 34.015522, 0.09093952)
+mesh = ExtResource("4_3u1ho")
+
+[node name="seecret head puzzle" type="Label3D" parent="." unique_id=114866394]
+transform = Transform3D(9.997976, -0.079318665, -0.18492506, 0.06779734, 9.980808, -0.61553895, 0.18945232, 0.61416024, 9.979323, -199.32149, 4.9107156, 0.24212494)
+text = "Seecret head puzzle"
+
+[node name="Head2" type="MeshInstance3D" parent="." unique_id=1508757314]
+transform = Transform3D(76.16809, -27.610252, 58.61822, 25.277353, 95.96059, 12.353983, -59.66136, 5.407343, 80.070496, -204.40715, 0.98298377, -0.09438473)
+mesh = ExtResource("6_3x4w6")
+
+[node name="TP_Location1" type="Node3D" parent="." unique_id=235897032]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -156.38829, 16.094002, -0.2215867)
+
+[node name="TP_Location2" type="Node3D" parent="." unique_id=844418488]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -193.2101, 2.1365058, 0.010622263)
+
+[node name="TP_Location3" type="Node3D" parent="." unique_id=1961865197]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.566425, 19.182293, 0.05531931)
 
 [connection signal="body_entered" from="Area3D2" to="Crane" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D2" to="Crane" method="_on_area_3d_body_exited"]
@@ -336,3 +428,6 @@ shape = SubResource("BoxShape3D_3x4w6")
 [connection signal="body_exited" from="Area3D" to="Pusher" method="_on_area_3d_body_exited"]
 [connection signal="timeout" from="Pusher3/Timer" to="Pusher3" method="_on_timer_timeout"]
 [connection signal="timeout" from="Pusher/Timer" to="Pusher" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Teleportal" to="Teleportal" method="_on_body_entered"]
+[connection signal="body_entered" from="Teleportal2" to="Teleportal2" method="_on_body_entered"]
+[connection signal="body_entered" from="Teleportal3" to="Teleportal3" method="_on_body_entered"]
