@@ -226,6 +226,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15190125, 0.1005249, -0.00
 shape = SubResource("BoxShape3D_2hb4p")
 
 [node name="Timer" type="Timer" parent="Crane" unique_id=1419932259]
+one_shot = true
 
 [node name="Head" type="RigidBody3D" parent="." unique_id=2132714625]
 transform = Transform3D(1, -5.2359876e-05, 0, 5.2359876e-05, 1, 0, 0, 0, 1, -18.315262, 8.373186, 0)
