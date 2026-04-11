@@ -57,6 +57,9 @@ points = PackedVector3Array(-0.4006516, -0.14164478, 1.3215531, -1.3895456, -0.1
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3x4w6"]
 points = PackedVector3Array(-1.0664295, 0.09409404, -0.90574163, 0, 0.1549208, -0.76390004, 0, -0.15958749, -0.76390004, -1.3952099, 0.10322523, 0.043934338, -0.94396484, -0.33941022, 0.089904785, -0.045057952, -0.33941022, -1.2586491, -0.94396484, 0.33474353, 0.089904785, -0.076385185, 0.29894498, -1.196588, -1.1418222, -0.25199395, -0.5976841, -0.59936506, -0.062269874, -1.2741129, -1.0285236, 0.28756502, -0.6742857, -0.7640145, -0.15958749, 0.089904785, -1.2583851, -0.33941022, 0.044873178, 0, 0.33474353, -0.9438768, -0.31486908, 0.1795781, -1.3211716, -1.3263465, -0.06300614, -0.47206685, 0, -0.33941022, -0.9438768, -0.9479518, -0.17383502, -0.97921985, -0.8090725, 0.24479917, 0.089904785, -1.2698029, 0.21394019, -0.39894938, -0.057124607, 0.14243108, -1.3777813, -0.6808209, 0.24825805, -1.0985132, -0.6810334, -0.28993866, -1.019322, -1.2007335, 0.29869953, 0.00818907, -0.3077454, -0.064018585, -1.3739328, 0, -0.33941022, -1.2586491, -0.7585765, 0.05685981, -1.1876796, -1.3939234, -0.10769102, 0.042567424, -0.5241313, -0.21689276, -1.2205939, -0.8090725, -0.24946585, 0.089904785, -0.7640145, 0.1549208, 0.089904785, -0.5236814, 0.29099026, -1.1045549)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_3x4w6"]
+size = Vector3(1.5551758, 2.1846924, 1)
+
 [node name="HeadTutorialSlice" type="Node3D" unique_id=1736808347]
 
 [node name="ExtendableWall11" parent="." unique_id=1149585584 instance=ExtResource("1_e8oxe")]
@@ -314,6 +317,13 @@ shape = SubResource("ConvexPolygonShape3D_1lny6")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D3" unique_id=138896030]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.652916, 0.8519678, 0)
 shape = SubResource("ConvexPolygonShape3D_3x4w6")
+
+[node name="Teleportal" type="Area3D" parent="." unique_id=1898710224]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.947084, 11.808292, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Teleportal" unique_id=1602097442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2775879, -0.070251465, 0)
+shape = SubResource("BoxShape3D_3x4w6")
 
 [connection signal="body_entered" from="Area3D2" to="Crane" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D2" to="Crane" method="_on_area_3d_body_exited"]
