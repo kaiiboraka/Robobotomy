@@ -1,4 +1,4 @@
-[gd_resource type="Shader" load_steps=0 format=3 uid="uid://cwfjfvridlcyp"]
+[gd_resource type="Shader" format=3 uid="uid://cwfjfvridlcyp"]
 
 [resource]
 code = "shader_type spatial;
@@ -8,9 +8,9 @@ instance uniform float Rotation : hint_range(0.0, 360.0, 0.5) = 0.0;
 instance uniform float Pivot : hint_range(0.0, 2.0, 0.05) = 0.0;
 instance uniform float Tiling : hint_range(0.0, 20.0, 0.1) = 1.0;
 uniform sampler2D Base_Color : source_color;
-instance uniform float Hue : hint_range(-1.0, 1.0) = 0.0;
-instance uniform float Saturation : hint_range(-1.0, 1.0) = 0.0;
-instance uniform float Value : hint_range(-1.0, 1.0) = 0.0;
+uniform float Hue : hint_range(-1.0, 1.0) = 0.0;
+uniform float Saturation : hint_range(-1.0, 1.0) = 0.0;
+uniform float Value : hint_range(-1.0, 1.0) = 0.0;
 uniform sampler2D Metallic;
 uniform sampler2D Roughness;
 uniform sampler2D Edge_Map : hint_normal, repeat_enable;

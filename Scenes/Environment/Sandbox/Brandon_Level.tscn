@@ -31,3 +31,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3, 0)
 
 [node name="Rope" parent="." unique_id=867855585 instance=ExtResource("5_h3wgw")]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 7, 10, 0)
+
+[node name="Character" parent="." unique_id=1583363387 instance=ExtResource("5_e5j2f")]

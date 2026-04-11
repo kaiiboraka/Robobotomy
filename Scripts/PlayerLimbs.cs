@@ -101,11 +101,7 @@ public partial class PlayerLimbs : CharacterBody3D
 		if (limb.isRecalling == false) return;
 		for (int i = 0; i < 6; i++)
 		{
-			if ((bool)limb.bodyParts[i])
-			{
-				// LimbSelect.instance.limbIsRecalled(limb);
-				break;
-			}
+			//if((bool)limb.bodyParts[i]){ LimbSelect.instance.limbIsRecalled(limb); break; }
 		}
 	}
 

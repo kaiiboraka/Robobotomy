@@ -1,15 +1,12 @@
 [gd_scene format=3 uid="uid://dmefqrw20pemv"]
 
 [ext_resource type="PackedScene" uid="uid://dbk24fe7ef7m3" path="res://Scenes/Environment/platform_plane.tscn" id="1_nwv8u"]
-[ext_resource type="PackedScene" uid="uid://gl5j7l3w6avc" path="res://Scenes/Environment/simple_box.tscn" id="2_uk5sn"]
+[ext_resource type="PackedScene" uid="uid://gl5j7l3w6avc" path="res://Scenes/Environment/SimpleBox.tscn" id="2_uk5sn"]
 [ext_resource type="PackedScene" uid="uid://d031edjsrylll" path="res://Scenes/Environment/rope.tscn" id="3_vr2ic"]
-[ext_resource type="PackedScene" uid="uid://dg2v5675ajsfd" path="res://Scenes/Environment/HingeDoor_jacob.tscn" id="4_040rw"]
+[ext_resource type="PackedScene" uid="uid://bmswce2kxaau0" path="res://Scenes/Environment/hinge_simple.tscn" id="4_040rw"]
 [ext_resource type="PackedScene" uid="uid://pvwqjhr7eu4p" path="res://Scenes/Environment/seesaw.tscn" id="5_hfmfs"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_uk5sn"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_vr2ic"]
-size = Vector3(1.0756226, 2.816208, 1)
 
 [node name="Gym" type="Node3D" unique_id=1468774947]
 
@@ -72,16 +69,8 @@ mesh = SubResource("BoxMesh_uk5sn")
 [node name="Rope" parent="." unique_id=711893260 instance=ExtResource("3_vr2ic")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6133633, 10.616564, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=286307608]
-collision_mask = 100
-
-[node name="Box Limiter" type="CollisionShape3D" parent="StaticBody3D" unique_id=476551488]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.279541, 0.5002571, 0)
-shape = SubResource("BoxShape3D_vr2ic")
-
-[node name="HingeDoorJacob" parent="." unique_id=1852264278 instance=ExtResource("4_040rw")]
+[node name="HingeSimple" parent="." unique_id=1852264278 instance=ExtResource("4_040rw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.582546, 0.38615036, 0)
-doorHeight = 2.54
 
 [node name="Seesaw" parent="." unique_id=2059985946 instance=ExtResource("5_hfmfs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.94777, 0.517251, 0)

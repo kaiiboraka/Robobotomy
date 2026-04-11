@@ -1,0 +1,344 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://wm1ogylqjeol"
+path="res://.godot/imported/NAM Arm Left.fbx-a5212ce700bdb1768718d1ae9f00ac59.scn"
+
+[deps]
+
+source_file="res://Assets/Robobotomy Art/3D/Objects/NAM Arm Left.fbx"
+dest_files=["res://.godot/imported/NAM Arm Left.fbx-a5212ce700bdb1768718d1ae9f00ac59.scn"]
+
+[params]
+
+nodes/root_type="CharacterBody3D"
+nodes/root_name="Nameless"
+nodes/root_script=Resource("uid://dinm6607n8npe", "res://Scripts/Nameless/character.gd")
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=true
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"meshes": {
+"Ankle_Light": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Ankle_Light.res",
+"save_to_file/path": "uid://cv15l7u5bntxt"
+},
+"Ankle_Light2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Ankle_Light2.res",
+"save_to_file/path": "uid://bha5la5rbpula"
+},
+"Armor_Bit": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Armor_Bit.res",
+"save_to_file/path": "uid://dmggdw1ovogf3"
+},
+"Armor_Bit2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Armor_Bit2.res",
+"save_to_file/path": "uid://xjkd1y78y8cy"
+},
+"Chest": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Chest.res",
+"save_to_file/path": "uid://cj3i70i41oq7n"
+},
+"Eye_LidsL": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Eye_LidsL.res",
+"save_to_file/path": "uid://bglve7yjskni4"
+},
+"Eye_LidsR": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Eye_LidsR.res",
+"save_to_file/path": "uid://clria1g5mqm2b"
+},
+"Eye_PlaneL": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Eye_PlaneL.res",
+"save_to_file/path": "uid://cfp8qk05qauyk"
+},
+"Eye_PlaneR": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Eye_PlaneR.res",
+"save_to_file/path": "uid://l4e4efmivsi4"
+},
+"Foot": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Foot.res",
+"save_to_file/path": "uid://dew8m0ce80vxt"
+},
+"Foot2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Foot2.res",
+"save_to_file/path": "uid://fhdpodsdccb5"
+},
+"Hair_tuft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Hair_tuft.res",
+"save_to_file/path": "uid://c8sncvty2tomo"
+},
+"Hand": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Hand.res",
+"save_to_file/path": "uid://dq1lvn0kiyrnt"
+},
+"Hand2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Hand2.res",
+"save_to_file/path": "uid://beolgwbue51r4"
+},
+"Head_and_Hair": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Head_and_Hair.res",
+"save_to_file/path": "uid://cvfblncoo4d8b"
+},
+"Heart": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Heart.res",
+"save_to_file/path": "uid://dm2bbt6qfcde3"
+},
+"Hips": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Hips.res",
+"save_to_file/path": "uid://dbhvhv7v6iag6"
+},
+"Knee_Light": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Knee_Light.res",
+"save_to_file/path": "uid://cqx2cfxlh35mi"
+},
+"Knee_Light2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Knee_Light2.res",
+"save_to_file/path": "uid://djfylcmwoyhmo"
+},
+"LBow_Light": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/LBow_Light.res",
+"save_to_file/path": "uid://balad6i5dlvnf"
+},
+"LBow_Light2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/LBow_Light2.res",
+"save_to_file/path": "uid://ddjydth3l11my"
+},
+"Lower_Leg": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Lower_Leg.res",
+"save_to_file/path": "uid://tamu73mij3mp"
+},
+"Lower_Leg2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Lower_Leg2.res",
+"save_to_file/path": "uid://dfmexgy4p6gwj"
+},
+"Mouth": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Mouth.res",
+"save_to_file/path": "uid://bvyeyi24xm0e"
+},
+"Neck": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Neck.res",
+"save_to_file/path": "uid://dcwobn8idii7l"
+},
+"Upper_Arm": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Upper_Arm.res",
+"save_to_file/path": "uid://bbjwd1fk7oqfl"
+},
+"Upper_Arm2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Upper_Arm2.res",
+"save_to_file/path": "uid://uf5rkpmq2owq"
+},
+"Upper_Leg": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Upper_Leg.res",
+"save_to_file/path": "uid://junqlj1trmor"
+},
+"Upper_Leg2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Upper_Leg2.res",
+"save_to_file/path": "uid://ck8hnv6jga2vs"
+},
+"Wrist": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Wrist.res",
+"save_to_file/path": "uid://ytcmfdiagb24"
+},
+"Wrist2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Wrist2.res",
+"save_to_file/path": "uid://ekfmuchbsg6k"
+},
+"Wrist_Light": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Wrist_Light.res",
+"save_to_file/path": "uid://c2fijiv16bssc"
+},
+"Wrist_Light2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/Wrist_Light2.res",
+"save_to_file/path": "uid://ced3t4qccpaia"
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
+fbx/naming_version=2
