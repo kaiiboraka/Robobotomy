@@ -8,7 +8,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_long.res" id="6_tq6py"]
 [ext_resource type="ArrayMesh" uid="uid://c8kdmnehigaay" path="res://Assets/Robobotomy Art/3D/Character/Head.res" id="7_7ovnm"]
 [ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Scenes/Vertical Slice/3d assetts/kitbash/scaffold.res" id="8_q5gud"]
-[ext_resource type="ArrayMesh" uid="uid://gengofm32pp4" path="res://Assets/Robobotomy Art/3D/Character/Leg Left.res" id="10_q5gud"]
+[ext_resource type="ArrayMesh" uid="uid://d1rjejthugc4a" path="res://Assets/Robobotomy Art/3D/Character/Leg Left.res" id="10_q5gud"]
 [ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Scenes/Vertical Slice/3d assetts/kitbash/terminal.res" id="11_we8fy"]
 [ext_resource type="PackedScene" uid="uid://clesw0vcam4s2" path="res://Scenes/Characters/Limbs/LeftArm.tscn" id="12_vxw4a"]
 [ext_resource type="ArrayMesh" uid="uid://c0ojvrv4euw0g" path="res://Scenes/Vertical Slice/3d assetts/kitbash/monkeybar_med1.res" id="13_7y28h"]
@@ -538,7 +538,8 @@ transform = Transform3D(1.1711715, 0, 0, 0, 24.348171, 0, 0, 0, 1, 337.85788, 24
 transform = Transform3D(0.37180236, 0, 0, 0, 4.4846516, 0, 0, 0, 1, 317.73764, 41.953, -3.814697e-06)
 
 [node name="ExtendableWall56" parent="Walls" unique_id=844002004 instance=ExtResource("1_w7w38")]
-transform = Transform3D(0.006579135, 0, 0, 0, 4.2412767, 0, 0, 0, 1, 323.84857, 43.30831, -3.814697e-06)
+transform = Transform3D(0.98027104, 0.19765738, 0, -0.19765738, 0.98027104, 0, 0, 0, 1, 330.98163, 42.235985, -3.814697e-06)
+length = 13.13
 
 [node name="ExtendableWall47" parent="Walls" unique_id=641753359 instance=ExtResource("1_w7w38")]
 transform = Transform3D(0.313502, 0, 0, 0, 3.599545, 0, 0, 0, 1, 317.06714, 38.206203, -3.814697e-06)
