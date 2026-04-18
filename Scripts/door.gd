@@ -1,4 +1,7 @@
 @tool
+## Basic door class.[br]
+## For a door that can be simply wired up to buttons,
+## take a look at [ButtonDoor].
 class_name Door
 extends Node3D
 
@@ -36,12 +39,18 @@ extends Node3D
 # 	set(value):
 # 		starting_angle = value
 # 		_update_door()
+## Boolean for whether the motor is enabled or not.[br][br]
+## Use this if you want to freeze any movement of the door.
 @export var motor_enabled: bool = false:
 	get:
 		return motor_enabled
 	set(value):
 		motor_enabled = value
 		_update_door()
+## Boolean for whether the motor is reversed or not.[br][br]
+## If the motor is reversed, the door will try to move towards
+## its original state. otherwise, the door will try to move
+## towards the state marked by [param movement_extent].
 @export var motor_reversed: bool = false:
 	get:
 		return motor_reversed
@@ -51,6 +60,8 @@ extends Node3D
 # @export var internal_hinge: StaticBody3D
 # @export var internal_door: RigidBody3D
 @export_group("🔒 Internal Nodes", "internal_")
+## Used internally to update the hinge of the door.[br]
+## Don't modify unless you know what you are doing.
 @export var internal_hinge: HingeJoint3D
 
 

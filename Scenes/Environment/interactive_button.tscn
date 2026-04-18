@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ddrumnonhye7t"]
 
-[ext_resource type="Script" uid="uid://b2l8jd0y7jvnx" path="res://Scripts/button.gd" id="1_3ui75"]
+[ext_resource type="Script" uid="uid://b2l8jd0y7jvnx" path="res://Scripts/interactive_button.gd" id="1_3ui75"]
 [ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Scenes/Vertical Slice/3d assetts/kitbash/button.res" id="1_vjrig"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3ui75"]

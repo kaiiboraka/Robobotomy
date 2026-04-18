@@ -1,10 +1,16 @@
 @tool
 class_name ButtonDoor
+## A [Door] that is easily wired up to [InteractiveButton] objects.
 extends Door
 
 enum TriggerMode { ANY_BUTTON, ALL_BUTTONS }
 
+## Trigger mode of this door.[br][br]
+## [b]Any Button:[/b] Any pressed button will open this door.[br][br]
+## [b]All Buttons:[/b] All buttons must be pressed to open this door.
 @export var trigger_mode: TriggerMode = TriggerMode.ALL_BUTTONS
+
+## An array of [InteractiveButton] objects to wire up to this door.
 @export var buttons: Array[InteractiveButton]
 # get:
 # 	return buttons
