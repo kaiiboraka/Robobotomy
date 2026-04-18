@@ -1,3 +1,53 @@
-[gd_scene format=3 uid="uid://d1ydw5gdb8xl8"]
+[gd_scene format=3 uid="uid://cqa5c7yb7ekhv"]
 
-[node name="LegTutorialSlice" type="Node3D" unique_id=820114638]
+[ext_resource type="PackedScene" uid="uid://ddrumnonhye7t" path="res://Scenes/Environment/interactive_button.tscn" id="1_bj40c"]
+[ext_resource type="PackedScene" uid="uid://gl5j7l3w6avc" path="res://Scenes/Environment/SimpleBox.tscn" id="2_7aweu"]
+[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/ExtendableWall.tscn" id="2_mhkff"]
+[ext_resource type="PackedScene" uid="uid://dgbf1jp5dsvcl" path="res://Scenes/Environment/button_door.tscn" id="2_xlcc5"]
+[ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scripts/Nameless/character.tscn" id="5_xlcc5"]
+
+[node name="LegTutorialSlice" type="Node3D" unique_id=1204578548]
+
+[node name="InteractiveButton" parent="." unique_id=1643418655 instance=ExtResource("1_bj40c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.965, 1.0420258, 0)
+
+[node name="InteractiveButton2" parent="." unique_id=283989706 instance=ExtResource("1_bj40c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.352515, 1.0420258, 0)
+
+[node name="InteractiveButton3" parent="." unique_id=315825878 instance=ExtResource("1_bj40c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.945118, 3.1417682, 0)
+
+[node name="ButtonDoor" parent="." unique_id=1709040343 node_paths=PackedStringArray("buttons") instance=ExtResource("2_xlcc5")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 12, 0)
+buttons = [NodePath("../InteractiveButton"), NodePath("../InteractiveButton2"), NodePath("../InteractiveButton3")]
+motor_velocity = 100.0
+
+[node name="ButtonDoor2" parent="." unique_id=1209403573 node_paths=PackedStringArray("buttons") instance=ExtResource("2_xlcc5")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 10, 11.999999, 0)
+buttons = [NodePath("../InteractiveButton"), NodePath("../InteractiveButton2"), NodePath("../InteractiveButton3")]
+flipped = true
+motor_velocity = 100.0
+
+[node name="Simple Box" parent="." unique_id=116129210 instance=ExtResource("2_7aweu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.166895, 13.1000805, 0)
+
+[node name="ExtendableWall26" parent="." unique_id=1149585584 instance=ExtResource("2_mhkff")]
+transform = Transform3D(0.9097594, 0, 0, 0, 7.839968, 0, 0, 0, 1, -15.945015, 15.790527, -1.9073484e-06)
+
+[node name="ExtendableWall27" parent="." unique_id=1511538964 instance=ExtResource("2_mhkff")]
+transform = Transform3D(1.1711715, 0, 0, 0, 24.348171, 0, 0, 0, 1, 30.631088, 24.104067, -1.9073484e-06)
+
+[node name="ExtendableWall23" parent="." unique_id=1577522391 instance=ExtResource("2_mhkff")]
+transform = Transform3D(1.2254609, 0, 0, 0, 23.018723, 0, 0, 0, 1, 8.099945, -10.682136, -1.9073484e-06)
+
+[node name="ExtendableWall25" parent="." unique_id=518825628 instance=ExtResource("2_mhkff")]
+transform = Transform3D(0.106388226, 0, 0, 0, 5.2363014, 0, 0, 0, 1, 21.10852, 0.28943586, -3.814697e-06)
+
+[node name="Character" parent="." unique_id=1583363387 instance=ExtResource("5_xlcc5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.658535, 0.8526833, 0)
+
+[node name="Simple Box2" parent="." unique_id=1553094080 instance=ExtResource("2_7aweu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5745583, 4.1037464, 0)
+
+[node name="Simple Box3" parent="." unique_id=1911895409 instance=ExtResource("2_7aweu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.874338, 4.4690285, 0)
