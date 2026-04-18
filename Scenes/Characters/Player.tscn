@@ -14,6 +14,7 @@ height = 3.0
 
 [node name="Player" type="CharacterBody3D" unique_id=64555096]
 script = ExtResource("1_qkgjm")
+throw_force = 100.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=289070969]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
@@ -21,6 +22,7 @@ shape = SubResource("CapsuleShape3D_player")
 
 [node name="Head" parent="." unique_id=1371523250 instance=ExtResource("2_w6cdd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4171078, 0)
+retract_speed = 10.0
 
 [node name="Torso" parent="." unique_id=381647224 instance=ExtResource("3_b4kmf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4630456, 0)
@@ -41,8 +43,7 @@ script = ExtResource("3_w38he")
 roll_speed = 7.0
 jump_force = 10.0
 max_angular_velocity = 12.0
-is_part_enabled = true
-retract_speed = 5
+retract_speed = 5.0
 
 [node name="LeftArm" parent="." unique_id=1892609314 instance=ExtResource("5_5kd0c")]
 process_mode = 4
@@ -51,8 +52,7 @@ script = ExtResource("3_w38he")
 roll_speed = 7.0
 jump_force = 10.0
 max_angular_velocity = 12.0
-is_part_enabled = true
-retract_speed = 5
+retract_speed = 5.0
 
 [node name="RightLeg" parent="." unique_id=478996792 instance=ExtResource("6_aal88")]
 process_mode = 4
@@ -61,8 +61,7 @@ script = ExtResource("3_w38he")
 roll_speed = 7.0
 jump_force = 10.0
 max_angular_velocity = 12.0
-is_part_enabled = true
-retract_speed = 5
+retract_speed = 5.0
 
 [node name="LeftLeg" parent="." unique_id=156984842 instance=ExtResource("7_4opfx")]
 process_mode = 4
@@ -71,5 +70,4 @@ script = ExtResource("3_w38he")
 roll_speed = 7.0
 jump_force = 10.0
 max_angular_velocity = 12.0
-is_part_enabled = true
-retract_speed = 5
+retract_speed = 5.0
