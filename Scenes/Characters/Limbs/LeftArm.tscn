@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cy38n2iex4csr" path="res://Scripts/Real Player Script/LeftArm.cs" id="1_7lajw"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_7lajw"]
-[ext_resource type="ArrayMesh" uid="uid://sonjf7e31t6f" path="res://Assets/Robobotomy Art/3D/Character/Arm Left.res" id="3_my4g3"]
+[ext_resource type="ArrayMesh" uid="uid://bx2adqe32ucw1" path="res://Assets/Robobotomy Art/3D/Character/Arm Left.res" id="3_my4g3"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_rk8tc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtqub"]
@@ -16,8 +16,8 @@ height = 1.5945282
 script = ExtResource("3_rk8tc")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w24nb"]
-radius = 0.13232422
-height = 1.4954491
+radius = 0.12890625
+height = 1.5654297
 
 [node name="LeftArm" type="RigidBody3D" unique_id=1281946609]
 collision_layer = 3
@@ -46,5 +46,5 @@ collision_layer = 0
 collision_mask = 12
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="JumpArea" unique_id=1983442455]
-transform = Transform3D(-5.367009e-08, -1.079131, 0, 1.2278285, -4.7170314e-08, 0, 0, 0, 1.2817864, -0.008926742, 0.06085655, 0)
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.008926742, 0.06085655, 0)
 shape = SubResource("CapsuleShape3D_w24nb")

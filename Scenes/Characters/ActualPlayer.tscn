@@ -19,7 +19,6 @@ speed = 10
 
 [node name="Torso" parent="." unique_id=381647224 instance=ExtResource("4_487q6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4630456, 0)
-speed = 10
 
 [node name="Label3D" type="Label3D" parent="Torso" unique_id=1353181972]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13185143, 0.88159037)

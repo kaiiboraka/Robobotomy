@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dxubgecu6o687"]
 
 [ext_resource type="Script" uid="uid://bsxbso7jgeoam" path="res://Scripts/Real Player Script/Head.cs" id="1_rtqub"]
-[ext_resource type="ArrayMesh" uid="uid://cjf6324723t5d" path="res://Assets/Robobotomy Art/3D/Character/Head.res" id="2_rtqub"]
+[ext_resource type="ArrayMesh" uid="uid://c8kdmnehigaay" path="res://Assets/Robobotomy Art/3D/Character/Head.res" id="2_rtqub"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_jwmhq"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_a61vf"]
 
