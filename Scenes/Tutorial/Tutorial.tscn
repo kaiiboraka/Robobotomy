@@ -141,54 +141,64 @@ mesh = SubResource("BoxMesh_0yr2e")
 transform = Transform3D(-0.3388159, -3.003021, 0, 16.589762, -0.061331294, 0, 0, 0, 3.0036478, -29.128752, 10.718708, 0)
 mesh = SubResource("BoxMesh_0yr2e")
 
-[node name="puzzle1_Button" type="MeshInstance3D" parent="." unique_id=1268733982]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.236, -6.496, 0)
+[node name="Button3" type="MeshInstance3D" parent="." unique_id=1868534412]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.00963, 1.2439718, 0.20007515)
 mesh = ExtResource("2_n3ycm")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="puzzle1_Button" unique_id=1235738667]
+[node name="torso1_button_system" type="Node3D" parent="." unique_id=1742102010]
+
+[node name="torso1_button" type="MeshInstance3D" parent="torso1_button_system" unique_id=1268733982]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.236, -6.496, 0)
+mesh = ExtResource("2_n3ycm")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="torso1_button_system/torso1_button" unique_id=1235738667]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4901161e-08, 0)
 collision_layer = 2048
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="puzzle1_Button/StaticBody3D" unique_id=621034414]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="torso1_button_system/torso1_button/StaticBody3D" unique_id=621034414]
 shape = SubResource("BoxShape3D_7y28h")
 
-[node name="ButtonTriggerArea" type="Area3D" parent="puzzle1_Button/StaticBody3D" unique_id=527820814]
+[node name="ButtonTriggerArea" type="Area3D" parent="torso1_button_system/torso1_button/StaticBody3D" unique_id=527820814]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24720168, 0)
 collision_layer = 2048
 
-[node name="triggercollider" type="CollisionShape3D" parent="puzzle1_Button/StaticBody3D/ButtonTriggerArea" unique_id=1400719908]
+[node name="triggercollider" type="CollisionShape3D" parent="torso1_button_system/torso1_button/StaticBody3D/ButtonTriggerArea" unique_id=1400719908]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.074653625, 0.030944824, -0.030174255)
 shape = SubResource("BoxShape3D_2kgik")
 debug_color = Color(0, 1.3930205, 1.6095817, 1)
 
-[node name="puzzle1_path" type="Path3D" parent="." unique_id=813572154]
+[node name="torso1_path" type="Path3D" parent="torso1_button_system" unique_id=813572154]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.300526, 3.8740988, -0.07102585)
 curve = SubResource("Curve3D_2kgik")
 script = ExtResource("5_7y28h")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="puzzle1_path" unique_id=246251205]
+[node name="PathFollow3D" type="PathFollow3D" parent="torso1_button_system/torso1_path" unique_id=246251205]
 transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 0, 0, 0)
 rotation_mode = 0
 
-[node name="RemoteTransform3D" type="RemoteTransform3D" parent="puzzle1_path/PathFollow3D" unique_id=1734644006]
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="torso1_button_system/torso1_path/PathFollow3D" unique_id=1734644006]
 remote_path = NodePath("../../AnimatableBody3D")
 
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="puzzle1_path" unique_id=1024270087]
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="torso1_button_system/torso1_path" unique_id=1024270087]
 transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 0, 0, 0)
 collision_layer = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="puzzle1_path/AnimatableBody3D" unique_id=1578688411]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="torso1_button_system/torso1_path/AnimatableBody3D" unique_id=1578688411]
 transform = Transform3D(0.002181723, 0.9999976, 0, -0.9999976, 0.002181723, 0, 0, 0, 1, -0.06350708, -0.053772926, -0.0041503906)
 shape = SubResource("BoxShape3D_44la1")
 
-[node name="puzzle1_door" type="MeshInstance3D" parent="puzzle1_path/AnimatableBody3D" unique_id=1559116883]
+[node name="puzzle1_door" type="MeshInstance3D" parent="torso1_button_system/torso1_path/AnimatableBody3D" unique_id=1559116883]
 transform = Transform3D(0.048187245, 4.1339846, 0, -22.087118, 0.009019064, 0, 0, 0, 2.563194, 0, 9.536743e-07, 0)
 mesh = SubResource("BoxMesh_0yr2e")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 
-[node name="Button3" type="MeshInstance3D" parent="." unique_id=1868534412]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.00963, 1.2439718, 0.20007515)
+[node name="torso2_button_system" type="Node3D" parent="." unique_id=1672900251]
+
+[node name="torso2_button" type="MeshInstance3D" parent="torso2_button_system" unique_id=1186537179]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.70453, -6.4960213, 0.20007515)
 mesh = ExtResource("2_n3ycm")
+skeleton = NodePath("../..")
 
 [node name="Button4" type="MeshInstance3D" parent="." unique_id=1323590491]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180.57266, 1.2439718, 0.20007515)
@@ -224,10 +234,6 @@ mesh = ExtResource("2_n3ycm")
 
 [node name="Button9" type="MeshInstance3D" parent="." unique_id=1454829262]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 406.37277, 18.853584, 0.20007515)
-mesh = ExtResource("2_n3ycm")
-
-[node name="Button2" type="MeshInstance3D" parent="." unique_id=1186537179]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.70453, -6.4960213, 0.20007515)
 mesh = ExtResource("2_n3ycm")
 
 [node name="Pipe1Long" type="MeshInstance3D" parent="." unique_id=54136436]
@@ -769,5 +775,5 @@ transform = Transform3D(0.28612438, 0, 0, 0, 1.3816589, 0, 0, 0, 1, 85.37594, -9
 [node name="ExtendableWall10" parent="Walls" unique_id=1194153818 instance=ExtResource("1_w7w38")]
 transform = Transform3D(0.28612438, 0, 0, 0, 1.3816589, 0, 0, 0, 1, 85.37594, 19.804827, 1.9073486e-06)
 
-[connection signal="body_entered" from="puzzle1_Button/StaticBody3D/ButtonTriggerArea" to="puzzle1_path" method="_on_activated"]
-[connection signal="body_exited" from="puzzle1_Button/StaticBody3D/ButtonTriggerArea" to="puzzle1_path" method="_on_deactivated"]
+[connection signal="body_entered" from="torso1_button_system/torso1_button/StaticBody3D/ButtonTriggerArea" to="torso1_button_system/torso1_path" method="_on_activated"]
+[connection signal="body_exited" from="torso1_button_system/torso1_button/StaticBody3D/ButtonTriggerArea" to="torso1_button_system/torso1_path" method="_on_deactivated"]
