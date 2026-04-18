@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dodbf8xbi1m1"]
 
-[ext_resource type="Script" uid="uid://dx5u6yigdna1g" path="res://Scripts/Real Player Script/ActualPlayer.cs" id="1_1rcpu"]
+[ext_resource type="Script" uid="uid://vjfl7xev4i4c" path="res://Scripts/Real Player Script/actual_player.gd" id="1_1rcpu"]
 [ext_resource type="PackedScene" uid="uid://clesw0vcam4s2" path="res://Scenes/Characters/Limbs/LeftArm.tscn" id="2_yjb03"]
 [ext_resource type="PackedScene" uid="uid://f0oommypkm0i" path="res://Scenes/Characters/Limbs/LeftLeg.tscn" id="3_26nah"]
 [ext_resource type="PackedScene" uid="uid://dgoqhuaqsm30g" path="res://Scenes/Characters/Limbs/torso.tscn" id="4_487q6"]
@@ -10,8 +10,15 @@
 [ext_resource type="Script" uid="uid://m65d7iwmd4m6" path="res://Scripts/Nameless/StateMachine/player_state_machine.gd" id="8_yjb03"]
 [ext_resource type="Script" uid="uid://bjtnes8q1l5pw" path="res://Scripts/Nameless/StateMachine/idle_state.gd" id="9_26nah"]
 
-[node name="Player" type="Node3D" unique_id=64555096]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
+height = 3.0
+
+[node name="Player" type="CharacterBody3D" unique_id=64555096]
 script = ExtResource("1_1rcpu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=289070969]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CapsuleShape3D_player")
 
 [node name="Head" parent="." unique_id=1371523250 instance=ExtResource("7_tfysi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4171078, 0)

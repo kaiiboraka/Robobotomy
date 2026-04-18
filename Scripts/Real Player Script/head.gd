@@ -4,8 +4,6 @@ extends BodyPart
 @export var jump_force = 10.0
 @export var max_angular_velocity = 12.0
 
-var limbs_attached = 0
-
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 
 func _ready():
@@ -25,10 +23,6 @@ func _physics_process(_delta):
 	if ray_cast_3d:
 		ray_cast_3d.rotation = -rotation;
 		
-	if limbs_attached == 0:
-		lock_rotation = false
-	else:
-		lock_rotation = true
 
 func _input(event: InputEvent) -> void:
 	if not is_part_enabled:
