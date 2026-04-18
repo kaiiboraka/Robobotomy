@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://i4qiyrnp6fqq"]
 
-[ext_resource type="PackedScene" path="res://Scenes/Environment/ExtendableWall.tscn" id="1_l4fje"]
+[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/ExtendableWall.tscn" id="1_l4fje"]
 [ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Scenes/Vertical Slice/3d assetts/kitbash/button.res" id="2_l4fje"]
-[ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scripts/Nameless/character.tscn" id="3_l4fje"]
+[ext_resource type="PackedScene" uid="uid://dgoqhuaqsm30g" path="res://Scenes/Characters/Limbs/torso.tscn" id="3_l4fje"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jadot"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -83,4 +83,4 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1194182074]
 shape = SubResource("ConvexPolygonShape3D_l4fje")
 
-[node name="Character" parent="." unique_id=1583363387 instance=ExtResource("3_l4fje")]
+[node name="Torso" parent="." unique_id=381647224 instance=ExtResource("3_l4fje")]
