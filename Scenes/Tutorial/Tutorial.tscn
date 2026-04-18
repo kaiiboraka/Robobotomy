@@ -1,19 +1,20 @@
 [gd_scene format=3 uid="uid://t48dk4ejgiod"]
 
+[ext_resource type="PackedScene" uid="uid://cs11rsjbm4jj8" path="res://Scenes/Characters/WhiteboxPlayer.tscn" id="1_vxw4a"]
 [ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/ExtendableWall.tscn" id="1_w7w38"]
 [ext_resource type="Script" uid="uid://dvhdc084jl6xm" path="res://Scripts/Tools/test_camera.gd" id="2_0yr2e"]
-[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Scenes/Vertical Slice/3d assetts/kitbash/button.res" id="2_n3ycm"]
-[ext_resource type="PackedScene" uid="uid://caj74qdlqfqfr" path="res://Assets/Models/NamelessV07.fbx" id="3_w7w38"]
-[ext_resource type="ArrayMesh" uid="uid://c7la0fp3apuk0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spurlargebore.res" id="5_q5gud"]
-[ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_long.res" id="6_tq6py"]
+[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Assets/Robobotomy Art/3D/Objects/button.res" id="2_n3ycm"]
+[ext_resource type="Script" uid="uid://em4mouur2y8r" path="res://Scripts/jacob_movable_object_2.gd" id="5_7y28h"]
+[ext_resource type="ArrayMesh" uid="uid://c7la0fp3apuk0" path="res://Assets/Robobotomy Art/3D/Objects/gear_spurlargebore.res" id="5_q5gud"]
+[ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Assets/Robobotomy Art/3D/Objects/pipe1_long.res" id="6_tq6py"]
 [ext_resource type="ArrayMesh" uid="uid://c8kdmnehigaay" path="res://Assets/Robobotomy Art/3D/Character/Head.res" id="7_7ovnm"]
-[ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Scenes/Vertical Slice/3d assetts/kitbash/scaffold.res" id="8_q5gud"]
+[ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Assets/Robobotomy Art/3D/Objects/scaffold.res" id="8_q5gud"]
 [ext_resource type="ArrayMesh" uid="uid://d1rjejthugc4a" path="res://Assets/Robobotomy Art/3D/Character/Leg Left.res" id="10_q5gud"]
-[ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Scenes/Vertical Slice/3d assetts/kitbash/terminal.res" id="11_we8fy"]
+[ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Assets/Robobotomy Art/3D/Objects/terminal.res" id="11_we8fy"]
 [ext_resource type="PackedScene" uid="uid://clesw0vcam4s2" path="res://Scenes/Characters/Limbs/LeftArm.tscn" id="12_vxw4a"]
-[ext_resource type="ArrayMesh" uid="uid://c0ojvrv4euw0g" path="res://Scenes/Vertical Slice/3d assetts/kitbash/monkeybar_med1.res" id="13_7y28h"]
+[ext_resource type="ArrayMesh" uid="uid://c0ojvrv4euw0g" path="res://Assets/Robobotomy Art/3D/Objects/monkeybar_med1.res" id="13_7y28h"]
 [ext_resource type="PackedScene" uid="uid://0nxi375snik3" path="res://Scenes/Characters/Limbs/RightArm.tscn" id="14_vxw4a"]
-[ext_resource type="ArrayMesh" uid="uid://bw43rtwbo6wcp" path="res://Scenes/Vertical Slice/3d assetts/kitbash/lever.res" id="15_7y28h"]
+[ext_resource type="ArrayMesh" uid="uid://bw43rtwbo6wcp" path="res://Assets/Robobotomy Art/3D/Objects/lever.res" id="15_7y28h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0yr2e"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -33,6 +34,34 @@ volumetric_fog_density = 0.0005
 
 [sub_resource type="BoxMesh" id="BoxMesh_0yr2e"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7y28h"]
+size = Vector3(2.9142122, 0.43690437, 2.9142122)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2kgik"]
+size = Vector3(1.9712486, 1.0618896, 1.8465729)
+
+[sub_resource type="Curve3D" id="Curve3D_2kgik"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0446167, 4.824067, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_44la1"]
+size = Vector3(22.157501, 4.137268, 2.6489258)
+
+[sub_resource type="Curve3D" id="Curve3D_7y28h"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -6.423961, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_7y28h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1e0ns"]
+size = Vector3(8.279724, 1, 3.543335)
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_wspkt"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_2kgik"]
@@ -42,15 +71,15 @@ volumetric_fog_density = 0.0005
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=223076818]
 environment = SubResource("Environment_w7w38")
 
-[node name="Nameless2" type="Camera3D" parent="." unique_id=735426219]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8574982, 2.6669006, 17.684376)
+[node name="WhiteboxPlayer" parent="." unique_id=1178845950 instance=ExtResource("1_vxw4a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6404724, 1.8705521, 0)
+
+[node name="Nameless2" type="Camera3D" parent="WhiteboxPlayer" unique_id=735426219]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.684)
 fov = 50.0
 script = ExtResource("2_0yr2e")
 moveSpeed = 0.05
 wheelSpeed = 0.05
-
-[node name="NamelessV07" parent="Nameless2" unique_id=1885040782 instance=ExtResource("3_w7w38")]
-transform = Transform3D(43.92964, 0, 89.83421, 0, 100, 0, -89.83421, 0, 43.92964, -1.4419823, -1.696732, -17.77098)
 
 [node name="Cube" type="MeshInstance3D" parent="." unique_id=706546655]
 transform = Transform3D(45.151505, 0, 0, 0, 3.0036473, 0, 0, 0, 3.0036473, 25.06205, 12.244542, 0)
@@ -116,10 +145,6 @@ mesh = SubResource("BoxMesh_0yr2e")
 transform = Transform3D(2.4288237, -0.16181956, 0, 0.036331758, 10.817841, 0, 0, 0, 1.1932049, 147.90515, 5.054297, -0.7901329)
 mesh = SubResource("BoxMesh_0yr2e")
 
-[node name="Cube4" type="MeshInstance3D" parent="." unique_id=1559116883]
-transform = Transform3D(0.07786322, 3.0036402, 0, -35.689377, 0.006553024, 0, 0, 0, 3.0036473, 49.24379, 11.87004, 0)
-mesh = SubResource("BoxMesh_0yr2e")
-
 [node name="Cube2" type="MeshInstance3D" parent="." unique_id=384110039]
 transform = Transform3D(21.137255, 0, 0, 0, 7.827707, 0, 0, 0, 3.0036473, -16.833271, 14.71226, 0)
 mesh = SubResource("BoxMesh_0yr2e")
@@ -128,13 +153,111 @@ mesh = SubResource("BoxMesh_0yr2e")
 transform = Transform3D(-0.3388159, -3.003021, 0, 16.589762, -0.061331294, 0, 0, 0, 3.0036478, -29.128752, 10.718708, 0)
 mesh = SubResource("BoxMesh_0yr2e")
 
-[node name="Button" type="MeshInstance3D" parent="." unique_id=1268733982]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.2355, -6.4960213, 0.20007515)
-mesh = ExtResource("2_n3ycm")
-
 [node name="Button3" type="MeshInstance3D" parent="." unique_id=1868534412]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.00963, 1.2439718, 0.20007515)
 mesh = ExtResource("2_n3ycm")
+
+[node name="torso1_button_system" type="Node3D" parent="." unique_id=1742102010]
+
+[node name="torso1_button" type="MeshInstance3D" parent="torso1_button_system" unique_id=1268733982]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.236, -6.496, 0)
+mesh = ExtResource("2_n3ycm")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="torso1_button_system/torso1_button" unique_id=1235738667]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4901161e-08, 0)
+collision_layer = 2048
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="torso1_button_system/torso1_button/StaticBody3D" unique_id=621034414]
+shape = SubResource("BoxShape3D_7y28h")
+
+[node name="ButtonTriggerArea" type="Area3D" parent="torso1_button_system/torso1_button/StaticBody3D" unique_id=527820814]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24720168, 0)
+collision_layer = 2048
+
+[node name="triggercollider" type="CollisionShape3D" parent="torso1_button_system/torso1_button/StaticBody3D/ButtonTriggerArea" unique_id=1400719908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.074653625, 0.030944824, -0.030174255)
+shape = SubResource("BoxShape3D_2kgik")
+debug_color = Color(0, 1.3930205, 1.6095817, 1)
+
+[node name="torso1_path" type="Path3D" parent="torso1_button_system" unique_id=813572154]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.300526, 3.8740988, -0.07102585)
+curve = SubResource("Curve3D_2kgik")
+script = ExtResource("5_7y28h")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="torso1_button_system/torso1_path" unique_id=246251205]
+transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 0, 0, 0)
+rotation_mode = 0
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="torso1_button_system/torso1_path/PathFollow3D" unique_id=1734644006]
+remote_path = NodePath("../../AnimatableBody3D")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="torso1_button_system/torso1_path" unique_id=1024270087]
+transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 0, 0, 0)
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="torso1_button_system/torso1_path/AnimatableBody3D" unique_id=1578688411]
+transform = Transform3D(0.002181723, 0.9999976, 0, -0.9999976, 0.002181723, 0, 0, 0, 1, -0.06350708, -0.053772926, -0.0041503906)
+shape = SubResource("BoxShape3D_44la1")
+
+[node name="puzzle1_door" type="MeshInstance3D" parent="torso1_button_system/torso1_path/AnimatableBody3D" unique_id=1559116883]
+transform = Transform3D(0.048187245, 4.1339846, 0, -22.087118, 0.009019064, 0, 0, 0, 2.563194, 0, 9.536743e-07, 0)
+mesh = SubResource("BoxMesh_0yr2e")
+skeleton = NodePath("../../../..")
+
+[node name="torso2_button_system" type="Node3D" parent="." unique_id=1672900251]
+
+[node name="torso2_button" type="MeshInstance3D" parent="torso2_button_system" unique_id=1186537179]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.70453, -6.4960213, 0.20007515)
+mesh = ExtResource("2_n3ycm")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="torso2_button_system/torso2_button" unique_id=951405463]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4901161e-08, 0)
+collision_layer = 2048
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="torso2_button_system/torso2_button/StaticBody3D" unique_id=31160751]
+shape = SubResource("BoxShape3D_7y28h")
+
+[node name="ButtonTriggerArea" type="Area3D" parent="torso2_button_system/torso2_button/StaticBody3D" unique_id=1396780384]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24720168, 0)
+collision_layer = 2048
+
+[node name="triggercollider" type="CollisionShape3D" parent="torso2_button_system/torso2_button/StaticBody3D/ButtonTriggerArea" unique_id=46259668]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.074653625, 0.030944824, -0.030174255)
+shape = SubResource("BoxShape3D_2kgik")
+debug_color = Color(0, 1.3930205, 1.6095817, 1)
+
+[node name="torso2_path" type="Path3D" parent="torso2_button_system" unique_id=1283913192]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.246, -2.942906, 0)
+curve = SubResource("Curve3D_7y28h")
+script = ExtResource("5_7y28h")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="torso2_button_system/torso2_path" unique_id=1548498530]
+transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 0, 0, 0)
+rotation_mode = 0
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="torso2_button_system/torso2_path/PathFollow3D" unique_id=101336101]
+remote_path = NodePath("../../AnimatableBody3D")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="torso2_button_system/torso2_path" unique_id=197505201]
+transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 0, 0, 0)
+collision_layer = 4
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="torso2_button_system/torso2_path/AnimatableBody3D" unique_id=564392061]
+transform = Transform3D(8.320557, 0, 0, 0, 0.99999964, 0, 0, 0, 3.501731, 0, 0, 0)
+mesh = SubResource("BoxMesh_7y28h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="torso2_button_system/torso2_path/AnimatableBody3D" unique_id=2009609001]
+shape = SubResource("BoxShape3D_1e0ns")
+
+[node name="Cylindar" type="MeshInstance3D" parent="torso2_button_system/torso2_path/AnimatableBody3D" unique_id=1949246632]
+transform = Transform3D(0.443, 0, 0, 0, 14, 0, 0, 0, 0.443, -3.5, 14, -1.283)
+mesh = SubResource("CylinderMesh_wspkt")
+
+[node name="Cylindar2" type="MeshInstance3D" parent="torso2_button_system/torso2_path/AnimatableBody3D" unique_id=1693599265]
+transform = Transform3D(0.443, 0, 0, 0, 14, 0, 0, 0, 0.443, 3.5, 14, -1.283)
+mesh = SubResource("CylinderMesh_wspkt")
 
 [node name="Button4" type="MeshInstance3D" parent="." unique_id=1323590491]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180.57266, 1.2439718, 0.20007515)
@@ -170,10 +293,6 @@ mesh = ExtResource("2_n3ycm")
 
 [node name="Button9" type="MeshInstance3D" parent="." unique_id=1454829262]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 406.37277, 18.853584, 0.20007515)
-mesh = ExtResource("2_n3ycm")
-
-[node name="Button2" type="MeshInstance3D" parent="." unique_id=1186537179]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.70453, -6.4960213, 0.20007515)
 mesh = ExtResource("2_n3ycm")
 
 [node name="Pipe1Long" type="MeshInstance3D" parent="." unique_id=54136436]
@@ -341,14 +460,6 @@ text = "13
 [node name="Head" type="MeshInstance3D" parent="." unique_id=910629086]
 transform = Transform3D(76.16809, -27.610252, 58.61822, 25.277353, 95.96059, 12.353983, -59.66136, 5.407343, 80.070496, -46.931637, 0.98298377, -0.09438473)
 mesh = ExtResource("7_7ovnm")
-
-[node name="Cylindar" type="MeshInstance3D" parent="." unique_id=1351586684]
-transform = Transform3D(0.4675058, 0, 0, 0, 14.780889, 0, 0, 0, 0.4675058, 81.86611, 4.9302473, -1.2834095)
-mesh = SubResource("CylinderMesh_wspkt")
-
-[node name="Cylindar2" type="MeshInstance3D" parent="." unique_id=1717525403]
-transform = Transform3D(0.4675058, 0, 0, 0, 14.780889, 0, 0, 0, 0.4675058, 89.41218, 4.9302473, -1.2834095)
-mesh = SubResource("CylinderMesh_wspkt")
 
 [node name="Cylindar3" type="MeshInstance3D" parent="." unique_id=1804994534]
 transform = Transform3D(2.4944754, 0, 0, 0, -0.12685908, 2.6576397, 0, -2.0057542, -0.16808927, 81.86611, 19.756306, 0.3186996)
@@ -709,8 +820,10 @@ transform = Transform3D(-0.0455623, 0, 0, 0, 1.7232804, 0, 0, 0, 1, 246.48114, -
 [node name="ExtendableWall18" parent="Walls" unique_id=1910791061 instance=ExtResource("1_w7w38")]
 transform = Transform3D(0.12166471, 0, 0, 0, 2.594142, 0, 0, 0, 1, 253.13095, -2.5343683, -1.9073484e-06)
 
-[node name="ExtendableWall9" parent="Walls" unique_id=451231304 instance=ExtResource("1_w7w38")]
-transform = Transform3D(0.28612438, 0, 0, 0, 1.3816589, 0, 0, 0, 1, 85.37594, -9.66765, 1.9073486e-06)
-
 [node name="ExtendableWall10" parent="Walls" unique_id=1194153818 instance=ExtResource("1_w7w38")]
 transform = Transform3D(0.28612438, 0, 0, 0, 1.3816589, 0, 0, 0, 1, 85.37594, 19.804827, 1.9073486e-06)
+
+[connection signal="body_entered" from="torso1_button_system/torso1_button/StaticBody3D/ButtonTriggerArea" to="torso1_button_system/torso1_path" method="_on_activated"]
+[connection signal="body_exited" from="torso1_button_system/torso1_button/StaticBody3D/ButtonTriggerArea" to="torso1_button_system/torso1_path" method="_on_deactivated"]
+[connection signal="body_entered" from="torso2_button_system/torso2_button/StaticBody3D/ButtonTriggerArea" to="torso2_button_system/torso2_path" method="_on_activated"]
+[connection signal="body_exited" from="torso2_button_system/torso2_button/StaticBody3D/ButtonTriggerArea" to="torso2_button_system/torso2_path" method="_on_deactivated"]
