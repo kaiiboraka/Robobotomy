@@ -56,10 +56,26 @@ func throw(impulse: Vector3):
 	apply_central_impulse(impulse)
 
 func retract():
-	var move_tween = create_tween()
+	var initial_global_pos = global_position
 	disable_part()
+	top_level = true # Keep in world space during flight
 	is_detached = false
-	# Distance-based duration for consistent speed
-	var dist = global_position.distance_to(core.global_position + core.basis * starting_position)
-	move_tween.tween_property(self, "position", starting_position, dist / retract_speed)
+	
+	var target_start = core.global_transform * starting_position
+	var dist = initial_global_pos.distance_to(target_start)
+	var duration = dist / retract_speed
+	if duration <= 0: duration = 0.01
+	
+	var move_tween = create_tween()
+	# Tween a factor from 0 to 1 and lerp global_position to track the moving core
+	move_tween.tween_method(
+		func(t): global_position = initial_global_pos.lerp(core.global_transform * starting_position, t)
+		, 0.0, 1.0, duration
+	)
+	
+	move_tween.finished.connect(
+		func():
+			top_level = false
+			position = starting_position
+	)
 	return move_tween

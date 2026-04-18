@@ -34,17 +34,17 @@ func _ready():
 func _input(event: InputEvent) -> void:
 	# Selection switching
 	if event is InputEventKey and event.pressed:
-		if event.keycode == KEY_QUOTELEFT: # Backtick key
+		if event.is_action_pressed("Player_SelectLimb0_Torso"): # Backtick key
 			select_limb(torso)
-		elif event.is_action_pressed("Number1"):
+		elif event.is_action_pressed("Player_SelectLimb1_Head"):
 			select_limb(head)
-		elif event.is_action_pressed("Number2"):
+		elif event.is_action_pressed("Player_SelectLimb2_L_Arm"):
 			select_limb(l_arm)
-		elif event.is_action_pressed("Number3"):
+		elif event.is_action_pressed("Player_SelectLimb3_R_Arm"):
 			select_limb(r_arm)
-		elif event.is_action_pressed("Number4"):
+		elif event.is_action_pressed("Player_SelectLimb4_L_Leg"):
 			select_limb(l_leg)
-		elif event.is_action_pressed("Number5"):
+		elif event.is_action_pressed("Player_SelectLimb5_R_Leg"):
 			select_limb(r_leg)
 
 	# Throwing logic

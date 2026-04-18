@@ -14,7 +14,7 @@ height = 3.0
 
 [node name="Player" type="CharacterBody3D" unique_id=64555096]
 script = ExtResource("1_qkgjm")
-throw_force = 100.0
+throw_force = 50.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=289070969]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
