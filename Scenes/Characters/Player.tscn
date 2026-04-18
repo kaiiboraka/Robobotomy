@@ -8,9 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://clesw0vcam4s2" path="res://Scenes/Characters/Limbs/LeftArm.tscn" id="5_5kd0c"]
 [ext_resource type="PackedScene" uid="uid://f0oommypkm0i" path="res://Scenes/Characters/Limbs/LeftLeg.tscn" id="6_aal88"]
 [ext_resource type="PackedScene" uid="uid://ep2c8eoh0i32" path="res://Scenes/Characters/Limbs/RightLeg.tscn" id="7_4opfx"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="9_meglp"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="9_shd1k"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="10_5kd0c"]
+[ext_resource type="Resource" uid="uid://odcgk1h80sk0" path="res://Assets/Resources/Camera3DSettings.tres" id="11_aal88"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
 height = 3.0
+
+[sub_resource type="Resource" id="Resource_4opfx"]
+script = ExtResource("10_5kd0c")
 
 [node name="Player" type="CharacterBody3D" unique_id=64555096]
 script = ExtResource("1_qkgjm")
@@ -71,3 +78,23 @@ roll_speed = 7.0
 jump_force = 10.0
 max_angular_velocity = 12.0
 retract_speed = 5.0
+
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1704350181]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.7423797, 24.223686)
+top_level = true
+script = ExtResource("9_shd1k")
+follow_mode = 3
+tween_resource = SubResource("Resource_4opfx")
+camera_3d_resource = ExtResource("11_aal88")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=470310246]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4171078, 14.825453)
+fov = 45.0
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=2018306125]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("9_meglp")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"

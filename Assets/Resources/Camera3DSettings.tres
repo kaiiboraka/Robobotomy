@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Camera3DResource" format=3 uid="uid://odcgk1h80sk0"]
+
+[ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="1_20qxw"]
+
+[resource]
+script = ExtResource("1_20qxw")
+fov = 45.0
+metadata/_custom_type_script = "uid://b8hhnqsugykly"

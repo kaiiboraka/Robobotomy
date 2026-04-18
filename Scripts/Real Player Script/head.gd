@@ -4,6 +4,8 @@ extends BodyPart
 @export var jump_force = 10.0
 @export var max_angular_velocity = 12.0
 
+@export var stabilize_threshold = 5.0;
+
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 
 func _ready():
@@ -15,13 +17,20 @@ func _ready():
 	axis_lock_angular_x = true
 	axis_lock_angular_y = true
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	if not is_part_enabled:
 		return
-		
+
+	# Unlock rotation so the head can roll when active
+	lock_rotation = false
+
 	# Enable/disable rotation based on attached limbs.
 	if ray_cast_3d:
 		ray_cast_3d.rotation = -rotation;
+
+	# Auto-stabilize when no movement input is given
+	if not Input.is_action_pressed("Player_Move_Right") and not Input.is_action_pressed("Player_Move_Left"):
+		stabilize_upright(delta, stabilize_threshold)
 		
 
 func _input(event: InputEvent) -> void:
