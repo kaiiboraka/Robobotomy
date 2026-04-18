@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/ExtendableWall.tscn" id="1_w7w38"]
 [ext_resource type="Script" uid="uid://dvhdc084jl6xm" path="res://Scripts/Tools/test_camera.gd" id="2_0yr2e"]
 [ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Assets/Robobotomy Art/3D/Objects/button.res" id="2_n3ycm"]
+[ext_resource type="Script" uid="uid://em4mouur2y8r" path="res://Scripts/jacob_movable_object_2.gd" id="5_7y28h"]
 [ext_resource type="ArrayMesh" uid="uid://c7la0fp3apuk0" path="res://Assets/Robobotomy Art/3D/Objects/gear_spurlargebore.res" id="5_q5gud"]
 [ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Assets/Robobotomy Art/3D/Objects/pipe1_long.res" id="6_tq6py"]
 [ext_resource type="ArrayMesh" uid="uid://c8kdmnehigaay" path="res://Assets/Robobotomy Art/3D/Character/Head.res" id="7_7ovnm"]
@@ -32,6 +33,22 @@ volumetric_fog_enabled = true
 volumetric_fog_density = 0.0005
 
 [sub_resource type="BoxMesh" id="BoxMesh_0yr2e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7y28h"]
+size = Vector3(2.9142122, 0.43690437, 2.9142122)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2kgik"]
+size = Vector3(1.9712486, 1.0618896, 1.8465729)
+
+[sub_resource type="Curve3D" id="Curve3D_2kgik"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.06499863, 10.038112, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_44la1"]
+size = Vector3(22.157501, 4.137268, 2.6489258)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_wspkt"]
 
@@ -116,10 +133,6 @@ mesh = SubResource("BoxMesh_0yr2e")
 transform = Transform3D(2.4288237, -0.16181956, 0, 0.036331758, 10.817841, 0, 0, 0, 1.1932049, 147.90515, 5.054297, -0.7901329)
 mesh = SubResource("BoxMesh_0yr2e")
 
-[node name="Cube4" type="MeshInstance3D" parent="." unique_id=1559116883]
-transform = Transform3D(0.07786322, 3.0036402, 0, -35.689377, 0.006553024, 0, 0, 0, 3.0036473, 49.24379, 11.87004, 0)
-mesh = SubResource("BoxMesh_0yr2e")
-
 [node name="Cube2" type="MeshInstance3D" parent="." unique_id=384110039]
 transform = Transform3D(21.137255, 0, 0, 0, 7.827707, 0, 0, 0, 3.0036473, -16.833271, 14.71226, 0)
 mesh = SubResource("BoxMesh_0yr2e")
@@ -128,9 +141,50 @@ mesh = SubResource("BoxMesh_0yr2e")
 transform = Transform3D(-0.3388159, -3.003021, 0, 16.589762, -0.061331294, 0, 0, 0, 3.0036478, -29.128752, 10.718708, 0)
 mesh = SubResource("BoxMesh_0yr2e")
 
-[node name="Button" type="MeshInstance3D" parent="." unique_id=1268733982]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.2355, -6.4960213, 0.20007515)
+[node name="puzzle1_Button" type="MeshInstance3D" parent="." unique_id=1268733982]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.236, -6.496, 0)
 mesh = ExtResource("2_n3ycm")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="puzzle1_Button" unique_id=1235738667]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4901161e-08, 0)
+collision_layer = 2048
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="puzzle1_Button/StaticBody3D" unique_id=621034414]
+shape = SubResource("BoxShape3D_7y28h")
+
+[node name="ButtonTriggerArea" type="Area3D" parent="puzzle1_Button/StaticBody3D" unique_id=527820814]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24720168, 0)
+collision_layer = 2048
+
+[node name="triggercollider" type="CollisionShape3D" parent="puzzle1_Button/StaticBody3D/ButtonTriggerArea" unique_id=1400719908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.074653625, 0.030944824, -0.030174255)
+shape = SubResource("BoxShape3D_2kgik")
+debug_color = Color(0, 1.3930205, 1.6095817, 1)
+
+[node name="puzzle1_path" type="Path3D" parent="." unique_id=813572154]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.300526, 3.8740988, -0.07102585)
+curve = SubResource("Curve3D_2kgik")
+script = ExtResource("5_7y28h")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="puzzle1_path" unique_id=246251205]
+transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 0, 0, 0)
+rotation_mode = 0
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="puzzle1_path/PathFollow3D" unique_id=1734644006]
+remote_path = NodePath("../../AnimatableBody3D")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="puzzle1_path" unique_id=1024270087]
+transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 0, 0, 0)
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="puzzle1_path/AnimatableBody3D" unique_id=1578688411]
+transform = Transform3D(0.002181723, 0.9999976, 0, -0.9999976, 0.002181723, 0, 0, 0, 1, -0.06350708, -0.053772926, -0.0041503906)
+shape = SubResource("BoxShape3D_44la1")
+
+[node name="puzzle1_door" type="MeshInstance3D" parent="puzzle1_path/AnimatableBody3D" unique_id=1559116883]
+transform = Transform3D(0.048187245, 4.1339846, 0, -22.087118, 0.009019064, 0, 0, 0, 2.563194, 0, 9.536743e-07, 0)
+mesh = SubResource("BoxMesh_0yr2e")
+skeleton = NodePath("../../..")
 
 [node name="Button3" type="MeshInstance3D" parent="." unique_id=1868534412]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.00963, 1.2439718, 0.20007515)
@@ -714,3 +768,6 @@ transform = Transform3D(0.28612438, 0, 0, 0, 1.3816589, 0, 0, 0, 1, 85.37594, -9
 
 [node name="ExtendableWall10" parent="Walls" unique_id=1194153818 instance=ExtResource("1_w7w38")]
 transform = Transform3D(0.28612438, 0, 0, 0, 1.3816589, 0, 0, 0, 1, 85.37594, 19.804827, 1.9073486e-06)
+
+[connection signal="body_entered" from="puzzle1_Button/StaticBody3D/ButtonTriggerArea" to="puzzle1_path" method="_on_activated"]
+[connection signal="body_exited" from="puzzle1_Button/StaticBody3D/ButtonTriggerArea" to="puzzle1_path" method="_on_deactivated"]
