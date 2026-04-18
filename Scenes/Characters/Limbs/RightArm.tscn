@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://0nxi375snik3"]
 
 [ext_resource type="Script" uid="uid://n7s3i1v48ko5" path="res://Scripts/Real Player Script/RightArm.cs" id="1_udwiq"]
-[ext_resource type="ArrayMesh" uid="uid://kq87eyd2kskq" path="res://Assets/Robobotomy Art/3D/Character/Arm Right.res" id="3_fy5t7"]
+[ext_resource type="ArrayMesh" uid="uid://dpsy01yon86uj" path="res://Assets/Robobotomy Art/3D/Character/Arm Right.res" id="3_fy5t7"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_kslal"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_wx4t2"]
 
@@ -9,8 +9,8 @@
 albedo_color = Color(0.5092, 0.63784, 0.67, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8y70x"]
-radius = 0.14355469
-height = 1.5878906
+radius = 0.16503906
+height = 1.5945282
 
 [sub_resource type="Resource" id="Resource_bcp5y"]
 script = ExtResource("4_wx4t2")
