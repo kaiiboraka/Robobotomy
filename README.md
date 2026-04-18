@@ -2,7 +2,7 @@
 
 ## Current Project Focus
 
-Vertical Slice / Demo. This means polished tutorial area with puzzles for each limg, and art to accompany it.
+Vertical Slice / Demo. This means polished tutorial area with puzzles for each limb, and art to accompany it.
 
 ## Controls
 
