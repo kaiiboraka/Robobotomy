@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dxubgecu6o687"]
 
-[ext_resource type="Script" uid="uid://bsxbso7jgeoam" path="res://Scripts/Real Player Script/Head.cs" id="1_rtqub"]
-[ext_resource type="ArrayMesh" uid="uid://cjf6324723t5d" path="res://Assets/Robobotomy Art/3D/Character/Head.res" id="2_rtqub"]
+[ext_resource type="Script" uid="uid://ddj23htttt0ys" path="res://Scripts/Real Player Script/head.gd" id="1_rtqub"]
+[ext_resource type="ArrayMesh" uid="uid://c8kdmnehigaay" path="res://Assets/Robobotomy Art/3D/Character/Head.res" id="2_rtqub"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_jwmhq"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_a61vf"]
 
@@ -46,3 +46,9 @@ collision_mask = 12
 [node name="CollisionShape3D" type="CollisionShape3D" parent="JumpArea" unique_id=1255023146]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.039147764, 0)
 shape = SubResource("SphereShape3D_jwmhq")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1889117471]
+target_position = Vector3(0, -0.5, 0)
+collision_mask = 140
+debug_shape_custom_color = Color(1, 1, 0, 1)
+debug_shape_thickness = 5
