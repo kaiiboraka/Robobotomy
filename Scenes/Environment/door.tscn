@@ -18,13 +18,13 @@ size = Vector3(0.3, 5, 1.75)
 [sub_resource type="BoxShape3D" id="BoxShape3D_vhbs2"]
 size = Vector3(0.3, 5, 1.75)
 
-[node name="Door" type="Node3D" unique_id=1709040343 node_paths=PackedStringArray("internal_hinge")]
+[node name="Door" type="Node3D" unique_id=1709040343]
 script = ExtResource("1_ao6xv")
 motor_enabled = true
-internal_hinge = NodePath("HingeJoint3D")
 metadata/_custom_type_script = "uid://d2lvxe4y41uun"
 
-[node name="HingeJoint3D" type="HingeJoint3D" parent="." unique_id=1199166305]
+[node name="Joint" type="HingeJoint3D" parent="." unique_id=1199166305]
+unique_name_in_owner = true
 node_a = NodePath("../HingeObject")
 node_b = NodePath("../Door")
 angular_limit/enable = true

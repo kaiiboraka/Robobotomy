@@ -59,13 +59,12 @@ extends Node3D
 		_update_door()
 # @export var internal_hinge: StaticBody3D
 # @export var internal_door: RigidBody3D
-@export_group("🔒 Internal Nodes", "internal_")
-## Used internally to update the hinge of the door.[br]
-## Don't modify unless you know what you are doing.
-@export var internal_hinge: HingeJoint3D
+@onready var internal_hinge: HingeJoint3D = %Joint
 
 
 func _update_door() -> void:
+	if (not is_node_ready()):
+		return
 	if (not internal_hinge):
 		push_warning("No internal hinge selected")
 		return
@@ -81,16 +80,3 @@ func _update_door() -> void:
 		(-1 if motor_reversed else 1) * (-1 if flipped else 1) * deg_to_rad(motor_velocity),
 	)
 	internal_hinge.set_flag(HingeJoint3D.Flag.FLAG_ENABLE_MOTOR, motor_enabled)
-	# hinge.set_param(HingeJoint3D.Param.PARAM_LIMIT_LOWER, lower_angle)
-	# assert(internal_hinge, "Door: No internal hinge node selected.")
-	# internal_hinge.rotation.z = starting_angle
-	# assert(internal_door, "Door: No internal door node selected.")
-	# internal_door.rotation.z = lerp(0.0, movement_extent, progress)
-
-	# Called when the node enters the scene tree for the first time.
-	# func _ready() -> void:
-	# 	pass # Replace with function body.
-
-	# # Called every frame. 'delta' is the elapsed time since the previous frame.
-	# func _process(delta: float) -> void:
-	# 	pass
