@@ -64,6 +64,7 @@ collision_mask = 12
 [node name="CollisionShape3D" type="CollisionShape3D" parent="JumpArea" unique_id=1623829685]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.050451458, 0)
 shape = SubResource("CapsuleShape3D_w24nb")
+debug_color = Color(0, 0.64065105, 0.35140723, 0.41960785)
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=2132437416]
 target_position = Vector3(0, -0.5, 0)

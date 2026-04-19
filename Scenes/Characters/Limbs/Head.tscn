@@ -13,7 +13,7 @@ albedo_color = Color(0.5092, 0.63784, 0.67, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rtqub"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_gp127"]
-radius = 0.33053866
+radius = 0.335
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_0kli6"]
 height = 0.62615967
@@ -29,15 +29,14 @@ axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 physics_material_override = SubResource("PhysicsMaterial_0kli6")
-lock_rotation = true
 freeze_mode = 1
 continuous_cd = true
 contact_monitor = true
-max_contacts_reported = 2
+max_contacts_reported = 8
 script = ExtResource("1_rtqub")
 jump_force = 175.0
-roll_speed = 4.0
-deceleration_factor = 2.5
+roll_speed = 3.75
+deceleration_factor = 4.0
 max_angular_velocity = 18.0
 stabilize_threshold = 2.0
 stabilize_delay = 3.0
@@ -70,6 +69,7 @@ collision_mask = 12
 [node name="CollisionShape3D" type="CollisionShape3D" parent="JumpArea" unique_id=1255023146]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.039147764, 0)
 shape = SubResource("SphereShape3D_jwmhq")
+debug_color = Color(9.62615e-07, 0.6384732, 0.38248205, 0.41960785)
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=1889117471]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.086, 0)

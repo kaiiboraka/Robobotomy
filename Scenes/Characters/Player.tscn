@@ -37,6 +37,7 @@ shape = SubResource("CapsuleShape3D_player")
 
 [node name="Head" parent="." unique_id=1371523250 instance=ExtResource("2_w6cdd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9366379, 0)
+max_contacts_reported = 2
 retract_speed = 10.0
 
 [node name="Torso" parent="." unique_id=381647224 instance=ExtResource("3_b4kmf")]

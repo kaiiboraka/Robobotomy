@@ -155,18 +155,27 @@ func _update_selection_hud() -> void:
 	else:
 		selection_label.text = "%s\n%s" % [title, sub];
 
+func _limb_has_valid_ground_contact(limb: BodyPart) -> bool:
+	for body in limb.get_colliding_bodies():
+		if limb.counts_as_ground_for_limb(body):
+			return true;
+	var ray := limb.get_node_or_null("RayCast3D") as RayCast3D;
+	if ray != null and ray.enabled:
+		ray.force_raycast_update();
+		if ray.is_colliding():
+			return limb.counts_as_ground_for_limb(ray.get_collider());
+	return false;
+
 func select_limb(limb: BodyPart):
 	if not limb:
 		return;
 	if selected_limb == limb:
 		# Re-tap while thrown but not yet control-enabled (e.g. missed hit_ground): wake if already on solid.
-		if limb.is_detached and not limb.is_part_enabled:
-			for body in limb.get_colliding_bodies():
-				if body is StaticBody3D or body is GridMap:
-					is_controlling_core = false;
-					limb.enable_part();
-					_update_selection_hud();
-					return;
+		if limb.is_detached and not limb.is_part_enabled and _limb_has_valid_ground_contact(limb):
+			is_controlling_core = false;
+			limb.enable_part();
+			_update_selection_hud();
+			return;
 		return;
 
 	var old_limb = selected_limb;

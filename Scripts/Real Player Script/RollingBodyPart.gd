@@ -24,27 +24,50 @@ func _ready():
 	axis_lock_angular_y = true;
 	
 	stable_collider.disabled = true;
+	# Match the rigid body's mask so the ray sees the same surfaces this part collides with.
+	if ray_cast_3d:
+		ray_cast_3d.collision_mask = collision_mask;
+
+func enable_part() -> void:
+	is_stabilizing = false;
+	is_stabilized = false;
+	_stabilize_timer = 0.0;
+	if stable_collider:
+		stable_collider.disabled = true;
+	super.enable_part();
+	if should_roll():
+		lock_rotation = false;
+
+func throw(impulse: Vector3) -> void:
+	is_stabilizing = false;
+	is_stabilized = false;
+	_stabilize_timer = 0.0;
+	if stable_collider:
+		stable_collider.disabled = true;
+	super.throw(impulse);
 
 func _physics_process(delta: float):
+	super._physics_process(delta);
 	if not is_part_enabled:
 		return;
 
 	# Enable/disable rotation based on children or state.
-	if should_roll():
-		lock_rotation = false;
-		# Enable/disable rotation based on attached limbs.
-		if ray_cast_3d:
-			ray_cast_3d.rotation = -rotation;
-
-		# Auto-stabilize when no movement input is given
-		var bp := self as BodyPart;
-		var move_held: bool = bp.accepts_player_input and (
-			Input.is_action_pressed("Player_Move_Right") or Input.is_action_pressed("Player_Move_Left"));
-		if not move_held and ray_cast_3d.is_colliding():
-			angular_velocity.z = lerp(angular_velocity.z, 0.0, delta * deceleration_factor);
-			stabilize_upright(delta, stabilize_threshold);
-	else:
+	if not should_roll(): 
 		lock_rotation = true;
+		return;
+	
+	lock_rotation = false;
+	# Enable/disable rotation based on attached limbs.
+	if ray_cast_3d:
+		ray_cast_3d.rotation = -rotation;
+
+	# Auto-stabilize when no movement input is given
+	#var bp := self as BodyPart;
+	#var move_held: bool = bp.accepts_player_input and (
+		#Input.is_action_pressed("Player_Move_Right") or Input.is_action_pressed("Player_Move_Left"));
+	#if not move_held and ray_cast_3d.is_colliding():
+		#angular_velocity.z = lerp(angular_velocity.z, 0.0, delta * deceleration_factor);
+		#stabilize_upright(delta, stabilize_threshold);
 
 func should_roll() -> bool:
 	return true;
