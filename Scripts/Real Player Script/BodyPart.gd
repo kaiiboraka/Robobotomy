@@ -8,6 +8,8 @@ signal hit_ground
 @export_range(0,3,1) var weight: int = 1;
 
 var is_part_enabled: bool = true
+## When false, this part ignores player move/jump (still simulates if enabled and unfrozen).
+var accepts_player_input: bool = true
 var is_detached: bool = false
 var is_retracting: bool = false
 var starting_position : Vector3
@@ -41,13 +43,17 @@ func on_select():
 func deselect():
 	pass;
 
+func set_accepts_player_input(enabled: bool) -> void:
+	accepts_player_input = enabled;
+	set_process_input(enabled);
+
 func enable_part():
 	is_part_enabled = true;
 	top_level = true;
 	freeze = false;
 	set_process(true);
 	set_physics_process(true);
-	set_process_input(true);
+	set_accepts_player_input(true);
 
 func disable_part():
 	is_part_enabled = false;
@@ -57,7 +63,7 @@ func disable_part():
 	freeze = true if not is_detached else false; # don't move if attached
 	set_process(false);
 	set_physics_process(true); # Keep physics for gravity/collision if detached
-	set_process_input(false);
+	set_accepts_player_input(false);
 
 func throw(impulse: Vector3):
 	is_detached = true;
