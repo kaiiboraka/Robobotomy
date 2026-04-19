@@ -11,6 +11,10 @@ albedo_color = Color(0.5092, 0.63784, 0.67, 1)
 [sub_resource type="SphereShape3D" id="SphereShape3D_gp127"]
 radius = 0.33053866
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0kli6"]
+height = 0.9765625
+radius = 0.12841797
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_jwmhq"]
 radius = 0.32475948
 
@@ -42,6 +46,12 @@ mesh = ExtResource("2_rtqub")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1012743808]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0859752, 0)
 shape = SubResource("SphereShape3D_gp127")
+
+[node name="StableCollider" type="CollisionShape3D" parent="." unique_id=11877855]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0049765627, 0)
+shape = SubResource("CylinderShape3D_0kli6")
+debug_color = Color(1, 0.43137255, 0, 1)
 
 [node name="JumpArea" type="Area3D" parent="." unique_id=515163343]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.036596715, 0)

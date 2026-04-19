@@ -10,6 +10,7 @@ var limbs_attached = 0
 
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 
+
 func _ready():
 	super._ready()
 	# Constrain movement and rotation for 2.5D gameplay.
@@ -18,6 +19,7 @@ func _ready():
 	# The body should only be able to rotate around the Z axis (for rolling).
 	axis_lock_angular_x = true
 	axis_lock_angular_y = true
+
 
 func _physics_process(delta):
 	if not is_part_enabled:
@@ -35,16 +37,18 @@ func _physics_process(delta):
 	else:
 		lock_rotation = true
 
+
 func _input(event: InputEvent) -> void:
 	if not is_part_enabled:
 		return
 		
 	if event.is_action("Player_Jump"):
-		sleeping = false;
+		wake_up();
 	if event.is_action("Player_Move_Right"):
-		sleeping = false;
+		wake_up();
 	if event.is_action("Player_Move_Left"):
-		sleeping = false;
+		wake_up();
+
 
 func _integrate_forces(state):
 	if not is_part_enabled:
@@ -58,17 +62,17 @@ func _integrate_forces(state):
 	var current_ang_vel = state.angular_velocity.z
 	
 	if Input.is_action_just_pressed("Player_Jump") and ray_cast_3d and ray_cast_3d.is_colliding():
-		sleeping = false;
+		wake_up();
 		apply_central_force(Vector3.UP * jump_force)
 	
 	# Apply torque for moving right, respecting the velocity cap.
 	if Input.is_action_pressed("Player_Move_Right") and current_ang_vel > -max_angular_velocity:
-		sleeping = false;
+		wake_up();
 		torque.z -= roll_speed
 			
 	# Apply torque for moving left, respecting the velocity cap.
 	if Input.is_action_pressed("Player_Move_Left") and current_ang_vel < max_angular_velocity:
-		sleeping = false;
+		wake_up();
 		torque.z += roll_speed
 	
 	state.apply_torque(torque)
