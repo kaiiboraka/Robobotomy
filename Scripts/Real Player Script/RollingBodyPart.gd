@@ -37,9 +37,10 @@ func _physics_process(delta: float):
 			ray_cast_3d.rotation = -rotation;
 
 		# Auto-stabilize when no movement input is given
-		if not Input.is_action_pressed("Player_Move_Right") \
-			and not Input.is_action_pressed("Player_Move_Left") \
-			and ray_cast_3d.is_colliding():
+		var bp := self as BodyPart;
+		var move_held: bool = bp.accepts_player_input and (
+			Input.is_action_pressed("Player_Move_Right") or Input.is_action_pressed("Player_Move_Left"));
+		if not move_held and ray_cast_3d.is_colliding():
 			angular_velocity.z = lerp(angular_velocity.z, 0.0, delta * deceleration_factor);
 			stabilize_upright(delta, stabilize_threshold);
 	else:
@@ -49,14 +50,14 @@ func should_roll() -> bool:
 	return true;
 
 func _input(event: InputEvent) -> void:
-	if not is_part_enabled:
+	if not is_part_enabled or not (self as BodyPart).accepts_player_input:
 		return;
-		
+
 	if event.is_action("Player_Jump") or event.is_action("Player_Move_Right") or event.is_action("Player_Move_Left"):
 		wake_up();
 
 func _integrate_forces(state: PhysicsDirectBodyState3D):
-	if not is_part_enabled or lock_rotation:
+	if not is_part_enabled or lock_rotation or not (self as BodyPart).accepts_player_input:
 		return;
 		
 	var torque = Vector3.ZERO;
