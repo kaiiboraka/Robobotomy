@@ -21,9 +21,37 @@ func _ready():
 	if lights:
 		lights.weight = trigger_weight;
 		lights.current_weight = 0;
-	
+
+	set_physics_process(true);
 	trigger_area.body_entered.connect(_on_body_entered);
 	trigger_area.body_exited.connect(_on_body_exited);
+
+func _physics_process(_delta: float) -> void:
+	if Engine.is_editor_hint() or not lights or _counted_bodies.is_empty():
+		return;
+
+	var delta_weight: int = 0;
+	var invalid_bodies: Array[Node3D] = [];
+
+	for body in _counted_bodies.keys():
+		if not is_instance_valid(body):
+			delta_weight -= int(_counted_bodies[body]);
+			invalid_bodies.append(body);
+			continue;
+		var new_val = body.get("weight");
+		if new_val == null:
+			continue;
+		var old_val: int = int(_counted_bodies[body]);
+		if new_val != old_val:
+			delta_weight += int(new_val) - old_val;
+			_counted_bodies[body] = int(new_val);
+
+	for b in invalid_bodies:
+		_counted_bodies.erase(b);
+
+	if delta_weight != 0:
+		lights.current_weight += delta_weight;
+		_check_trigger();
 
 func _on_body_entered(body: Node3D):
 	# Attached, non-active limbs are part of the core — ignore them here.
@@ -53,14 +81,12 @@ func _on_body_entered(body: Node3D):
 			anim_player.play("Bounce");
 
 func _on_body_exited(body: Node3D):
-	if body is BodyPart:
-		if not body.is_detached and not body.is_part_enabled:
-			return;
-
+	# Must not mirror the enter-time BodyPart filter: recall sets is_detached false before the
+	# shape leaves the area, so we'd skip cleanup and leave a stale _counted_bodies entry.
 	if not _counted_bodies.has(body):
 		return;
 
-	var weight_val: int = _counted_bodies[body];
+	var weight_val: int = int(_counted_bodies[body]);
 	_counted_bodies.erase(body);
 
 	if "stabilization_enabled" in body:

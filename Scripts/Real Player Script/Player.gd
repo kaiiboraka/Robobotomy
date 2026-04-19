@@ -68,57 +68,11 @@ func update_weight():
 			total += limb.weight;
 	weight = total;
 
-func _input(event: InputEvent) -> void:
-	# Selection switching
-	if event.is_action_pressed("Player_SelectLimb0_Torso"): # Backtick key
-		select_limb(torso);
-	elif event.is_action_pressed("Player_SelectLimb1_Head"):
-		select_limb(head);
-	elif event.is_action_pressed("Player_SelectLimb2_L_Arm"):
-		select_limb(l_arm);
-	elif event.is_action_pressed("Player_SelectLimb3_R_Arm"):
-		select_limb(r_arm);
-	elif event.is_action_pressed("Player_SelectLimb4_L_Leg"):
-		select_limb(l_leg);
-	elif event.is_action_pressed("Player_SelectLimb5_R_Leg"):
-		select_limb(r_leg);
-
-	# Throwing logic
-	if event.is_action_pressed("Player_Throw_Limb") and selected_limb and selected_limb != torso:
-		if not selected_limb.is_detached:
-			var mouse_pos = get_viewport().get_mouse_position()
-			var camera = get_viewport().get_camera_3d()
-			if camera:
-				var from = camera.project_ray_origin(mouse_pos)
-				var to = from + camera.project_ray_normal(mouse_pos) * 10.0
-				var direction = (to - selected_limb.global_position).normalized()
-				direction.z = 0 # Keep it 2.5D
-				
-				# Stop controlling core immediately upon throw
-				is_controlling_core = false;
-				
-				selected_limb.throw(direction * throw_force * 1 / selected_limb.weight);
-				check_torso_activation();
-				update_weight();
-
-	# Retraction logic
-	if event.is_action_pressed("Player_Recall"):
-		if torso.is_part_enabled:
-			sync_core_to_torso();
-
-		if selected_limb == torso:
-			# Retract all detached limbs
-			for limb in limbs:
-				if limb and limb != torso and limb.is_detached:
-					var tween = limb.retract();
-					tween.finished.connect(_on_limb_returned.bind(limb));
-		elif selected_limb and selected_limb != torso and selected_limb.is_detached:
-			# Retract specifically selected limb and return control to torso
-			var tween = selected_limb.retract();
-			# Defer select_limb until the tween ends: an immediate select runs disable_part on this limb,
-			# which forces top_level off mid-tween and corrupts transform vs global_position updates.
-			tween.finished.connect(select_limb.bind(torso));
-			tween.finished.connect(_on_limb_returned.bind(selected_limb));
+func _any_limb_still_socketed() -> bool:
+	for limb in limbs:
+		if limb and limb != torso and not limb.is_detached:
+			return true;
+	return false;
 
 func _add_follow_target(limb: Node3D):
 	if phantom_camera:
@@ -154,15 +108,20 @@ func check_torso_activation():
 			is_controlling_core = true;
 
 func select_limb(limb: BodyPart):
-	if not limb: return;
-	
+	if not limb:
+		return;
+	if selected_limb == limb:
+		return;
+
 	var old_limb = selected_limb;
-	
+
 	# Disable control of the previously selected limb if it was active
 	if selected_limb:
 		selected_limb.deselect();
 		if selected_limb == torso and selected_limb.is_part_enabled:
-			sync_core_to_torso();
+			# Rolling torso: only snap back onto the CharacterBody when other limbs are still socketed.
+			if _any_limb_still_socketed():
+				sync_core_to_torso();
 		else:
 			selected_limb.disable_part();
 
@@ -201,6 +160,49 @@ func _on_limb_returned(_limb: BodyPart):
 	update_weight();
 
 func _physics_process(delta):
+	# just_pressed avoids re-running select_limb every frame while a limb key is held (was calling disable_part on the thrown limb repeatedly).
+	if Input.is_action_just_pressed("Player_SelectLimb0_Torso"):
+		select_limb(torso);
+	elif Input.is_action_just_pressed("Player_SelectLimb1_Head"):
+		select_limb(head);
+	elif Input.is_action_just_pressed("Player_SelectLimb2_L_Arm"):
+		select_limb(l_arm);
+	elif Input.is_action_just_pressed("Player_SelectLimb3_R_Arm"):
+		select_limb(r_arm);
+	elif Input.is_action_just_pressed("Player_SelectLimb4_L_Leg"):
+		select_limb(l_leg);
+	elif Input.is_action_just_pressed("Player_SelectLimb5_R_Leg"):
+		select_limb(r_leg);
+
+	if Input.is_action_just_pressed("Player_Throw_Limb") and selected_limb and selected_limb != torso:
+		if not selected_limb.is_detached:
+			var mouse_pos = get_viewport().get_mouse_position();
+			var camera = get_viewport().get_camera_3d();
+			if camera:
+				var from = camera.project_ray_origin(mouse_pos);
+				var to = from + camera.project_ray_normal(mouse_pos) * 10.0;
+				var direction = (to - selected_limb.global_position).normalized();
+				direction.z = 0;
+
+				is_controlling_core = false;
+				selected_limb.throw(direction * throw_force * 1 / selected_limb.weight);
+				check_torso_activation();
+				update_weight();
+
+	if Input.is_action_just_pressed("Player_Recall"):
+		if torso.is_part_enabled:
+			sync_core_to_torso();
+
+		if selected_limb == torso:
+			for limb in limbs:
+				if limb and limb != torso and limb.is_detached:
+					var tween = limb.retract();
+					tween.finished.connect(_on_limb_returned.bind(limb));
+		elif selected_limb and selected_limb != torso and selected_limb.is_detached:
+			var tween = selected_limb.retract();
+			tween.finished.connect(select_limb.bind(torso));
+			tween.finished.connect(_on_limb_returned.bind(selected_limb));
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta;
