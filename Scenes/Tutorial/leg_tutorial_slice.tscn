@@ -5,6 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/ExtendableWall.tscn" id="2_mhkff"]
 [ext_resource type="PackedScene" uid="uid://dgbf1jp5dsvcl" path="res://Scenes/Environment/button_door.tscn" id="2_xlcc5"]
 [ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scripts/Nameless/character.tscn" id="5_xlcc5"]
+[ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_long.res" id="6_ypd0c"]
+[ext_resource type="ArrayMesh" uid="uid://d1rjejthugc4a" path="res://Assets/Robobotomy Art/3D/Character/Leg Left.res" id="7_ll8jm"]
+[ext_resource type="PackedScene" uid="uid://614eegxcbalt" path="res://Scenes/Environment/Teleportal.tscn" id="8_ll8jm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_x4o0j"]
 
 [node name="LegTutorialSlice" type="Node3D" unique_id=1204578548]
 
@@ -44,10 +49,78 @@ transform = Transform3D(1.2254609, 0, 0, 0, 23.018723, 0, 0, 0, 1, 8.099945, -10
 transform = Transform3D(0.106388226, 0, 0, 0, 5.2363014, 0, 0, 0, 1, 21.10852, 0.28943586, -3.814697e-06)
 
 [node name="Character" parent="." unique_id=1583363387 instance=ExtResource("5_xlcc5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.658535, 0.8526833, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.65854, -5.147317, 0)
 
 [node name="Simple Box2" parent="." unique_id=1553094080 instance=ExtResource("2_7aweu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5745583, 4.1037464, 0)
 
 [node name="Simple Box3" parent="." unique_id=1911895409 instance=ExtResource("2_7aweu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.874338, 4.4690285, 0)
+
+[node name="Cube11" type="MeshInstance3D" parent="." unique_id=1686939609]
+transform = Transform3D(1.9508935, -0.027563218, 0, 0.029182604, 1.8426355, 0, 0, 0, 1, -69.22024, -3.4174886, 0)
+mesh = SubResource("BoxMesh_x4o0j")
+
+[node name="Cube12" type="MeshInstance3D" parent="." unique_id=797922734]
+transform = Transform3D(1.4571028, -0.027563218, 0, 0.021796193, 1.8426355, 0, 0, 0, 1, -67.28872, -3.3885956, 0)
+mesh = SubResource("BoxMesh_x4o0j")
+
+[node name="Cube13" type="MeshInstance3D" parent="." unique_id=872783619]
+transform = Transform3D(2.0871303, -0.016540034, 0, 0.03122051, 1.105722, 0, 0, 0, 1, -67.75526, -1.7600616, 0)
+mesh = SubResource("BoxMesh_x4o0j")
+
+[node name="Pipe1Long18" type="MeshInstance3D" parent="." unique_id=682172927]
+transform = Transform3D(-0.077975765, -6.2016473, 0, 4.120958, -0.11734607, 0, 0, 0, 4.272667, -47.163353, -4.719354, 0.08477688)
+mesh = ExtResource("6_ypd0c")
+
+[node name="6" type="Label3D" parent="." unique_id=679380043]
+transform = Transform3D(10.000001, 0, 0, 0, 10.000001, 0, 0, 0, 9.999999, -74.04217, -2.8908205, 0.7822784)
+text = "6"
+
+[node name="7" type="Label3D" parent="." unique_id=131591271]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8034477, 4.2692237, 0)
+pixel_size = 0.05
+text = "7
+"
+
+[node name="LegLeft" type="MeshInstance3D" parent="." unique_id=1408502735]
+transform = Transform3D(71.53026, 0, 69.881485, 0, 100, 0, -69.881485, 0, 71.53026, -41.595238, -5.318292, -0.07286453)
+mesh = ExtResource("7_ll8jm")
+
+[node name="ExtendableWall22" parent="." unique_id=1167277368 instance=ExtResource("2_mhkff")]
+transform = Transform3D(0.29905137, -0.5888437, 0, 0.2178722, 0.80824685, 0, 0, 0, 1, -30.774345, -2.8524342, 1.9073486e-06)
+
+[node name="ExtendableWall15" parent="." unique_id=505129756 instance=ExtResource("2_mhkff")]
+transform = Transform3D(1.2212366, 0, 0, 0, 15.610457, 0, 0, 0, 1, -57.502434, -14.136588, -1.9073484e-06)
+
+[node name="ExtendableWall21" parent="." unique_id=1866201621 instance=ExtResource("2_mhkff")]
+transform = Transform3D(0.26546237, 0, 0, 0, 23.018723, 0, 0, 0, 1, -21.460808, -10.682136, -1.9073484e-06)
+
+[node name="ExtendableWall16" parent="." unique_id=2052384958 instance=ExtResource("2_mhkff")]
+transform = Transform3D(0.10815867, 0, 0, 0, 4.487692, 0, 0, 0, 1, -64.50796, -1.8923199, 2.2737368e-13)
+
+[node name="ExtendableWall17" parent="." unique_id=1757841576 instance=ExtResource("2_mhkff")]
+transform = Transform3D(0.10590727, 0, 0, 0, 4.490125, 0, 0, 0, 1, -56.479195, -1.7766442, -1.9073484e-06)
+
+[node name="ExtendableWall19" parent="." unique_id=1847177900 instance=ExtResource("2_mhkff")]
+transform = Transform3D(0.10590727, 0, 0, 0, 1.7232804, 0, 0, 0, 1, -60.52584, -3.3863795, -1.9073484e-06)
+
+[node name="ExtendableWall20" parent="." unique_id=1766917731 instance=ExtResource("2_mhkff")]
+transform = Transform3D(-0.0455623, 0, 0, 0, 1.7232804, 0, 0, 0, 1, -59.15661, -1.516419, 0.09755373)
+
+[node name="ExtendableWall18" parent="." unique_id=327458667 instance=ExtResource("2_mhkff")]
+transform = Transform3D(0.12166471, 0, 0, 0, 2.594142, 0, 0, 0, 1, -52.506798, -2.5343683, -1.9073484e-06)
+
+[node name="Teleportal" parent="." unique_id=1303701231 node_paths=PackedStringArray("output_location") instance=ExtResource("8_ll8jm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.867, -4.788, 0)
+output_location = NodePath("../TeleportalDest")
+
+[node name="TeleportalDest" type="Node3D" parent="." unique_id=627065165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.843304, -4.339337, 0)
+
+[node name="Teleportal2" parent="." unique_id=1124018402 node_paths=PackedStringArray("output_location") instance=ExtResource("8_ll8jm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.801, -4.788, 0)
+output_location = NodePath("../TeleportalDest2")
+
+[node name="TeleportalDest2" type="Node3D" parent="." unique_id=234884072]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.82521, -4.245676, 0)
