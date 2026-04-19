@@ -12,6 +12,7 @@ class_name Player extends CharacterBody3D
 @onready var r_leg: BodyPart = $RightLeg;
 
 @onready var phantom_camera = $PhantomCamera3D;
+@onready var selection_label: Label3D = $Label3D;
 
 var limbs = [];
 var selected_limb: BodyPart = null;
@@ -45,6 +46,7 @@ func _ready():
 	selected_limb = torso;
 	check_torso_activation();
 	update_weight();
+	_update_selection_hud();
 
 func sync_core_to_torso():
 	if not torso: return;
@@ -60,6 +62,7 @@ func sync_core_to_torso():
 	torso.angular_velocity = Vector3.ZERO;
 	
 	is_controlling_core = true;
+	_update_selection_hud();
 
 func update_weight():
 	var total = 0; # Base torso weight
@@ -96,21 +99,74 @@ func check_torso_activation():
 		if limb != torso and limb and not limb.is_detached:
 			all_others_detached = false;
 			break;
-	
+
 	if all_others_detached:
 		if selected_limb == torso:
 			is_controlling_core = false;
 			torso.enable_part();
+		elif selected_limb != null and selected_limb.is_detached and selected_limb.is_part_enabled:
+			# Only the rolling detached limb reads move/jump — not the CharacterBody.
+			is_controlling_core = false;
+		else:
+			# Thrown limb mid-air, or odd states: move the core until the limb can take over.
+			is_controlling_core = true;
 	else:
-		# If we have limbs attached, the core (CharacterBody3D) handles movement
 		torso.disable_part();
 		if selected_limb == torso:
 			is_controlling_core = true;
+		elif selected_limb != null and selected_limb.is_detached and selected_limb.is_part_enabled:
+			is_controlling_core = false;
+		else:
+			# Socketed torso, attached limb, or thrown limb still in flight — use CharacterBody.
+			is_controlling_core = true;
+	_update_selection_hud();
+
+func _hud_needs_periodic_update() -> bool:
+	for limb in limbs:
+		if limb and limb.is_retracting:
+			return true;
+	if selected_limb and selected_limb.is_detached and not selected_limb.is_part_enabled:
+		return true;
+	return false;
+
+func _hud_selection_subline() -> String:
+	for limb in limbs:
+		if limb and limb.is_retracting:
+			return "Recalling…";
+	if selected_limb == null:
+		return "";
+	if selected_limb.is_detached and not selected_limb.is_part_enabled:
+		return "In flight — core moves";
+	if selected_limb == torso and selected_limb.is_part_enabled:
+		return "Rolling torso";
+	if selected_limb.is_detached and selected_limb.is_part_enabled:
+		return "Rolling limb";
+	if is_controlling_core:
+		return "Core: move / jump";
+	return "";
+
+func _update_selection_hud() -> void:
+	if selection_label == null:
+		return;
+	var title: String = String(selected_limb.name) if selected_limb else "—";
+	var sub := _hud_selection_subline();
+	if sub.is_empty():
+		selection_label.text = title;
+	else:
+		selection_label.text = "%s\n%s" % [title, sub];
 
 func select_limb(limb: BodyPart):
 	if not limb:
 		return;
 	if selected_limb == limb:
+		# Re-tap while thrown but not yet control-enabled (e.g. missed hit_ground): wake if already on solid.
+		if limb.is_detached and not limb.is_part_enabled:
+			for body in limb.get_colliding_bodies():
+				if body is StaticBody3D or body is GridMap:
+					is_controlling_core = false;
+					limb.enable_part();
+					_update_selection_hud();
+					return;
 		return;
 
 	var old_limb = selected_limb;
@@ -139,8 +195,6 @@ func select_limb(limb: BodyPart):
 		elif old_limb == torso: # Always remove torso from follow if not selected
 			_remove_follow_target(old_limb);
 	
-	print("Selected: ", limb.name);
-	
 	if limb == torso:
 		check_torso_activation();
 	else:
@@ -151,12 +205,14 @@ func select_limb(limb: BodyPart):
 		else:
 			# Attached limb selected, main body is controlled
 			is_controlling_core = true;
+	_update_selection_hud();
 
 func _on_limb_hit_ground(limb: BodyPart):
 	if selected_limb == limb:
 		# Ensure control is active once it hits ground
 		is_controlling_core = false;
 		limb.enable_part();
+	_update_selection_hud();
 
 func _on_limb_returned(_limb: BodyPart):
 	check_torso_activation();
@@ -187,7 +243,6 @@ func _physics_process(delta):
 				var direction = (to - selected_limb.global_position).normalized();
 				direction.z = 0;
 
-				is_controlling_core = false;
 				selected_limb.throw(direction * throw_force * 1 / selected_limb.weight);
 				check_torso_activation();
 				update_weight();
@@ -197,14 +252,17 @@ func _physics_process(delta):
 			sync_core_to_torso();
 
 		if selected_limb == torso:
+			is_controlling_core = true;
 			for limb in limbs:
 				if limb and limb != torso and limb.is_detached:
 					var tween = limb.retract();
 					tween.finished.connect(_on_limb_returned.bind(limb));
 		elif selected_limb and selected_limb != torso and selected_limb.is_detached:
+			is_controlling_core = true;
 			var tween = selected_limb.retract();
 			tween.finished.connect(select_limb.bind(torso));
 			tween.finished.connect(_on_limb_returned.bind(selected_limb));
+		_update_selection_hud();
 
 	# Add the gravity.
 	if not is_on_floor():
@@ -226,6 +284,9 @@ func _physics_process(delta):
 	else:
 		# Decelerate naturally when not under control
 		velocity.x = move_toward(velocity.x, 0, speed * delta);
+
+	if _hud_needs_periodic_update():
+		_update_selection_hud();
 
 	move_and_slide();
 

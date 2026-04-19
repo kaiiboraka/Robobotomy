@@ -42,15 +42,6 @@ retract_speed = 10.0
 [node name="Torso" parent="." unique_id=381647224 instance=ExtResource("3_b4kmf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0686834, 0)
 
-[node name="Label3D" type="Label3D" parent="Torso" unique_id=1353181972]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13185143, 0.88159037)
-pixel_size = 0.001
-billboard = 1
-fixed_size = true
-text = "Torso"
-font_size = 16
-outline_size = 8
-
 [node name="LeftArm" parent="." unique_id=1281946609 instance=ExtResource("5_5kd0c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86595744, 2.4061642, 0)
 
@@ -62,3 +53,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.223, 0.8896378, 0)
 
 [node name="RightLeg" parent="." unique_id=1985177356 instance=ExtResource("7_4opfx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.223, 0.8896378, 0)
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1353181972]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2005348, 0.88159037)
+pixel_size = 0.001
+billboard = 1
+fixed_size = true
+text = "Torso"
+font_size = 16
+outline_size = 8
