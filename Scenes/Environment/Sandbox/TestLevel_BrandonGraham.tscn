@@ -5,8 +5,8 @@
 [ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Scenes/Vertical Slice/3d assetts/kitbash/button.res" id="2_l4fje"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_sr37p"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_t1lel"]
+[ext_resource type="PackedScene" uid="uid://dxubgecu6o687" path="res://Scenes/Characters/Limbs/Head.tscn" id="4_sr37p"]
 [ext_resource type="Resource" uid="uid://odcgk1h80sk0" path="res://Assets/Resources/Camera3DSettings.tres" id="4_t1lel"]
-[ext_resource type="PackedScene" uid="uid://dgoqhuaqsm30g" path="res://Scenes/Characters/Limbs/torso.tscn" id="5_qtg0g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jadot"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -105,4 +105,4 @@ tween_resource = SubResource("Resource_t1lel")
 camera_3d_resource = ExtResource("4_t1lel")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="Torso" parent="." unique_id=381647224 instance=ExtResource("5_qtg0g")]
+[node name="Head" parent="." unique_id=2035200198 instance=ExtResource("4_sr37p")]
