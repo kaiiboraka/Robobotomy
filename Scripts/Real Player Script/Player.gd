@@ -124,6 +124,9 @@ func select_limb(limb: BodyPart):
 				sync_core_to_torso();
 		else:
 			selected_limb.disable_part();
+		# Rolling torso skips disable_part above — still must drop player input so two parts never share controls.
+		if old_limb != limb:
+			old_limb.set_accepts_player_input(false);
 
 	selected_limb = limb;
 	selected_limb.on_select();
