@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/ExtendableWall.tscn" id="1_l4fje"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_45ei3"]
-[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Scenes/Vertical Slice/3d assetts/kitbash/button.res" id="2_l4fje"]
+[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/button.res" id="2_l4fje"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_sr37p"]
 [ext_resource type="PackedScene" uid="uid://npjp2dyv4vbu" path="res://Scenes/Characters/Player.tscn" id="3_l4fje"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_t1lel"]

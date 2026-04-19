@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/ExtendableWall.tscn" id="2_huhxs"]
 [ext_resource type="PackedScene" uid="uid://cs11rsjbm4jj8" path="res://Scenes/Characters/WhiteboxPlayer.tscn" id="2_prjws"]
 [ext_resource type="Script" uid="uid://em4mouur2y8r" path="res://Scripts/jacob_movable_object_2.gd" id="3_de7ma"]
-[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Assets/Robobotomy Art/3D/Objects/button.res" id="4_wdhy1"]
+[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/button.res" id="4_wdhy1"]
 
 [sub_resource type="Curve3D" id="Curve3D_prjws"]
 _data = {

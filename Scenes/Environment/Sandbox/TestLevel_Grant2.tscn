@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://yoijiuu7sj1t" path="res://Scenes/Environment/Sandbox/testCharacter_Brandon.gd" id="1_a1wxf"]
 [ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/ExtendableWall.tscn" id="2_3fmni"]
 [ext_resource type="PackedScene" uid="uid://bmswce2kxaau0" path="res://Scenes/Environment/hinge_simple.tscn" id="3_gfe6p"]
-[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Scenes/Vertical Slice/3d assetts/kitbash/button.res" id="4_2sn6v"]
-[ext_resource type="ArrayMesh" uid="uid://bs7mr6pntvtby" path="res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_short.res" id="5_2sn6v"]
+[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/button.res" id="4_2sn6v"]
+[ext_resource type="ArrayMesh" uid="uid://bs7mr6pntvtby" path="res://Assets/Robobotomy Art/3D/Objects/Pipes/pipe1_short.res" id="5_2sn6v"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gfe6p"]
 

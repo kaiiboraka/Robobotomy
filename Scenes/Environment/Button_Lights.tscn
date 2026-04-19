@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cugb2qlx8ju8w"]
 
 [ext_resource type="Script" uid="uid://ceu5gchmd481u" path="res://Scripts/Tools/ButtonLights.gd" id="1_lights"]
-[ext_resource type="ArrayMesh" uid="uid://c30g2pc1dcs7o" path="res://Scenes/Vertical Slice/3d assetts/kitbash/cableconnector.res" id="1_omp8e"]
+[ext_resource type="ArrayMesh" uid="uid://c30g2pc1dcs7o" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/cableconnector.res" id="1_omp8e"]
 [ext_resource type="Material" uid="uid://ckajioojx2cvk" path="res://Assets/Materials/button_light_unlit.tres" id="2_84yeo"]
-[ext_resource type="ArrayMesh" uid="uid://doxh8d0va3v1k" path="res://Assets/Robobotomy Art/3D/Objects/buttons_1x1.res" id="2_ba0mq"]
+[ext_resource type="ArrayMesh" uid="uid://doxh8d0va3v1k" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/buttons_1x1.res" id="2_ba0mq"]
 [ext_resource type="Material" uid="uid://cu5o0n5jwnl81" path="res://Assets/Materials/button_light_red.tres" id="3_vtjq2"]
 [ext_resource type="Material" uid="uid://ci1kkf3wnfmmv" path="res://Assets/Materials/button_light_yellow.tres" id="4_bfyu1"]
 [ext_resource type="Material" uid="uid://ddqq2886emi8r" path="res://Assets/Materials/button_light_bluegreen.tres" id="5_54xwf"]
@@ -11,8 +11,8 @@
 [node name="Button_Lights" type="Node3D" unique_id=303055115 node_paths=PackedStringArray("template_node")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 script = ExtResource("1_lights")
-weight = 8
-current_weight = 8
+weight = 9
+current_weight = 7
 template_node = NodePath("1x1_MeshInstance3D_1")
 state_materials = Dictionary[int, StandardMaterial3D]({
 0: ExtResource("2_84yeo"),
@@ -23,49 +23,53 @@ state_materials = Dictionary[int, StandardMaterial3D]({
 
 [node name="Hub_MeshInstance3D" type="MeshInstance3D" parent="." unique_id=773796469]
 mesh = ExtResource("1_omp8e")
-surface_material_override/1 = ExtResource("5_54xwf")
 
 [node name="1x1_MeshInstance3D_1" type="MeshInstance3D" parent="." unique_id=1774113475]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8086581, -0.13553238)
 visible = false
 mesh = ExtResource("2_ba0mq")
 
-[node name="Generated_Light_1" type="MeshInstance3D" parent="." unique_id=1607885369]
+[node name="Generated_Light_1" type="MeshInstance3D" parent="." unique_id=663626144]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8086581, -0.13553238)
 mesh = ExtResource("2_ba0mq")
-surface_material_override/1 = ExtResource("5_54xwf")
+surface_material_override/1 = ExtResource("4_bfyu1")
 
-[node name="Generated_Light_2" type="MeshInstance3D" parent="." unique_id=399137995]
+[node name="Generated_Light_2" type="MeshInstance3D" parent="." unique_id=337294917]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8086581, 0.08446762)
 mesh = ExtResource("2_ba0mq")
-surface_material_override/1 = ExtResource("5_54xwf")
+surface_material_override/1 = ExtResource("4_bfyu1")
 
-[node name="Generated_Light_3" type="MeshInstance3D" parent="." unique_id=1006118570]
+[node name="Generated_Light_3" type="MeshInstance3D" parent="." unique_id=1987395014]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8086581, 0.30446762)
 mesh = ExtResource("2_ba0mq")
-surface_material_override/1 = ExtResource("5_54xwf")
+surface_material_override/1 = ExtResource("4_bfyu1")
 
-[node name="Generated_Light_4" type="MeshInstance3D" parent="." unique_id=678601973]
+[node name="Generated_Light_4" type="MeshInstance3D" parent="." unique_id=744717140]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0286582, -0.13553238)
 mesh = ExtResource("2_ba0mq")
-surface_material_override/1 = ExtResource("5_54xwf")
+surface_material_override/1 = ExtResource("4_bfyu1")
 
-[node name="Generated_Light_5" type="MeshInstance3D" parent="." unique_id=1802117803]
+[node name="Generated_Light_5" type="MeshInstance3D" parent="." unique_id=669916508]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0286582, 0.08446762)
 mesh = ExtResource("2_ba0mq")
-surface_material_override/1 = ExtResource("5_54xwf")
+surface_material_override/1 = ExtResource("4_bfyu1")
 
-[node name="Generated_Light_6" type="MeshInstance3D" parent="." unique_id=1784106197]
+[node name="Generated_Light_6" type="MeshInstance3D" parent="." unique_id=558177689]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0286582, 0.30446762)
 mesh = ExtResource("2_ba0mq")
-surface_material_override/1 = ExtResource("5_54xwf")
+surface_material_override/1 = ExtResource("4_bfyu1")
 
-[node name="Generated_Light_7" type="MeshInstance3D" parent="." unique_id=121405495]
+[node name="Generated_Light_7" type="MeshInstance3D" parent="." unique_id=1916899066]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2486582, -0.13553238)
 mesh = ExtResource("2_ba0mq")
-surface_material_override/1 = ExtResource("5_54xwf")
+surface_material_override/1 = ExtResource("4_bfyu1")
 
-[node name="Generated_Light_8" type="MeshInstance3D" parent="." unique_id=1299763231]
+[node name="Generated_Light_8" type="MeshInstance3D" parent="." unique_id=954156226]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2486582, 0.08446762)
 mesh = ExtResource("2_ba0mq")
-surface_material_override/1 = ExtResource("5_54xwf")
+surface_material_override/1 = ExtResource("2_84yeo")
+
+[node name="Generated_Light_9" type="MeshInstance3D" parent="." unique_id=1391933956]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2486582, 0.30446762)
+mesh = ExtResource("2_ba0mq")
+surface_material_override/1 = ExtResource("2_84yeo")

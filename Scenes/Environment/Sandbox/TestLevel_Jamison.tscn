@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c5y3ww34o7a4m"]
 
-[ext_resource type="PackedScene" path="res://Scenes/Environment/ExtendableWall.tscn" id="2_7rw42"]
-[ext_resource type="PackedScene" path="res://Scenes/Environment/SimpleBox.tscn" id="3_vuikh"]
-[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Scenes/Vertical Slice/3d assetts/kitbash/button.res" id="4_bde0f"]
+[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/ExtendableWall.tscn" id="2_7rw42"]
+[ext_resource type="PackedScene" uid="uid://gl5j7l3w6avc" path="res://Scenes/Environment/SimpleBox.tscn" id="3_vuikh"]
+[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/button.res" id="4_bde0f"]
 [ext_resource type="Material" uid="uid://cjjlgffq2ycbp" path="res://Assets/Materials/Basic Colors/Red.tres" id="5_j7jpj"]
 [ext_resource type="PackedScene" uid="uid://d031edjsrylll" path="res://Scenes/Environment/rope.tscn" id="6_330lm"]
 [ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scripts/Nameless/character.tscn" id="7_330lm"]
