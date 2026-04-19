@@ -1,10 +1,12 @@
 @abstract
 class_name RollingBodyPart extends BodyPart
 
-@export var roll_speed = 7.0;
 @export var jump_force = 10.0;
+@export var roll_speed = 7.0;
+@export var deceleration_factor = 2.0;
 @export var max_angular_velocity = 12.0;
 @export var stabilize_threshold = 5.0;
+@export var stabilize_delay: float = 0.5
 
 @onready var ray_cast_3d: RayCast3D = $RayCast3D;
 @onready var stable_collider: CollisionShape3D = %StableCollider;
@@ -34,7 +36,10 @@ func _physics_process(delta: float):
 			ray_cast_3d.rotation = -rotation;
 
 		# Auto-stabilize when no movement input is given
-		if not Input.is_action_pressed("Player_Move_Right") and not Input.is_action_pressed("Player_Move_Left"):
+		if not Input.is_action_pressed("Player_Move_Right") \
+			and not Input.is_action_pressed("Player_Move_Left") \
+			and ray_cast_3d.is_colliding():
+			angular_velocity.z = lerp(angular_velocity.z, 0.0, delta * deceleration_factor);
 			stabilize_upright(delta, stabilize_threshold);
 	else:
 		lock_rotation = true;
@@ -56,7 +61,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D):
 	var torque = Vector3.ZERO;
 	var current_ang_vel = state.angular_velocity.z;
 	
-	if Input.is_action_just_pressed("Player_Jump") and ray_cast_3d and ray_cast_3d.is_colliding():
+	if Input.is_action_just_pressed("Player_Jump") and ray_cast_3d.is_colliding():
 		wake_up();
 		apply_central_force(Vector3.UP * jump_force);
 	
@@ -107,15 +112,7 @@ func stabilize_upright(delta: float, velocity_threshold: float = 0.5):
 		upright_tween.tween_property(self, "rotation:z", 0.0, 0.65);
 		
 		# Simultaneously lift the body to clear the ground based on rotation
-		upright_tween.tween_method(
-			func(t: float):
-				if not is_instance_valid(self): return;
-				var current_rot = lerp(initial_rot, 0.0, t);
-				var lift = (abs(sin(initial_rot)) - abs(sin(current_rot))) * 0.5;
-				if lift > 0: 
-					global_position.y = initial_y + lift,
-			 0.0, 1.0, 0.5
-		);
+		upright_tween.tween_method(_on_stabilize_step.bind(initial_rot, initial_y), 0.0, 1.0, 0.5);
 
 		upright_tween.finished.connect(
 			func():
@@ -130,6 +127,9 @@ func stabilize_upright(delta: float, velocity_threshold: float = 0.5):
 		is_stabilized = false;
 		_stabilize_timer = 0.0;
 		stable_collider.disabled = true;
+
+func _on_stabilize_step(t: float, initial_rot: float, initial_y: float):
+	pass
 
 func wake_up():
 	sleeping = false;	

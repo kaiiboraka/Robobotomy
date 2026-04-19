@@ -36,6 +36,7 @@ max_angular_velocity = 10.0
 stabilize_delay = 3.0
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=559717037]
+aabb = AABB(-0.31877425, -0.6121777, -0.45757043, 0.6375485, 1.2243555, 0.91514087)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=942909682]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)

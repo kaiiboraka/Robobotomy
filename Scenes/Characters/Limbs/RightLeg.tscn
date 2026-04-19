@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ep2c8eoh0i32"]
 
-[ext_resource type="Script" uid="uid://cxqku02aroxoe" path="res://Scripts/Real Player Script/RightLeg.cs" id="1_lkkg7"]
+[ext_resource type="Script" uid="uid://5r2o3glyvoiu" path="res://Leg.gd" id="1_pckun"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_hsfiv"]
 [ext_resource type="ArrayMesh" uid="uid://d1rjejthugc4a" path="res://Assets/Robobotomy Art/3D/Character/Leg Left.res" id="3_pckun"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_i6q28"]
@@ -22,7 +22,12 @@ size = Vector3(0.4185791, 1.7902048, 0.73747253)
 collision_layer = 3
 collision_mask = 908
 lock_rotation = true
-script = ExtResource("1_lkkg7")
+freeze = true
+freeze_mode = 1
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 2
+script = ExtResource("1_pckun")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=2014330834]
 

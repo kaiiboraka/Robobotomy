@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://ddj23htttt0ys" path="res://Scripts/Real Player Script/head.gd" id="1_rtqub"]
 [ext_resource type="ArrayMesh" uid="uid://c8kdmnehigaay" path="res://Assets/Robobotomy Art/3D/Character/Head.res" id="2_rtqub"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0kli6"]
+rough = true
+bounce = 0.15
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtqub"]
 albedo_color = Color(0.5092, 0.63784, 0.67, 1)
 
@@ -12,7 +16,7 @@ albedo_color = Color(0.5092, 0.63784, 0.67, 1)
 radius = 0.33053866
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_0kli6"]
-height = 0.9765625
+height = 0.62615967
 radius = 0.12841797
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jwmhq"]
@@ -24,37 +28,41 @@ collision_mask = 908
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
+physics_material_override = SubResource("PhysicsMaterial_0kli6")
 lock_rotation = true
 freeze_mode = 1
 continuous_cd = true
 contact_monitor = true
 max_contacts_reported = 2
 script = ExtResource("1_rtqub")
-roll_speed = 5.0
-jump_force = 200.0
-max_angular_velocity = 20.0
+roll_speed = 4.0
+jump_force = 175.0
+max_angular_velocity = 18.0
+stabilize_threshold = 2.0
+deceleration_factor = 2.5
 stabilize_delay = 3.0
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=677304792]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.021868803, 0)
+aabb = AABB(-0.61507565, -0.6314556, -1, 1.2301513, 1.2629112, 2)
 
 [node name="Head" type="MeshInstance3D" parent="." unique_id=2120541778]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0.086, 0)
 material_override = SubResource("StandardMaterial3D_rtqub")
 material_overlay = SubResource("ShaderMaterial_rtqub")
 mesh = ExtResource("2_rtqub")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1012743808]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0859752, 0)
 shape = SubResource("SphereShape3D_gp127")
 
 [node name="StableCollider" type="CollisionShape3D" parent="." unique_id=11877855]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0049765627, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.018, 0)
 shape = SubResource("CylinderShape3D_0kli6")
 debug_color = Color(1, 0.43137255, 0, 1)
 
 [node name="JumpArea" type="Area3D" parent="." unique_id=515163343]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.036596715, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.049, 0)
 collision_layer = 0
 collision_mask = 12
 
@@ -63,6 +71,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.039147764, 0)
 shape = SubResource("SphereShape3D_jwmhq")
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=1889117471]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.086, 0)
 target_position = Vector3(0, -0.5, 0)
 collision_mask = 140
 debug_shape_custom_color = Color(1, 1, 0, 1)

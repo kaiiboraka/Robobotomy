@@ -3,81 +3,23 @@
 [ext_resource type="Script" uid="uid://vjfl7xev4i4c" path="res://Scripts/Real Player Script/Player.gd" id="1_qkgjm"]
 [ext_resource type="PackedScene" uid="uid://dxubgecu6o687" path="res://Scenes/Characters/Limbs/Head.tscn" id="2_w6cdd"]
 [ext_resource type="PackedScene" uid="uid://dgoqhuaqsm30g" path="res://Scenes/Characters/Limbs/torso.tscn" id="3_b4kmf"]
-[ext_resource type="Script" uid="uid://ddj23htttt0ys" path="res://Scripts/Real Player Script/head.gd" id="3_w38he"]
 [ext_resource type="PackedScene" uid="uid://0nxi375snik3" path="res://Scenes/Characters/Limbs/RightArm.tscn" id="4_shd1k"]
 [ext_resource type="PackedScene" uid="uid://clesw0vcam4s2" path="res://Scenes/Characters/Limbs/LeftArm.tscn" id="5_5kd0c"]
 [ext_resource type="PackedScene" uid="uid://f0oommypkm0i" path="res://Scenes/Characters/Limbs/LeftLeg.tscn" id="6_aal88"]
 [ext_resource type="PackedScene" uid="uid://ep2c8eoh0i32" path="res://Scenes/Characters/Limbs/RightLeg.tscn" id="7_4opfx"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="9_meglp"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="9_shd1k"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="10_5kd0c"]
 [ext_resource type="Resource" uid="uid://odcgk1h80sk0" path="res://Assets/Resources/Camera3DSettings.tres" id="11_aal88"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
-height = 3.0
-
 [sub_resource type="Resource" id="Resource_4opfx"]
 script = ExtResource("10_5kd0c")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
+height = 3.0
 
 [node name="Player" type="CharacterBody3D" unique_id=64555096]
 script = ExtResource("1_qkgjm")
 throw_force = 50.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=289070969]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-shape = SubResource("CapsuleShape3D_player")
-
-[node name="Head" parent="." unique_id=1371523250 instance=ExtResource("2_w6cdd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4171078, 0)
-retract_speed = 10.0
-
-[node name="Torso" parent="." unique_id=381647224 instance=ExtResource("3_b4kmf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4630456, 0)
-
-[node name="Label3D" type="Label3D" parent="Torso" unique_id=1353181972]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13185143, 0.88159037)
-pixel_size = 0.001
-billboard = 1
-fixed_size = true
-text = "Torso"
-font_size = 16
-outline_size = 8
-
-[node name="RightArm" parent="." unique_id=952945989 instance=ExtResource("4_shd1k")]
-process_mode = 4
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8641265, 2.8005264, 0)
-script = ExtResource("3_w38he")
-roll_speed = 7.0
-jump_force = 10.0
-max_angular_velocity = 12.0
-retract_speed = 5.0
-
-[node name="LeftArm" parent="." unique_id=1892609314 instance=ExtResource("5_5kd0c")]
-process_mode = 4
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86595744, 2.8005264, 0)
-script = ExtResource("3_w38he")
-roll_speed = 7.0
-jump_force = 10.0
-max_angular_velocity = 12.0
-retract_speed = 5.0
-
-[node name="RightLeg" parent="." unique_id=478996792 instance=ExtResource("6_aal88")]
-process_mode = 4
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.223, 1.284, 0)
-script = ExtResource("3_w38he")
-roll_speed = 7.0
-jump_force = 10.0
-max_angular_velocity = 12.0
-retract_speed = 5.0
-
-[node name="LeftLeg" parent="." unique_id=156984842 instance=ExtResource("7_4opfx")]
-process_mode = 4
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2225709, 1.2842379, 0)
-script = ExtResource("3_w38he")
-roll_speed = 7.0
-jump_force = 10.0
-max_angular_velocity = 12.0
-retract_speed = 5.0
 
 [node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1704350181]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.7423797, 24.223686)
@@ -88,13 +30,36 @@ tween_resource = SubResource("Resource_4opfx")
 camera_3d_resource = ExtResource("11_aal88")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=470310246]
-physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4171078, 14.825453)
-fov = 45.0
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=289070969]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CapsuleShape3D_player")
 
-[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=2018306125]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("9_meglp")
-metadata/_custom_type_script = "uid://bd046eokvcnu2"
+[node name="Head" parent="." unique_id=1371523250 instance=ExtResource("2_w6cdd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9366379, 0)
+stabilize_delay = 0.5
+retract_speed = 10.0
+
+[node name="Torso" parent="." unique_id=381647224 instance=ExtResource("3_b4kmf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0686834, 0)
+stabilize_delay = 0.5
+
+[node name="Label3D" type="Label3D" parent="Torso" unique_id=1353181972]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13185143, 0.88159037)
+pixel_size = 0.001
+billboard = 1
+fixed_size = true
+text = "Torso"
+font_size = 16
+outline_size = 8
+
+[node name="LeftArm" parent="." unique_id=1281946609 instance=ExtResource("5_5kd0c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86595744, 2.4061642, 0)
+
+[node name="RightArm" parent="." unique_id=904546073 instance=ExtResource("4_shd1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8641265, 2.4061642, 0)
+
+[node name="LeftLeg" parent="." unique_id=925113335 instance=ExtResource("6_aal88")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.223, 0.8896378, 0)
+
+[node name="RightLeg" parent="." unique_id=1985177356 instance=ExtResource("7_4opfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.223, 0.8896378, 0)

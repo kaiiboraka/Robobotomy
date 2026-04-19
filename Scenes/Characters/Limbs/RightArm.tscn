@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://0nxi375snik3"]
 
-[ext_resource type="Script" uid="uid://n7s3i1v48ko5" path="res://Scripts/Real Player Script/RightArm.cs" id="1_udwiq"]
+[ext_resource type="Script" uid="uid://dlyx5ptbnnpex" path="res://Arm.gd" id="1_fy5t7"]
 [ext_resource type="ArrayMesh" uid="uid://dpsy01yon86uj" path="res://Assets/Robobotomy Art/3D/Character/Arm Right.res" id="3_fy5t7"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_kslal"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_wx4t2"]
@@ -24,7 +24,12 @@ height = 1.5654297
 collision_layer = 3
 collision_mask = 908
 lock_rotation = true
-script = ExtResource("1_udwiq")
+freeze = true
+freeze_mode = 1
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 3
+script = ExtResource("1_fy5t7")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=135821873]
 

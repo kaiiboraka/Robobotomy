@@ -1,13 +1,10 @@
-@abstract
-class_name BodyPart
-extends RigidBody3D
+@abstract class_name BodyPart extends RigidBody3D
 
 signal hit_ground
 
 @onready var notifier: VisibleOnScreenNotifier3D = $VisibleOnScreenNotifier3D
 
 @export var retract_speed = 5.0
-@export var stabilize_delay: float = 0.5
 
 var is_part_enabled: bool = true
 var is_detached: bool = false
