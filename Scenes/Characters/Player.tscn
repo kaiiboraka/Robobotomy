@@ -15,9 +15,11 @@
 script = ExtResource("10_5kd0c")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
-height = 3.0
+height = 3.25
 
 [node name="Player" type="CharacterBody3D" unique_id=64555096]
+collision_layer = 3
+collision_mask = 652
 script = ExtResource("1_qkgjm")
 throw_force = 50.0
 
@@ -31,7 +33,7 @@ camera_3d_resource = ExtResource("11_aal88")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=289070969]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6246948, 0)
 shape = SubResource("CapsuleShape3D_player")
 
 [node name="Head" parent="." unique_id=1371523250 instance=ExtResource("2_w6cdd")]
