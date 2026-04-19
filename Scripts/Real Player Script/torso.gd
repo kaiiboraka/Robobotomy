@@ -13,10 +13,10 @@ func enable_part():
 
 func disable_part():
 	super.disable_part();
+	# When other limbs are socketed, keep the torso rigid while disabled.
+	# If limbs_attached is 0, keep super's freeze (do not force unfreeze — that breaks recall).
 	if limbs_attached > 0:
 		freeze = true;
-	else:
-		freeze = false;
 
 func _on_stabilize_step(t: float, initial_rot: float, initial_y: float):
 	if not is_instance_valid(self): return;

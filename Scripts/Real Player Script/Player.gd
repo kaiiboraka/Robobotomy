@@ -97,7 +97,7 @@ func _input(event: InputEvent) -> void:
 				# Stop controlling core immediately upon throw
 				is_controlling_core = false;
 				
-				selected_limb.throw(direction * throw_force);
+				selected_limb.throw(direction * throw_force * 1 / selected_limb.weight);
 				check_torso_activation();
 				update_weight();
 
@@ -115,8 +115,10 @@ func _input(event: InputEvent) -> void:
 		elif selected_limb and selected_limb != torso and selected_limb.is_detached:
 			# Retract specifically selected limb and return control to torso
 			var tween = selected_limb.retract();
+			# Defer select_limb until the tween ends: an immediate select runs disable_part on this limb,
+			# which forces top_level off mid-tween and corrupts transform vs global_position updates.
+			tween.finished.connect(select_limb.bind(torso));
 			tween.finished.connect(_on_limb_returned.bind(selected_limb));
-			select_limb(torso);
 
 func _add_follow_target(limb: Node3D):
 	if phantom_camera:

@@ -9,6 +9,7 @@ signal hit_ground
 
 var is_part_enabled: bool = true
 var is_detached: bool = false
+var is_retracting: bool = false
 var starting_position : Vector3
 var core : Node3D
 
@@ -50,7 +51,9 @@ func enable_part():
 
 func disable_part():
 	is_part_enabled = false;
-	top_level = is_detached; # Keep world space if detached
+	# During retract, stay top_level until the tween finishes (caller keeps global_position valid).
+	if not is_retracting:
+		top_level = is_detached; # Keep world space if detached
 	freeze = true if not is_detached else false; # don't move if attached
 	set_process(false);
 	set_physics_process(true); # Keep physics for gravity/collision if detached
@@ -64,10 +67,12 @@ func throw(impulse: Vector3):
 	apply_central_impulse(impulse);
 
 func retract():
+	is_retracting = true;
 	var initial_global_pos = global_position;
+	# Mark attached before disable_part so freeze stays on during the tween (was still detached).
+	is_detached = false;
 	disable_part();
 	top_level = true; # Keep in world space during flight
-	is_detached = false;
 	
 	var target_start = core.global_transform * starting_position;
 	var dist = initial_global_pos.distance_to(target_start);
@@ -85,7 +90,11 @@ func retract():
 		func():
 			top_level = false;
 			position = starting_position;
+			rotation = Vector3.ZERO;
+			linear_velocity = Vector3.ZERO;
+			angular_velocity = Vector3.ZERO;
 			freeze = true;
 			set_physics_process(false);
+			is_retracting = false;
 	);
 	return move_tween;

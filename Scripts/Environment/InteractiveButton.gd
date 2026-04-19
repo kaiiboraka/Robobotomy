@@ -14,6 +14,8 @@ extends StaticBody3D
 @onready var trigger_area: Area3D = $Area3D;
 
 var _was_active: bool = false;
+## Bodies already contributing weight (avoids double-count on repeated body_entered).
+var _counted_bodies: Dictionary = {}; # Node3D -> int
 
 func _ready():
 	if lights:
@@ -24,32 +26,45 @@ func _ready():
 	trigger_area.body_exited.connect(_on_body_exited);
 
 func _on_body_entered(body: Node3D):
-	# If body is a detached limb, add its specific weight
+	# Attached, non-active limbs are part of the core — ignore them here.
+	# Torso can roll while still parented (is_detached false) but with is_part_enabled true.
 	if body is BodyPart:
-		if not body.is_detached: return; # Let Player core count it
-		
+		if not body.is_detached and not body.is_part_enabled:
+			return;
+
+	if _counted_bodies.has(body):
+		return;
+
+	var weight_val = body.get("weight");
+	if weight_val == null:
+		return;
+
+	_counted_bodies[body] = weight_val;
+
 	if "stabilization_enabled" in body:
 		body.set("stabilization_enabled", false);
-	var weight_val = body.get("weight");
-	if weight_val == null: return;
 
 	if lights:
 		lights.current_weight += weight_val;
 		_check_trigger();
-		
+
 		# If we didn't just activate, play bounce for impact
 		if not _was_active:
 			anim_player.play("Bounce");
 
 func _on_body_exited(body: Node3D):
-	# If body is a detached limb, remove its specific weight
 	if body is BodyPart:
-		if not body.is_detached: return;
-		
+		if not body.is_detached and not body.is_part_enabled:
+			return;
+
+	if not _counted_bodies.has(body):
+		return;
+
+	var weight_val: int = _counted_bodies[body];
+	_counted_bodies.erase(body);
+
 	if "stabilization_enabled" in body:
 		body.set("stabilization_enabled", true);
-	var weight_val = body.get("weight");
-	if weight_val == null: return;
 
 	if lights:
 		lights.current_weight -= weight_val;
