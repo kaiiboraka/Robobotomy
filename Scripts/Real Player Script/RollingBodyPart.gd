@@ -13,6 +13,7 @@ class_name RollingBodyPart extends BodyPart
 
 var is_stabilizing: bool = false;
 var is_stabilized: bool = false;
+var stabilization_enabled: bool = true;
 var _stabilize_timer: float = 0.0;
 
 func _ready():
@@ -78,7 +79,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D):
 	state.apply_torque(torque);
 
 func stabilize_upright(delta: float, velocity_threshold: float = 0.5):
-	if not is_part_enabled or is_stabilizing or is_stabilized:
+	if not is_part_enabled or is_stabilizing or is_stabilized or not stabilization_enabled:
 		_stabilize_timer = 0.0;
 		return;
 

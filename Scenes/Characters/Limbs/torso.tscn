@@ -19,8 +19,8 @@ radius = 0.2783203
 height = 1.041271
 
 [node name="Torso" type="RigidBody3D" unique_id=381647224]
-collision_layer = 3
-collision_mask = 908
+collision_layer = 4099
+collision_mask = 2948
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
@@ -30,10 +30,13 @@ continuous_cd = true
 contact_monitor = true
 max_contacts_reported = 2
 script = ExtResource("1_fnhlf")
-roll_speed = 3.0
 jump_force = 200.0
+roll_speed = 3.25
+deceleration_factor = 1.0
 max_angular_velocity = 10.0
-stabilize_delay = 3.0
+stabilize_threshold = 1.0
+stabilize_delay = 8.0
+weight = 3
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=559717037]
 aabb = AABB(-0.31877425, -0.6121777, -0.45757043, 0.6375485, 1.2243555, 0.91514087)

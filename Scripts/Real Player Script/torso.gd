@@ -6,6 +6,18 @@ var limbs_attached = 0
 func should_roll() -> bool:
 	return limbs_attached == 0;
 
+func enable_part():
+	super.enable_part();
+	sleeping = false;
+	freeze = false;
+
+func disable_part():
+	super.disable_part();
+	if limbs_attached > 0:
+		freeze = true;
+	else:
+		freeze = false;
+
 func _on_stabilize_step(t: float, initial_rot: float, initial_y: float):
 	if not is_instance_valid(self): return;
 	var current_rot = lerp(initial_rot, 0.0, t);

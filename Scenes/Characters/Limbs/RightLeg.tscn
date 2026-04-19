@@ -19,8 +19,8 @@ size = Vector3(0.40649414, 1.7830391, 0.7265625)
 size = Vector3(0.4185791, 1.7902048, 0.73747253)
 
 [node name="RightLeg" type="RigidBody3D" unique_id=1985177356]
-collision_layer = 3
-collision_mask = 908
+collision_layer = 4099
+collision_mask = 2956
 lock_rotation = true
 freeze = true
 freeze_mode = 1

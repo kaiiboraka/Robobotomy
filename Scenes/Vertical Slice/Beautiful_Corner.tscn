@@ -57,6 +57,7 @@
 [ext_resource type="ArrayMesh" uid="uid://pt55dusfqfr0" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/bigwire.res" id="53_jlcko"]
 [ext_resource type="ArrayMesh" uid="uid://cjkcmukmea2h2" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_helicalwithholes.res" id="54_r5pee"]
 [ext_resource type="ArrayMesh" uid="uid://b80lj2w7reslv" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_internal.res" id="55_jlcko"]
+[ext_resource type="PackedScene" uid="uid://m1ilgdhf1lia" path="res://Scenes/Environment/interactive_button.tscn" id="55_penhn"]
 [ext_resource type="ArrayMesh" uid="uid://bwotwyj54b6aw" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_keyway1.res" id="56_penhn"]
 [ext_resource type="ArrayMesh" uid="uid://c6l4lrgihrl7k" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_keyway2.res" id="57_8qeui"]
 [ext_resource type="ArrayMesh" uid="uid://j3iceav5dwbr" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_nobore.res" id="58_sh1qt"]
@@ -1074,9 +1075,9 @@ mesh = ExtResource("53_jlcko")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.105865, -2.3841858e-07, 5.3366284)
 mesh = ExtResource("45_u6h1n")
 
-[node name="Button2" type="MeshInstance3D" parent="." unique_id=1793227733]
-transform = Transform3D(0.4965217, 0, 0, 0, 0.4965217, 0, 0, 0, 0.4965217, 1.6182194, 0.12784421, 0.17365956)
-mesh = ExtResource("45_u6h1n")
+[node name="InteractiveButton" parent="." unique_id=1151652390 instance=ExtResource("55_penhn")]
+transform = Transform3D(0.497, 0, -7.5044916e-08, 0, 0.497, 0, -7.5044916e-08, 0, -0.497, 1.6182194, 0.04917133, 0.43385243)
+trigger_weight = 9
 
 [node name="Buttons1x1" type="MeshInstance3D" parent="." unique_id=652896106]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 21.762793, 1.6382749, 4.3319654)
@@ -1101,15 +1102,6 @@ mesh = ExtResource("50_uhx7f")
 [node name="Cableconnector" type="MeshInstance3D" parent="." unique_id=761417239]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20.576597, 0.41073394, 4.3395166)
 mesh = ExtResource("51_fnn60")
-
-[node name="Cableconnector2" type="MeshInstance3D" parent="." unique_id=783804932]
-transform = Transform3D(-2.4355202e-08, 0, 0.5571821, 0, 0.5571821, 0, -0.5571821, 0, -2.4355202e-08, 2.3708088, 0.41073394, -0.31940955)
-mesh = ExtResource("51_fnn60")
-
-[node name="Buttons3x4" type="MeshInstance3D" parent="Cableconnector2" unique_id=380599737]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007167816, 0.98575425, -0.034172058)
-mesh = ExtResource("50_uhx7f")
-skeleton = NodePath("../..")
 
 [node name="GearHelical1" type="MeshInstance3D" parent="." unique_id=1820157225]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.080269, -9.536743e-07, 12.10544)

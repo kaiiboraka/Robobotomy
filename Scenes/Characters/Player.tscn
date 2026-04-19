@@ -21,13 +21,12 @@ height = 3.25
 collision_layer = 3
 collision_mask = 652
 script = ExtResource("1_qkgjm")
-throw_force = 50.0
+throw_force = 40.0
 
 [node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1704350181]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.7423797, 24.223686)
-top_level = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.656159, 18.996613)
 script = ExtResource("9_shd1k")
-follow_mode = 3
+priority = 1
 tween_resource = SubResource("Resource_4opfx")
 camera_3d_resource = ExtResource("11_aal88")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"

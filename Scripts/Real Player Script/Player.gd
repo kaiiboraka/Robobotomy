@@ -19,6 +19,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity");
 
 # Flag to determine if the player inputs control the CharacterBody3D
 var is_controlling_core: bool = true;
+var weight: int = 0;
 
 func _ready():
 	axis_lock_linear_z = true;
@@ -43,6 +44,7 @@ func _ready():
 	# Start with torso selected
 	selected_limb = torso;
 	check_torso_activation();
+	update_weight();
 
 func sync_core_to_torso():
 	if not torso: return;
@@ -58,6 +60,13 @@ func sync_core_to_torso():
 	torso.angular_velocity = Vector3.ZERO;
 	
 	is_controlling_core = true;
+
+func update_weight():
+	var total = 0; # Base torso weight
+	for limb in limbs:
+		if limb and not limb.is_detached:
+			total += limb.weight;
+	weight = total;
 
 func _input(event: InputEvent) -> void:
 	# Selection switching
@@ -86,10 +95,11 @@ func _input(event: InputEvent) -> void:
 				direction.z = 0 # Keep it 2.5D
 				
 				# Stop controlling core immediately upon throw
-				is_controlling_core = false
+				is_controlling_core = false;
 				
-				selected_limb.throw(direction * throw_force)
-				check_torso_activation()
+				selected_limb.throw(direction * throw_force);
+				check_torso_activation();
+				update_weight();
 
 	# Retraction logic
 	if event.is_action_pressed("Player_Recall"):
@@ -186,6 +196,7 @@ func _on_limb_hit_ground(limb: BodyPart):
 
 func _on_limb_returned(_limb: BodyPart):
 	check_torso_activation();
+	update_weight();
 
 func _physics_process(delta):
 	# Add the gravity.

@@ -30,6 +30,8 @@ enum LightState { OFF, ERROR, PARTIAL, FULL }
 @onready var hub_mesh: MeshInstance3D = $Hub_MeshInstance3D;
 
 func _ready():
+	if get_parent() and get_parent().get("trigger_weight") != null:
+		weight = get_parent().trigger_weight;
 	update_lights();
 	update_materials();
 

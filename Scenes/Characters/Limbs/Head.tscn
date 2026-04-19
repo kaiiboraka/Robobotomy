@@ -23,8 +23,8 @@ radius = 0.12841797
 radius = 0.32475948
 
 [node name="Head" type="RigidBody3D" unique_id=2035200198]
-collision_layer = 3
-collision_mask = 908
+collision_layer = 4099
+collision_mask = 2956
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
@@ -35,12 +35,13 @@ continuous_cd = true
 contact_monitor = true
 max_contacts_reported = 2
 script = ExtResource("1_rtqub")
-roll_speed = 4.0
 jump_force = 175.0
+roll_speed = 4.0
+deceleration_factor = 2.5
 max_angular_velocity = 18.0
 stabilize_threshold = 2.0
-deceleration_factor = 2.5
 stabilize_delay = 3.0
+weight = 2
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=677304792]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.021868803, 0)
