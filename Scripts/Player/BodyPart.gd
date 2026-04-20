@@ -15,12 +15,14 @@ var is_detached: bool = false;
 var is_retracting: bool = false;
 var starting_position: Vector3;
 var starting_rotation: Vector3;
+var starting_transform: Transform3D;
 var core: Node3D;
 
 
 func _ready() -> void:
 	starting_position = position;
 	starting_rotation = rotation;
+	starting_transform = transform;
 	# Ensure we can detect collisions for the hit_ground signal
 	contact_monitor = true;
 	max_contacts_reported = 4;

@@ -84,45 +84,45 @@ func update_lights():
 		add_child(mi);
 		if Engine.is_editor_hint():
 			mi.owner = get_tree().edited_scene_root if get_tree() else owner;
-	
+
 	update_materials();
 
 func update_materials():
 	var total_required = weight;
 	var is_full = current_weight >= total_required;
 	var is_partial = current_weight > 0 and current_weight < total_required;
-	
+
 	# Find hub mesh reliably
 	var hub = get_node_or_null("Hub_MeshInstance3D");
-	
+
 	# Determine Hub Material
 	var hub_mat = state_materials.get(LightState.OFF);
 	if is_full:
 		hub_mat = state_materials.get(LightState.FULL);
 	elif is_partial:
 		hub_mat = state_materials.get(LightState.ERROR);
-	
+
 	if hub:
 		_set_surface_material(hub, "button_light", hub_mat);
-	
+
 	# Update generated lights
 	var generated_lights = [];
 	for child in get_children():
 		if child.name.begins_with("Generated_"):
 			generated_lights.append(child);
-	
+
 	# Sort by name to ensure consistent lighting order
 	generated_lights.sort_custom(func(a, b): return a.name.naturalnocasecmp_to(b.name) < 0);
-	
+
 	for i in range(generated_lights.size()):
 		var light = generated_lights[i];
 		var light_mat = state_materials.get(LightState.OFF);
-		
+
 		if is_full:
 			light_mat = state_materials.get(LightState.FULL);
 		elif i < current_weight:
 			light_mat = state_materials.get(LightState.PARTIAL);
-			
+
 		_set_surface_material(light, "button_light", light_mat);
 
 func _set_surface_material(mi: MeshInstance3D, surface_name: String, mat: Material):

@@ -51,6 +51,8 @@ func _physics_process(delta: float) -> void:
 		
 	if not move_held and ray_cast_3d.is_colliding():
 		angular_velocity.z = lerp(angular_velocity.z, 0.0, delta * deceleration_factor);
+		if abs(angular_velocity.z) < 0.05:
+			angular_velocity.z = 0;
 		stabilize_upright(delta, stabilize_threshold);
 
 

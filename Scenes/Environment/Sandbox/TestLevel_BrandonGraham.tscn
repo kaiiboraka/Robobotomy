@@ -72,7 +72,7 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_45ei3")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2074898256]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.656159, 18.996613)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.0686836, 15)
 fov = 45.0
 near = 0.005
 
@@ -88,7 +88,7 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 6.173436, -1.6359935, 0)
 trigger_weight = 9
 
-[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=57193271 node_paths=PackedStringArray("follow_target")]
+[node name="Player_PhantomCamera3D" type="Node3D" parent="." unique_id=57193271 node_paths=PackedStringArray("follow_target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 15)
 top_level = true
 script = ExtResource("2_45ei3")
