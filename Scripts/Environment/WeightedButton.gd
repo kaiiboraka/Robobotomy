@@ -9,7 +9,7 @@ extends StaticBody3D
 @export var activation_targets: Array[Node] = [];
 
 @onready var anim_player: AnimationPlayer = $ButtonShell/AnimationPlayer;
-@onready var lights: Node3D = $Button_Lights;
+@onready var lights: Node3D = %Button_Lights;
 @onready var trigger_area: Area3D = $Area3D;
 
 var _was_active: bool = false;
@@ -78,7 +78,7 @@ func _on_body_entered(body: Node3D) -> void:
 		lights.current_weight += weight_val;
 		_check_trigger();
 
-		# If we didn't just activate, play bounce for impact
+		# Play bounce for the impact of this NEW body entering
 		if not _was_active:
 			anim_player.play("Bounce");
 

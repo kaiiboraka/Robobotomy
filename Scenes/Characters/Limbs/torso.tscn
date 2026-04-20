@@ -141,14 +141,11 @@ continuous_cd = true
 contact_monitor = true
 max_contacts_reported = 2
 script = ExtResource("1_fnhlf")
-jump_force = 200.0
-roll_speed = 3.25
 deceleration_factor = 1.0
 max_angular_velocity = 10.0
 stabilize_threshold = 1.0
 stabilize_delay = 8.0
-retract_speed = null
-throw_force = null
+jump_velocity = 3.75
 weight = 3
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=559717037]

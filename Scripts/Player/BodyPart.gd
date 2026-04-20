@@ -4,6 +4,8 @@ signal hit_ground;
 
 @export var retract_speed: float = 10.0;
 @export var throw_force: float = 40.0;
+@export var speed: float = 5.0;
+@export var acceleration: float = 20.0;
 @export var jump_velocity: float = 5.0;
 @export_range(0, 3, 1) var weight: int = 1;
 
@@ -142,6 +144,15 @@ func retract() -> Tween:
 	);
 	
 	return move_tween;
+
+
+func handle_movement(state: PhysicsDirectBodyState3D) -> void:
+	var input_dir := Input.get_axis("Player_Move_Left", "Player_Move_Right");
+	if input_dir != 0:
+		wake_up();
+	
+	var target_vel := input_dir * speed;
+	state.linear_velocity.x = lerp(state.linear_velocity.x, target_vel, state.step * acceleration);
 
 
 func handle_jump() -> void:

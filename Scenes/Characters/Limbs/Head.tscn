@@ -45,13 +45,14 @@ continuous_cd = true
 contact_monitor = true
 max_contacts_reported = 8
 script = ExtResource("1_rtqub")
-jump_force = 175.0
-roll_speed = 3.75
 deceleration_factor = 5.0
 max_angular_velocity = 18.0
 stabilize_threshold = 2.0
 stabilize_delay = 3.0
 retract_speed = 7.5
+speed = 4.0
+acceleration = 5.0
+jump_velocity = 4.0
 weight = 2
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=677304792]

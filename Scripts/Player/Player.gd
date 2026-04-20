@@ -13,6 +13,8 @@ class_name Player extends CharacterBody3D
 @onready var selection_label: Label3D = $Label3D;
 @onready var neck: MeshInstance3D = $Neck;
 
+@onready var core_collider: CollisionShape3D = $CollisionShape3D;
+
 var limbs: Array = [];
 var selected_limb: BodyPart = null;
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity");
@@ -103,6 +105,7 @@ func _physics_process(delta: float) -> void:
 			var tween := selected_limb.retract();
 			tween.finished.connect(select_limb.bind(torso));
 			tween.finished.connect(_on_limb_returned.bind(selected_limb));
+		check_torso_activation();
 		_update_selection_hud();
 
 	# Add the gravity.
@@ -186,6 +189,11 @@ func check_torso_activation() -> void:
 	if all_others_detached:
 		torso.is_detached = true; # Lone torso is physically independent
 		torso.enable_part(); # Torso physics always active when limbs are gone
+		
+		# Disable core collider while following the detached torso to prevent
+		# the CharacterBody3D from snagging on high geometry the torso rolls under.
+		if core_collider: core_collider.set_deferred("disabled", true);
+		
 		if selected_limb == torso:
 			is_controlling_core = false;
 		elif selected_limb != null and selected_limb.is_detached and selected_limb.is_part_enabled:
@@ -200,6 +208,11 @@ func check_torso_activation() -> void:
 		# but normally torso can't be thrown if limbs are attached)
 		torso.is_detached = false; 
 		torso.disable_part();
+		
+		# Re-enable core collider when limbs are reconjoined and CharacterBody3D
+		# becomes the primary physics actor again.
+		if core_collider: core_collider.set_deferred("disabled", false);
+		
 		if selected_limb == torso:
 			is_controlling_core = true;
 		elif selected_limb != null and selected_limb.is_detached and selected_limb.is_part_enabled:

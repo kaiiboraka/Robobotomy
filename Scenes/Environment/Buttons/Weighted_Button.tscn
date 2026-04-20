@@ -17,7 +17,7 @@ height = 0.54763794
 radius = 0.9116211
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xw1qm"]
-points = PackedVector3Array(-0.3194855, 1.4901161e-08, -1.1920613, -0.8728092, 1.4901161e-08, -0.8728092, -0.23080438, 0.27798933, -0.8609072, 0.31925213, 1.4901161e-08, -1.1920613, -1.1920613, 1.4901161e-08, -0.3194855, -0.8609072, 0.27798933, -0.23080438, -0.6303363, 0.27798933, -0.6303363, 0.23057091, 0.27798933, -0.8609072, 0.8725759, 1.4901161e-08, -0.8728092, -1.1920613, 1.4901161e-08, 0.31925213, -0.8609072, 0.27798933, 0.23057091, 0.6301029, 0.27798933, -0.6303363, 1.1920613, 1.4901161e-08, -0.3194855, -0.8728092, 1.4901161e-08, 0.8725759, -0.6303363, 0.27798933, 0.6301029, 0.8606738, 0.27798933, -0.23080438, 1.1920613, 1.4901161e-08, 0.31925213, -0.3194855, 1.4901161e-08, 1.1920613, -0.23080438, 0.27798933, 0.8606738, 0.8606738, 0.27798933, 0.23057091, 0.6301029, 0.27798933, 0.6301029, 0.8725759, 1.4901161e-08, 0.8725759, 0.31925213, 1.4901161e-08, 1.1920613, 0.23057091, 0.27798933, 0.8606738)
+points = PackedVector3Array(-0.32324106, -0.03316818, -1.2060741, -0.88306916, -0.03316818, -0.88306916, -0.22194785, 0.27798933, -0.8285266, 0.32300496, -0.03316818, -1.2060741, -1.2060741, -0.03316818, -0.32324106, -0.8285266, 0.27798933, -0.22194785, -0.60657877, 0.27798933, -0.60657877, 0.22171175, 0.27798933, -0.8285266, 0.8828331, -0.03316818, -0.88306916, -1.2060741, -0.03316818, 0.32300496, -0.8285266, 0.27798933, 0.22171175, 0.6063427, 0.27798933, -0.60657877, 1.2060741, -0.03316818, -0.32324106, -0.88306916, -0.03316818, 0.8828331, -0.60657877, 0.27798933, 0.6063427, 0.8282906, 0.27798933, -0.22194785, 1.2060741, -0.03316818, 0.32300496, -0.32324106, -0.03316818, 1.2060741, -0.22194785, 0.27798933, 0.8282906, 0.8282906, 0.27798933, 0.22171175, 0.6063427, 0.27798933, 0.6063427, 0.8828331, -0.03316818, 0.8828331, 0.32300496, -0.03316818, 1.2060741, 0.22171175, 0.27798933, 0.8282906)
 
 [sub_resource type="Animation" id="Animation_kaux0"]
 resource_name = "Bounce"
@@ -286,7 +286,6 @@ _data = {
 }
 
 [node name="WeightedButton" type="StaticBody3D" unique_id=1151652390]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_yigyg")
@@ -306,16 +305,46 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19618222, 0)
 shape = SubResource("CylinderShape3D_1bdht")
 debug_color = Color(1, 0, 0, 0.41960785)
 
-[node name="CableConnector" type="MeshInstance3D" parent="." unique_id=872956376]
+[node name="Cable" type="Node3D" parent="." unique_id=1618775983]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Button_Lights" parent="Cable" unique_id=303055115 instance=ExtResource("2_v2ty4")]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.594, 0.643, 1.573)
+weight = 4
+current_weight = 0
+
+[node name="Generated_Light_1" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=2048774862]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8086581, -0.13553238)
+mesh = ExtResource("3_hcdd2")
+surface_material_override/1 = ExtResource("5_naxr5")
+
+[node name="Generated_Light_2" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=265891114]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8086581, 0.08446762)
+mesh = ExtResource("3_hcdd2")
+surface_material_override/1 = ExtResource("5_naxr5")
+
+[node name="Generated_Light_3" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=899179366]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0286582, -0.13553238)
+mesh = ExtResource("3_hcdd2")
+surface_material_override/1 = ExtResource("5_naxr5")
+
+[node name="Generated_Light_4" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=223254698]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0286582, 0.08446762)
+mesh = ExtResource("3_hcdd2")
+surface_material_override/1 = ExtResource("5_naxr5")
+
+[node name="CableConnector" type="MeshInstance3D" parent="Cable" unique_id=872956376]
 transform = Transform3D(4.371139e-08, -3.821371e-15, 1, -8.742278e-08, -1, 0, 1, -8.742278e-08, -4.371139e-08, -0.88379204, 0.1107021, 1.6648425)
 mesh = ExtResource("5_u8eeh")
-
-[node name="PowerCable2" type="MeshInstance3D" parent="CableConnector" unique_id=415605683]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.0012025833, 0.0012607574, 0.6258382)
-mesh = ExtResource("6_naxr5")
 skeleton = NodePath("../..")
 
-[node name="PowerCable3" type="MeshInstance3D" parent="CableConnector" unique_id=1336977178]
+[node name="PowerCable2" type="MeshInstance3D" parent="Cable/CableConnector" unique_id=415605683]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.0012025833, 0.0012607574, 0.6258382)
+mesh = ExtResource("6_naxr5")
+skeleton = NodePath("../../..")
+
+[node name="PowerCable3" type="MeshInstance3D" parent="Cable/CableConnector" unique_id=1336977178]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.00023961067, 0.0014225394, 1.4724778)
 mesh = ExtResource("6_naxr5")
 skeleton = NodePath("../PowerCable2")
@@ -329,40 +358,15 @@ transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, 0, 0.148
 collision_layer = 8
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ButtonShell/AnimatableBody3D" unique_id=1845007846]
-transform = Transform3D(-0.8660256, 0, 0.50000024, 0, 1, 0, -0.50000024, 0, -0.8660256, 0, -0.14580317, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ButtonShell/AnimatableBody3D" unique_id=796794241]
+transform = Transform3D(-0.8660256, 0, 0.50000024, 0, 1, 0, -0.50000024, 0, -0.8660256, 0, -0.13611265, 0)
 shape = SubResource("ConvexPolygonShape3D_xw1qm")
-
-[node name="ButtonPad" type="MeshInstance3D" parent="ButtonShell" unique_id=2098201895]
-transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, 0, 0.1485067, 0)
-mesh = ExtResource("7_yigyg")
-skeleton = NodePath("../..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ButtonShell" unique_id=1454709930]
 libraries/ = SubResource("AnimationLibrary_orm8i")
 autoplay = &"Unpressed"
 
-[node name="Button_Lights" parent="." unique_id=303055115 instance=ExtResource("2_v2ty4")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.594, 0.643, 1.573)
-weight = 4
-current_weight = 0
-
-[node name="Generated_Light_1" type="MeshInstance3D" parent="Button_Lights" unique_id=321693332]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8086581, -0.13553238)
-mesh = ExtResource("3_hcdd2")
-surface_material_override/1 = ExtResource("5_naxr5")
-
-[node name="Generated_Light_2" type="MeshInstance3D" parent="Button_Lights" unique_id=191952343]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8086581, 0.08446762)
-mesh = ExtResource("3_hcdd2")
-surface_material_override/1 = ExtResource("5_naxr5")
-
-[node name="Generated_Light_3" type="MeshInstance3D" parent="Button_Lights" unique_id=151293037]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0286582, -0.13553238)
-mesh = ExtResource("3_hcdd2")
-surface_material_override/1 = ExtResource("5_naxr5")
-
-[node name="Generated_Light_4" type="MeshInstance3D" parent="Button_Lights" unique_id=513600177]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0286582, 0.08446762)
-mesh = ExtResource("3_hcdd2")
-surface_material_override/1 = ExtResource("5_naxr5")
+[node name="ButtonPad" type="MeshInstance3D" parent="ButtonShell" unique_id=2098201895]
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, 0, 0.1485067, 0)
+mesh = ExtResource("7_yigyg")
+skeleton = NodePath("../..")

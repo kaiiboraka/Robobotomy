@@ -1,6 +1,5 @@
 @abstract class_name RollingBodyPart extends BodyPart
 
-@export var roll_speed: float = 7.0;
 @export var deceleration_factor: float = 2.0;
 @export var max_angular_velocity: float = 12.0;
 @export var stabilize_threshold: float = 5.0;
@@ -76,12 +75,12 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	# Apply torque for moving right, respecting the velocity cap.
 	if Input.is_action_pressed("Player_Move_Right") and current_ang_vel > -max_angular_velocity:
 		wake_up();
-		torque.z -= roll_speed;
+		torque.z -= speed; # Rolling uses 'speed' for torque strength
 			
 	# Apply torque for moving left, respecting the velocity cap.
 	if Input.is_action_pressed("Player_Move_Left") and current_ang_vel < max_angular_velocity:
 		wake_up();
-		torque.z += roll_speed;
+		torque.z += speed;
 	
 	state.apply_torque(torque);
 
