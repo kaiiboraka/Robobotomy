@@ -1,10 +1,121 @@
 [gd_scene format=3 uid="uid://dgoqhuaqsm30g"]
 
-[ext_resource type="Script" uid="uid://q8ahgo1qrduq" path="res://Scripts/Real Player Script/torso.gd" id="1_fnhlf"]
-[ext_resource type="ArrayMesh" uid="uid://b2ckkw054dop8" path="res://Assets/Robobotomy Art/3D/Character/Torso1.res" id="4_fnhlf"]
+[ext_resource type="Script" uid="uid://q8ahgo1qrduq" path="res://Scripts/Player/torso.gd" id="1_fnhlf"]
+[ext_resource type="ArrayMesh" uid="uid://cj3i70i41oq7n" path="res://Assets/Robobotomy Art/3D/Character/Chest.res" id="4_v4eif"]
+[ext_resource type="ArrayMesh" uid="uid://dbhvhv7v6iag6" path="res://Assets/Robobotomy Art/3D/Character/Hips.res" id="5_p6b2g"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtqub"]
-albedo_color = Color(0.5092, 0.63784, 0.67, 1)
+[sub_resource type="Skin" id="Skin_edeoo"]
+resource_name = "Skin"
+bind_count = 25
+bind/0/name = &"Root_joint"
+bind/0/bone = -1
+bind/0/pose = Transform3D(6.123234e-17, 1, 0, -6.123234e-17, 3.7493994e-33, 1, 1, -6.123234e-17, 6.123234e-17, -0.0011155009, -4.8570447e-16, -0.0002953749)
+bind/1/name = &"Pelvis_joint"
+bind/1/bone = -1
+bind/1/pose = Transform3D(-0.0021421905, 0.99999774, 0, -6.12322e-17, -1.3117133e-19, 1, 0.99999774, 0.0021421905, 6.123234e-17, -1.6643096, -4.8548615e-16, -0.0038606517)
+bind/2/name = &"Spine_joint"
+bind/2/bone = -1
+bind/2/pose = Transform3D(0.007365321, 0.9999729, 0, -6.123068e-17, 4.5099583e-19, 1, 0.9999729, -0.007365321, 6.123234e-17, -1.8322266, -4.864876e-16, 0.012493873)
+bind/3/name = &"Sternum_joint"
+bind/3/bone = -1
+bind/3/pose = Transform3D(0.007365321, 0.9999729, 0, -6.123068e-17, 4.5099583e-19, 1, 0.9999729, -0.007365321, 6.123234e-17, -2.4140198, -4.3140505e-16, 0.019493243)
+bind/4/name = &"L_Shoulder_bind"
+bind/4/bone = -1
+bind/4/pose = Transform3D(0.9999839, 0.0056744283, 0, -3.474585e-19, 6.1231357e-17, 1, 0.0056744283, -0.9999839, 6.123234e-17, -0.17631759, -6.3351023e-16, 2.413556)
+bind/5/name = &"R_Shoulder_bind"
+bind/5/bone = -1
+bind/5/pose = Transform3D(-0.99999994, -0.00028006433, 3.0092655e-36, 1.7148994e-20, -6.1232336e-17, 1, -0.00028006433, 0.99999994, 6.123234e-17, -0.16310999, -3.3801797e-16, -2.412199)
+bind/6/name = &"R_Shoulder_IK"
+bind/6/bone = -1
+bind/6/pose = Transform3D(-0.9999991, -0.001351084, 0, 8.2730036e-20, -6.123228e-17, 1, -0.001351084, 0.9999991, 6.123234e-17, -0.16052638, -2.824962e-16, -2.4123724)
+bind/7/name = &"R_Shoulder_FK"
+bind/7/bone = -1
+bind/7/pose = Transform3D(-0.99999994, -0.00028006433, 3.0092655e-36, 1.7148994e-20, -6.1232336e-17, 1, -0.00028006433, 0.99999994, 6.123234e-17, -0.16310999, -3.3801797e-16, -2.412199)
+bind/8/name = &"L_Shoulder_IK"
+bind/8/bone = -1
+bind/8/pose = Transform3D(0.9999839, 0.0056744283, 0, -3.474585e-19, 6.1231357e-17, 1, 0.0056744283, -0.9999839, 6.123234e-17, -0.17631759, -5.7799914e-16, 2.413556)
+bind/9/name = &"L_Shoulder_FK"
+bind/9/bone = -1
+bind/9/pose = Transform3D(0.9999839, 0.0056744283, 0, -3.474585e-19, 6.1231357e-17, 1, 0.0056744283, -0.9999839, 6.123234e-17, -0.17631759, -6.3351023e-16, 2.413556)
+bind/10/name = &"Neck_joint"
+bind/10/bone = -1
+bind/10/pose = Transform3D(0.007365321, 0.9999729, 0, -6.123068e-17, 4.5099583e-19, 1, 0.9999729, -0.007365321, 6.123234e-17, -2.4562893, -4.3140505e-16, 0.019493243)
+bind/11/name = &"Head_joint"
+bind/11/bone = -1
+bind/11/pose = Transform3D(0.007365321, 0.9999729, 0, -6.123068e-17, 4.5099583e-19, 1, 0.9999729, -0.007365321, 6.123234e-17, -2.6611876, -4.3140505e-16, 0.019493243)
+bind/12/name = &"hair_root"
+bind/12/bone = -1
+bind/12/pose = Transform3D(-0.4163696, 0.7045103, -0.5747188, -0.80973077, 0.00014001912, 0.5868016, 0.4134882, 0.7096938, 0.5704053, -2.0682876, 0.00023901794, -2.084174)
+bind/13/name = &"joint19"
+bind/13/bone = -1
+bind/13/pose = Transform3D(-0.4163696, 0.7045103, -0.5747188, -0.80973077, 0.00014001912, 0.5868016, 0.4134882, 0.7096938, 0.5704053, -2.1047797, -0.13503374, -1.652814)
+bind/14/name = &"joint18"
+bind/14/bone = -1
+bind/14/pose = Transform3D(-0.4163696, 0.7045103, -0.5747188, -0.80973077, 0.00014001912, 0.5868016, 0.4134882, 0.7096938, 0.5704053, -1.9656801, 0.037793063, -1.666845)
+bind/15/name = &"joint17"
+bind/15/bone = -1
+bind/15/pose = Transform3D(-0.4163696, 0.7045103, -0.5747188, -0.80973077, 0.00014001912, 0.5868016, 0.4134882, 0.7096938, 0.5704053, -1.981821, 0.1638625, -1.6738935)
+bind/16/name = &"joint16"
+bind/16/bone = -1
+bind/16/pose = Transform3D(-0.4163696, 0.7045103, -0.5747188, -0.80973077, 0.00014001912, 0.5868016, 0.4134882, 0.7096938, 0.5704053, -1.881118, 0.20224452, -1.750822)
+bind/17/name = &"joint15"
+bind/17/bone = -1
+bind/17/pose = Transform3D(-0.4163696, 0.7045103, -0.5747188, -0.80973077, 0.00014001912, 0.5868016, 0.4134882, 0.7096938, 0.5704053, -1.8157519, 0.32722557, -1.9387954)
+bind/18/name = &"Hips_Joint"
+bind/18/bone = -1
+bind/18/pose = Transform3D(-0.0021421905, 0.99999774, 0, -6.12322e-17, -1.3117133e-19, 1, 0.99999774, 0.0021421905, 6.123234e-17, -1.6643096, -4.8548615e-16, -0.0038606517)
+bind/19/name = &"L_Hip_IK"
+bind/19/bone = -1
+bind/19/pose = Transform3D(0.00020036724, 0.99996865, -0.007918787, -0.00517073, 0.007919718, 0.9999553, 0.9999866, -0.00015941236, 0.0051721544, -1.6581082, -0.012413019, -0.13877055)
+bind/20/name = &"R_Hip_IK"
+bind/20/bone = -1
+bind/20/pose = Transform3D(-0.0021406151, 0.99999774, 0, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -1.66368, 9.927512e-05, 0.1354644)
+bind/21/name = &"R_Hip_Fk"
+bind/21/bone = -1
+bind/21/pose = Transform3D(-0.0021184958, 0.99999774, -4.1714477e-05, 2.9879254e-06, 4.17209e-05, 1, 0.99999774, 0.0021184955, -3.0763042e-06, -1.663677, -6.8982576e-05, 0.13550124)
+bind/22/name = &"L_Hip_FK"
+bind/22/bone = -1
+bind/22/pose = Transform3D(-0.0021421905, 0.99999774, 0, -6.12322e-17, -1.3117133e-19, 1, 0.99999774, 0.0021421905, 6.123234e-17, -1.6578307, -4.7699157e-16, -0.14258845)
+bind/23/name = &"R_Hip_Bind"
+bind/23/bone = -1
+bind/23/pose = Transform3D(-0.0021406151, 0.99999774, -2.1175824e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -1.66368, 9.927512e-05, 0.1354644)
+bind/24/name = &"L_Hip_Bind"
+bind/24/bone = -1
+bind/24/pose = Transform3D(1.1784809e-05, 0.99996614, -0.008229741, 0.001024317, 0.008229724, 0.9999656, 0.99999946, -2.0214267e-05, -0.0010241853, -1.658078, -0.013788391, -0.13900314)
+
+[sub_resource type="Skin" id="Skin_hf8d4"]
+resource_name = "Skin2"
+bind_count = 10
+bind/0/name = &"Root_joint"
+bind/0/bone = -1
+bind/0/pose = Transform3D(6.123234e-17, 1, 0, -6.123234e-17, 3.7493994e-33, 1, 1, -6.123234e-17, 6.123234e-17, -0.0011155009, 1.5267374e-16, -0.0002953749)
+bind/1/name = &"Pelvis_joint"
+bind/1/bone = -1
+bind/1/pose = Transform3D(-0.0021421905, 0.99999774, 0, -6.12322e-17, -1.3117133e-19, 1, 0.99999774, 0.0021421905, 6.123234e-17, -1.6643096, 1.5289207e-16, -0.0038606517)
+bind/2/name = &"Spine_joint"
+bind/2/bone = -1
+bind/2/pose = Transform3D(0.007365321, 0.9999729, 0, -6.123068e-17, 4.5099583e-19, 1, 0.9999729, -0.007365321, 6.123234e-17, -1.8322266, 1.5189064e-16, 0.012493873)
+bind/3/name = &"Hips_Joint"
+bind/3/bone = -1
+bind/3/pose = Transform3D(-0.0021421905, 0.99999774, 0, -6.12322e-17, -1.3117133e-19, 1, 0.99999774, 0.0021421905, 6.123234e-17, -1.6643096, 1.5289207e-16, -0.0038606517)
+bind/4/name = &"L_Hip_IK"
+bind/4/bone = -1
+bind/4/pose = Transform3D(0.00020036724, 0.99996865, -0.007918787, -0.00517073, 0.007919718, 0.9999553, 0.9999866, -0.00015941236, 0.0051721544, -1.6581082, -0.012413019, -0.13877055)
+bind/5/name = &"R_Hip_IK"
+bind/5/bone = -1
+bind/5/pose = Transform3D(-0.0021406151, 0.99999774, 0, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -1.66368, 9.927512e-05, 0.1354644)
+bind/6/name = &"R_Hip_Fk"
+bind/6/bone = -1
+bind/6/pose = Transform3D(-0.0021184958, 0.99999774, -4.1714477e-05, 2.9879254e-06, 4.17209e-05, 1, 0.99999774, 0.0021184955, -3.0763042e-06, -1.663677, -6.8982576e-05, 0.13550124)
+bind/7/name = &"L_Hip_FK"
+bind/7/bone = -1
+bind/7/pose = Transform3D(-0.0021421905, 0.99999774, 0, -6.12322e-17, -1.3117133e-19, 1, 0.99999774, 0.0021421905, 6.123234e-17, -1.6578307, 1.613867e-16, -0.14258845)
+bind/8/name = &"R_Hip_Bind"
+bind/8/bone = -1
+bind/8/pose = Transform3D(-0.0021406151, 0.99999774, -2.1175824e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -1.66368, 9.927512e-05, 0.1354644)
+bind/9/name = &"L_Hip_Bind"
+bind/9/bone = -1
+bind/9/pose = Transform3D(1.1784809e-05, 0.99996614, -0.008229741, 0.001024317, 0.008229724, 0.9999656, 0.99999946, -2.0214267e-05, -0.0010241853, -1.658078, -0.013788391, -0.13900314)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8y70x"]
 radius = 0.25683594
@@ -36,15 +147,24 @@ deceleration_factor = 1.0
 max_angular_velocity = 10.0
 stabilize_threshold = 1.0
 stabilize_delay = 8.0
+retract_speed = null
+throw_force = null
 weight = 3
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=559717037]
 aabb = AABB(-0.31877425, -0.6121777, -0.45757043, 0.6375485, 1.2243555, 0.91514087)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=942909682]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_rtqub")
-mesh = ExtResource("4_fnhlf")
+[node name="Chest" type="MeshInstance3D" parent="." unique_id=512127986]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, -2.053125, 0)
+mesh = ExtResource("4_v4eif")
+skin = SubResource("Skin_edeoo")
+skeleton = NodePath("")
+
+[node name="Hips" type="MeshInstance3D" parent="Chest" unique_id=1344780933]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2498349e-06, 0)
+mesh = ExtResource("5_p6b2g")
+skin = SubResource("Skin_hf8d4")
+skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1920081872]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.010934293, 0)

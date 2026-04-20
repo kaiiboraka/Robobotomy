@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bpgupq5guqtyk"]
 
-[ext_resource type="PackedScene" uid="uid://caj74qdlqfqfr" path="res://Assets/Models/NamelessV07.fbx" id="2_1o705"]
+[ext_resource type="PackedScene" uid="uid://caj74qdlqfqfr" path="res://Assets/Robobotomy Art/3D/Character/NamelessV07.fbx" id="2_1o705"]
 [ext_resource type="Texture2D" uid="uid://ctybxaop6jxrr" path="res://Assets/Materials/Shaders/Concrete/Concrete_basecolor.png" id="2_2dqvl"]
 [ext_resource type="Shader" uid="uid://bduc6p20m0xim" path="res://Assets/Materials/Shaders/Testing/celTest.tres" id="2_jlcko"]
 [ext_resource type="ArrayMesh" uid="uid://d1iqktciv7tc8" path="res://Assets/Robobotomy Art/3D/Objects/Pipes/pipe1_medium.res" id="3_iv5s1"]
@@ -57,7 +57,7 @@
 [ext_resource type="ArrayMesh" uid="uid://pt55dusfqfr0" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/bigwire.res" id="53_jlcko"]
 [ext_resource type="ArrayMesh" uid="uid://cjkcmukmea2h2" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_helicalwithholes.res" id="54_r5pee"]
 [ext_resource type="ArrayMesh" uid="uid://b80lj2w7reslv" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_internal.res" id="55_jlcko"]
-[ext_resource type="PackedScene" uid="uid://m1ilgdhf1lia" path="res://Scenes/Environment/interactive_button.tscn" id="55_penhn"]
+[ext_resource type="PackedScene" uid="uid://m1ilgdhf1lia" path="res://Scenes/Environment/Buttons/Weighted_Button.tscn" id="55_penhn"]
 [ext_resource type="ArrayMesh" uid="uid://bwotwyj54b6aw" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_keyway1.res" id="56_penhn"]
 [ext_resource type="ArrayMesh" uid="uid://c6l4lrgihrl7k" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_keyway2.res" id="57_8qeui"]
 [ext_resource type="ArrayMesh" uid="uid://j3iceav5dwbr" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_nobore.res" id="58_sh1qt"]

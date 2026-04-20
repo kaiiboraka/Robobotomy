@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://csqa5fgdggleb"]
 
-[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/ExtendableWall.tscn" id="2_huhxs"]
-[ext_resource type="PackedScene" uid="uid://cs11rsjbm4jj8" path="res://Scenes/Characters/WhiteboxPlayer.tscn" id="2_prjws"]
-[ext_resource type="Script" uid="uid://em4mouur2y8r" path="res://Scripts/jacob_movable_object_2.gd" id="3_de7ma"]
+[ext_resource type="PackedScene" uid="uid://npjp2dyv4vbu" path="res://Scenes/Characters/Player.tscn" id="1_de7ma"]
+[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/Terrain/ExtendableWall.tscn" id="2_huhxs"]
+[ext_resource type="Script" uid="uid://em4mouur2y8r" path="res://Scripts/Environment/Activated_PathFollower.gd" id="3_de7ma"]
 [ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/button.res" id="4_wdhy1"]
 
 [sub_resource type="Curve3D" id="Curve3D_prjws"]
@@ -30,13 +30,10 @@ transform = Transform3D(0.9999495, 0.009809222, 0.0022109095, -0.00997901, 0.995
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1577906880]
 transform = Transform3D(0.71129036, -0.012095565, 0.70279425, -0.64727503, 0.37855032, 0.6616151, -0.2740456, -0.9255016, 0.26143005, 3.1260798, 0, 0.514102)
 
+[node name="Player" parent="." unique_id=64555096 instance=ExtResource("1_de7ma")]
+
 [node name="ExtendableWall" parent="." unique_id=1149585584 instance=ExtResource("2_huhxs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5015848, -1.1290178, -0.07102585)
-
-[node name="WhiteboxPlayer" parent="." unique_id=1178845950 instance=ExtResource("2_prjws")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.018315, 1.5, 0.05712223)
-collision_layer = 1
-collision_mask = 4
 
 [node name="MovingObjectPath" type="Path3D" parent="." unique_id=2116635611]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6355915, -1.108599, -0.07102585)

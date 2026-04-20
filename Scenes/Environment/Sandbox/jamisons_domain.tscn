@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://ndciuh2nypmn"]
 
-[ext_resource type="PackedScene" uid="uid://dbk24fe7ef7m3" path="res://Scenes/Environment/platform_plane.tscn" id="1_4r85m"]
+[ext_resource type="PackedScene" uid="uid://dbk24fe7ef7m3" path="res://Scenes/Environment/Terrain/platform_plane.tscn" id="1_4r85m"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_kmi27"]
-[ext_resource type="PackedScene" path="res://Scenes/Environment/SimpleBox.tscn" id="4_nbr5m"]
-[ext_resource type="PackedScene" uid="uid://d031edjsrylll" path="res://Scenes/Environment/rope.tscn" id="5_jdgyy"]
-[ext_resource type="PackedScene" path="res://Scenes/Environment/Ladder.tscn" id="6_mfg41"]
-[ext_resource type="PackedScene" uid="uid://cuc1pbmga6imc" path="res://Scenes/Environment/cube_static.tscn" id="7_kmi27"]
-[ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scripts/Nameless/character.tscn" id="7_nbr5m"]
+[ext_resource type="PackedScene" uid="uid://gl5j7l3w6avc" path="res://Scenes/Environment/Interactables/SimpleBox.tscn" id="4_nbr5m"]
+[ext_resource type="PackedScene" uid="uid://d031edjsrylll" path="res://Scenes/Environment/Interactables/rope.tscn" id="5_jdgyy"]
+[ext_resource type="PackedScene" uid="uid://dar6lwdrgm17r" path="res://Scenes/Environment/Interactables/Ladder.tscn" id="6_mfg41"]
+[ext_resource type="PackedScene" uid="uid://cuc1pbmga6imc" path="res://Scenes/Environment/Terrain/cube_static.tscn" id="7_kmi27"]
+[ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scripts/Player/character.tscn" id="7_nbr5m"]
 
 [node name="EnvironmentTest" type="Node3D" unique_id=2122381212]
 

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://brny4d7lnny58"]
 
-[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/ExtendableWall.tscn" id="1_1acot"]
+[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/Terrain/ExtendableWall.tscn" id="1_1acot"]
 [ext_resource type="Script" uid="uid://yoijiuu7sj1t" path="res://Scenes/Environment/Sandbox/testCharacter_Brandon.gd" id="2_fs2tq"]
-[ext_resource type="PackedScene" uid="uid://d031edjsrylll" path="res://Scenes/Environment/rope.tscn" id="3_8frum"]
+[ext_resource type="PackedScene" uid="uid://d031edjsrylll" path="res://Scenes/Environment/Interactables/rope.tscn" id="3_8frum"]
 [ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Assets/Robobotomy Art/3D/Objects/terminal.res" id="4_juitu"]
 [ext_resource type="ArrayMesh" uid="uid://bpc4opx2sgqfq" path="res://Assets/Robobotomy Art/3D/Objects/Ladders/ladder_large.res" id="5_juitu"]
 

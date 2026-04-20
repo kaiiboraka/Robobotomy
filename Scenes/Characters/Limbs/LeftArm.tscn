@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://clesw0vcam4s2"]
 
-[ext_resource type="Script" uid="uid://dlyx5ptbnnpex" path="res://Arm.gd" id="1_my4g3"]
+[ext_resource type="Script" uid="uid://dlyx5ptbnnpex" path="res://Scripts/Player/Arm.gd" id="1_my4g3"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_7lajw"]
 [ext_resource type="ArrayMesh" uid="uid://bx2adqe32ucw1" path="res://Assets/Robobotomy Art/3D/Character/Arm Left.res" id="3_my4g3"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_rk8tc"]

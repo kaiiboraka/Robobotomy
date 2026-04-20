@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bmswce2kxaau0"]
+
+[ext_resource type="Script" uid="uid://cj4nsecqu6g88" path="res://Scripts/Environment/Doors/hinge_simple.gd" id="1_v883l"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tjmlo"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jn71e"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2q6i0"]
+size = Vector3(0.3034337, 4.4582863, 1.7452025)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cgho6"]
+size = Vector3(0.3034337, 4.4582863, 1.7452025)
+
+[node name="HingeSimple" type="Node3D" unique_id=1897847401]
+script = ExtResource("1_v883l")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2102484712]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=987824561]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_tjmlo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=854109708]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_jn71e")
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="." unique_id=1348504020]
+unique_name_in_owner = true
+transform = Transform3D(1.0000002, 2.9802322e-08, 0, -2.9802322e-08, 1.0000002, 0, 0, 0, 1, 0, 0, 0)
+node_a = NodePath("../StaticBody3D")
+node_b = NodePath("../RigidBody3D")
+angular_limit/enable = true
+angular_limit/upper = 0.0
+angular_limit/lower = 0.0
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1757615152]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1058680094]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7474833, 0)
+mesh = SubResource("BoxMesh_2q6i0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=242914335]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7474833, 0)
+shape = SubResource("BoxShape3D_cgho6")

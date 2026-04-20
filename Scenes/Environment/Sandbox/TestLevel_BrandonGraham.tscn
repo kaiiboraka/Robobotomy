@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://i4qiyrnp6fqq"]
 
-[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/ExtendableWall.tscn" id="1_l4fje"]
+[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/Terrain/ExtendableWall.tscn" id="1_l4fje"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_45ei3"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_sr37p"]
 [ext_resource type="PackedScene" uid="uid://npjp2dyv4vbu" path="res://Scenes/Characters/Player.tscn" id="3_l4fje"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_t1lel"]
 [ext_resource type="Resource" uid="uid://odcgk1h80sk0" path="res://Assets/Resources/Camera3DSettings.tres" id="4_t1lel"]
-[ext_resource type="PackedScene" uid="uid://m1ilgdhf1lia" path="res://Scenes/Environment/interactive_button.tscn" id="7_t1lel"]
+[ext_resource type="PackedScene" uid="uid://m1ilgdhf1lia" path="res://Scenes/Environment/Buttons/Weighted_Button.tscn" id="7_t1lel"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jadot"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -43,11 +43,9 @@ shadow_enabled = true
 
 [node name="ExtendableWall" parent="." unique_id=1149585584 instance=ExtResource("1_l4fje")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.1374936, 0)
-length = 53.819
 
 [node name="ExtendableWall2" parent="." unique_id=702952417 instance=ExtResource("1_l4fje")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.155373, 0)
-length = 35.403
 
 [node name="wall3" type="StaticBody3D" parent="." unique_id=1088272955]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -16.843, 19.665, 0)
@@ -85,6 +83,8 @@ script = ExtResource("2_sr37p")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=64555096 instance=ExtResource("3_l4fje")]
+speed = 5.0
+jump_velocity = 4.5
 
 [node name="InteractiveButton" parent="." unique_id=1151652390 instance=ExtResource("7_t1lel")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 6.173436, -1.6359935, 0)
