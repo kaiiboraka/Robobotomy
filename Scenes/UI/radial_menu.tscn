@@ -1,5 +1,143 @@
 [gd_scene format=3 uid="uid://b2lsnrmivu4ky"]
 
-[node name="Node3D" type="Node3D" unique_id=728781961]
+[ext_resource type="Script" uid="uid://c2ffje36dgcds" path="res://addons/advanced_radial_menu/radial_menu_class.gd" id="1_4gvu6"]
+[ext_resource type="Script" uid="uid://bcsoaj36akxti" path="res://Scenes/UI/radial_menu.gd" id="1_pvlir"]
+[ext_resource type="Texture2D" uid="uid://6g1uehk4sxwp" path="res://Assets/UI/Pixel Art/Nam_Torso.png" id="3_r4tj4"]
+[ext_resource type="Texture2D" uid="uid://s0h7bj8yn7rd" path="res://Assets/UI/Pixel Art/Nam_Head.png" id="4_b6mux"]
+[ext_resource type="Texture2D" uid="uid://cuamrmgx12j3s" path="res://Assets/UI/Pixel Art/Nam_Arm.png" id="5_4cf1o"]
+[ext_resource type="Texture2D" uid="uid://c7cvs44ojokq5" path="res://Assets/UI/Pixel Art/Nam_leg.png" id="6_4cf1o"]
+[ext_resource type="Texture2D" uid="uid://dlb3oiwmbycxe" path="res://Assets/UI/Pixel Art/Pixel Perfect ROBOBOTOMY.png" id="7_s2vpv"]
+[ext_resource type="Shader" uid="uid://dey0nui56gjow" path="res://Assets/UI/shaders/CRT.gdshader" id="8_ohs8s"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1170595235]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sgy6j"]
+shader = ExtResource("8_ohs8s")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 1.0
+shader_parameter/warp_amount = 0.1
+shader_parameter/noise_amount = 0.03
+shader_parameter/interference_amount = 0.2
+shader_parameter/grille_amount = 0.1
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.6
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/aberation_amount = 0.5
+shader_parameter/roll_line_amount = 0.3
+shader_parameter/roll_speed = 1.0
+shader_parameter/scan_line_strength = -8.0
+shader_parameter/pixel_strength = -2.0
+
+[node name="RadialMenu" type="Control" unique_id=135075730 node_paths=PackedStringArray("menu")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pvlir")
+menu = NodePath("RadialMenuAdvanced")
+
+[node name="RadialMenuAdvanced" type="Control" parent="." unique_id=1506787732]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 13.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4gvu6")
+select_action_name = "ui_select"
+auto_sizing = false
+first_in_center = true
+circle_radius = 294
+arc_color = Color(1, 1, 1, 0)
+arc_inner_radius = 99.666
+line_rotation_offset_default = -36
+line_color = Color(0, 1, 1, 1)
+children_size = 1
+children_auto_sizing_factor = 0.0
+metadata/_custom_type_script = "uid://c2ffje36dgcds"
+
+[node name="Torso" type="TextureRect" parent="RadialMenuAdvanced" unique_id=1177217145]
+texture_filter = 3
+layout_mode = 0
+offset_left = 532.5
+offset_top = 233.5
+offset_right = 632.5
+offset_bottom = 413.5
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(50, 90)
+texture = ExtResource("3_r4tj4")
+
+[node name="Head" type="TextureRect" parent="RadialMenuAdvanced" unique_id=1999113102]
+texture_filter = 3
+layout_mode = 0
+offset_left = 472.5
+offset_top = 31.667007
+offset_right = 692.5
+offset_bottom = 221.667
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(110, 95)
+texture = ExtResource("4_b6mux")
+
+[node name="Left Arm" type="TextureRect" parent="RadialMenuAdvanced" unique_id=1180951296]
+texture_filter = 3
+layout_mode = 0
+offset_left = 285.30072
+offset_top = 192.67525
+offset_right = 505.30072
+offset_bottom = 332.67523
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(110, 70)
+texture = ExtResource("5_4cf1o")
+
+[node name="Left Leg" type="TextureRect" parent="RadialMenuAdvanced" unique_id=1419109198]
+texture_filter = 1
+layout_mode = 0
+offset_left = 361.8045
+offset_top = 342.74127
+offset_right = 571.8045
+offset_bottom = 622.7413
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(105, 140)
+texture = ExtResource("6_4cf1o")
+
+[node name="Right Leg" type="TextureRect" parent="RadialMenuAdvanced" unique_id=1142089909]
+texture_filter = 1
+layout_mode = 0
+offset_left = 593.1955
+offset_top = 342.74127
+offset_right = 803.1955
+offset_bottom = 622.7413
+scale = Vector2(-0.6, 0.6)
+pivot_offset = Vector2(105, 140)
+texture = ExtResource("6_4cf1o")
+
+[node name="Right Arm" type="TextureRect" parent="RadialMenuAdvanced" unique_id=514849934]
+texture_filter = 3
+layout_mode = 0
+offset_left = 659.69934
+offset_top = 192.6753
+offset_right = 879.69934
+offset_bottom = 332.6753
+scale = Vector2(-0.6, 0.6)
+pivot_offset = Vector2(110, 70)
+texture = ExtResource("5_4cf1o")
+
+[node name="PixelPerfectRobobotomy" type="Sprite2D" parent="." unique_id=383106860]
+modulate = Color(1, 1, 1, 0.16862746)
+texture_filter = 1
+position = Vector2(960, 540)
+texture = ExtResource("7_s2vpv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1770615014]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=920025334]
+material = SubResource("ShaderMaterial_sgy6j")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="slot_selected" from="RadialMenuAdvanced" to="." method="_on_radial_menu_advanced_slot_selected"]
