@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://q8ahgo1qrduq" path="res://Scripts/Real Player Script/torso.gd" id="1_fnhlf"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_w24nb"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_sw5vf"]
-[ext_resource type="ArrayMesh" path="res://Assets/Robobotomy Art/3D/Character/Torso1.res" id="4_fnhlf"]
+[ext_resource type="ArrayMesh" uid="uid://b2ckkw054dop8" path="res://Assets/Robobotomy Art/3D/Character/Torso1.res" id="4_fnhlf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtqub"]
 albedo_color = Color(0.5092, 0.63784, 0.67, 1)

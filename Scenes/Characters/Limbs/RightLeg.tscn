@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cxqku02aroxoe" path="res://Scripts/Real Player Script/RightLeg.cs" id="1_lkkg7"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_hsfiv"]
-[ext_resource type="ArrayMesh" uid="uid://gengofm32pp4" path="res://Assets/Robobotomy Art/3D/Character/Leg Left.res" id="3_pckun"]
+[ext_resource type="ArrayMesh" uid="uid://d1rjejthugc4a" path="res://Assets/Robobotomy Art/3D/Character/Leg Left.res" id="3_pckun"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_i6q28"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtqub"]
