@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dwsuv2g2x10i0"]
+
+[ext_resource type="Texture2D" uid="uid://bw5e5wgmy5i5g" path="res://Assets/Robobotomy Art/2D/Character/Neck_SG_Base_color.png" id="1_13t13"]
+
+[resource]
+resource_name = "Neck1"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 0.8)
+albedo_texture = ExtResource("1_13t13")
+emission_enabled = true

@@ -1,11 +1,11 @@
 [gd_scene format=4 uid="uid://bpgupq5guqtyk"]
 
-[ext_resource type="PackedScene" uid="uid://caj74qdlqfqfr" path="res://Assets/Models/NamelessV07.fbx" id="2_1o705"]
+[ext_resource type="PackedScene" uid="uid://caj74qdlqfqfr" path="res://Assets/Robobotomy Art/3D/Character/NamelessV07.fbx" id="2_1o705"]
 [ext_resource type="Texture2D" uid="uid://ctybxaop6jxrr" path="res://Assets/Materials/Shaders/Concrete/Concrete_basecolor.png" id="2_2dqvl"]
 [ext_resource type="Shader" uid="uid://bduc6p20m0xim" path="res://Assets/Materials/Shaders/Testing/celTest.tres" id="2_jlcko"]
-[ext_resource type="ArrayMesh" uid="uid://d1iqktciv7tc8" path="res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_medium.res" id="3_iv5s1"]
+[ext_resource type="ArrayMesh" uid="uid://d1iqktciv7tc8" path="res://Assets/Robobotomy Art/3D/Objects/Pipes/pipe1_medium.res" id="3_iv5s1"]
 [ext_resource type="Texture2D" uid="uid://dn2o72o1l4ru8" path="res://Assets/Robobotomy Art/2D/Chains/Chain 5.png" id="3_usww3"]
-[ext_resource type="ArrayMesh" uid="uid://bs7mr6pntvtby" path="res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_short.res" id="4_t2hkb"]
+[ext_resource type="ArrayMesh" uid="uid://bs7mr6pntvtby" path="res://Assets/Robobotomy Art/3D/Objects/Pipes/pipe1_short.res" id="4_t2hkb"]
 [ext_resource type="Texture2D" uid="uid://dl71oer0po4d" path="res://Assets/Robobotomy Art/2D/Chains/Chain 1.png" id="4_u372d"]
 [ext_resource type="Texture2D" uid="uid://dcho4md82yryf" path="res://Assets/Robobotomy Art/2D/Chains/Chain 4.png" id="5_ai4pf"]
 [ext_resource type="Script" uid="uid://dvhdc084jl6xm" path="res://Scripts/Tools/test_camera.gd" id="5_t2hkb"]
@@ -45,60 +45,61 @@
 [ext_resource type="Texture2D" uid="uid://vs8kw2ktvviy" path="res://Assets/Robobotomy Art/2D/Wires/Wire Conector (3).png" id="39_apgab"]
 [ext_resource type="Texture2D" uid="uid://cyixiuapc443p" path="res://Assets/Robobotomy Art/2D/Wires/Wire Conector (4).png" id="40_t1kh3"]
 [ext_resource type="Texture2D" uid="uid://c8iieo5ohyn7w" path="res://Assets/Robobotomy Art/2D/Wires/Wire Conector (6).png" id="41_cmnmm"]
-[ext_resource type="ArrayMesh" uid="uid://pt55dusfqfr0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/bigwire.res" id="44_itrl0"]
-[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Scenes/Vertical Slice/3d assetts/kitbash/button.res" id="45_u6h1n"]
-[ext_resource type="ArrayMesh" uid="uid://doxh8d0va3v1k" path="res://Scenes/Vertical Slice/3d assetts/kitbash/buttons_1x1.res" id="46_20x6s"]
-[ext_resource type="ArrayMesh" uid="uid://cxeu82e0qsgql" path="res://Scenes/Vertical Slice/3d assetts/kitbash/buttons_1x2.res" id="47_lj686"]
-[ext_resource type="ArrayMesh" uid="uid://cvo0no0vpvcvy" path="res://Scenes/Vertical Slice/3d assetts/kitbash/buttons_1x3.res" id="48_1f8lv"]
-[ext_resource type="ArrayMesh" uid="uid://3opr7stj4wlh" path="res://Scenes/Vertical Slice/3d assetts/kitbash/buttons_2x3.res" id="49_ymajn"]
-[ext_resource type="ArrayMesh" uid="uid://dq0ogr20mo8rg" path="res://Scenes/Vertical Slice/3d assetts/kitbash/buttons_3x3.res" id="50_uhx7f"]
-[ext_resource type="ArrayMesh" uid="uid://c30g2pc1dcs7o" path="res://Scenes/Vertical Slice/3d assetts/kitbash/cableconnector.res" id="51_fnn60"]
-[ext_resource type="ArrayMesh" uid="uid://cux0e83pq4xyq" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_helical1.res" id="52_nruv6"]
-[ext_resource type="ArrayMesh" uid="uid://cdb0ivhnbqid5" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_helical2.res" id="53_1o705"]
-[ext_resource type="ArrayMesh" uid="uid://cjkcmukmea2h2" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_helicalwithholes.res" id="54_r5pee"]
-[ext_resource type="ArrayMesh" uid="uid://b80lj2w7reslv" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_internal.res" id="55_jlcko"]
-[ext_resource type="ArrayMesh" uid="uid://bwotwyj54b6aw" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_keyway1.res" id="56_penhn"]
-[ext_resource type="ArrayMesh" uid="uid://c6l4lrgihrl7k" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_keyway2.res" id="57_8qeui"]
-[ext_resource type="ArrayMesh" uid="uid://j3iceav5dwbr" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_nobore.res" id="58_sh1qt"]
-[ext_resource type="ArrayMesh" uid="uid://ctmqsm1xmvia" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_rack.res" id="59_nwvs3"]
-[ext_resource type="ArrayMesh" uid="uid://cl8ddskukauua" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spiralbevellarge.res" id="60_520ta"]
-[ext_resource type="ArrayMesh" uid="uid://d0ad87y13yuta" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spiralbevelsmall.res" id="61_d08y4"]
-[ext_resource type="ArrayMesh" uid="uid://dtfu8lm3bxlny" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spur1.res" id="62_lp33q"]
-[ext_resource type="ArrayMesh" uid="uid://be1g7qe7fjvr0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spur2.res" id="63_y77u3"]
-[ext_resource type="ArrayMesh" uid="uid://bxn60oqa572lh" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spur3.res" id="64_j0bok"]
-[ext_resource type="ArrayMesh" uid="uid://jr6eb5v2ixld" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spur4.res" id="65_q8ktq"]
-[ext_resource type="ArrayMesh" uid="uid://cgvxdv3x4vtr3" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spur5.res" id="66_g0s1a"]
-[ext_resource type="ArrayMesh" uid="uid://c7la0fp3apuk0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spurlargebore.res" id="67_latii"]
-[ext_resource type="ArrayMesh" uid="uid://c33fijy56uwom" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spurwithspokes.res" id="68_30kme"]
-[ext_resource type="ArrayMesh" uid="uid://c3erlqmxt2uo2" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_worm.res" id="69_qh3c7"]
-[ext_resource type="ArrayMesh" uid="uid://ytojh4ald4hx" path="res://Scenes/Vertical Slice/3d assetts/kitbash/ladder_base.res" id="70_7mw20"]
-[ext_resource type="ArrayMesh" uid="uid://bpc4opx2sgqfq" path="res://Scenes/Vertical Slice/3d assetts/kitbash/ladder_large.res" id="71_d216d"]
-[ext_resource type="ArrayMesh" uid="uid://bmqng3sw3pnya" path="res://Scenes/Vertical Slice/3d assetts/kitbash/ladder_mid.res" id="72_hrctq"]
-[ext_resource type="ArrayMesh" uid="uid://b02gmyrgfwjek" path="res://Scenes/Vertical Slice/3d assetts/kitbash/ladder_rung.res" id="73_nameg"]
-[ext_resource type="ArrayMesh" uid="uid://c86kbccnj7c1s" path="res://Scenes/Vertical Slice/3d assetts/kitbash/ladder_top1.res" id="74_fl8kt"]
-[ext_resource type="ArrayMesh" uid="uid://cy54skeqlwy3g" path="res://Scenes/Vertical Slice/3d assetts/kitbash/ladder_top2.res" id="75_ip7kf"]
-[ext_resource type="ArrayMesh" uid="uid://bw43rtwbo6wcp" path="res://Scenes/Vertical Slice/3d assetts/kitbash/lever.res" id="76_yidho"]
-[ext_resource type="ArrayMesh" uid="uid://c28ymrrtw8mgw" path="res://Scenes/Vertical Slice/3d assetts/kitbash/monkeybar_large.res" id="77_sve0w"]
-[ext_resource type="ArrayMesh" uid="uid://c0ojvrv4euw0g" path="res://Scenes/Vertical Slice/3d assetts/kitbash/monkeybar_med1.res" id="78_vt4f0"]
-[ext_resource type="ArrayMesh" uid="uid://cxyp3leppa31i" path="res://Scenes/Vertical Slice/3d assetts/kitbash/monkeybar_med2.res" id="79_dineu"]
-[ext_resource type="ArrayMesh" uid="uid://ce6wt4x1cmihc" path="res://Scenes/Vertical Slice/3d assetts/kitbash/monkeybar_small.res" id="80_mmmjb"]
-[ext_resource type="ArrayMesh" uid="uid://cvc5ryofaht3y" path="res://Scenes/Vertical Slice/3d assetts/kitbash/powercable_angle1.res" id="81_h1y2m"]
-[ext_resource type="ArrayMesh" uid="uid://cfafp67comdru" path="res://Scenes/Vertical Slice/3d assetts/kitbash/powercable_angle2.res" id="82_vse7a"]
-[ext_resource type="ArrayMesh" uid="uid://bdviyighm5kn8" path="res://Scenes/Vertical Slice/3d assetts/kitbash/powercable_curve1.res" id="83_psdkg"]
-[ext_resource type="ArrayMesh" uid="uid://cykmd4un63dvw" path="res://Scenes/Vertical Slice/3d assetts/kitbash/powercable_curve2.res" id="84_16isb"]
-[ext_resource type="ArrayMesh" uid="uid://ce8uysa742syr" path="res://Scenes/Vertical Slice/3d assetts/kitbash/powercable_large.res" id="85_4jomd"]
-[ext_resource type="ArrayMesh" uid="uid://h144fwo12pjh" path="res://Scenes/Vertical Slice/3d assetts/kitbash/powercable_med.res" id="86_1rmuy"]
-[ext_resource type="ArrayMesh" uid="uid://dnq8hgwyg8cj0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/powercable_small.res" id="87_yoqlr"]
-[ext_resource type="ArrayMesh" uid="uid://b2g4xvdkvetdd" path="res://Scenes/Vertical Slice/3d assetts/kitbash/powercable_tee.res" id="88_r5u0n"]
-[ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Scenes/Vertical Slice/3d assetts/kitbash/scaffold.res" id="89_4pi8g"]
-[ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Scenes/Vertical Slice/3d assetts/kitbash/terminal.res" id="90_5i7sb"]
-[ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_long.res" id="91_0v81c"]
+[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/button.res" id="45_u6h1n"]
+[ext_resource type="ArrayMesh" uid="uid://doxh8d0va3v1k" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/buttons_1x1.res" id="46_20x6s"]
+[ext_resource type="ArrayMesh" uid="uid://cxeu82e0qsgql" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/buttons_1x2.res" id="47_lj686"]
+[ext_resource type="ArrayMesh" uid="uid://cvo0no0vpvcvy" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/buttons_1x3.res" id="48_1f8lv"]
+[ext_resource type="ArrayMesh" uid="uid://3opr7stj4wlh" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/buttons_2x3.res" id="49_ymajn"]
+[ext_resource type="ArrayMesh" uid="uid://dq0ogr20mo8rg" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/buttons_3x3.res" id="50_uhx7f"]
+[ext_resource type="ArrayMesh" uid="uid://c30g2pc1dcs7o" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/cableconnector.res" id="51_fnn60"]
+[ext_resource type="ArrayMesh" uid="uid://cux0e83pq4xyq" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_helical1.res" id="52_nruv6"]
+[ext_resource type="ArrayMesh" uid="uid://cdb0ivhnbqid5" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_helical2.res" id="53_1o705"]
+[ext_resource type="ArrayMesh" uid="uid://pt55dusfqfr0" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/bigwire.res" id="53_jlcko"]
+[ext_resource type="ArrayMesh" uid="uid://cjkcmukmea2h2" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_helicalwithholes.res" id="54_r5pee"]
+[ext_resource type="ArrayMesh" uid="uid://b80lj2w7reslv" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_internal.res" id="55_jlcko"]
+[ext_resource type="PackedScene" uid="uid://m1ilgdhf1lia" path="res://Scenes/Environment/Buttons/Weighted_Button.tscn" id="55_penhn"]
+[ext_resource type="ArrayMesh" uid="uid://bwotwyj54b6aw" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_keyway1.res" id="56_penhn"]
+[ext_resource type="ArrayMesh" uid="uid://c6l4lrgihrl7k" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_keyway2.res" id="57_8qeui"]
+[ext_resource type="ArrayMesh" uid="uid://j3iceav5dwbr" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_nobore.res" id="58_sh1qt"]
+[ext_resource type="ArrayMesh" uid="uid://ctmqsm1xmvia" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_rack.res" id="59_nwvs3"]
+[ext_resource type="ArrayMesh" uid="uid://cl8ddskukauua" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_spiralbevellarge.res" id="60_520ta"]
+[ext_resource type="ArrayMesh" uid="uid://d0ad87y13yuta" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_spiralbevelsmall.res" id="61_d08y4"]
+[ext_resource type="ArrayMesh" uid="uid://dtfu8lm3bxlny" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_spur1.res" id="62_lp33q"]
+[ext_resource type="ArrayMesh" uid="uid://be1g7qe7fjvr0" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_spur2.res" id="63_y77u3"]
+[ext_resource type="ArrayMesh" uid="uid://bxn60oqa572lh" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_spur3.res" id="64_j0bok"]
+[ext_resource type="ArrayMesh" uid="uid://jr6eb5v2ixld" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_spur4.res" id="65_q8ktq"]
+[ext_resource type="ArrayMesh" uid="uid://cgvxdv3x4vtr3" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_spur5.res" id="66_g0s1a"]
+[ext_resource type="ArrayMesh" uid="uid://c7la0fp3apuk0" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_spurlargebore.res" id="67_latii"]
+[ext_resource type="ArrayMesh" uid="uid://c33fijy56uwom" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_spurwithspokes.res" id="68_30kme"]
+[ext_resource type="ArrayMesh" uid="uid://c3erlqmxt2uo2" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_worm.res" id="69_qh3c7"]
+[ext_resource type="ArrayMesh" uid="uid://ytojh4ald4hx" path="res://Assets/Robobotomy Art/3D/Objects/Ladders/ladder_base.res" id="70_7mw20"]
+[ext_resource type="ArrayMesh" uid="uid://bpc4opx2sgqfq" path="res://Assets/Robobotomy Art/3D/Objects/Ladders/ladder_large.res" id="71_d216d"]
+[ext_resource type="ArrayMesh" uid="uid://bmqng3sw3pnya" path="res://Assets/Robobotomy Art/3D/Objects/Ladders/ladder_mid.res" id="72_hrctq"]
+[ext_resource type="ArrayMesh" uid="uid://b02gmyrgfwjek" path="res://Assets/Robobotomy Art/3D/Objects/Ladders/ladder_rung.res" id="73_nameg"]
+[ext_resource type="ArrayMesh" uid="uid://c86kbccnj7c1s" path="res://Assets/Robobotomy Art/3D/Objects/Ladders/ladder_top1.res" id="74_fl8kt"]
+[ext_resource type="ArrayMesh" uid="uid://cy54skeqlwy3g" path="res://Assets/Robobotomy Art/3D/Objects/Ladders/ladder_top2.res" id="75_ip7kf"]
+[ext_resource type="ArrayMesh" uid="uid://bw43rtwbo6wcp" path="res://Assets/Robobotomy Art/3D/Objects/lever.res" id="76_yidho"]
+[ext_resource type="ArrayMesh" uid="uid://c28ymrrtw8mgw" path="res://Assets/Robobotomy Art/3D/Objects/monkeybar_large.res" id="77_sve0w"]
+[ext_resource type="ArrayMesh" uid="uid://c0ojvrv4euw0g" path="res://Assets/Robobotomy Art/3D/Objects/monkeybar_med1.res" id="78_vt4f0"]
+[ext_resource type="ArrayMesh" uid="uid://cxyp3leppa31i" path="res://Assets/Robobotomy Art/3D/Objects/monkeybar_med2.res" id="79_dineu"]
+[ext_resource type="ArrayMesh" uid="uid://ce6wt4x1cmihc" path="res://Assets/Robobotomy Art/3D/Objects/monkeybar_small.res" id="80_mmmjb"]
+[ext_resource type="ArrayMesh" uid="uid://cvc5ryofaht3y" path="res://Assets/Robobotomy Art/3D/Objects/PowerCable/powercable_angle1.res" id="81_h1y2m"]
+[ext_resource type="ArrayMesh" uid="uid://cfafp67comdru" path="res://Assets/Robobotomy Art/3D/Objects/PowerCable/powercable_angle2.res" id="82_vse7a"]
+[ext_resource type="ArrayMesh" uid="uid://bdviyighm5kn8" path="res://Assets/Robobotomy Art/3D/Objects/PowerCable/powercable_curve1.res" id="83_psdkg"]
+[ext_resource type="ArrayMesh" uid="uid://cykmd4un63dvw" path="res://Assets/Robobotomy Art/3D/Objects/PowerCable/powercable_curve2.res" id="84_16isb"]
+[ext_resource type="ArrayMesh" uid="uid://ce8uysa742syr" path="res://Assets/Robobotomy Art/3D/Objects/PowerCable/powercable_large.res" id="85_4jomd"]
+[ext_resource type="ArrayMesh" uid="uid://h144fwo12pjh" path="res://Assets/Robobotomy Art/3D/Objects/PowerCable/powercable_med.res" id="86_1rmuy"]
+[ext_resource type="ArrayMesh" uid="uid://dnq8hgwyg8cj0" path="res://Assets/Robobotomy Art/3D/Objects/PowerCable/powercable_small.res" id="87_yoqlr"]
+[ext_resource type="ArrayMesh" uid="uid://b2g4xvdkvetdd" path="res://Assets/Robobotomy Art/3D/Objects/PowerCable/powercable_tee.res" id="88_r5u0n"]
+[ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Assets/Robobotomy Art/3D/Objects/scaffold.res" id="89_4pi8g"]
+[ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Assets/Robobotomy Art/3D/Objects/terminal.res" id="90_5i7sb"]
+[ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Assets/Robobotomy Art/3D/Objects/Pipes/pipe1_long.res" id="91_0v81c"]
 [ext_resource type="Texture2D" uid="uid://d2djqd8vqwn38" path="res://Assets/Materials/Shaders/Metal/Metal_metallic.png" id="93_fnn60"]
 [ext_resource type="Texture2D" uid="uid://bvtq6v2ixvrsh" path="res://Assets/Materials/Shaders/Metal/Metal_normal.png" id="94_nruv6"]
-[ext_resource type="PackedScene" uid="uid://cm25ac4a1w6vt" path="res://Assets/Robobotomy Art/3D/Objects/Head Pipes/Head Pipes.fbx" id="95_1f8lv"]
+[ext_resource type="PackedScene" uid="uid://cm25ac4a1w6vt" path="res://Assets/Robobotomy Art/3D/Objects/Pipes/Head Pipes.fbx" id="95_1f8lv"]
 [ext_resource type="Texture2D" uid="uid://8fu1o08kxoar" path="res://Assets/Materials/Shaders/Metal/Metal_roughness.png" id="95_1o705"]
-[ext_resource type="PackedScene" uid="uid://g0v3th7stns1" path="res://Assets/Robobotomy Art/3D/Objects/Head Pipes/Head Pipes 2.fbx" id="96_ymajn"]
-[ext_resource type="PackedScene" uid="uid://cqoo5pdrpftt2" path="res://Assets/Robobotomy Art/3D/Objects/Head Pipes/Head Pipes Grables.fbx" id="97_uhx7f"]
+[ext_resource type="PackedScene" uid="uid://g0v3th7stns1" path="res://Assets/Robobotomy Art/3D/Objects/Pipes/Head Pipes 2.fbx" id="96_ymajn"]
+[ext_resource type="PackedScene" uid="uid://cqoo5pdrpftt2" path="res://Assets/Robobotomy Art/3D/Objects/Pipes/Head Pipes Grables.fbx" id="97_uhx7f"]
 [ext_resource type="Shader" uid="uid://cwfjfvridlcyp" path="res://Assets/Materials/Shaders/procShader.tres" id="99_d08y4"]
 [ext_resource type="Texture2D" uid="uid://cg76upv0jtajq" path="res://Assets/Materials/Shaders/Metal/Metal_basecolor.png" id="100_lp33q"]
 [ext_resource type="Texture2D" uid="uid://cldhgso2wucug" path="res://Assets/Materials/Shaders/Concrete/Concrete_metallic.png" id="101_jlcko"]
@@ -1068,15 +1069,15 @@ texture = ExtResource("41_cmnmm")
 
 [node name="Bigwire" type="MeshInstance3D" parent="." unique_id=1392593067]
 transform = Transform3D(-0.024798565, 0, 0.99969256, 0, 1, 0, -0.99969256, 0, -0.024798565, 18.25822, -0.17762542, 4.322297)
-mesh = ExtResource("44_itrl0")
+mesh = ExtResource("53_jlcko")
 
 [node name="Button" type="MeshInstance3D" parent="." unique_id=948824406]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.105865, -2.3841858e-07, 5.3366284)
 mesh = ExtResource("45_u6h1n")
 
-[node name="Button2" type="MeshInstance3D" parent="." unique_id=1793227733]
-transform = Transform3D(0.4965217, 0, 0, 0, 0.4965217, 0, 0, 0, 0.4965217, 1.6182194, 0.12784421, 0.17365956)
-mesh = ExtResource("45_u6h1n")
+[node name="InteractiveButton" parent="." unique_id=1151652390 instance=ExtResource("55_penhn")]
+transform = Transform3D(0.497, 0, -7.5044916e-08, 0, 0.497, 0, -7.5044916e-08, 0, -0.497, 1.6182194, 0.04917133, 0.43385243)
+trigger_weight = 9
 
 [node name="Buttons1x1" type="MeshInstance3D" parent="." unique_id=652896106]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 21.762793, 1.6382749, 4.3319654)
@@ -1101,15 +1102,6 @@ mesh = ExtResource("50_uhx7f")
 [node name="Cableconnector" type="MeshInstance3D" parent="." unique_id=761417239]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20.576597, 0.41073394, 4.3395166)
 mesh = ExtResource("51_fnn60")
-
-[node name="Cableconnector2" type="MeshInstance3D" parent="." unique_id=783804932]
-transform = Transform3D(-2.4355202e-08, 0, 0.5571821, 0, 0.5571821, 0, -0.5571821, 0, -2.4355202e-08, 2.3708088, 0.41073394, -0.31940955)
-mesh = ExtResource("51_fnn60")
-
-[node name="Buttons3x4" type="MeshInstance3D" parent="Cableconnector2" unique_id=380599737]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007167816, 0.98575425, -0.034172058)
-mesh = ExtResource("50_uhx7f")
-skeleton = NodePath("../..")
 
 [node name="GearHelical1" type="MeshInstance3D" parent="." unique_id=1820157225]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.080269, -9.536743e-07, 12.10544)
@@ -1484,13 +1476,13 @@ transform = Transform3D(4.889392, 0.21239099, 1.3256105, 1.319938, 0.08113235, -
 material_override = SubResource("StandardMaterial3D_nameg")
 mesh = ExtResource("68_30kme")
 
-[node name="Head Pipes" parent="." unique_id=1904202407 instance=ExtResource("95_1f8lv")]
+[node name="Head Pipes" parent="." unique_id=246424363 instance=ExtResource("95_1f8lv")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 16.089724, 4.4872513, -1.7067604)
 
-[node name="Head Pipes 2" parent="." unique_id=78087901 instance=ExtResource("96_ymajn")]
+[node name="Head Pipes 2" parent="." unique_id=43129330 instance=ExtResource("96_ymajn")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 24.771696, 4.498307, -2.1045551)
 
-[node name="Head Pipes Grables" parent="." unique_id=1684799269 instance=ExtResource("97_uhx7f")]
+[node name="Head Pipes Grables" parent="." unique_id=832287388 instance=ExtResource("97_uhx7f")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 20.588865, 2.452398, -2.218431)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1252781234]

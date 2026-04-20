@@ -1,73 +1,140 @@
 [gd_scene format=3 uid="uid://npjp2dyv4vbu"]
 
-[ext_resource type="Script" uid="uid://vjfl7xev4i4c" path="res://Scripts/Real Player Script/Player.gd" id="1_qkgjm"]
+[ext_resource type="Script" uid="uid://vjfl7xev4i4c" path="res://Scripts/Player/Player.gd" id="1_qkgjm"]
 [ext_resource type="PackedScene" uid="uid://dxubgecu6o687" path="res://Scenes/Characters/Limbs/Head.tscn" id="2_w6cdd"]
 [ext_resource type="PackedScene" uid="uid://dgoqhuaqsm30g" path="res://Scenes/Characters/Limbs/torso.tscn" id="3_b4kmf"]
-[ext_resource type="Script" uid="uid://ddj23htttt0ys" path="res://Scripts/Real Player Script/head.gd" id="3_w38he"]
 [ext_resource type="PackedScene" uid="uid://0nxi375snik3" path="res://Scenes/Characters/Limbs/RightArm.tscn" id="4_shd1k"]
 [ext_resource type="PackedScene" uid="uid://clesw0vcam4s2" path="res://Scenes/Characters/Limbs/LeftArm.tscn" id="5_5kd0c"]
+[ext_resource type="ArrayMesh" uid="uid://dcwobn8idii7l" path="res://Assets/Robobotomy Art/3D/Character/Neck.res" id="5_b4kmf"]
 [ext_resource type="PackedScene" uid="uid://f0oommypkm0i" path="res://Scenes/Characters/Limbs/LeftLeg.tscn" id="6_aal88"]
 [ext_resource type="PackedScene" uid="uid://ep2c8eoh0i32" path="res://Scenes/Characters/Limbs/RightLeg.tscn" id="7_4opfx"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="9_shd1k"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="10_5kd0c"]
+[ext_resource type="Resource" uid="uid://odcgk1h80sk0" path="res://Assets/Resources/Camera3DSettings.tres" id="11_aal88"]
+
+[sub_resource type="Resource" id="Resource_4opfx"]
+script = ExtResource("10_5kd0c")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
-height = 3.0
+height = 3.25
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b4kmf"]
+height = 1.6704102
+
+[sub_resource type="Skin" id="Skin_huuhm"]
+resource_name = "Skin"
+bind_count = 14
+bind/0/name = &"Spine_joint"
+bind/0/bone = -1
+bind/0/pose = Transform3D(0.007365321, 0.9999729, 0, -6.123068e-17, 4.5099583e-19, 1, 0.9999729, -0.007365321, 6.123234e-17, -1.8322266, -1.4856884e-15, 0.012493873)
+bind/1/name = &"Sternum_joint"
+bind/1/bone = -1
+bind/1/pose = Transform3D(0.007365321, 0.9999729, 0, -6.123068e-17, 4.5099583e-19, 1, 0.9999729, -0.007365321, 6.123234e-17, -2.4140198, -1.4306057e-15, 0.019493243)
+bind/2/name = &"L_Shoulder_bind"
+bind/2/bone = -1
+bind/2/pose = Transform3D(0.9999839, 0.0056744283, 0, -3.474585e-19, 6.1231357e-17, 1, 0.0056744283, -0.9999839, 6.123234e-17, -0.17631759, -1.632711e-15, 2.413556)
+bind/3/name = &"R_Shoulder_bind"
+bind/3/bone = -1
+bind/3/pose = Transform3D(-0.99999994, -0.00028006433, 3.0092655e-36, 1.7148994e-20, -6.1232336e-17, 1, -0.00028006433, 0.99999994, 6.123234e-17, -0.16310999, -1.3372186e-15, -2.412199)
+bind/4/name = &"R_Shoulder_IK"
+bind/4/bone = -1
+bind/4/pose = Transform3D(-0.9999991, -0.001351084, 0, 8.2730036e-20, -6.123228e-17, 1, -0.001351084, 0.9999991, 6.123234e-17, -0.16052638, -1.2816969e-15, -2.4123724)
+bind/5/name = &"R_Shoulder_FK"
+bind/5/bone = -1
+bind/5/pose = Transform3D(-0.99999994, -0.00028006433, 3.0092655e-36, 1.7148994e-20, -6.1232336e-17, 1, -0.00028006433, 0.99999994, 6.123234e-17, -0.16310999, -1.3372186e-15, -2.412199)
+bind/6/name = &"L_Shoulder_IK"
+bind/6/bone = -1
+bind/6/pose = Transform3D(0.9999839, 0.0056744283, 0, -3.474585e-19, 6.1231357e-17, 1, 0.0056744283, -0.9999839, 6.123234e-17, -0.17631759, -1.5771998e-15, 2.413556)
+bind/7/name = &"L_Shoulder_FK"
+bind/7/bone = -1
+bind/7/pose = Transform3D(0.9999839, 0.0056744283, 0, -3.474585e-19, 6.1231357e-17, 1, 0.0056744283, -0.9999839, 6.123234e-17, -0.17631759, -1.632711e-15, 2.413556)
+bind/8/name = &"Neck_joint"
+bind/8/bone = -1
+bind/8/pose = Transform3D(0.007365321, 0.9999729, 0, -6.123068e-17, 4.5099583e-19, 1, 0.9999729, -0.007365321, 6.123234e-17, -2.4562893, -1.4306057e-15, 0.019493243)
+bind/9/name = &"Head_joint"
+bind/9/bone = -1
+bind/9/pose = Transform3D(0.007365321, 0.9999729, 0, -6.123068e-17, 4.5099583e-19, 1, 0.9999729, -0.007365321, 6.123234e-17, -2.6611876, -1.4306057e-15, 0.019493243)
+bind/10/name = &"hair_root"
+bind/10/bone = -1
+bind/10/pose = Transform3D(-0.4163696, 0.7045103, -0.5747188, -0.80973077, 0.00014001912, 0.5868016, 0.4134882, 0.7096938, 0.5704053, -2.0682876, 0.00023901794, -2.084174)
+bind/11/name = &"joint18"
+bind/11/bone = -1
+bind/11/pose = Transform3D(-0.4163696, 0.7045103, -0.5747188, -0.80973077, 0.00014001912, 0.5868016, 0.4134882, 0.7096938, 0.5704053, -1.9656801, 0.037793063, -1.666845)
+bind/12/name = &"joint17"
+bind/12/bone = -1
+bind/12/pose = Transform3D(-0.4163696, 0.7045103, -0.5747188, -0.80973077, 0.00014001912, 0.5868016, 0.4134882, 0.7096938, 0.5704053, -1.981821, 0.1638625, -1.6738935)
+bind/13/name = &"joint16"
+bind/13/bone = -1
+bind/13/pose = Transform3D(-0.4163696, 0.7045103, -0.5747188, -0.80973077, 0.00014001912, 0.5868016, 0.4134882, 0.7096938, 0.5704053, -1.881118, 0.20224452, -1.750822)
 
 [node name="Player" type="CharacterBody3D" unique_id=64555096]
+collision_layer = 3
+collision_mask = 652
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+platform_floor_layers = 4294959308
 script = ExtResource("1_qkgjm")
-throw_force = 50.0
+jump_velocity = 8.0
+handicapped_jump_velocity = 4.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=289070969]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+[node name="Limb_PhantomCamera3D" type="Node3D" parent="." unique_id=1704350181]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.0686836, 15)
+top_level = true
+script = ExtResource("9_shd1k")
+follow_mode = 2
+tween_resource = SubResource("Resource_4opfx")
+camera_3d_resource = ExtResource("11_aal88")
+follow_offset = Vector3(0, 3, 15)
+follow_damping = true
+follow_axis_lock = 3
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Tall_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=289070969]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6246948, 0)
 shape = SubResource("CapsuleShape3D_player")
 
+[node name="Short_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=629034834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4144897, 0)
+shape = SubResource("CapsuleShape3D_b4kmf")
+disabled = true
+
+[node name="Neck" type="MeshInstance3D" parent="." unique_id=491095937]
+mesh = ExtResource("5_b4kmf")
+skin = SubResource("Skin_huuhm")
+
 [node name="Head" parent="." unique_id=1371523250 instance=ExtResource("2_w6cdd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4171078, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9366379, 0)
+max_contacts_reported = 2
 retract_speed = 10.0
+throw_force = 20.0
 
 [node name="Torso" parent="." unique_id=381647224 instance=ExtResource("3_b4kmf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4630456, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0686834, 0)
 
-[node name="Label3D" type="Label3D" parent="Torso" unique_id=1353181972]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13185143, 0.88159037)
+[node name="LeftArm" parent="." unique_id=1281946609 instance=ExtResource("5_5kd0c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86595744, 2.4061642, 0)
+speed = 4.0
+acceleration = 5.0
+
+[node name="RightArm" parent="." unique_id=904546073 instance=ExtResource("4_shd1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8641265, 2.4061642, 0)
+speed = 4.0
+acceleration = 5.0
+
+[node name="LeftLeg" parent="." unique_id=925113335 instance=ExtResource("6_aal88")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.223, 0.89, 0)
+retract_speed = 10.0
+
+[node name="RightLeg" parent="." unique_id=1985177356 instance=ExtResource("7_4opfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.223, 0.89, 0)
+retract_speed = 10.0
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1353181972]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2005348, 0.88159037)
 pixel_size = 0.001
 billboard = 1
 fixed_size = true
 text = "Torso"
 font_size = 16
 outline_size = 8
-
-[node name="RightArm" parent="." unique_id=952945989 instance=ExtResource("4_shd1k")]
-process_mode = 4
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8641265, 2.8005264, 0)
-script = ExtResource("3_w38he")
-roll_speed = 7.0
-jump_force = 10.0
-max_angular_velocity = 12.0
-retract_speed = 5.0
-
-[node name="LeftArm" parent="." unique_id=1892609314 instance=ExtResource("5_5kd0c")]
-process_mode = 4
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86595744, 2.8005264, 0)
-script = ExtResource("3_w38he")
-roll_speed = 7.0
-jump_force = 10.0
-max_angular_velocity = 12.0
-retract_speed = 5.0
-
-[node name="RightLeg" parent="." unique_id=478996792 instance=ExtResource("6_aal88")]
-process_mode = 4
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.223, 1.284, 0)
-script = ExtResource("3_w38he")
-roll_speed = 7.0
-jump_force = 10.0
-max_angular_velocity = 12.0
-retract_speed = 5.0
-
-[node name="LeftLeg" parent="." unique_id=156984842 instance=ExtResource("7_4opfx")]
-process_mode = 4
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2225709, 1.2842379, 0)
-script = ExtResource("3_w38he")
-roll_speed = 7.0
-jump_force = 10.0
-max_angular_velocity = 12.0
-retract_speed = 5.0

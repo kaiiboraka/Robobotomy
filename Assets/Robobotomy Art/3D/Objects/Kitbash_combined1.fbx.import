@@ -117,7 +117,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Scenes/Vertical Slice/3d assetts/kitbash/gear_helical1.res",
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Objects/gear_helical1.res",
 "save_to_file/path": "uid://cux0e83pq4xyq"
 },
 "gear_helical2": {

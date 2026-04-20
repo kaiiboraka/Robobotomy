@@ -1,48 +1,301 @@
 [gd_scene format=3 uid="uid://ep2c8eoh0i32"]
 
-[ext_resource type="Script" uid="uid://cxqku02aroxoe" path="res://Scripts/Real Player Script/RightLeg.cs" id="1_lkkg7"]
+[ext_resource type="Script" uid="uid://5r2o3glyvoiu" path="res://Scripts/Player/Leg.gd" id="1_pckun"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_hsfiv"]
-[ext_resource type="ArrayMesh" uid="uid://d1rjejthugc4a" path="res://Assets/Robobotomy Art/3D/Character/Leg Left.res" id="3_pckun"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_i6q28"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtqub"]
-albedo_color = Color(0.5092, 0.63784, 0.67, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_hsfiv"]
-size = Vector3(0.40649414, 1.7830391, 0.7265625)
+[ext_resource type="ArrayMesh" uid="uid://dh1ucl7jt7tcm" path="res://Assets/Robobotomy Art/3D/Character/R_UpperLeg.res" id="5_hh6m4"]
+[ext_resource type="Resource" uid="uid://odcgk1h80sk0" path="res://Assets/Resources/Camera3DSettings.tres" id="5_pckun"]
+[ext_resource type="ArrayMesh" uid="uid://bkdtearu4q2y6" path="res://Assets/Robobotomy Art/3D/Character/R_Shin.res" id="6_jtu2u"]
+[ext_resource type="ArrayMesh" uid="uid://cgicvb75gndhc" path="res://Assets/Robobotomy Art/3D/Character/R_Kneecap.res" id="7_w4nx6"]
+[ext_resource type="ArrayMesh" uid="uid://dvo86rlc21x2j" path="res://Assets/Robobotomy Art/3D/Character/R_AnkleGuard.res" id="8_pahpc"]
+[ext_resource type="ArrayMesh" uid="uid://bhy5tdy11v2x" path="res://Assets/Robobotomy Art/3D/Character/R_AnkleHinge.res" id="9_agmls"]
+[ext_resource type="ArrayMesh" uid="uid://dcvyilhg8et62" path="res://Assets/Robobotomy Art/3D/Character/R_Foot.res" id="10_kaetx"]
 
 [sub_resource type="Resource" id="Resource_bcp5y"]
 script = ExtResource("4_i6q28")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_i6q28"]
-size = Vector3(0.4185791, 1.7902048, 0.73747253)
+[sub_resource type="Skin" id="Skin_qkl3i"]
+resource_name = "Skin"
+bind_count = 11
+bind/0/name = &"Root_joint"
+bind/0/bone = -1
+bind/0/pose = Transform3D(6.123234e-17, 1, 0, -6.123234e-17, 3.7493994e-33, 1, 1, -6.123234e-17, 6.123234e-17, -1.115501e-05, 8.049298e-18, -2.953749e-06)
+bind/1/name = &"R_Hip_IK"
+bind/1/bone = -1
+bind/1/pose = Transform3D(-0.0021406151, 0.99999774, -2.1175824e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -0.0166368, 9.927512e-07, 0.0013546441)
+bind/2/name = &"R_knee_IK"
+bind/2/bone = -1
+bind/2/pose = Transform3D(-0.0021406151, 0.99999774, -2.1175824e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -0.009814207, -6.861623e-05, 0.0017450444)
+bind/3/name = &"R_Ankle_IK"
+bind/3/bone = -1
+bind/3/pose = Transform3D(-0.0021406151, 0.99999774, -2.1175824e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -0.0009920533, 0.00047551762, 0.002248737)
+bind/4/name = &"R_Hip_Fk"
+bind/4/bone = -1
+bind/4/pose = Transform3D(-0.0021184958, 0.99999774, -4.1714477e-05, 2.9879254e-06, 4.17209e-05, 1, 0.99999774, 0.0021184955, -3.0763042e-06, -0.01663677, -6.8982575e-07, 0.0013550124)
+bind/5/name = &"R_knee_FK"
+bind/5/bone = -1
+bind/5/pose = Transform3D(-0.0021184958, 0.99999774, -4.1714477e-05, 2.9879254e-06, 4.17209e-05, 1, 0.99999774, 0.0021184955, -3.0763042e-06, -0.009814178, -7.029881e-05, 0.0017454128)
+bind/6/name = &"R_Ankle_FK"
+bind/6/bone = -1
+bind/6/pose = Transform3D(-0.0021184958, 0.99999774, -4.1714477e-05, 2.9879254e-06, 4.17209e-05, 1, 0.99999774, 0.0021184955, -3.0763042e-06, -0.0009920233, 0.00047383504, 0.0022491054)
+bind/7/name = &"R_Hip_Bind"
+bind/7/bone = -1
+bind/7/pose = Transform3D(-0.0021406151, 0.99999774, -4.2351647e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -0.0166368, 9.927512e-07, 0.0013546441)
+bind/8/name = &"R_knee_Bind"
+bind/8/bone = -1
+bind/8/pose = Transform3D(-0.0021406151, 0.99999774, -4.2351647e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -0.009814207, -6.861623e-05, 0.0017450444)
+bind/9/name = &"R_Ankle_Bind"
+bind/9/bone = -1
+bind/9/pose = Transform3D(-0.0021406151, 0.99999774, -4.2351647e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -0.0009920533, 0.00047551762, 0.002248737)
+bind/10/name = &"R_AnkleGuard_Rotator"
+bind/10/bone = -1
+bind/10/pose = Transform3D(-0.0006954774, 0.59902835, 0.80072755, 0.002153047, -0.800725, 0.5990283, 0.99999744, 0.0021406147, -0.00073285, -0.00021350801, 0.0010792132, 0.002248737)
+
+[sub_resource type="Skin" id="Skin_y0j7o"]
+resource_name = "Skin2"
+bind_count = 14
+bind/0/name = &"Root_joint"
+bind/0/bone = -1
+bind/0/pose = Transform3D(6.123234e-17, 1, 0, -6.123234e-17, 3.7493994e-33, 1, 1, -6.123234e-17, 6.123234e-17, -1.115501e-05, 8.118687e-18, -2.953749e-06)
+bind/1/name = &"R_Hip_IK"
+bind/1/bone = -1
+bind/1/pose = Transform3D(-0.0021406151, 0.99999774, -2.1175824e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -0.0166368, 9.927512e-07, 0.0013546441)
+bind/2/name = &"R_knee_IK"
+bind/2/bone = -1
+bind/2/pose = Transform3D(-0.0021406151, 0.99999774, -2.1175824e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -0.009814207, -6.861623e-05, 0.0017450444)
+bind/3/name = &"R_Ankle_IK"
+bind/3/bone = -1
+bind/3/pose = Transform3D(-0.0021406151, 0.99999774, -2.1175824e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -0.0009920533, 0.00047551762, 0.002248737)
+bind/4/name = &"R_Toe_IK"
+bind/4/bone = -1
+bind/4/pose = Transform3D(-0.0021406151, 0.99999774, -2.1175824e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -1.8585124e-05, -0.004812358, 0.00181541)
+bind/5/name = &"R_Hip_Fk"
+bind/5/bone = -1
+bind/5/pose = Transform3D(-0.0021184958, 0.99999774, -4.1714477e-05, 2.9879254e-06, 4.17209e-05, 1, 0.99999774, 0.0021184955, -3.0763042e-06, -0.01663677, -6.8982575e-07, 0.0013550124)
+bind/6/name = &"R_knee_FK"
+bind/6/bone = -1
+bind/6/pose = Transform3D(-0.0021184958, 0.99999774, -4.1714477e-05, 2.9879254e-06, 4.17209e-05, 1, 0.99999774, 0.0021184955, -3.0763042e-06, -0.009814178, -7.029881e-05, 0.0017454128)
+bind/7/name = &"R_Ankle_FK"
+bind/7/bone = -1
+bind/7/pose = Transform3D(-0.0021184958, 0.99999774, -4.1714477e-05, 2.9879254e-06, 4.17209e-05, 1, 0.99999774, 0.0021184955, -3.0763042e-06, -0.0009920233, 0.00047383504, 0.0022491054)
+bind/8/name = &"R_Toe_FK"
+bind/8/bone = -1
+bind/8/pose = Transform3D(-0.0021184958, 0.99999774, -4.1714477e-05, 2.9879254e-06, 4.17209e-05, 1, 0.99999774, 0.0021184955, -3.0763042e-06, -1.8555142e-05, -0.0048140404, 0.0018157783)
+bind/9/name = &"R_Hip_Bind"
+bind/9/bone = -1
+bind/9/pose = Transform3D(-0.0021406151, 0.99999774, -4.2351647e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -0.0166368, 9.927512e-07, 0.0013546441)
+bind/10/name = &"R_knee_Bind"
+bind/10/bone = -1
+bind/10/pose = Transform3D(-0.0021406151, 0.99999774, -4.2351647e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -0.009814207, -6.861623e-05, 0.0017450444)
+bind/11/name = &"R_Ankle_Bind"
+bind/11/bone = -1
+bind/11/pose = Transform3D(-0.0021406151, 0.99999774, -4.2351647e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -0.0009920533, 0.00047551762, 0.002248737)
+bind/12/name = &"R_Toe_Bind"
+bind/12/bone = -1
+bind/12/pose = Transform3D(-0.0021406151, 0.99999774, -4.2351647e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -1.8585124e-05, -0.004812358, 0.00181541)
+bind/13/name = &"R_AnkleGuard_Rotator"
+bind/13/bone = -1
+bind/13/pose = Transform3D(-0.0006954774, 0.59902835, 0.80072755, 0.002153047, -0.800725, 0.5990283, 0.99999744, 0.0021406147, -0.00073285, -0.00021350801, 0.0010792132, 0.002248737)
+
+[sub_resource type="Skin" id="Skin_4urwc"]
+resource_name = "Skin3"
+bind_count = 11
+bind/0/name = &"Root_joint"
+bind/0/bone = -1
+bind/0/pose = Transform3D(6.123234e-17, 1, 0, -6.123234e-17, 3.7493994e-33, 1, 1, -6.123234e-17, 6.123234e-17, -1.115501e-05, 8.118687e-18, -2.953749e-06)
+bind/1/name = &"R_Hip_IK"
+bind/1/bone = -1
+bind/1/pose = Transform3D(-0.0021406151, 0.99999774, -2.1175824e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -0.0166368, 9.927512e-07, 0.0013546441)
+bind/2/name = &"R_knee_IK"
+bind/2/bone = -1
+bind/2/pose = Transform3D(-0.0021406151, 0.99999774, -2.1175824e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -0.009814207, -6.861623e-05, 0.0017450444)
+bind/3/name = &"R_Ankle_IK"
+bind/3/bone = -1
+bind/3/pose = Transform3D(-0.0021406151, 0.99999774, -2.1175824e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -0.0009920533, 0.00047551762, 0.002248737)
+bind/4/name = &"R_Hip_Fk"
+bind/4/bone = -1
+bind/4/pose = Transform3D(-0.0021184958, 0.99999774, -4.1714477e-05, 2.9879254e-06, 4.17209e-05, 1, 0.99999774, 0.0021184955, -3.0763042e-06, -0.01663677, -6.8982575e-07, 0.0013550124)
+bind/5/name = &"R_knee_FK"
+bind/5/bone = -1
+bind/5/pose = Transform3D(-0.0021184958, 0.99999774, -4.1714477e-05, 2.9879254e-06, 4.17209e-05, 1, 0.99999774, 0.0021184955, -3.0763042e-06, -0.009814178, -7.029881e-05, 0.0017454128)
+bind/6/name = &"R_Ankle_FK"
+bind/6/bone = -1
+bind/6/pose = Transform3D(-0.0021184958, 0.99999774, -4.1714477e-05, 2.9879254e-06, 4.17209e-05, 1, 0.99999774, 0.0021184955, -3.0763042e-06, -0.0009920233, 0.00047383504, 0.0022491054)
+bind/7/name = &"R_Hip_Bind"
+bind/7/bone = -1
+bind/7/pose = Transform3D(-0.0021406151, 0.99999774, -4.2351647e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -0.0166368, 9.927512e-07, 0.0013546441)
+bind/8/name = &"R_knee_Bind"
+bind/8/bone = -1
+bind/8/pose = Transform3D(-0.0021406151, 0.99999774, -4.2351647e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -0.009814207, -6.861623e-05, 0.0017450444)
+bind/9/name = &"R_Ankle_Bind"
+bind/9/bone = -1
+bind/9/pose = Transform3D(-0.0021406151, 0.99999774, -4.2351647e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -0.0009920533, 0.00047551762, 0.002248737)
+bind/10/name = &"R_AnkleGuard_Rotator"
+bind/10/bone = -1
+bind/10/pose = Transform3D(-0.0006954774, 0.59902835, 0.80072755, 0.002153047, -0.800725, 0.5990283, 0.99999744, 0.0021406147, -0.00073285, -0.00021350801, 0.0010792132, 0.002248737)
+
+[sub_resource type="Skin" id="Skin_lqp06"]
+resource_name = "Skin4"
+bind_count = 11
+bind/0/name = &"Root_joint"
+bind/0/bone = -1
+bind/0/pose = Transform3D(6.123234e-17, 0.99717873, 0.07506385, -6.123234e-17, -0.07506385, 0.99717873, 1, -6.565592e-17, 5.646325e-17, 2.7782402e-05, 7.345681e-05, -2.953749e-06)
+bind/1/name = &"R_knee_IK"
+bind/1/bone = -1
+bind/1/pose = Transform3D(-0.0021406151, 0.99717647, 0.075063676, 0.0007328483, -0.07506226, 0.99717855, 0.99999744, 0.002189586, -0.0005700997, -0.00977527, 4.840619e-06, 0.0017450739)
+bind/2/name = &"R_Ankle_IK"
+bind/2/bone = -1
+bind/2/pose = Transform3D(-0.0021406151, 0.99717647, 0.075063676, 0.0007328483, -0.07506226, 0.99717855, 0.99999744, 0.002189586, -0.0005700997, -0.000953116, 0.00054897444, 0.0022487664)
+bind/3/name = &"R_Toe_IK"
+bind/3/bone = -1
+bind/3/pose = Transform3D(-0.0021406151, 0.99717647, 0.075063676, 0.0007328483, -0.07506226, 0.99717855, 0.99999744, 0.002189586, -0.0005700997, 2.03522e-05, -0.004738901, 0.0018154394)
+bind/4/name = &"R_knee_FK"
+bind/4/bone = -1
+bind/4/pose = Transform3D(-0.0021184958, 0.9971796, 0.07502208, 2.9879254e-06, -0.07502224, 0.99718183, 0.99999774, 0.0021127497, 0.0001559548, -0.009775243, 3.1596253e-06, 0.001745495)
+bind/5/name = &"R_Ankle_FK"
+bind/5/bone = -1
+bind/5/pose = Transform3D(-0.0021184958, 0.9971796, 0.07502208, 2.9879254e-06, -0.07502224, 0.99718183, 0.99999774, 0.0021127497, 0.0001559548, -0.00095308904, 0.00054729346, 0.0022491876)
+bind/6/name = &"R_Toe_FK"
+bind/6/bone = -1
+bind/6/pose = Transform3D(-0.0021184958, 0.9971796, 0.07502208, 2.9879254e-06, -0.07502224, 0.99718183, 0.99999774, 0.0021127497, 0.0001559548, 2.0379119e-05, -0.004740582, 0.0018158606)
+bind/7/name = &"R_knee_Bind"
+bind/7/bone = -1
+bind/7/pose = Transform3D(-0.0021406151, 0.99717647, 0.075063676, 0.0007328483, -0.07506226, 0.99717855, 0.99999744, 0.002189586, -0.0005700997, -0.00977527, 4.840619e-06, 0.0017450739)
+bind/8/name = &"R_Ankle_Bind"
+bind/8/bone = -1
+bind/8/pose = Transform3D(-0.0021406151, 0.99717647, 0.075063676, 0.0007328483, -0.07506226, 0.99717855, 0.99999744, 0.002189586, -0.0005700997, -0.000953116, 0.00054897444, 0.0022487664)
+bind/9/name = &"R_Toe_Bind"
+bind/9/bone = -1
+bind/9/pose = Transform3D(-0.0021406151, 0.99717647, 0.075063676, 0.0007328483, -0.07506226, 0.99717855, 0.99999744, 0.002189586, -0.0005700997, 2.03522e-05, -0.004738901, 0.0018154394)
+bind/10/name = &"R_AnkleGuard_Rotator"
+bind/10/bone = -1
+bind/10/pose = Transform3D(-0.0006954774, 0.53723264, 0.84343386, 0.002153047, -0.8434313, 0.53723276, 0.99999744, 0.002189586, -0.0005700997, -0.0001313645, 0.0010920378, 0.0022487664)
+
+[sub_resource type="Skin" id="Skin_djke7"]
+resource_name = "Skin5"
+bind_count = 10
+bind/0/name = &"Root_joint"
+bind/0/bone = -1
+bind/0/pose = Transform3D(6.123234e-17, 1, 0, -6.123234e-17, 3.7493994e-33, 1, 1, -6.123234e-17, 6.123234e-17, -1.115501e-05, 8.118687e-18, -2.953749e-06)
+bind/1/name = &"R_knee_IK"
+bind/1/bone = -1
+bind/1/pose = Transform3D(-0.0021406151, 0.99999774, -2.1175824e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -0.009814207, -6.861623e-05, 0.0017450444)
+bind/2/name = &"R_Ankle_IK"
+bind/2/bone = -1
+bind/2/pose = Transform3D(-0.0021406151, 0.99999774, -2.1175824e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -0.0009920533, 0.00047551762, 0.002248737)
+bind/3/name = &"R_Toe_IK"
+bind/3/bone = -1
+bind/3/pose = Transform3D(-0.0021406151, 0.99999774, -2.1175824e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -1.8585124e-05, -0.004812358, 0.00181541)
+bind/4/name = &"R_knee_FK"
+bind/4/bone = -1
+bind/4/pose = Transform3D(-0.0021184958, 0.99999774, -4.1714477e-05, 2.9879254e-06, 4.17209e-05, 1, 0.99999774, 0.0021184955, -3.0763042e-06, -0.009814178, -7.029881e-05, 0.0017454128)
+bind/5/name = &"R_Ankle_FK"
+bind/5/bone = -1
+bind/5/pose = Transform3D(-0.0021184958, 0.99999774, -4.1714477e-05, 2.9879254e-06, 4.17209e-05, 1, 0.99999774, 0.0021184955, -3.0763042e-06, -0.0009920233, 0.00047383504, 0.0022491054)
+bind/6/name = &"R_Toe_FK"
+bind/6/bone = -1
+bind/6/pose = Transform3D(-0.0021184958, 0.99999774, -4.1714477e-05, 2.9879254e-06, 4.17209e-05, 1, 0.99999774, 0.0021184955, -3.0763042e-06, -1.8555142e-05, -0.0048140404, 0.0018157783)
+bind/7/name = &"R_knee_Bind"
+bind/7/bone = -1
+bind/7/pose = Transform3D(-0.0021406151, 0.99999774, -4.2351647e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -0.009814207, -6.861623e-05, 0.0017450444)
+bind/8/name = &"R_Ankle_Bind"
+bind/8/bone = -1
+bind/8/pose = Transform3D(-0.0021406151, 0.99999774, -4.2351647e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -0.0009920533, 0.00047551762, 0.002248737)
+bind/9/name = &"R_AnkleGuard_Rotator"
+bind/9/bone = -1
+bind/9/pose = Transform3D(-0.0006954774, 0.59902835, 0.80072755, 0.002153047, -0.800725, 0.5990283, 0.99999744, 0.0021406147, -0.00073285, -0.00021350801, 0.0010792132, 0.002248737)
+
+[sub_resource type="Skin" id="Skin_vm6j3"]
+resource_name = "Skin6"
+bind_count = 11
+bind/0/name = &"Root_joint"
+bind/0/bone = -1
+bind/0/pose = Transform3D(6.123234e-17, 1, 0, -6.123234e-17, 3.7493994e-33, 1, 1, -6.123234e-17, 6.123234e-17, -1.115501e-05, 7.563575e-18, -2.953749e-06)
+bind/1/name = &"R_knee_IK"
+bind/1/bone = -1
+bind/1/pose = Transform3D(-0.0021406151, 0.99999774, -2.1175824e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -0.009814207, -6.861623e-05, 0.0017450444)
+bind/2/name = &"R_Ankle_IK"
+bind/2/bone = -1
+bind/2/pose = Transform3D(-0.0021406151, 0.99999774, -2.1175824e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -0.0009920533, 0.00047551762, 0.002248737)
+bind/3/name = &"R_Toe_IK"
+bind/3/bone = -1
+bind/3/pose = Transform3D(-0.0021406151, 0.99999774, -2.1175824e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -1.8585124e-05, -0.004812358, 0.00181541)
+bind/4/name = &"R_knee_FK"
+bind/4/bone = -1
+bind/4/pose = Transform3D(-0.0021184958, 0.99999774, -4.1714477e-05, 2.9879254e-06, 4.17209e-05, 1, 0.99999774, 0.0021184955, -3.0763042e-06, -0.009814178, -7.029881e-05, 0.0017454128)
+bind/5/name = &"R_Ankle_FK"
+bind/5/bone = -1
+bind/5/pose = Transform3D(-0.0021184958, 0.99999774, -4.1714477e-05, 2.9879254e-06, 4.17209e-05, 1, 0.99999774, 0.0021184955, -3.0763042e-06, -0.0009920233, 0.00047383504, 0.0022491054)
+bind/6/name = &"R_Toe_FK"
+bind/6/bone = -1
+bind/6/pose = Transform3D(-0.0021184958, 0.99999774, -4.1714477e-05, 2.9879254e-06, 4.17209e-05, 1, 0.99999774, 0.0021184955, -3.0763042e-06, -1.8555142e-05, -0.0048140404, 0.0018157783)
+bind/7/name = &"R_knee_Bind"
+bind/7/bone = -1
+bind/7/pose = Transform3D(-0.0021406151, 0.99999774, -4.2351647e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -0.009814207, -6.861623e-05, 0.0017450444)
+bind/8/name = &"R_Ankle_Bind"
+bind/8/bone = -1
+bind/8/pose = Transform3D(-0.0021406151, 0.99999774, -4.2351647e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -0.0009920533, 0.00047551762, 0.002248737)
+bind/9/name = &"R_Toe_Bind"
+bind/9/bone = -1
+bind/9/pose = Transform3D(-0.0021406151, 0.99999774, -4.2351647e-22, 0.0007328483, 1.5687499e-06, 0.9999997, 0.99999744, 0.0021406147, -0.00073285, -1.8585124e-05, -0.004812358, 0.00181541)
+bind/10/name = &"R_AnkleGuard_Rotator"
+bind/10/bone = -1
+bind/10/pose = Transform3D(-0.0006954774, 0.59902835, 0.80072755, 0.002153047, -0.800725, 0.5990283, 0.99999744, 0.0021406147, -0.00073285, -0.00021350801, 0.0010792132, 0.002248737)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hsfiv"]
+size = Vector3(0.40649414, 1.7830391, 0.7265625)
 
 [node name="RightLeg" type="RigidBody3D" unique_id=1985177356]
-collision_layer = 3
-collision_mask = 908
+collision_layer = 4099
+collision_mask = 2956
+gravity_scale = 2.0
 lock_rotation = true
-script = ExtResource("1_lkkg7")
+freeze = true
+freeze_mode = 1
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 2
+script = ExtResource("1_pckun")
+retract_speed = 7.5
+throw_force = 20.0
+jump_velocity = 10.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1049560004]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0.13392133)
-material_override = SubResource("StandardMaterial3D_rtqub")
-mesh = ExtResource("3_pckun")
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=2014330834]
+
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=714184868]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.168)
+script = ExtResource("3_hsfiv")
+tween_resource = SubResource("Resource_bcp5y")
+camera_3d_resource = ExtResource("5_pckun")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Meshes" type="Node3D" parent="." unique_id=203430883]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0.191, -0.897, 0)
+
+[node name="R_UpperLeg" type="MeshInstance3D" parent="Meshes" unique_id=1440080633]
+mesh = ExtResource("5_hh6m4")
+skin = SubResource("Skin_qkl3i")
+
+[node name="R_Shin" type="MeshInstance3D" parent="Meshes" unique_id=52596360]
+mesh = ExtResource("6_jtu2u")
+skin = SubResource("Skin_y0j7o")
+
+[node name="R_Kneecap" type="MeshInstance3D" parent="Meshes" unique_id=1677654880]
+mesh = ExtResource("7_w4nx6")
+skin = SubResource("Skin_4urwc")
+
+[node name="R_AnkleGuard" type="MeshInstance3D" parent="Meshes" unique_id=1804108659]
+mesh = ExtResource("8_pahpc")
+skin = SubResource("Skin_lqp06")
+
+[node name="R_AnkleHinge" type="MeshInstance3D" parent="Meshes" unique_id=320477931]
+mesh = ExtResource("9_agmls")
+skin = SubResource("Skin_djke7")
+
+[node name="R_Foot" type="MeshInstance3D" parent="Meshes" unique_id=1405762482]
+mesh = ExtResource("10_kaetx")
+skin = SubResource("Skin_vm6j3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=943758665]
 transform = Transform3D(1.035085, 0, 0, 0, 1.035085, 0, 0, 0, 1.035085, -0.004358515, 0.0012012422, 0.13543756)
 shape = SubResource("BoxShape3D_hsfiv")
-
-[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=714184868]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.168)
-script = ExtResource("3_hsfiv")
-tween_resource = SubResource("Resource_bcp5y")
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="JumpArea" type="Area3D" parent="." unique_id=59283736]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.036596715, 0.13392133)
-collision_layer = 0
-collision_mask = 12
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpArea" unique_id=89745610]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0004272461, 0.03870392, -0.0015563965)
-shape = SubResource("BoxShape3D_i6q28")

@@ -1,5 +1,5 @@
 [gd_scene format=3 uid="uid://cswjjtc0va6ao"]
 
-[ext_resource type="PackedScene" uid="uid://caj74qdlqfqfr" path="res://Assets/Models/NamelessV07.fbx" id="1_hv1w6"]
+[ext_resource type="PackedScene" uid="uid://caj74qdlqfqfr" path="res://Assets/Robobotomy Art/3D/Character/NamelessV07.fbx" id="1_hv1w6"]
 
 [node name="NamelessV07" unique_id=296770905 instance=ExtResource("1_hv1w6")]

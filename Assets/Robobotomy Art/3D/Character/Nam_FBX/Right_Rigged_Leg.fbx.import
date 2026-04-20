@@ -1,0 +1,118 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://c0x2faxhkjt1l"
+path="res://.godot/imported/Right_Rigged_Leg.fbx-e65425c16e8a5509d54a05c3beced02a.scn"
+
+[deps]
+
+source_file="res://Assets/Robobotomy Art/3D/Character/Nam_FBX/Right_Rigged_Leg.fbx"
+dest_files=["res://.godot/imported/Right_Rigged_Leg.fbx-e65425c16e8a5509d54a05c3beced02a.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=true
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"R_LegModel_FixedUVs:Nameless_20_Updated_UVs:Lights": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Nameless/Lights.tres",
+"use_external/path": "uid://brmdpc1wwlqhg"
+},
+"R_LegModel_FixedUVs:Nameless_20_Updated_UVs:RInnerLeg": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Nameless/Leg_Right_Thigh.tres",
+"use_external/path": "uid://dl20ytvc2r1ww"
+},
+"R_LegModel_FixedUVs:Nameless_20_Updated_UVs:RLeg": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Nameless/Leg_Right.tres",
+"use_external/path": "uid://bms4wd1cudk6p"
+}
+},
+"meshes": {
+"R_AnkleGuard": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/R_AnkleGuard.res",
+"save_to_file/path": "uid://dvo86rlc21x2j"
+},
+"R_AnkleHinge": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/R_AnkleHinge.res",
+"save_to_file/path": "uid://bhy5tdy11v2x"
+},
+"R_Foot": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/R_Foot.res",
+"save_to_file/path": "uid://dcvyilhg8et62"
+},
+"R_Kneecap": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/R_Kneecap.res",
+"save_to_file/path": "uid://cgicvb75gndhc"
+},
+"R_Shin": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/R_Shin.res",
+"save_to_file/path": "uid://bkdtearu4q2y6"
+},
+"R_UpperLeg": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/R_UpperLeg.res",
+"save_to_file/path": "uid://dh1ucl7jt7tcm"
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
+fbx/naming_version=2

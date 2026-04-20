@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dti4gnxwdtm3y"]
 
 [ext_resource type="Script" uid="uid://bledahrwikdls" path="res://Scripts/Lighting/RotatingLight.gd" id="1_jyio2"]
-[ext_resource type="PackedScene" uid="uid://bjeeyxmwi3ns7" path="res://Assets/Models/NamelessV01.fbx" id="2_ikpqj"]
+[ext_resource type="PackedScene" uid="uid://bjeeyxmwi3ns7" path="res://Assets/Robobotomy Art/3D/Character/NamelessV01.fbx" id="2_ikpqj"]
 [ext_resource type="Shader" uid="uid://w8u6tc0q3mmt" path="res://Assets/Materials/Shaders/adricell.gdshader" id="3_xl27e"]
-[ext_resource type="ArrayMesh" uid="uid://bcud0cj0dinjw" path="res://Assets/Robobotomy Art/3D/headtest.res" id="4_neupn"]
+[ext_resource type="ArrayMesh" path="res://Assets/Robobotomy Art/3D/headtest.res" id="4_neupn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uw2x0"]
 render_priority = 0

@@ -1,0 +1,382 @@
+[gd_scene format=3 uid="uid://m1ilgdhf1lia"]
+
+[ext_resource type="Script" uid="uid://c30rcncaojuya" path="res://Scripts/Environment/WeightedButton.gd" id="1_yigyg"]
+[ext_resource type="PackedScene" uid="uid://cugb2qlx8ju8w" path="res://Scenes/Environment/Buttons/Button_Lights.tscn" id="2_v2ty4"]
+[ext_resource type="ArrayMesh" uid="uid://doxh8d0va3v1k" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/buttons_1x1.res" id="3_hcdd2"]
+[ext_resource type="Material" uid="uid://ckajioojx2cvk" path="res://Assets/Materials/button_light_unlit.tres" id="5_naxr5"]
+[ext_resource type="ArrayMesh" uid="uid://pt55dusfqfr0" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/bigwire.res" id="5_u8eeh"]
+[ext_resource type="ArrayMesh" uid="uid://do555h70mdig6" path="res://Assets/Robobotomy Art/3D/Objects/PowerCable/PowerCable2.res" id="6_naxr5"]
+[ext_resource type="ArrayMesh" uid="uid://c7hjplbtbetcf" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/button_pad.res" id="7_yigyg"]
+[ext_resource type="ArrayMesh" uid="uid://didpkp2pe7wrd" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/button_shell.res" id="8_5hisi"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ijvk1"]
+points = PackedVector3Array(-1.1486206, -0.0015105009, -1.4401456, -1.4401459, -0.0015105009, -1.1486205, -0.72007287, 0.2916593, -0.90276945, 1.1483389, -0.0015105009, -1.4401456, -1.4401459, -0.0015105009, 1.1483384, -0.9027695, 0.2916593, -0.7200728, 0.7197913, 0.2916593, -0.90276945, 1.4398643, -0.0015105009, -1.1486205, -1.1486206, -0.0015105009, 1.4401456, -0.9027695, 0.2916593, 0.7197908, 0.9024879, 0.2916593, -0.7200728, 1.4401461, -0.0015105009, 1.1483384, -0.72007287, 0.2916593, 0.9024874, 1.1483389, -0.0015105009, 1.4398636, 0.7197913, 0.2916593, 0.9024874, 0.9024879, 0.2916593, 0.7197908)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1bdht"]
+height = 0.55
+radius = 0.6
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xw1qm"]
+data = PackedVector3Array(0.2219, 0.278, -0.8283, 0.3232, -0.0332, -1.2061, 0.8829, -0.0332, -0.8829, 0.8829, -0.0332, -0.8829, 0.6064, 0.278, -0.6064, 0.2219, 0.278, -0.8283, 0.2219, 0.278, -0.8283, -0.2219, 0.278, -0.8283, -0.3232, -0.0332, -1.2061, -0.3232, -0.0332, -1.2061, 0.3232, -0.0332, -1.2061, 0.2219, 0.278, -0.8283, -0.6064, 0.278, -0.6064, -0.8829, -0.0332, -0.8829, -0.3232, -0.0332, -1.2061, -0.3232, -0.0332, -1.2061, -0.2219, 0.278, -0.8283, -0.6064, 0.278, -0.6064, -0.8283, 0.278, -0.2219, -1.2061, -0.0332, -0.3232, -0.8829, -0.0332, -0.8829, -0.8829, -0.0332, -0.8829, -0.6064, 0.278, -0.6064, -0.8283, 0.278, -0.2219, -0.8283, 0.278, -0.2219, -0.8283, 0.278, 0.2219, -1.2061, -0.0332, 0.3232, -1.2061, -0.0332, 0.3232, -1.2061, -0.0332, -0.3232, -0.8283, 0.278, -0.2219, -0.6064, 0.278, 0.6064, -0.8829, -0.0332, 0.8829, -1.2061, -0.0332, 0.3232, -1.2061, -0.0332, 0.3232, -0.8283, 0.278, 0.2219, -0.6064, 0.278, 0.6064, -0.2219, 0.278, 0.8283, -0.3232, -0.0332, 1.2061, -0.8829, -0.0332, 0.8829, -0.8829, -0.0332, 0.8829, -0.6064, 0.278, 0.6064, -0.2219, 0.278, 0.8283, -0.2219, 0.278, 0.8283, 0.2219, 0.278, 0.8283, 0.3232, -0.0332, 1.2061, 0.3232, -0.0332, 1.2061, -0.3232, -0.0332, 1.2061, -0.2219, 0.278, 0.8283, 0.6064, 0.278, 0.6064, 0.8829, -0.0332, 0.8829, 0.3232, -0.0332, 1.2061, 0.3232, -0.0332, 1.2061, 0.2219, 0.278, 0.8283, 0.6064, 0.278, 0.6064, 0.8283, 0.278, 0.2219, 1.2061, -0.0332, 0.3232, 0.8829, -0.0332, 0.8829, 0.8829, -0.0332, 0.8829, 0.6064, 0.278, 0.6064, 0.8283, 0.278, 0.2219, 0.8283, 0.278, 0.2219, 0.8283, 0.278, -0.2219, 1.2061, -0.0332, -0.3232, 1.2061, -0.0332, -0.3232, 1.2061, -0.0332, 0.3232, 0.8283, 0.278, 0.2219, 0.6064, 0.278, -0.6064, 0.8829, -0.0332, -0.8829, 1.2061, -0.0332, -0.3232, 1.2061, -0.0332, -0.3232, 0.8283, 0.278, -0.2219, 0.6064, 0.278, -0.6064, 0, 0, 0, 0.8829, -0.0332, -0.8829, 0.3232, -0.0332, -1.2061, 0, 0, 0, 1.2061, -0.0332, -0.3232, 0.8829, -0.0332, -0.8829, 0, 0, 0, 0.3232, -0.0332, -1.2061, -0.3232, -0.0332, -1.2061, 0, 0, 0, 1.2061, -0.0332, 0.3232, 1.2061, -0.0332, -0.3232, 0, 0, 0, -0.3232, -0.0332, -1.2061, -0.8829, -0.0332, -0.8829, 0, 0, 0, 0.8829, -0.0332, 0.8829, 1.2061, -0.0332, 0.3232, 0, 0, 0, -0.8829, -0.0332, -0.8829, -1.2061, -0.0332, -0.3232, 0, 0, 0, 0.3232, -0.0332, 1.2061, 0.8829, -0.0332, 0.8829, 0, 0, 0, -1.2061, -0.0332, -0.3232, -1.2061, -0.0332, 0.3232, 0, 0, 0, -0.3232, -0.0332, 1.2061, 0.3232, -0.0332, 1.2061, 0, 0, 0, -1.2061, -0.0332, 0.3232, -0.8829, -0.0332, 0.8829, 0, 0, 0, -0.8829, -0.0332, 0.8829, -0.3232, -0.0332, 1.2061, 0, 0.23339999, 0, 0.2219, 0.278, -0.8283, 0.6064, 0.278, -0.6064, 0, 0.23339999, 0, -0.2219, 0.278, -0.8283, 0.2219, 0.278, -0.8283, 0, 0.23339999, 0, 0.6064, 0.278, -0.6064, 0.8283, 0.278, -0.2219, 0, 0.23339999, 0, -0.6064, 0.278, -0.6064, -0.2219, 0.278, -0.8283, 0, 0.23339999, 0, 0.8283, 0.278, -0.2219, 0.8283, 0.278, 0.2219, 0, 0.23339999, 0, -0.8283, 0.278, -0.2219, -0.6064, 0.278, -0.6064, 0, 0.23339999, 0, 0.8283, 0.278, 0.2219, 0.6064, 0.278, 0.6064, 0, 0.23339999, 0, -0.8283, 0.278, 0.2219, -0.8283, 0.278, -0.2219, 0, 0.23339999, 0, 0.6064, 0.278, 0.6064, 0.2219, 0.278, 0.8283, 0, 0.23339999, 0, -0.6064, 0.278, 0.6064, -0.8283, 0.278, 0.2219, 0, 0.23339999, 0, 0.2219, 0.278, 0.8283, -0.2219, 0.278, 0.8283, 0, 0.23339999, 0, -0.2219, 0.278, 0.8283, -0.6064, 0.278, 0.6064)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xw1qm"]
+points = PackedVector3Array(-0.32324106, -0.03316818, -1.2060741, -0.88306916, -0.03316818, -0.88306916, -0.22194785, 0.27798933, -0.8285266, 0.32300496, -0.03316818, -1.2060741, -1.2060741, -0.03316818, -0.32324106, -0.8285266, 0.27798933, -0.22194785, -0.60657877, 0.27798933, -0.60657877, 0.22171175, 0.27798933, -0.8285266, 0.8828331, -0.03316818, -0.88306916, -1.2060741, -0.03316818, 0.32300496, -0.8285266, 0.27798933, 0.22171175, 0.6063427, 0.27798933, -0.60657877, 1.2060741, -0.03316818, -0.32324106, -0.88306916, -0.03316818, 0.8828331, -0.60657877, 0.27798933, 0.6063427, 0.8282906, 0.27798933, -0.22194785, 1.2060741, -0.03316818, 0.32300496, -0.32324106, -0.03316818, 1.2060741, -0.22194785, 0.27798933, 0.8282906, 0.8282906, 0.27798933, 0.22171175, 0.6063427, 0.27798933, 0.6063427, 0.8828331, -0.03316818, 0.8828331, 0.32300496, -0.03316818, 1.2060741, 0.22171175, 0.27798933, 0.8282906)
+
+[sub_resource type="Animation" id="Animation_kaux0"]
+resource_name = "Bounce"
+length = 1.2500018
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pad_MeshInstance3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16444208, 0.31666666, 0.43333334, 0.50000167),
+"transitions": PackedFloat32Array(1, 1.6817932, 0.57434916, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.5235988, 0), Vector3(0, 0.4886922, 0), Vector3(0, 0.55850536, 0), Vector3(0, 0.5061455, 0), Vector3(0, 0.5235988, 0)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pad_MeshInstance3D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0, 0, 2, 2, 0),
+"points": PackedFloat32Array(0.149, -0.25, 0, 0, -0.027443305, 0.106414855, -0.096666664, -0.009031594, 0, 0, 0.2051156, -0.03999996, -0.019096494, 0, 0, 0.12660365, -0.04747422, 0.003010869, 0, 0, 0.17371082, -0.040878918, -0.04415045, 0.03333336, 0.036001027, 0.13109004, -0.01666671, 0.05170341, 0.009218657, -0.028598087, 0.15124321, -0.06666666, -0.029125959, 0.01666668, -0.0020733178),
+"times": PackedFloat32Array(0, 0.16666666, 0.21291655, 0.28999975, 0.34999996, 0.41999996, 0.49999997)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pad_AnimatableBody3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16444208, 0.31666666, 0.43333334, 0.50000167),
+"transitions": PackedFloat32Array(1, 1.6817932, 0.57434916, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.5235988, 0), Vector3(0, 0.4886922, 0), Vector3(0, 0.55850536, 0), Vector3(0, 0.5061455, 0), Vector3(0, 0.5235988, 0)]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pad_AnimatableBody3D:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.149, -0.25, 0, 0, -0.027443305, 0.106414855, -0.096666664, -0.009031594, 0, 0, 0.2051156, -0.03999996, -0.019096494, 0, 0, 0.12660365, -0.04747422, 0.003010869, 0, 0, 0.17371082, -0.040878918, -0.04415045, 0.03333336, 0.036001027, 0.13109004, -0.01666671, 0.05170341, 0.009218657, -0.028598087, 0.15124321, -0.06666666, -0.029125959, 0.01666668, -0.0020733178),
+"times": PackedFloat32Array(0, 0.16666666, 0.21291655, 0.28999975, 0.34999996, 0.41999996, 0.49999997)
+}
+
+[sub_resource type="Animation" id="Animation_orm8i"]
+resource_name = "Pressed"
+length = 0.03333667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pad_MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.037422717, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pad_MeshInstance3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.5235988, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pad_AnimatableBody3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.037422717, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pad_AnimatableBody3D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.5235988, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1bdht"]
+resource_name = "Pressing"
+length = 0.50000167
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pad_MeshInstance3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.5235988, 0)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pad_MeshInstance3D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0.149, -0.25, 0, 0.26666668, 0.0006836355, 0.038, 0, 0.09746227, 0, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pad_AnimatableBody3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.5235988, 0)]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pad_AnimatableBody3D:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.149, -0.25, 0, 0.26666668, 0.0006836355, 0.038, 0, 0.09746227, 0, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_yigyg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pad_MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.1485067, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pad_MeshInstance3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.5235988, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pad_AnimatableBody3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.1485067, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pad_AnimatableBody3D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.5235988, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5hisi"]
+resource_name = "Unpressed"
+length = 0.03333667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pad_MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.1485067, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pad_MeshInstance3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.5235988, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pad_AnimatableBody3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.1485067, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pad_AnimatableBody3D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.5235988, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_orm8i"]
+_data = {
+&"Bounce": SubResource("Animation_kaux0"),
+&"Pressed": SubResource("Animation_orm8i"),
+&"Pressing": SubResource("Animation_1bdht"),
+&"RESET": SubResource("Animation_yigyg"),
+&"Unpressed": SubResource("Animation_5hisi")
+}
+
+[node name="WeightedButton" type="StaticBody3D" unique_id=1151652390]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_yigyg")
+trigger_weight = 4
+
+[node name="Base_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=431874188]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_ijvk1")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2136495435]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09215477, 0)
+collision_layer = 2048
+collision_mask = 4097
+
+[node name="Trigger_CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1279893937]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19618222, 0)
+shape = SubResource("CylinderShape3D_1bdht")
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="Cable" type="Node3D" parent="." unique_id=1618775983]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Button_Lights" parent="Cable" unique_id=303055115 instance=ExtResource("2_v2ty4")]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.594, 0.643, 1.573)
+weight = 4
+current_weight = 0
+
+[node name="Generated_Light_1" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=1046312128]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8086581, -0.13553238)
+mesh = ExtResource("3_hcdd2")
+surface_material_override/1 = ExtResource("5_naxr5")
+
+[node name="Generated_Light_2" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=933525903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8086581, 0.08446762)
+mesh = ExtResource("3_hcdd2")
+surface_material_override/1 = ExtResource("5_naxr5")
+
+[node name="Generated_Light_3" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=1757157362]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0286582, -0.13553238)
+mesh = ExtResource("3_hcdd2")
+surface_material_override/1 = ExtResource("5_naxr5")
+
+[node name="Generated_Light_4" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=179158728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0286582, 0.08446762)
+mesh = ExtResource("3_hcdd2")
+surface_material_override/1 = ExtResource("5_naxr5")
+
+[node name="CableConnector" type="MeshInstance3D" parent="Cable" unique_id=872956376]
+transform = Transform3D(4.371139e-08, -3.821371e-15, 1, -8.742278e-08, -1, 0, 1, -8.742278e-08, -4.371139e-08, -0.88379204, 0.1107021, 1.6648425)
+mesh = ExtResource("5_u8eeh")
+skeleton = NodePath("../..")
+
+[node name="PowerCable2" type="MeshInstance3D" parent="Cable/CableConnector" unique_id=415605683]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.0012025833, 0.0012607574, 0.6258382)
+mesh = ExtResource("6_naxr5")
+skeleton = NodePath("../../..")
+
+[node name="PowerCable3" type="MeshInstance3D" parent="Cable/CableConnector" unique_id=1336977178]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.00023961067, 0.0014225394, 1.4724778)
+mesh = ExtResource("6_naxr5")
+skeleton = NodePath("../PowerCable2")
+
+[node name="ButtonShell" type="MeshInstance3D" parent="." unique_id=2094969472]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13, 0.001)
+mesh = ExtResource("8_5hisi")
+
+[node name="Pad_MeshInstance3D" type="MeshInstance3D" parent="ButtonShell" unique_id=2098201895]
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, 0, 0.1485067, 0)
+mesh = ExtResource("7_yigyg")
+skeleton = NodePath("../..")
+
+[node name="Pad_AnimatableBody3D" type="AnimatableBody3D" parent="ButtonShell" unique_id=452429123]
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, 0, 0.1485067, 0)
+collision_layer = 8
+collision_mask = 0
+
+[node name="Pad_ConcaveCollisionShape3D" type="CollisionShape3D" parent="ButtonShell/Pad_AnimatableBody3D" unique_id=1920508634]
+transform = Transform3D(-0.8660253, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, -0.8660253, 0, -0.13611265, 0)
+shape = SubResource("ConcavePolygonShape3D_xw1qm")
+
+[node name="Pad_ConvexCollisionShape3D" type="CollisionShape3D" parent="ButtonShell/Pad_AnimatableBody3D" unique_id=796794241]
+process_mode = 4
+transform = Transform3D(-0.8660255, 0, 0.5000002, 0, 1, 0, -0.5000002, 0, -0.8660255, 0, -0.13611265, 0)
+visible = false
+shape = SubResource("ConvexPolygonShape3D_xw1qm")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ButtonShell" unique_id=1454709930]
+libraries/ = SubResource("AnimationLibrary_orm8i")
+autoplay = &"Unpressed"

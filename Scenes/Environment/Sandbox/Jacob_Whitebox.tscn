@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dp2fw4dg0bdoh"]
 
-[ext_resource type="PackedScene" path="res://Scenes/Environment/ExtendableWall.tscn" id="2_oaoqy"]
-[ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scripts/Nameless/character.tscn" id="2_tx3h6"]
+[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/Terrain/ExtendableWall.tscn" id="2_oaoqy"]
+[ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scenes/_Deprecated/character.tscn" id="2_tx3h6"]
 
 [node name="JacobWhitebox" type="Node3D" unique_id=700048835]
 
