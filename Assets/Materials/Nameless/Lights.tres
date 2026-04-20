@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://brmdpc1wwlqhg"]
+
+[ext_resource type="Texture2D" uid="uid://brpt5gikrst7w" path="res://Assets/Robobotomy Art/2D/Character/Lights_SG_Base_color.png" id="1_eitac"]
+
+[resource]
+resource_name = "L_LegModel_FixedUVs:Nameless_20_Updated_UVs:Lights"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+albedo_texture = ExtResource("1_eitac")
+emission_enabled = true

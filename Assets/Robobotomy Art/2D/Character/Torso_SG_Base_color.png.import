@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuamrmgx12j3s"
-path.s3tc="res://.godot/imported/Nam_Arm.png-f581833dd42f8fcd998fbbf7f5540998.s3tc.ctex"
+uid="uid://b61dwnpquqwgy"
+path.s3tc="res://.godot/imported/Torso_SG_Base_color.png-441eb57a0d4181afdc2d1591b1915420.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/UI/Pixel Art/Nam_Arm.png"
-dest_files=["res://.godot/imported/Nam_Arm.png-f581833dd42f8fcd998fbbf7f5540998.s3tc.ctex"]
+source_file="res://Assets/Robobotomy Art/2D/Character/Torso_SG_Base_color.png"
+dest_files=["res://.godot/imported/Torso_SG_Base_color.png-441eb57a0d4181afdc2d1591b1915420.s3tc.ctex"]
 
 [params]
 

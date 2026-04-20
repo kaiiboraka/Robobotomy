@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ddj23htttt0ys" path="res://Scripts/Player/head.gd" id="1_rtqub"]
 [ext_resource type="ArrayMesh" uid="uid://cvfblncoo4d8b" path="res://Assets/Robobotomy Art/3D/Character/Head_and_Hair.res" id="2_7q76k"]
-[ext_resource type="Texture2D" uid="uid://c1nop2pjviawq" path="res://Assets/Robobotomy Art/2D/Character/HeadSG_Base_color.png" id="3_gp127"]
+[ext_resource type="Texture2D" uid="uid://c1nop2pjviawq" path="res://Assets/Robobotomy Art/2D/Character/Head_SG_Base_color.png" id="3_gp127"]
 [ext_resource type="ArrayMesh" uid="uid://c8sncvty2tomo" path="res://Assets/Robobotomy Art/3D/Character/Hair_tuft.res" id="3_rtqub"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0kli6"]

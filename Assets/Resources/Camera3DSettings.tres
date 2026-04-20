@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_20qxw")
 fov = 45.0
+near = 0.005
 metadata/_custom_type_script = "uid://b8hhnqsugykly"

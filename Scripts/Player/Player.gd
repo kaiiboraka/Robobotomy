@@ -212,6 +212,12 @@ func select_limb(limb: BodyPart) -> void:
 
 	selected_limb = limb;
 	selected_limb.on_select();
+	
+	# Update camera target and priority
+	if phantom_camera:
+		phantom_camera.set("follow_target", selected_limb);
+		phantom_camera.set("priority", 2 if selected_limb != torso else 1);
+	
 	_add_follow_target(selected_limb);
 	
 	# If old limb is no longer selected and is off-screen, remove it from camera

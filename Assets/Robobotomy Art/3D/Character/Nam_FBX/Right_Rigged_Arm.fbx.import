@@ -1,0 +1,109 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://6dswhibyfrj7"
+path="res://.godot/imported/Right_Rigged_Arm.fbx-d1f6556dbe65b8dab9726c8dc5bd7471.scn"
+
+[deps]
+
+source_file="res://Assets/Robobotomy Art/3D/Character/Nam_FBX/Right_Rigged_Arm.fbx"
+dest_files=["res://.godot/imported/Right_Rigged_Arm.fbx-d1f6556dbe65b8dab9726c8dc5bd7471.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=100.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=true
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"R_Arm_FixedUVsModel:Nameless_20_Updated_UVs:Lights": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Nameless/Lights.tres",
+"use_external/path": "uid://brmdpc1wwlqhg"
+},
+"R_Arm_FixedUVsModel:Nameless_20_Updated_UVs:RArm": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Nameless/Arm_Right.tres",
+"use_external/path": "uid://rwrmbrxuh3cl"
+},
+"R_Arm_FixedUVsModel:Nameless_20_Updated_UVs:RInnerArm": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Nameless/Arm_Right_Shoulder.tres",
+"use_external/path": "uid://da6pkppw6wnv4"
+}
+},
+"meshes": {
+"R_Arm_Hand": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/R_Arm_Hand.res",
+"save_to_file/path": "uid://c75ww8ko5ejhv"
+},
+"R_Arm_LBow_Light": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/R_Arm_LBow_Light.res",
+"save_to_file/path": "uid://bv0aaj288gro1"
+},
+"R_Arm_Wrist": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/R_Arm_Wrist.res",
+"save_to_file/path": "uid://begyt7pqtjqs"
+},
+"R_Arm_Wrist_Light": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/R_Arm_Wrist_Light.res",
+"save_to_file/path": "uid://b72tq2yep1cyi"
+},
+"R_Upper_Arm": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Robobotomy Art/3D/Character/R_Upper_Arm.res",
+"save_to_file/path": "uid://br8plfjqjuhb4"
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
+fbx/naming_version=2

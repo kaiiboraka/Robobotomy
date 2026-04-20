@@ -72,9 +72,9 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_45ei3")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2074898256]
-physics_interpolation_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.656159, 18.996613)
 fov = 45.0
+near = 0.005
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=854467191]
 process_priority = 300

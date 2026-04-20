@@ -21,7 +21,7 @@ data = PackedVector3Array(0.83, 0.102, -0.47919998, 0.5631, -0.1362, -0.9754, 0.
 
 [sub_resource type="Animation" id="Animation_kaux0"]
 resource_name = "Bounce"
-length = 0.50000167
+length = 1.2500018
 step = 0.016666668
 tracks/0/type = "value"
 tracks/0/imported = false
