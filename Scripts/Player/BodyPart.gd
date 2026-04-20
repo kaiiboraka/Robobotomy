@@ -193,3 +193,9 @@ func counts_as_ground_for_limb(body: Node) -> bool:
 	if body is RigidBody3D:
 		return (body as RigidBody3D).freeze;
 	return false;
+
+
+func spawn_at(target_position : Vector3) -> void:
+	global_position = target_position;
+	linear_velocity = Vector3.ZERO;
+	angular_velocity = Vector3.ZERO;

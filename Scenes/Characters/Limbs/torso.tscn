@@ -131,7 +131,7 @@ height = 1.041271
 
 [node name="Torso" type="RigidBody3D" unique_id=381647224]
 collision_layer = 4099
-collision_mask = 2948
+collision_mask = 2956
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true

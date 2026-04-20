@@ -1,17 +1,21 @@
 class_name Player extends CharacterBody3D
 
-@export var speed: float = 5.0;
-@export var jump_velocity: float = 4.5;
+@export var speed : float = 5.0;
+@export var handicapped_speed : float = 2.5;
+@export var jump_velocity : float = 4.5;
 
-@onready var torso: BodyPart = $Torso;
-@onready var head: BodyPart = $Head;
-@onready var l_arm: BodyPart = $LeftArm;
-@onready var r_arm: BodyPart = $RightArm;
-@onready var l_leg: BodyPart = $LeftLeg;
-@onready var r_leg: BodyPart = $RightLeg;
-@onready var phantom_camera: Node3D = $Limb_PhantomCamera3D;
-@onready var selection_label: Label3D = $Label3D;
-@onready var neck: MeshInstance3D = $Neck;
+
+@onready var torso : BodyPart = $Torso;
+@onready var head : BodyPart = $Head;
+@onready var l_arm : BodyPart = $LeftArm;
+@onready var r_arm : BodyPart = $RightArm;
+@onready var l_leg : BodyPart = $LeftLeg;
+@onready var r_leg : BodyPart = $RightLeg;
+@onready var phantom_camera : Node3D = $Limb_PhantomCamera3D;
+@onready var selection_label : Label3D = $Label3D;
+@onready var neck : MeshInstance3D = $Neck;
+@onready var tall_collider : CollisionShape3D = $Tall_CollisionShape3D;
+@onready var short_collider : CollisionShape3D = $Short_CollisionShape3D;
 
 var limbs: Array = [];
 var selected_limb: BodyPart = null;
@@ -116,16 +120,20 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("Player_Jump") and is_on_floor():
 			velocity.y = jump_velocity;
 
+
 		# Get the input direction and handle the movement/deceleration.
 		var input_dir := Input.get_axis("Player_Move_Left", "Player_Move_Right");
-		
+		var move_speed : float = _get_movement_speed();
+
+
 		if input_dir:
-			velocity.x = input_dir * speed;
+			velocity.x = input_dir * move_speed;
 		else:
-			velocity.x = move_toward(velocity.x, 0, speed);
+			velocity.x = move_toward(velocity.x, 0, move_speed);
 	else:
 		# Decelerate naturally when not under control
 		velocity.x = move_toward(velocity.x, 0, speed * delta);
+
 
 	if _hud_needs_periodic_update():
 		_update_selection_hud();
@@ -155,24 +163,50 @@ func sync_core_to_torso() -> void:
 
 
 func update_weight() -> void:
-	var total: int = 0;
-	var attached_count: int = 0;
-	
+	var total : int = 0;
+	var attached_count : int = 0;
 	# Torso only contributes to core weight if it isn't "detached" (lone/rolling)
 	if torso and not torso.is_detached:
 		total += torso.weight;
-		
 	for limb in limbs:
 		if limb and limb != torso and not limb.is_detached:
 			total += limb.weight;
 			attached_count += 1;
-			
 	weight = total;
 	if torso and "limbs_attached" in torso:
 		torso.limbs_attached = attached_count;
-	
 	if neck and head:
 		neck.visible = not head.is_detached;
+	_update_colliders();
+
+
+func _get_movement_speed() -> float:
+	var leg_count : int = 0;
+	if l_leg and not l_leg.is_detached:
+		leg_count += 1;
+	if r_leg and not r_leg.is_detached:
+		leg_count += 1;
+
+	if leg_count == 2:
+		return speed;
+	elif leg_count == 1:
+		return handicapped_speed;
+	return speed;
+
+
+func _update_colliders() -> void:
+	var leg_count : int = 0;
+	if l_leg and not l_leg.is_detached:
+		leg_count += 1;
+	if r_leg and not r_leg.is_detached:
+		leg_count += 1;
+
+	if leg_count > 0:
+		tall_collider.disabled = false;
+		short_collider.disabled = true;
+	else:
+		tall_collider.disabled = true;
+		short_collider.disabled = false;
 
 
 func check_torso_activation() -> void:
@@ -227,32 +261,34 @@ func select_limb(limb: BodyPart) -> void:
 
 	var old_limb := selected_limb;
 
-	# Disable control of the previously selected limb if it was active
-	if selected_limb:
-		selected_limb.deselect();
-		if selected_limb == torso and selected_limb.is_part_enabled:
-			# Rolling torso: only snap back onto the CharacterBody when other limbs are still socketed.
-			if _any_limb_still_socketed():
-				sync_core_to_torso();
-		else:
-			selected_limb.disable_part();
-		# Rolling torso skips disable_part above — still must drop player input so two parts never share controls.
-		if old_limb != limb:
-			old_limb.set_accepts_player_input(false);
+	# Disable all limbs, then enable selected
+	for l in limbs:
+		if l:
+			l.set_accepts_player_input(false);
+			l.deselect();
+			if l != torso:
+				l.disable_part();
+
+	# Handle torso specific logic
+	if selected_limb == torso and selected_limb.is_part_enabled:
+		# Rolling torso: only snap back onto the CharacterBody when other limbs are still socketed.
+		if _any_limb_still_socketed():
+			sync_core_to_torso();
 
 	selected_limb = limb;
 	selected_limb.on_select();
-	
+	selected_limb.set_accepts_player_input(true);
+
 	# Update camera target and priority
 	if phantom_camera:
-		var should_follow = (selected_limb.is_detached or (selected_limb == torso and not _any_limb_still_socketed()))
+		var should_follow : bool = (selected_limb.is_detached or (selected_limb == torso and not _any_limb_still_socketed()));
 		if should_follow:
 			phantom_camera.set("follow_target", selected_limb);
 			phantom_camera.set("priority", 2);
 		else:
 			phantom_camera.set("follow_target", null);
 			phantom_camera.set("priority", 0);
-	
+
 	_add_follow_target(selected_limb);
 	
 	# If old limb is no longer selected and is off-screen, remove it from camera
@@ -381,3 +417,8 @@ func _on_limb_hit_ground(limb: BodyPart) -> void:
 func _on_limb_returned(_limb: BodyPart) -> void:
 	check_torso_activation();
 	update_weight();
+
+
+func spawn_at(target_position : Vector3) -> void:
+	global_position = target_position;
+	velocity = Vector3.ZERO;

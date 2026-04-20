@@ -18,6 +18,9 @@ script = ExtResource("10_5kd0c")
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
 height = 3.25
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b4kmf"]
+height = 1.6704102
+
 [sub_resource type="Skin" id="Skin_huuhm"]
 resource_name = "Skin"
 bind_count = 14
@@ -81,9 +84,14 @@ follow_damping = true
 follow_axis_lock = 3
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=289070969]
+[node name="Tall_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=289070969]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6246948, 0)
 shape = SubResource("CapsuleShape3D_player")
+
+[node name="Short_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=629034834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4144897, 0)
+shape = SubResource("CapsuleShape3D_b4kmf")
+disabled = true
 
 [node name="Neck" type="MeshInstance3D" parent="." unique_id=491095937]
 mesh = ExtResource("5_b4kmf")
@@ -96,8 +104,6 @@ retract_speed = 10.0
 
 [node name="Torso" parent="." unique_id=381647224 instance=ExtResource("3_b4kmf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0686834, 0)
-retract_speed = 10.0
-throw_force = 40.0
 
 [node name="LeftArm" parent="." unique_id=1281946609 instance=ExtResource("5_5kd0c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86595744, 2.4061642, 0)
@@ -108,7 +114,6 @@ acceleration = 5.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8641265, 2.4061642, 0)
 speed = 4.0
 acceleration = 5.0
-retract_speed = 10.0
 
 [node name="LeftLeg" parent="." unique_id=925113335 instance=ExtResource("6_aal88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.223, 0.89, 0)
