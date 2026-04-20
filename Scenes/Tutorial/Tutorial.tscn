@@ -151,9 +151,8 @@ size = Vector3(4.25, 21, 2.5)
 [node name="Checkpoint_1" type="Marker3D" parent="torso1_button_system" unique_id=1969394367]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.461796, -5.601349, 0)
 
-[node name="Killzone" parent="torso1_button_system" unique_id=718205558 node_paths=PackedStringArray("checkpoint") instance=ExtResource("10_7sy1d")]
+[node name="Killzone_1" parent="torso1_button_system" unique_id=718205558 node_paths=PackedStringArray("checkpoint") instance=ExtResource("10_7sy1d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.301, -7.781056, 0)
-size = Vector3(4.25, 2, 5)
 checkpoint = NodePath("../Checkpoint_1")
 
 [node name="torso2_button_system" type="Node" parent="." unique_id=691256337]
@@ -187,6 +186,14 @@ mesh = SubResource("CylinderMesh_wspkt")
 [node name="Cylinder2" type="MeshInstance3D" parent="torso2_button_system/AnimatableBody3D" unique_id=1693599265]
 transform = Transform3D(0.443, 0, 0, 0, 14, 0, 0, 0, 0.443, 3.5, 14, -1.283)
 mesh = SubResource("CylinderMesh_wspkt")
+
+[node name="Checkpoint_2" type="Marker3D" parent="torso2_button_system" unique_id=1921539978]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.46513, -5.601349, 0)
+
+[node name="Killzone_2" parent="torso2_button_system" unique_id=293835072 node_paths=PackedStringArray("checkpoint") instance=ExtResource("10_7sy1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.61456, -17.101894, 0)
+size = Vector3(14, 4, 5)
+checkpoint = NodePath("../../torso1_button_system/Checkpoint_1")
 
 [node name="Cubes" type="Node" parent="." unique_id=1807959314]
 

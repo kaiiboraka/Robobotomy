@@ -11,7 +11,7 @@ class_name Player extends CharacterBody3D
 @onready var r_arm : BodyPart = $RightArm;
 @onready var l_leg : BodyPart = $LeftLeg;
 @onready var r_leg : BodyPart = $RightLeg;
-@onready var phantom_camera : Node3D = $Limb_PhantomCamera3D;
+@onready var phantom_camera : PhantomCamera3D = $Limb_PhantomCamera3D;
 @onready var selection_label : Label3D = $Label3D;
 @onready var neck : MeshInstance3D = $Neck;
 @onready var tall_collider : CollisionShape3D = $Tall_CollisionShape3D;
@@ -212,17 +212,16 @@ func _update_colliders() -> void:
 func check_torso_activation() -> void:
 	var all_others_detached: bool = true;
 	for limb in limbs:
-		if limb != torso and limb and not limb.is_detached:
+		if limb and limb != torso and not limb.is_detached:
 			all_others_detached = false;
 			break;
 
 	if all_others_detached:
 		torso.is_detached = true; # Lone torso is physically independent
 		torso.enable_part(); # Torso physics always active when limbs are gone
-		
-		if selected_limb == torso:
-			is_controlling_core = false;
-		elif selected_limb != null and selected_limb.is_detached and selected_limb.is_part_enabled:
+		# select_limb(torso); # I want to call it like here.
+		if (selected_limb == torso or \
+			(selected_limb and selected_limb.is_detached and selected_limb.is_part_enabled)):
 			# Only the rolling detached limb reads move/jump — not the CharacterBody.
 			is_controlling_core = false;
 		else:
@@ -248,8 +247,7 @@ func check_torso_activation() -> void:
 
 
 func select_limb(limb: BodyPart) -> void:
-	if not limb:
-		return;
+	if not limb: return;
 	if selected_limb == limb:
 		# Re-tap while thrown but not yet control-enabled (e.g. missed hit_ground): wake if already on solid.
 		if limb.is_detached and not limb.is_part_enabled and _limb_has_valid_ground_contact(limb):
@@ -281,15 +279,11 @@ func select_limb(limb: BodyPart) -> void:
 
 	# Update camera target and priority
 	if phantom_camera:
-		var should_follow : bool = (selected_limb.is_detached or (selected_limb == torso and not _any_limb_still_socketed()));
-		if should_follow:
-			phantom_camera.set("follow_target", selected_limb);
-			phantom_camera.set("priority", 2);
-		else:
-			phantom_camera.set("follow_target", null);
-			phantom_camera.set("priority", 0);
-
-	_add_follow_target(selected_limb);
+		var should_follow := (selected_limb.is_detached or
+			(selected_limb == torso and not _any_limb_still_socketed())
+		);
+		if (should_follow): _add_follow_target(selected_limb, 2);
+		else: _add_follow_target(null, 0);
 	
 	# If old limb is no longer selected and is off-screen, remove it from camera
 	if old_limb and old_limb != selected_limb:
@@ -312,24 +306,23 @@ func select_limb(limb: BodyPart) -> void:
 
 
 func drop_limb(limb: BodyPart) -> void:
-	if limb and limb != torso and not limb.is_detached:
-		limb.global_position = global_position + global_transform.basis * limb.starting_position;
-		limb.global_rotation = global_rotation + limb.starting_rotation;
-		limb.drop();
-		
-		# Update camera if this was the selected limb
-		if limb == selected_limb and phantom_camera:
-			phantom_camera.set("follow_target", limb);
-			phantom_camera.set("priority", 2);
+	if not limb or limb == torso or limb.is_detached: return;
 
-		check_torso_activation();
-		update_weight();
+	limb.global_position = global_position + global_transform.basis * limb.starting_position;
+	limb.global_rotation = global_rotation + limb.starting_rotation;
+	limb.drop();
+	# Update camera if this was the selected limb
+	if limb == selected_limb:
+		_add_follow_target(limb, 2);
+
+	check_torso_activation();
+	update_weight();
 
 
 func drop_all_limbs() -> void:
 	for limb in limbs:
-		if limb and limb != torso and not limb.is_detached:
-			drop_limb(limb);
+		drop_limb(limb);
+	select_limb(torso);
 
 
 func _any_limb_still_socketed() -> bool:
@@ -339,22 +332,32 @@ func _any_limb_still_socketed() -> bool:
 	return false;
 
 
-func _add_follow_target(limb: Node3D) -> void:
-	if phantom_camera:
-		var targets: Array = phantom_camera.get("follow_targets");
-		if targets == null: targets = [];
+func _add_follow_target(limb: Node3D, newPriority: int = -1) -> void:
+	if not phantom_camera: return;
+	if (newPriority > -1): phantom_camera.priority = newPriority;
+	if not limb: return;
+
+	if phantom_camera.follow_mode == PhantomCamera3D.FollowMode.GROUP:
+		var targets : Array = phantom_camera.follow_targets;
+		if targets == null:
+			targets = [];
 		if not limb in targets:
 			targets.append(limb);
-			phantom_camera.set("follow_targets", targets);
+			phantom_camera.follow_targets = targets;
+	else:
+		phantom_camera.follow_target = limb;
 
 
-func _remove_follow_target(limb: Node3D) -> void:
+func _remove_follow_target(limb: Node3D, newPriority: int = -1) -> void:
+	if not phantom_camera: return;
+	if (newPriority > -1): phantom_camera.priority = newPriority;
+	if phantom_camera.follow_mode != PhantomCamera3D.FollowMode.GROUP: return;
 	if limb == selected_limb: return # Selected limb MUST stay in the group
-	if phantom_camera:
-		var targets: Array = phantom_camera.get("follow_targets");
-		if targets != null and limb in targets:
-			targets.erase(limb);
-			phantom_camera.set("follow_targets", targets);
+	
+	var targets: Array = phantom_camera.follow_targets;
+	if targets != null and limb in targets:
+		targets.erase(limb);
+		phantom_camera.follow_targets = targets;
 
 
 func _hud_needs_periodic_update() -> bool:
