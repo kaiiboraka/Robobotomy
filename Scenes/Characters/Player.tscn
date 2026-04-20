@@ -70,7 +70,13 @@ bind/13/pose = Transform3D(-0.4163696, 0.7045103, -0.5747188, -0.80973077, 0.000
 [node name="Player" type="CharacterBody3D" unique_id=64555096]
 collision_layer = 3
 collision_mask = 652
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+platform_floor_layers = 4294959308
 script = ExtResource("1_qkgjm")
+jump_velocity = 8.0
+handicapped_jump_velocity = 4.0
 
 [node name="Limb_PhantomCamera3D" type="Node3D" parent="." unique_id=1704350181]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.0686836, 15)
@@ -101,6 +107,7 @@ skin = SubResource("Skin_huuhm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9366379, 0)
 max_contacts_reported = 2
 retract_speed = 10.0
+throw_force = 20.0
 
 [node name="Torso" parent="." unique_id=381647224 instance=ExtResource("3_b4kmf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0686834, 0)

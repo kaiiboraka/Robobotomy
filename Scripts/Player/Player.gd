@@ -3,7 +3,7 @@ class_name Player extends CharacterBody3D
 @export var speed : float = 5.0;
 @export var handicapped_speed : float = 2.5;
 @export var jump_velocity : float = 4.5;
-
+@export var handicapped_jump_velocity : float = 2.5;
 
 @onready var torso : BodyPart = $Torso;
 @onready var head : BodyPart = $Head;
@@ -21,7 +21,8 @@ var limbs: Array = [];
 var selected_limb: BodyPart = null;
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity");
 var is_controlling_core: bool = true;
-var weight: int = 0;
+var weight : int = 0;
+var current_jump_velocity : float = 4.5;
 
 
 func _ready() -> void:
@@ -31,25 +32,16 @@ func _ready() -> void:
 	limbs = [torso, head, l_arm, r_arm, l_leg, r_leg];
 	
 	for limb in limbs:
-		if limb:
-			limb.core = self;
-			limb.disable_part();
-			if not limb.hit_ground.is_connected(_on_limb_hit_ground):
-				limb.hit_ground.connect(_on_limb_hit_ground.bind(limb));
-			
-			# Setup camera follow logic based on visibility
-			if limb.notifier:
-				limb.notifier.screen_entered.connect(_add_follow_target.bind(limb));
-				limb.notifier.screen_exited.connect(_remove_follow_target.bind(limb));
-				if limb.notifier.is_on_screen():
-					_add_follow_target(limb);
-	
+		if not limb: continue;
+		
+		limb.core = self;
+		limb.disable_part();
+		if not limb.hit_ground.is_connected(_on_limb_hit_ground):
+			limb.hit_ground.connect(_on_limb_hit_ground.bind(limb));
+		
 	# Start with torso selected
-	selected_limb = torso;
-	update_weight();
 	check_torso_activation();
-	_update_selection_hud();
-
+	select_limb(torso);
 
 func _physics_process(delta: float) -> void:
 	# just_pressed avoids re-running select_limb every frame while a limb key is held
@@ -75,16 +67,12 @@ func _physics_process(delta: float) -> void:
 				var to := from + camera.project_ray_normal(mouse_pos) * 10.0;
 				var direction := (to - selected_limb.global_position).normalized();
 				direction.z = 0;
-
 				selected_limb.throw(direction * selected_limb.throw_force);
-				
 				# Update camera to follow newly thrown limb
 				if phantom_camera:
 					phantom_camera.set("follow_target", selected_limb);
 					phantom_camera.set("priority", 2);
-
 				check_torso_activation();
-				update_weight();
 
 	if Input.is_action_just_pressed("Player_Drop_Limb"):
 		if selected_limb == torso:
@@ -95,7 +83,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Player_Recall"):
 		if torso.is_part_enabled:
 			sync_core_to_torso();
-
 		if selected_limb == torso:
 			is_controlling_core = true;
 			for limb in limbs:
@@ -118,13 +105,11 @@ func _physics_process(delta: float) -> void:
 	if is_controlling_core:
 		# Handle Jump.
 		if Input.is_action_just_pressed("Player_Jump") and is_on_floor():
-			velocity.y = jump_velocity;
-
+			velocity.y = current_jump_velocity;
 
 		# Get the input direction and handle the movement/deceleration.
 		var input_dir := Input.get_axis("Player_Move_Left", "Player_Move_Right");
 		var move_speed : float = _get_movement_speed();
-
 
 		if input_dir:
 			velocity.x = input_dir * move_speed;
@@ -134,10 +119,8 @@ func _physics_process(delta: float) -> void:
 		# Decelerate naturally when not under control
 		velocity.x = move_toward(velocity.x, 0, speed * delta);
 
-
 	if _hud_needs_periodic_update():
 		_update_selection_hud();
-
 
 	move_and_slide();
 
@@ -207,41 +190,33 @@ func _update_colliders() -> void:
 	else:
 		tall_collider.disabled = true;
 		short_collider.disabled = false;
+	
+	match leg_count:
+		2:
+			current_jump_velocity = jump_velocity;
+		1:
+			current_jump_velocity = handicapped_jump_velocity;
+		0:
+			current_jump_velocity = handicapped_jump_velocity / 2;
 
 
 func check_torso_activation() -> void:
-	var all_others_detached: bool = true;
+	var all_others_detached : bool = true;
 	for limb in limbs:
 		if limb and limb != torso and not limb.is_detached:
 			all_others_detached = false;
 			break;
 
+	torso.is_detached = all_others_detached;
 	if all_others_detached:
-		torso.is_detached = true; # Lone torso is physically independent
-		torso.enable_part(); # Torso physics always active when limbs are gone
-		# select_limb(torso); # I want to call it like here.
-		if (selected_limb == torso or \
-			(selected_limb and selected_limb.is_detached and selected_limb.is_part_enabled)):
-			# Only the rolling detached limb reads move/jump — not the CharacterBody.
-			is_controlling_core = false;
-		else:
-			# Thrown limb mid-air, or odd states: move the core until the limb can take over.
-			is_controlling_core = true;
+		torso.enable_part();
 	else:
-		# If any limb is socketed, the torso is not detached from the core
-		# (Unless it was explicitly thrown/dropped, which we check via player state if needed, 
-		# but normally torso can't be thrown if limbs are attached)
-		torso.is_detached = false; 
 		torso.disable_part();
-		
-		if selected_limb == torso:
-			is_controlling_core = true;
-		elif selected_limb != null and selected_limb.is_detached and selected_limb.is_part_enabled:
-			is_controlling_core = false;
-		else:
-			# Socketed torso, attached limb, or thrown limb still in flight — use CharacterBody.
-			is_controlling_core = true;
-	
+
+	# Synchronize core control state based on activation
+	is_controlling_core = not (torso.is_detached or 
+		(selected_limb and selected_limb.is_detached and selected_limb.is_part_enabled));
+
 	update_weight(); # weight depends on is_detached status
 	_update_selection_hud();
 
@@ -279,29 +254,26 @@ func select_limb(limb: BodyPart) -> void:
 
 	# Update camera target and priority
 	if phantom_camera:
-		var should_follow := (selected_limb.is_detached or
-			(selected_limb == torso and not _any_limb_still_socketed())
-		);
-		if (should_follow): _add_follow_target(selected_limb, 2);
-		else: _add_follow_target(null, 0);
-	
+		phantom_camera.follow_targets = [];
+		var should_follow : bool = (selected_limb.is_detached or (selected_limb == torso and not _any_limb_still_socketed()));
+		if should_follow:
+			_add_follow_target(selected_limb, 2);
+		else:
+			_add_follow_target(null, 0);
+
 	# If old limb is no longer selected and is off-screen, remove it from camera
 	if old_limb and old_limb != selected_limb:
 		if old_limb.notifier and not old_limb.notifier.is_on_screen():
 			_remove_follow_target(old_limb);
 		elif old_limb == torso: # Always remove torso from follow if not selected
 			_remove_follow_target(old_limb);
-	
-	if limb == torso:
-		check_torso_activation();
-	else:
-		if limb.is_detached:
-			# Enable limb control immediately if it's already landed or moving
-			limb.enable_part();
-			is_controlling_core = false;
-		else:
-			# Attached limb selected, main body is controlled
-			is_controlling_core = true;
+
+	# Control logic
+	is_controlling_core = (selected_limb == torso and not torso.is_detached);
+
+	if limb.is_detached and not limb.is_part_enabled and limb != torso:
+		limb.enable_part();
+
 	_update_selection_hud();
 
 
@@ -316,12 +288,11 @@ func drop_limb(limb: BodyPart) -> void:
 		_add_follow_target(limb, 2);
 
 	check_torso_activation();
-	update_weight();
-
 
 func drop_all_limbs() -> void:
 	for limb in limbs:
 		drop_limb(limb);
+	_add_follow_target(torso, 2);
 	select_limb(torso);
 
 
@@ -333,9 +304,15 @@ func _any_limb_still_socketed() -> bool:
 
 
 func _add_follow_target(limb: Node3D, newPriority: int = -1) -> void:
-	if not phantom_camera: return;
-	if (newPriority > -1): phantom_camera.priority = newPriority;
-	if not limb: return;
+	if not phantom_camera:
+		return;
+
+	if newPriority > -1:
+		phantom_camera.priority = newPriority;
+
+	if not limb:
+		phantom_camera.follow_target = null;
+		return;
 
 	if phantom_camera.follow_mode == PhantomCamera3D.FollowMode.GROUP:
 		var targets : Array = phantom_camera.follow_targets;
@@ -419,8 +396,6 @@ func _on_limb_hit_ground(limb: BodyPart) -> void:
 
 func _on_limb_returned(_limb: BodyPart) -> void:
 	check_torso_activation();
-	update_weight();
-
 
 func spawn_at(target_position : Vector3) -> void:
 	global_position = target_position;
