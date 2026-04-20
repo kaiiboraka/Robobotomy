@@ -4,6 +4,7 @@ signal hit_ground;
 
 @export var retract_speed: float = 10.0;
 @export var throw_force: float = 40.0;
+@export var jump_velocity: float = 5.0;
 @export_range(0, 3, 1) var weight: int = 1;
 
 @onready var notifier: VisibleOnScreenNotifier3D = $VisibleOnScreenNotifier3D;
@@ -35,23 +36,7 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	if is_detached and not is_part_enabled:
-		# Rigid contact list can be empty while sleeping or for a frame; RayCast3D is the reliable fallback.
-		var landed := false;
-		for body in get_colliding_bodies():
-			if counts_as_ground_for_limb(body):
-				landed = true;
-				break;
-		
-		if not landed:
-			var ray := get_node_or_null("RayCast3D") as RayCast3D;
-			if ray != null and ray.enabled:
-				ray.force_raycast_update();
-				if ray.is_colliding():
-					var col := ray.get_collider();
-					if counts_as_ground_for_limb(col):
-						landed = true;
-		
-		if landed:
+		if is_grounded():
 			hit_ground.emit();
 
 
@@ -159,9 +144,34 @@ func retract() -> Tween:
 	return move_tween;
 
 
+func handle_jump() -> void:
+	if Input.is_action_just_pressed("Player_Jump") and is_grounded():
+		wake_up();
+		apply_central_impulse(Vector3.UP * jump_velocity);
+
+
+func wake_up() -> void:
+	sleeping = false;
+
+
+func is_grounded() -> bool:
+	for body in get_colliding_bodies():
+		if counts_as_ground_for_limb(body):
+			return true;
+	
+	var ray := get_node_or_null("RayCast3D") as RayCast3D;
+	if ray and ray.is_colliding():
+		if counts_as_ground_for_limb(ray.get_collider()):
+			return true;
+			
+	return false;
+
+
 func set_accepts_player_input(enabled: bool) -> void:
 	accepts_player_input = enabled;
 	set_process_input(enabled);
+	if enabled:
+		wake_up();
 
 
 func counts_as_ground_for_limb(body: Node) -> bool:

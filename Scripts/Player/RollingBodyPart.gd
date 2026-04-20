@@ -1,6 +1,5 @@
 @abstract class_name RollingBodyPart extends BodyPart
 
-@export var jump_force: float = 10.0;
 @export var roll_speed: float = 7.0;
 @export var deceleration_factor: float = 2.0;
 @export var max_angular_velocity: float = 12.0;
@@ -49,9 +48,9 @@ func _physics_process(delta: float) -> void:
 	var move_held: bool = accepts_player_input and (
 		Input.is_action_pressed("Player_Move_Right") or Input.is_action_pressed("Player_Move_Left"));
 		
-	if not move_held and ray_cast_3d.is_colliding():
+	if not move_held and is_grounded():
 		angular_velocity.z = lerp(angular_velocity.z, 0.0, delta * deceleration_factor);
-		if abs(angular_velocity.z) < 0.1:
+		if abs(angular_velocity.z) < 0.05:
 			angular_velocity.z = 0;
 		stabilize_upright(delta, stabilize_threshold);
 
@@ -71,9 +70,8 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	var torque = Vector3.ZERO;
 	var current_ang_vel = state.angular_velocity.z;
 	
-	if Input.is_action_just_pressed("Player_Jump") and ray_cast_3d.is_colliding():
-		wake_up();
-		apply_central_force(Vector3.UP * jump_force);
+	# Unified jumping
+	handle_jump();
 	
 	# Apply torque for moving right, respecting the velocity cap.
 	if Input.is_action_pressed("Player_Move_Right") and current_ang_vel > -max_angular_velocity:
@@ -161,7 +159,7 @@ func stabilize_upright(delta: float, velocity_threshold: float = 0.5) -> void:
 
 
 func wake_up() -> void:
-	sleeping = false;	
+	sleeping = false;
 	is_stabilized = false;
 	stable_collider.disabled = true;
 

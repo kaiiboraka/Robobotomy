@@ -256,6 +256,8 @@ contact_monitor = true
 max_contacts_reported = 2
 script = ExtResource("1_pckun")
 retract_speed = 7.5
+throw_force = 20.0
+jump_velocity = 10.0
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=2014330834]
 

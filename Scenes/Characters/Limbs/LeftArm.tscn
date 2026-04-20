@@ -272,6 +272,8 @@ contact_monitor = true
 max_contacts_reported = 3
 script = ExtResource("1_my4g3")
 speed = 10.0
+throw_force = 30.0
+jump_velocity = 2.0
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=307488596]
 

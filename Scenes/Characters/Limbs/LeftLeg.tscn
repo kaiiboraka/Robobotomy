@@ -10,7 +10,6 @@
 [ext_resource type="ArrayMesh" uid="uid://bym6mt1b2kl01" path="res://Assets/Robobotomy Art/3D/Character/L_AnkleGuard.res" id="8_jvx81"]
 [ext_resource type="ArrayMesh" uid="uid://73wdlqd1r7m5" path="res://Assets/Robobotomy Art/3D/Character/L_AnkleHinge.res" id="9_q2tcg"]
 [ext_resource type="ArrayMesh" uid="uid://bnwq3lmq643n1" path="res://Assets/Robobotomy Art/3D/Character/L_Foot.res" id="10_lotoj"]
-[ext_resource type="PackedScene" uid="uid://dyt6q5nx8gy67" path="res://Assets/Robobotomy Art/3D/Character/Nam_FBX/Left_Rigged_Leg.fbx" id="11_twhbq"]
 
 [sub_resource type="Resource" id="Resource_bcp5y"]
 script = ExtResource("4_nclh8")
@@ -254,6 +253,8 @@ contact_monitor = true
 max_contacts_reported = 2
 script = ExtResource("1_kafv1")
 retract_speed = 7.5
+throw_force = 20.0
+jump_velocity = 10.0
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=1295578004]
 
@@ -294,24 +295,3 @@ skin = SubResource("Skin_ry2yo")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=431806607]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0004272461, 0.00053596497, 0.13272095)
 shape = SubResource("BoxShape3D_hsfiv")
-
-[node name="Left_Rigged_Leg" parent="." unique_id=232852266 instance=ExtResource("11_twhbq")]
-
-[node name="Skeleton3D" parent="Left_Rigged_Leg/Nam_Rig" parent_id_path=PackedInt32Array(232852266, 230985106) index="0" unique_id=1387076242]
-bones/1/position = Vector3(0.01657017, -8.495458e-20, 0.0013874136)
-bones/1/rotation = Quaternion(-9.466337e-30, 0.0010710959, 6.558571e-20, 0.9999994)
-bones/2/position = Vector3(-0.0067946864, 3.0597757e-06, 0.00034217766)
-bones/2/rotation = Quaternion(0, 0, 0, 1)
-bones/3/rotation = Quaternion(0, 0, 0, 1)
-bones/3/scale = Vector3(1, 1, 1)
-bones/4/position = Vector3(-0.000969846, 0.0052902303, -0.00046274604)
-bones/4/rotation = Quaternion(0, 0, 0, 1)
-bones/5/rotation = Quaternion(0.010762422, 0.023430344, 0.4485627, 0.8933794)
-bones/6/position = Vector3(0.01657017, -8.495458e-20, 0.0013874136)
-bones/6/rotation = Quaternion(-9.466337e-30, 0.0010710959, 6.558571e-20, 0.9999994)
-bones/7/rotation = Quaternion(0, 0, 0, 1)
-bones/8/rotation = Quaternion(0, 0, 0, 1)
-bones/10/position = Vector3(0.01657017, -5.0261662e-20, 0.0013874136)
-bones/13/rotation = Quaternion(2.1684043e-19, -1.7343e-18, -1.3552527e-20, 1)
-
-[editable path="Left_Rigged_Leg"]
