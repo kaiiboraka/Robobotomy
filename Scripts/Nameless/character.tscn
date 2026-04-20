@@ -11,10 +11,11 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_us15p"]
 height = 3.510254
 
-[node name="Character" type="CharacterBody3D" unique_id=1583363387]
-collision_layer = 3
+[node name="Character" type="CharacterBody3D" unique_id=109842020]
+collision_layer = 4099
 collision_mask = 12
 script = ExtResource("1_2swo8")
+metadata/_custom_type_script = "uid://dinm6607n8npe"
 
 [node name="NamelessV07" parent="." unique_id=296770905 instance=ExtResource("1_us15p")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
