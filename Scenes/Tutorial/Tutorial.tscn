@@ -144,7 +144,6 @@ skeleton = NodePath("../Cubes/Cube7")
 [node name="DoorPath" parent="torso1_button_system" unique_id=41623911 node_paths=PackedStringArray("target_follower") instance=ExtResource("7_upwis")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.300526, 3.8740988, -0.07102585)
 target_follower = NodePath("../MovingExtendableWall")
-moveSpeed = 26.338
 
 [node name="MovingExtendableWall" parent="torso1_button_system" unique_id=1141331836 instance=ExtResource("8_7sy1d")]
 transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 49.300526, 3.8740988, -0.07102585)
@@ -188,7 +187,6 @@ activation_targets = [null]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.246, -2.942906, 0)
 curve = SubResource("Curve3D_7y28h")
 script = ExtResource("5_7y28h")
-moveSpeed = null
 
 [node name="PathFollow3D" type="PathFollow3D" parent="torso2_button_system/torso2_path" unique_id=1548498530]
 transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 0, 0, 0)

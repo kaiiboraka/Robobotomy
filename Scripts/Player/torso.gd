@@ -13,8 +13,6 @@ func disable_part() -> void:
 	super.disable_part();
 	if limbs_attached > 0:
 		freeze = true;
-	else:
-		freeze = false;
 
 
 func should_roll() -> bool:

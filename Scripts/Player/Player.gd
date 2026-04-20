@@ -13,8 +13,6 @@ class_name Player extends CharacterBody3D
 @onready var selection_label: Label3D = $Label3D;
 @onready var neck: MeshInstance3D = $Neck;
 
-@onready var core_collider: CollisionShape3D = $CollisionShape3D;
-
 var limbs: Array = [];
 var selected_limb: BodyPart = null;
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity");
@@ -132,11 +130,6 @@ func _physics_process(delta: float) -> void:
 	if _hud_needs_periodic_update():
 		_update_selection_hud();
 
-	# If the torso is active and detached (rolling or sitting alone),
-	# keep the core synced so limbs return to the correct spot.
-	if torso and torso.is_part_enabled:
-		global_position = torso.global_position - global_transform.basis * torso.starting_position;
-		velocity = Vector3.ZERO;
 
 	move_and_slide();
 
@@ -147,8 +140,11 @@ func sync_core_to_torso() -> void:
 	# Snap CharacterBody3D to Torso's current location
 	global_position = torso.global_position - global_transform.basis * torso.starting_position;
 	
-	# Reset torso to its relative home
+	# Reattach torso before resetting local transform.
+	# If top_level is still true here, setting position writes world-space and can launch torso away.
+	torso.is_detached = false;
 	torso.disable_part();
+	torso.top_level = false;
 	torso.position = torso.starting_position;
 	torso.rotation = torso.starting_rotation;
 	torso.linear_velocity = Vector3.ZERO;
@@ -190,10 +186,6 @@ func check_torso_activation() -> void:
 		torso.is_detached = true; # Lone torso is physically independent
 		torso.enable_part(); # Torso physics always active when limbs are gone
 		
-		# Disable core collider while following the detached torso to prevent
-		# the CharacterBody3D from snagging on high geometry the torso rolls under.
-		if core_collider: core_collider.set_deferred("disabled", true);
-		
 		if selected_limb == torso:
 			is_controlling_core = false;
 		elif selected_limb != null and selected_limb.is_detached and selected_limb.is_part_enabled:
@@ -208,10 +200,6 @@ func check_torso_activation() -> void:
 		# but normally torso can't be thrown if limbs are attached)
 		torso.is_detached = false; 
 		torso.disable_part();
-		
-		# Re-enable core collider when limbs are reconjoined and CharacterBody3D
-		# becomes the primary physics actor again.
-		if core_collider: core_collider.set_deferred("disabled", false);
 		
 		if selected_limb == torso:
 			is_controlling_core = true;
@@ -255,9 +243,10 @@ func select_limb(limb: BodyPart) -> void:
 	selected_limb = limb;
 	selected_limb.on_select();
 	
-	# Update camera target and priority: Only follow limb if detached
+	# Update camera target and priority
 	if phantom_camera:
-		if selected_limb != torso and selected_limb.is_detached:
+		var should_follow = (selected_limb.is_detached or (selected_limb == torso and not _any_limb_still_socketed()))
+		if should_follow:
 			phantom_camera.set("follow_target", selected_limb);
 			phantom_camera.set("priority", 2);
 		else:

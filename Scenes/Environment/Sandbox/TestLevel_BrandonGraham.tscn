@@ -23,6 +23,7 @@ glow_enabled = true
 
 [sub_resource type="Resource" id="Resource_t1lel"]
 script = ExtResource("3_t1lel")
+transition = 7
 
 [node name="Node3D" type="Node3D" unique_id=368627856]
 
@@ -51,7 +52,7 @@ size = Vector3(40, 6.265, 5)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2074898256]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 15)
 fov = 45.0
 near = 0.005
 
@@ -61,26 +62,27 @@ process_physics_priority = 300
 script = ExtResource("2_sr37p")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="Player" parent="." unique_id=64555096 instance=ExtResource("3_l4fje")]
-
 [node name="InteractiveButton" parent="." unique_id=1151652390 instance=ExtResource("7_t1lel")]
-transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 6.173436, -1.6359935, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.173436, -1.6359935, 0)
 trigger_weight = 9
 
-[node name="Player_PhantomCamera3D" type="Node3D" parent="." unique_id=57193271 node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 15)
+[node name="Player" parent="." unique_id=64555096 instance=ExtResource("3_l4fje")]
+
+[node name="Player_PhantomCamera3D" type="Node3D" parent="." unique_id=2020620233 node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 15)
 top_level = true
 script = ExtResource("2_45ei3")
 priority = 1
-follow_mode = 5
+follow_mode = 2
 follow_target = NodePath("../Player")
 tween_resource = SubResource("Resource_t1lel")
 camera_3d_resource = ExtResource("4_t1lel")
-follow_offset = Vector3(0, 4, 0)
+follow_offset = Vector3(0, 3.75, 15)
 follow_damping = true
+follow_axis_lock = 3
 follow_distance = 15.0
 dead_zone_width = 0.2
-dead_zone_height = 0.8
+dead_zone_height = 0.593
 show_viewfinder_in_play = true
 spring_length = 15.0
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
