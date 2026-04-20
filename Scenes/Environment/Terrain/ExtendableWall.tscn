@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://xskqf03ju65p"]
 
 [ext_resource type="Script" uid="uid://0dxneikdkrts" path="res://Scripts/Tools/extendable_wall.gd" id="1_j6hy7"]
+[ext_resource type="Material" uid="uid://cct38rv0tpch7" path="res://Assets/Materials/Diagetic UI/box_mesh.tres" id="2_u731o"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qtg0g"]
 resource_local_to_scene = true
@@ -20,6 +21,7 @@ size = Vector3(35, 1, 5)
 unique_name_in_owner = true
 mesh = SubResource("BoxMesh_qtg0g")
 skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_u731o")
 
 [node name="BoxShape" type="CollisionShape3D" parent="." unique_id=497844883]
 unique_name_in_owner = true

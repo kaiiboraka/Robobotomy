@@ -4,12 +4,12 @@
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_euprb"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_nclh8"]
 [ext_resource type="Resource" uid="uid://odcgk1h80sk0" path="res://Assets/Resources/Camera3DSettings.tres" id="5_kafv1"]
-[ext_resource type="ArrayMesh" uid="uid://bq6wclha61oua" path="res://Assets/Robobotomy Art/3D/Character/L_Shin.res" id="6_b7363"]
+[ext_resource type="ArrayMesh" uid="uid://b43njnkce7d1h" path="res://Assets/Robobotomy Art/3D/Character/L_Shin.res" id="6_b7363"]
 [ext_resource type="ArrayMesh" uid="uid://junqlj1trmor" path="res://Assets/Robobotomy Art/3D/Character/Upper_Leg.res" id="6_tpfkj"]
-[ext_resource type="ArrayMesh" uid="uid://dnbvq32wxvtfl" path="res://Assets/Robobotomy Art/3D/Character/L_KneeCap.res" id="7_aers5"]
-[ext_resource type="ArrayMesh" uid="uid://cj5ogqkorcbhl" path="res://Assets/Robobotomy Art/3D/Character/L_AnkleGuard.res" id="8_jvx81"]
-[ext_resource type="ArrayMesh" uid="uid://byyrlesgjrwa" path="res://Assets/Robobotomy Art/3D/Character/L_AnkleHinge.res" id="9_q2tcg"]
-[ext_resource type="ArrayMesh" uid="uid://4xs1dkr3ao7b" path="res://Assets/Robobotomy Art/3D/Character/L_Foot.res" id="10_lotoj"]
+[ext_resource type="ArrayMesh" uid="uid://bhliblp7mh5xo" path="res://Assets/Robobotomy Art/3D/Character/L_KneeCap.res" id="7_aers5"]
+[ext_resource type="ArrayMesh" uid="uid://bym6mt1b2kl01" path="res://Assets/Robobotomy Art/3D/Character/L_AnkleGuard.res" id="8_jvx81"]
+[ext_resource type="ArrayMesh" uid="uid://73wdlqd1r7m5" path="res://Assets/Robobotomy Art/3D/Character/L_AnkleHinge.res" id="9_q2tcg"]
+[ext_resource type="ArrayMesh" uid="uid://bnwq3lmq643n1" path="res://Assets/Robobotomy Art/3D/Character/L_Foot.res" id="10_lotoj"]
 [ext_resource type="PackedScene" uid="uid://dyt6q5nx8gy67" path="res://Assets/Robobotomy Art/3D/Character/Nam_FBX/Left_Rigged_Leg.fbx" id="11_twhbq"]
 
 [sub_resource type="Resource" id="Resource_bcp5y"]
@@ -243,9 +243,6 @@ bind/10/pose = Transform3D(-0.03510804, 0.99938345, 0.00031194708, -0.0061802045
 [sub_resource type="BoxShape3D" id="BoxShape3D_hsfiv"]
 size = Vector3(0.40649414, 1.7830391, 0.7265625)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_i6q28"]
-size = Vector3(0.4185791, 1.7902048, 0.73747253)
-
 [node name="LeftLeg" type="RigidBody3D" unique_id=925113335]
 collision_layer = 4099
 collision_mask = 2956
@@ -297,15 +294,6 @@ skin = SubResource("Skin_ry2yo")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=431806607]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0004272461, 0.00053596497, 0.13272095)
 shape = SubResource("BoxShape3D_hsfiv")
-
-[node name="JumpArea" type="Area3D" parent="." unique_id=1098783904]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.036596715, 0)
-collision_layer = 0
-collision_mask = 12
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpArea" unique_id=1425082608]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0004272461, 0.039099574, 0.13056183)
-shape = SubResource("BoxShape3D_i6q28")
 
 [node name="Left_Rigged_Leg" parent="." unique_id=232852266 instance=ExtResource("11_twhbq")]
 

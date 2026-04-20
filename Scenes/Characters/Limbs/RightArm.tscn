@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://dlyx5ptbnnpex" path="res://Scripts/Player/Arm.gd" id="1_fy5t7"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_kslal"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_wx4t2"]
-[ext_resource type="ArrayMesh" uid="uid://dnaj5r3tln2ir" path="res://Assets/Robobotomy Art/3D/Character/R_Upper_Arm.res" id="5_2poe3"]
+[ext_resource type="ArrayMesh" uid="uid://br8plfjqjuhb4" path="res://Assets/Robobotomy Art/3D/Character/R_Upper_Arm.res" id="5_2poe3"]
 [ext_resource type="Resource" uid="uid://odcgk1h80sk0" path="res://Assets/Resources/Camera3DSettings.tres" id="5_fy5t7"]
-[ext_resource type="ArrayMesh" uid="uid://cmo2qyy3d61s1" path="res://Assets/Robobotomy Art/3D/Character/R_Arm_LBow_Light.res" id="6_8chnf"]
-[ext_resource type="ArrayMesh" uid="uid://wbsb0opqlbov" path="res://Assets/Robobotomy Art/3D/Character/R_Arm_Wrist.res" id="7_f4unv"]
-[ext_resource type="ArrayMesh" uid="uid://dupr8jahcc6ka" path="res://Assets/Robobotomy Art/3D/Character/R_Arm_Wrist_Light.res" id="8_2aixd"]
-[ext_resource type="ArrayMesh" uid="uid://brg8m5euang3h" path="res://Assets/Robobotomy Art/3D/Character/R_Arm_Hand.res" id="9_qxeld"]
+[ext_resource type="ArrayMesh" uid="uid://bv0aaj288gro1" path="res://Assets/Robobotomy Art/3D/Character/R_Arm_LBow_Light.res" id="6_8chnf"]
+[ext_resource type="ArrayMesh" uid="uid://begyt7pqtjqs" path="res://Assets/Robobotomy Art/3D/Character/R_Arm_Wrist.res" id="7_f4unv"]
+[ext_resource type="ArrayMesh" uid="uid://b72tq2yep1cyi" path="res://Assets/Robobotomy Art/3D/Character/R_Arm_Wrist_Light.res" id="8_2aixd"]
+[ext_resource type="ArrayMesh" uid="uid://c75ww8ko5ejhv" path="res://Assets/Robobotomy Art/3D/Character/R_Arm_Hand.res" id="9_qxeld"]
 [ext_resource type="PackedScene" uid="uid://dyt6q5nx8gy67" path="res://Assets/Robobotomy Art/3D/Character/Nam_FBX/Left_Rigged_Leg.fbx" id="12_8chnf"]
 
 [sub_resource type="Resource" id="Resource_bcp5y"]
@@ -260,20 +260,19 @@ bind/21/pose = Transform3D(-0.9999908, -0.004290934, 0, 2.6274392e-19, -6.123177
 radius = 0.16503906
 height = 1.5945282
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w24nb"]
-radius = 0.12890625
-height = 1.5654297
-
 [node name="RightArm" type="RigidBody3D" unique_id=904546073]
 collision_layer = 4099
 collision_mask = 2956
-lock_rotation = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
 freeze = true
 freeze_mode = 1
 continuous_cd = true
 contact_monitor = true
 max_contacts_reported = 3
 script = ExtResource("1_fy5t7")
+speed = 10.0
 retract_speed = 7.5
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=135821873]
@@ -311,14 +310,5 @@ skin = SubResource("Skin_5mdu5")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=952059936]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.027053833, 0.07662338, 0)
 shape = SubResource("CapsuleShape3D_8y70x")
-
-[node name="JumpArea" type="Area3D" parent="." unique_id=1574087237]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.036596715, 0)
-collision_layer = 0
-collision_mask = 12
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpArea" unique_id=1991477655]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.026268005, 0.114746094, 0)
-shape = SubResource("CapsuleShape3D_w24nb")
 
 [node name="Left_Rigged_Leg" parent="." unique_id=232852266 instance=ExtResource("12_8chnf")]

@@ -58,11 +58,9 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_body_entered(body: Node3D) -> void:
-	# Attached, non-active limbs are part of the core — ignore them here.
-	# Torso can roll while still parented (is_detached false) but with is_part_enabled true.
-	if body is BodyPart:
-		if not body.is_detached and not body.is_part_enabled:
-			return;
+	# Ignore attached limbs; the Player core will report their combined weight.
+	if body is BodyPart and not body.is_detached:
+		return;
 
 	if _counted_bodies.has(body):
 		return;
@@ -86,8 +84,7 @@ func _on_body_entered(body: Node3D) -> void:
 
 
 func _on_body_exited(body: Node3D) -> void:
-	# Must not mirror the enter-time BodyPart filter: recall sets is_detached false before the
-	# shape leaves the area, so we'd skip cleanup and leave a stale _counted_bodies entry.
+	# Clean up any body that was previously counted.
 	if not _counted_bodies.has(body):
 		return;
 

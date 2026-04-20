@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://5r2o3glyvoiu" path="res://Scripts/Player/Leg.gd" id="1_pckun"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_hsfiv"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_i6q28"]
-[ext_resource type="ArrayMesh" uid="uid://bkxfgv87pfaxr" path="res://Assets/Robobotomy Art/3D/Character/R_UpperLeg.res" id="5_hh6m4"]
+[ext_resource type="ArrayMesh" uid="uid://dh1ucl7jt7tcm" path="res://Assets/Robobotomy Art/3D/Character/R_UpperLeg.res" id="5_hh6m4"]
 [ext_resource type="Resource" uid="uid://odcgk1h80sk0" path="res://Assets/Resources/Camera3DSettings.tres" id="5_pckun"]
-[ext_resource type="ArrayMesh" uid="uid://dwpjdshj2g0ye" path="res://Assets/Robobotomy Art/3D/Character/R_Shin.res" id="6_jtu2u"]
-[ext_resource type="ArrayMesh" uid="uid://j0caelunxqfo" path="res://Assets/Robobotomy Art/3D/Character/R_Kneecap.res" id="7_w4nx6"]
-[ext_resource type="ArrayMesh" uid="uid://dmylobrl87exm" path="res://Assets/Robobotomy Art/3D/Character/R_AnkleGuard.res" id="8_pahpc"]
-[ext_resource type="ArrayMesh" uid="uid://det7cj61053od" path="res://Assets/Robobotomy Art/3D/Character/R_AnkleHinge.res" id="9_agmls"]
-[ext_resource type="ArrayMesh" uid="uid://b7uebwo4ncst" path="res://Assets/Robobotomy Art/3D/Character/R_Foot.res" id="10_kaetx"]
+[ext_resource type="ArrayMesh" uid="uid://bkdtearu4q2y6" path="res://Assets/Robobotomy Art/3D/Character/R_Shin.res" id="6_jtu2u"]
+[ext_resource type="ArrayMesh" uid="uid://cgicvb75gndhc" path="res://Assets/Robobotomy Art/3D/Character/R_Kneecap.res" id="7_w4nx6"]
+[ext_resource type="ArrayMesh" uid="uid://dvo86rlc21x2j" path="res://Assets/Robobotomy Art/3D/Character/R_AnkleGuard.res" id="8_pahpc"]
+[ext_resource type="ArrayMesh" uid="uid://bhy5tdy11v2x" path="res://Assets/Robobotomy Art/3D/Character/R_AnkleHinge.res" id="9_agmls"]
+[ext_resource type="ArrayMesh" uid="uid://dcvyilhg8et62" path="res://Assets/Robobotomy Art/3D/Character/R_Foot.res" id="10_kaetx"]
 
 [sub_resource type="Resource" id="Resource_bcp5y"]
 script = ExtResource("4_i6q28")
@@ -245,9 +245,6 @@ bind/10/pose = Transform3D(-0.0006954774, 0.59902835, 0.80072755, 0.002153047, -
 [sub_resource type="BoxShape3D" id="BoxShape3D_hsfiv"]
 size = Vector3(0.40649414, 1.7830391, 0.7265625)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_i6q28"]
-size = Vector3(0.4185791, 1.7902048, 0.73747253)
-
 [node name="RightLeg" type="RigidBody3D" unique_id=1985177356]
 collision_layer = 4099
 collision_mask = 2956
@@ -299,12 +296,3 @@ skin = SubResource("Skin_vm6j3")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=943758665]
 transform = Transform3D(1.035085, 0, 0, 0, 1.035085, 0, 0, 0, 1.035085, -0.004358515, 0.0012012422, 0.13543756)
 shape = SubResource("BoxShape3D_hsfiv")
-
-[node name="JumpArea" type="Area3D" parent="." unique_id=59283736]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.036596715, 0.13392133)
-collision_layer = 0
-collision_mask = 12
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpArea" unique_id=89745610]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0004272461, 0.03870392, -0.0015563965)
-shape = SubResource("BoxShape3D_i6q28")
