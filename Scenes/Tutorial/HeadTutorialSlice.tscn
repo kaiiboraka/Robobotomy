@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://b26n1tg25oibu" path="res://Scripts/HeadTutorialSlice/crane.gd" id="6_3u1ho"]
 [ext_resource type="ArrayMesh" uid="uid://c8kdmnehigaay" path="res://Assets/Robobotomy Art/3D/Character/Head.res" id="6_3x4w6"]
 [ext_resource type="Script" path="res://Scripts/button.gd" id="7_sqr0g"]
-[ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scripts/Player/character.tscn" id="9_jsw4j"]
+[ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scenes/_Deprecated/character.tscn" id="9_jsw4j"]
 [ext_resource type="Script" uid="uid://dtahhowrgytm7" path="res://Scripts/HeadTutorialSlice/teleportal.gd" id="11_1lny6"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_huync"]

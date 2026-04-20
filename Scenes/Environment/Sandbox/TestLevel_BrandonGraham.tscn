@@ -83,8 +83,6 @@ script = ExtResource("2_sr37p")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=64555096 instance=ExtResource("3_l4fje")]
-speed = 5.0
-jump_velocity = 4.5
 
 [node name="InteractiveButton" parent="." unique_id=1151652390 instance=ExtResource("7_t1lel")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 6.173436, -1.6359935, 0)

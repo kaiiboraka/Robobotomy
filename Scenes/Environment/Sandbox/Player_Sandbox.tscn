@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_fujqj"]
 [ext_resource type="PackedScene" uid="uid://dmefqrw20pemv" path="res://Scenes/Testing/gym.tscn" id="5_3dfbi"]
 [ext_resource type="PackedScene" uid="uid://cuc1pbmga6imc" path="res://Scenes/Environment/Terrain/cube_static.tscn" id="5_6uba3"]
-[ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scripts/Player/character.tscn" id="5_08ukk"]
+[ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scenes/_Deprecated/character.tscn" id="5_08ukk"]
 
 [node name="LevelRoot" type="Node3D" unique_id=2115854773]
 

@@ -93,6 +93,14 @@ func throw(impulse: Vector3) -> void:
 	apply_central_impulse(impulse);
 
 
+func drop() -> void:
+	is_detached = true;
+	freeze = false;
+	top_level = true;
+	can_sleep = false;
+	set_physics_process(true);
+
+
 func retract() -> Tween:
 	is_retracting = true;
 	var initial_global_pos = global_position;

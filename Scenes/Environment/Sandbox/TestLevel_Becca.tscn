@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://dt0q3m2pg70u6" path="res://Assets/Robobotomy Art/2D/Dust/Dust (4).png" id="19_017vt"]
 [ext_resource type="ArrayMesh" uid="uid://bs7mr6pntvtby" path="res://Assets/Robobotomy Art/3D/Objects/Pipes/pipe1_short.res" id="19_hr8tt"]
 [ext_resource type="Texture2D" uid="uid://dcltywe85vcvt" path="res://Assets/Robobotomy Art/2D/Dust/Dust (7).png" id="20_0rd7g"]
-[ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scripts/Player/character.tscn" id="20_2hr8o"]
+[ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scenes/_Deprecated/character.tscn" id="20_2hr8o"]
 [ext_resource type="ArrayMesh" uid="uid://bwotwyj54b6aw" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_keyway1.res" id="20_ep28j"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_3dqiu"]

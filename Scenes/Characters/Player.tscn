@@ -41,6 +41,8 @@ retract_speed = 10.0
 
 [node name="Torso" parent="." unique_id=381647224 instance=ExtResource("3_b4kmf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0686834, 0)
+retract_speed = 10.0
+throw_force = 40.0
 
 [node name="LeftArm" parent="." unique_id=1281946609 instance=ExtResource("5_5kd0c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86595744, 2.4061642, 0)

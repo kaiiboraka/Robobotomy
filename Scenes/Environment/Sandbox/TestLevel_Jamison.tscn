@@ -5,7 +5,7 @@
 [ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/button.res" id="4_bde0f"]
 [ext_resource type="Material" uid="uid://cjjlgffq2ycbp" path="res://Assets/Materials/Basic Colors/Red.tres" id="5_j7jpj"]
 [ext_resource type="PackedScene" uid="uid://d031edjsrylll" path="res://Scenes/Environment/Interactables/rope.tscn" id="6_330lm"]
-[ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scripts/Player/character.tscn" id="7_330lm"]
+[ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scenes/_Deprecated/character.tscn" id="7_330lm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vrgj1"]
 sky_top_color = Color(0.122083716, 0.1548169, 0.19841826, 1)

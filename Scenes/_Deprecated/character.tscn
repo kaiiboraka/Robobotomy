@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://bns61k02jrmoo"]
 
-[ext_resource type="Script" uid="uid://dinm6607n8npe" path="res://Scripts/Player/character.gd" id="1_2swo8"]
-[ext_resource type="PackedScene" uid="uid://caj74qdlqfqfr" path="res://Assets/Robobotomy Art/3D/Character/NamelessV07.fbx" id="1_us15p"]
-[ext_resource type="Script" uid="uid://bjtnes8q1l5pw" path="res://Scripts/_Deprecated/StateMachine/idle_state.gd" id="3_7ofet"]
-[ext_resource type="Script" uid="uid://m65d7iwmd4m6" path="res://Scripts/_Deprecated/StateMachine/player_state_machine.gd" id="3_l2ws1"]
-[ext_resource type="Script" uid="uid://dv7ondbr4s0lg" path="res://Scripts/_Deprecated/StateMachine/walk_state.gd" id="4_14l40"]
-[ext_resource type="Script" uid="uid://l15abrep6elo" path="res://Scripts/_Deprecated/StateMachine/jump_state.gd" id="5_7ofet"]
-[ext_resource type="Script" uid="uid://bnty5eu71jqu8" path="res://Scripts/_Deprecated/StateMachine/fall_state.gd" id="7_mlckh"]
+[ext_resource type="Script" uid="uid://dinm6607n8npe" path="res://Scripts/_Deprecated/StateMachine/character.gd" id="1_yv4q2"]
+[ext_resource type="PackedScene" uid="uid://caj74qdlqfqfr" path="res://Assets/Robobotomy Art/3D/Character/NamelessV07.fbx" id="2_4yl3p"]
+[ext_resource type="Script" uid="uid://m65d7iwmd4m6" path="res://Scripts/_Deprecated/StateMachine/player_state_machine.gd" id="3_ijyos"]
+[ext_resource type="Script" uid="uid://bjtnes8q1l5pw" path="res://Scripts/_Deprecated/StateMachine/idle_state.gd" id="4_cl0im"]
+[ext_resource type="Script" uid="uid://dv7ondbr4s0lg" path="res://Scripts/_Deprecated/StateMachine/walk_state.gd" id="5_xa6vc"]
+[ext_resource type="Script" uid="uid://l15abrep6elo" path="res://Scripts/_Deprecated/StateMachine/jump_state.gd" id="6_s7net"]
+[ext_resource type="Script" uid="uid://bnty5eu71jqu8" path="res://Scripts/_Deprecated/StateMachine/fall_state.gd" id="7_igv07"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_us15p"]
 height = 3.510254
@@ -14,9 +14,9 @@ height = 3.510254
 [node name="Character" type="CharacterBody3D" unique_id=1583363387]
 collision_layer = 3
 collision_mask = 12
-script = ExtResource("1_2swo8")
+script = ExtResource("1_yv4q2")
 
-[node name="NamelessV07" parent="." unique_id=296770905 instance=ExtResource("1_us15p")]
+[node name="NamelessV07" parent="." unique_id=296770905 instance=ExtResource("2_4yl3p")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1430961964]
@@ -24,19 +24,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5495272, 0)
 shape = SubResource("CapsuleShape3D_us15p")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1624717868]
-script = ExtResource("3_l2ws1")
+script = ExtResource("3_ijyos")
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=1778177461]
-script = ExtResource("3_7ofet")
+script = ExtResource("4_cl0im")
 
 [node name="Walking" type="Node" parent="StateMachine" unique_id=848350452]
-script = ExtResource("4_14l40")
+script = ExtResource("5_xa6vc")
 
 [node name="Jumping" type="Node" parent="StateMachine" unique_id=788965682]
-script = ExtResource("5_7ofet")
+script = ExtResource("6_s7net")
 
 [node name="Falling" type="Node" parent="StateMachine" unique_id=1031315074]
-script = ExtResource("7_mlckh")
+script = ExtResource("7_igv07")
 
 [node name="Landing" type="Node" parent="StateMachine" unique_id=1225492755]
 
