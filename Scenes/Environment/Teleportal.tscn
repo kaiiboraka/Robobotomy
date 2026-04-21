@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://614eegxcbalt"]
+
+[ext_resource type="Script" uid="uid://dtahhowrgytm7" path="res://Scripts/HeadTutorialSlice/teleportal.gd" id="1_whmkh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3x4w6"]
+size = Vector3(1.5551758, 2.1846924, 1)
+
+[node name="Teleportal" type="Area3D" unique_id=1303701231]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_whmkh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=548827722]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2775879, -0.070251465, 0)
+shape = SubResource("BoxShape3D_3x4w6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

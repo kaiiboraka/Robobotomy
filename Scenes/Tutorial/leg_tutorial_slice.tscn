@@ -1,3 +1,181 @@
-[gd_scene format=3 uid="uid://d1ydw5gdb8xl8"]
+[gd_scene format=3 uid="uid://cqa5c7yb7ekhv"]
 
-[node name="LegTutorialSlice" type="Node3D" unique_id=820114638]
+[ext_resource type="PackedScene" uid="uid://npjp2dyv4vbu" path="res://Scenes/Characters/Player.tscn" id="1_x4o0j"]
+[ext_resource type="PackedScene" uid="uid://gl5j7l3w6avc" path="res://Scenes/Environment/Interactables/SimpleBox.tscn" id="2_7aweu"]
+[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/Terrain/ExtendableWall.tscn" id="2_mhkff"]
+[ext_resource type="PackedScene" uid="uid://m1ilgdhf1lia" path="res://Scenes/Environment/Buttons/Weighted_Button.tscn" id="2_wrvru"]
+[ext_resource type="PackedScene" uid="uid://dlk6oxkqswup1" path="res://Scenes/Environment/door.tscn" id="3_2r5sy"]
+[ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Assets/Robobotomy Art/3D/Objects/Pipes/pipe1_long.res" id="6_ypd0c"]
+[ext_resource type="ArrayMesh" uid="uid://d1rjejthugc4a" path="res://Assets/Robobotomy Art/3D/Character/Leg Left.res" id="7_ll8jm"]
+[ext_resource type="PackedScene" uid="uid://614eegxcbalt" path="res://Scenes/Environment/Teleportal.tscn" id="8_ll8jm"]
+[ext_resource type="Script" uid="uid://bw716w626y8t7" path="res://Scripts/Environment/trigger_predicate.gd" id="9_x4o0j"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="11_gs0w6"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="12_06lq0"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="13_3hgsh"]
+[ext_resource type="Resource" uid="uid://odcgk1h80sk0" path="res://Assets/Resources/Camera3DSettings.tres" id="14_135h1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_x4o0j"]
+
+[sub_resource type="Resource" id="Resource_yl0v6"]
+script = ExtResource("13_3hgsh")
+transition = 7
+
+[node name="LegTutorialSlice" type="Node3D" unique_id=1204578548]
+
+[node name="Player" parent="." unique_id=64555096 instance=ExtResource("1_x4o0j")]
+
+[node name="WeightedButton" parent="." unique_id=1151652390 node_paths=PackedStringArray("activation_targets") instance=ExtResource("2_wrvru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7810593, -1.4090703, 0)
+trigger_weight = 1
+activation_targets = [NodePath("../TriggerPredicate")]
+
+[node name="WeightedButton2" parent="." unique_id=738531214 node_paths=PackedStringArray("activation_targets") instance=ExtResource("2_wrvru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7128067, -1.4461505, 0)
+trigger_weight = 1
+activation_targets = [NodePath("../TriggerPredicate")]
+
+[node name="WeightedButton3" parent="." unique_id=992380312 node_paths=PackedStringArray("activation_targets") instance=ExtResource("2_wrvru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.987732, 0.6303737, 0)
+trigger_weight = 1
+activation_targets = [NodePath("../TriggerPredicate")]
+
+[node name="TriggerPredicate" type="Node" parent="." unique_id=66458650 node_paths=PackedStringArray("activation_targets")]
+script = ExtResource("9_x4o0j")
+min_triggers = 3
+activation_targets = [NodePath("../Door"), NodePath("../Door2")]
+metadata/_custom_type_script = "uid://bw716w626y8t7"
+
+[node name="Door" parent="." unique_id=1709040343 instance=ExtResource("3_2r5sy")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 9.956577, 0)
+motor_velocity = 100.0
+
+[node name="Door2" parent="." unique_id=605440017 instance=ExtResource("3_2r5sy")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 10, 9.956577, 0)
+flipped = true
+motor_velocity = 100.0
+
+[node name="Simple Box" parent="." unique_id=116129210 instance=ExtResource("2_7aweu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.166895, 11.056658, 0)
+
+[node name="ExtendableWall26" parent="." unique_id=1149585584 instance=ExtResource("2_mhkff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.945015, 13.747105, -1.9073484e-06)
+size = Vector3(31.5, 8.89, 5)
+
+[node name="ExtendableWall27" parent="." unique_id=1511538964 instance=ExtResource("2_mhkff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.631088, 22.060644, -1.9073484e-06)
+size = Vector3(40.65, 24.965, 5)
+
+[node name="ExtendableWall23" parent="." unique_id=1577522391 instance=ExtResource("2_mhkff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.099945, -12.725558, -1.9073484e-06)
+size = Vector3(35, 22.495, 5)
+
+[node name="ExtendableWall25" parent="." unique_id=518825628 instance=ExtResource("2_mhkff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.10852, -1.7539868, -3.814697e-06)
+size = Vector3(4.58, 4.87, 5)
+
+[node name="Cube11" type="MeshInstance3D" parent="." unique_id=1686939609]
+transform = Transform3D(1.9508935, -0.027563218, 0, 0.029182604, 1.8426355, 0, 0, 0, 1, -69.22024, -5.4609113, 0)
+mesh = SubResource("BoxMesh_x4o0j")
+
+[node name="Cube12" type="MeshInstance3D" parent="." unique_id=797922734]
+transform = Transform3D(1.4571028, -0.027563218, 0, 0.021796193, 1.8426355, 0, 0, 0, 1, -67.28872, -5.4320183, 0)
+mesh = SubResource("BoxMesh_x4o0j")
+
+[node name="Cube13" type="MeshInstance3D" parent="." unique_id=872783619]
+transform = Transform3D(2.0871303, -0.016540034, 0, 0.03122051, 1.105722, 0, 0, 0, 1, -67.75526, -3.8034844, 0)
+mesh = SubResource("BoxMesh_x4o0j")
+
+[node name="Pipe1Long18" type="MeshInstance3D" parent="." unique_id=682172927]
+transform = Transform3D(-0.077975765, -6.2016473, 0, 4.120958, -0.11734607, 0, 0, 0, 4.272667, -47.163353, -6.762777, 0.08477688)
+mesh = ExtResource("6_ypd0c")
+
+[node name="6" type="Label3D" parent="." unique_id=679380043]
+transform = Transform3D(10.000001, 0, 0, 0, 10.000001, 0, 0, 0, 9.999999, -74.04217, -4.934243, 0.7822784)
+text = "6"
+
+[node name="7" type="Label3D" parent="." unique_id=131591271]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8034477, 2.225801, 0)
+pixel_size = 0.05
+text = "7
+"
+
+[node name="LegLeft" type="MeshInstance3D" parent="." unique_id=1408502735]
+transform = Transform3D(71.53026, 0, 69.881485, 0, 100, 0, -69.881485, 0, 71.53026, -41.595238, -7.361715, -0.07286453)
+mesh = ExtResource("7_ll8jm")
+
+[node name="ExtendableWall22" parent="." unique_id=1167277368 instance=ExtResource("2_mhkff")]
+transform = Transform3D(0.8082469, -0.58884376, 0, 0.58884376, 0.8082469, 0, 0, 0, 1, -30.774345, -4.895857, 1.9073486e-06)
+size = Vector3(11.675, 1, 5)
+
+[node name="ExtendableWall15" parent="." unique_id=505129756 instance=ExtResource("2_mhkff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.502434, -16.180012, -1.9073484e-06)
+size = Vector3(42.735, 15.61, 5)
+
+[node name="ExtendableWall21" parent="." unique_id=1866201621 instance=ExtResource("2_mhkff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.460808, -12.725558, -1.9073484e-06)
+size = Vector3(10, 23.019, 5)
+
+[node name="ExtendableWall16" parent="." unique_id=2052384958 instance=ExtResource("2_mhkff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.50796, -3.9357426, 2.2737368e-13)
+size = Vector3(3.5, 4.488, 5)
+
+[node name="ExtendableWall17" parent="." unique_id=1757841576 instance=ExtResource("2_mhkff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.479195, -3.820067, -1.9073484e-06)
+size = Vector3(3, 4, 5)
+
+[node name="ExtendableWall19" parent="." unique_id=1847177900 instance=ExtResource("2_mhkff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.52584, -5.429802, -1.9073484e-06)
+size = Vector3(3.5, 1.7, 5)
+
+[node name="ExtendableWall20" parent="." unique_id=1766917731 instance=ExtResource("2_mhkff")]
+transform = Transform3D(1, 0, 0, 0, -1, 1.509958e-07, 0, -1.509958e-07, -1, -59.15661, -3.5598416, 0.09755373)
+size = Vector3(1.97, 1.715, 5)
+
+[node name="ExtendableWall18" parent="." unique_id=327458667 instance=ExtResource("2_mhkff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.506798, -4.577791, -1.9073484e-06)
+size = Vector3(4.53, 2.12, 5)
+
+[node name="Teleportal" parent="." unique_id=1303701231 node_paths=PackedStringArray("output_location") instance=ExtResource("8_ll8jm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.867, -6.831423, 0)
+output_location = NodePath("../TeleportalDest")
+
+[node name="TeleportalDest" type="Node3D" parent="." unique_id=627065165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.843304, -6.3827596, 0)
+
+[node name="Teleportal2" parent="." unique_id=1124018402 node_paths=PackedStringArray("output_location") instance=ExtResource("8_ll8jm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.801, -6.831423, 0)
+output_location = NodePath("../TeleportalDest2")
+
+[node name="TeleportalDest2" type="Node3D" parent="." unique_id=234884072]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.82521, -6.2890987, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1872575143]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 15)
+fov = 45.0
+near = 0.005
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=347375671]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("11_gs0w6")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="Player_PhantomCamera3D" type="Node3D" parent="." unique_id=1491298490 node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 15)
+top_level = true
+script = ExtResource("12_06lq0")
+priority = 1
+follow_mode = 2
+follow_target = NodePath("../Player")
+tween_resource = SubResource("Resource_yl0v6")
+camera_3d_resource = ExtResource("14_135h1")
+follow_offset = Vector3(0, 3.75, 15)
+follow_damping = true
+follow_axis_lock = 3
+follow_distance = 15.0
+dead_zone_width = 0.2
+dead_zone_height = 0.593
+show_viewfinder_in_play = true
+spring_length = 15.0
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
