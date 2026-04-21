@@ -1,6 +1,8 @@
 @tool
 class_name ButtonDoor
 ## A [Door] that is easily wired up to [InteractiveButton] objects.
+##
+## @deprecated: Use [Door] instead.
 extends Door
 
 enum TriggerMode { ANY_BUTTON, ALL_BUTTONS }
@@ -16,7 +18,7 @@ enum TriggerMode { ANY_BUTTON, ALL_BUTTONS }
 # 	return buttons
 # set(value):
 # 	_button_states = []
-# 	buttons = value
+# 	buttons = value1
 # 	for i in range(len(buttons)):
 # 		_button_states.append(false)
 
@@ -27,11 +29,9 @@ func _ready() -> void:
 	for i in range(len(buttons)):
 		var button := buttons[i]
 		if button:
-			@warning_ignore("unused_parameter")
 			button.body_entered.connect(
 				_button_body_entered.bind(i),
 			)
-			@warning_ignore("unused_parameter")
 			button.body_exited.connect(
 				_button_body_exited.bind(i),
 			)
@@ -64,3 +64,9 @@ func _physics_process(_delta: float) -> void:
 				motor_reversed = not (true in _button_states)
 			TriggerMode.ALL_BUTTONS:
 				motor_reversed = (false in _button_states)
+
+func _get_configuration_warnings() -> PackedStringArray:
+	var warnings = []
+	warnings.append("This node is deprecated. Use [Door] instead.")
+	# Return the list of warnings (empty array means no warning icon)
+	return PackedStringArray(warnings)
