@@ -42,11 +42,11 @@ extends Node3D
 	set(value):
 		motor_enabled = value
 		_update_door()
-## Internal noolean for whether the motor is reversed or not.[br][br]
+## Internal boolean for whether the motor is reversed or not.[br][br]
 ## If the motor is reversed, the door will try to move towards
 ## its original state. otherwise, the door will try to move
 ## towards the state marked by [param movement_extent].
-var motor_reversed: bool = false:
+var motor_reversed: bool = true:
 	get:
 		return motor_reversed
 	set(value):
@@ -54,6 +54,8 @@ var motor_reversed: bool = false:
 		_update_door()
 @onready var _internal_hinge: HingeJoint3D = %Joint
 
+func _ready() -> void:
+	_update_door()
 
 func _update_door() -> void:
 	if (not is_node_ready()):
@@ -77,9 +79,11 @@ func _update_door() -> void:
 ## Causes this door to start to open, provided that
 ## [param motor_enabled] is set.
 func on_button_activated() -> void:
+	print("I was activated!")
 	motor_reversed = false
 
 ## Causes this door to start to close, provided that
 ## [param motor_enabled] is set.
 func on_button_deactivated() -> void:
+	print("I was activated!")
 	motor_reversed = true
