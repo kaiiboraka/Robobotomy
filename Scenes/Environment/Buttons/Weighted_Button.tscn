@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://c30rcncaojuya" path="res://Scripts/Environment/WeightedButton.gd" id="1_yigyg"]
 [ext_resource type="PackedScene" uid="uid://cugb2qlx8ju8w" path="res://Scenes/Environment/Buttons/Button_Lights.tscn" id="2_v2ty4"]
 [ext_resource type="ArrayMesh" uid="uid://doxh8d0va3v1k" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/buttons_1x1.res" id="3_hcdd2"]
-[ext_resource type="Material" uid="uid://ckajioojx2cvk" path="res://Assets/Materials/button_light_unlit.tres" id="5_naxr5"]
 [ext_resource type="ArrayMesh" uid="uid://pt55dusfqfr0" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/bigwire.res" id="5_u8eeh"]
 [ext_resource type="ArrayMesh" uid="uid://do555h70mdig6" path="res://Assets/Robobotomy Art/3D/Objects/PowerCable/PowerCable2.res" id="6_naxr5"]
 [ext_resource type="ArrayMesh" uid="uid://c7hjplbtbetcf" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/button_pad.res" id="7_yigyg"]
@@ -317,25 +316,21 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.59
 weight = 4
 current_weight = 0
 
-[node name="Generated_Light_1" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=1046312128]
+[node name="Generated_Light_1" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=1339718562]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8086581, -0.13553238)
 mesh = ExtResource("3_hcdd2")
-surface_material_override/1 = ExtResource("5_naxr5")
 
-[node name="Generated_Light_2" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=933525903]
+[node name="Generated_Light_2" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=2123375512]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8086581, 0.08446762)
 mesh = ExtResource("3_hcdd2")
-surface_material_override/1 = ExtResource("5_naxr5")
 
-[node name="Generated_Light_3" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=1757157362]
+[node name="Generated_Light_3" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=622283916]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0286582, -0.13553238)
 mesh = ExtResource("3_hcdd2")
-surface_material_override/1 = ExtResource("5_naxr5")
 
-[node name="Generated_Light_4" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=179158728]
+[node name="Generated_Light_4" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=1227387893]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0286582, 0.08446762)
 mesh = ExtResource("3_hcdd2")
-surface_material_override/1 = ExtResource("5_naxr5")
 
 [node name="CableConnector" type="MeshInstance3D" parent="Cable" unique_id=872956376]
 transform = Transform3D(4.371139e-08, -3.821371e-15, 1, -8.742278e-08, -1, 0, 1, -8.742278e-08, -4.371139e-08, -0.88379204, 0.1107021, 1.6648425)

@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dlk6oxkqswup1"]
+
+[ext_resource type="Script" uid="uid://d2lvxe4y41uun" path="res://Scripts/Environment/Doors/door.gd" id="1_ao6xv"]
+
+[sub_resource type="GDScript" id="GDScript_ao6xv"]
+resource_name = "Hinge"
+script/source = "@tool
+extends HingeJoint3D
+"
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fejmv"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ao6xv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cpe3p"]
+size = Vector3(0.3, 5, 1.75)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vhbs2"]
+size = Vector3(0.3, 5, 1.75)
+
+[node name="Door" type="Node3D" unique_id=1709040343]
+script = ExtResource("1_ao6xv")
+motor_enabled = true
+metadata/_custom_type_script = "uid://d2lvxe4y41uun"
+
+[node name="Joint" type="HingeJoint3D" parent="." unique_id=1199166305]
+unique_name_in_owner = true
+node_a = NodePath("../HingeObject")
+node_b = NodePath("../Door")
+angular_limit/enable = true
+angular_limit/lower = 0.0
+motor/enable = true
+motor/target_velocity = 0.2617994
+motor/max_impulse = 10.0
+script = SubResource("GDScript_ao6xv")
+
+[node name="HingeObject" type="StaticBody3D" parent="." unique_id=56892959]
+collision_layer = 5
+collision_mask = 0
+
+[node name="HingeCollision" type="CollisionShape3D" parent="HingeObject" unique_id=15497077]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_fejmv")
+
+[node name="HingeMesh" type="MeshInstance3D" parent="HingeObject" unique_id=943763512]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_ao6xv")
+
+[node name="Door" type="RigidBody3D" parent="." unique_id=687180966]
+collision_layer = 5
+collision_mask = 0
+freeze_mode = 1
+
+[node name="DoorCollision" type="MeshInstance3D" parent="Door" unique_id=1123609898]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+mesh = SubResource("BoxMesh_cpe3p")
+
+[node name="DoorMesh" type="CollisionShape3D" parent="Door" unique_id=2040063714]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("BoxShape3D_vhbs2")

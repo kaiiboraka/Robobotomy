@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://06qptvgr4tni"]
+
+[ext_resource type="PackedScene" uid="uid://dlk6oxkqswup1" path="res://Scenes/Environment/door.tscn" id="1_57sin"]
+
+[sub_resource type="GDScript" id="GDScript_57sin"]
+resource_name = "chase_door_test"
+script/source = "@tool
+extends Door
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(_delta: float) -> void:
+	if not Engine.is_editor_hint():
+		if Input.is_action_just_pressed(\"Player_Jump\"):
+			on_button_activated()
+		elif Input.is_action_just_released(\"Player_Jump\"):
+			on_button_deactivated()
+"
+
+[node name="ChaseDoorTest" type="Node3D" unique_id=580032820]
+
+[node name="Door" parent="." unique_id=1709040343 instance=ExtResource("1_57sin")]
+script = SubResource("GDScript_57sin")
+motor_velocity = 200.0
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1371908571]
+transform = Transform3D(1, 0, 0, 0, 0.97216177, 0.23431079, 0, -0.23431079, 0.97216177, 0, 3.7663274, 5.5989914)
+
+[node name="Label3D" type="Label3D" parent="." unique_id=367279011]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.132727, 0)
+pixel_size = 0.025
+text = "Hold space to trigger door!"

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dgbf1jp5dsvcl"]
+
+[ext_resource type="PackedScene" uid="uid://dlk6oxkqswup1" path="res://Scenes/Environment/door.tscn" id="1_sdcjj"]
+[ext_resource type="Script" uid="uid://qw4ihabbgwq0" path="res://Scripts/Environment/Doors/button_door.gd" id="2_t1hec"]
+
+[node name="ButtonDoor" unique_id=1709040343 node_paths=PackedStringArray("buttons") instance=ExtResource("1_sdcjj")]
+script = ExtResource("2_t1hec")
+trigger_mode = 1
+buttons = []
