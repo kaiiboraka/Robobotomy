@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://beerdneg7csja"]
 
-[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Assets/Robobotomy Art/3D/Objects/button.res" id="1_g7wvy"]
-[ext_resource type="PackedScene" uid="uid://dodbf8xbi1m1" path="res://Scenes/Characters/ActualPlayer.tscn" id="2_v23n4"]
-[ext_resource type="PackedScene" uid="uid://dbk24fe7ef7m3" path="res://Scenes/Environment/platform_plane.tscn" id="3_g67vb"]
+[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/button.res" id="1_g7wvy"]
+[ext_resource type="PackedScene" path="res://Scenes/Characters/ActualPlayer.tscn" id="2_v23n4"]
+[ext_resource type="PackedScene" uid="uid://dbk24fe7ef7m3" path="res://Scenes/Environment/Terrain/platform_plane.tscn" id="3_g67vb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g67vb"]
 size = Vector3(2.9432983, 1.7099609, 2.8537598)

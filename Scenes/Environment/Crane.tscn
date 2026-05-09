@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dbj2mxqdg7prw"]
+
+[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/Terrain/ExtendableWall.tscn" id="1_ur1bl"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2kgik"]
+
+[node name="Crane" type="Node3D" unique_id=950805602]
+
+[node name="rope2" type="MeshInstance3D" parent="." unique_id=1887511809]
+transform = Transform3D(0.321, 0, 0, 0, 3.2855546, 0, 0, 0, 0.726, 0, 3.06, 0.033)
+mesh = SubResource("CylinderMesh_2kgik")
+skeleton = NodePath("../../..")
+
+[node name="rope3" type="MeshInstance3D" parent="." unique_id=2074141600]
+transform = Transform3D(0.7822982, 0, 0, 0, 0.78101206, 0, 0, 0, 0.726, 0, 0.269, 0.033)
+mesh = SubResource("CylinderMesh_2kgik")
+skeleton = NodePath("../../..")
+
+[node name="rope4" type="MeshInstance3D" parent="." unique_id=602298525]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 2.7351637, -0.44569588, 0.03298569)
+mesh = SubResource("CylinderMesh_2kgik")
+skeleton = NodePath("../../..")
+
+[node name="rope5" type="MeshInstance3D" parent="." unique_id=2011530]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -2.735, -0.446, 0.033)
+mesh = SubResource("CylinderMesh_2kgik")
+skeleton = NodePath("../../..")
+
+[node name="rope6" type="MeshInstance3D" parent="." unique_id=1680749578]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.51, 4.961, 0.033)
+mesh = SubResource("CylinderMesh_2kgik")
+skeleton = NodePath("../../..")
+
+[node name="rope7" type="MeshInstance3D" parent="." unique_id=2012867017]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.5101881, 4.9613094, 0.03298569)
+mesh = SubResource("CylinderMesh_2kgik")
+skeleton = NodePath("../../..")
+
+[node name="ExtendableWall51" parent="." unique_id=1149585584 instance=ExtResource("1_ur1bl")]
+transform = Transform3D(0.14147627, 0, 0, 0, 0.70795083, 0, 0, 0, 0.5910442, 0, -0.361, 0)
+
+[node name="ExtendableWall52" parent="." unique_id=1850723278 instance=ExtResource("1_ur1bl")]
+transform = Transform3D(0.047650985, 0.33245358, 0, -0.0653099, 0.24256267, 0, 0, 0, 0.39218658, -2.569, -1.545, 0)
+
+[node name="ExtendableWall53" parent="." unique_id=1320169317 instance=ExtResource("1_ur1bl")]
+transform = Transform3D(-0.04320001, 0.31985006, 0, -0.068335645, -0.20220082, 0, 0, 0, 0.39218658, 2.5685377, -1.590353, -1.9073484e-06)

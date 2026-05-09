@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://d031edjsrylll"]
+
+[ext_resource type="Script" uid="uid://dge2xk6cwsew6" path="res://Scripts/Environment/Interactables/Rope.cs" id="1_iikjb"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_adlam"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 10.0
+radial_segments = 16
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mcna5"]
+size = Vector3(1.5, 10.5, 1)
+
+[node name="Rope" type="Node3D" unique_id=19588440 groups=["Climbable"]]
+transform = Transform3D(1, 2e-44, 0, -2e-44, 1, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_iikjb")
+
+[node name="Rope Mesh" type="MeshInstance3D" parent="." unique_id=1740905321]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+mesh = SubResource("CylinderMesh_adlam")
+
+[node name="Grabable Area" type="Area3D" parent="." unique_id=20591921]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.25, 0)
+collision_layer = 64
+collision_mask = 32
+
+[node name="Grabable Shape" type="CollisionShape3D" parent="Grabable Area" unique_id=394308208]
+shape = SubResource("BoxShape3D_mcna5")
+
+[connection signal="area_entered" from="Grabable Area" to="." method="OnInteractionAreaEntered"]
+[connection signal="area_exited" from="Grabable Area" to="." method="OnInteractionAreaExited"]

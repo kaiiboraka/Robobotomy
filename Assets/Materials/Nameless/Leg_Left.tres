@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ych08pgb7beg"]
+
+[ext_resource type="Texture2D" uid="uid://dfjrt8dug1bxi" path="res://Assets/Robobotomy Art/2D/Character/Leg_L_Foot_Base_color.png" id="1_gol7i"]
+
+[resource]
+resource_name = "L_LegModel_FixedUVs:Nameless_20_Updated_UVs:Lights"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+albedo_texture = ExtResource("1_gol7i")
+emission_enabled = true
