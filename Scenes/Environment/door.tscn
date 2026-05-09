@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dlk6oxkqswup1"]
 
-[ext_resource type="Script" uid="uid://d2lvxe4y41uun" path="res://Scripts/door.gd" id="1_ao6xv"]
+[ext_resource type="Script" uid="uid://d2lvxe4y41uun" path="res://Scripts/Environment/Doors/door.gd" id="1_ao6xv"]
 
 [sub_resource type="GDScript" id="GDScript_ao6xv"]
 resource_name = "Hinge"

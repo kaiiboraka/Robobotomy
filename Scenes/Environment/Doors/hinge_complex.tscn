@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://mgfaqbwixsqj"]
+
+[ext_resource type="Script" uid="uid://svp8dyuwan4v" path="res://Scripts/Environment/Doors/HingeComplex.cs" id="1_qp1ya"]
+[ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Assets/Robobotomy Art/3D/Objects/Pipes/pipe1_long.res" id="2_rh1ys"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mgp4v"]
+height = 1.56
+radius = 0.92
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tdvt8"]
+top_radius = 0.92
+bottom_radius = 0.92
+height = 1.56
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mfs1p"]
+size = Vector3(1.315, 5.15, 1.56)
+
+[node name="Hinge" type="Node3D" unique_id=6738442]
+transform = Transform3D(-0.41262755, -0.9108998, 0, 0.9108998, -0.41262755, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_qp1ya")
+ArmLength = 5.15
+ArmWidth = 1.315
+Depth = 1.56
+BaseRadius = 0.92
+ArmMesh = ExtResource("2_rh1ys")
+
+[node name="HingeBase" type="StaticBody3D" parent="." unique_id=948151665]
+
+[node name="HingeBaseCollision" type="CollisionShape3D" parent="HingeBase" unique_id=1466210379]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_mgp4v")
+
+[node name="HingeBaseMesh" type="MeshInstance3D" parent="HingeBase/HingeBaseCollision" unique_id=1238561654]
+unique_name_in_owner = true
+mesh = SubResource("CylinderMesh_tdvt8")
+skeleton = NodePath("../..")
+
+[node name="HingeArm" type="RigidBody3D" parent="." unique_id=1576785631]
+
+[node name="HingeArmCollision" type="CollisionShape3D" parent="HingeArm" unique_id=353369279]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.575, 0)
+shape = SubResource("BoxShape3D_mfs1p")
+
+[node name="HingeArmMesh" type="MeshInstance3D" parent="HingeArm/HingeArmCollision" unique_id=1755231833]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.655, 0)
+mesh = ExtResource("2_rh1ys")
+skeleton = NodePath("../../..")
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="." unique_id=262063081]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.634)
+node_a = NodePath("../HingeBase")
+node_b = NodePath("../HingeArm")
+angular_limit/enable = true
+angular_limit/upper = 0.0
+angular_limit/lower = 0.0

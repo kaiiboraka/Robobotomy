@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dyki3kr5ucgg7"]
+
+[ext_resource type="Script" uid="uid://em4mouur2y8r" path="res://Scripts/Environment/Activated_PathFollower.gd" id="1_14mk3"]
+
+[sub_resource type="Curve3D" id="Curve3D_2kgik"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0446167, 4.824067, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="Activated_PathFollower" type="Path3D" unique_id=41623911]
+curve = SubResource("Curve3D_2kgik")
+script = ExtResource("1_14mk3")
+loop = false
+moveSpeedForward = 2.0
+moveSpeedBackward = 0.5
+
+[node name="PathFollow3D" type="PathFollow3D" parent="." unique_id=626411822]
+transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 0, 0, 0)
+rotation_mode = 0
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="PathFollow3D" unique_id=576146016]

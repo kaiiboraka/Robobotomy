@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://xnjpm2xc6shj"]
+
+[ext_resource type="Texture2D" uid="uid://dxokdn2if6lqm" path="res://Assets/Robobotomy Art/2D/Character/Leg_L_Thigh_SG_Base_color.png" id="1_lqif4"]
+
+[resource]
+resource_name = "L_LegModel_FixedUVs:Nameless_20_Updated_UVs:LInnerLeg"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.6651851, 0.6651851, 0.6651851, 1)
+albedo_texture = ExtResource("1_lqif4")
+emission_enabled = true
