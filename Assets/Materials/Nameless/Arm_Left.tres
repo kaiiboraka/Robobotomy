@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dvb3m65shniap"]
+
+[ext_resource type="Texture2D" uid="uid://b841t6v6sawd8" path="res://Assets/Robobotomy Art/2D/Character/Arm_L_Wrist_SG_Base_color.png" id="1_2skhp"]
+
+[resource]
+resource_name = "L_arm_Model_Fixed_UVs:Nameless_20_Updated_UVs:LArm"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.6651851, 0.6651851, 0.6651851, 1)
+albedo_texture = ExtResource("1_2skhp")
+emission_enabled = true
