@@ -46,7 +46,7 @@ transition = 7
 
 [sub_resource type="Curve3D" id="Curve3D_upwis"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -6.423961, 0),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -9.700594, 0),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -57,6 +57,13 @@ point_count = 2
 size = Vector3(8.279724, 1, 3.543335)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_wspkt"]
+
+[sub_resource type="Curve3D" id="Curve3D_7sy1d"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.326, 0, 0, 0, 0, 0, 0, 0, 0, 8.522, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
 
 [sub_resource type="BoxMesh" id="BoxMesh_0yr2e"]
 
@@ -84,7 +91,7 @@ environment = SubResource("Environment_w7w38")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1483892784]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7745161, 9.848017, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.767654, 7.121194, 15)
 fov = 45.0
 near = 0.005
 
@@ -95,10 +102,10 @@ script = ExtResource("1_1e0ns")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=64555096 instance=ExtResource("17_1e0ns")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7745161, 6.0980167, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.767654, 3.371194, 0)
 
 [node name="Player_PhantomCamera3D" type="Node3D" parent="." unique_id=1540863412 node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7745161, 9.848017, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.767654, 7.121194, 15)
 top_level = true
 script = ExtResource("3_dgpfg")
 priority = 1
@@ -163,9 +170,9 @@ checkpoint = NodePath("../Checkpoint_1")
 [node name="InteractiveButton" parent="torso2_button_system" unique_id=568250522 node_paths=PackedStringArray("activation_targets") instance=ExtResource("6_44la1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.70453, -6.6640368, 0.20007515)
 trigger_weight = 3
-activation_targets = [null]
+activation_targets = [NodePath("../CranePath")]
 
-[node name="Activated_PathFollower" parent="torso2_button_system" unique_id=206372 node_paths=PackedStringArray("target_follower") instance=ExtResource("7_upwis")]
+[node name="CranePath" parent="torso2_button_system" unique_id=206372 node_paths=PackedStringArray("target_follower") instance=ExtResource("7_upwis")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.246, -2.942906, 0)
 curve = SubResource("Curve3D_upwis")
 target_follower = NodePath("../AnimatableBody3D")
@@ -198,6 +205,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.61456, -17.101894, 0)
 size = Vector3(14, 4, 5)
 checkpoint = NodePath("../../torso1_button_system/Checkpoint_1")
 
+[node name="head3_button_system" type="Node" parent="." unique_id=232561581]
+
+[node name="WeightedButton" parent="head3_button_system" unique_id=955558961 node_paths=PackedStringArray("activation_targets") instance=ExtResource("6_44la1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.00896, 0.8127487, 0.20224667)
+trigger_weight = 3
+activation_targets = [NodePath("../Head3PathUpper")]
+
+[node name="MovingExtendableWall" parent="head3_button_system" unique_id=343869100 instance=ExtResource("8_7sy1d")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 143.8185, 5.3708935, 0)
+size = Vector3(7.8800626, 1.8944367, 1)
+
+[node name="Head3PathUpper" parent="head3_button_system" unique_id=370955587 node_paths=PackedStringArray("target_follower") instance=ExtResource("7_upwis")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129.022, 9.010188, 0)
+curve = SubResource("Curve3D_7sy1d")
+target_follower = NodePath("MovingExtendableWall2")
+moveSpeedBackward = 2.0
+
+[node name="MovingExtendableWall2" parent="head3_button_system/Head3PathUpper" unique_id=1983396567 instance=ExtResource("8_7sy1d")]
+transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 0.32600403, 0, 0)
+size = Vector3(16.661146, 2.6969025, 1)
+
 [node name="Cubes" type="Node" parent="." unique_id=1807959314]
 
 [node name="Cube" type="MeshInstance3D" parent="Cubes" unique_id=706546655]
@@ -217,11 +245,6 @@ skeleton = NodePath("../..")
 
 [node name="Cube14" type="MeshInstance3D" parent="Cubes" unique_id=1982677179]
 transform = Transform3D(87.70958, 0, 0, 0, 19.763, 0, 0, 0, 4.549, 249.26794, 24.812605, 0)
-mesh = SubResource("BoxMesh_0yr2e")
-skeleton = NodePath("../..")
-
-[node name="Cube10" type="MeshInstance3D" parent="Cubes" unique_id=403213072]
-transform = Transform3D(7.879181, -0.02833492, 0, 0.11786136, 1.8942249, 0, 0, 0, 1, 143.81848, 5.370894, 0)
 mesh = SubResource("BoxMesh_0yr2e")
 skeleton = NodePath("../..")
 
@@ -245,17 +268,7 @@ transform = Transform3D(4.525537, -0.16181956, 0, 0.06769562, 10.817841, 0, 0, 0
 mesh = SubResource("BoxMesh_0yr2e")
 skeleton = NodePath("../..")
 
-[node name="Cube9" type="MeshInstance3D" parent="Cubes" unique_id=768348091]
-transform = Transform3D(16.659283, -0.040337328, 0, 0.24919921, 2.696601, 0, 0, 0, 1, 126.34674, 9.482694, 0)
-mesh = SubResource("BoxMesh_0yr2e")
-skeleton = NodePath("../..")
-
 [node name="Buttons" type="Node" parent="." unique_id=368056026]
-
-[node name="Button3" type="MeshInstance3D" parent="Buttons" unique_id=1868534412]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.00963, 1.2439718, 0.20007515)
-mesh = ExtResource("2_n3ycm")
-skeleton = NodePath("../..")
 
 [node name="Button4" type="MeshInstance3D" parent="Buttons" unique_id=1323590491]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180.57266, 1.2439718, 0.20007515)
