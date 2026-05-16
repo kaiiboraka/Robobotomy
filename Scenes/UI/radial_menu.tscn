@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cuamrmgx12j3s" path="res://Assets/UI/Pixel Art/Nam_Arm.png" id="5_4cf1o"]
 [ext_resource type="Texture2D" uid="uid://c7cvs44ojokq5" path="res://Assets/UI/Pixel Art/Nam_leg.png" id="6_4cf1o"]
 [ext_resource type="Texture2D" uid="uid://dlb3oiwmbycxe" path="res://Assets/UI/Pixel Art/Pixel Perfect ROBOBOTOMY.png" id="7_s2vpv"]
-[ext_resource type="Shader" uid="uid://dey0nui56gjow" path="res://Assets/UI/shaders/CRT.gdshader" id="8_ohs8s"]
+[ext_resource type="Shader" uid="uid://etiydx1sh5bj" path="res://Assets/UI/shaders/CRT.gdshader" id="8_ohs8s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sgy6j"]
 shader = ExtResource("8_ohs8s")
@@ -125,6 +125,7 @@ pivot_offset = Vector2(110, 70)
 texture = ExtResource("5_4cf1o")
 
 [node name="PixelPerfectRobobotomy" type="Sprite2D" parent="." unique_id=383106860]
+visible = false
 modulate = Color(1, 1, 1, 0.16862746)
 texture_filter = 1
 position = Vector2(960, 540)

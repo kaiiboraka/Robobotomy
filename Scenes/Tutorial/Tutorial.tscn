@@ -1,19 +1,19 @@
 [gd_scene format=3 uid="uid://t48dk4ejgiod"]
 
-[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/ExtendableWall.tscn" id="1_w7w38"]
-[ext_resource type="Script" uid="uid://dvhdc084jl6xm" path="res://Scripts/Tools/test_camera.gd" id="2_0yr2e"]
-[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Scenes/Vertical Slice/3d assetts/kitbash/button.res" id="2_n3ycm"]
-[ext_resource type="PackedScene" uid="uid://caj74qdlqfqfr" path="res://Assets/Models/NamelessV07.fbx" id="3_w7w38"]
-[ext_resource type="ArrayMesh" uid="uid://c7la0fp3apuk0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spurlargebore.res" id="5_q5gud"]
-[ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_long.res" id="6_tq6py"]
+[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/Terrain/ExtendableWall.tscn" id="1_w7w38"]
+[ext_resource type="PackedScene" uid="uid://b2lsnrmivu4ky" path="res://Scenes/UI/radial_menu.tscn" id="2_7y28h"]
+[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/button.res" id="2_n3ycm"]
+[ext_resource type="ArrayMesh" uid="uid://c7la0fp3apuk0" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_spurlargebore.res" id="5_q5gud"]
+[ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Assets/Robobotomy Art/3D/Objects/Pipes/pipe1_long.res" id="6_tq6py"]
 [ext_resource type="ArrayMesh" uid="uid://c8kdmnehigaay" path="res://Assets/Robobotomy Art/3D/Character/Head.res" id="7_7ovnm"]
-[ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Scenes/Vertical Slice/3d assetts/kitbash/scaffold.res" id="8_q5gud"]
+[ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Assets/Robobotomy Art/3D/Objects/scaffold.res" id="8_q5gud"]
 [ext_resource type="ArrayMesh" uid="uid://gengofm32pp4" path="res://Assets/Robobotomy Art/3D/Character/Leg Left.res" id="10_q5gud"]
-[ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Scenes/Vertical Slice/3d assetts/kitbash/terminal.res" id="11_we8fy"]
-[ext_resource type="ArrayMesh" uid="uid://c0ojvrv4euw0g" path="res://Scenes/Vertical Slice/3d assetts/kitbash/monkeybar_med1.res" id="13_7y28h"]
+[ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Assets/Robobotomy Art/3D/Objects/terminal.res" id="11_we8fy"]
+[ext_resource type="ArrayMesh" uid="uid://c0ojvrv4euw0g" path="res://Assets/Robobotomy Art/3D/Objects/monkeybar_med1.res" id="13_7y28h"]
 [ext_resource type="ArrayMesh" uid="uid://sonjf7e31t6f" path="res://Assets/Robobotomy Art/3D/Character/Arm Left.res" id="14_7y28h"]
-[ext_resource type="ArrayMesh" uid="uid://dq0ogr20mo8rg" path="res://Scenes/Vertical Slice/3d assetts/kitbash/buttons_3x3.res" id="15_2kgik"]
-[ext_resource type="ArrayMesh" uid="uid://bw43rtwbo6wcp" path="res://Scenes/Vertical Slice/3d assetts/kitbash/lever.res" id="15_7y28h"]
+[ext_resource type="PackedScene" uid="uid://npjp2dyv4vbu" path="res://Scenes/Characters/Player.tscn" id="14_vxw4a"]
+[ext_resource type="ArrayMesh" uid="uid://dq0ogr20mo8rg" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/buttons_3x3.res" id="15_2kgik"]
+[ext_resource type="ArrayMesh" uid="uid://bw43rtwbo6wcp" path="res://Assets/Robobotomy Art/3D/Objects/lever.res" id="15_7y28h"]
 [ext_resource type="ArrayMesh" uid="uid://kq87eyd2kskq" path="res://Assets/Robobotomy Art/3D/Character/Arm Right.res" id="15_44la1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0yr2e"]
@@ -40,18 +40,16 @@ volumetric_fog_density = 0.0005
 
 [node name="Node3D" type="Node3D" unique_id=1010345093]
 
+[node name="Player" parent="." unique_id=64555096 instance=ExtResource("14_vxw4a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8283458, 0)
+
+[node name="RadialMenu" parent="Player" unique_id=135075730 instance=ExtResource("2_7y28h")]
+
+[node name="Camera3D" type="Camera3D" parent="Player" unique_id=1128374407]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2642074, 15.22008)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=223076818]
 environment = SubResource("Environment_w7w38")
-
-[node name="Nameless2" type="Camera3D" parent="." unique_id=735426219]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8574982, 2.6669006, 17.684376)
-fov = 50.0
-script = ExtResource("2_0yr2e")
-moveSpeed = 0.05
-wheelSpeed = 0.05
-
-[node name="NamelessV07" parent="Nameless2" unique_id=1885040782 instance=ExtResource("3_w7w38")]
-transform = Transform3D(43.92964, 0, 89.83421, 0, 100, 0, -89.83421, 0, 43.92964, -1.4419823, -1.696732, -17.77098)
 
 [node name="Cube" type="MeshInstance3D" parent="." unique_id=706546655]
 transform = Transform3D(45.151505, 0, 0, 0, 3.0036473, 0, 0, 0, 3.0036473, 25.06205, 12.244542, 0)
@@ -382,11 +380,11 @@ transform = Transform3D(76.16809, -27.610252, 58.61822, 25.277353, 95.96059, 12.
 mesh = ExtResource("7_7ovnm")
 
 [node name="Cylindar" type="MeshInstance3D" parent="." unique_id=1351586684]
-transform = Transform3D(0.4675058, 0, 0, 0, 14.780889, 0, 0, 0, 0.4675058, 81.86611, 4.9302473, -1.2834095)
+transform = Transform3D(0.4675058, 0, 0, 0, 11.676981, 0, 0, 0, 0.4675058, 81.86611, 7.7139463, -1.2834095)
 mesh = SubResource("CylinderMesh_wspkt")
 
 [node name="Cylindar2" type="MeshInstance3D" parent="." unique_id=1717525403]
-transform = Transform3D(0.4675058, 0, 0, 0, 14.780889, 0, 0, 0, 0.4675058, 89.41218, 4.9302473, -1.2834095)
+transform = Transform3D(0.4675058, 0, 0, 0, 11.754633, 0, 0, 0, 0.4675058, 89.41218, 7.889285, -1.2834095)
 mesh = SubResource("CylinderMesh_wspkt")
 
 [node name="Cylindar3" type="MeshInstance3D" parent="." unique_id=1804994534]
@@ -584,7 +582,6 @@ transform = Transform3D(0.37180236, 0, 0, 0, 4.4846516, 0, 0, 0, 1, 317.73764, 4
 
 [node name="ExtendableWall56" parent="Walls" unique_id=844002004 instance=ExtResource("1_w7w38")]
 transform = Transform3D(0.029541718, 0, 0, 0, 9.126021, 0, 0, 0, 1, 323.76343, 48.407047, 0)
-length = 13.13
 
 [node name="ExtendableWall47" parent="Walls" unique_id=641753359 instance=ExtResource("1_w7w38")]
 transform = Transform3D(0.313502, 0, 0, 0, 3.599545, 0, 0, 0, 1, 317.06714, 38.206203, -3.814697e-06)
@@ -809,7 +806,7 @@ transform = Transform3D(-0.0455623, 0, 0, 0, 1.7232804, 0, 0, 0, 1, 246.48114, -
 transform = Transform3D(0.12166471, 0, 0, 0, 2.594142, 0, 0, 0, 1, 253.13095, -2.5343683, -1.9073484e-06)
 
 [node name="ExtendableWall9" parent="Walls" unique_id=451231304 instance=ExtResource("1_w7w38")]
-transform = Transform3D(0.28612438, 0, 0, 0, 1.3816589, 0, 0, 0, 1, 85.37594, -9.66765, 1.9073486e-06)
+transform = Transform3D(0.28612438, 0, 0, 0, 1.3816589, 0, 0, 0, 1, 85.37594, -3.6412263, 1.9073486e-06)
 
 [node name="ExtendableWall10" parent="Walls" unique_id=1194153818 instance=ExtResource("1_w7w38")]
 transform = Transform3D(0.28612438, 0, 0, 0, 1.3816589, 0, 0, 0, 1, 85.37594, 19.804827, 1.9073486e-06)
