@@ -1,5 +1,5 @@
-@tool
-extends SpotLight3D
+@tool 
+extends SpotLight3D 
 
 @export var cameraOrSource: bool
 @export var camera : Camera3D
