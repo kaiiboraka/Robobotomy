@@ -1,16 +1,37 @@
-
+@tool
 class_name LightSource
-extends Node3D
+extends MeshInstance3D
+
 #invisible by default 
-#make visible in viewport?
-#node3d has a location
-#color 
-# Called when the node enters the scene tree for the first time.
+#MeshInstance3D has a location, so dont change it to anything else
+
+@export var color: Color = Color.WHITE:
+	set(value):
+		color = value
+		update_material_color()
+	
 func _ready() -> void:
-	pass # Replace with function body.
+	if Engine.is_editor_hint():
+		# primitive capsule shape in the editor with default dimensions
+		var capsule = CapsuleMesh.new()
+		capsule.radius = .5  
+		capsule.height = 1.0 
+		mesh = capsule
+		
+		var mat = StandardMaterial3D.new()
+		mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		mat.wireframe_enabled = true
+		material_override = mat
+		update_material_color()
+		
+		cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	else:
+		# game runs, make it completely invisible
+		visible = false
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
-@export var color: Color
+
+func update_material_color() -> void:
+	if material_override:
+		material_override.albedo_color = color
