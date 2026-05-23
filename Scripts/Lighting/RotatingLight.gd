@@ -4,7 +4,7 @@ extends SpotLight3D
 @export var cameraOrSource: bool 
 @export var camera : Camera3D 
 @export var source_array: Array[LightSource] = [] 
-@export var orbitTarget : Node3D # the player
+@export var orbitTarget : Player # the player
 @export var orbitDistance : float = 5.0 # default can be changed if we have problems
 @export var towardsSource: bool 
 @export var isworking: String 
@@ -55,6 +55,15 @@ func _process(_delta: float) -> void:
 		return 
 		
 	var obj_pos: Vector3 = orbitTarget.global_position 
+
+	if "selected_limb" in orbitTarget: #this area only starts working once the game begins, thanks to a bug godot has where we cannot pull these variables in the editor
+		if orbitTarget.selected_limb != null:
+			obj_pos = orbitTarget.selected_limb.global_position
+		else:
+			obj_pos = orbitTarget.torso.global_position
+	else:
+		obj_pos.y += 3.0
+		#print("target does not have property 'selected_limb', maybe you havent selected player?")
 	var source_pos: Vector3 = Vector3.ZERO 
 	
 	if not cameraOrSource: 
@@ -108,19 +117,26 @@ func _process(_delta: float) -> void:
 	if obj_pos.is_equal_approx(source_pos):
 		return
 		
-	var direction: Vector3 = (obj_pos - source_pos).normalized()
-	var target_pos: Vector3
+	var ideal_direction: Vector3 = (source_pos - obj_pos).normalized()
 	if towardsSource:
-		target_pos = obj_pos - (direction * orbitDistance)
-	else:
-		target_pos = obj_pos + (direction * orbitDistance)
+		ideal_direction = (obj_pos - source_pos).normalized()
 		
+	var current_direction: Vector3 = (global_position - obj_pos).normalized()
+	if current_direction.is_zero_approx():
+		current_direction = ideal_direction # Fallback if perfectly overlapping
+		
+	var weight: float = clamp(speed * _delta * 60, 0.0, 1.0)
+	var blended_direction: Vector3 = current_direction.slerp(ideal_direction, weight).normalized()
+	
+	var target_pos: Vector3 = obj_pos + (blended_direction * orbitDistance)
+	
+	global_position = target_pos
+	
+
 	var look_dir = (obj_pos - global_position).normalized()
 	var safe_up = Vector3.UP
 	if look_dir.abs().is_equal_approx(Vector3(0, 1, 0)):
 		safe_up = Vector3.RIGHT 
 		
-	global_position = global_position.lerp(target_pos, speed * _delta * 60)
-	
 	var target_transform = global_transform.looking_at(obj_pos, safe_up)
-	global_transform = global_transform.interpolate_with(target_transform, speed * _delta * 60)
+	global_transform = global_transform.interpolate_with(target_transform, weight)
