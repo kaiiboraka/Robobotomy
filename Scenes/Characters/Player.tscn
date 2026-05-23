@@ -6,11 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://0nxi375snik3" path="res://Scenes/Characters/Limbs/RightArm.tscn" id="4_shd1k"]
 [ext_resource type="PackedScene" uid="uid://clesw0vcam4s2" path="res://Scenes/Characters/Limbs/LeftArm.tscn" id="5_5kd0c"]
 [ext_resource type="ArrayMesh" uid="uid://dcwobn8idii7l" path="res://Assets/Robobotomy Art/3D/Character/Neck.res" id="5_b4kmf"]
+[ext_resource type="Material" uid="uid://dwsuv2g2x10i0" path="res://Assets/Materials/Nameless/Neck.tres" id="6_5kd0c"]
 [ext_resource type="PackedScene" uid="uid://f0oommypkm0i" path="res://Scenes/Characters/Limbs/LeftLeg.tscn" id="6_aal88"]
 [ext_resource type="PackedScene" uid="uid://ep2c8eoh0i32" path="res://Scenes/Characters/Limbs/RightLeg.tscn" id="7_4opfx"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="9_shd1k"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="10_5kd0c"]
 [ext_resource type="Resource" uid="uid://odcgk1h80sk0" path="res://Assets/Resources/Camera3DSettings.tres" id="11_aal88"]
+[ext_resource type="PackedScene" uid="uid://c8f7ehdv85hnd" path="res://Assets/Robobotomy Art/3D/Character/Namless_V21.fbx" id="13_aal88"]
 
 [sub_resource type="Resource" id="Resource_4opfx"]
 script = ExtResource("10_5kd0c")
@@ -100,11 +102,14 @@ shape = SubResource("CapsuleShape3D_b4kmf")
 disabled = true
 
 [node name="Neck" type="MeshInstance3D" parent="." unique_id=491095937]
+visible = false
 mesh = ExtResource("5_b4kmf")
 skin = SubResource("Skin_huuhm")
+surface_material_override/0 = ExtResource("6_5kd0c")
 
 [node name="Head" parent="." unique_id=1371523250 instance=ExtResource("2_w6cdd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9366379, 0)
+visible = false
 max_contacts_reported = 2
 retract_speed = 10.0
 throw_force = 20.0
@@ -114,20 +119,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0686834, 0)
 
 [node name="LeftArm" parent="." unique_id=1281946609 instance=ExtResource("5_5kd0c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86595744, 2.4061642, 0)
+visible = false
 speed = 4.0
 acceleration = 5.0
 
 [node name="RightArm" parent="." unique_id=904546073 instance=ExtResource("4_shd1k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8641265, 2.4061642, 0)
+visible = false
 speed = 4.0
 acceleration = 5.0
 
 [node name="LeftLeg" parent="." unique_id=925113335 instance=ExtResource("6_aal88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.223, 0.89, 0)
+visible = false
 retract_speed = 10.0
 
 [node name="RightLeg" parent="." unique_id=1985177356 instance=ExtResource("7_4opfx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.223, 0.89, 0)
+visible = false
 retract_speed = 10.0
 
 [node name="Label3D" type="Label3D" parent="." unique_id=1353181972]
@@ -138,3 +147,5 @@ fixed_size = true
 text = "Torso"
 font_size = 16
 outline_size = 8
+
+[node name="NamelessModel" parent="." unique_id=1098268189 instance=ExtResource("13_aal88")]

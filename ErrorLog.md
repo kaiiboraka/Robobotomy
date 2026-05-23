@@ -1,0 +1,30 @@
+MeshHierarchyFixer: Starting fix...
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Top_Half/Chest'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Top_Half/Heart'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Bottom_Half/Hips'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Top_Half/Neck_Head/Neck'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Top_Half/R_Arm/Right_Upper_Arm'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Top_Half/L_Arm/Left_Upper_Arm'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Bottom_Half/L_Leg/Left_Upper_Leg'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Bottom_Half/R_Leg/Right_Upper_Leg'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Bottom_Half/L_Leg/L_Lower_Leg/Left_Lower_Leg'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Bottom_Half/L_Leg/L_Lower_Leg/Left_Knee_Light'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Bottom_Half/L_Leg/L_Lower_Leg/Left_Armor_Bit'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Bottom_Half/L_Leg/L_Lower_Leg/Left_Ankle_Light'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Bottom_Half/L_Leg/L_Lower_Leg/Left_Foot'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Bottom_Half/R_Leg/R_Lower_Leg/Right_Lower_Leg'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Bottom_Half/R_Leg/R_Lower_Leg/Right_Knee_Light'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Bottom_Half/R_Leg/R_Lower_Leg/Right_Armor_Bit'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Bottom_Half/R_Leg/R_Lower_Leg/Right_Ankle_Light'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Bottom_Half/R_Leg/R_Lower_Leg/Right_Foot'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Top_Half/L_Arm/L_ForeArm/Left_Hand'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Top_Half/L_Arm/L_ForeArm/Left_Wrist_Light'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Top_Half/L_Arm/L_ForeArm/Left_Forearm'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Top_Half/L_Arm/L_ForeArm/Left_Bow_Light'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Top_Half/R_Arm/R_ForeArm/Right_Hand'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Top_Half/R_Arm/R_ForeArm/Right_Wrist_Light'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Top_Half/R_Arm/R_ForeArm/Right_Forearm'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Top_Half/R_Arm/R_ForeArm/Right_LBow_Light'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Top_Half/Neck_Head/Head_New/Hair_tuft'.
+MeshHierarchyFixer: FAIL -> Could not find placeholder at root + 'Top_Half/Neck_Head/Head_New/Head_and_Hair'.
+MeshHierarchyFixer: Complete. Moved 0 meshes.
