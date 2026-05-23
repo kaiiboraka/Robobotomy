@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://da6pkppw6wnv4"]
+
+[ext_resource type="Texture2D" uid="uid://c8vsd3vul6fsb" path="res://Assets/Robobotomy Art/2D/Character/Arm_L_Upper_SG_Base_color.png" id="1_bn1sm"]
+
+[resource]
+resource_name = "R_Arm_FixedUVsModel:Nameless_20_Updated_UVs:RInnerArm"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.6651851, 0.6651851, 0.6651851, 1)
+albedo_texture = ExtResource("1_bn1sm")
+emission_enabled = true

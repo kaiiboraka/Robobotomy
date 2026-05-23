@@ -1,7 +1,9 @@
 extends Control
+
 class_name TitleScreen
 
-@export var default_scene = "res://Scenes/sandbox_levels/sb_1.tscn"
+@export_file("*.tscn") var default_scene = "uid://bmn7bmff4lgix"
+
 
 func _on_button_pressed() -> void:
 	var level_to_load = %SceneToLoad.text

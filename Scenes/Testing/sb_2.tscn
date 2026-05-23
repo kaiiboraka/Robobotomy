@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://d02stb0cx4xme"]
+[gd_scene format=3 uid="uid://d02stb0cx4xme"]
 
 [ext_resource type="Script" uid="uid://dq5u3iv60kcox" path="res://Scripts/base_level.gd" id="1_nxvgq"]
 [ext_resource type="PackedScene" uid="uid://datnpjbne2ab8" path="res://Scenes/Environment/Triggers/unload_level_trigger.tscn" id="1_vdpxf"]
 [ext_resource type="PackedScene" uid="uid://cyjrmdno75g7n" path="res://Scenes/Environment/Triggers/load_level_trigger.tscn" id="2_vtqqp"]
-[ext_resource type="PackedScene" uid="uid://d031edjsrylll" path="res://Scenes/Environment/rope.tscn" id="4_nxvgq"]
+[ext_resource type="PackedScene" uid="uid://d031edjsrylll" path="res://Scenes/Environment/Interactables/rope.tscn" id="4_nxvgq"]
+
 
 [sub_resource type="SphereMesh" id="SphereMesh_nxvgq"]
 

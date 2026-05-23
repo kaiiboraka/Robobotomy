@@ -1,25 +1,25 @@
-[gd_scene format=3 uid="uid://d1g6w0hwcjl54"]
+[gd_scene format=3 uid="uid://bjomw33g5cf1w"]
 
-[ext_resource type="PackedScene" uid="uid://dodbf8xbi1m1" path="res://Scenes/Characters/ActualPlayer.tscn" id="1_q8lmj"]
-[ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Scenes/Vertical Slice/3d assetts/kitbash/scaffold.res" id="2_2hr8o"]
-[ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_long.res" id="4_fsugp"]
-[ext_resource type="ArrayMesh" uid="uid://bw43rtwbo6wcp" path="res://Scenes/Vertical Slice/3d assetts/kitbash/lever.res" id="7_0rd7g"]
-[ext_resource type="ArrayMesh" uid="uid://c3erlqmxt2uo2" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_worm.res" id="9_vwof3"]
-[ext_resource type="ArrayMesh" uid="uid://d0ad87y13yuta" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_spiralbevelsmall.res" id="11_htc0b"]
-[ext_resource type="ArrayMesh" uid="uid://cjkcmukmea2h2" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_helicalwithholes.res" id="12_pngnc"]
-[ext_resource type="ArrayMesh" uid="uid://c86kbccnj7c1s" path="res://Scenes/Vertical Slice/3d assetts/kitbash/ladder_top1.res" id="14_dn1iq"]
+[ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Assets/Robobotomy Art/3D/Objects/scaffold.res" id="2_2hr8o"]
+[ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Assets/Robobotomy Art/3D/Objects/Pipes/pipe1_long.res" id="4_fsugp"]
+[ext_resource type="ArrayMesh" uid="uid://bw43rtwbo6wcp" path="res://Assets/Robobotomy Art/3D/Objects/lever.res" id="7_0rd7g"]
+[ext_resource type="ArrayMesh" uid="uid://c3erlqmxt2uo2" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_worm.res" id="9_vwof3"]
+[ext_resource type="ArrayMesh" uid="uid://d0ad87y13yuta" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_spiralbevelsmall.res" id="11_htc0b"]
+[ext_resource type="ArrayMesh" uid="uid://cjkcmukmea2h2" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_helicalwithholes.res" id="12_pngnc"]
+[ext_resource type="ArrayMesh" uid="uid://c86kbccnj7c1s" path="res://Assets/Robobotomy Art/3D/Objects/Ladders/ladder_top1.res" id="14_dn1iq"]
 [ext_resource type="Texture2D" uid="uid://ncv7m20chadh" path="res://Assets/Robobotomy Art/2D/Dust/Dust (2).png" id="15_2hr8o"]
-[ext_resource type="ArrayMesh" uid="uid://ytojh4ald4hx" path="res://Scenes/Vertical Slice/3d assetts/kitbash/ladder_base.res" id="15_cgauj"]
+[ext_resource type="ArrayMesh" uid="uid://ytojh4ald4hx" path="res://Assets/Robobotomy Art/3D/Objects/Ladders/ladder_base.res" id="15_cgauj"]
 [ext_resource type="Texture2D" uid="uid://drwah2sboa1qm" path="res://Assets/Robobotomy Art/2D/Dust/Dust (9).png" id="16_81fdy"]
-[ext_resource type="ArrayMesh" uid="uid://cy54skeqlwy3g" path="res://Scenes/Vertical Slice/3d assetts/kitbash/ladder_top2.res" id="16_obs03"]
-[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Scenes/Vertical Slice/3d assetts/kitbash/button.res" id="17_2hr8o"]
-[ext_resource type="PackedScene" uid="uid://cuc1pbmga6imc" path="res://Scenes/Environment/cube_static.tscn" id="17_3vdpc"]
+[ext_resource type="ArrayMesh" uid="uid://cy54skeqlwy3g" path="res://Assets/Robobotomy Art/3D/Objects/Ladders/ladder_top2.res" id="16_obs03"]
+[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/button.res" id="17_2hr8o"]
+[ext_resource type="PackedScene" uid="uid://cuc1pbmga6imc" path="res://Scenes/Environment/Terrain/cube_static.tscn" id="17_3vdpc"]
 [ext_resource type="Texture2D" uid="uid://b1cgavnnkjlug" path="res://Assets/Robobotomy Art/2D/Chains/Chains 3.png" id="17_fsugp"]
 [ext_resource type="Texture2D" uid="uid://7ytgnfxaumtr" path="res://Assets/Robobotomy Art/2D/Dust/Dust (13).png" id="18_stjdh"]
 [ext_resource type="Texture2D" uid="uid://dt0q3m2pg70u6" path="res://Assets/Robobotomy Art/2D/Dust/Dust (4).png" id="19_017vt"]
-[ext_resource type="ArrayMesh" uid="uid://bs7mr6pntvtby" path="res://Scenes/Vertical Slice/3d assetts/kitbash/pipe1_short.res" id="19_hr8tt"]
+[ext_resource type="ArrayMesh" uid="uid://bs7mr6pntvtby" path="res://Assets/Robobotomy Art/3D/Objects/Pipes/pipe1_short.res" id="19_hr8tt"]
 [ext_resource type="Texture2D" uid="uid://dcltywe85vcvt" path="res://Assets/Robobotomy Art/2D/Dust/Dust (7).png" id="20_0rd7g"]
-[ext_resource type="ArrayMesh" uid="uid://bwotwyj54b6aw" path="res://Scenes/Vertical Slice/3d assetts/kitbash/gear_keyway1.res" id="20_ep28j"]
+[ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scenes/_Deprecated/character.tscn" id="20_2hr8o"]
+[ext_resource type="ArrayMesh" uid="uid://bwotwyj54b6aw" path="res://Assets/Robobotomy Art/3D/Objects/Gears/gear_keyway1.res" id="20_ep28j"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_3dqiu"]
 size = Vector3(40, 1.5, 5)
@@ -35,9 +35,6 @@ size = Vector3(40, 1.5, 5)
 [node name="Camera3D" type="Camera3D" parent="." unique_id=971650387]
 transform = Transform3D(1, 0, 0, 0, 0.9858531, 0.16761191, 0, -0.16761191, 0.9858531, 0, 11.224749, 24.30559)
 fov = 37.8
-
-[node name="Player" parent="." unique_id=64555096 instance=ExtResource("1_q8lmj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.898561, 9.83249, 0.3621471)
 
 [node name="Scaffold" type="MeshInstance3D" parent="." unique_id=1570014228]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -12.317859, 8.673951, 0.20093346)
@@ -339,3 +336,5 @@ texture = ExtResource("19_017vt")
 [node name="Sprite3D" type="Sprite3D" parent="Background 2d" unique_id=636642451]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.629251, 2.5928817, -2.2952127)
 texture = ExtResource("20_0rd7g")
+
+[node name="Character" parent="." unique_id=1583363387 instance=ExtResource("20_2hr8o")]
