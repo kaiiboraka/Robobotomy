@@ -24,40 +24,83 @@ var is_controlling_core: bool = true;
 var weight : int = 0;
 var current_jump_velocity : float = 4.5;
 
+var limb_sockets := {
+	"Head": Vector3(0, 2.9366379, 0),
+	"Torso": Vector3(0, 2.0686834, 0),
+	"LeftArm": Vector3(0.86595744, 2.4061642, 0),
+	"RightArm": Vector3(-0.8641265, 2.4061642, 0),
+	"LeftLeg": Vector3(0.223, 0.89, 0),
+	"RightLeg": Vector3(-0.223, 0.89, 0)
+};
+
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return; # This is for lighting. I just dont want it to run while in the editor. You can delete it, but beware j
 	axis_lock_linear_z = true;
 	
-	# Torso is 0th entry, followed by Head, Arms, and Legs
-	limbs = [torso, head, l_arm, r_arm, l_leg, r_leg];
+	# Only register limbs that start connected
+	var possible_limbs = [torso, head, l_arm, r_arm, l_leg, r_leg];
+	limbs = [];
 	
-	for limb in limbs:
-		if not limb: continue;
-		
-		limb.core = self;
-		limb.disable_part();
-		if not limb.hit_ground.is_connected(_on_limb_hit_ground):
-			limb.hit_ground.connect(_on_limb_hit_ground.bind(limb));
+	for limb in possible_limbs:
+		if limb:
+			if limb.is_connected:
+				_init_limb(limb);
+				limbs.append(limb);
+			else:
+				limb.core = self;
+				
 	apply_cell_shader_file()
-	# Start with torso selected
+	# Start with torso selected if available
+	if torso and torso.is_connected:
+		check_torso_activation();
+		select_limb(torso);
+
+
+func _init_limb(limb: BodyPart) -> void:
+	limb.core = self;
+	limb.disable_part();
+	if not limb.hit_ground.is_connected(_on_limb_hit_ground):
+		limb.hit_ground.connect(_on_limb_hit_ground.bind(limb));
+
+
+func register_limb(limb: BodyPart) -> void:
+	match limb.name:
+		"Head": head = limb;
+		"LeftArm": l_arm = limb;
+		"RightArm": r_arm = limb;
+		"LeftLeg": l_leg = limb;
+		"RightLeg": r_leg = limb;
+		"Torso": torso = limb;
+
+	if not limb in limbs:
+		limbs.append(limb);
+	
+	# Ensure starting positions are set if it was picked up from the world
+	if limb.name in limb_sockets:
+		limb.starting_position = limb_sockets[limb.name];
+		limb.starting_rotation = Vector3.ZERO;
+		
+	_init_limb(limb);
 	check_torso_activation();
-	select_limb(torso);
+	update_weight();
+	_update_selection_hud();
+
 
 func _physics_process(delta: float) -> void:
 	# just_pressed avoids re-running select_limb every frame while a limb key is held
-	if Input.is_action_just_pressed("Player_SelectLimb0_Torso"):
+	if Input.is_action_just_pressed("Player_SelectLimb0_Torso") and torso and torso.is_connected:
 		select_limb(torso);
-	elif Input.is_action_just_pressed("Player_SelectLimb1_Head"):
+	elif Input.is_action_just_pressed("Player_SelectLimb1_Head") and head and head.is_connected:
 		select_limb(head);
-	elif Input.is_action_just_pressed("Player_SelectLimb2_L_Arm"):
+	elif Input.is_action_just_pressed("Player_SelectLimb2_L_Arm") and l_arm and l_arm.is_connected:
 		select_limb(l_arm);
-	elif Input.is_action_just_pressed("Player_SelectLimb3_R_Arm"):
+	elif Input.is_action_just_pressed("Player_SelectLimb3_R_Arm") and r_arm and r_arm.is_connected:
 		select_limb(r_arm);
-	elif Input.is_action_just_pressed("Player_SelectLimb4_L_Leg"):
+	elif Input.is_action_just_pressed("Player_SelectLimb4_L_Leg") and l_leg and l_leg.is_connected:
 		select_limb(l_leg);
-	elif Input.is_action_just_pressed("Player_SelectLimb5_R_Leg"):
+	elif Input.is_action_just_pressed("Player_SelectLimb5_R_Leg") and r_leg and r_leg.is_connected:
 		select_limb(r_leg);
 
 	if Input.is_action_just_pressed("Player_Throw_Limb") and selected_limb and selected_limb != torso:
@@ -83,7 +126,7 @@ func _physics_process(delta: float) -> void:
 			drop_limb(selected_limb);
 
 	if Input.is_action_just_pressed("Player_Recall"):
-		if torso.is_part_enabled:
+		if torso and torso.is_connected and torso.is_part_enabled:
 			sync_core_to_torso();
 		if selected_limb == torso:
 			is_controlling_core = true;
@@ -203,6 +246,12 @@ func _update_colliders() -> void:
 
 
 func check_torso_activation() -> void:
+	if not torso or not torso.is_connected:
+		is_controlling_core = (selected_limb and selected_limb.is_detached and selected_limb.is_part_enabled);
+		update_weight();
+		_update_selection_hud();
+		return;
+
 	var all_others_detached : bool = true;
 	for limb in limbs:
 		if limb and limb != torso and not limb.is_detached:
@@ -294,8 +343,13 @@ func drop_limb(limb: BodyPart) -> void:
 func drop_all_limbs() -> void:
 	for limb in limbs:
 		drop_limb(limb);
-	_add_follow_target(torso, 2);
-	select_limb(torso);
+	
+	if torso and torso.is_connected:
+		_add_follow_target(torso, 2);
+		select_limb(torso);
+	elif limbs.size() > 0:
+		# If no torso, maybe select the first available limb?
+		select_limb(limbs[0]);
 
 
 func _any_limb_still_socketed() -> bool:

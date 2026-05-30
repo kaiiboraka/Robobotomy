@@ -2,6 +2,7 @@
 
 signal hit_ground;
 
+@export var is_connected: bool = true;
 @export var retract_speed: float = 10.0;
 @export var throw_force: float = 40.0;
 @export var speed: float = 5.0;
@@ -30,10 +31,56 @@ func _ready() -> void:
 	contact_monitor = true;
 	max_contacts_reported = 4;
 	
-	if is_part_enabled:
+	if not is_connected:
+		_setup_unconnected_state();
+	elif is_part_enabled:
 		enable_part();
 	else:
 		disable_part();
+
+
+func _setup_unconnected_state() -> void:
+	is_part_enabled = false;
+	is_detached = true;
+	freeze = false; # Allow it to be moved/pushed in the world
+	
+	var pickup_area = get_node_or_null("PickupArea") as Area3D;
+	if pickup_area:
+		if not pickup_area.body_entered.is_connected(_on_pickup_area_body_entered):
+			pickup_area.body_entered.connect(_on_pickup_area_body_entered);
+
+
+func _on_pickup_area_body_entered(body: Node) -> void:
+	if is_connected: return;
+	
+	# If the body is a BodyPart and is connected, it can pick us up
+	var other_limb := body as BodyPart;
+	if other_limb and other_limb.is_connected and other_limb.core:
+		connect_to_player(other_limb.core);
+	elif body is CharacterBody3D and body.has_method("register_limb"):
+		# Also allow direct player contact
+		connect_to_player(body);
+
+
+func connect_to_player(new_core: Node3D) -> void:
+	if is_connected: return;
+	
+	is_connected = true;
+	core = new_core;
+	
+	# Reparent to player if found in the level
+	if get_parent() != core:
+		var old_global_transform = global_transform;
+		get_parent().remove_child(self);
+		core.add_child(self);
+		global_transform = old_global_transform;
+	
+	if core.has_method("register_limb"):
+		core.call("register_limb", self);
+	
+	var pickup_area = get_node_or_null("PickupArea") as Area3D;
+	if pickup_area:
+		pickup_area.queue_free();
 
 
 func _physics_process(_delta: float) -> void:

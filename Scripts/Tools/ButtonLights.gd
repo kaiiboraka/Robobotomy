@@ -103,7 +103,7 @@ func update_materials():
 		hub_mat = state_materials.get(LightState.ERROR);
 
 	if hub:
-		_set_surface_material(hub, "button_light", hub_mat);
+		_set_light_material(hub, hub_mat);
 
 	# Update generated lights
 	var generated_lights = [];
@@ -123,11 +123,10 @@ func update_materials():
 		elif i < current_weight:
 			light_mat = state_materials.get(LightState.PARTIAL);
 
-		_set_surface_material(light, "button_light", light_mat);
+		_set_light_material(light, light_mat);
 
-func _set_surface_material(mi: MeshInstance3D, surface_name: String, mat: Material):
+func _set_light_material(mi: MeshInstance3D, mat: Material):
 	if not mi or not mi.mesh: return;
-	for i in range(mi.mesh.get_surface_count()):
-		if mi.mesh.surface_get_name(i) == surface_name:
-			mi.set_surface_override_material(i, mat);
-			return;
+	# User specified Index 1 is the light material for all models
+	if mi.mesh.get_surface_count() > 1:
+		mi.set_surface_override_material(1, mat);
