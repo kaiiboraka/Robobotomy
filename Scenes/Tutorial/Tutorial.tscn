@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://crmxvcuhng03u" path="res://Scenes/Environment/Killzone.tscn" id="10_7sy1d"]
 [ext_resource type="ArrayMesh" path="res://Assets/Robobotomy Art/3D/Character/Leg Left.res" id="10_q5gud"]
 [ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Assets/Robobotomy Art/3D/Objects/terminal.res" id="11_we8fy"]
-[ext_resource type="PackedScene" uid="uid://cv5b2itgnbvvo" path="res://Scenes/Environment/Terrain/Scaffolding.tscn" id="12_ps4sb"]
+[ext_resource type="PackedScene" uid="uid://614eegxcbalt" path="res://Scenes/Environment/Terrain/Scaffolding.tscn" id="12_ps4sb"]
 [ext_resource type="PackedScene" uid="uid://clesw0vcam4s2" path="res://Scenes/Characters/Limbs/LeftArm.tscn" id="12_vxw4a"]
 [ext_resource type="ArrayMesh" uid="uid://c0ojvrv4euw0g" path="res://Assets/Robobotomy Art/3D/Objects/monkeybar_med1.res" id="13_7y28h"]
 [ext_resource type="PackedScene" uid="uid://0nxi375snik3" path="res://Scenes/Characters/Limbs/RightArm.tscn" id="14_vxw4a"]
@@ -237,6 +237,21 @@ moveSpeedBackward = 10.0
 transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 0, 0, 0)
 size = Vector3(7.8800626, 1.8944367, 1)
 
+[node name="Scaffolding1" parent="head3_button_system" unique_id=2017843024 instance=ExtResource("12_ps4sb")]
+transform = Transform3D(0.9988061, 0, 0.04884977, 0, 1, 0, -0.04884977, 0, 0.9988061, 139.21768, 4.436444, -0.22558281)
+
+[node name="Scaffolding2" parent="head3_button_system" unique_id=1162759598 instance=ExtResource("12_ps4sb")]
+transform = Transform3D(0.9975641, -0.06975647, 0, 0.06975647, 0.9975641, 0, 0, 0, 1, 139.23932, 0.362638, -0.22452478)
+
+[node name="Scaffolding3" parent="head3_button_system" unique_id=1765442732 instance=ExtResource("12_ps4sb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 145.6399, 0.5999031, 0.08851549)
+
+[node name="Head3" parent="head3_button_system" unique_id=2035200198 instance=ExtResource("12_ps4sb")]
+process_mode = 4
+transform = Transform3D(0.99999976, -5.235, 0, 5.235, 0.99999976, 0, 0, 0, 1, 138.47151, 8.138881, 0)
+visible = false
+collision_layer = 0
+
 [node name="head4_button_system" type="Node" parent="." unique_id=1293161474]
 
 [node name="WeightedButton" parent="head4_button_system" unique_id=1794696358 node_paths=PackedStringArray("activation_targets") instance=ExtResource("6_44la1")]
@@ -249,7 +264,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 209.30136, 0.8127482, 0.20007
 trigger_weight = 2
 activation_targets = [NodePath("../Activated_PathFollower")]
 
-[node name="ExtendableWall15" parent="head4_button_system" unique_id=1149585584 instance=ExtResource("1_w7w38")]
+[node name="ExtendableWall15" parent="head4_button_system" unique_id=1149585586 instance=ExtResource("1_w7w38")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 193.73111, 18.383095, -0.87736773)
 size = Vector3(16.5, 1, 5)
 
@@ -285,19 +300,6 @@ skeleton = NodePath("../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 193.68083, -14.351896, 0)
 size = Vector3(20.74, 4, 5)
 checkpoint = NodePath("../../torso1_button_system/Checkpoint_1")
-
-[node name="Head3" parent="." unique_id=2035200198 instance=ExtResource("11_ps4sb")]
-transform = Transform3D(1, -5.2359876e-05, 0, 5.2359876e-05, 1, 0, 0, 0, 1, 138.47151, 8.138881, 0)
-script = null
-
-[node name="Scaffolding1" parent="." unique_id=2017843024 instance=ExtResource("12_ps4sb")]
-transform = Transform3D(0.9988061, 0, 0.04884977, 0, 1, 0, -0.04884977, 0, 0.9988061, 139.21768, 4.436444, -0.22558281)
-
-[node name="Scaffolding2" parent="." unique_id=1162759598 instance=ExtResource("12_ps4sb")]
-transform = Transform3D(0.9975641, -0.06975647, 0, 0.06975647, 0.9975641, 0, 0, 0, 1, 139.23932, 0.362638, -0.22452478)
-
-[node name="Scaffolding3" parent="." unique_id=1765442732 instance=ExtResource("12_ps4sb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 145.6399, 0.5999031, 0.08851549)
 
 [node name="Cubes" type="Node" parent="." unique_id=1807959314]
 
