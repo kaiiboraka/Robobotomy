@@ -13,8 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dyki3kr5ucgg7" path="res://Scenes/Environment/Doors/Activated_PathFollower.tscn" id="7_upwis"]
 [ext_resource type="PackedScene" uid="uid://bfxbhhtip1gba" path="res://Scenes/Environment/Terrain/MovableExtendableWall.tscn" id="8_7sy1d"]
 [ext_resource type="PackedScene" uid="uid://crmxvcuhng03u" path="res://Scenes/Environment/Killzone.tscn" id="10_7sy1d"]
-[ext_resource type="ArrayMesh" uid="uid://d1rjejthugc4a" path="res://Assets/Robobotomy Art/3D/Character/Leg Left.res" id="10_q5gud"]
-[ext_resource type="PackedScene" uid="uid://dxubgecu6o687" path="res://Scenes/Characters/Limbs/Head.tscn" id="11_ps4sb"]
+[ext_resource type="ArrayMesh" path="res://Assets/Robobotomy Art/3D/Character/Leg Left.res" id="10_q5gud"]
 [ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Assets/Robobotomy Art/3D/Objects/terminal.res" id="11_we8fy"]
 [ext_resource type="PackedScene" uid="uid://cv5b2itgnbvvo" path="res://Scenes/Environment/Terrain/Scaffolding.tscn" id="12_ps4sb"]
 [ext_resource type="PackedScene" uid="uid://clesw0vcam4s2" path="res://Scenes/Characters/Limbs/LeftArm.tscn" id="12_vxw4a"]
@@ -51,11 +50,6 @@ _data = {
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
-
-[sub_resource type="BoxMesh" id="BoxMesh_7y28h"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_1e0ns"]
-size = Vector3(8.279724, 1, 3.543335)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_wspkt"]
 
@@ -197,12 +191,8 @@ moveSpeedBackward = 1.0
 transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 85.246, -2.942906, 0)
 collision_layer = 4
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="torso2_button_system/AnimatableBody3D" unique_id=564392061]
-transform = Transform3D(8.320557, 0, 0, 0, 0.99999964, 0, 0, 0, 3.501731, 0, 0, 0)
-mesh = SubResource("BoxMesh_7y28h")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="torso2_button_system/AnimatableBody3D" unique_id=2009609001]
-shape = SubResource("BoxShape3D_1e0ns")
+[node name="ExtendableWall" parent="torso2_button_system/AnimatableBody3D" unique_id=1149585584 instance=ExtResource("1_w7w38")]
+size = Vector3(10, 1, 3.502)
 
 [node name="Cylinder" type="MeshInstance3D" parent="torso2_button_system/AnimatableBody3D" unique_id=1949246632]
 transform = Transform3D(0.443, 0, 0, 0, 14, 0, 0, 0, 0.443, -3.5, 14, -1.283)
@@ -691,7 +681,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 334.9811, 48.287594, 0)
 
 [node name="Walls" type="Node3D" parent="." unique_id=1708356839]
 
-[node name="ExtendableWall" parent="Walls" unique_id=1757437060 instance=ExtResource("1_w7w38")]
+[node name="ExtendableWall" parent="Walls" unique_id=554122360 instance=ExtResource("1_w7w38")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.378, 0.071, 0)
 size = Vector3(32, 1, 5)
 

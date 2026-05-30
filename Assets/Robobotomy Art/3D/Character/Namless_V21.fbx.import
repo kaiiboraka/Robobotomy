@@ -14,10 +14,10 @@ dest_files=["res://.godot/imported/Namless_V21.fbx-df48dd6e1e26d7e7f1750a2380698
 [params]
 
 nodes/root_type=""
-nodes/root_name=""
-nodes/root_script=null
+nodes/root_name="NamelessModel"
+nodes/root_script=Resource("uid://c2gsbg15st3gs", "res://Scripts/Tools/LimbToggler.gd")
 nodes/apply_root_scale=true
-nodes/root_scale=1.0
+nodes/root_scale=100.0
 nodes/import_as_skeleton_bones=false
 nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
@@ -37,7 +37,70 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"materials": {
+"Head": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Nameless/Head.tres",
+"use_external/path": "uid://dkdk3van8wolx"
+},
+"LInnerArm": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Nameless/Arm_Left_Shoulder.tres",
+"use_external/path": "uid://cq63vdc6ubh1g"
+},
+"LInnerLeg": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Nameless/Leg_Left_Thigh.tres",
+"use_external/path": "uid://xnjpm2xc6shj"
+},
+"LLeg": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Nameless/Leg_Left.tres",
+"use_external/path": "uid://ych08pgb7beg"
+},
+"Lights": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Nameless/Lights.tres",
+"use_external/path": "uid://brmdpc1wwlqhg"
+},
+"Neck1": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Nameless/Neck.tres",
+"use_external/path": "uid://dwsuv2g2x10i0"
+},
+"RArm": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Nameless/Arm_Right.tres",
+"use_external/path": "uid://rwrmbrxuh3cl"
+},
+"RInnerArm": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Nameless/Arm_Right_Shoulder.tres",
+"use_external/path": "uid://da6pkppw6wnv4"
+},
+"RInnerLeg": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Nameless/Leg_Right_Thigh.tres",
+"use_external/path": "uid://dl20ytvc2r1ww"
+},
+"RLeg": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Nameless/Leg_Right.tres",
+"use_external/path": "uid://bms4wd1cudk6p"
+},
+"Torso": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Nameless/Torso.tres",
+"use_external/path": "uid://ec0x4ulhiav1"
+},
+"lambert26": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Nameless/Arm_Left.tres",
+"use_external/path": "uid://dvb3m65shniap"
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1
