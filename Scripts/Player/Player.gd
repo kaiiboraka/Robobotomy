@@ -26,6 +26,8 @@ var current_jump_velocity : float = 4.5;
 
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		return; # This is for lighting. I just dont want it to run while in the editor. You can delete it, but beware j
 	axis_lock_linear_z = true;
 	
 	# Torso is 0th entry, followed by Head, Arms, and Legs
@@ -38,7 +40,7 @@ func _ready() -> void:
 		limb.disable_part();
 		if not limb.hit_ground.is_connected(_on_limb_hit_ground):
 			limb.hit_ground.connect(_on_limb_hit_ground.bind(limb));
-		
+	apply_cell_shader_file()
 	# Start with torso selected
 	check_torso_activation();
 	select_limb(torso);
@@ -400,3 +402,59 @@ func _on_limb_returned(_limb: BodyPart) -> void:
 func spawn_at(target_position : Vector3) -> void:
 	global_position = target_position;
 	velocity = Vector3.ZERO;
+	
+#	for lighting
+
+func apply_cell_shader_file():
+	var cel_shader = preload("res://Scripts/Lighting/cell_shader.gdshader")
+	
+	if neck:
+		_inject_shader_preserving_texture(neck, cel_shader)
+
+	# Process every tracking limb entry
+	for limb in limbs:
+		if not limb:
+			continue
+			
+		if limb.has_method("enable_part") or "is_detached" in limb:
+			_apply_material_recursively(limb, cel_shader)
+
+# Walks down the scene sub-tree to touch every mesh in player
+func _apply_material_recursively(node: Node, shader_file: Shader) -> void:
+	if node != torso and node != head and node != l_arm and node != r_arm and node != l_leg and node != r_leg:
+		if node.get_script() != null:
+			return
+
+	if node is MeshInstance3D:
+		_inject_shader_preserving_texture(node, shader_file)
+		
+	for child in node.get_children():
+		_apply_material_recursively(child, shader_file)
+
+
+func _inject_shader_preserving_texture(mesh: MeshInstance3D, shader_file: Shader) -> void:
+	if mesh.mesh == null or mesh.mesh.get_surface_count() == 0:
+		return
+
+	if mesh.material_override is ShaderMaterial and mesh.material_override.shader == shader_file:
+		return
+
+	var existing_texture: Texture2D = null
+	
+	if mesh.material_override is BaseMaterial3D and mesh.material_override.albedo_texture:
+		existing_texture = mesh.material_override.albedo_texture
+	elif mesh.get_active_material(0) is BaseMaterial3D:
+		var active_mat = mesh.get_active_material(0) as BaseMaterial3D
+		if active_mat and active_mat.albedo_texture:
+			existing_texture = active_mat.albedo_texture
+
+	var new_cel_mat := ShaderMaterial.new()
+	new_cel_mat.shader = shader_file
+	
+	new_cel_mat.set_shader_parameter("albedo_color", Color.WHITE)
+	new_cel_mat.set_shader_parameter("steps", 3.0)
+	
+	if existing_texture:
+		new_cel_mat.set_shader_parameter("main_texture", existing_texture)
+		
+	mesh.material_override = new_cel_mat
