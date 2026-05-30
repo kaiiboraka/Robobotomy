@@ -1,8 +1,8 @@
 @tool class_name Activated_PathFollower
 extends Path3D
 
-## Must be an AnimatableBody3D. Easiest to orient when it is placed as a child of this node.
-@export var target_follower : AnimatableBody3D :
+## Must not be a StaticBody3D (recommended AnimatableBody3D for collisions). Easiest to orient when it is placed as a child of this node.
+@export var target_follower : Node3D :
 	set(val):
 		target_follower = val
 		if is_node_ready() and remote_transform_3d:

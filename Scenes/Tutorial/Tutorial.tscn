@@ -12,10 +12,10 @@
 [ext_resource type="ArrayMesh" uid="uid://c8kdmnehigaay" path="res://Assets/Robobotomy Art/3D/Character/Head.res" id="7_7ovnm"]
 [ext_resource type="PackedScene" uid="uid://dyki3kr5ucgg7" path="res://Scenes/Environment/Doors/Activated_PathFollower.tscn" id="7_upwis"]
 [ext_resource type="PackedScene" uid="uid://bfxbhhtip1gba" path="res://Scenes/Environment/Terrain/MovableExtendableWall.tscn" id="8_7sy1d"]
-[ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Assets/Robobotomy Art/3D/Objects/scaffold.res" id="8_q5gud"]
 [ext_resource type="PackedScene" uid="uid://crmxvcuhng03u" path="res://Scenes/Environment/Killzone.tscn" id="10_7sy1d"]
 [ext_resource type="ArrayMesh" path="res://Assets/Robobotomy Art/3D/Character/Leg Left.res" id="10_q5gud"]
 [ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Assets/Robobotomy Art/3D/Objects/terminal.res" id="11_we8fy"]
+[ext_resource type="PackedScene" uid="uid://cv5b2itgnbvvo" path="res://Scenes/Environment/Terrain/Scaffolding.tscn" id="12_ps4sb"]
 [ext_resource type="PackedScene" uid="uid://clesw0vcam4s2" path="res://Scenes/Characters/Limbs/LeftArm.tscn" id="12_vxw4a"]
 [ext_resource type="ArrayMesh" uid="uid://c0ojvrv4euw0g" path="res://Assets/Robobotomy Art/3D/Objects/monkeybar_med1.res" id="13_7y28h"]
 [ext_resource type="PackedScene" uid="uid://0nxi375snik3" path="res://Scenes/Characters/Limbs/RightArm.tscn" id="14_vxw4a"]
@@ -60,6 +60,20 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="Curve3D" id="Curve3D_ps4sb"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6.7355957, 0.06747246, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_v3e2r"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -9.624292, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
 [sub_resource type="BoxMesh" id="BoxMesh_0yr2e"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7sy1d"]
@@ -86,7 +100,7 @@ environment = SubResource("Environment_w7w38")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1483892784]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.767654, 7.121194, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 166.26328, 7.121194, 15)
 fov = 45.0
 near = 0.005
 
@@ -97,10 +111,10 @@ script = ExtResource("1_1e0ns")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=64555096 instance=ExtResource("17_1e0ns")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.767654, 3.371194, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 166.26328, 3.371194, 0)
 
 [node name="Player_PhantomCamera3D" type="Node3D" parent="." unique_id=1540863412 node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.767654, 7.121194, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 166.26328, 7.121194, 15)
 top_level = true
 script = ExtResource("3_dgpfg")
 priority = 1
@@ -201,11 +215,7 @@ checkpoint = NodePath("../../torso1_button_system/Checkpoint_1")
 [node name="WeightedButton" parent="head3_button_system" unique_id=955558961 node_paths=PackedStringArray("activation_targets") instance=ExtResource("6_44la1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.00896, 0.8127487, 0.20224667)
 trigger_weight = 3
-activation_targets = [NodePath("../Head3PathUpper")]
-
-[node name="MovingExtendableWall" parent="head3_button_system" unique_id=343869100 instance=ExtResource("8_7sy1d")]
-transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 143.8185, 5.3708935, 0)
-size = Vector3(7.8800626, 1.8944367, 1)
+activation_targets = [NodePath("../Head3PathUpper"), NodePath("../Activated_PathFollower")]
 
 [node name="Head3PathUpper" parent="head3_button_system" unique_id=370955587 node_paths=PackedStringArray("target_follower") instance=ExtResource("7_upwis")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129.022, 9.010188, 0)
@@ -216,6 +226,78 @@ moveSpeedBackward = 2.0
 [node name="MovingExtendableWall2" parent="head3_button_system/Head3PathUpper" unique_id=1983396567 instance=ExtResource("8_7sy1d")]
 transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 0.32600403, 0, 0)
 size = Vector3(16.661146, 2.6969025, 1)
+
+[node name="Activated_PathFollower" parent="head3_button_system" unique_id=298865579 node_paths=PackedStringArray("target_follower") instance=ExtResource("7_upwis")]
+transform = Transform3D(0.9992229, -0.03941677, 0, 0.03941677, 0.9992229, 0, 0, 0, 1, 144.48529, 4.9076858, 0)
+curve = SubResource("Curve3D_ps4sb")
+target_follower = NodePath("MovingExtendableWall")
+moveSpeedBackward = 10.0
+
+[node name="MovingExtendableWall" parent="head3_button_system/Activated_PathFollower" unique_id=343869100 instance=ExtResource("8_7sy1d")]
+transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 0, 0, 0)
+size = Vector3(7.8800626, 1.8944367, 1)
+
+[node name="head4_button_system" type="Node" parent="." unique_id=1293161474]
+
+[node name="WeightedButton" parent="head4_button_system" unique_id=1794696358 node_paths=PackedStringArray("activation_targets") instance=ExtResource("6_44la1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180.57266, 0.81274784, 0.20007515)
+trigger_weight = 3
+activation_targets = [NodePath("../Activated_PathFollower")]
+
+[node name="WeightedButton2" parent="head4_button_system" unique_id=2045677349 node_paths=PackedStringArray("activation_targets") instance=ExtResource("6_44la1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 209.30136, 0.8127482, 0.20007515)
+trigger_weight = 2
+activation_targets = [NodePath("../Activated_PathFollower")]
+
+[node name="ExtendableWall15" parent="head4_button_system" unique_id=1149585584 instance=ExtResource("1_w7w38")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 193.73111, 18.383095, -0.87736773)
+size = Vector3(16.5, 1, 5)
+
+[node name="Cylinder7" type="MeshInstance3D" parent="head4_button_system" unique_id=2058727041]
+transform = Transform3D(1.93, 0, 0, 0, -0.091823086, 1.92898, 0, -2.0058992, -0.08830199, 187.0673, 17.762789, -0.87459075)
+mesh = SubResource("CylinderMesh_wspkt")
+
+[node name="Cylinder8" type="MeshInstance3D" parent="head4_button_system" unique_id=1973059438]
+transform = Transform3D(1.93, 0, 0, 0, -0.091823086, 1.92898, 0, -2.0058992, -0.08830199, 200.41284, 17.762789, -0.87459075)
+mesh = SubResource("CylinderMesh_wspkt")
+
+[node name="Activated_PathFollower" parent="head4_button_system" unique_id=446905518 node_paths=PackedStringArray("target_follower") instance=ExtResource("7_upwis")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 193.49242, 9.433701, 0)
+curve = SubResource("Curve3D_v3e2r")
+target_follower = NodePath("MovingExtendableWall")
+moveSpeedBackward = 2.0
+
+[node name="MovingExtendableWall" parent="head4_button_system/Activated_PathFollower" unique_id=1625049503 instance=ExtResource("8_7sy1d")]
+transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 0, 0, 0)
+size = Vector3(16.09, 1.3, 5)
+
+[node name="Cylinder5" type="MeshInstance3D" parent="head4_button_system/Activated_PathFollower/MovingExtendableWall" unique_id=157388112]
+transform = Transform3D(0.46, 0, 0, 0, 12.220083, 0, 0, 0, 0.468, -6.663803, 12.137314, -1.2834114)
+mesh = SubResource("CylinderMesh_wspkt")
+skeleton = NodePath("../../..")
+
+[node name="Cylinder6" type="MeshInstance3D" parent="head4_button_system/Activated_PathFollower/MovingExtendableWall" unique_id=606814652]
+transform = Transform3D(0.46, 0, 0, 0, 11.971292, 0, 0, 0, 0.468, 6.681732, 12.110472, -1.2834114)
+mesh = SubResource("CylinderMesh_wspkt")
+skeleton = NodePath("../../..")
+
+[node name="Killzone_2" parent="head4_button_system" unique_id=1891935448 node_paths=PackedStringArray("checkpoint") instance=ExtResource("10_7sy1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 193.68083, -14.351896, 0)
+size = Vector3(20.74, 4, 5)
+checkpoint = NodePath("../../torso1_button_system/Checkpoint_1")
+
+[node name="Head3" parent="." unique_id=2035200198 instance=ExtResource("11_ps4sb")]
+transform = Transform3D(1, -5.2359876e-05, 0, 5.2359876e-05, 1, 0, 0, 0, 1, 138.47151, 8.138881, 0)
+script = null
+
+[node name="Scaffolding1" parent="." unique_id=2017843024 instance=ExtResource("12_ps4sb")]
+transform = Transform3D(0.9988061, 0, 0.04884977, 0, 1, 0, -0.04884977, 0, 0.9988061, 139.21768, 4.436444, -0.22558281)
+
+[node name="Scaffolding2" parent="." unique_id=1162759598 instance=ExtResource("12_ps4sb")]
+transform = Transform3D(0.9975641, -0.06975647, 0, 0.06975647, 0.9975641, 0, 0, 0, 1, 139.23932, 0.362638, -0.22452478)
+
+[node name="Scaffolding3" parent="." unique_id=1765442732 instance=ExtResource("12_ps4sb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 145.6399, 0.5999031, 0.08851549)
 
 [node name="Cubes" type="Node" parent="." unique_id=1807959314]
 
@@ -260,16 +342,6 @@ mesh = SubResource("BoxMesh_0yr2e")
 skeleton = NodePath("../..")
 
 [node name="Buttons" type="Node" parent="." unique_id=368056026]
-
-[node name="Button4" type="MeshInstance3D" parent="Buttons" unique_id=1323590491]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180.57266, 1.2439718, 0.20007515)
-mesh = ExtResource("2_n3ycm")
-skeleton = NodePath("../..")
-
-[node name="Button5" type="MeshInstance3D" parent="Buttons" unique_id=1965218237]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 209.30136, 1.2439718, 0.20007515)
-mesh = ExtResource("2_n3ycm")
-skeleton = NodePath("../..")
 
 [node name="Button6" type="MeshInstance3D" parent="Buttons" unique_id=839928382]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300.1599, 1.2790613, 0.20007515)
@@ -562,21 +634,6 @@ angular_limit/lower = 0.0
 transform = Transform3D(2.4944754, 0, 0, 0, -0.12685908, 2.6576397, 0, -2.0057542, -0.16808927, 81.86611, 19.756306, 0.3186996)
 mesh = SubResource("CylinderMesh_wspkt")
 
-[node name="scaffolding" type="MeshInstance3D" parent="." unique_id=922543132]
-transform = Transform3D(-0.048849694, 0, -1.3769643, 0, 1.5380726, 0, 0.9988054, 0, -0.06734473, 139.21768, 4.436444, -0.22558281)
-mesh = ExtResource("8_q5gud")
-skeleton = NodePath("../Cylinder4")
-
-[node name="scaffolding5" type="MeshInstance3D" parent="." unique_id=903605591]
-transform = Transform3D(-0.048849694, 0, -1.3769643, 0, 1.5380726, 0, 0.9988054, 0, -0.06734473, 145.6399, 0.5999031, 0.08851549)
-mesh = ExtResource("8_q5gud")
-skeleton = NodePath("../Cylinder4")
-
-[node name="scaffolding2" type="MeshInstance3D" parent="." unique_id=302795453]
-transform = Transform3D(-0.048849694, -0.10700197, -1.3736202, 0, 1.5343372, -0.096022986, 0.9988054, -0.0052332645, -0.06718118, 139.23932, 0.362638, -0.22452478)
-mesh = ExtResource("8_q5gud")
-skeleton = NodePath("../Cylinder4")
-
 [node name="Cylinder4" type="MeshInstance3D" parent="." unique_id=269791014]
 transform = Transform3D(2.4944754, 0, 0, 0, -0.12685908, 2.6576397, 0, -2.0057542, -0.16808927, 89.41218, 19.756306, 0.3186996)
 mesh = SubResource("CylinderMesh_wspkt")
@@ -588,37 +645,6 @@ mesh = SubResource("CylinderMesh_wspkt")
 [node name="Cylinder10" type="MeshInstance3D" parent="." unique_id=1124937460]
 transform = Transform3D(3.4814024, 0, 0, 0, -0.12685908, 2.6576397, 0, -2.0057542, -0.16808927, 316.22324, 14.968967, -0.6329316)
 mesh = SubResource("CylinderMesh_wspkt")
-
-[node name="crane" parent="." unique_id=2065813867 instance=ExtResource("1_w7w38")]
-transform = Transform3D(0.4593696, 0, 0, 0, 1.3816589, 0, 0, 0, 1, 193.18715, 9.422726, 1.9073486e-06)
-
-[node name="ExtendableWall15" parent="crane" unique_id=651081809 instance=ExtResource("1_w7w38")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.3999205, -0.87736773)
-
-[node name="Cylinder5" type="MeshInstance3D" parent="crane" unique_id=1243193768]
-transform = Transform3D(1.6339252, 0, 0, 0, 6.208894, 0, 0, 0, 0.4675058, -12.266785, 5.8252616, -1.2834114)
-mesh = SubResource("CylinderMesh_wspkt")
-skeleton = NodePath("../..")
-
-[node name="Cylinder6" type="MeshInstance3D" parent="crane" unique_id=955742572]
-transform = Transform3D(1.6339252, 0, 0, 0, 6.208894, 0, 0, 0, 0.4675058, 14.106598, 5.8252616, -1.2834114)
-mesh = SubResource("CylinderMesh_wspkt")
-skeleton = NodePath("../..")
-
-[node name="Cylinder7" type="MeshInstance3D" parent="crane" unique_id=279771187]
-transform = Transform3D(7.5786524, 0, 0, 0, -0.0918165, 1.9235137, 0, -2.0057542, -0.16808927, -12.266785, 6.779615, -0.87459075)
-mesh = SubResource("CylinderMesh_wspkt")
-skeleton = NodePath("../..")
-
-[node name="Cylinder8" type="MeshInstance3D" parent="crane" unique_id=1050740099]
-transform = Transform3D(8.149332, 0, 0, 0, -0.0918165, 1.9235137, 0, -2.0057542, -0.16808927, 14.106598, 6.779615, -0.87459075)
-mesh = SubResource("CylinderMesh_wspkt")
-skeleton = NodePath("../..")
-
-[node name="Head2" type="MeshInstance3D" parent="." unique_id=1087823364]
-transform = Transform3D(100, -0.0052359877, 0, 0.0052359877, 100, 0, 0, 0, 100, 138.47151, 8.138881, 0)
-mesh = ExtResource("7_7ovnm")
-skeleton = NodePath("")
 
 [node name="LegLeft" type="MeshInstance3D" parent="." unique_id=1684208284]
 transform = Transform3D(71.53026, 0, 69.881485, 0, 100, 0, -69.881485, 0, 71.53026, 264.0425, -5.318292, -0.07286453)
