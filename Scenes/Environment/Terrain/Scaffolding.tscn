@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cv5b2itgnbvvo"]
+
+[ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Assets/Robobotomy Art/3D/Objects/scaffold.res" id="1_i7us2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i7us2"]
+size = Vector3(6.2841187, 0.26835632, 3)
+
+[node name="Scaffolding" type="StaticBody3D" unique_id=1162759598]
+collision_layer = 4
+collision_mask = 0
+
+[node name="MeshInstance3D_Scaffolding" type="MeshInstance3D" parent="." unique_id=2017843024]
+transform = Transform3D(-4.3711353e-08, 0, -1.3786103, 0, 1.5380726, 0, 0.99999917, 0, -6.0260966e-08, 0, 0, 0)
+mesh = ExtResource("1_i7us2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2093149761]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.1552734e-05, 3.1866531, 0)
+shape = SubResource("BoxShape3D_i7us2")
