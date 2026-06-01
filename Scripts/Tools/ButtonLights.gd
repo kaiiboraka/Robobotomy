@@ -13,7 +13,7 @@ enum LightState { OFF, ERROR, PARTIAL, FULL }
 
 @export var current_weight: int = 0:
 	set(val):
-		current_weight = clamp(val, 0, weight);
+		current_weight = max(0, val);
 		if is_node_ready():
 			update_materials();
 
