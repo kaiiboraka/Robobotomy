@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dmrf146qrbqun"]
+
+[ext_resource type="Script" uid="uid://dg10ptkw0ri1" path="res://Scripts/Environment/ControlPanel.gd" id="1_871ct"]
+[ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Assets/Robobotomy Art/3D/Objects/terminal.res" id="1_eteoh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eteoh"]
+size = Vector3(0.78686523, 1.5756836, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_871ct"]
+radius = 2.8048344
+
+[node name="ControlPanel2" type="Node3D" unique_id=843480281]
+script = ExtResource("1_871ct")
+
+[node name="Terminal" type="MeshInstance3D" parent="." unique_id=390636032]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92127883, 0)
+mesh = ExtResource("1_eteoh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1261498025]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=529997244]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0345459, 0.77783203, 0)
+shape = SubResource("BoxShape3D_eteoh")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=3783194]
+collision_layer = 64
+collision_mask = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=690360389]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8490468, 0)
+shape = SubResource("SphereShape3D_871ct")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
