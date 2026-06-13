@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@export var launch_speed: float = 1.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -12,4 +13,4 @@ func _process(delta: float) -> void:
 
 func on_button_activated():
 	print("launching")
-	animation_player.play("launch")
+	animation_player.play("launch", -1, launch_speed)
