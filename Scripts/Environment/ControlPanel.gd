@@ -3,6 +3,10 @@ extends Node
 @export var activation_targets: Array[Node] = [];
 var arm_in_range: bool = false;
 @onready var area3d: Area3D = $Area3D;
+
+# known bugs:
+# - activates even if the player is not actively controlling the arm in range
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
