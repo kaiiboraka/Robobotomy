@@ -107,12 +107,8 @@ mesh = ExtResource("5_b4kmf")
 skin = SubResource("Skin_huuhm")
 surface_material_override/0 = ExtResource("6_5kd0c")
 
-[node name="Head" parent="." unique_id=1371523250 instance=ExtResource("2_w6cdd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9366379, 0)
-visible = false
-max_contacts_reported = 2
-retract_speed = 10.0
-throw_force = 20.0
+[node name="Head" parent="." unique_id=2035200198 instance=ExtResource("2_w6cdd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.936569, 0)
 
 [node name="Torso" parent="." unique_id=381647224 instance=ExtResource("3_b4kmf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0686834, 0)
