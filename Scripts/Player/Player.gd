@@ -33,10 +33,17 @@ var limb_sockets := {
 	"RightLeg": Vector3(-0.223, 0.89, 0)
 };
 
+static var instance: Player
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return; # This is for lighting. I just dont want it to run while in the editor. You can delete it, but beware j
+		
+	if(instance == null):
+		instance = self
+	else:
+		queue_free()
+		
 	axis_lock_linear_z = true;
 	
 	# Only register limbs that start connected
