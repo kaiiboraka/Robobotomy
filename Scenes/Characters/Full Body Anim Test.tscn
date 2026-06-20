@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dse0iymxxp885"]
+
+[ext_resource type="PackedScene" uid="uid://c8f7ehdv85hnd" path="res://Assets/Robobotomy Art/3D/Character/Namless_V21.fbx" id="1_xvnya"]
+
+[node name="NamelessModel" unique_id=1424275973 instance=ExtResource("1_xvnya")]
