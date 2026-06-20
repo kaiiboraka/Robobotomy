@@ -79,8 +79,8 @@ func _on_body_entered(body: Node3D) -> void:
 		_check_trigger();
 
 		# Play bounce for the impact of this NEW body entering
-		if not _was_active:
-			anim_player.play("Bounce");
+		#if not _was_active:
+			#anim_player.play("Bounce");
 
 
 func _on_body_exited(body: Node3D) -> void:

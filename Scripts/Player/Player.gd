@@ -24,38 +24,90 @@ var is_controlling_core: bool = true;
 var weight : int = 0;
 var current_jump_velocity : float = 4.5;
 
+var limb_sockets := {
+	"Head": Vector3(0, 2.9366379, 0),
+	"Torso": Vector3(0, 2.0686834, 0),
+	"LeftArm": Vector3(0.86595744, 2.4061642, 0),
+	"RightArm": Vector3(-0.8641265, 2.4061642, 0),
+	"LeftLeg": Vector3(0.223, 0.89, 0),
+	"RightLeg": Vector3(-0.223, 0.89, 0)
+};
+
+static var instance: Player
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		return; # This is for lighting. I just dont want it to run while in the editor. You can delete it, but beware j
+		
+	if(instance == null):
+		instance = self
+	else:
+		queue_free()
+		
 	axis_lock_linear_z = true;
 	
-	# Torso is 0th entry, followed by Head, Arms, and Legs
-	limbs = [torso, head, l_arm, r_arm, l_leg, r_leg];
+	# Only register limbs that start connected
+	var possible_limbs = [torso, head, l_arm, r_arm, l_leg, r_leg];
+	limbs = [];
 	
-	for limb in limbs:
-		if not limb: continue;
+	for limb in possible_limbs:
+		if limb:
+			if limb.is_connected:
+				_init_limb(limb);
+				limbs.append(limb);
+			else:
+				limb.core = self;
+				
+	apply_cell_shader_file()
+	# Start with torso selected if available
+	if torso and torso.is_connected:
+		check_torso_activation();
+		select_limb(torso);
+
+
+func _init_limb(limb: BodyPart) -> void:
+	limb.core = self;
+	limb.disable_part();
+	if not limb.hit_ground.is_connected(_on_limb_hit_ground):
+		limb.hit_ground.connect(_on_limb_hit_ground.bind(limb));
+
+
+func register_limb(limb: BodyPart) -> void:
+	match limb.name:
+		"Head": head = limb;
+		"LeftArm": l_arm = limb;
+		"RightArm": r_arm = limb;
+		"LeftLeg": l_leg = limb;
+		"RightLeg": r_leg = limb;
+		"Torso": torso = limb;
+
+	if not limb in limbs:
+		limbs.append(limb);
+	
+	# Ensure starting positions are set if it was picked up from the world
+	if limb.name in limb_sockets:
+		limb.starting_position = limb_sockets[limb.name];
+		limb.starting_rotation = Vector3.ZERO;
 		
-		limb.core = self;
-		limb.disable_part();
-		if not limb.hit_ground.is_connected(_on_limb_hit_ground):
-			limb.hit_ground.connect(_on_limb_hit_ground.bind(limb));
-		
-	# Start with torso selected
+	_init_limb(limb);
 	check_torso_activation();
-	select_limb(torso);
+	update_weight();
+	_update_selection_hud();
+
 
 func _physics_process(delta: float) -> void:
 	# just_pressed avoids re-running select_limb every frame while a limb key is held
-	if Input.is_action_just_pressed("Player_SelectLimb0_Torso"):
+	if Input.is_action_just_pressed("Player_SelectLimb0_Torso") and torso and torso.is_connected:
 		select_limb(torso);
-	elif Input.is_action_just_pressed("Player_SelectLimb1_Head"):
+	elif Input.is_action_just_pressed("Player_SelectLimb1_Head") and head and head.is_connected:
 		select_limb(head);
-	elif Input.is_action_just_pressed("Player_SelectLimb2_L_Arm"):
+	elif Input.is_action_just_pressed("Player_SelectLimb2_L_Arm") and l_arm and l_arm.is_connected:
 		select_limb(l_arm);
-	elif Input.is_action_just_pressed("Player_SelectLimb3_R_Arm"):
+	elif Input.is_action_just_pressed("Player_SelectLimb3_R_Arm") and r_arm and r_arm.is_connected:
 		select_limb(r_arm);
-	elif Input.is_action_just_pressed("Player_SelectLimb4_L_Leg"):
+	elif Input.is_action_just_pressed("Player_SelectLimb4_L_Leg") and l_leg and l_leg.is_connected:
 		select_limb(l_leg);
-	elif Input.is_action_just_pressed("Player_SelectLimb5_R_Leg"):
+	elif Input.is_action_just_pressed("Player_SelectLimb5_R_Leg") and r_leg and r_leg.is_connected:
 		select_limb(r_leg);
 
 	if Input.is_action_just_pressed("Player_Throw_Limb") and selected_limb and selected_limb != torso:
@@ -81,7 +133,7 @@ func _physics_process(delta: float) -> void:
 			drop_limb(selected_limb);
 
 	if Input.is_action_just_pressed("Player_Recall"):
-		if torso.is_part_enabled:
+		if torso and torso.is_connected and torso.is_part_enabled:
 			sync_core_to_torso();
 		if selected_limb == torso:
 			is_controlling_core = true;
@@ -201,6 +253,12 @@ func _update_colliders() -> void:
 
 
 func check_torso_activation() -> void:
+	if not torso or not torso.is_connected:
+		is_controlling_core = (selected_limb and selected_limb.is_detached and selected_limb.is_part_enabled);
+		update_weight();
+		_update_selection_hud();
+		return;
+
 	var all_others_detached : bool = true;
 	for limb in limbs:
 		if limb and limb != torso and not limb.is_detached:
@@ -292,8 +350,13 @@ func drop_limb(limb: BodyPart) -> void:
 func drop_all_limbs() -> void:
 	for limb in limbs:
 		drop_limb(limb);
-	_add_follow_target(torso, 2);
-	select_limb(torso);
+	
+	if torso and torso.is_connected:
+		_add_follow_target(torso, 2);
+		select_limb(torso);
+	elif limbs.size() > 0:
+		# If no torso, maybe select the first available limb?
+		select_limb(limbs[0]);
 
 
 func _any_limb_still_socketed() -> bool:
@@ -400,3 +463,59 @@ func _on_limb_returned(_limb: BodyPart) -> void:
 func spawn_at(target_position : Vector3) -> void:
 	global_position = target_position;
 	velocity = Vector3.ZERO;
+	
+#	for lighting
+
+func apply_cell_shader_file():
+	var cel_shader = preload("res://Scripts/Lighting/cell_shader.gdshader")
+	
+	if neck:
+		_inject_shader_preserving_texture(neck, cel_shader)
+
+	# Process every tracking limb entry
+	for limb in limbs:
+		if not limb:
+			continue
+			
+		if limb.has_method("enable_part") or "is_detached" in limb:
+			_apply_material_recursively(limb, cel_shader)
+
+# Walks down the scene sub-tree to touch every mesh in player
+func _apply_material_recursively(node: Node, shader_file: Shader) -> void:
+	if node != torso and node != head and node != l_arm and node != r_arm and node != l_leg and node != r_leg:
+		if node.get_script() != null:
+			return
+
+	if node is MeshInstance3D:
+		_inject_shader_preserving_texture(node, shader_file)
+		
+	for child in node.get_children():
+		_apply_material_recursively(child, shader_file)
+
+
+func _inject_shader_preserving_texture(mesh: MeshInstance3D, shader_file: Shader) -> void:
+	if mesh.mesh == null or mesh.mesh.get_surface_count() == 0:
+		return
+
+	if mesh.material_override is ShaderMaterial and mesh.material_override.shader == shader_file:
+		return
+
+	var existing_texture: Texture2D = null
+	
+	if mesh.material_override is BaseMaterial3D and mesh.material_override.albedo_texture:
+		existing_texture = mesh.material_override.albedo_texture
+	elif mesh.get_active_material(0) is BaseMaterial3D:
+		var active_mat = mesh.get_active_material(0) as BaseMaterial3D
+		if active_mat and active_mat.albedo_texture:
+			existing_texture = active_mat.albedo_texture
+
+	var new_cel_mat := ShaderMaterial.new()
+	new_cel_mat.shader = shader_file
+	
+	new_cel_mat.set_shader_parameter("albedo_color", Color.WHITE)
+	new_cel_mat.set_shader_parameter("steps", 3.0)
+	
+	if existing_texture:
+		new_cel_mat.set_shader_parameter("main_texture", existing_texture)
+		
+	mesh.material_override = new_cel_mat

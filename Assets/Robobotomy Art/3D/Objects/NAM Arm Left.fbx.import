@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/NAM Arm Left.fbx-a5212ce700bdb1768718d1ae9f00
 
 nodes/root_type="CharacterBody3D"
 nodes/root_name="Nameless"
-nodes/root_script=Resource("uid://dinm6607n8npe", "res://Scripts/Nameless/character.gd")
+nodes/root_script=Resource("uid://dinm6607n8npe", "res://Scripts/_Deprecated/StateMachine/character.gd")
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false

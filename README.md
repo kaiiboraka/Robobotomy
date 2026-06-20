@@ -14,8 +14,9 @@ Vertical Slice / Demo. This means polished tutorial area with puzzles for each l
 - Interact: <kbd>E</kbd>
 - Climb up / down: <kbd>W</kbd> / <kbd>S</kbd>
 - Open radial menu: <kbd>Tab</kbd>
-- Throw limb: <kbd>R</kbd> or right-click
-- Recall limb: <kbd>X</kbd>
+- Drop limb: <kbd>G</kbd>. Drop with torso selected will detach all limbs.
+- Throw limb: <kbd>T</kbd> or right-click
+- Recall limb: <kbd>R</kbd>
 
 ### Shortcuts
 

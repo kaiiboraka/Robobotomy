@@ -260,6 +260,9 @@ bind/21/pose = Transform3D(-0.9999908, -0.004290934, 0, 2.6274392e-19, -6.123177
 radius = 0.16503906
 height = 1.5945282
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_t4cvg"]
+radius = 1.0
+
 [node name="RightArm" type="RigidBody3D" unique_id=904546073]
 collision_layer = 4099
 collision_mask = 2956
@@ -272,8 +275,10 @@ continuous_cd = true
 contact_monitor = true
 max_contacts_reported = 3
 script = ExtResource("1_fy5t7")
-speed = 10.0
+is_connected = false
 throw_force = 30.0
+speed = 4.0
+acceleration = 5.0
 jump_velocity = 2.0
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=135821873]
@@ -313,3 +318,10 @@ transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.02
 shape = SubResource("CapsuleShape3D_8y70x")
 
 [node name="Left_Rigged_Leg" parent="." unique_id=232852266 instance=ExtResource("12_8chnf")]
+
+[node name="PickupArea" type="Area3D" parent="." unique_id=1907021545]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupArea" unique_id=1537449658]
+shape = SubResource("SphereShape3D_t4cvg")
+debug_color = Color(0.9254902, 0.6627451, 0, 0.31764707)

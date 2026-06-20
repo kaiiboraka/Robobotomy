@@ -242,6 +242,9 @@ bind/10/pose = Transform3D(-0.03510804, 0.99938345, 0.00031194708, -0.0061802045
 [sub_resource type="BoxShape3D" id="BoxShape3D_hsfiv"]
 size = Vector3(0.40649414, 1.7830391, 0.7265625)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_16aso"]
+radius = 1.0
+
 [node name="LeftLeg" type="RigidBody3D" unique_id=925113335]
 collision_layer = 4099
 collision_mask = 2956
@@ -253,7 +256,7 @@ continuous_cd = true
 contact_monitor = true
 max_contacts_reported = 2
 script = ExtResource("1_kafv1")
-retract_speed = 7.5
+is_connected = false
 throw_force = 20.0
 jump_velocity = 10.0
 
@@ -296,3 +299,10 @@ skin = SubResource("Skin_ry2yo")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=431806607]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0004272461, 0.00053596497, 0.13272095)
 shape = SubResource("BoxShape3D_hsfiv")
+
+[node name="PickupArea" type="Area3D" parent="." unique_id=1885603267]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupArea" unique_id=1383369191]
+shape = SubResource("SphereShape3D_16aso")
+debug_color = Color(0.9254902, 0.6627451, 0, 0.31764707)

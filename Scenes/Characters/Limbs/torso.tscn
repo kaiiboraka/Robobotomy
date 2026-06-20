@@ -130,6 +130,9 @@ radius = 0.12841797
 radius = 0.2783203
 height = 1.041271
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_fnhlf"]
+radius = 1.0
+
 [node name="Torso" type="RigidBody3D" unique_id=381647224]
 collision_layer = 4099
 collision_mask = 2956
@@ -191,3 +194,10 @@ target_position = Vector3(0, -0.5, 0)
 collision_mask = 140
 debug_shape_custom_color = Color(1, 1, 0, 1)
 debug_shape_thickness = 5
+
+[node name="PickupArea" type="Area3D" parent="." unique_id=880206307]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupArea" unique_id=1502456332]
+shape = SubResource("SphereShape3D_fnhlf")
+debug_color = Color(0.9254902, 0.6627451, 0, 0.31764707)
