@@ -44,9 +44,17 @@ func _on_resource_changed() -> void:
 		size = new_size; # Triggers setter to update the other child
 
 @export_tool_button("Sync Sizes", "3D")
-var sync = _sync_sizes
+var sync_button : Callable = _sync_sizes
 func _sync_sizes() -> void:
 	if mesh_node and mesh_node.mesh:
 		mesh_node.mesh.size = size;
 	if shape_node and shape_node.shape:
 		shape_node.shape.size = size;
+
+@export_tool_button("Fix Scale", "3D")
+var fix_scale_button : Callable = _fix_scale
+func _fix_scale() -> void:
+	size.x *= scale.x;
+	size.y *= scale.y;
+	size.z *= scale.z;
+	scale = Vector3.ONE;
