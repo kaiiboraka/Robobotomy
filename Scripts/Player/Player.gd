@@ -23,6 +23,7 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity");
 var is_controlling_core: bool = true;
 var weight : int = 0;
 var current_jump_velocity : float = 4.5;
+var _is_climbing: bool = false;
 
 var limb_sockets := {
 	"Head": Vector3(0, 2.9366379, 0),
@@ -120,6 +121,8 @@ func _physics_process(delta: float) -> void:
 				var direction := (to - selected_limb.global_position).normalized();
 				direction.z = 0;
 				selected_limb.throw(direction * selected_limb.throw_force);
+				if(selected_limb is Arm and is_climbing()):
+					_is_climbing = false;
 				# Update camera to follow newly thrown limb
 				if phantom_camera:
 					phantom_camera.set("follow_target", selected_limb);
@@ -131,6 +134,8 @@ func _physics_process(delta: float) -> void:
 			drop_all_limbs();
 		elif selected_limb != null and not selected_limb.is_detached:
 			drop_limb(selected_limb);
+			if(selected_limb is Arm and is_climbing()):
+				_is_climbing = false;
 
 	if Input.is_action_just_pressed("Player_Recall"):
 		if torso and torso.is_connected and torso.is_part_enabled:
@@ -150,23 +155,39 @@ func _physics_process(delta: float) -> void:
 		_update_selection_hud();
 
 	# Add the gravity.
-	if not is_on_floor():
+	if not is_on_floor() and not is_climbing():
 		velocity.y -= gravity * delta;
 
 	# Process movement inputs only if we are controlling the core
 	if is_controlling_core:
-		# Handle Jump.
-		if Input.is_action_just_pressed("Player_Jump") and is_on_floor():
-			velocity.y = current_jump_velocity;
-
-		# Get the input direction and handle the movement/deceleration.
-		var input_dir := Input.get_axis("Player_Move_Left", "Player_Move_Right");
-		var move_speed : float = _get_movement_speed();
-
-		if input_dir:
-			velocity.x = input_dir * move_speed;
+		if(is_climbing()):
+			velocity.x = 0;
+			velocity.y = 0;
+			if(Input.is_action_pressed("Player_Move_Up")):
+				velocity.y = 2;
+			elif (Input.is_action_pressed("Player_Move_Down")):
+				velocity.y = -5;
+#			if(Input.is_action_pressed("Player_Move_Left")):
+#				velocity.x = -2;
+#			elif(Input.is_action_pressed("Player_Move_Right")):
+#				velocity.x = 2;
+			
+			if(Input.is_action_just_pressed("Player_Jump")):
+				velocity.y = current_jump_velocity
+				_is_climbing = false;
 		else:
-			velocity.x = move_toward(velocity.x, 0, move_speed);
+			# Handle Jump.
+			if Input.is_action_just_pressed("Player_Jump") and is_on_floor():
+				velocity.y = current_jump_velocity;
+
+			# Get the input direction and handle the movement/deceleration.
+			var input_dir := Input.get_axis("Player_Move_Left", "Player_Move_Right");
+			var move_speed : float = _get_movement_speed();
+
+			if input_dir:
+				velocity.x = input_dir * move_speed;
+			else:
+				velocity.x = move_toward(velocity.x, 0, move_speed);
 	else:
 		# Decelerate naturally when not under control
 		velocity.x = move_toward(velocity.x, 0, speed * delta);
@@ -334,7 +355,11 @@ func select_limb(limb: BodyPart) -> void:
 
 	_update_selection_hud();
 
-
+func is_climbing() -> bool:
+	return _is_climbing;
+func set_is_climbing(val: bool) -> void:
+	_is_climbing = val;
+		
 func drop_limb(limb: BodyPart) -> void:
 	if not limb or limb == torso or limb.is_detached: return;
 
