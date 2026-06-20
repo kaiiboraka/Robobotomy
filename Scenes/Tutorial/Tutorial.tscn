@@ -420,24 +420,6 @@ moveSpeedBackward = 5.0
 transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 0, 0, 0)
 size = Vector3(7.8800626, 1.8944367, 1)
 
-[node name="Scaffolding1" parent="Level3_head/Level3_Node3D" unique_id=2017843024 instance=ExtResource("12_ps4sb")]
-transform = Transform3D(0.9988061, 0, 0.04884977, 0, 1, 0, -0.04884977, 0, 0.9988061, 1.8584595, -2.1378703, -0.22558281)
-
-[node name="Scaffolding4" parent="Level3_head/Level3_Node3D" unique_id=1162759598 instance=ExtResource("12_ps4sb")]
-transform = Transform3D(3.491947, 0.10350429, 0.048587393, -0.3633833, 0.994629, -0.005056162, -0.17170694, -2.179755e-11, 0.99880606, 16.492783, -3.2041502, -0.22558281)
-visible = false
-
-[node name="Scaffolding2" parent="Level3_head/Level3_Node3D" unique_id=588847726 instance=ExtResource("12_ps4sb")]
-transform = Transform3D(0.9975641, -0.06975647, 0, 0.06975647, 0.9975641, 0, 0, 0, 1, 1.8800964, -6.211676, -0.22452478)
-
-[node name="Scaffolding3" parent="Level3_head/Level3_Node3D" unique_id=1765442732 instance=ExtResource("12_ps4sb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.28067, -5.974411, 0.08851549)
-
-[node name="Head3" parent="Level3_head/Level3_Node3D" unique_id=2035200198 instance=ExtResource("12_ps4sb")]
-process_mode = 4
-transform = Transform3D(1.0000645, -5.2353387, 0, 5.2353387, 1.0000645, 0, 0, 0, 5.33, 1.1122894, 1.5645666, 0)
-visible = false
-
 [node name="Head" parent="Level3_head/Level3_Node3D" unique_id=1222396971 instance=ExtResource("13_ps4sb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3488464, 1.9129391, 4.7683716e-07)
 is_connected = false
@@ -597,73 +579,75 @@ checkpoint = NodePath("../../Level4_head/Level4_Node3D/Checkpoint_4")
 
 [node name="Level7_leg" type="Node" parent="." unique_id=383728751]
 
-[node name="WeightedButton" parent="Level7_leg" unique_id=157302455 node_paths=PackedStringArray("activation_targets") instance=ExtResource("6_44la1")]
+[node name="Level7_Node3D" type="Node3D" parent="Level7_leg" unique_id=2129719807]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 286.40466, 0.47778964, 0)
-trigger_weight = 1
-activation_targets = [NodePath("../TriggerPredicate")]
 
-[node name="WeightedButton2" parent="Level7_leg" unique_id=353857283 node_paths=PackedStringArray("activation_targets") instance=ExtResource("6_44la1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 296.89853, 0.44070935, 0)
-trigger_weight = 1
-activation_targets = [NodePath("../TriggerPredicate")]
-
-[node name="WeightedButton3" parent="Level7_leg" unique_id=1640438777 node_paths=PackedStringArray("activation_targets") instance=ExtResource("6_44la1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 310.17346, 2.5172336, 0)
-trigger_weight = 1
-activation_targets = [NodePath("../TriggerPredicate")]
-
-[node name="Door" parent="Level7_leg" unique_id=1709040343 instance=ExtResource("27_6ey6l")]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 289.18573, 11.843437, 0)
-motor_velocity = 100.0
-
-[node name="Door2" parent="Level7_leg" unique_id=615449031 instance=ExtResource("27_6ey6l")]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 299.18573, 11.843437, 0)
-flipped = true
-motor_velocity = 100.0
-
-[node name="ExtendableWall26" parent="Level7_leg" unique_id=879501105 instance=ExtResource("1_w7w38")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 273.24072, 15.633965, -1.9073484e-06)
-size = Vector3(31.5, 8.89, 5)
-
-[node name="ExtendableWall27" parent="Level7_leg" unique_id=1635873370 instance=ExtResource("1_w7w38")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 319.8168, 23.947504, -1.9073484e-06)
-size = Vector3(40.65, 24.965, 5)
-
-[node name="ExtendableWall23" parent="Level7_leg" unique_id=569940251 instance=ExtResource("1_w7w38")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 297.28568, -10.838698, -1.9073484e-06)
-size = Vector3(35, 22.495, 5)
-
-[node name="ExtendableWall25" parent="Level7_leg" unique_id=1528601724 instance=ExtResource("1_w7w38")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 310.29425, 0.13287306, -3.814697e-06)
-size = Vector3(4.58, 4.87, 5)
-
-[node name="7" type="Label3D" parent="Level7_leg" unique_id=112267504]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 295.6795, 6.228108, 1.9073486e-06)
+[node name="Label_7" type="Label3D" parent="Level7_leg/Level7_Node3D" unique_id=112267504]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.274841, 5.7503185, 1.9073486e-06)
 pixel_size = 0.05
 text = "7
 "
 
-[node name="ExtendableWall22" parent="Level7_leg" unique_id=1962160224 instance=ExtResource("1_w7w38")]
-transform = Transform3D(0.8082469, -0.58884376, 0, 0.58884376, 0.8082469, 0, 0, 0, 1, 258.41138, -3.008997, 1.9073486e-06)
+[node name="WeightedButton" parent="Level7_leg/Level7_Node3D" unique_id=157302455 node_paths=PackedStringArray("activation_targets") instance=ExtResource("6_44la1")]
+trigger_weight = 1
+activation_targets = [NodePath("../TriggerPredicate")]
+
+[node name="WeightedButton2" parent="Level7_leg/Level7_Node3D" unique_id=353857283 node_paths=PackedStringArray("activation_targets") instance=ExtResource("6_44la1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.493866, -0.037080288, 0)
+trigger_weight = 1
+activation_targets = [NodePath("../TriggerPredicate")]
+
+[node name="WeightedButton3" parent="Level7_leg/Level7_Node3D" unique_id=1640438777 node_paths=PackedStringArray("activation_targets") instance=ExtResource("6_44la1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.768799, 2.039444, 0)
+trigger_weight = 1
+activation_targets = [NodePath("../TriggerPredicate")]
+
+[node name="Door" parent="Level7_leg/Level7_Node3D" unique_id=1709040343 instance=ExtResource("27_6ey6l")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 2.781067, 11.365647, 0)
+motor_velocity = 100.0
+
+[node name="Door2" parent="Level7_leg/Level7_Node3D" unique_id=615449031 instance=ExtResource("27_6ey6l")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 12.781067, 11.365647, 0)
+flipped = true
+motor_velocity = 100.0
+
+[node name="ExtendableWall26" parent="Level7_leg/Level7_Node3D" unique_id=879501105 instance=ExtResource("1_w7w38")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.16394, 15.156175, -1.9073484e-06)
+size = Vector3(31.5, 8.89, 5)
+
+[node name="ExtendableWall27" parent="Level7_leg/Level7_Node3D" unique_id=1635873370 instance=ExtResource("1_w7w38")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.41214, 23.469715, -1.9073484e-06)
+size = Vector3(40.65, 24.965, 5)
+
+[node name="ExtendableWall23" parent="Level7_leg/Level7_Node3D" unique_id=569940251 instance=ExtResource("1_w7w38")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.881012, -11.316488, -1.9073484e-06)
+size = Vector3(35, 22.495, 5)
+
+[node name="ExtendableWall25" parent="Level7_leg/Level7_Node3D" unique_id=1528601724 instance=ExtResource("1_w7w38")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.889587, -0.34491658, -3.814697e-06)
+size = Vector3(4.58, 4.87, 5)
+
+[node name="ExtendableWall22" parent="Level7_leg/Level7_Node3D" unique_id=1962160224 instance=ExtResource("1_w7w38")]
+transform = Transform3D(0.8082469, -0.58884376, 0, 0.58884376, 0.8082469, 0, 0, 0, 1, -27.993286, -3.4867866, 1.9073486e-06)
 size = Vector3(11.675, 1, 5)
 
-[node name="ExtendableWall21" parent="Level7_leg" unique_id=1529217316 instance=ExtResource("1_w7w38")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 267.7249, -10.838698, -1.9073484e-06)
+[node name="ExtendableWall21" parent="Level7_leg/Level7_Node3D" unique_id=1529217316 instance=ExtResource("1_w7w38")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.679749, -11.316488, -1.9073484e-06)
 size = Vector3(10, 23.019, 5)
 
-[node name="TriggerPredicate" type="Node" parent="Level7_leg" unique_id=1516931889 node_paths=PackedStringArray("activation_targets")]
+[node name="RightLeg" parent="Level7_leg/Level7_Node3D" unique_id=1985177356 instance=ExtResource("19_bdygh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6371155, 13.481919, 0)
+
+[node name="Killzone_7" parent="Level7_leg/Level7_Node3D" unique_id=98956481 node_paths=PackedStringArray("checkpoint") instance=ExtResource("10_7sy1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.715332, -21.613962, -0.20007515)
+size = Vector3(20.74, 4, 5)
+checkpoint = NodePath("../../../Level4_head/Level4_Node3D/Checkpoint_4")
+
+[node name="TriggerPredicate" type="Node" parent="Level7_leg/Level7_Node3D" unique_id=1516931889 node_paths=PackedStringArray("activation_targets")]
 script = ExtResource("14_m7cns")
 min_triggers = 3
 activation_targets = [NodePath("../Door"), NodePath("../Door2")]
 metadata/_custom_type_script = "uid://bw716w626y8t7"
-
-[node name="RightLeg" parent="Level7_leg" unique_id=1985177356 instance=ExtResource("19_bdygh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 294.04178, 13.959709, 0)
-
-[node name="Killzone_7" parent="Level7_leg" unique_id=98956481 node_paths=PackedStringArray("checkpoint") instance=ExtResource("10_7sy1d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 323.12, -21.136173, -0.20007515)
-size = Vector3(20.74, 4, 5)
-checkpoint = NodePath("../../Level4_head/Level4_Node3D/Checkpoint_4")
 
 [node name="Cubes" type="Node" parent="." unique_id=1807959314]
 
