@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://vjfl7xev4i4c" path="res://Scripts/Player/Player.gd" id="1_qkgjm"]
 [ext_resource type="PackedScene" uid="uid://dgoqhuaqsm30g" path="res://Scenes/Characters/Limbs/torso.tscn" id="3_b4kmf"]
 [ext_resource type="ArrayMesh" uid="uid://dcwobn8idii7l" path="res://Assets/Robobotomy Art/3D/Character/Neck.res" id="5_b4kmf"]
-[ext_resource type="Material" uid="uid://dwsuv2g2x10i0" path="res://Assets/Materials/Nameless/Neck.tres" id="6_5kd0c"]
+[ext_resource type="Material" uid="uid://dwsuv2g2x10i0" path="res://Assets/Materials/Character/Neck.tres" id="6_5kd0c"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="9_shd1k"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="10_5kd0c"]
 [ext_resource type="Resource" uid="uid://odcgk1h80sk0" path="res://Assets/Resources/Camera3DSettings.tres" id="11_aal88"]

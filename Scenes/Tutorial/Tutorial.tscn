@@ -865,7 +865,7 @@ mesh = ExtResource("6_tq6py")
 skeleton = NodePath("../..")
 
 [node name="Pipe1Long21" type="MeshInstance3D" parent="Pipes" unique_id=2138711341]
-transform = Transform3D(0.008775778, -3.7171175, 0, 4.121686, 0.007914389, 0, 0, 0, 4.272667, 351.57266, 14.305156, 0.09094143)
+transform = Transform3D(0.008775778, -3.7171175, 0, 4.121686, 0.007914389, 0, 0, 0, 4.272667, 351.70956, 14.305156, 0.09094143)
 mesh = ExtResource("6_tq6py")
 skeleton = NodePath("../..")
 

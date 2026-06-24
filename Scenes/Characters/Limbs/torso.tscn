@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dgoqhuaqsm30g"]
 
 [ext_resource type="Script" uid="uid://q8ahgo1qrduq" path="res://Scripts/Player/torso.gd" id="1_fnhlf"]
-[ext_resource type="Material" uid="uid://ec0x4ulhiav1" path="res://Assets/Materials/Nameless/Torso.tres" id="3_fnhlf"]
+[ext_resource type="Material" uid="uid://ec0x4ulhiav1" path="res://Assets/Materials/Character/Torso.tres" id="3_fnhlf"]
 [ext_resource type="ArrayMesh" uid="uid://cj3i70i41oq7n" path="res://Assets/Robobotomy Art/3D/Character/Chest.res" id="4_v4eif"]
 [ext_resource type="ArrayMesh" uid="uid://dbhvhv7v6iag6" path="res://Assets/Robobotomy Art/3D/Character/Hips.res" id="5_p6b2g"]
 
