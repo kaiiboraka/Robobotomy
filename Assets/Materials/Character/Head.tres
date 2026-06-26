@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://dkdk3van8wolx"]
 
-[ext_resource type="Texture2D" uid="uid://c1nop2pjviawq" path="res://Assets/Robobotomy Art/2D/Character/Head_SG_Base_color.png" id="1_vcvp7"]
+[ext_resource type="Texture2D" uid="uid://c1nop2pjviawq" path="res://Assets/2D/Character/Head_SG_Base_color.png" id="1_vcvp7"]
 
 [resource]
 resource_name = "L_arm_Model_Fixed_UVs:Nameless_20_Updated_UVs:LArm"

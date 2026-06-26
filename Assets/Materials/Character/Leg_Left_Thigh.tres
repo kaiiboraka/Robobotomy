@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://xnjpm2xc6shj"]
 
-[ext_resource type="Texture2D" uid="uid://dxokdn2if6lqm" path="res://Assets/Robobotomy Art/2D/Character/Leg_L_Thigh_SG_Base_color.png" id="1_lqif4"]
+[ext_resource type="Texture2D" uid="uid://dxokdn2if6lqm" path="res://Assets/2D/Character/Leg_L_Thigh_SG_Base_color.png" id="1_lqif4"]
 
 [resource]
 resource_name = "L_LegModel_FixedUVs:Nameless_20_Updated_UVs:LInnerLeg"

@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dse0iymxxp885"]
 
-[ext_resource type="PackedScene" uid="uid://c8f7ehdv85hnd" path="res://Assets/Robobotomy Art/3D/Character/Namless_V21.fbx" id="1_xvnya"]
+[ext_resource type="PackedScene" uid="uid://c8f7ehdv85hnd" path="res://Assets/3D/Character/Namless_V21.fbx" id="1_xvnya"]
 
 [node name="NamelessModel" unique_id=1424275973 instance=ExtResource("1_xvnya")]
 
-[node name="Skeleton3D" parent="Nam_Rig" parent_id_path=PackedInt32Array(1049671494) index="0" unique_id=1009190187]
+[node name="Skeleton3D" parent="Nam_Rig" parent_id_path=PackedInt32Array(39263268) index="0" unique_id=514939280]
 bones/6/rotation = Quaternion(5.5511204e-17, -0.0004563374, -2.5331839e-20, 1)
 bones/15/rotation = Quaternion(0.9151469, -0.09958592, 0.011554707, -0.39045528)
 bones/23/rotation = Quaternion(3.5219804e-25, 0.71018183, 3.308723e-24, 0.70401835)
