@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://dse0iymxxp885"]
 
 [ext_resource type="PackedScene" uid="uid://c8f7ehdv85hnd" path="res://Assets/3D/Character/Namless_V21.fbx" id="1_xvnya"]
+[ext_resource type="Animation" uid="uid://cqgsvcx7ygg3h" path="res://Assets/Animation/New Anim/Jump.res" id="2_y31wx"]
+[ext_resource type="Animation" uid="uid://c7k1vbrj82823" path="res://Assets/Animation/New Anim/Looking Around.res" id="3_41l7s"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_84tbs"]
+_data = {
+&"Jump": ExtResource("2_y31wx"),
+&"Looking Around": ExtResource("3_41l7s")
+}
 
 [node name="NamelessModel" unique_id=1424275973 instance=ExtResource("1_xvnya")]
 
@@ -12,3 +20,6 @@ bones/24/rotation = Quaternion(2.524355e-29, 0.0010029284, -1.41568485e-27, 0.99
 bones/28/rotation = Quaternion(-0.018658668, 0.003921543, -0.11430143, 0.9932632)
 bones/38/rotation = Quaternion(0.8975805, -0.022765579, -0.035334237, 0.43884245)
 bones/103/rotation = Quaternion(0.010835144, 0.023396801, 0.44578564, 0.8947684)
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=32569882]
+"libraries/New Anim" = SubResource("AnimationLibrary_84tbs")
