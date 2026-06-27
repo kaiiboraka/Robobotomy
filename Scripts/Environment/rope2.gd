@@ -23,4 +23,4 @@ func _process(delta: float) -> void:
 	pass
 
 func snap_player_to_self(player: Player):
-	player.position.x = self.position.x
+	player.position.x = self.global_position.x
