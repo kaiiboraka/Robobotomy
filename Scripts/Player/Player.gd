@@ -23,7 +23,11 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity");
 var is_controlling_core: bool = true;
 var weight : int = 0;
 var current_jump_velocity : float = 4.5;
+
+enum movement_modes {DEFAULT, ROPE, LEDGE}
+var _movement_mode: movement_modes = movement_modes.DEFAULT;
 var _is_climbing: bool = false;
+var _is_grabbing_ledge: bool = false;
 
 var limb_sockets := {
 	"Head": Vector3(0, 2.9366379, 0),
@@ -121,8 +125,9 @@ func _physics_process(delta: float) -> void:
 				var direction := (to - selected_limb.global_position).normalized();
 				direction.z = 0;
 				selected_limb.throw(direction * selected_limb.throw_force);
-				if(selected_limb is Arm and is_climbing()):
+				if(selected_limb is Arm and get_movement_mode() == movement_modes.ROPE):
 					_is_climbing = false;
+					set_movement_mode(movement_modes.DEFAULT);
 				# Update camera to follow newly thrown limb
 				if phantom_camera:
 					phantom_camera.set("follow_target", selected_limb);
@@ -134,7 +139,8 @@ func _physics_process(delta: float) -> void:
 			drop_all_limbs();
 		elif selected_limb != null and not selected_limb.is_detached:
 			drop_limb(selected_limb);
-			if(selected_limb is Arm and is_climbing()):
+			if(selected_limb is Arm and get_movement_mode()==movement_modes.ROPE):
+				set_movement_mode(movement_modes.DEFAULT);
 				_is_climbing = false;
 
 	if Input.is_action_just_pressed("Player_Recall"):
@@ -155,12 +161,12 @@ func _physics_process(delta: float) -> void:
 		_update_selection_hud();
 
 	# Add the gravity.
-	if not is_on_floor() and not is_climbing():
+	if not is_on_floor() and get_movement_mode() == movement_modes.DEFAULT:
 		velocity.y -= gravity * delta;
 
 	# Process movement inputs only if we are controlling the core
 	if is_controlling_core:
-		if(is_climbing()):
+		if(get_movement_mode() == movement_modes.ROPE):
 			velocity.x = 0;
 			velocity.y = 0;
 			if(Input.is_action_pressed("Player_Move_Up")):
@@ -174,6 +180,7 @@ func _physics_process(delta: float) -> void:
 			
 			if(Input.is_action_just_pressed("Player_Jump")):
 				velocity.y = current_jump_velocity
+				set_movement_mode(movement_modes.DEFAULT);
 				_is_climbing = false;
 		else:
 			# Handle Jump.
@@ -355,10 +362,10 @@ func select_limb(limb: BodyPart) -> void:
 
 	_update_selection_hud();
 
-func is_climbing() -> bool:
-	return _is_climbing;
-func set_is_climbing(val: bool) -> void:
-	_is_climbing = val;
+func get_movement_mode() -> movement_modes:
+	return _movement_mode;
+func set_movement_mode(val: movement_modes) -> void:
+	_movement_mode = val;
 		
 func drop_limb(limb: BodyPart) -> void:
 	if not limb or limb == torso or limb.is_detached: return;
