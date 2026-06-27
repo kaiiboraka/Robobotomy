@@ -17,6 +17,13 @@ class_name Player extends CharacterBody3D
 @onready var tall_collider : CollisionShape3D = $Tall_CollisionShape3D;
 @onready var short_collider : CollisionShape3D = $Short_CollisionShape3D;
 
+@onready var wall_detection_right: RayCast3D = $WallDetectionRight
+@onready var ledge_detection_right: RayCast3D = $LedgeDetectionRight
+@onready var floor_height_detection_right: RayCast3D = $FloorHeightDetectionRight
+@onready var wall_detection_left: RayCast3D = $WallDetectionLeft
+@onready var ledge_detection_left: RayCast3D = $LedgeDetectionLeft
+@onready var floor_height_detection_left: RayCast3D = $FloorHeightDetectionLeft
+
 var limbs: Array = [];
 var selected_limb: BodyPart = null;
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity");
@@ -24,10 +31,8 @@ var is_controlling_core: bool = true;
 var weight : int = 0;
 var current_jump_velocity : float = 4.5;
 
-enum movement_modes {DEFAULT, ROPE, LEDGE}
+enum movement_modes {DEFAULT, ROPE, LEDGE_LEFT, LEDGE_RIGHT}
 var _movement_mode: movement_modes = movement_modes.DEFAULT;
-var _is_climbing: bool = false;
-var _is_grabbing_ledge: bool = false;
 
 var limb_sockets := {
 	"Head": Vector3(0, 2.9366379, 0),
@@ -101,6 +106,7 @@ func register_limb(limb: BodyPart) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	
 	# just_pressed avoids re-running select_limb every frame while a limb key is held
 	if Input.is_action_just_pressed("Player_SelectLimb0_Torso") and torso and torso.is_connected:
 		select_limb(torso);
@@ -126,7 +132,6 @@ func _physics_process(delta: float) -> void:
 				direction.z = 0;
 				selected_limb.throw(direction * selected_limb.throw_force);
 				if(selected_limb is Arm and get_movement_mode() == movement_modes.ROPE):
-					_is_climbing = false;
 					set_movement_mode(movement_modes.DEFAULT);
 				# Update camera to follow newly thrown limb
 				if phantom_camera:
@@ -141,7 +146,6 @@ func _physics_process(delta: float) -> void:
 			drop_limb(selected_limb);
 			if(selected_limb is Arm and get_movement_mode()==movement_modes.ROPE):
 				set_movement_mode(movement_modes.DEFAULT);
-				_is_climbing = false;
 
 	if Input.is_action_just_pressed("Player_Recall"):
 		if torso and torso.is_connected and torso.is_part_enabled:
@@ -181,7 +185,26 @@ func _physics_process(delta: float) -> void:
 			if(Input.is_action_just_pressed("Player_Jump")):
 				velocity.y = current_jump_velocity
 				set_movement_mode(movement_modes.DEFAULT);
-				_is_climbing = false;
+				
+		elif(get_movement_mode() == movement_modes.LEDGE_RIGHT):
+			velocity.x = 0
+			velocity.y = 0;
+			position.y = floor_height_detection_right.get_collision_point().y - 2.5
+			if(Input.is_action_just_pressed("Player_Jump")):
+				velocity.y = current_jump_velocity
+				set_movement_mode(movement_modes.DEFAULT);
+			if(Input.is_action_just_pressed("Player_Move_Down")):
+				set_movement_mode(movement_modes.DEFAULT)
+				
+		elif(get_movement_mode() == movement_modes.LEDGE_LEFT):
+			velocity.x=0
+			velocity.y=0
+			position.y = floor_height_detection_left.get_collision_point().y - 2.5
+			if(Input.is_action_just_pressed("Player_Jump")):
+				velocity.y = current_jump_velocity
+				set_movement_mode(movement_modes.DEFAULT);
+				if(Input.is_action_just_pressed("Player_Move_Down")):
+					set_movement_mode(movement_modes.DEFAULT)
 		else:
 			# Handle Jump.
 			if Input.is_action_just_pressed("Player_Jump") and is_on_floor():
@@ -193,6 +216,11 @@ func _physics_process(delta: float) -> void:
 
 			if input_dir:
 				velocity.x = input_dir * move_speed;
+				
+				if should_grab_ledge_right():
+					set_movement_mode(movement_modes.LEDGE_RIGHT)
+				elif should_grab_ledge_left():
+					set_movement_mode(movement_modes.LEDGE_LEFT)
 			else:
 				velocity.x = move_toward(velocity.x, 0, move_speed);
 	else:
@@ -204,7 +232,11 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide();
 
-
+func should_grab_ledge_right() -> bool:
+	return wall_detection_right.is_colliding() and not ledge_detection_right.is_colliding()
+func should_grab_ledge_left() -> bool:
+	return wall_detection_left.is_colliding() and not ledge_detection_left.is_colliding()
+	
 func sync_core_to_torso() -> void:
 	if not torso: return;
 	
