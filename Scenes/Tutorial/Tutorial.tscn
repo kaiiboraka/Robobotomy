@@ -51,7 +51,7 @@ transition = 7
 
 [sub_resource type="Curve3D" id="Curve3D_upwis"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -9.700594, 0),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -15.002193, 0),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -67,7 +67,7 @@ point_count = 2
 
 [sub_resource type="Curve3D" id="Curve3D_ps4sb"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6.7355957, 0.06747246, 0),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10.412689, -0.47033882, 0),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -107,7 +107,7 @@ environment = SubResource("Environment_w7w38")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1483892784]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1801338, 24.346752, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.90365, 7.516495, 15)
 fov = 45.0
 near = 0.005
 
@@ -118,10 +118,12 @@ script = ExtResource("1_1e0ns")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=64555096 instance=ExtResource("17_1e0ns")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1801338, 20.596752, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.90365, 3.7664952, 0)
+handicapped_speed = 5.0
+handicapped_jump_velocity = 5.0
 
 [node name="Player_PhantomCamera3D" type="Node3D" parent="." unique_id=1540863412 node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1801338, 24.346752, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.90365, 7.516495, 15)
 top_level = true
 script = ExtResource("3_dgpfg")
 priority = 1
@@ -202,13 +204,13 @@ trigger_weight = 3
 activation_targets = [NodePath("../CranePath")]
 
 [node name="CranePath" parent="Level2_torso2/Level2_Node3D" unique_id=206372 node_paths=PackedStringArray("target_follower") instance=ExtResource("7_upwis")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.541473, 3.7211308, -0.20007515)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.541473, 7.8862123, -0.20007515)
 curve = SubResource("Curve3D_upwis")
 target_follower = NodePath("../AnimatableBody3D")
 moveSpeedBackward = 1.0
 
 [node name="AnimatableBody3D" type="AnimatableBody3D" parent="Level2_torso2/Level2_Node3D" unique_id=197505201]
-transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 13.541473, 3.7211308, -0.20007515)
+transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 13.541473, 7.8862123, -0.20007515)
 collision_layer = 4
 
 [node name="ExtendableWall" parent="Level2_torso2/Level2_Node3D/AnimatableBody3D" unique_id=568943409 instance=ExtResource("1_w7w38")]
@@ -263,7 +265,7 @@ moveSpeedBackward = 5.0
 
 [node name="MovingExtendableWall" parent="Level3_head/Level3_Node3D/Activated_PathFollower" unique_id=343869100 instance=ExtResource("8_7sy1d")]
 transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 0, 0, 0)
-size = Vector3(7.8800626, 1.8944367, 1)
+size = Vector3(7.878592, 1.3404605, 1)
 
 [node name="Head" parent="Level3_head/Level3_Node3D" unique_id=1222396971 instance=ExtResource("13_ps4sb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3488464, 1.9129391, 4.7683716e-07)
@@ -305,6 +307,10 @@ size = Vector3(16.5, 1, 5)
 [node name="RightFloor_ExtendableWall" parent="Level4_head/Level4_Node3D" unique_id=341515930 instance=ExtResource("1_w7w38")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.09816, -7.80651, -0.20007324)
 size = Vector3(12.81, 15.61, 5)
+
+[node name="RightFloor_ExtendableWall2" parent="Level4_head/Level4_Node3D" unique_id=1149585584 instance=ExtResource("1_w7w38")]
+transform = Transform3D(0.8394873, 0.5433794, 0, -0.5433794, 0.8394873, 0, 0, 0, 1, 39.53427, -7.6352544, -0.20007324)
+size = Vector3(15.182313, 8.314636, 5)
 
 [node name="LeftFloor_ExtendableWall" parent="Level4_head/Level4_Node3D" unique_id=647476683 instance=ExtResource("1_w7w38")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7813873, -7.80651, -0.20007324)
@@ -350,7 +356,12 @@ checkpoint = NodePath("../Checkpoint_4")
 [node name="Level6_leg" type="Node" parent="." unique_id=459845902]
 
 [node name="Pipe1Long18" type="MeshInstance3D" parent="Level6_leg" unique_id=1662629242]
-transform = Transform3D(-0.077975765, -6.2016473, 0, 4.120958, -0.11734607, 0, 0, 0, 4.272667, 242.6846, -4.677982, 0.08477688)
+transform = Transform3D(-0.076825716, -2.2820833, 0, 4.0601783, -0.04318103, 0, 0, 0, 4.272667, 230.14992, -5.048195, 0.08477688)
+mesh = ExtResource("6_tq6py")
+skeleton = NodePath("../..")
+
+[node name="Pipe1Long19" type="MeshInstance3D" parent="Level6_leg" unique_id=1695278614]
+transform = Transform3D(4.0594554, -0.060978264, 0, 0.10848975, 2.281677, 0, 0, 0, 4.272667, 244.65367, -14.832824, 0.08477688)
 mesh = ExtResource("6_tq6py")
 skeleton = NodePath("../..")
 
@@ -359,16 +370,16 @@ transform = Transform3D(10.000001, 0, 0, 0, 10.000001, 0, 0, 0, 9.999999, 215.80
 text = "6"
 
 [node name="ExtendableWall15" parent="Level6_leg" unique_id=2062019750 instance=ExtResource("1_w7w38")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 232.34552, -14.095217, -1.9073484e-06)
+transform = Transform3D(1.1978264, 0, 0, 0, 1, 0, 0, 0, 1, 231.39197, -14.095217, -1.9073484e-06)
 size = Vector3(42.735, 15.61, 5)
 
-[node name="ExtendableWall23" parent="Level6_leg" unique_id=1149585584 instance=ExtResource("1_w7w38")]
+[node name="ExtendableWall23" parent="Level6_leg" unique_id=167708933 instance=ExtResource("1_w7w38")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 229.69786, 13.660166, -1.9073484e-06)
 size = Vector3(21.58573, 15.61, 5)
 
 [node name="ExtendableWall24" parent="Level6_leg" unique_id=632157322 instance=ExtResource("1_w7w38")]
-transform = Transform3D(3.3190491, 0, 0, 0, 1, 0, 0, 0, 1, 225.06062, 22.440748, -1.9073484e-06)
-size = Vector3(21.58573, 15.61, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225.06062, 22.440748, -1.9073484e-06)
+size = Vector3(71.6441, 15.61, 5)
 
 [node name="ExtendableWall16" parent="Level6_leg" unique_id=2108113783 instance=ExtResource("1_w7w38")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225.34, -1.8509475, 2.2737368e-13)
@@ -378,6 +389,22 @@ size = Vector3(3.5, 4.488, 5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 233.36877, -1.7352718, -1.9073484e-06)
 size = Vector3(3, 4, 5)
 
+[node name="ExtendableWall25" parent="Level6_leg" unique_id=275575253 instance=ExtResource("1_w7w38")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 232.88414, -5.920828, -9.536741e-07)
+size = Vector3(15.6648245, 3.9047282, 5)
+
+[node name="ExtendableWall26" parent="Level6_leg" unique_id=1396914957 instance=ExtResource("1_w7w38")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 249.37245, -6.04305, -9.536741e-07)
+size = Vector3(2.1205158, 1.6021252, 5)
+
+[node name="ExtendableWall27" parent="Level6_leg" unique_id=1698371634 instance=ExtResource("1_w7w38")]
+transform = Transform3D(0.90415144, -0.42721212, 0, 0.42721212, 0.90415144, 0, 0, 0, 1, 247.62062, -6.4832087, -9.536741e-07)
+size = Vector3(2.491004, 1.6916908, 5)
+
+[node name="ExtendableWall28" parent="Level6_leg" unique_id=1127588065 instance=ExtResource("1_w7w38")]
+transform = Transform3D(0.96005726, 0.2798035, 0, -0.2798035, 0.96005726, 0, 0, 0, 1, 251.69957, -6.569479, -9.536741e-07)
+size = Vector3(3.178279, 1.8377771, 5)
+
 [node name="ExtendableWall19" parent="Level6_leg" unique_id=198180616 instance=ExtResource("1_w7w38")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 229.32211, -3.345007, -1.9073484e-06)
 size = Vector3(3.5, 1.7, 5)
@@ -386,9 +413,37 @@ size = Vector3(3.5, 1.7, 5)
 transform = Transform3D(1, 0, 0, 0, -1, 1.509958e-07, 0, -1.509958e-07, -1, 230.69135, -1.4750465, 0.09755373)
 size = Vector3(1.97, 1.715, 5)
 
+[node name="ExtendableWall30" parent="Level6_leg" unique_id=827278781 instance=ExtResource("1_w7w38")]
+transform = Transform3D(1, 0, 0, 0, -1, 1.509958e-07, 0, -1.509958e-07, -1, 215.89754, -6.698037, 0.10097933)
+size = Vector3(2.9450917, 3.5924716, 5)
+
+[node name="ExtendableWall33" parent="Level6_leg" unique_id=1982526763 instance=ExtResource("1_w7w38")]
+transform = Transform3D(1, 0, 0, 0, -1, 1.509958e-07, 0, -1.509958e-07, -1, 221.5809, -3.7120783, 0.10097933)
+size = Vector3(4.2841015, 0.46771005, 5)
+
+[node name="ExtendableWall34" parent="Level6_leg" unique_id=40633803 instance=ExtResource("1_w7w38")]
+transform = Transform3D(1, 0, 0, 0, -1, 1.509958e-07, 0, -1.509958e-07, -1, 222.24953, -2.8436625, 0.10097933)
+size = Vector3(2.2558823, 1.3299899, 5)
+
+[node name="ExtendableWall35" parent="Level6_leg" unique_id=199442586 instance=ExtResource("1_w7w38")]
+transform = Transform3D(1, 0, 0, 0, -0.9205266, 1.5099579e-07, 0, -1.3899566e-07, -0.99999994, 223.30408, -1.5575345, 0.10097933)
+size = Vector3(1.6084743, 1.6799282, 5)
+
+[node name="ExtendableWall32" parent="Level6_leg" unique_id=1461765876 instance=ExtResource("1_w7w38")]
+transform = Transform3D(0.41025534, 0.9119707, -1.3770375e-07, 0.9119707, -0.41025534, 6.194683e-08, 0, -1.509958e-07, -1, 218.43105, -6.806326, 0.10097933)
+size = Vector3(2.4557395, 3.5924716, 5)
+
+[node name="ExtendableWall31" parent="Level6_leg" unique_id=774390463 instance=ExtResource("1_w7w38")]
+transform = Transform3D(0.4499291, -0.89306426, 1.509958e-07, -0.89306426, -0.4499291, 6.793739e-08, 7.2649513e-09, -1.6541597e-07, -1, 213.39108, -6.7901063, 0.10097933)
+size = Vector3(2.4557395, 3.5924716, 5)
+
 [node name="ExtendableWall22" parent="Level6_leg" unique_id=298176583 instance=ExtResource("1_w7w38")]
 transform = Transform3D(1, 0, 0, 0, -1, 1.509958e-07, 0, -1.509958e-07, -1, 235.96585, -2.5698838, 0.09755373)
 size = Vector3(1.97, 1.715, 5)
+
+[node name="ExtendableWall29" parent="Level6_leg" unique_id=1752300029 instance=ExtResource("1_w7w38")]
+transform = Transform3D(1, 0, 0, 0, -1, 1.509958e-07, 0, -1.509958e-07, -1, 241.56058, -6.1655493, 0.09755373)
+size = Vector3(1.779875, 3.0708566, 5)
 
 [node name="ExtendableWall18" parent="Level6_leg" unique_id=395500718 instance=ExtResource("1_w7w38")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 238.69504, -3.4774888, -1.9073484e-06)
@@ -402,7 +457,7 @@ script = ExtResource("16_6ey6l")
 output_location = NodePath("../TeleportalDest")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level6_leg/Teleportal" unique_id=1368464599]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2775879, -0.070251465, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6975555, -0.44832468, 0)
 shape = SubResource("BoxShape3D_dmal2")
 
 [node name="TeleportalDest" type="Node3D" parent="Level6_leg" unique_id=1776091255]
@@ -416,21 +471,17 @@ script = ExtResource("16_6ey6l")
 output_location = NodePath("../TeleportalDest2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level6_leg/Teleportal2" unique_id=4621730]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2775879, -0.070251465, 0)
+transform = Transform3D(0.011755377, -0.9999309, 0, 0.9999309, 0.011755377, 0, 0, 0, 1, 2.352707, -1.8277831, 0)
 shape = SubResource("BoxShape3D_dmal2")
 
 [node name="TeleportalDest2" type="Node3D" parent="Level6_leg" unique_id=1229441957]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 215.02275, -4.2043037, 0)
 
 [node name="LeftLeg" parent="Level6_leg" unique_id=925113335 instance=ExtResource("17_v3e2r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 247.67612, -5.3896837, -0.07286453)
-
-[node name="ExtendableWall21" parent="Level6_leg" unique_id=1642982 instance=ExtResource("1_w7w38")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 221.9675, -2.6129246, 4.5474735e-13)
-size = Vector3(1.965, 2.478, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 249.2254, -3.8885117, -0.07286453)
 
 [node name="Killzone_6" parent="Level6_leg" unique_id=1361249863 node_paths=PackedStringArray("checkpoint") instance=ExtResource("10_7sy1d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 276.28088, -20.938236, -0.20007515)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 276.28088, -4.9247856, -0.20007515)
 size = Vector3(20.74, 4, 5)
 checkpoint = NodePath("../../Level4_head/Level4_Node3D/Checkpoint_4")
 
@@ -473,8 +524,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.16394, 15.156175, -1.9073
 size = Vector3(31.5, 8.89, 5)
 
 [node name="ExtendableWall27" parent="Level7_leg/Level7_Node3D" unique_id=1635873370 instance=ExtResource("1_w7w38")]
-transform = Transform3D(0.26296127, 0, 0, 0, 0.38937902, 0, 0, 0, 1, 18.908325, 15.854737, -1.9073484e-06)
-size = Vector3(40.65, 24.965, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.908325, 15.854737, -1.9073484e-06)
+size = Vector3(10.689376, 9.720847, 5)
 
 [node name="ExtendableWall23" parent="Level7_leg/Level7_Node3D" unique_id=569940251 instance=ExtResource("1_w7w38")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.780182, -11.316488, -1.9073484e-06)
@@ -500,7 +551,7 @@ size = Vector3(14.443014, 23.019, 5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6371155, 13.481919, 0)
 
 [node name="Killzone_7" parent="Level7_leg/Level7_Node3D" unique_id=98956481 node_paths=PackedStringArray("checkpoint") instance=ExtResource("10_7sy1d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.715332, -21.613962, -0.20007515)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.715332, -5.815366, -0.20007515)
 size = Vector3(20.74, 4, 5)
 checkpoint = NodePath("../../../Level4_head/Level4_Node3D/Checkpoint_4")
 
@@ -1042,20 +1093,16 @@ size = Vector3(16.408487, 3.5675485, 5)
 transform = Transform3D(0.83609474, 0.5485851, 0, -0.5485851, 0.83609474, 0, 0, 0, 1, 16.65911, -5.3316917, 1.9073486e-06)
 size = Vector3(20, 1, 5)
 
-[node name="ExtendableWall14" parent="Walls" unique_id=1232058632 instance=ExtResource("1_w7w38")]
-transform = Transform3D(0.83609474, 0.5485851, 0, -0.5485851, 0.83609474, 0, 0, 0, 1, 205.19916, -3.1606667, 0)
-size = Vector3(12.95, 1, 5)
-
 [node name="ExtendableWall9" parent="Walls" unique_id=1866569240 instance=ExtResource("1_w7w38")]
-transform = Transform3D(0.9189745, -0.39431694, 0, 0.39431694, 0.9189745, 0, 0, 0, 1, 107.78601, -2.5567868, 3.8146973e-06)
-size = Vector3(23.021742, 0.64742476, 5)
+transform = Transform3D(0.9871856, -0.15957639, 0, 0.15957639, 0.9871856, 0, 0, 0, 1, 113.067894, 0.96823764, 3.8146973e-06)
+size = Vector3(10.591103, 0.79742324, 5)
 
 [node name="ExtendableWall3" parent="Walls" unique_id=1229269250 instance=ExtResource("1_w7w38")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.85379, -14.494158, 1.9073486e-06)
 size = Vector3(60, 15.61, 5)
 
 [node name="ExtendableWall8" parent="Walls" unique_id=1094467098 instance=ExtResource("1_w7w38")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.50818, -14.494158, 1.9073486e-06)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.85246, -7.3362684, 1.9073486e-06)
 size = Vector3(16.1, 15.61, 5)
 
 [node name="ExtendableWall19" parent="Walls" unique_id=335493107 instance=ExtResource("1_w7w38")]
@@ -1067,11 +1114,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.82647, 0.2880442, 1.90734
 size = Vector3(3.2156959, 3.9095182, 5)
 
 [node name="ExtendableWall13" parent="Walls" unique_id=1052837466 instance=ExtResource("1_w7w38")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138.48842, 7.3577538, 1.9073486e-06)
-size = Vector3(3.2156959, 0.5023108, 1.9965444)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140.54922, 7.3577538, 1.9073486e-06)
+size = Vector3(7.960193, 0.5023108, 1.9965444)
+
+[node name="ExtendableWall21" parent="Walls" unique_id=2146229477 instance=ExtResource("1_w7w38")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 143.63623, 4.256968, 1.9073486e-06)
+size = Vector3(11.91754, 0.5023108, 1.9965444)
+
+[node name="ExtendableWall22" parent="Walls" unique_id=384965600 instance=ExtResource("1_w7w38")]
+transform = Transform3D(0.988466, 0.15144277, 0, -0.15144277, 0.988466, 0, 0, 0, 1, 140.00697, 4.2762914, 1.9073486e-06)
+size = Vector3(2.4036329, 0.5023108, 1.9965444)
 
 [node name="ExtendableWall15" parent="Walls" unique_id=1224489261 instance=ExtResource("1_w7w38")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 147.91124, 6.9432545, 1.9073486e-06)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 147.91124, 6.7161713, 1.9073486e-06)
 size = Vector3(1.0115048, 1.9963478, 1.9965444)
 
 [node name="ExtendableWall20" parent="Walls" unique_id=1907398421 instance=ExtResource("1_w7w38")]

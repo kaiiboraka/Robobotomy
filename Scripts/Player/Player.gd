@@ -1,10 +1,9 @@
 class_name Player extends CharacterBody3D
 
 @export var speed : float = 5.0;
-@export var handicapped_speed : float = 2.5;
-@export var jump_velocity : float = 4.5;
-@export var handicapped_jump_velocity : float = 2.5;
-
+@export var handicapped_speed : float = 3;
+@export var jump_velocity : float = 6;
+@export var handicapped_jump_velocity : float = 5;
 @onready var torso : BodyPart = $Torso;
 @onready var head : BodyPart = $Head;
 @onready var l_arm : BodyPart = $LeftArm;
@@ -270,7 +269,7 @@ func _update_colliders() -> void:
 		1:
 			current_jump_velocity = handicapped_jump_velocity;
 		0:
-			current_jump_velocity = handicapped_jump_velocity / 2;
+			current_jump_velocity = handicapped_jump_velocity / 5;
 
 
 func check_torso_activation() -> void:
