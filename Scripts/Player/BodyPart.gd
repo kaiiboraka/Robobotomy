@@ -150,7 +150,7 @@ func retract() -> Tween:
 
 	var target_world_pos = core.global_transform * starting_position;
 	var dist = initial_global_pos.distance_to(target_world_pos);
-	var duration = dist / retract_speed;
+	var duration = .5; # dist / retract_speed;
 	if duration <= 0: duration = 0.01;
 
 	var move_tween = create_tween();

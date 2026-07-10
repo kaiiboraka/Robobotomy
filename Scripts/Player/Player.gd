@@ -16,6 +16,7 @@ class_name Player extends CharacterBody3D
 @onready var neck : MeshInstance3D = $Neck;
 @onready var tall_collider : CollisionShape3D = $Tall_CollisionShape3D;
 @onready var short_collider : CollisionShape3D = $Short_CollisionShape3D;
+@onready var throw_arc : ThrowArc = $ThrowArc;
 
 @onready var wall_detection_right: RayCast3D = $WallDetectionRight
 @onready var ledge_detection_right: RayCast3D = $LedgeDetectionRight
@@ -30,6 +31,17 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity");
 var is_controlling_core: bool = true;
 var weight : int = 0;
 var current_jump_velocity : float = 4.5;
+
+@export var throw_speed_min : float = 6.0;
+@export var throw_speed_max : float = 14.0;
+const AIM_DEADZONE : float = 0.2;
+const AIM_MAX : float = 0.9;
+
+var _aim_dir : Vector3 = Vector3.RIGHT;
+var _aim_speed : float = 40.0;
+var _aim_theta : float = 0.0;
+var _aim_dir_x : float = 1.0;
+var _has_aim : bool = false;
 
 enum movement_modes {DEFAULT, ROPE, LEDGE_LEFT, LEDGE_RIGHT}
 var _movement_mode: movement_modes = movement_modes.DEFAULT;
@@ -121,23 +133,18 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_just_pressed("Player_SelectLimb5_R_Leg") and r_leg and r_leg.is_connected:
 		select_limb(r_leg);
 
+	_update_aim();
+
 	if Input.is_action_just_pressed("Player_Throw_Limb") and selected_limb and selected_limb != torso:
 		if not selected_limb.is_detached:
-			var mouse_pos := get_viewport().get_mouse_position();
-			var camera := get_viewport().get_camera_3d();
-			if camera:
-				var from := camera.project_ray_origin(mouse_pos);
-				var to := from + camera.project_ray_normal(mouse_pos) * 10.0;
-				var direction := (to - selected_limb.global_position).normalized();
-				direction.z = 0;
-				selected_limb.throw(direction * selected_limb.throw_force);
-				if(selected_limb is Arm and get_movement_mode() == movement_modes.ROPE):
-					set_movement_mode(movement_modes.DEFAULT);
-				# Update camera to follow newly thrown limb
-				if phantom_camera:
-					phantom_camera.set("follow_target", selected_limb);
-					phantom_camera.set("priority", 2);
-				check_torso_activation();
+			selected_limb.throw(_aim_dir * _aim_speed);
+			if(selected_limb is Arm and get_movement_mode() == movement_modes.ROPE):
+				set_movement_mode(movement_modes.DEFAULT);
+			# Update camera to follow newly thrown limb
+			if phantom_camera:
+				phantom_camera.set("follow_target", selected_limb);
+				phantom_camera.set("priority", 2);
+			check_torso_activation();
 
 	if Input.is_action_just_pressed("Player_Drop_Limb"):
 		if selected_limb == torso:
@@ -229,6 +236,15 @@ func _physics_process(delta: float) -> void:
 
 	if _hud_needs_periodic_update():
 		_update_selection_hud();
+
+	var show_arc := selected_limb != null and selected_limb != torso and not selected_limb.is_detached and _has_aim
+	if throw_arc != null:
+		if show_arc:
+			throw_arc.aim_origin = _get_throw_origin()
+			throw_arc.aim_direction = _aim_dir
+			throw_arc.aim_speed = _aim_speed
+			throw_arc.aim_collision_mask = selected_limb.collision_mask
+		throw_arc.toggle_aim(show_arc)
 
 	move_and_slide();
 
@@ -583,3 +599,39 @@ func _inject_shader_preserving_texture(mesh: MeshInstance3D, shader_file: Shader
 		new_cel_mat.set_shader_parameter("main_texture", existing_texture)
 		
 	mesh.material_override = new_cel_mat
+
+
+func _update_aim() -> void:
+	var stick := Input.get_vector("Player_Aim_Left", "Player_Aim_Right", "Player_Aim_Down", "Player_Aim_Up");
+	if stick.length() >= AIM_DEADZONE:
+		_compute_aim(stick.x, stick.y);
+	else:
+		_compute_aim_from_mouse();
+
+
+func _compute_aim(ax: float, ay: float) -> void:
+	var mag := Vector2(ax, ay).length();
+	var effective: float = min(AIM_MAX, mag) / AIM_MAX;
+	_aim_speed = lerp(throw_speed_min, throw_speed_max, effective);
+	_aim_dir = Vector3(ax, ay, 0.0).normalized();
+	_has_aim = true;
+
+
+func _compute_aim_from_mouse() -> void:
+	var camera := get_viewport().get_camera_3d();
+	if not camera:
+		_has_aim = false;
+		return;
+	var mouse_pos := get_viewport().get_mouse_position();
+	var from := camera.project_ray_origin(mouse_pos);
+	var to := from + camera.project_ray_normal(mouse_pos) * 10.0;
+	var dir := (to - global_position).normalized();
+	dir.z = 0.0;
+	_aim_dir = dir;
+	_aim_speed = throw_speed_max;
+	_has_aim = true;
+
+
+func _get_throw_origin() -> Vector3:
+	# The player holds the limb up by their head/centre area when aiming a throw.
+	return global_transform * limb_sockets["Head"]
