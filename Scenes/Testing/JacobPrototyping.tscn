@@ -91,4 +91,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.059802, 21.241299, 0)
 size = Vector3(29.91, 1, 5)
 
 [node name="Rope2" parent="." unique_id=2093183878 instance=ExtResource("14_17pk7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1281357, 7.903857, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1281357, 12.8517065, 0)
