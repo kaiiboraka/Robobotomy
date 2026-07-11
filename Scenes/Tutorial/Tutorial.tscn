@@ -629,7 +629,7 @@ transform = Transform3D(10.000001, 0, 0, 0, 10.000001, 0, 0, 0, 9.999999, 31.184
 text = "15
 "
 
-[node name="ExtendableWall67" parent="LevelLast/LevelLast_Node3D" unique_id=1149585584 instance=ExtResource("1_w7w38")]
+[node name="ExtendableWall67" parent="LevelLast/LevelLast_Node3D" unique_id=1258037118 instance=ExtResource("1_w7w38")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5979, -36.36062, 0.11399436)
 size = Vector3(56.7, 4.318, 5)
 
