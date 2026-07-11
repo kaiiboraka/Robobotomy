@@ -108,7 +108,7 @@ environment = SubResource("Environment_w7w38")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1483892784]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 477.10593, 101.06594, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 479.87457, 103.903885, 14.999985)
 fov = 45.0
 near = 0.005
 
@@ -119,7 +119,7 @@ script = ExtResource("1_1e0ns")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=64555096 instance=ExtResource("17_1e0ns")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 477.10593, 97.31594, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 479.87457, 100.153885, -1.5258789e-05)
 
 [node name="RightArm" parent="Player" unique_id=904546073 instance=ExtResource("14_vxw4a")]
 
@@ -132,7 +132,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 477.10593, 97.31594, 0)
 [node name="RightLeg" parent="Player" unique_id=1985177356 instance=ExtResource("19_bdygh")]
 
 [node name="Player_PhantomCamera3D" type="Node3D" parent="." unique_id=1540863412 node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 477.10593, 101.06594, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 479.87457, 103.903885, 14.999985)
 top_level = true
 script = ExtResource("3_dgpfg")
 priority = 1
@@ -629,52 +629,7 @@ transform = Transform3D(10.000001, 0, 0, 0, 10.000001, 0, 0, 0, 9.999999, 31.184
 text = "15
 "
 
-[node name="Button Indicator" type="Label3D" parent="LevelLast/LevelLast_Node3D" unique_id=1105281603]
-transform = Transform3D(4.186609, 0, 0, 0, 4.186609, 0, 0, 0, 4.186607, 51.904785, 6.3807983, 1.2643486)
-text = "two"
-
-[node name="Button Indicator2" type="Label3D" parent="LevelLast/LevelLast_Node3D" unique_id=1787904728]
-transform = Transform3D(4.186609, 0, 0, 0, 4.186609, 0, 0, 0, 4.186607, 11.30658, 3.0254822, 0.3459492)
-text = "One"
-
-[node name="Button Indicator3" type="Label3D" parent="LevelLast/LevelLast_Node3D" unique_id=222711762]
-transform = Transform3D(4.186609, 0, 0, 0, 4.186609, 0, 0, 0, 4.186607, 31.224304, -5.7436523, 1.244658)
-text = "Three"
-
-[node name="Button Indicator4" type="Label3D" parent="LevelLast/LevelLast_Node3D" unique_id=1268558348]
-transform = Transform3D(4.186609, 0, 0, 0, 4.186609, 0, 0, 0, 4.186607, 23.932922, 22.127945, 3.16024)
-text = "Three"
-
-[node name="Button Indicator5" type="Label3D" parent="LevelLast/LevelLast_Node3D" unique_id=940330949]
-transform = Transform3D(6.6260514, 0, 0, 0, 6.6260514, 0, 0, 0, 6.6260486, 31.815247, 27.438843, 0.45667663)
-text = "Nine"
-
-[node name="Button Indicator6" type="Label3D" parent="LevelLast/LevelLast_Node3D" unique_id=1685661972]
-transform = Transform3D(4.186609, 0, 0, 0, 4.186609, 0, 0, 0, 4.186607, 40.342346, 23.13887, 3.16024)
-text = "One"
-
-[node name="rope10" type="MeshInstance3D" parent="LevelLast/LevelLast_Node3D" unique_id=1699671207]
-transform = Transform3D(0.321, 0, 0, 0, 9.833868, 0, 0, 0, 0.726, 19.82373, 3.8696594, 0.0329876)
-mesh = SubResource("CylinderMesh_xl8r8")
-skeleton = NodePath("../../..")
-
-[node name="rope11" type="MeshInstance3D" parent="LevelLast/LevelLast_Node3D" unique_id=863819395]
-transform = Transform3D(0.321, 0, 0, 0, 5.6618056, 0, 0, 0, 0.726, 12.594055, 24.44571, 0.032987602)
-mesh = SubResource("CylinderMesh_xl8r8")
-skeleton = NodePath("../../..")
-
-[node name="rope12" type="MeshInstance3D" parent="LevelLast/LevelLast_Node3D" unique_id=1058614932]
-transform = Transform3D(0.321, 0, 0, 0, 5.6618056, 0, 0, 0, 0.726, 5.807617, 24.44571, 0.0329876)
-mesh = SubResource("CylinderMesh_xl8r8")
-skeleton = NodePath("../../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="LevelLast/LevelLast_Node3D" unique_id=196718799]
-transform = Transform3D(1, 0, 0, 0, 1, 1.509958e-07, 0, 1.509958e-07, -1, 7.1900635, -33.462975, 1.9073484e-06)
-mesh = ExtResource("11_we8fy")
-skeleton = NodePath("../../..")
-
-[node name="ExtendableWall67" parent="LevelLast/LevelLast_Node3D" unique_id=1759650959 instance=ExtResource("1_w7w38")]
-
+[node name="ExtendableWall67" parent="LevelLast/LevelLast_Node3D" unique_id=1258037118 instance=ExtResource("1_w7w38")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5979, -36.36062, 0.11399436)
 size = Vector3(56.7, 4.318, 5)
 
