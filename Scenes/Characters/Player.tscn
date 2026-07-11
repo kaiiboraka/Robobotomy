@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://vjfl7xev4i4c" path="res://Scripts/Player/Player.gd" id="1_qkgjm"]
 [ext_resource type="PackedScene" uid="uid://dgoqhuaqsm30g" path="res://Scenes/Characters/Limbs/torso.tscn" id="3_b4kmf"]
-[ext_resource type="ArrayMesh" uid="uid://dcwobn8idii7l" path="res://Assets/3D/Character/Neck.res" id="5_b4kmf"]
-[ext_resource type="Material" uid="uid://dwsuv2g2x10i0" path="res://Assets/Materials/Character/Neck.tres" id="6_5kd0c"]
+[ext_resource type="ArrayMesh" uid="uid://dcwobn8idii7l" path="res://Assets/Robobotomy Art/3D/Character/Neck.res" id="5_b4kmf"]
+[ext_resource type="Material" uid="uid://dwsuv2g2x10i0" path="res://Assets/Materials/Nameless/Neck.tres" id="6_5kd0c"]
+[ext_resource type="Script" uid="uid://co6u66denqovn" path="res://Scripts/Player/throw_arc.gd" id="9_meglp"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="9_shd1k"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="10_5kd0c"]
 [ext_resource type="Resource" uid="uid://odcgk1h80sk0" path="res://Assets/Resources/Camera3DSettings.tres" id="11_aal88"]
@@ -79,7 +80,7 @@ handicapped_jump_velocity = 4.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.0686836, 21.244757)
 top_level = true
 script = ExtResource("9_shd1k")
-follow_mode = 2
+follow_mode = 3
 tween_resource = SubResource("Resource_4opfx")
 camera_3d_resource = ExtResource("11_aal88")
 follow_offset = Vector3(0, 3, 15)
@@ -106,6 +107,10 @@ surface_material_override/0 = ExtResource("6_5kd0c")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0686834, 0)
 max_angular_velocity = 8.0
 
+[node name="Holding_Spot" type="Node3D" parent="." unique_id=1781082980]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7269216, 0.5)
+
 [node name="Label3D" type="Label3D" parent="." unique_id=1353181972]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2005348, 0.88159037)
 pixel_size = 0.001
@@ -115,7 +120,7 @@ text = "Torso"
 font_size = 16
 outline_size = 8
 
-[node name="NamelessModel" parent="." unique_id=1098268189 instance=ExtResource("13_aal88")]
+[node name="NamelessModel" parent="." unique_id=970368239 instance=ExtResource("13_aal88")]
 visible = false
 
 [node name="WallDetectionRight" type="RayCast3D" parent="." unique_id=986729766]
@@ -151,3 +156,6 @@ hit_back_faces = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.816, 2.895, 0)
 target_position = Vector3(0, -0.5, 0)
 collision_mask = 524
+
+[node name="ThrowArc" type="MeshInstance3D" parent="." unique_id=589643538]
+script = ExtResource("9_meglp")

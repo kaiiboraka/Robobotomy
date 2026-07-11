@@ -15,6 +15,8 @@ class_name Player extends CharacterBody3D
 @onready var neck : MeshInstance3D = $Neck;
 @onready var tall_collider : CollisionShape3D = $Tall_CollisionShape3D;
 @onready var short_collider : CollisionShape3D = $Short_CollisionShape3D;
+@onready var throw_arc : ThrowArc = $ThrowArc;
+@onready var holding_spot : Node3D = $Holding_Spot;
 
 @onready var wall_detection_right: RayCast3D = $WallDetectionRight
 @onready var ledge_detection_right: RayCast3D = $LedgeDetectionRight
@@ -29,6 +31,18 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity");
 var is_controlling_core: bool = true;
 var weight : int = 0;
 var current_jump_velocity : float = 4.5;
+
+@export var throw_speed_min : float = 6.0;
+@export var throw_speed_max : float = 14.0;
+const AIM_DEADZONE : float = 0.2;
+const AIM_MAX : float = 0.9;
+const AIM_RAISE : float = 0.3;
+
+var _aim_dir : Vector3 = Vector3.RIGHT;
+var _aim_speed : float = 40.0;
+var _aim_theta : float = 0.0;
+var _aim_dir_x : float = 1.0;
+var _has_aim : bool = false;
 
 enum movement_modes {DEFAULT, ROPE, LEDGE_LEFT, LEDGE_RIGHT}
 var _movement_mode: movement_modes = movement_modes.DEFAULT;
@@ -66,6 +80,13 @@ func _ready() -> void:
 				limbs.append(limb);
 			else:
 				limb.core = self;
+			# Limbs are spawned at runtime with a default (0,0,0) transform, so
+			# BodyPart._ready captures a zero starting_position. Override it with the
+			# player's authoritative socket table so recall/reattach returns to the
+			# correct socket instead of the world origin.
+			if limb.name in limb_sockets:
+				limb.starting_position = limb_sockets[limb.name];
+				limb.starting_rotation = Vector3.ZERO;
 				
 	apply_cell_shader_file()
 	# Start with torso selected if available
@@ -119,25 +140,30 @@ func _physics_process(delta: float) -> void:
 		select_limb(l_leg);
 	elif Input.is_action_just_pressed("Player_SelectLimb5_R_Leg") and r_leg and r_leg.is_connected:
 		select_limb(r_leg);
+	elif Input.is_action_just_pressed("Player_CycleLimb_Forward"):
+		_cycle_limb(1);
+	elif Input.is_action_just_pressed("Player_CycleLimb_Backward"):
+		_cycle_limb(-1);
+
+	_update_aim();
+
+	_position_held_limb();
+
+	_refresh_follow_target();
 
 	if Input.is_action_just_pressed("Player_Throw_Limb") and selected_limb and selected_limb != torso:
 		if not selected_limb.is_detached:
-			var mouse_pos := get_viewport().get_mouse_position();
-			var camera := get_viewport().get_camera_3d();
-			if camera:
-				var from := camera.project_ray_origin(mouse_pos);
-				var to := from + camera.project_ray_normal(mouse_pos) * 10.0;
-				var direction := (to - selected_limb.global_position).normalized();
-				direction.z = 0;
-				selected_limb.throw(direction * selected_limb.throw_force);
+			if _has_aim:
+				selected_limb.throw(_aim_dir * _aim_speed);
 				if(selected_limb is Arm and get_movement_mode() == movement_modes.ROPE):
 					set_movement_mode(movement_modes.DEFAULT);
-				# Update camera to follow newly thrown limb
-				if phantom_camera:
-					phantom_camera.set("follow_target", selected_limb);
-					phantom_camera.set("priority", 2);
-				check_torso_activation();
-
+			else:
+				# Throw without aiming just drops the limb back into the world
+				drop_limb(selected_limb);
+			# Update camera to follow the thrown/dropped limb
+			_set_follow_target(selected_limb, 2);
+			check_torso_activation();
+			
 	if Input.is_action_just_pressed("Player_Drop_Limb"):
 		if selected_limb == torso:
 			drop_all_limbs();
@@ -228,6 +254,15 @@ func _physics_process(delta: float) -> void:
 
 	if _hud_needs_periodic_update():
 		_update_selection_hud();
+
+	var show_arc := selected_limb != null and selected_limb != torso and not selected_limb.is_detached and _has_aim
+	if throw_arc != null:
+		if show_arc:
+			throw_arc.aim_origin = _get_throw_origin()
+			throw_arc.aim_direction = _aim_dir
+			throw_arc.aim_speed = _aim_speed
+			throw_arc.aim_collision_mask = selected_limb.collision_mask
+		throw_arc.toggle_aim(show_arc)
 
 	move_and_slide();
 
@@ -320,7 +355,11 @@ func check_torso_activation() -> void:
 
 	var all_others_detached : bool = true;
 	for limb in limbs:
-		if limb and limb != torso and not limb.is_detached:
+		# A limb mid-retract has already flipped is_detached=false at the START
+		# of its tween, well before it's actually back home. Treat retracting
+		# limbs as still-away so torso doesn't prematurely enable_part() (and
+		# flip top_level) while a limb is still 0.5s from landing.
+		if limb and limb != torso and (not limb.is_detached or limb.is_retracting):
 			all_others_detached = false;
 			break;
 
@@ -351,6 +390,11 @@ func select_limb(limb: BodyPart) -> void:
 
 	var old_limb := selected_limb;
 
+	# Return the previously-held limb to its socket (unless it was the torso)
+	if old_limb and old_limb != torso and not old_limb.is_detached:
+		old_limb.position = old_limb.starting_position;
+		old_limb.rotation = old_limb.starting_rotation;
+
 	# Disable all limbs, then enable selected
 	for l in limbs:
 		if l:
@@ -369,21 +413,20 @@ func select_limb(limb: BodyPart) -> void:
 	selected_limb.on_select();
 	selected_limb.set_accepts_player_input(true);
 
+	# Bring a socketed (non-torso) limb up to the holding spot so it can be aimed
+	if selected_limb != torso and not selected_limb.is_detached and holding_spot:
+		selected_limb.position = holding_spot.position;
+		selected_limb.rotation = Vector3.ZERO;
+
 	# Update camera target and priority
 	if phantom_camera:
-		phantom_camera.follow_targets = [];
 		var should_follow : bool = (selected_limb.is_detached or (selected_limb == torso and not _any_limb_still_socketed()));
 		if should_follow:
-			_add_follow_target(selected_limb, 2);
+			_set_follow_target(selected_limb, 2);
 		else:
-			_add_follow_target(null, 0);
-
-	# If old limb is no longer selected and is off-screen, remove it from camera
-	if old_limb and old_limb != selected_limb:
-		if old_limb.notifier and not old_limb.notifier.is_on_screen():
-			_remove_follow_target(old_limb);
-		elif old_limb == torso: # Always remove torso from follow if not selected
-			_remove_follow_target(old_limb);
+			# Follow the core (player) by default — never leave the group empty,
+			# or the PhantomCamera resolves the (empty) target to the world origin.
+			_set_follow_target(null, 0);
 
 	# Control logic
 	is_controlling_core = (selected_limb == torso and not torso.is_detached);
@@ -406,7 +449,7 @@ func drop_limb(limb: BodyPart) -> void:
 	limb.drop();
 	# Update camera if this was the selected limb
 	if limb == selected_limb:
-		_add_follow_target(limb, 2);
+		_set_follow_target(limb, 2);
 
 	check_torso_activation();
 
@@ -415,7 +458,7 @@ func drop_all_limbs() -> void:
 		drop_limb(limb);
 	
 	if torso and torso.is_connected:
-		_add_follow_target(torso, 2);
+		_set_follow_target(torso, 2);
 		select_limb(torso);
 	elif limbs.size() > 0:
 		# If no torso, maybe select the first available limb?
@@ -429,38 +472,35 @@ func _any_limb_still_socketed() -> bool:
 	return false;
 
 
-func _add_follow_target(limb: Node3D, newPriority: int = -1) -> void:
+func _set_follow_target(limb: Node3D, newPriority: int = -1) -> void:
 	if not phantom_camera:
 		return;
 
 	if newPriority > -1:
 		phantom_camera.priority = newPriority;
 
-	if not limb:
-		phantom_camera.follow_target = null;
+	# The PhantomCamera is in GROUP follow mode: it tracks the `follow_targets`
+	# array. An empty array resolves the follow point to the world origin, so we
+	# ALWAYS keep exactly one target: the given limb, or the player (self) when
+	# null. This keeps the camera framed on something valid at all times.
+	var target : Node3D = limb if is_instance_valid(limb) else self;
+	phantom_camera.follow_targets = [target];
+
+
+func _refresh_follow_target() -> void:
+	# Safety net: the phantom_camera addon can drop `_should_follow` to false
+	# for a stray frame (e.g. mid-retract), and when that happens it snaps its
+	# internal transform back to this node's own never-updated base transform
+	# (the raw editor-authored coordinates on Limb_PhantomCamera3D) instead of
+	# preserving the last followed position. Re-asserting the correct target
+	# every physics frame means any such drop self-corrects within 1 frame
+	# instead of being visible for the whole tween.
+	if not phantom_camera or not selected_limb:
 		return;
-
-	if phantom_camera.follow_mode == PhantomCamera3D.FollowMode.GROUP:
-		var targets : Array = phantom_camera.follow_targets;
-		if targets == null:
-			targets = [];
-		if not limb in targets:
-			targets.append(limb);
-			phantom_camera.follow_targets = targets;
-	else:
-		phantom_camera.follow_target = limb;
-
-
-func _remove_follow_target(limb: Node3D, newPriority: int = -1) -> void:
-	if not phantom_camera: return;
-	if (newPriority > -1): phantom_camera.priority = newPriority;
-	if phantom_camera.follow_mode != PhantomCamera3D.FollowMode.GROUP: return;
-	if limb == selected_limb: return # Selected limb MUST stay in the group
-	
-	var targets: Array = phantom_camera.follow_targets;
-	if targets != null and limb in targets:
-		targets.erase(limb);
-		phantom_camera.follow_targets = targets;
+	var should_follow : bool = (selected_limb.is_detached or (selected_limb == torso and not _any_limb_still_socketed()));
+	var target : Node3D = selected_limb if should_follow else self;
+	if phantom_camera.follow_targets.size() != 1 or phantom_camera.follow_targets[0] != target:
+		phantom_camera.follow_targets = [target];
 
 
 func _hud_needs_periodic_update() -> bool:
@@ -582,3 +622,77 @@ func _inject_shader_preserving_texture(mesh: MeshInstance3D, shader_file: Shader
 		new_cel_mat.set_shader_parameter("main_texture", existing_texture)
 		
 	mesh.material_override = new_cel_mat
+
+
+func _update_aim() -> void:
+	var stick := Input.get_vector("Player_Aim_Left", "Player_Aim_Right", "Player_Aim_Down", "Player_Aim_Up");
+	if stick.length() >= AIM_DEADZONE:
+		_compute_aim(stick.x, stick.y);
+	else:
+		_compute_aim_from_mouse();
+
+
+func _compute_aim(ax: float, ay: float) -> void:
+	var mag := Vector2(ax, ay).length();
+	var effective: float = min(AIM_MAX, mag) / AIM_MAX;
+	_aim_speed = lerp(throw_speed_min, throw_speed_max, effective);
+	_aim_dir = Vector3(ax, ay, 0.0).normalized();
+	_has_aim = true;
+
+
+func _compute_aim_from_mouse() -> void:
+	var camera := get_viewport().get_camera_3d();
+	if not camera:
+		_has_aim = false;
+		return;
+	var mouse_pos := get_viewport().get_mouse_position();
+	var from := camera.project_ray_origin(mouse_pos);
+	var to := from + camera.project_ray_normal(mouse_pos) * 10.0;
+	var dir := (to - global_position).normalized();
+	dir.z = 0.0;
+	_aim_dir = dir;
+	_aim_speed = throw_speed_max;
+	_has_aim = true;
+
+
+func _get_throw_origin() -> Vector3:
+	# The player holds the limb up by their head/centre area when aiming a throw.
+	if selected_limb and selected_limb != torso and not selected_limb.is_detached and holding_spot:
+		var p := holding_spot.global_position;
+		if _has_aim:
+			p.y += AIM_RAISE;
+		return p;
+	return global_transform * limb_sockets["Head"];
+
+
+func _position_held_limb() -> void:
+	# Keep a socketed, selected limb at the holding spot; raise it while aiming.
+	if not holding_spot:
+		return;
+	if selected_limb and selected_limb != torso and not selected_limb.is_detached:
+		var target := holding_spot.position;
+		if _has_aim:
+			target.y += AIM_RAISE;
+		selected_limb.position = target;
+		selected_limb.rotation = Vector3.ZERO;
+
+
+func _cycle_limb(dir: int) -> void:
+	# Cycle selection through connected limbs in the numeric-select order
+	# (Head=1, LArm=2, RArm=3, LLeg=4, RLeg=5), wrapping back to Torso.
+	var order := [torso, head, l_arm, r_arm, l_leg, r_leg];
+	if order.is_empty():
+		return;
+	var current_index := order.find(selected_limb);
+	if current_index == -1:
+		current_index = 0;
+	var n := order.size();
+	for i in range(1, n + 1):
+		var idx := posmod(current_index + dir * i, n);
+		var candidate = order[idx];
+		if candidate and candidate.is_connected:
+			if candidate != selected_limb:
+				select_limb(candidate);
+			return;
+	if torso and torso.is_connected and torso != selected_limb:
+		select_limb(torso);

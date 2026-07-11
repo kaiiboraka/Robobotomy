@@ -150,13 +150,13 @@ func retract() -> Tween:
 
 	var target_world_pos = core.global_transform * starting_position;
 	var dist = initial_global_pos.distance_to(target_world_pos);
-	var duration = dist / retract_speed;
+	var duration = .5; # dist / retract_speed;
 	if duration <= 0: duration = 0.01;
 
 	var move_tween = create_tween();
 	move_tween.set_parallel(true);
 	move_tween.set_ease(Tween.EASE_OUT);
-	move_tween.set_trans(Tween.TRANS_SPRING);
+	move_tween.set_trans(Tween.TRANS_CUBIC);
 	move_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS);
 
 	# Position tween (dynamic tracking of moving core)
