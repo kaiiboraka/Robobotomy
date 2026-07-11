@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cfynvl6qv6736"]
 
-[ext_resource type="MeshLibrary" uid="uid://cpwr0fxwfjkl5" path="res://Assets/Robobotomy Art/3D/Objects/PowerCable/PowerCable_MeshLibrary.tres" id="1_oysiv"]
+[ext_resource type="MeshLibrary" uid="uid://cpwr0fxwfjkl5" path="res://Assets/3D/Objects/PowerCable/PowerCable_MeshLibrary.tres" id="1_oysiv"]
+
 
 [node name="Node3D" type="Node3D" unique_id=1101791235]
 

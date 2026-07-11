@@ -1,5 +1,25 @@
 [gd_scene format=3 uid="uid://dse0iymxxp885"]
 
-[ext_resource type="PackedScene" uid="uid://c8f7ehdv85hnd" path="res://Assets/Robobotomy Art/3D/Character/Namless_V21.fbx" id="1_xvnya"]
+[ext_resource type="PackedScene" uid="uid://c8f7ehdv85hnd" path="res://Assets/3D/Character/Namless_V21.fbx" id="1_xvnya"]
+[ext_resource type="Animation" uid="uid://c02m0ro7sk7lt" path="res://Assets/Animation/Anim.res/Jump.res" id="2_y31wx"]
+[ext_resource type="Animation" uid="uid://dmx034ao3j35u" path="res://Assets/Animation/Anim.res/Looking Around.res" id="3_41l7s"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_84tbs"]
+_data = {
+&"Jump": ExtResource("2_y31wx"),
+&"Looking Around": ExtResource("3_41l7s")
+}
 
 [node name="NamelessModel" unique_id=1424275973 instance=ExtResource("1_xvnya")]
+
+[node name="Skeleton3D" parent="Nam_Rig" parent_id_path=PackedInt32Array(39263268) index="0" unique_id=514939280]
+bones/6/rotation = Quaternion(5.5511204e-17, -0.0004563374, -2.5331839e-20, 1)
+bones/15/rotation = Quaternion(0.9151469, -0.09958592, 0.011554707, -0.39045528)
+bones/23/rotation = Quaternion(3.5219804e-25, 0.71018183, 3.308723e-24, 0.70401835)
+bones/24/rotation = Quaternion(2.524355e-29, 0.0010029284, -1.41568485e-27, 0.9999995)
+bones/28/rotation = Quaternion(-0.018658668, 0.003921543, -0.11430143, 0.9932632)
+bones/38/rotation = Quaternion(0.8975805, -0.022765579, -0.035334237, 0.43884245)
+bones/103/rotation = Quaternion(0.010835144, 0.023396801, 0.44578564, 0.8947684)
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=32569882]
+"libraries/New Anim" = SubResource("AnimationLibrary_84tbs")

@@ -1,50 +1,39 @@
 [gd_scene format=3 uid="uid://dxubgecu6o687"]
 
 [ext_resource type="Script" uid="uid://ddj23htttt0ys" path="res://Scripts/Player/head.gd" id="1_rtqub"]
-[ext_resource type="ArrayMesh" uid="uid://cvfblncoo4d8b" path="res://Assets/Robobotomy Art/3D/Character/Head_and_Hair.res" id="2_7q76k"]
-[ext_resource type="Texture2D" uid="uid://c1nop2pjviawq" path="res://Assets/Robobotomy Art/2D/Character/Head_SG_Base_color.png" id="3_gp127"]
-[ext_resource type="ArrayMesh" uid="uid://c8sncvty2tomo" path="res://Assets/Robobotomy Art/3D/Character/Hair_tuft.res" id="3_rtqub"]
-[ext_resource type="ArrayMesh" uid="uid://l4e4efmivsi4" path="res://Assets/Robobotomy Art/3D/Character/Eye_PlaneR.res" id="5_a61vf"]
-[ext_resource type="Texture2D" uid="uid://bjxesltgc0q2x" path="res://Assets/Robobotomy Art/2D/Character/Eye.png" id="6_xy461"]
-[ext_resource type="ArrayMesh" uid="uid://cfp8qk05qauyk" path="res://Assets/Robobotomy Art/3D/Character/Eye_PlaneL.res" id="7_afrce"]
-[ext_resource type="ArrayMesh" uid="uid://bvyeyi24xm0e" path="res://Assets/Robobotomy Art/3D/Character/Mouth.res" id="8_xy461"]
+[ext_resource type="ArrayMesh" uid="uid://cvfblncoo4d8b" path="res://Assets/3D/Character/Head_and_Hair.res" id="2_7q76k"]
+[ext_resource type="Texture2D" uid="uid://c1nop2pjviawq" path="res://Assets/2D/Character/Head_SG_Base_color.png" id="3_gp127"]
+[ext_resource type="ArrayMesh" uid="uid://c8sncvty2tomo" path="res://Assets/3D/Character/Hair_tuft.res" id="3_rtqub"]
+[ext_resource type="ArrayMesh" uid="uid://cvwp4y8hbos0h" path="res://Assets/3D/Character/Eye_Left.res" id="4_a61vf"]
+[ext_resource type="ArrayMesh" uid="uid://cm1bktxxcjj1k" path="res://Assets/3D/Character/Eye_Right.res" id="6_afrce"]
+[ext_resource type="Texture2D" uid="uid://dyuxsg2ydb1gm" path="res://Assets/2D/Character/Face Shapes/Eye Shapes/Eye(1).PNG" id="6_eovao"]
+[ext_resource type="ArrayMesh" uid="uid://bvyeyi24xm0e" path="res://Assets/3D/Character/Mouth.res" id="8_xy461"]
+[ext_resource type="Texture2D" uid="uid://cenjcfdxf3e2" path="res://Assets/2D/Character/Face Shapes/Mouth Shapes/Smile.PNG" id="9_afrce"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0kli6"]
 rough = true
 bounce = 0.15
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jwmhq"]
-resource_name = "Head"
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 0.8)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dpq14"]
 albedo_texture = ExtResource("3_gp127")
-emission_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtqub"]
-resource_name = "Head"
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 0.8)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2fgj"]
 albedo_texture = ExtResource("3_gp127")
-emission_enabled = true
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a61vf"]
-load_path = "res://.godot/imported/Eye.png-fd29754a019d2f1c49909d3f88aeeec4.s3tc.ctex"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xy461"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eovao"]
 transparency = 1
-albedo_texture = SubResource("CompressedTexture2D_a61vf")
-uv1_scale = Vector3(-7.395, 7.395, 7.395)
-uv1_offset = Vector3(-0.67, -0.375, 0)
-uv2_scale = Vector3(0.91, 0.91, 0.91)
-point_size = 119.9
+albedo_texture = ExtResource("6_eovao")
+uv1_scale = Vector3(-1, 1, 1)
+uv1_offset = Vector3(-0.03, 0.01, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rrvcf"]
 transparency = 1
-albedo_texture = ExtResource("6_xy461")
-uv1_scale = Vector3(1.18, 1.18, 1.18)
-uv1_offset = Vector3(0.985, 0.95, 1)
-uv2_scale = Vector3(0.91, 0.91, 0.91)
-point_size = 119.9
+albedo_texture = ExtResource("6_eovao")
+uv1_offset = Vector3(-0.03, 0.01, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hv47r"]
+transparency = 1
+albedo_texture = ExtResource("9_afrce")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_gp127"]
 radius = 0.335
@@ -89,56 +78,63 @@ aabb = AABB(-0.61507565, -0.6314556, -1, 1.2301513, 1.2629112, 2)
 [node name="Head_and_Hair" type="MeshInstance3D" parent="." unique_id=1005155060]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, -2.9404614, 0)
 mesh = ExtResource("2_7q76k")
-surface_material_override/0 = SubResource("StandardMaterial3D_jwmhq")
+surface_material_override/0 = SubResource("StandardMaterial3D_dpq14")
 
 [node name="Hair_tuft" type="MeshInstance3D" parent="Head_and_Hair" unique_id=1533871352]
 mesh = ExtResource("3_rtqub")
-surface_material_override/0 = SubResource("StandardMaterial3D_rtqub")
+surface_material_override/0 = SubResource("StandardMaterial3D_g2fgj")
 
-[node name="Eye_Right" type="MeshInstance3D" parent="Head_and_Hair/Hair_tuft" unique_id=957369417]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.029030986, 0.0021286733)
-mesh = ExtResource("5_a61vf")
-skeleton = NodePath("../Eye_Left")
-surface_material_override/0 = SubResource("StandardMaterial3D_xy461")
+[node name="EyeLeft" type="MeshInstance3D" parent="Head_and_Hair/Hair_tuft" unique_id=1858294727]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0012198878, 0.029019233, 0.0021308425)
+mesh = ExtResource("4_a61vf")
+surface_material_override/0 = SubResource("StandardMaterial3D_eovao")
 
-[node name="Eye_Left" type="MeshInstance3D" parent="Head_and_Hair/Hair_tuft" unique_id=1610046850]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.029030986, 0.0021286733)
-mesh = ExtResource("7_afrce")
+[node name="EyeRight" type="MeshInstance3D" parent="Head_and_Hair/Hair_tuft" unique_id=1078893662]
+transform = Transform3D(1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, -0.0012137627, 0.02901994, 0.0021328684)
+mesh = ExtResource("6_afrce")
 surface_material_override/0 = SubResource("StandardMaterial3D_rrvcf")
 
 [node name="Mouth" type="MeshInstance3D" parent="Head_and_Hair/Hair_tuft" unique_id=935888736]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.026951464, 0.002061392)
 mesh = ExtResource("8_xy461")
+surface_material_override/0 = SubResource("StandardMaterial3D_hv47r")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1012743808]
+visible = false
 shape = SubResource("SphereShape3D_gp127")
 
 [node name="StableCollider" type="CollisionShape3D" parent="." unique_id=11877855]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.018, 0)
+visible = false
 shape = SubResource("CylinderShape3D_0kli6")
 debug_color = Color(1, 0.43137255, 0, 1)
 
 [node name="JumpArea" type="Area3D" parent="." unique_id=515163343]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.049, 0)
+visible = false
 collision_layer = 0
 collision_mask = 12
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="JumpArea" unique_id=1255023146]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.039147764, 0)
+visible = false
 shape = SubResource("SphereShape3D_jwmhq")
 debug_color = Color(9.62615e-07, 0.6384732, 0.38248205, 0.41960785)
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=1889117471]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.086, 0)
+visible = false
 target_position = Vector3(0, -0.5, 0)
 collision_mask = 140
 debug_shape_custom_color = Color(1, 1, 0, 1)
 debug_shape_thickness = 5
 
 [node name="PickupArea" type="Area3D" parent="." unique_id=478385275]
+visible = false
 collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickupArea" unique_id=819479014]
+visible = false
 shape = SubResource("SphereShape3D_rtqub")
 debug_color = Color(0.9254902, 0.6627451, 0, 0.31764707)

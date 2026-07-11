@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cugb2qlx8ju8w"]
 
 [ext_resource type="Script" uid="uid://ceu5gchmd481u" path="res://Scripts/Tools/ButtonLights.gd" id="1_lights"]
-[ext_resource type="ArrayMesh" uid="uid://c30g2pc1dcs7o" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/cableconnector.res" id="1_omp8e"]
+[ext_resource type="ArrayMesh" uid="uid://c30g2pc1dcs7o" path="res://Assets/3D/Objects/Buttons/cableconnector.res" id="1_omp8e"]
 [ext_resource type="Material" uid="uid://ckajioojx2cvk" path="res://Assets/Materials/button_light_unlit.tres" id="2_84yeo"]
-[ext_resource type="ArrayMesh" uid="uid://doxh8d0va3v1k" path="res://Assets/Robobotomy Art/3D/Objects/Buttons/buttons_1x1.res" id="2_ba0mq"]
+[ext_resource type="ArrayMesh" uid="uid://doxh8d0va3v1k" path="res://Assets/3D/Objects/Buttons/buttons_1x1.res" id="2_ba0mq"]
 [ext_resource type="Material" uid="uid://cu5o0n5jwnl81" path="res://Assets/Materials/button_light_red.tres" id="3_vtjq2"]
 [ext_resource type="Material" uid="uid://ci1kkf3wnfmmv" path="res://Assets/Materials/button_light_yellow.tres" id="4_bfyu1"]
 [ext_resource type="Material" uid="uid://ddqq2886emi8r" path="res://Assets/Materials/button_light_bluegreen.tres" id="5_54xwf"]
