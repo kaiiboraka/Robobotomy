@@ -156,7 +156,7 @@ func retract() -> Tween:
 	var move_tween = create_tween();
 	move_tween.set_parallel(true);
 	move_tween.set_ease(Tween.EASE_OUT);
-	move_tween.set_trans(Tween.TRANS_SPRING);
+	move_tween.set_trans(Tween.TRANS_CUBIC);
 	move_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS);
 
 	# Position tween (dynamic tracking of moving core)
