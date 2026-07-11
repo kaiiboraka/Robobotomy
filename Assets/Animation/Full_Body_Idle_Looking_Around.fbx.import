@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bvp3ekd3r54vk"
-path="res://.godot/imported/A_Nameless_lookingaround.fbx-6ac11201510eb9eb04a21996c460025a.scn"
+uid="uid://g4u7j4ox3dbc"
+path="res://.godot/imported/Full_Body_Idle_Looking_Around.fbx-9e47a4aff393d9e89b1d2fbadc713f1f.scn"
 
 [deps]
 
-source_file="res://Assets/Animation/A_Nameless_lookingaround.fbx"
-dest_files=["res://.godot/imported/A_Nameless_lookingaround.fbx-6ac11201510eb9eb04a21996c460025a.scn"]
+source_file="res://Assets/Animation/Full_Body_Idle_Looking_Around.fbx"
+dest_files=["res://.godot/imported/Full_Body_Idle_Looking_Around.fbx-9e47a4aff393d9e89b1d2fbadc713f1f.scn"]
 
 [params]
 
@@ -41,12 +41,12 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "animations": {
-"A_Nameless_lookingaround": {
+"Full_Body_Idle_Looking_Around": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Animation/New Anim/Looking Around.res",
-"save_to_file/keep_custom_tracks": true,
-"save_to_file/path": "uid://dmx034ao3j35u",
-"settings/loop_mode": 1,
+"save_to_file/fallback_path": "res://Assets/Animation/Anim.res/Looking Around.res",
+"save_to_file/keep_custom_tracks": "",
+"save_to_file/path": "uid://clhantv363i7t",
+"settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
 "slice_1/name": "",
@@ -2096,6 +2096,20 @@ _subresources={
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
 "slices/amount": 0
+}
+},
+"nodes": {
+"PATH:Nam_Rig/Skeleton3D/Eye_LidsL": {
+"import/skip_import": true
+},
+"PATH:Nam_Rig/Skeleton3D/Eye_LidsR": {
+"import/skip_import": true
+},
+"PATH:Nam_Rig/Skeleton3D/Eye_PlaneL": {
+"import/skip_import": true
+},
+"PATH:Nam_Rig/Skeleton3D/Eye_PlaneR": {
+"import/skip_import": true
 }
 }
 }

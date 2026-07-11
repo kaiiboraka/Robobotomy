@@ -107,7 +107,7 @@ environment = SubResource("Environment_w7w38")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1483892784]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.90365, 7.516495, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2100976, 32.361046, 15.000008)
 fov = 45.0
 near = 0.005
 
@@ -118,12 +118,12 @@ script = ExtResource("1_1e0ns")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=64555096 instance=ExtResource("17_1e0ns")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.90365, 3.7664952, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2100976, 28.611044, 7.6293945e-06)
 handicapped_speed = 5.0
 handicapped_jump_velocity = 5.0
 
 [node name="Player_PhantomCamera3D" type="Node3D" parent="." unique_id=1540863412 node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.90365, 7.516495, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2100976, 32.361046, 15.000008)
 top_level = true
 script = ExtResource("3_dgpfg")
 priority = 1

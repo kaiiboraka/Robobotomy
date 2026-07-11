@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dse0iymxxp885"]
 
 [ext_resource type="PackedScene" uid="uid://c8f7ehdv85hnd" path="res://Assets/3D/Character/Namless_V21.fbx" id="1_xvnya"]
-[ext_resource type="Animation" uid="uid://cqgsvcx7ygg3h" path="res://Assets/Animation/New Anim/Jump.res" id="2_y31wx"]
-[ext_resource type="Animation" uid="uid://c7k1vbrj82823" path="res://Assets/Animation/New Anim/Looking Around.res" id="3_41l7s"]
+[ext_resource type="Animation" uid="uid://c02m0ro7sk7lt" path="res://Assets/Animation/Anim.res/Jump.res" id="2_y31wx"]
+[ext_resource type="Animation" uid="uid://dmx034ao3j35u" path="res://Assets/Animation/Anim.res/Looking Around.res" id="3_41l7s"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_84tbs"]
 _data = {
