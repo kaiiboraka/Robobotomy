@@ -150,6 +150,8 @@ func _physics_process(delta: float) -> void:
 
 	_position_held_limb();
 
+	_refresh_follow_target();
+
 	if Input.is_action_just_pressed("Player_Throw_Limb") and selected_limb and selected_limb != torso:
 		if not selected_limb.is_detached:
 			if _has_aim:
@@ -484,6 +486,22 @@ func _set_follow_target(limb: Node3D, newPriority: int = -1) -> void:
 	# null. This keeps the camera framed on something valid at all times.
 	var target : Node3D = limb if is_instance_valid(limb) else self;
 	phantom_camera.follow_targets = [target];
+
+
+func _refresh_follow_target() -> void:
+	# Safety net: the phantom_camera addon can drop `_should_follow` to false
+	# for a stray frame (e.g. mid-retract), and when that happens it snaps its
+	# internal transform back to this node's own never-updated base transform
+	# (the raw editor-authored coordinates on Limb_PhantomCamera3D) instead of
+	# preserving the last followed position. Re-asserting the correct target
+	# every physics frame means any such drop self-corrects within 1 frame
+	# instead of being visible for the whole tween.
+	if not phantom_camera or not selected_limb:
+		return;
+	var should_follow : bool = (selected_limb.is_detached or (selected_limb == torso and not _any_limb_still_socketed()));
+	var target : Node3D = selected_limb if should_follow else self;
+	if phantom_camera.follow_targets.size() != 1 or phantom_camera.follow_targets[0] != target:
+		phantom_camera.follow_targets = [target];
 
 
 func _hud_needs_periodic_update() -> bool:
