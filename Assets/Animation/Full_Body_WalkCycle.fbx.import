@@ -43,7 +43,7 @@ _subresources={
 "animations": {
 "Full_Body_WalkCycle": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Animation/New Anim/Full_Body_Walk.res",
+"save_to_file/fallback_path": "res://Assets/Animation/Anim.res/Full_Body_Walk.res",
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "uid://cm615iq3ysusg",
 "settings/loop_mode": 1,

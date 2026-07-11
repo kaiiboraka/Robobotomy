@@ -43,7 +43,7 @@ _subresources={
 "animations": {
 "A_Nameless_Jump": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Animation/New Anim/Jump.res",
+"save_to_file/fallback_path": "res://Assets/Animation/Anim.res/Jump.res",
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "uid://c02m0ro7sk7lt",
 "settings/loop_mode": 0,
