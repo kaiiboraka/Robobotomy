@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://dbj2mxqdg7prw"]
 
+[ext_resource type="Script" uid="uid://br20yyymk8ju3" path="res://Scripts/Environment/Crane.gd" id="1_ncg6t"]
 [ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/Terrain/ExtendableWall.tscn" id="1_ur1bl"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_2kgik"]
 
 [node name="Crane" type="Node3D" unique_id=950805602]
+script = ExtResource("1_ncg6t")
 
 [node name="rope2" type="MeshInstance3D" parent="." unique_id=1887511809]
 transform = Transform3D(0.321, 0, 0, 0, 3.2855546, 0, 0, 0, 0.726, 0, 3.06, 0.033)
@@ -37,10 +39,13 @@ mesh = SubResource("CylinderMesh_2kgik")
 skeleton = NodePath("../../..")
 
 [node name="ExtendableWall51" parent="." unique_id=1149585584 instance=ExtResource("1_ur1bl")]
-transform = Transform3D(0.14147627, 0, 0, 0, 0.70795083, 0, 0, 0, 0.5910442, 0, -0.361, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.361, 0)
+size = Vector3(4.9516697, 0.70795083, 2.955221)
 
 [node name="ExtendableWall52" parent="." unique_id=1850723278 instance=ExtResource("1_ur1bl")]
-transform = Transform3D(0.047650985, 0.33245358, 0, -0.0653099, 0.24256267, 0, 0, 0, 0.39218658, -2.569, -1.545, 0)
+transform = Transform3D(0.5894078, 0.80783564, 0, -0.80783564, 0.5894078, 0, 0, 0, 1, -2.569, -1.545, 0)
+size = Vector3(2.8295934, 0.4115362, 1.960933)
 
 [node name="ExtendableWall53" parent="." unique_id=1320169317 instance=ExtResource("1_ur1bl")]
-transform = Transform3D(-0.04320001, 0.31985006, 0, -0.068335645, -0.20220082, 0, 0, 0, 0.39218658, 2.5685377, -1.590353, -1.9073484e-06)
+transform = Transform3D(-0.53435236, 0.8452618, 0, -0.8452618, -0.53435236, 0, 0, 0, 1, 2.5685377, -1.590353, -1.9073484e-06)
+size = Vector3(2.829594, 0.3784035, 1.960933)

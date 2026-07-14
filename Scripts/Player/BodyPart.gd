@@ -226,6 +226,7 @@ func is_grounded() -> bool:
 
 
 func set_accepts_player_input(enabled: bool) -> void:
+	# check if I am busy first
 	accepts_player_input = enabled;
 	set_process_input(enabled);
 	if enabled:

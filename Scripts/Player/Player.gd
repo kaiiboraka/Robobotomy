@@ -44,7 +44,7 @@ var _aim_theta : float = 0.0;
 var _aim_dir_x : float = 1.0;
 var _has_aim : bool = false;
 
-enum movement_modes {DEFAULT, ROPE, LEDGE_LEFT, LEDGE_RIGHT}
+enum movement_modes {DEFAULT, ROPE, LEDGE_LEFT, LEDGE_RIGHT, CONTROL_PANEL}
 var _movement_mode: movement_modes = movement_modes.DEFAULT;
 
 var limb_sockets := {
@@ -195,59 +195,62 @@ func _physics_process(delta: float) -> void:
 
 	# Process movement inputs only if we are controlling the core
 	if is_controlling_core:
-		if(get_movement_mode() == movement_modes.ROPE):
-			velocity.x = 0;
-			velocity.y = 0;
-			if(Input.is_action_pressed("Player_Move_Up")):
-				velocity.y = 2;
-			elif (Input.is_action_pressed("Player_Move_Down")):
-				velocity.y = -5;
-#			if(Input.is_action_pressed("Player_Move_Left")):
-#				velocity.x = -2;
-#			elif(Input.is_action_pressed("Player_Move_Right")):
-#				velocity.x = 2;
-			
-			if(Input.is_action_just_pressed("Player_Jump")):
-				velocity.y = current_jump_velocity
-				set_movement_mode(movement_modes.DEFAULT);
+		match get_movement_mode():
+			movement_modes.ROPE:
+				velocity.x = 0;
+				velocity.y = 0;
+				if(Input.is_action_pressed("Player_Move_Up")):
+					velocity.y = 2;
+				elif (Input.is_action_pressed("Player_Move_Down")):
+					velocity.y = -5;
+	#			if(Input.is_action_pressed("Player_Move_Left")):
+	#				velocity.x = -2;
+	#			elif(Input.is_action_pressed("Player_Move_Right")):
+	#				velocity.x = 2;
 				
-		elif(get_movement_mode() == movement_modes.LEDGE_RIGHT):
-			velocity.x = 0
-			velocity.y = 0;
-			position.y = floor_height_detection_right.get_collision_point().y - 2.5
-			if(Input.is_action_just_pressed("Player_Jump")):
-				velocity.y = current_jump_velocity
-				set_movement_mode(movement_modes.DEFAULT);
-			if(Input.is_action_just_pressed("Player_Move_Down")):
-				set_movement_mode(movement_modes.DEFAULT)
-				
-		elif(get_movement_mode() == movement_modes.LEDGE_LEFT):
-			velocity.x=0
-			velocity.y=0
-			position.y = floor_height_detection_left.get_collision_point().y - 2.5
-			if(Input.is_action_just_pressed("Player_Jump")):
-				velocity.y = current_jump_velocity
-				set_movement_mode(movement_modes.DEFAULT);
+				if(Input.is_action_just_pressed("Player_Jump")):
+					velocity.y = current_jump_velocity
+					set_movement_mode(movement_modes.DEFAULT);
+			movement_modes.LEDGE_LEFT:
+				velocity.x=0
+				velocity.y=0
+				position.y = floor_height_detection_left.get_collision_point().y - 2.5
+				if(Input.is_action_just_pressed("Player_Jump")):
+					velocity.y = current_jump_velocity
+					set_movement_mode(movement_modes.DEFAULT);
+					if(Input.is_action_just_pressed("Player_Move_Down")):
+						set_movement_mode(movement_modes.DEFAULT)
+			movement_modes.LEDGE_RIGHT:
+				velocity.x = 0
+				velocity.y = 0;
+				position.y = floor_height_detection_right.get_collision_point().y - 2.5
+				if(Input.is_action_just_pressed("Player_Jump")):
+					velocity.y = current_jump_velocity
+					set_movement_mode(movement_modes.DEFAULT);
 				if(Input.is_action_just_pressed("Player_Move_Down")):
 					set_movement_mode(movement_modes.DEFAULT)
-		else:
-			# Handle Jump.
-			if Input.is_action_just_pressed("Player_Jump") and is_on_floor():
-				velocity.y = current_jump_velocity;
+			movement_modes.CONTROL_PANEL:
+				# do nothing?
+				pass
+			movement_modes.DEFAULT:
+				# Handle Jump.
+				if Input.is_action_just_pressed("Player_Jump") and is_on_floor():
+					velocity.y = current_jump_velocity;
 
-			# Get the input direction and handle the movement/deceleration.
-			var input_dir := Input.get_axis("Player_Move_Left", "Player_Move_Right");
-			var move_speed : float = _get_movement_speed();
+				# Get the input direction and handle the movement/deceleration.
+				var input_dir := Input.get_axis("Player_Move_Left", "Player_Move_Right");
+				var move_speed : float = _get_movement_speed();
 
-			if input_dir:
-				velocity.x = input_dir * move_speed;
+				if input_dir:
+					velocity.x = input_dir * move_speed;
+					
+					if should_grab_ledge_right():
+						set_movement_mode(movement_modes.LEDGE_RIGHT)
+					elif should_grab_ledge_left():
+						set_movement_mode(movement_modes.LEDGE_LEFT)
+				else:
+					velocity.x = move_toward(velocity.x, 0, move_speed);
 				
-				if should_grab_ledge_right():
-					set_movement_mode(movement_modes.LEDGE_RIGHT)
-				elif should_grab_ledge_left():
-					set_movement_mode(movement_modes.LEDGE_LEFT)
-			else:
-				velocity.x = move_toward(velocity.x, 0, move_speed);
 	else:
 		# Decelerate naturally when not under control
 		velocity.x = move_toward(velocity.x, 0, speed * delta);
@@ -270,6 +273,15 @@ func should_grab_ledge_right() -> bool:
 	return wall_detection_right.is_colliding() and not ledge_detection_right.is_colliding()
 func should_grab_ledge_left() -> bool:
 	return wall_detection_left.is_colliding() and not ledge_detection_left.is_colliding()
+
+func start_controlling_panel() -> void:
+	# check if 
+	set_movement_mode(movement_modes.CONTROL_PANEL)
+	return
+	
+func stop_controlling_panel() -> void:
+	set_movement_mode(movement_modes.DEFAULT)
+	return
 	
 func sync_core_to_torso() -> void:
 	if not torso: return;

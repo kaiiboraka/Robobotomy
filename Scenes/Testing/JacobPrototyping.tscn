@@ -22,7 +22,7 @@ transition = 7
 [node name="JacobPrototyping" type="Node3D" unique_id=947964362]
 
 [node name="ControlPanel2" parent="." unique_id=843480281 node_paths=PackedStringArray("activation_targets") instance=ExtResource("1_pypk4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.41478252, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2913046, -0.41478252, 0)
 activation_targets = [NodePath("../Catapult")]
 
 [node name="ExtendableWall" parent="." unique_id=1149585584 instance=ExtResource("2_bd11y")]
@@ -44,13 +44,11 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.857302, 0, 0)
 
 [node name="RightArm" parent="Player" unique_id=904546073 instance=ExtResource("5_8un3r")]
-collision_layer = 4131
 
 [node name="Head" parent="Player" unique_id=2035200198 instance=ExtResource("8_8un3r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8653183, 0)
 
 [node name="LeftArm" parent="Player" unique_id=1281946609 instance=ExtResource("7_lxvf2")]
-collision_layer = 4131
 
 [node name="LeftLeg" parent="Player" unique_id=925113335 instance=ExtResource("8_yj7wf")]
 
@@ -92,3 +90,7 @@ size = Vector3(29.91, 1, 5)
 
 [node name="Rope2" parent="." unique_id=2093183878 instance=ExtResource("14_17pk7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1281357, 12.8517065, 0)
+
+[node name="ControlPanel3" parent="." unique_id=1421412609 instance=ExtResource("1_pypk4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.729784, -0.14271402, 0)
+activation_mode = 0

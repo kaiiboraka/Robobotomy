@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dmrf146qrbqun"]
 
-[ext_resource type="Script" path="res://Scripts/Environment/ControlPanel.gd" id="1_871ct"]
+[ext_resource type="Script" uid="uid://dg10ptkw0ri1" path="res://Scripts/Environment/ControlPanel.gd" id="1_871ct"]
 [ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Assets/3D/Objects/terminal.res" id="1_eteoh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eteoh"]
