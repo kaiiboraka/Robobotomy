@@ -5,41 +5,52 @@ var arm_in_range: bool :
 	get:
 		return !arms_in_range.is_empty()
 var arms_in_range: Array[BodyPart] = [];
+var control_arm: BodyPart;
 var is_activated: bool = false;
 @onready var area3d: Area3D = $Area3D;
+@onready var snap_location: Marker3D = $SnapLocation
+@onready var terminal: MeshInstance3D = $Terminal
+var mat: BaseMaterial3D = StandardMaterial3D.new();
 @export var activation_mode: ActivationModes = ActivationModes.FIRE_AND_FORGET;
-var player: Player
+var _cached_player: Player
+var player: Player :
+	get:
+		if not is_instance_valid(_cached_player):
+			_cached_player = Player.instance
+		return _cached_player
 enum ActivationModes {
 	HOLD,
 	FIRE_AND_FORGET,
 	TOGGLE
 }
 
-# known bugs:
-# - activates even if the player is not actively controlling the arm in range
 func _ready():
 	player= Player.instance
+	mat.albedo_color = Color(1,1,1,1);
+	terminal.material_overlay = mat;
 	
 # eventually will light up when an arm is in range, then allow arms (or any controller using arms) to interact
 
 func _input(event: InputEvent) -> void:
-	if(event.is_action_pressed("Player_Interact")):
-		if(not arm_in_range):
+	if(!event.is_action_pressed("Player_Interact")):
+		return
+	if(not arm_in_range):
+		return
+		
+	if(is_activated):
+		# deactivating
+		if(!player.is_controlling_arm(control_arm)):
+			return
+		on_deactivate()
+		return
+	# activating
+	for arm in arms_in_range:
+		if(player.is_controlling_arm(arm)):
+			control_arm = arm
+			on_activate()
 			return
 		
-		# also somehow check if the player is currently controlling the arm
-		# ask player
-		match is_activated and player.is_allowed_to_activate(self):
-			true: on_deactivate()
-			false: on_activate()
-		
 func on_activate() -> void:
-	
-	if not player.l_arm and not player.r_arm:
-		return
-	if not arm_in_range:
-		return
-		
 	print("activating")
 	for target in activation_targets:
 		if target and target.has_method("on_button_activated"):
@@ -47,7 +58,8 @@ func on_activate() -> void:
 	match activation_mode:
 		ActivationModes.HOLD:
 			is_activated = true;
-			player.start_controlling_panel()
+			player.start_controlling_panel(control_arm, snap_location.global_position)
+			mat.albedo_color = Color(0,1,0,1);
 			pass
 			# toggle `activated` and take control away from player, then intercept inputs until the player decides to deactivate
 		ActivationModes.FIRE_AND_FORGET:
@@ -55,15 +67,10 @@ func on_activate() -> void:
 			# do nothing; shouldn't need to change `activated` because it will be deactivated immediately
 		ActivationModes.TOGGLE:
 			is_activated = true;
+			mat.albedo_color = Color(0,1,0,1);
 			# toggle `activated`, but don't take control from the player.
 		
 func on_deactivate():
-	var player: Player = Player.instance
-	if not player.l_arm and not player.r_arm:
-		return
-	if not arm_in_range:
-		return
-		
 	print("deactivating")
 	for target in activation_targets:
 		if target and target.has_method("on_button_deactivated"):
@@ -71,7 +78,8 @@ func on_deactivate():
 	match activation_mode:
 		ActivationModes.HOLD:
 			is_activated = false;
-			player.stop_controlling_panel();
+			player.stop_controlling_panel(control_arm);
+			mat.albedo_color = Color(1,1,1,1);
 			pass
 			# toggle `activated` back to false and give control back to player
 		ActivationModes.FIRE_AND_FORGET:
@@ -79,6 +87,7 @@ func on_deactivate():
 			# this should not be possible
 		ActivationModes.TOGGLE:
 			is_activated = false;
+			mat.albedo_color = Color(1,1,1,1);
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:

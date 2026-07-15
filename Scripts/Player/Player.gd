@@ -126,7 +126,6 @@ func register_limb(limb: BodyPart) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	
 	# just_pressed avoids re-running select_limb every frame while a limb key is held
 	if Input.is_action_just_pressed("Player_SelectLimb0_Torso") and torso and torso.is_connected:
 		select_limb(torso);
@@ -151,7 +150,7 @@ func _physics_process(delta: float) -> void:
 
 	_refresh_follow_target();
 
-	if Input.is_action_just_pressed("Player_Throw_Limb") and selected_limb and selected_limb != torso:
+	if Input.is_action_just_pressed("Player_Throw_Limb") and selected_limb and selected_limb != torso and get_movement_mode() != movement_modes.CONTROL_PANEL:
 		if not selected_limb.is_detached:
 			if _has_aim:
 				selected_limb.throw(_aim_dir * _aim_speed);
@@ -164,7 +163,7 @@ func _physics_process(delta: float) -> void:
 			_set_follow_target(selected_limb, 2);
 			check_torso_activation();
 			
-	if Input.is_action_just_pressed("Player_Drop_Limb"):
+	if Input.is_action_just_pressed("Player_Drop_Limb") and get_movement_mode() != movement_modes.CONTROL_PANEL:
 		if selected_limb == torso:
 			drop_all_limbs();
 		elif selected_limb != null and not selected_limb.is_detached:
@@ -172,16 +171,16 @@ func _physics_process(delta: float) -> void:
 			if(selected_limb is Arm and get_movement_mode()==movement_modes.ROPE):
 				set_movement_mode(movement_modes.DEFAULT);
 
-	if Input.is_action_just_pressed("Player_Recall"):
+	if Input.is_action_just_pressed("Player_Recall") and get_movement_mode() != movement_modes.CONTROL_PANEL:
 		if torso and torso.is_connected and torso.is_part_enabled:
 			sync_core_to_torso();
 		if selected_limb == torso:
 			is_controlling_core = true;
 			for limb in limbs:
-				if limb and limb != torso and limb.is_detached:
+				if limb and limb != torso and limb.is_detached and !limb.is_busy:
 					var tween = limb.retract();
 					tween.finished.connect(_on_limb_returned.bind(limb));
-		elif selected_limb and selected_limb != torso and selected_limb.is_detached:
+		elif selected_limb and selected_limb != torso and selected_limb.is_detached and !selected_limb.is_busy:
 			is_controlling_core = true;
 			var tween := selected_limb.retract();
 			tween.finished.connect(select_limb.bind(torso));
@@ -190,7 +189,7 @@ func _physics_process(delta: float) -> void:
 		_update_selection_hud();
 
 	# Add the gravity.
-	if not is_on_floor() and get_movement_mode() == movement_modes.DEFAULT:
+	if not is_on_floor() and (get_movement_mode() == movement_modes.DEFAULT or get_movement_mode() == movement_modes.CONTROL_PANEL):
 		velocity.y -= gravity * delta;
 
 	# Process movement inputs only if we are controlling the core
@@ -230,8 +229,8 @@ func _physics_process(delta: float) -> void:
 				if(Input.is_action_just_pressed("Player_Move_Down")):
 					set_movement_mode(movement_modes.DEFAULT)
 			movement_modes.CONTROL_PANEL:
-				# do nothing?
-				pass
+				velocity.x = 0
+				velocity.y = 0;
 			movement_modes.DEFAULT:
 				# Handle Jump.
 				if Input.is_action_just_pressed("Player_Jump") and is_on_floor():
@@ -274,13 +273,30 @@ func should_grab_ledge_right() -> bool:
 func should_grab_ledge_left() -> bool:
 	return wall_detection_left.is_colliding() and not ledge_detection_left.is_colliding()
 
-func start_controlling_panel() -> void:
-	# check if 
-	set_movement_mode(movement_modes.CONTROL_PANEL)
+func is_controlling_arm(arm: BodyPart) -> bool:
+	if(selected_limb == arm): # arm is selected
+		return true;
+	elif(is_controlling_core and not arm.is_detached): # arm is being controlled through the torso
+		return true
+	return false
+	
+func start_controlling_panel(arm: BodyPart, panelLocation: Vector3) -> void:
+	# should check to see what limb is being controlled and disable that selectively
+	if(arm.is_detached):
+		arm.set_accepts_player_input(false)
+		arm.is_busy = true;
+		arm.position = panelLocation;
+		arm.linear_velocity = Vector3(0, 0, 0)
+	else:
+		set_movement_mode(movement_modes.CONTROL_PANEL)
 	return
 	
-func stop_controlling_panel() -> void:
-	set_movement_mode(movement_modes.DEFAULT)
+func stop_controlling_panel(arm: BodyPart) -> void:
+	if(arm.is_detached):
+		arm.is_busy = false;
+		arm.set_accepts_player_input(true)
+	else:
+		set_movement_mode(movement_modes.DEFAULT)
 	return
 	
 func sync_core_to_torso() -> void:
