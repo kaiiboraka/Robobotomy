@@ -47,6 +47,11 @@ var _has_aim : bool = false;
 enum movement_modes {DEFAULT, ROPE, LEDGE_LEFT, LEDGE_RIGHT, CONTROL_PANEL}
 var _movement_mode: movement_modes = movement_modes.DEFAULT;
 
+var control_panels : Dictionary[BodyPart, ControlPanel] = {
+	r_arm: null,
+	l_arm: null,
+}
+
 var limb_sockets := {
 	"Head": Vector3(0, 2.9366379, 0),
 	"Torso": Vector3(0, 2.0686834, 0),
@@ -280,18 +285,20 @@ func is_controlling_arm(arm: BodyPart) -> bool:
 		return true
 	return false
 	
-func start_controlling_panel(arm: BodyPart, panelLocation: Vector3) -> void:
+func start_controlling_panel(arm: BodyPart, panel: ControlPanel) -> void:
 	# should check to see what limb is being controlled and disable that selectively
+	control_panels[arm] = panel;
 	if(arm.is_detached):
 		arm.set_accepts_player_input(false)
 		arm.is_busy = true;
-		arm.position = panelLocation;
+		arm.position = panel.get_snap_location();
 		arm.linear_velocity = Vector3(0, 0, 0)
 	else:
 		set_movement_mode(movement_modes.CONTROL_PANEL)
 	return
 	
 func stop_controlling_panel(arm: BodyPart) -> void:
+	control_panels[arm] = null;
 	if(arm.is_detached):
 		arm.is_busy = false;
 		arm.set_accepts_player_input(true)
@@ -512,6 +519,8 @@ func _set_follow_target(limb: Node3D, newPriority: int = -1) -> void:
 	# ALWAYS keep exactly one target: the given limb, or the player (self) when
 	# null. This keeps the camera framed on something valid at all times.
 	var target : Node3D = limb if is_instance_valid(limb) else self;
+	if (limb and limb.is_busy) or get_movement_mode() == movement_modes.CONTROL_PANEL:
+		target = get_forwarded_camera_target(limb)
 	phantom_camera.follow_targets = [target];
 
 
@@ -527,9 +536,27 @@ func _refresh_follow_target() -> void:
 		return;
 	var should_follow : bool = (selected_limb.is_detached or (selected_limb == torso and not _any_limb_still_socketed()));
 	var target : Node3D = selected_limb if should_follow else self;
+	
+	if(selected_limb.is_busy or get_movement_mode() == movement_modes.CONTROL_PANEL):
+		target = get_forwarded_camera_target(selected_limb)
+		
 	if phantom_camera.follow_targets.size() != 1 or phantom_camera.follow_targets[0] != target:
 		phantom_camera.follow_targets = [target];
 
+func get_forwarded_camera_target(limb: BodyPart) -> Node3D:
+	if !control_panels.has(limb):
+		# THIS DOES NOT WORK. If the Torso is selected, the target will update to the other object as it should, but the camera won't move. Giving up on this for now since we have bigger fish to fry.
+		if control_panels.get(l_arm):
+			var target = control_panels.get(l_arm).get_camera_target()
+			return target
+		elif control_panels.get(r_arm):
+			var target = control_panels.get(r_arm).get_camera_target()
+			return target
+		else:
+			return null
+	if(control_panels.get(limb)):
+		return control_panels.get(limb).get_camera_target()
+	return null
 
 func _hud_needs_periodic_update() -> bool:
 	for limb in limbs:

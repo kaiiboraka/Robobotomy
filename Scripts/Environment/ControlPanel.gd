@@ -1,4 +1,4 @@
-extends Node
+class_name ControlPanel extends Node3D
 
 @export var activation_targets: Array[Node] = [];
 var arm_in_range: bool :
@@ -58,9 +58,8 @@ func on_activate() -> void:
 	match activation_mode:
 		ActivationModes.HOLD:
 			is_activated = true;
-			player.start_controlling_panel(control_arm, snap_location.global_position)
+			player.start_controlling_panel(control_arm, self)
 			mat.albedo_color = Color(0,1,0,1);
-			pass
 			# toggle `activated` and take control away from player, then intercept inputs until the player decides to deactivate
 		ActivationModes.FIRE_AND_FORGET:
 			pass
@@ -80,7 +79,6 @@ func on_deactivate():
 			is_activated = false;
 			player.stop_controlling_panel(control_arm);
 			mat.albedo_color = Color(1,1,1,1);
-			pass
 			# toggle `activated` back to false and give control back to player
 		ActivationModes.FIRE_AND_FORGET:
 			pass
@@ -88,7 +86,20 @@ func on_deactivate():
 		ActivationModes.TOGGLE:
 			is_activated = false;
 			mat.albedo_color = Color(1,1,1,1);
-
+			
+func get_camera_target() -> Node3D:
+	var targets: Array[Node3D] = []
+	for target in activation_targets:
+		if target.is_class("Node3D"):
+			targets.push_back(target);
+	if(targets.is_empty()):
+		return self
+	if(targets.size() > 1):
+		printerr("Control panel " + self.to_string() + " has multiple targets. Camera is choosing only one of them to follow.")
+	return targets[0]
+	
+func get_snap_location() -> Vector3:
+	return snap_location.global_position;
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if(body is BodyPart):

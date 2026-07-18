@@ -5,6 +5,9 @@
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_2kgik"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_4gvqi"]
+size = Vector3(4.498047, 1, 1)
+
 [node name="Crane" type="Node3D" unique_id=950805602]
 script = ExtResource("1_ncg6t")
 
@@ -49,3 +52,14 @@ size = Vector3(2.8295934, 0.4115362, 1.960933)
 [node name="ExtendableWall53" parent="." unique_id=1320169317 instance=ExtResource("1_ur1bl")]
 transform = Transform3D(-0.53435236, 0.8452618, 0, -0.8452618, -0.53435236, 0, 0, 0, 1, 2.5685377, -1.590353, -1.9073484e-06)
 size = Vector3(2.829594, 0.3784035, 1.960933)
+
+[node name="StickyArea" type="Area3D" parent="." unique_id=222064658]
+transform = Transform3D(1, 0, 0, 0, 1.9262593, 0, 0, 0, 1, 0, -1.4366224, 0.033)
+collision_layer = 4
+collision_mask = 141
+
+[node name="StickyCollision" type="CollisionShape3D" parent="StickyArea" unique_id=568389586]
+shape = SubResource("BoxShape3D_4gvqi")
+
+[connection signal="body_entered" from="StickyArea" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="StickyArea" to="." method="_on_area_3d_body_exited"]

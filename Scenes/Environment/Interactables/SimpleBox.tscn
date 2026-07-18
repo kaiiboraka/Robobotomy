@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://ck2aty1s5xess" path="res://Scripts/Environment/Interactables/Box.cs" id="1_tht3g"]
 [ext_resource type="PackedScene" uid="uid://lipiostj341j" path="res://Scenes/Environment/Interactables/Handle.tscn" id="2_qwqek"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_tht3g"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_810t0"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_wo1n4"]
+[sub_resource type="BoxMesh" id="BoxMesh_y20ck"]
 
 [node name="Simple Box" type="RigidBody3D" unique_id=1082349094]
 collision_layer = 4
@@ -16,10 +16,10 @@ can_sleep = false
 script = ExtResource("1_tht3g")
 
 [node name="Collision Shape" type="CollisionShape3D" parent="." unique_id=1754790299]
-shape = SubResource("BoxShape3D_tht3g")
+shape = SubResource("BoxShape3D_810t0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1071714189]
-mesh = SubResource("BoxMesh_wo1n4")
+mesh = SubResource("BoxMesh_y20ck")
 
 [node name="Handles" type="Node3D" parent="." unique_id=860135684]
 
