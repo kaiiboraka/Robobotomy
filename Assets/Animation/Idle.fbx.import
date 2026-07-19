@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c5o11wbkm8ehq"
-path="res://.godot/imported/Full_Body_WalkCycle.fbx-ea8f4d9b500a00575a57a19c448263f0.scn"
+uid="uid://bim03ohne7u6n"
+path="res://.godot/imported/Idle.fbx-11a947df4942301405d7d85d87f28433.scn"
 
 [deps]
 
-source_file="res://Assets/Animation/Full_Body_WalkCycle.fbx"
-dest_files=["res://.godot/imported/Full_Body_WalkCycle.fbx-ea8f4d9b500a00575a57a19c448263f0.scn"]
+source_file="res://Assets/Animation/Idle.fbx"
+dest_files=["res://.godot/imported/Idle.fbx-11a947df4942301405d7d85d87f28433.scn"]
 
 [params]
 
@@ -41,11 +41,11 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "animations": {
-"Full_Body_WalkCycle": {
+"Idle": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Animation/Anim.res/Full_Body_Walk.res",
+"save_to_file/fallback_path": "res://Assets/Animation/Anim.res/Idle.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "uid://cm615iq3ysusg",
+"save_to_file/path": "uid://doxnwwdhvlo0v",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,

@@ -6,9 +6,9 @@
 [ext_resource type="ArrayMesh" uid="uid://c8sncvty2tomo" path="res://Assets/3D/Character/Hair_tuft.res" id="3_rtqub"]
 [ext_resource type="ArrayMesh" uid="uid://cvwp4y8hbos0h" path="res://Assets/3D/Character/Eye_Left.res" id="4_a61vf"]
 [ext_resource type="ArrayMesh" uid="uid://cm1bktxxcjj1k" path="res://Assets/3D/Character/Eye_Right.res" id="6_afrce"]
-[ext_resource type="Texture2D" uid="uid://dyuxsg2ydb1gm" path="res://Assets/2D/Character/Face Shapes/Eye Shapes/Eye(1).PNG" id="6_eovao"]
+[ext_resource type="Texture2D" uid="uid://db5vktfkqfh2n" path="res://Assets/2D/Character/Face Shapes/Eye Shapes/Eye(3).PNG" id="6_eovao"]
 [ext_resource type="ArrayMesh" uid="uid://bvyeyi24xm0e" path="res://Assets/3D/Character/Mouth.res" id="8_xy461"]
-[ext_resource type="Texture2D" uid="uid://cenjcfdxf3e2" path="res://Assets/2D/Character/Face Shapes/Mouth Shapes/Smile.PNG" id="9_afrce"]
+[ext_resource type="Texture2D" uid="uid://c37dn2tdbm4x4" path="res://Assets/2D/Character/Face Shapes/Mouth Shapes/Yay.PNG" id="9_rrvcf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0kli6"]
 rough = true
@@ -33,7 +33,7 @@ uv1_offset = Vector3(-0.03, 0.01, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hv47r"]
 transparency = 1
-albedo_texture = ExtResource("9_afrce")
+albedo_texture = ExtResource("9_rrvcf")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_gp127"]
 radius = 0.335

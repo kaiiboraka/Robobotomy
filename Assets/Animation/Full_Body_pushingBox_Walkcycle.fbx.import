@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bxglju3ub4qh0"
-path="res://.godot/imported/A_Nameless_Jump.fbx-e7650c2cecda838c07b37d4101849dde.scn"
+uid="uid://c6wvhi7cbmgvg"
+path="res://.godot/imported/Full_Body_pushingBox_Walkcycle.fbx-2c4f1ae07e3a41b53b8c11c770975415.scn"
 
 [deps]
 
-source_file="res://Assets/Animation/A_Nameless_Jump.fbx"
-dest_files=["res://.godot/imported/A_Nameless_Jump.fbx-e7650c2cecda838c07b37d4101849dde.scn"]
+source_file="res://Assets/Animation/Full_Body_pushingBox_Walkcycle.fbx"
+dest_files=["res://.godot/imported/Full_Body_pushingBox_Walkcycle.fbx-2c4f1ae07e3a41b53b8c11c770975415.scn"]
 
 [params]
 
@@ -41,12 +41,12 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "animations": {
-"A_Nameless_Jump": {
+"Full_Body_pushingBox_Walkcycle": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Animation/Anim.res/Jump.res",
+"save_to_file/fallback_path": "res://Assets/Animation/Anim.res/Pushing Box.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "uid://c02m0ro7sk7lt",
-"settings/loop_mode": 0,
+"save_to_file/path": "uid://gwauqumcxqfv",
+"settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
 "slice_1/name": "",

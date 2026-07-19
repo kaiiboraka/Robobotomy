@@ -32,21 +32,30 @@
 [ext_resource type="PackedScene" uid="uid://dgt8nrv3iluhe" path="res://Scenes/Environment/Interactables/rope2.tscn" id="23_dmal2"]
 [ext_resource type="PackedScene" uid="uid://dlk6oxkqswup1" path="res://Scenes/Environment/door.tscn" id="27_6ey6l"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0yr2e"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dmal2"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
-[sub_resource type="Sky" id="Sky_21xkr"]
-sky_material = SubResource("ProceduralSkyMaterial_0yr2e")
+[sub_resource type="Sky" id="Sky_fhxa0"]
+sky_material = SubResource("ProceduralSkyMaterial_dmal2")
 
-[sub_resource type="Environment" id="Environment_w7w38"]
+[sub_resource type="Environment" id="Environment_2otw2"]
 background_mode = 2
-sky = SubResource("Sky_21xkr")
-sky_custom_fov = 11.4
+sky = SubResource("Sky_fhxa0")
 tonemap_mode = 2
+tonemap_exposure = 0.45
 glow_enabled = true
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.2528, 0.31216, 0.32, 1)
+fog_light_energy = 13.2
+fog_density = 0.9407
+fog_depth_curve = 1.2311445
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.0005
+volumetric_fog_albedo = Color(1.5099679, 1.6654818, 1.9731435, 1)
+volumetric_fog_length = 27.75
+volumetric_fog_detail_spread = 3.0314333
+volumetric_fog_sky_affect = 0.899
 
 [sub_resource type="Resource" id="Resource_ps4sb"]
 script = ExtResource("4_upwis")
@@ -103,12 +112,16 @@ size = Vector3(3.419, 13.39, 1.56)
 
 [node name="Node3D" type="Node3D" unique_id=1010345093]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=223076818]
-environment = SubResource("Environment_w7w38")
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=721665664]
+transform = Transform3D(0.99999994, 0, 0, 0, -4.371139e-08, 0.9999998, 0, -1, -4.371138e-08, 27.40023, 8.725939, -14.16932)
+light_energy = 0.327
+
+[node name="WorldEnvironment2" type="WorldEnvironment" parent="." unique_id=1918885034]
+environment = SubResource("Environment_2otw2")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1483892784]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 479.87457, 103.903885, 14.999985)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.651917, 7.735571, 14.999985)
 fov = 45.0
 near = 0.005
 
@@ -119,20 +132,24 @@ script = ExtResource("1_1e0ns")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=64555096 instance=ExtResource("17_1e0ns")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 479.87457, 100.153885, -1.5258789e-05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.651917, 3.985571, -1.5258789e-05)
 
 [node name="RightArm" parent="Player" unique_id=904546073 instance=ExtResource("14_vxw4a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8565674, 2.3617172, 0)
 
 [node name="LeftArm" parent="Player" unique_id=1281946609 instance=ExtResource("12_vxw4a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8732605, 2.3595352, 0)
 
 [node name="Head" parent="Player" unique_id=2035200198 instance=ExtResource("13_ps4sb")]
 
 [node name="LeftLeg" parent="Player" unique_id=925113335 instance=ExtResource("17_v3e2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1772461, 0.8718262, 0)
 
 [node name="RightLeg" parent="Player" unique_id=1985177356 instance=ExtResource("19_bdygh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27182007, 0.8602295, 0)
 
 [node name="Player_PhantomCamera3D" type="Node3D" parent="." unique_id=1540863412 node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 479.87457, 103.903885, 14.999985)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.651917, 7.735571, 14.999985)
 top_level = true
 script = ExtResource("3_dgpfg")
 priority = 1
@@ -786,9 +803,8 @@ transform = Transform3D(0.99999976, 0, 0, 0, 1.0923461, 0, 0, 0, 0.99999976, 12.
 [node name="Rope2" parent="LevelLast/LevelLast_Node3D" unique_id=533523686 instance=ExtResource("23_dmal2")]
 transform = Transform3D(1, 0, 0, 0, 1.804982, 0, 0, 0, 1, 19.881348, 11.14563, 0)
 
-[node name="ControlPanel2" parent="LevelLast/LevelLast_Node3D" unique_id=843480281 node_paths=PackedStringArray("activation_targets") instance=ExtResource("23_2otw2")]
+[node name="ControlPanel2" parent="LevelLast/LevelLast_Node3D" unique_id=843480281 instance=ExtResource("23_2otw2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2957153, -34.40384, 0)
-activation_targets = [NodePath("../Catapult")]
 
 [node name="Cubes" type="Node" parent="." unique_id=1807959314]
 
@@ -1054,6 +1070,34 @@ size = Vector3(23.187561, 6.162341, 5)
 [node name="ExtendableWall17" parent="Walls" unique_id=1201193681 instance=ExtResource("1_w7w38")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.272902, 12.360921, 0)
 size = Vector3(46.693184, 4.3642545, 5)
+
+[node name="ExtendableWall28" parent="Walls" unique_id=481942276 instance=ExtResource("1_w7w38")]
+transform = Transform3D(0.059974376, -0.99819994, 0, 0.99819994, 0.059974376, 0, 0, 0, 1, 50.915775, 2.221762, -27.324074)
+size = Vector3(64.14897, 4.3642545, 5)
+
+[node name="ExtendableWall36" parent="Walls" unique_id=197273835 instance=ExtResource("1_w7w38")]
+transform = Transform3D(0.059974376, -0.99819994, 0, 0.99819994, 0.059974376, 0, 0, 0, 1, 8.553327, 4.767004, -35.760017)
+size = Vector3(39.582954, 4.3642545, 5)
+
+[node name="ExtendableWall51" parent="Walls" unique_id=312167560 instance=ExtResource("1_w7w38")]
+transform = Transform3D(0.059974376, -0.99819994, 0, 0.99819994, 0.059974376, 0, 0, 0, 1, 31.953499, 3.3610592, -57.05681)
+size = Vector3(65.47525, 4.3642545, 5)
+
+[node name="ExtendableWall52" parent="Walls" unique_id=351715065 instance=ExtResource("1_w7w38")]
+transform = Transform3D(0.059974376, -0.99819994, 0, 0.99819994, 0.059974376, 0, 0, 0, 1, 10.376312, 4.6574726, -76.03749)
+size = Vector3(51.096607, 4.3642545, 5)
+
+[node name="ExtendableWall53" parent="Walls" unique_id=1465631829 instance=ExtResource("1_w7w38")]
+transform = Transform3D(0.059974376, -0.99819994, 0, 0.99819994, 0.059974376, 0, 0, 0, 1, 26.721523, 3.6754093, -110.267235)
+size = Vector3(11.8449955, 4.3642545, 5)
+
+[node name="ExtendableWall67" parent="Walls" unique_id=907075858 instance=ExtResource("1_w7w38")]
+transform = Transform3D(0.059974376, -0.99819994, 0, 0.99819994, 0.059974376, 0, 0, 0, 1, 10.359182, 4.6585007, -119.26198)
+size = Vector3(11.8449955, 4.3642545, 5)
+
+[node name="ExtendableWall68" parent="Walls" unique_id=1410724772 instance=ExtResource("1_w7w38")]
+transform = Transform3D(0.4423313, -7.362062, 0, 7.362062, 0.4423313, 0, 0, 0, 7.375338, 26.117832, 3.7116814, -151.6726)
+size = Vector3(11.8449955, 4.3642545, 5)
 
 [node name="ExtendableWall18" parent="Walls" unique_id=92200850 instance=ExtResource("1_w7w38")]
 transform = Transform3D(0.93631274, -0.3511673, 0, 0.3511673, 0.93631274, 0, 0, 0, 1, 72.90213, 20.327137, 0)

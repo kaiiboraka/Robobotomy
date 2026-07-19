@@ -110,12 +110,12 @@
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
-[sub_resource type="Sky" id="Sky_fhxa0"]
+[sub_resource type="Sky" id="Sky_penhn"]
 sky_material = SubResource("ProceduralSkyMaterial_clgom")
 
 [sub_resource type="Environment" id="Environment_kegy0"]
 background_mode = 2
-sky = SubResource("Sky_fhxa0")
+sky = SubResource("Sky_penhn")
 tonemap_mode = 2
 glow_enabled = true
 fog_enabled = true
@@ -511,7 +511,7 @@ material = SubResource("StandardMaterial3D_30kme")
 environment = SubResource("Environment_kegy0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1148795049]
-transform = Transform3D(-0.783648, -0.527156, 0.3286373, 0.33128887, 0.092874326, 0.9389473, -0.5254937, 0.844678, 0.101860136, -13.639377, 0, 0)
+transform = Transform3D(-0.8355232, -0.44033927, 0.3286373, 0.33932042, 0.05691757, 0.93894726, -0.43216056, 0.89602554, 0.101860136, -13.639377, 0, 0)
 shadow_enabled = true
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1896190263]

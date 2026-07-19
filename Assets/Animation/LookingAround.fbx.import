@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://g4u7j4ox3dbc"
-path="res://.godot/imported/Full_Body_Idle_Looking_Around.fbx-9e47a4aff393d9e89b1d2fbadc713f1f.scn"
+path="res://.godot/imported/LookingAround.fbx-e42b012c3e6a49da21a699ea596ba32d.scn"
 
 [deps]
 
-source_file="res://Assets/Animation/Full_Body_Idle_Looking_Around.fbx"
-dest_files=["res://.godot/imported/Full_Body_Idle_Looking_Around.fbx-9e47a4aff393d9e89b1d2fbadc713f1f.scn"]
+source_file="res://Assets/Animation/LookingAround.fbx"
+dest_files=["res://.godot/imported/LookingAround.fbx-e42b012c3e6a49da21a699ea596ba32d.scn"]
 
 [params]
 
@@ -46,7 +46,7 @@ _subresources={
 "save_to_file/fallback_path": "res://Assets/Animation/Anim.res/Looking Around.res",
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "uid://clhantv363i7t",
-"settings/loop_mode": 0,
+"settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
 "slice_1/name": "",
