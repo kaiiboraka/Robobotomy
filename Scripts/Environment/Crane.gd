@@ -6,6 +6,7 @@ var magnetized: bool;
 var crates: Array[Crate]
 var weight: int = 3;
 @onready var sticky_area: Area3D = $StickyArea
+@export var crane_area: Area3D;
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	velocity = Vector3(0,0,0)
