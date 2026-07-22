@@ -53,7 +53,9 @@ func _input(event: InputEvent) -> void:
 func on_activate() -> void:
 	print("activating")
 	for target in activation_targets:
-		if target and target.has_method("on_button_activated"):
+		if target and target.has_method("on_activated_by_arm"):
+			target.on_activated_by_arm(control_arm);
+		elif target and target.has_method("on_button_activated"):
 			target.on_button_activated();
 	match activation_mode:
 		ActivationModes.HOLD:

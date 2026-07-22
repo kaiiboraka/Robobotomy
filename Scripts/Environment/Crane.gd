@@ -1,22 +1,27 @@
-extends Node3D
+extends CharacterBody3D
 var control: bool;
+var control_arm: BodyPart = null;
 var magnetized: bool;
-var velocity: Vector3;
+#var velocity: Vector3;
 var crates: Array[Crate]
 var weight: int = 3;
 @onready var sticky_area: Area3D = $StickyArea
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	velocity = Vector3(0,0,0)
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	if(!control_arm):
+		return;
+	if(Player.instance and !Player.instance.is_controlling_arm(control_arm)):
+		return
 	if(Input.is_action_pressed("Player_Jump")):
 		magnetized = true
 	else:
 		magnetized = false
-	position += velocity * delta
 	if magnetized:
 		for crate in crates:
 			crate.constant_force = Vector3(0, 0, 0)
@@ -29,6 +34,7 @@ func _physics_process(delta: float) -> void:
 		for crate in crates:
 			crate.constant_force = Vector3(0, 0, 0)
 			crate.constant_torque = Vector3(0, 0, 0)
+	move_and_slide()
 	pass
 	
 func _input(event: InputEvent) -> void:
@@ -44,11 +50,13 @@ func _input(event: InputEvent) -> void:
 	else:
 		velocity.y = 0
 		
-func on_button_activated() -> void:
+func on_activated_by_arm(arm: BodyPart) -> void:
 	control = true
+	control_arm = arm;
 
 func on_button_deactivated() -> void:
 	control = false
+	control_arm = null;
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if(!body is Crate):

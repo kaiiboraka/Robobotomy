@@ -274,9 +274,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide();
 
 func should_grab_ledge_right() -> bool:
-	return wall_detection_right.is_colliding() and not ledge_detection_right.is_colliding()
+	return wall_detection_right.is_colliding() and not ledge_detection_right.is_colliding() and velocity.y < 0
 func should_grab_ledge_left() -> bool:
-	return wall_detection_left.is_colliding() and not ledge_detection_left.is_colliding()
+	return wall_detection_left.is_colliding() and not ledge_detection_left.is_colliding() and velocity.y < 0
 
 func is_controlling_arm(arm: BodyPart) -> bool:
 	if(selected_limb == arm): # arm is selected

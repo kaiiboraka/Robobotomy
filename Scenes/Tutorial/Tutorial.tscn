@@ -107,7 +107,6 @@ size = Vector3(3.419, 13.39, 1.56)
 environment = SubResource("Environment_w7w38")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1483892784]
-physics_interpolation_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 479.87457, 103.903885, 14.999985)
 fov = 45.0
 near = 0.005
@@ -789,6 +788,7 @@ transform = Transform3D(1, 0, 0, 0, 1.804982, 0, 0, 0, 1, 19.881348, 11.14563, 0
 [node name="ControlPanel2" parent="LevelLast/LevelLast_Node3D" unique_id=843480281 node_paths=PackedStringArray("activation_targets") instance=ExtResource("23_2otw2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2957153, -34.40384, 0)
 activation_targets = [NodePath("../Catapult")]
+activation_mode = 1
 
 [node name="Cubes" type="Node" parent="." unique_id=1807959314]
 
