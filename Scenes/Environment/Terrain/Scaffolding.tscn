@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://614eegxcbalt"]
 
-[ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Assets/3D/Objects/scaffold.res" id="1_i7us2"]
+[ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Assets/3D/Objects/MISC/scaffold.res" id="1_i7us2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i7us2"]
 size = Vector3(6.2841187, 0.26835632, 3)

@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://c30rcncaojuya" path="res://Scripts/Environment/WeightedButton.gd" id="1_yigyg"]
 [ext_resource type="PackedScene" uid="uid://cugb2qlx8ju8w" path="res://Scenes/Environment/Buttons/Button_Lights.tscn" id="2_v2ty4"]
+[ext_resource type="ArrayMesh" uid="uid://doxh8d0va3v1k" path="res://Assets/3D/Objects/Buttons/buttons_1x1.res" id="3_dfgrj"]
+[ext_resource type="Material" uid="uid://ckajioojx2cvk" path="res://Assets/Materials/button_light_unlit.tres" id="4_xw1qm"]
 [ext_resource type="ArrayMesh" uid="uid://pt55dusfqfr0" path="res://Assets/3D/Objects/Buttons/bigwire.res" id="5_u8eeh"]
-[ext_resource type="ArrayMesh" uid="uid://do555h70mdig6" path="res://Assets/3D/Objects/PowerCable/PowerCable2.res" id="6_naxr5"]
 [ext_resource type="ArrayMesh" uid="uid://c7hjplbtbetcf" path="res://Assets/3D/Objects/Buttons/button_pad.res" id="7_yigyg"]
 [ext_resource type="ArrayMesh" uid="uid://didpkp2pe7wrd" path="res://Assets/3D/Objects/Buttons/button_shell.res" id="8_5hisi"]
 
@@ -311,22 +312,34 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0
 
 [node name="Button_Lights" parent="Cable" unique_id=303055115 instance=ExtResource("2_v2ty4")]
 unique_name_in_owner = true
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.594, 0.643, 1.573)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.3721337, 0.6804267, 0.983168)
+weight = 4
+current_weight = 0
+
+[node name="Generated_Light_1" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=1180239119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8086581, -0.13553238)
+mesh = ExtResource("3_dfgrj")
+surface_material_override/1 = ExtResource("4_xw1qm")
+
+[node name="Generated_Light_2" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=2070279222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8086581, 0.08446762)
+mesh = ExtResource("3_dfgrj")
+surface_material_override/1 = ExtResource("4_xw1qm")
+
+[node name="Generated_Light_3" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=2037237399]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0286582, -0.13553238)
+mesh = ExtResource("3_dfgrj")
+surface_material_override/1 = ExtResource("4_xw1qm")
+
+[node name="Generated_Light_4" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=172319079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0286582, 0.08446762)
+mesh = ExtResource("3_dfgrj")
+surface_material_override/1 = ExtResource("4_xw1qm")
 
 [node name="CableConnector" type="MeshInstance3D" parent="Cable" unique_id=872956376]
-transform = Transform3D(4.371139e-08, -3.821371e-15, 1, -8.742278e-08, -1, 0, 1, -8.742278e-08, -4.371139e-08, -0.88379204, 0.1107021, 1.6648425)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.88354254, 0.1107021, 0.9222529)
 mesh = ExtResource("5_u8eeh")
 skeleton = NodePath("../..")
-
-[node name="PowerCable2" type="MeshInstance3D" parent="Cable/CableConnector" unique_id=415605683]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.0012025833, 0.0012607574, 0.6258382)
-mesh = ExtResource("6_naxr5")
-skeleton = NodePath("../../..")
-
-[node name="PowerCable3" type="MeshInstance3D" parent="Cable/CableConnector" unique_id=1336977178]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.00023961067, 0.0014225394, 1.4724778)
-mesh = ExtResource("6_naxr5")
-skeleton = NodePath("../PowerCable2")
 
 [node name="ButtonShell" type="MeshInstance3D" parent="." unique_id=2094969472]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13, 0.001)

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://wm1ogylqjeol"
-path="res://.godot/imported/NAM Arm Left.fbx-104e99f805b1a8a8c9ab6c934b31dde5.scn"
+path="res://.godot/imported/NAM Arm Left.fbx-8356621ccac66f0a883d5fa4a569eb96.scn"
 
 [deps]
 
-source_file="res://Assets/3D/Objects/NAM Arm Left.fbx"
-dest_files=["res://.godot/imported/NAM Arm Left.fbx-104e99f805b1a8a8c9ab6c934b31dde5.scn"]
+source_file="res://Assets/3D/Objects/MISC/NAM Arm Left.fbx"
+dest_files=["res://.godot/imported/NAM Arm Left.fbx-8356621ccac66f0a883d5fa4a569eb96.scn"]
 
 [params]
 
