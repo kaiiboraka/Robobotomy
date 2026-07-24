@@ -1,6 +1,8 @@
 using Godot;
 using System;
 
+using static Player;
+
 [Tool]
 public partial class Rope : Climbable
 {
@@ -39,8 +41,8 @@ public partial class Rope : Climbable
 	public override void _Ready()
 	{
 		_ropeMesh = GetNodeOrNull<MeshInstance3D>("Rope Mesh");
-		_grabArea = GetNodeOrNull<Area3D>("Grabable Area");
-		_grabShape = GetNodeOrNull<CollisionShape3D>("Grabable Area/Grabable Shape");
+		_grabArea = GetNodeOrNull<Area3D>("Grabbable Area");
+		_grabShape = GetNodeOrNull<CollisionShape3D>("Grabbable Area/Grabbable Shape");
 		UpdateRopeGeometry();
 	}
 
@@ -94,22 +96,33 @@ public partial class Rope : Climbable
 		Rotation = new Vector3(Rotation.X, Rotation.Y, _angle);
 	}
 
+	public void OnPlayerEnter(Node3D player)
+	{
+		InteractWith(player);
+	}
 	// --------------------------------------------------------
 	// INTERACTION LOGIC
 	// --------------------------------------------------------
 	public override void InteractWith(Node3D interactor)
 	{
-		if (interactor is not CharacterBody3D grabber)
+		GD.Print("interacting");
+		if (interactor is not Player player)
 			return;
+		if(!player.r_arm || player.r_arm.is_detached || !player.l_arm || player.l_arm.is_detached)
+		{
+			return;
+		}
 
-		Vector3 distToRope = GlobalPosition - grabber.GlobalPosition;
+		player.SetMovementMode(player.movement_modes.ROPE);
+
+		Vector3 distToRope = GlobalPosition - player.GlobalPosition;
 		distToRope.Z = 0;
 
 		GrabPosition = Mathf.Clamp(distToRope.Length(), LowerClimbLimit, Length - UpperClimbLimit);
 
 		Vector3 ropeDir = distToRope.Normalized();
 		Vector3 tangentDir = new Vector3(ropeDir.Y, -ropeDir.X, 0);
-		float tangentSpeed = grabber.Velocity.Dot(tangentDir);
+		float tangentSpeed = player.Velocity.Dot(tangentDir);
 		
 		AngularVelocity += tangentSpeed / GrabPosition;
 	}
