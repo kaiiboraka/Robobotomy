@@ -35,6 +35,7 @@ dist/
 .TagStudio/
 
 # Gemini
+godot_ai/
 .gemini/
 .godot/uid_cache.bin
 .godot/mono/metadata/ide_messaging_meta.txt
