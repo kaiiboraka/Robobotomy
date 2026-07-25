@@ -1,0 +1,24 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://445nt6m7w4v6"]
+
+[ext_resource type="Shader" uid="uid://tv32h6a7pga2" path="res://Assets/3D/Character/Nam_FBX/cel_shaded.gdshader" id="1_7mhfv"]
+[ext_resource type="Texture2D" uid="uid://bcedkkbrsj431" path="res://Assets/3D/Character/Nam_FBX/color_gradient.tres" id="2_sbn1g"]
+[ext_resource type="Texture2D" uid="uid://did3p25l52we" path="res://Assets/3D/Character/Nam_FBX/fresnel_gradient.tres" id="3_c4ysn"]
+[ext_resource type="Texture2D" uid="uid://c1nop2pjviawq" path="res://Assets/2D/Character/Head_SG_Base_color.png" id="4_6h7ma"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_7mhfv")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("4_6h7ma")
+shader_parameter/point_size = 1.0000000475
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/normal_scale = 1.000000807500001
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = ExtResource("2_sbn1g")
+shader_parameter/fresnel_gradient = ExtResource("3_c4ysn")
