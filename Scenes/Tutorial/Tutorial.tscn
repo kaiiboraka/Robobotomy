@@ -30,7 +30,9 @@
 [ext_resource type="PackedScene" uid="uid://i2hkf7f1n6kf" path="res://Scenes/Environment/Catapult.tscn" id="22_xl8r8"]
 [ext_resource type="PackedScene" uid="uid://dmrf146qrbqun" path="res://Scenes/Environment/Interactables/ControlPanel2.tscn" id="23_2otw2"]
 [ext_resource type="PackedScene" uid="uid://dgt8nrv3iluhe" path="res://Scenes/Environment/Interactables/rope2.tscn" id="23_dmal2"]
+[ext_resource type="PackedScene" uid="uid://d031edjsrylll" path="res://Scenes/Environment/Interactables/rope.tscn" id="26_2otw2"]
 [ext_resource type="PackedScene" uid="uid://dlk6oxkqswup1" path="res://Scenes/Environment/door.tscn" id="27_6ey6l"]
+[ext_resource type="ArrayMesh" uid="uid://cdqecoar4bba" path="res://Assets/3D/Objects/chain_link.res" id="27_gbpfp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0yr2e"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -107,7 +109,8 @@ size = Vector3(3.419, 13.39, 1.56)
 environment = SubResource("Environment_w7w38")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1483892784]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 479.87457, 103.903885, 14.999985)
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 399.22095, 92.69963, 14.999985)
 fov = 45.0
 near = 0.005
 
@@ -118,7 +121,7 @@ script = ExtResource("1_1e0ns")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=64555096 instance=ExtResource("17_1e0ns")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 479.87457, 100.153885, -1.5258789e-05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 399.22095, 88.94963, -1.5258789e-05)
 
 [node name="RightArm" parent="Player" unique_id=904546073 instance=ExtResource("14_vxw4a")]
 
@@ -131,7 +134,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 479.87457, 100.153885, -1.525
 [node name="RightLeg" parent="Player" unique_id=1985177356 instance=ExtResource("19_bdygh")]
 
 [node name="Player_PhantomCamera3D" type="Node3D" parent="." unique_id=1540863412 node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 479.87457, 103.903885, 14.999985)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 399.22095, 92.69963, 14.999985)
 top_level = true
 script = ExtResource("3_dgpfg")
 priority = 1
@@ -992,10 +995,12 @@ transform = Transform3D(0.321, 0, 0, 0, 50, 0, 0, 0, 0.726, 361.20142, 54.866135
 mesh = SubResource("CylinderMesh_2kgik")
 skeleton = NodePath("../..")
 
-[node name="rope8" type="MeshInstance3D" parent="Ropes" unique_id=1534445888]
-transform = Transform3D(0.321, 0, 0, 0, 6.4843655, 0, 0, 0, 0.726, 407.8192, 98.31036, 0.03298569)
-mesh = SubResource("CylinderMesh_2kgik")
-skeleton = NodePath("../..")
+[node name="Rope" parent="Ropes" unique_id=19588440 instance=ExtResource("26_2otw2")]
+transform = Transform3D(0.321, 0, 0, 0, 6.4843655, 0, 0, 0, 0.726, 407.8192, 100.68182, 0.03298569)
+
+[node name="ChainLink" type="MeshInstance3D" parent="Ropes" unique_id=566416037]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 404.71494, 81.06824, -0.9139404)
+mesh = ExtResource("27_gbpfp")
 
 [node name="Head" type="MeshInstance3D" parent="." unique_id=910629086]
 transform = Transform3D(76.16809, -27.610252, 58.61822, 25.277353, 95.96059, 12.353983, -59.66136, 5.407343, 80.070496, -46.931637, 0.98298377, -0.09438473)

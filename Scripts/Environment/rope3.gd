@@ -1,8 +1,15 @@
+@tool
 class_name Rope extends Node3D
 
+var _length : float = 10;
 	# --- Rope Shape ---
 @export_group("Rope Shape")
-@export var length: float = 10;
+@export var length: float = 10 :
+	get : return _length;
+	set(value) :
+		_length = max(value, .1)
+		if (Engine.is_editor_hint()):
+			update_rope_geometry();
 #[Export(PropertyHint.Range, "0.1,10.0,0.1,or_greater")]
 #	private float _length = 10.0f;
 #	public float Length
