@@ -1,0 +1,13 @@
+Art
+- Implement Animations
+- use all the art assets we have, including textures, shaders, and lighting
+- flesh out environment background
+
+Polish main character controller / no major gameplay bugs
+- do throw On Release, and prime it (including raised pos) on Press. 
+- (Controller) throw button drops when not aiming
+- #BUG  glued to floor if standing on catapult
+
+Puzzle mechanics
+- rope swing
+- weighted boxes ( + crane puzzle)
