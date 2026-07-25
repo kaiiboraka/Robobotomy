@@ -25,6 +25,7 @@ class_name Player extends CharacterBody3D
 @onready var ledge_detection_left: RayCast3D = $LedgeDetectionLeft
 @onready var floor_height_detection_left: RayCast3D = $FloorHeightDetectionLeft
 
+
 var limbs: Array = [];
 var selected_limb: BodyPart = null;
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity");
@@ -34,6 +35,8 @@ var current_jump_velocity : float = 4.5;
 
 @export var throw_speed_min : float = 6.0;
 @export var throw_speed_max : float = 14.0;
+
+
 const AIM_DEADZONE : float = 0.2;
 const AIM_MAX : float = 0.9;
 const AIM_RAISE : float = 0.3;
@@ -126,6 +129,12 @@ func register_limb(limb: BodyPart) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	
+	if Input.is_action_pressed("Player_RadialMenu"):
+		Interface.show_radial_menu();
+		pass
+	elif Input.is_action_just_released("Player_RadialMenu"):
+		Interface.hide_radial_menu();
 	
 	# just_pressed avoids re-running select_limb every frame while a limb key is held
 	if Input.is_action_just_pressed("Player_SelectLimb0_Torso") and torso and torso.is_connected:

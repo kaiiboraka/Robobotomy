@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://kdtjf4rehi4g"]
+
+[ext_resource type="Script" uid="uid://cy2lc300pk8td" path="res://Scripts/Autoloads/interface.gd" id="1_npbff"]
+
+[node name="Interface" type="CanvasLayer" unique_id=377925995]
+script = ExtResource("1_npbff")
