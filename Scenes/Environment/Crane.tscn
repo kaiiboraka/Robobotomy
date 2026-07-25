@@ -1,10 +1,22 @@
 [gd_scene format=3 uid="uid://dbj2mxqdg7prw"]
 
-[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/Terrain/ExtendableWall.tscn" id="1_ur1bl"]
+[ext_resource type="Script" uid="uid://br20yyymk8ju3" path="res://Scripts/Environment/Crane.gd" id="1_ncg6t"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_2kgik"]
 
-[node name="Crane" type="Node3D" unique_id=950805602]
+[sub_resource type="BoxShape3D" id="BoxShape3D_4gvqi"]
+size = Vector3(4.498047, 1.6019897, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ur1bl"]
+size = Vector3(5.9658203, 0.3980713, 2.9453125)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4gvqi"]
+size = Vector3(5.958008, 0.40563965, 1)
+
+[node name="Crane" type="CharacterBody3D" unique_id=1842645089]
+collision_layer = 8
+collision_mask = 580
+script = ExtResource("1_ncg6t")
 
 [node name="rope2" type="MeshInstance3D" parent="." unique_id=1887511809]
 transform = Transform3D(0.321, 0, 0, 0, 3.2855546, 0, 0, 0, 0.726, 0, 3.06, 0.033)
@@ -17,12 +29,12 @@ mesh = SubResource("CylinderMesh_2kgik")
 skeleton = NodePath("../../..")
 
 [node name="rope4" type="MeshInstance3D" parent="." unique_id=602298525]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 2.7351637, -0.44569588, 0.03298569)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 2.4586248, 0.024421215, 0.03298569)
 mesh = SubResource("CylinderMesh_2kgik")
 skeleton = NodePath("../../..")
 
 [node name="rope5" type="MeshInstance3D" parent="." unique_id=2011530]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -2.735, -0.446, 0.033)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -2.5137684, 0.024117082, 0.033)
 mesh = SubResource("CylinderMesh_2kgik")
 skeleton = NodePath("../../..")
 
@@ -36,11 +48,24 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.51
 mesh = SubResource("CylinderMesh_2kgik")
 skeleton = NodePath("../../..")
 
-[node name="ExtendableWall51" parent="." unique_id=1149585584 instance=ExtResource("1_ur1bl")]
-transform = Transform3D(0.14147627, 0, 0, 0, 0.70795083, 0, 0, 0, 0.5910442, 0, -0.361, 0)
+[node name="StickyArea" type="Area3D" parent="." unique_id=222064658]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.4366224, 0.033)
+collision_layer = 4
+collision_mask = 141
 
-[node name="ExtendableWall52" parent="." unique_id=1850723278 instance=ExtResource("1_ur1bl")]
-transform = Transform3D(0.047650985, 0.33245358, 0, -0.0653099, 0.24256267, 0, 0, 0, 0.39218658, -2.569, -1.545, 0)
+[node name="StickyCollision" type="CollisionShape3D" parent="StickyArea" unique_id=568389586]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.037261963, 0)
+shape = SubResource("BoxShape3D_4gvqi")
+debug_color = Color(0, 0.6511522, 0.062128857, 0.41960785)
 
-[node name="ExtendableWall53" parent="." unique_id=1320169317 instance=ExtResource("1_ur1bl")]
-transform = Transform3D(-0.04320001, 0.31985006, 0, -0.068335645, -0.20220082, 0, 0, 0, 0.39218658, 2.5685377, -1.590353, -1.9073484e-06)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2010997872]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008148193, -0.3355713, 0)
+shape = SubResource("BoxShape3D_ur1bl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=419417276]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008148193, -0.33498013, 0)
+mesh = SubResource("BoxMesh_4gvqi")
+skeleton = NodePath("")
+
+[connection signal="body_entered" from="StickyArea" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="StickyArea" to="." method="_on_area_3d_body_exited"]

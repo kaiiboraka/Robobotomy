@@ -44,8 +44,15 @@ var _aim_theta : float = 0.0;
 var _aim_dir_x : float = 1.0;
 var _has_aim : bool = false;
 
-enum movement_modes {DEFAULT, ROPE, LEDGE_LEFT, LEDGE_RIGHT}
+enum movement_modes {DEFAULT, ROPE, LEDGE_LEFT, LEDGE_RIGHT, CONTROL_PANEL}
 var _movement_mode: movement_modes = movement_modes.DEFAULT;
+
+var control_panels : Dictionary[BodyPart, ControlPanel] = {
+	r_arm: null,
+	l_arm: null,
+}
+
+var attached_rope: Rope;
 
 var limb_sockets := {
 	"Head": Vector3(0, 2.9366379, 0),
@@ -126,7 +133,6 @@ func register_limb(limb: BodyPart) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	
 	# just_pressed avoids re-running select_limb every frame while a limb key is held
 	if Input.is_action_just_pressed("Player_SelectLimb0_Torso") and torso and torso.is_connected:
 		select_limb(torso);
@@ -151,7 +157,7 @@ func _physics_process(delta: float) -> void:
 
 	_refresh_follow_target();
 
-	if Input.is_action_just_pressed("Player_Throw_Limb") and selected_limb and selected_limb != torso:
+	if Input.is_action_just_pressed("Player_Throw_Limb") and selected_limb and selected_limb != torso and get_movement_mode() != movement_modes.CONTROL_PANEL:
 		if not selected_limb.is_detached:
 			if _has_aim:
 				selected_limb.throw(_aim_dir * _aim_speed);
@@ -164,7 +170,7 @@ func _physics_process(delta: float) -> void:
 			_set_follow_target(selected_limb, 2);
 			check_torso_activation();
 			
-	if Input.is_action_just_pressed("Player_Drop_Limb"):
+	if Input.is_action_just_pressed("Player_Drop_Limb") and get_movement_mode() != movement_modes.CONTROL_PANEL:
 		if selected_limb == torso:
 			drop_all_limbs();
 		elif selected_limb != null and not selected_limb.is_detached:
@@ -172,16 +178,16 @@ func _physics_process(delta: float) -> void:
 			if(selected_limb is Arm and get_movement_mode()==movement_modes.ROPE):
 				set_movement_mode(movement_modes.DEFAULT);
 
-	if Input.is_action_just_pressed("Player_Recall"):
+	if Input.is_action_just_pressed("Player_Recall") and get_movement_mode() != movement_modes.CONTROL_PANEL:
 		if torso and torso.is_connected and torso.is_part_enabled:
 			sync_core_to_torso();
 		if selected_limb == torso:
 			is_controlling_core = true;
 			for limb in limbs:
-				if limb and limb != torso and limb.is_detached:
+				if limb and limb != torso and limb.is_detached and !limb.is_busy:
 					var tween = limb.retract();
 					tween.finished.connect(_on_limb_returned.bind(limb));
-		elif selected_limb and selected_limb != torso and selected_limb.is_detached:
+		elif selected_limb and selected_limb != torso and selected_limb.is_detached and !selected_limb.is_busy:
 			is_controlling_core = true;
 			var tween := selected_limb.retract();
 			tween.finished.connect(select_limb.bind(torso));
@@ -190,64 +196,69 @@ func _physics_process(delta: float) -> void:
 		_update_selection_hud();
 
 	# Add the gravity.
-	if not is_on_floor() and get_movement_mode() == movement_modes.DEFAULT:
+	if not is_on_floor() and (get_movement_mode() == movement_modes.DEFAULT or get_movement_mode() == movement_modes.CONTROL_PANEL):
 		velocity.y -= gravity * delta;
 
 	# Process movement inputs only if we are controlling the core
 	if is_controlling_core:
-		if(get_movement_mode() == movement_modes.ROPE):
-			velocity.x = 0;
-			velocity.y = 0;
-			if(Input.is_action_pressed("Player_Move_Up")):
-				velocity.y = 2;
-			elif (Input.is_action_pressed("Player_Move_Down")):
-				velocity.y = -5;
-#			if(Input.is_action_pressed("Player_Move_Left")):
-#				velocity.x = -2;
-#			elif(Input.is_action_pressed("Player_Move_Right")):
-#				velocity.x = 2;
-			
-			if(Input.is_action_just_pressed("Player_Jump")):
-				velocity.y = current_jump_velocity
-				set_movement_mode(movement_modes.DEFAULT);
+		match get_movement_mode():
+			movement_modes.ROPE:
+				position = attached_rope.get_grab_point() + (global_position - get_grab_location())
+				velocity.x = 0;
+				velocity.y = 0;
+				if(Input.is_action_pressed("Player_Move_Up")):
+					attached_rope.climb(Vector3(0, -1, 0), 0.02)
+				elif (Input.is_action_pressed("Player_Move_Down")):
+					attached_rope.climb(Vector3(0, 1, 0), 0.02)
+				if(Input.is_action_pressed("Player_Move_Left")):
+					attached_rope.push(Vector3(-1, 0, 0), 0.2)
+				elif(Input.is_action_pressed("Player_Move_Right")):
+					attached_rope.push(Vector3(1, 0, 0), 0.2)
 				
-		elif(get_movement_mode() == movement_modes.LEDGE_RIGHT):
-			velocity.x = 0
-			velocity.y = 0;
-			position.y = floor_height_detection_right.get_collision_point().y - 2.5
-			if(Input.is_action_just_pressed("Player_Jump")):
-				velocity.y = current_jump_velocity
-				set_movement_mode(movement_modes.DEFAULT);
-			if(Input.is_action_just_pressed("Player_Move_Down")):
-				set_movement_mode(movement_modes.DEFAULT)
-				
-		elif(get_movement_mode() == movement_modes.LEDGE_LEFT):
-			velocity.x=0
-			velocity.y=0
-			position.y = floor_height_detection_left.get_collision_point().y - 2.5
-			if(Input.is_action_just_pressed("Player_Jump")):
-				velocity.y = current_jump_velocity
-				set_movement_mode(movement_modes.DEFAULT);
+				if(Input.is_action_just_pressed("Player_Jump")):
+					velocity = attached_rope.jump_off();
+					velocity.y += current_jump_velocity
+					set_movement_mode(movement_modes.DEFAULT);
+			movement_modes.LEDGE_LEFT:
+				velocity.x=0
+				velocity.y=0
+				position.y = floor_height_detection_left.get_collision_point().y - 2.5
+				if(Input.is_action_just_pressed("Player_Jump")):
+					velocity.y = current_jump_velocity
+					set_movement_mode(movement_modes.DEFAULT);
+					if(Input.is_action_just_pressed("Player_Move_Down")):
+						set_movement_mode(movement_modes.DEFAULT)
+			movement_modes.LEDGE_RIGHT:
+				velocity.x = 0
+				velocity.y = 0;
+				position.y = floor_height_detection_right.get_collision_point().y - 2.5
+				if(Input.is_action_just_pressed("Player_Jump")):
+					velocity.y = current_jump_velocity
+					set_movement_mode(movement_modes.DEFAULT);
 				if(Input.is_action_just_pressed("Player_Move_Down")):
 					set_movement_mode(movement_modes.DEFAULT)
-		else:
-			# Handle Jump.
-			if Input.is_action_just_pressed("Player_Jump") and is_on_floor():
-				velocity.y = current_jump_velocity;
+			movement_modes.CONTROL_PANEL:
+				velocity.x = 0
+				velocity.y = 0;
+			movement_modes.DEFAULT:
+				# Handle Jump.
+				if Input.is_action_just_pressed("Player_Jump") and is_on_floor():
+					velocity.y = current_jump_velocity;
 
-			# Get the input direction and handle the movement/deceleration.
-			var input_dir := Input.get_axis("Player_Move_Left", "Player_Move_Right");
-			var move_speed : float = _get_movement_speed();
+				# Get the input direction and handle the movement/deceleration.
+				var input_dir := Input.get_axis("Player_Move_Left", "Player_Move_Right");
+				var move_speed : float = _get_movement_speed();
 
-			if input_dir:
-				velocity.x = input_dir * move_speed;
+				if input_dir:
+					velocity.x = input_dir * move_speed;
+					
+					if should_grab_ledge_right():
+						set_movement_mode(movement_modes.LEDGE_RIGHT)
+					elif should_grab_ledge_left():
+						set_movement_mode(movement_modes.LEDGE_LEFT)
+				else:
+					velocity.x = move_toward(velocity.x, 0, move_speed);
 				
-				if should_grab_ledge_right():
-					set_movement_mode(movement_modes.LEDGE_RIGHT)
-				elif should_grab_ledge_left():
-					set_movement_mode(movement_modes.LEDGE_LEFT)
-			else:
-				velocity.x = move_toward(velocity.x, 0, move_speed);
 	else:
 		# Decelerate naturally when not under control
 		velocity.x = move_toward(velocity.x, 0, speed * delta);
@@ -267,9 +278,47 @@ func _physics_process(delta: float) -> void:
 	move_and_slide();
 
 func should_grab_ledge_right() -> bool:
-	return wall_detection_right.is_colliding() and not ledge_detection_right.is_colliding()
+	return wall_detection_right.is_colliding() and not ledge_detection_right.is_colliding() and velocity.y < 0
 func should_grab_ledge_left() -> bool:
-	return wall_detection_left.is_colliding() and not ledge_detection_left.is_colliding()
+	return wall_detection_left.is_colliding() and not ledge_detection_left.is_colliding() and velocity.y < 0
+	
+func grab_rope(rope: Rope) -> void:
+	attached_rope = rope;
+	set_movement_mode(movement_modes.ROPE);
+	
+func get_grab_location() -> Vector3:
+	if(!l_arm and !r_arm and l_arm.is_detached and r_arm.is_detached):
+		return global_position
+	else:
+		return Vector3(global_position.x, l_arm.global_position.y, 0)
+
+func is_controlling_arm(arm: BodyPart) -> bool:
+	if(selected_limb == arm): # arm is selected
+		return true;
+	elif(is_controlling_core and not arm.is_detached): # arm is being controlled through the torso
+		return true
+	return false
+	
+func start_controlling_panel(arm: BodyPart, panel: ControlPanel) -> void:
+	# should check to see what limb is being controlled and disable that selectively
+	control_panels[arm] = panel;
+	if(arm.is_detached):
+		arm.set_accepts_player_input(false)
+		arm.is_busy = true;
+		arm.position = panel.get_snap_location();
+		arm.linear_velocity = Vector3(0, 0, 0)
+	else:
+		set_movement_mode(movement_modes.CONTROL_PANEL)
+	return
+	
+func stop_controlling_panel(arm: BodyPart) -> void:
+	control_panels[arm] = null;
+	if(arm.is_detached):
+		arm.is_busy = false;
+		arm.set_accepts_player_input(true)
+	else:
+		set_movement_mode(movement_modes.DEFAULT)
+	return
 	
 func sync_core_to_torso() -> void:
 	if not torso: return;
@@ -484,6 +533,8 @@ func _set_follow_target(limb: Node3D, newPriority: int = -1) -> void:
 	# ALWAYS keep exactly one target: the given limb, or the player (self) when
 	# null. This keeps the camera framed on something valid at all times.
 	var target : Node3D = limb if is_instance_valid(limb) else self;
+	if (limb and limb.is_busy) or get_movement_mode() == movement_modes.CONTROL_PANEL:
+		target = get_forwarded_camera_target(limb)
 	phantom_camera.follow_targets = [target];
 
 
@@ -499,9 +550,27 @@ func _refresh_follow_target() -> void:
 		return;
 	var should_follow : bool = (selected_limb.is_detached or (selected_limb == torso and not _any_limb_still_socketed()));
 	var target : Node3D = selected_limb if should_follow else self;
+	
+	if(selected_limb.is_busy or get_movement_mode() == movement_modes.CONTROL_PANEL):
+		target = get_forwarded_camera_target(selected_limb)
+		
 	if phantom_camera.follow_targets.size() != 1 or phantom_camera.follow_targets[0] != target:
 		phantom_camera.follow_targets = [target];
 
+func get_forwarded_camera_target(limb: BodyPart) -> Node3D:
+	if !control_panels.has(limb):
+		# THIS DOES NOT WORK. If the Torso is selected, the target will update to the other object as it should, but the camera won't move. Giving up on this for now since we have bigger fish to fry.
+		if control_panels.get(l_arm):
+			var target = control_panels.get(l_arm).get_camera_target()
+			return target
+		elif control_panels.get(r_arm):
+			var target = control_panels.get(r_arm).get_camera_target()
+			return target
+		else:
+			return null
+	if(control_panels.get(limb)):
+		return control_panels.get(limb).get_camera_target()
+	return null
 
 func _hud_needs_periodic_update() -> bool:
 	for limb in limbs:

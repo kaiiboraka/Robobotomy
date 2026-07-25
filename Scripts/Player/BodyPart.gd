@@ -17,6 +17,7 @@ var is_part_enabled: bool = true;
 var accepts_player_input: bool = true;
 var is_detached: bool = false;
 var is_retracting: bool = false;
+var is_busy: bool = false;
 var starting_position: Vector3;
 var starting_rotation: Vector3;
 var starting_transform: Transform3D;
@@ -226,6 +227,8 @@ func is_grounded() -> bool:
 
 
 func set_accepts_player_input(enabled: bool) -> void:
+	if(is_busy):
+		return
 	accepts_player_input = enabled;
 	set_process_input(enabled);
 	if enabled:
