@@ -217,7 +217,7 @@ func _physics_process(delta: float) -> void:
 				
 				if(Input.is_action_just_pressed("Player_Jump")):
 					velocity = attached_rope.jump_off();
-					velocity.y = current_jump_velocity
+					velocity.y += current_jump_velocity
 					set_movement_mode(movement_modes.DEFAULT);
 			movement_modes.LEDGE_LEFT:
 				velocity.x=0
