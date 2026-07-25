@@ -19,7 +19,7 @@ class_name Rope extends Node3D
 # --- Physics Parameters ---
 @export_group("Physics Parameters")
 @export var gravity: float = -100.0;
-@export var launch_force: float = 4.0;
+@export var launch_force: float = 10.0;
 @export var angular_dampening: float = 0.5;
 
 # --- Debug ---
@@ -31,15 +31,16 @@ class_name Rope extends Node3D
 @onready var grabbable_area: Area3D = $GrabbableArea
 @onready var grabbable_shape: CollisionShape3D = $GrabbableArea/GrabbableShape
 
-@export var climb_speed: float = 1.0;
-@export var slide_speed: float = 10.0;
+@export_group("Player Limit Parameters")
+@export var climb_speed: float = 3.0;
+@export var slide_speed: float = 5.0;
 @export var lower_climb_limit: float = 1.0;
 @export var upper_climb_limit: float = 1.0;
 var grab_position: float;
 var _angle: float = 0.0;
 
 func _ready() -> void:
-	UpdateRopeGeometry();
+	update_rope_geometry();
 
 func _physics_process(delta: float) -> void:
 	var pivot: float = grab_position if grab_position > 0.001 else length;
@@ -48,7 +49,7 @@ func _physics_process(delta: float) -> void:
 	angular_velocity += angularAccel * delta;
 	_angle += angular_velocity * delta;
 
-	UpdateRopeAngle();
+	update_rope_angle();
 
 	angular_velocity *= 1 - angular_dampening * delta;
 
@@ -56,71 +57,72 @@ func _physics_process(delta: float) -> void:
 ## --------------------------------------------------------
 ## ROPE GEOMETRY
 ## --------------------------------------------------------
-func UpdateRopeGeometry() -> void:
+func update_rope_geometry() -> void:
 
 	# Duplicate mesh
-	var mesh: CylinderMesh = rope_mesh.Mesh.Duplicate() as CylinderMesh;
-	mesh.Height = length;
+	var mesh: CylinderMesh = rope_mesh.mesh.duplicate() as CylinderMesh;
+	mesh.height = length;
 
 	# Duplicate shape
-	var shape: BoxShape3D = grabbable_shape.Shape.Duplicate() as BoxShape3D;
-	shape.Size = Vector3(shape.Size.X, length + 0.5, shape.Size.Z);
+	var shape: BoxShape3D = grabbable_shape.shape.duplicate() as BoxShape3D;
+	shape.size = Vector3(shape.size.x, length + 0.5, shape.size.z);
 
 	# Positioning
-	rope_mesh.Position = Vector3(0, -length / 2, 0);
-	grabbable_area.Position = Vector3(0, -( length + 0.5 ) / 2, 0);
+	rope_mesh.position = Vector3(0, -length / 2, 0);
+	grabbable_area.position = Vector3(0, -( length + 0.5 ) / 2, 0);
 
 	# Apply
-	rope_mesh.Mesh = mesh;
-	grabbable_shape.Shape = shape;
+	rope_mesh.mesh = mesh;
+	grabbable_shape.shape = shape;
 
-func UpdateRopeAngle() -> void:
+func update_rope_angle() -> void:
 
 	rotation = Vector3(rotation.x, rotation.y, _angle);
 
 
-func OnPlayerEnter(player: Node3D) -> void:
-	InteractWith(player);
+func on_player_enter(player: Node3D) -> void:
+	if(player is Player):
+		interact_with(player);
 ## --------------------------------------------------------
 ## INTERACTION LOGIC
 ## --------------------------------------------------------
-func InteractWith(player: Player) -> void:
+func interact_with(player: Player) -> void:
 
 	print("Interacting")
 	if(!player.r_arm or player.r_arm.is_detached or !player.l_arm or player.l_arm.is_detached):
 		return;
 
+	player.grab_rope(self)
 
-	player.SetMovementMode(player.movement_modes.ROPE);
-
-	var distToRope: Vector3 = global_position - player.global_position;
+	var distToRope: Vector3 = global_position - player.get_grab_location();
 	distToRope.z = 0;
 
 	grab_position = clamp(distToRope.length(), lower_climb_limit, length - upper_climb_limit);
 
 	var ropeDir: Vector3 = distToRope.normalized();
 	var tangentDir: Vector3 = Vector3(ropeDir.y, -ropeDir.x, 0);
-	var tangentSpeed: float = player.Velocity.Dot(tangentDir);
+	var tangentSpeed: float = player.velocity.dot(tangentDir);
 	
 	angular_velocity += tangentSpeed / grab_position;
 
-func StopInteraction(interactor: Node3D) -> void:
+func stop_interaction(interactor: Node3D) -> void:
 	grab_position = 0.0;
 
 
-func JumpOff() -> Vector3:
+func jump_off() -> Vector3:
 	var tangent: Vector3 = Vector3(cos(_angle), 0, 0);
 	var tangentSpeed: float = angular_velocity * grab_position;
+	angular_velocity = 0;
 	return tangent * tangentSpeed * launch_force;
 
-func GetGrabPoint() -> Vector3:
+func get_grab_point() -> Vector3:
 	return Vector3(
 		grab_position * sin(_angle),
 		-grab_position * cos(_angle),
 		0
 	) + global_position;
 
-func Push(dir: Vector3, force: float) -> void:
+func push(dir: Vector3, force: float) -> void:
 	if (grab_position < 0.001):
 		return;
 
@@ -130,7 +132,7 @@ func Push(dir: Vector3, force: float) -> void:
 
 	angular_velocity += angularAccel;
 
-func Climb(dir: Vector3, speed: float) -> void:
+func climb(dir: Vector3, speed: float) -> void:
 	var dirSpeed: float = climb_speed if dir.y<0 else slide_speed if dir.y>0 else 0
 
 	grab_position += dir.y * speed * dirSpeed;

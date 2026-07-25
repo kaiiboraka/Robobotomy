@@ -52,6 +52,8 @@ var control_panels : Dictionary[BodyPart, ControlPanel] = {
 	l_arm: null,
 }
 
+var attached_rope: Rope;
+
 var limb_sockets := {
 	"Head": Vector3(0, 2.9366379, 0),
 	"Torso": Vector3(0, 2.0686834, 0),
@@ -201,18 +203,20 @@ func _physics_process(delta: float) -> void:
 	if is_controlling_core:
 		match get_movement_mode():
 			movement_modes.ROPE:
+				position = attached_rope.get_grab_point() + (global_position - get_grab_location())
 				velocity.x = 0;
 				velocity.y = 0;
 				if(Input.is_action_pressed("Player_Move_Up")):
-					velocity.y = 2;
+					attached_rope.climb(Vector3(0, -1, 0), 0.02)
 				elif (Input.is_action_pressed("Player_Move_Down")):
-					velocity.y = -5;
-	#			if(Input.is_action_pressed("Player_Move_Left")):
-	#				velocity.x = -2;
-	#			elif(Input.is_action_pressed("Player_Move_Right")):
-	#				velocity.x = 2;
+					attached_rope.climb(Vector3(0, 1, 0), 0.02)
+				if(Input.is_action_pressed("Player_Move_Left")):
+					attached_rope.push(Vector3(-1, 0, 0), 0.2)
+				elif(Input.is_action_pressed("Player_Move_Right")):
+					attached_rope.push(Vector3(1, 0, 0), 0.2)
 				
 				if(Input.is_action_just_pressed("Player_Jump")):
+					velocity = attached_rope.jump_off();
 					velocity.y = current_jump_velocity
 					set_movement_mode(movement_modes.DEFAULT);
 			movement_modes.LEDGE_LEFT:
@@ -277,6 +281,16 @@ func should_grab_ledge_right() -> bool:
 	return wall_detection_right.is_colliding() and not ledge_detection_right.is_colliding() and velocity.y < 0
 func should_grab_ledge_left() -> bool:
 	return wall_detection_left.is_colliding() and not ledge_detection_left.is_colliding() and velocity.y < 0
+	
+func grab_rope(rope: Rope) -> void:
+	attached_rope = rope;
+	set_movement_mode(movement_modes.ROPE);
+	
+func get_grab_location() -> Vector3:
+	if(!l_arm and !r_arm and l_arm.is_detached and r_arm.is_detached):
+		return global_position
+	else:
+		return Vector3(global_position.x, l_arm.global_position.y, 0)
 
 func is_controlling_arm(arm: BodyPart) -> bool:
 	if(selected_limb == arm): # arm is selected

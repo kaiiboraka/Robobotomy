@@ -108,12 +108,6 @@ public partial class Rope : Climbable
 		GD.Print("interacting");
 		if (interactor is not Player player)
 			return;
-		if(!player.r_arm || player.r_arm.is_detached || !player.l_arm || player.l_arm.is_detached)
-		{
-			return;
-		}
-
-		player.SetMovementMode(player.movement_modes.ROPE);
 
 		Vector3 distToRope = GlobalPosition - player.GlobalPosition;
 		distToRope.Z = 0;

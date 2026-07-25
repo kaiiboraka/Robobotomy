@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bfxbhhtip1gba" path="res://Scenes/Environment/Terrain/MovableExtendableWall.tscn" id="18_4ftp5"]
 [ext_resource type="PackedScene" uid="uid://dyki3kr5ucgg7" path="res://Scenes/Environment/Doors/Activated_PathFollower.tscn" id="18_l0g40"]
 [ext_resource type="PackedScene" uid="uid://dg3q8c1rvpj7c" path="res://Scenes/Environment/CraneBoundary.tscn" id="20_bwhe6"]
-[ext_resource type="PackedScene" uid="uid://d031edjsrylll" path="res://Scenes/Environment/Interactables/rope.tscn" id="21_jkqt3"]
+[ext_resource type="PackedScene" uid="uid://ck4xyle2xn27e" path="res://Scenes/Environment/Interactables/rope3.tscn" id="21_jkqt3"]
 
 [sub_resource type="Resource" id="Resource_lpy3h"]
 script = ExtResource("5_gw4p4")
@@ -113,7 +113,7 @@ activation_targets = [NodePath("../Crane")]
 activation_mode = 0
 
 [node name="Crane" parent="." unique_id=950805602 instance=ExtResource("15_lauej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.381952, 6.9960318, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.835043, 8.889433, 0)
 
 [node name="Crate" parent="." unique_id=1252600604 instance=ExtResource("16_yp1hl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.764574, 1.5770297, 0.26120472)
@@ -142,5 +142,5 @@ transform = Transform3D(1, 0, 0, 0, 2.0830538, 0, 0, 0, 1, -20.064476, 7.486333,
 [node name="CraneBoundary2" parent="." unique_id=1762849661 instance=ExtResource("20_bwhe6")]
 transform = Transform3D(0.40585855, 1.8020645, 0, -0.9139359, 0.80025667, 0, 0, 0, 1, -12.724903, 18.248943, 0)
 
-[node name="Rope" parent="." unique_id=19588440 instance=ExtResource("21_jkqt3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.348811, 13, 0)
+[node name="Rope3" parent="." unique_id=427248552 instance=ExtResource("21_jkqt3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.271143, 11.246677, 0)
