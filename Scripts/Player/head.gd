@@ -1,4 +1,4 @@
-extends RollingBodyPart
+extends RollingBodyPart;
 
 
 func should_roll() -> bool:

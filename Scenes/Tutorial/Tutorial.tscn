@@ -121,6 +121,8 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=64555096 instance=ExtResource("17_1e0ns")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 399.22095, 88.94963, -1.5258789e-05)
+jump_velocity = 32.0
+gravity_multiplier = 4.0
 
 [node name="RightArm" parent="Player" unique_id=904546073 instance=ExtResource("14_vxw4a")]
 
@@ -998,9 +1000,9 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 407.8192, 103.78182, 0.03298569)
 
 [node name="Chain" parent="Ropes/ChainSpot" unique_id=2016857665 instance=ExtResource("26_gbpfp")]
-length = 55
 launch_force = 20.0
 damping = 0.98
+length = 55
 
 [node name="Head" type="MeshInstance3D" parent="." unique_id=910629086]
 transform = Transform3D(76.16809, -27.610252, 58.61822, 25.277353, 95.96059, 12.353983, -59.66136, 5.407343, 80.070496, -46.931637, 0.98298377, -0.09438473)
