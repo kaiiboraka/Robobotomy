@@ -109,7 +109,7 @@ environment = SubResource("Environment_w7w38")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1483892784]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152.72852, 7.846032, 14.999985)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 213.30888, 7.846032, 14.999985)
 fov = 45.0
 near = 0.005
 
@@ -120,10 +120,7 @@ script = ExtResource("1_1e0ns")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=64555096 instance=ExtResource("17_1e0ns")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152.72852, 4.096032, -1.5258789e-05)
-speed = 7.0
-jump_velocity = 20.0
-gravity_multiplier = 4.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 213.30888, 4.096032, -1.5258789e-05)
 
 [node name="RightArm" parent="Player" unique_id=904546073 instance=ExtResource("14_vxw4a")]
 
@@ -132,11 +129,12 @@ gravity_multiplier = 4.0
 [node name="Head" parent="Player" unique_id=2035200198 instance=ExtResource("13_ps4sb")]
 
 [node name="LeftLeg" parent="Player" unique_id=925113335 instance=ExtResource("17_v3e2r")]
+limb_type = 0
 
 [node name="RightLeg" parent="Player" unique_id=1985177356 instance=ExtResource("19_bdygh")]
 
 [node name="Player_PhantomCamera3D" type="Node3D" parent="." unique_id=1540863412 node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152.72852, 7.846032, 14.999985)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 213.30888, 7.846032, 14.999985)
 top_level = true
 script = ExtResource("3_dgpfg")
 priority = 1
@@ -517,6 +515,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 215.02275, -4.2043037, 0)
 
 [node name="LeftLeg" parent="Level6_leg" unique_id=709925291 instance=ExtResource("17_v3e2r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 247.67612, -5.3896837, -0.07286453)
+limb_type = 0
 
 [node name="ExtendableWall21" parent="Level6_leg" unique_id=1642982 instance=ExtResource("1_w7w38")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 221.9675, -2.6129246, 4.5474735e-13)

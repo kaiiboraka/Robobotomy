@@ -103,7 +103,7 @@ func _generate_grid() -> void:
 		var light : LightGridLight = _LIGHT_SCENE.instantiate();
 		add_child(light);
 		light.set_state(LightGridLight.LightStates.LIGHT_ON if i < activated_count else LightGridLight.LightStates.LIGHT_OFF);
-		@warning_ignore("integer_division");
+		@warning_ignore("integer_division")
 		light.position = _BASE_LIGHT_POS + Vector3(
 			((i % light_width) * _LIGHT_SPACING) - boxMesh.size.x / 2,
 			((i / light_width) * _LIGHT_SPACING) - boxMesh.size.y / 2,

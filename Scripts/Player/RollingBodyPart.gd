@@ -88,7 +88,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 
 
 	# Unified jumping
-	handle_jump();
+	handle_jump(state);
 
 
 	# Apply torque for moving right, respecting the velocity cap.

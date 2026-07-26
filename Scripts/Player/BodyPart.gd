@@ -301,8 +301,9 @@ func handle_movement(state: PhysicsDirectBodyState3D) -> void:
 
 
 ## Apply a jump impulse when the jump button is pressed and the limb is grounded.
-func handle_jump() -> void:
-	if Input.is_action_just_pressed("Player_Jump") and is_grounded():
+## Pass [param state] when calling from _integrate_forces for accurate contact detection.
+func handle_jump(state: PhysicsDirectBodyState3D = null) -> void:
+	if Input.is_action_just_pressed("Player_Jump") and is_grounded(state):
 		wake_up();
 		apply_central_impulse(Vector3.UP * jump_velocity);
 
@@ -314,10 +315,20 @@ func wake_up() -> void:
 
 ## Returns true if this limb is resting on something that counts as ground
 ## (StaticBody, AnimatableBody, GridMap, or a frozen RigidBody).
-func is_grounded() -> bool:
-	for body in get_colliding_bodies():
-		if counts_as_ground_for_limb(body):
-			return true;
+## Uses contact normals to ignore wall contacts — only surfaces below the
+## limb (normal.y > 0.3) are considered ground.
+## Pass [param state] from _integrate_forces for accurate contact-based detection;
+## without state, falls back to RayCast3D.
+func is_grounded(state: PhysicsDirectBodyState3D = null) -> bool:
+	if state:
+		for i in range(state.get_contact_count()):
+			var normal := state.get_contact_local_normal(i);
+			if normal.y <= 0.3:
+				continue;
+			var collider_id = state.get_contact_collider_id(i);
+			var collider = instance_from_id(collider_id) if collider_id else null;
+			if collider and counts_as_ground_for_limb(collider):
+				return true;
 
 	var ray := get_node_or_null("RayCast3D") as RayCast3D;
 	if ray and ray.is_colliding():

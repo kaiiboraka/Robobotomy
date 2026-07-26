@@ -279,6 +279,7 @@ throw_force = 30.0
 speed = 4.0
 acceleration = 5.0
 jump_velocity = 2.0
+limb_type = 3
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=307488596]
 
