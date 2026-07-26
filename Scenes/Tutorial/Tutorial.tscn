@@ -994,10 +994,10 @@ transform = Transform3D(0.321, 0, 0, 0, 50, 0, 0, 0, 0.726, 361.20142, 54.866135
 mesh = SubResource("CylinderMesh_2kgik")
 skeleton = NodePath("../..")
 
-[node name="Node3D" type="Node3D" parent="Ropes" unique_id=1628290219]
+[node name="ChainSpot" type="Node3D" parent="Ropes" unique_id=1628290219]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 407.8192, 100.68182, 0.03298569)
 
-[node name="Chain" parent="Ropes/Node3D" unique_id=2016857665 instance=ExtResource("26_gbpfp")]
+[node name="Chain" parent="Ropes/ChainSpot" unique_id=2016857665 instance=ExtResource("26_gbpfp")]
 length = 45
 
 [node name="Head" type="MeshInstance3D" parent="." unique_id=910629086]

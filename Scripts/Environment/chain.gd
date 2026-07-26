@@ -59,6 +59,8 @@ var points: Array[ChainPoint] = []
 var link_mesh_instances: Array[MeshInstance3D] = []
 
 func _ready():
+	if grabbable_area != null:
+		grabbable_area.body_entered.connect(on_player_enter)
 	update_chain_geometry()
 
 func _physics_process(delta: float):
