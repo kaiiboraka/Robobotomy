@@ -66,7 +66,7 @@ func update_visual():
 	if abs(link_dir.dot(up_ref)) > 0.99:
 		up_ref = Vector3.RIGHT;
 	var x_axis = up_ref.cross(link_dir).normalized();
-	var z_axis = link_dir.cross(x_axis).normalized();
+	var z_axis = x_axis.cross(link_dir).normalized();
 	basis = Basis(x_axis, link_dir, z_axis);
 
 	if idx % 2 == 1:
