@@ -44,6 +44,7 @@ const LinkScene: PackedScene = preload("uid://mc7fntx8byk1");
 @export_range(0, 3) var push_force: float = 1.0;
 var grab_position: float;
 var grab_link_idx: int = -1;
+var is_occupied: bool;
 
 var points: Array[ChainPoint] = [];
 var links: Array[Link] = [];
@@ -52,15 +53,11 @@ var _link_count: int = 10;
 var _angle: float = 0.0;
 
 # --- Chain Geometry ---
-@onready var grabbable_area = $GrabbableArea;
-@onready var grabbable_shape = $GrabbableArea/GrabbableShape;
 @onready var visible_enabler = $VisibleOnScreenEnabler3D;
 
 
-## Connect the grabbable area signal and build the initial chain links.
+## Build the initial chain links.
 func _ready():
-	if grabbable_area != null:
-		grabbable_area.body_entered.connect(on_player_enter);
 	update_chain_geometry();
 
 
@@ -123,6 +120,7 @@ func sync_link_count(count: int):
 			var link = existing[i];
 			link.name = "Link%d" % i;
 			link.setup(points[i], points[i + 1], i, link_spacing);
+			_connect_link_signals(link);
 			links.append(link);
 		else:
 			var link = LinkScene.instantiate() as Link;
@@ -130,12 +128,30 @@ func sync_link_count(count: int):
 			link.setup(points[i], points[i + 1], i, link_spacing);
 			add_child(link);
 			link.owner = self;
+			_connect_link_signals(link);
 			links.append(link);
 
 	for i in range(count, existing.size()):
 		remove_child(existing[i]);
 		existing[i].queue_free();
 
+
+## Connect a link's body_entered_grabbable signal to this chain's handler
+## and give it a reference to this chain for occupied-state checks.
+## Uses is_connected guard so reused links don't accumulate duplicate connections.
+func _connect_link_signals(link: Link) -> void:
+	link.parent_chain = self;
+	if not link.body_entered_grabbable.is_connected(on_player_enter):
+		link.body_entered_grabbable.connect(on_player_enter);
+
+
+## Enable or disable all link grabbable areas so they don't fire overlap
+## events while the chain is occupied.
+func _set_link_areas_enabled(enabled: bool) -> void:
+	for link in links:
+		if link.grabbable_area:
+			link.grabbable_area.set_deferred("monitoring", enabled);
+			link.grabbable_area.set_deferred("monitorable", enabled);
 
 ## Rebuild all chain points from scratch, sync link children,
 ## and resize the grabbable collision shape to match the chain.
@@ -153,19 +169,11 @@ func update_chain_geometry():
 	sync_link_count(count);
 	update_link_transforms();
 
-	if grabbable_shape != null and grabbable_shape.shape != null:
-		var shape = grabbable_shape.shape.duplicate() as BoxShape3D;
-		shape.size = Vector3(shape.size.x, _link_count * link_spacing + 0.5, shape.size.z);
-		grabbable_shape.shape = shape;
-
-	if grabbable_area != null:
-		grabbable_area.position = Vector3(0, -(_link_count * link_spacing + 0.5) / 2, 0);
-
-	if visible_enabler != null and grabbable_shape != null and grabbable_shape.shape != null:
-		var box := grabbable_shape.shape as BoxShape3D;
+	if visible_enabler != null:
+		var height := _link_count * link_spacing + 0.5;
 		visible_enabler.aabb = AABB(
-			Vector3(-box.size.x / 2, -(_link_count * link_spacing + 0.5), -box.size.z / 2),
-			Vector3(box.size.x, _link_count * link_spacing + 0.5, box.size.z),
+			Vector3(-0.625, -height, -0.5),
+			Vector3(1.25, height, 1.0),
 		);
 
 
@@ -201,6 +209,9 @@ func interact_with(player: Player):
 
 	player.grab_chain(self);
 
+	is_occupied = true;
+	_set_link_areas_enabled(false);
+
 	var distToChain: Vector3 = global_position - player.get_grab_location();
 	distToChain.z = 0;
 
@@ -220,9 +231,20 @@ func interact_with(player: Player):
 
 
 ## Clear the grab state when the player detaches from this chain.
+## Link areas stay disabled and is_occupied stays true until
+## release_chain() is called (when the player lands or presses interact).
 func stop_interaction(interactor: Node3D):
 	grab_position = 0.0;
 	grab_link_idx = -1;
+
+
+## Re-enable link areas and clear the occupied flag so the chain
+## can be grabbed again. Called by the player when they land or
+## press Player_Interact. If the player is still overlapping a
+## link area, body_entered fires immediately and they re-grab.
+func release_chain():
+	is_occupied = false;
+	_set_link_areas_enabled(true);
 
 
 ## Return a launch velocity based on the grabbed link's current verlet

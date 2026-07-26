@@ -2,21 +2,9 @@
 
 [ext_resource type="Script" uid="uid://coq8l10sf1x08" path="res://Scripts/Environment/chain.gd" id="1_hi5wi"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_hi5wi"]
-size = Vector3(1.5, 0.5, 1)
-
 [node name="Chain" type="Node3D" unique_id=2016857665]
 script = ExtResource("1_hi5wi")
 link_spacing = 0.3
 
 [node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="." unique_id=1241051203]
-aabb = AABB(-0.75, -0.5, -0.5, 1.5, 0.5, 1)
-
-[node name="GrabbableArea" type="Area3D" parent="." unique_id=1055664422]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
-collision_layer = 0
-collision_mask = 3
-
-[node name="GrabbableShape" type="CollisionShape3D" parent="GrabbableArea" unique_id=395064012]
-shape = SubResource("BoxShape3D_hi5wi")
+aabb = AABB(-0.625, -0.5, -0.5, 1.25, 0.5, 1)

@@ -226,7 +226,6 @@ func _physics_process(delta: float) -> void:
 					velocity = attached_chain.jump_off();
 					velocity.y += current_jump_velocity;
 					attached_chain.stop_interaction(self);
-					attached_chain = null;
 					set_movement_mode(movement_modes.DEFAULT);
 			## LEDGE_LEFT: snap player Y to the left ledge collision point.
 			movement_modes.LEDGE_LEFT:
@@ -292,6 +291,11 @@ func _physics_process(delta: float) -> void:
 		throw_arc.toggle_aim(show_arc);
 
 	move_and_slide();
+
+	if attached_chain != null and get_movement_mode() != movement_modes.CHAIN:
+		if is_on_floor() or Input.is_action_just_pressed("Player_Interact"):
+			attached_chain.release_chain();
+			attached_chain = null;
 
 
 ## Add a newly picked-up or spawned limb to the player's tracking arrays,

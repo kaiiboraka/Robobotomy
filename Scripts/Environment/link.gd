@@ -2,12 +2,31 @@
 extends Node3D;
 class_name Link
 
+## Emitted when a body enters this link's grabbable area.
+signal body_entered_grabbable(body: Node3D);
+
 var head;
 var feet;
 var idx: int;
 var link_height: float;
+var parent_chain: Chain;
 
 @onready var mesh_instance: MeshInstance3D = $MeshInstance3D;
+@onready var grabbable_area: Area3D = $GrabbableArea;
+
+
+func _ready() -> void:
+	if grabbable_area:
+		grabbable_area.body_entered.connect(_on_grabbable_body_entered);
+
+
+## Forward the area's body_entered as our own signal (call down, signal up).
+## Skips emitting when the parent chain is already occupied to avoid
+## redundant re-grab attempts during climbing.
+func _on_grabbable_body_entered(body: Node3D) -> void:
+	if parent_chain and parent_chain.is_occupied:
+		return;
+	body_entered_grabbable.emit(body);
 
 ## Store references to the two ChainPoints this link connects,
 ## its index in the chain, and the target segment length.
