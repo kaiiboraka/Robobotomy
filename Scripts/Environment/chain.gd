@@ -21,17 +21,12 @@ var _link_count: int = 10
 @export_group("Physics Parameters")
 @export var gravity: float = -100.0
 @export var launch_force: float = 10.0
-@export var angular_dampening: float = 0.5
 @export var constraint_iterations: int = 100:
 	set(value):
 		constraint_iterations = max(value, 1)
 @export var damping: float = 0.99:
 	set(value):
 		damping = clamp(value, 0.0, 1.0)
-
-# --- Debug ---
-@export_group("Physics Debugging")
-@export var angular_velocity: float = 0.0
 
 # --- Chain Geometry ---
 @onready var grabbable_area = $GrabbableArea
@@ -44,6 +39,7 @@ var _link_count: int = 10
 @export var upper_climb_limit: float = 1.0
 var grab_position: float
 var _angle: float = 0.0
+var grab_link_idx: int = -1
 
 # --- Chain System ---
 const link_scene: PackedScene = preload("uid://mc7fntx8byk1")
@@ -63,24 +59,11 @@ func _ready():
 
 func _physics_process(delta: float):
 	if not Engine.is_editor_hint() and points.size() > 1:
-		apply_angular_velocity_to_chain(delta)
 		simulate(delta)
 		update_link_transforms()
-		angular_velocity *= 1 - angular_dampening * delta
 
 	_angle = derive_angle()
 	update_chain_angle()
-
-func apply_angular_velocity_to_chain(delta: float):
-	var tangent_dir = Vector3(cos(_angle), -sin(_angle), 0)
-	for i in range(1, points.size()):
-		var p = points[i]
-		if p.locked:
-			continue
-		var dist = i * link_spacing
-		var tangent_speed = angular_velocity * dist
-		var desired_vel = tangent_dir * tangent_speed
-		p.prev_position = p.position - desired_vel * delta
 
 func simulate(delta: float):
 	for i in range(1, points.size()):
@@ -93,23 +76,8 @@ func simulate(delta: float):
 		p.position += Vector3.DOWN * -gravity * delta * delta
 
 	for _iter in range(constraint_iterations):
-		for i in range(points.size() - 1):
-			var p1 = points[i]
-			var p2 = points[i + 1]
-			var diff = Vector3(p2.position.x - p1.position.x, p2.position.y - p1.position.y, 0)
-			var dist = diff.length()
-			if dist < 0.0001:
-				continue
-			var error = dist - link_spacing
-			var correction = diff * (error / dist) * 0.5
-			if not p1.locked:
-				p1.position.x += correction.x
-				p1.position.y += correction.y
-			if not p2.locked:
-				p2.position.x -= correction.x
-				p2.position.y -= correction.y
-			p1.position.z = 0
-			p2.position.z = 0
+		for link in links:
+			link.apply_constraint()
 
 func derive_angle() -> float:
 	if points.size() < 2:
@@ -176,7 +144,7 @@ func update_chain_geometry():
 
 func update_link_transforms():
 	for link in links:
-		link.update_link()
+		link.update_visual()
 
 func update_chain_angle():
 	rotation = Vector3(rotation.x, rotation.y, _angle)
@@ -199,40 +167,46 @@ func interact_with(player: Player):
 	distToChain.z = 0
 
 	grab_position = clamp(distToChain.length(), lower_climb_limit, _link_count * link_spacing - upper_climb_limit)
+	grab_link_idx = clamp(int(grab_position / link_spacing), 0, _link_count - 1)
 
 	var chainDir: Vector3 = distToChain.normalized()
 	var tangentDir: Vector3 = Vector3(chainDir.y, -chainDir.x, 0)
-	var tangentSpeed: float = player.velocity.dot(tangentDir)
-	
-	angular_velocity += tangentSpeed / grab_position
+	var tangentSpeed: float = player.velocity.dot(tangentDir) * 0.3
+	if grab_link_idx < points.size():
+		var V = tangentDir * clampf(tangentSpeed, -10.0, 10.0)
+		points[grab_link_idx].prev_position = points[grab_link_idx].position - V
 
 func stop_interaction(interactor: Node3D):
 	grab_position = 0.0
+	grab_link_idx = -1
 
 func jump_off() -> Vector3:
-	var tangent: Vector3 = Vector3(cos(_angle), 0, 0)
-	var tangentSpeed: float = angular_velocity * grab_position
-	angular_velocity = 0
-	return tangent * tangentSpeed * launch_force
+	if grab_link_idx < 0 or grab_link_idx >= points.size() - 1:
+		return Vector3.ZERO
+	var vel = points[grab_link_idx].position - points[grab_link_idx].prev_position
+	return vel * launch_force
 
 func get_grab_point() -> Vector3:
-	return Vector3(
-		grab_position * sin(_angle),
-		-grab_position * cos(_angle),
-		0
-	) + global_position
+	if points.size() < 2 or grab_link_idx < 0:
+		return global_position
+	var idx = clampi(grab_link_idx, 0, points.size() - 2)
+	var t = 0.0
+	if link_spacing > 0.001:
+		t = fmod(grab_position, link_spacing) / link_spacing
+	return to_global(points[idx].position.lerp(points[idx + 1].position, t))
 
 func push(dir: Vector3, force: float):
-	if grab_position < 0.001:
+	if grab_link_idx < 0 or grab_link_idx >= points.size() - 1:
 		return
 
-	var tangentDir: Vector3 = Vector3(cos(_angle), -sin(_angle), 0)
-	var tangentialForce: float = dir.dot(tangentDir) * force
-	var angularAccel: float = tangentialForce / grab_position
-
-	angular_velocity += angularAccel
+	var link_dir = (points[grab_link_idx + 1].position - points[grab_link_idx].position).normalized()
+	var tangent_dir = Vector3(link_dir.y, -link_dir.x, 0)
+	var tangential_force = dir.dot(tangent_dir) * force * 2.0
+	var V = tangent_dir * clampf(tangential_force, -5.0, 5.0)
+	points[grab_link_idx].prev_position = points[grab_link_idx].position - V
 
 func climb(dir: Vector3, speed: float):
-	var dirSpeed: float = climb_speed if dir.y < 0 else slide_speed if dir.y > 0 else 0
+	var dirSpeed: float = climb_speed if dir.y < 0 else slide_speed if dir.y > 0 else 0.0
 	grab_position += dir.y * speed * dirSpeed
 	grab_position = clamp(grab_position, lower_climb_limit, _link_count * link_spacing - upper_climb_limit)
+	grab_link_idx = clamp(int(grab_position / link_spacing), 0, _link_count - 1)

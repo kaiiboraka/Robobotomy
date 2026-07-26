@@ -15,7 +15,19 @@ func setup(p_head, p_feet, p_idx, p_height):
 	idx = p_idx
 	link_height = p_height
 
-func update_link():
+func apply_constraint():
+	if head == null or feet == null:
+		return
+
+	var link_center = (head.position + feet.position) * 0.5
+	var link_dir = (head.position - feet.position).normalized()
+
+	if not head.locked:
+		head.position = link_center + link_dir * link_height * 0.5
+	if not feet.locked:
+		feet.position = link_center - link_dir * link_height * 0.5
+
+func update_visual():
 	if head == null or feet == null:
 		return
 
@@ -33,8 +45,3 @@ func update_link():
 
 	if idx % 2 == 1:
 		rotate_object_local(Vector3.UP, deg_to_rad(90))
-
-	if not head.locked:
-		head.position = link_center + link_dir * link_height * 0.5
-	if not feet.locked:
-		feet.position = link_center - link_dir * link_height * 0.5
