@@ -4,7 +4,7 @@
 
 [node name="Chain" type="Node3D" unique_id=2016857665]
 script = ExtResource("1_hi5wi")
-link_spacing = 0.3
+link_spacing = 0.2
 
 [node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="." unique_id=1241051203]
 aabb = AABB(-0.625, -0.5, -0.5, 1.25, 0.5, 1)

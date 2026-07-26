@@ -1,25 +1,51 @@
 [gd_scene format=3 uid="uid://mc7fntx8byk1"]
 
 [ext_resource type="Script" uid="uid://c72ojfqg4ficr" path="res://Scripts/Environment/link.gd" id="1_1hdp8"]
+[ext_resource type="PhysicsMaterial" uid="uid://dk162vpoy6b84" path="res://Assets/Materials/Physics/frictionless_physmat.tres" id="1_hgq32"]
 [ext_resource type="ArrayMesh" uid="uid://dwkxg4rigpq0d" path="res://Assets/3D/Objects/chain_link.res" id="2_ysgha"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_hgq32"]
-size = Vector3(0.21000004, 0.36, 0.06999999)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_au2ky"]
+margin = 0.01
+radius = 0.030273438
+height = 0.35916138
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hgq32"]
+margin = 0.01
+radius = 0.03
+height = 0.20019531
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_au2ky"]
 size = Vector3(1.25, 0.75, 1.25)
 
 [node name="Link" type="RigidBody3D" unique_id=1732380006]
-collision_layer = 0
-collision_mask = 2700
+collision_layer = 8192
+collision_mask = 10892
+mass = 0.1
+physics_material_override = ExtResource("1_hgq32")
+continuous_cd = true
 script = ExtResource("1_1hdp8")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=435619052]
 mesh = ExtResource("2_ysgha")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=298148684]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7881393e-07, 0)
-shape = SubResource("BoxShape3D_hgq32")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1301530680]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07, 0, 0)
+shape = SubResource("CapsuleShape3D_au2ky")
+debug_color = Color(0.57989645, 0.552441, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1797272442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07, 0, 0)
+shape = SubResource("CapsuleShape3D_au2ky")
+debug_color = Color(0.57989645, 0.552441, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=376864783]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, -0.145, 0)
+shape = SubResource("CapsuleShape3D_hgq32")
+debug_color = Color(0.57989645, 0.552441, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=1610131034]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.145237, 0)
+shape = SubResource("CapsuleShape3D_hgq32")
 debug_color = Color(0.57989645, 0.552441, 1.92523e-07, 0.41960785)
 
 [node name="GrabbableArea" type="Area3D" parent="." unique_id=725451324]

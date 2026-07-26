@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://npjp2dyv4vbu" path="res://Scenes/Characters/Player.tscn" id="17_1e0ns"]
 [ext_resource type="PackedScene" uid="uid://f0oommypkm0i" path="res://Scenes/Characters/Limbs/LeftLeg.tscn" id="17_v3e2r"]
 [ext_resource type="PackedScene" uid="uid://ep2c8eoh0i32" path="res://Scenes/Characters/Limbs/RightLeg.tscn" id="19_bdygh"]
+[ext_resource type="PackedScene" uid="uid://bybvp0036vy5u" path="res://Scenes/Environment/Interactables/LinkHook.tscn" id="21_2otw2"]
 [ext_resource type="PackedScene" uid="uid://i2hkf7f1n6kf" path="res://Scenes/Environment/Catapult.tscn" id="22_xl8r8"]
 [ext_resource type="PackedScene" uid="uid://dmrf146qrbqun" path="res://Scenes/Environment/Interactables/ControlPanel2.tscn" id="23_2otw2"]
 [ext_resource type="PackedScene" uid="uid://td56vu1l1xka" path="res://Scenes/Environment/Interactables/Chain.tscn" id="26_gbpfp"]
@@ -106,7 +107,7 @@ environment = SubResource("Environment_w7w38")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1483892784]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 337.74652, 7.846032, 14.999985)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 370.76828, 81.30562, 15)
 fov = 45.0
 near = 0.005
 
@@ -117,7 +118,7 @@ script = ExtResource("1_1e0ns")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=64555096 instance=ExtResource("17_1e0ns")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 337.74652, 4.096032, -1.5258789e-05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 370.76828, 77.55562, 0)
 
 [node name="RightArm" parent="Player" unique_id=904546073 instance=ExtResource("14_vxw4a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35258484, 2.366465, 0)
@@ -133,7 +134,7 @@ limb_type = 0
 [node name="RightLeg" parent="Player" unique_id=1985177356 instance=ExtResource("19_bdygh")]
 
 [node name="Player_PhantomCamera3D" type="Node3D" parent="." unique_id=1540863412 node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 337.74652, 7.846032, 14.999985)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 370.76828, 81.30562, 15)
 top_level = true
 script = ExtResource("3_dgpfg")
 priority = 1
@@ -601,13 +602,14 @@ metadata/_custom_type_script = "uid://bw716w626y8t7"
 
 [node name="Level10" type="Node" parent="." unique_id=1662293547]
 
+[node name="LinkHook" parent="Level10" unique_id=829173601 instance=ExtResource("21_2otw2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 360.78708, 87.48944, 0)
+
 [node name="Chain_Long" parent="Level10" unique_id=2016857665 instance=ExtResource("26_gbpfp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 360.78708, 88.33172, 0)
-length = 280
-link_spacing = 0.29
-gravity = -10.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 360.78708, 87.319374, 0)
+length = 100
 launch_force = 20.0
-constraint_iterations = 15
+gravity_scale = 0.2
 climb_speed = 5.0
 slide_speed = 8.0
 
@@ -617,7 +619,6 @@ slide_speed = 8.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 407.8192, 103.78182, 0.03298569)
 length = 55
 launch_force = 20.0
-damping = 0.98
 
 [node name="LevelLast" type="Node" parent="." unique_id=371664157]
 

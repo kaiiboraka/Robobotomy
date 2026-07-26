@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bybvp0036vy5u"]
+
+[ext_resource type="ArrayMesh" uid="uid://dwkxg4rigpq0d" path="res://Assets/3D/Objects/chain_link.res" id="2_el83f"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2otw2"]
+margin = 0.01
+radius = 0.03
+height = 0.35916138
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gbpfp"]
+margin = 0.01
+radius = 0.03
+height = 0.20019531
+
+[node name="LinkHook" type="StaticBody3D" unique_id=829173601]
+collision_layer = 8192
+collision_mask = 10892
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=435619052]
+mesh = ExtResource("2_el83f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=298148684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07, 0, 0)
+shape = SubResource("CapsuleShape3D_2otw2")
+debug_color = Color(0.57989645, 0.552441, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=223603126]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07, 0, 0)
+shape = SubResource("CapsuleShape3D_2otw2")
+debug_color = Color(0.57989645, 0.552441, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=1949856779]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, -0.145, 0)
+shape = SubResource("CapsuleShape3D_gbpfp")
+debug_color = Color(0.57989645, 0.552441, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=2008105205]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.145237, 0)
+shape = SubResource("CapsuleShape3D_gbpfp")
+debug_color = Color(0.57989645, 0.552441, 1.92523e-07, 0.41960785)

@@ -258,10 +258,14 @@ Player_Aim_Down={
 3d_physics/layer_11="TorsoBox"
 3d_physics/layer_12="Button"
 3d_physics/layer_13="PushesButtons"
+3d_physics/layer_14="Links"
 
 [physics]
 
 3d/physics_engine="Jolt Physics"
+jolt_physics_3d/simulation/position_steps=3
+jolt_physics_3d/simulation/penetration_slop=0.01
+jolt_physics_3d/simulation/speculative_contact_distance=0.01
 common/physics_interpolation=true
 jolt_physics_3d/physics_interpolation=true
 
