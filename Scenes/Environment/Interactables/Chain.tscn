@@ -1,60 +1,18 @@
 [gd_scene format=3 uid="uid://td56vu1l1xka"]
 
 [ext_resource type="Script" uid="uid://coq8l10sf1x08" path="res://Scripts/Environment/chain.gd" id="1_hi5wi"]
-[ext_resource type="ArrayMesh" uid="uid://dwkxg4rigpq0d" path="res://Assets/3D/Objects/chain_link.res" id="2_p705o"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_p705o"]
-size = Vector3(1.5, 2.75, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_hi5wi"]
+size = Vector3(1.5, 0.5, 1)
 
 [node name="Chain" type="Node3D" unique_id=2016857665]
 script = ExtResource("1_hi5wi")
-length = 10
 
 [node name="GrabbableArea" type="Area3D" parent="." unique_id=1055664422]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.375, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 collision_layer = 0
 collision_mask = 3
 
 [node name="GrabbableShape" type="CollisionShape3D" parent="GrabbableArea" unique_id=395064012]
-shape = SubResource("BoxShape3D_p705o")
-
-[node name="Link0" type="MeshInstance3D" parent="." unique_id=1948373006]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1125, 0)
-mesh = ExtResource("2_p705o")
-
-[node name="Link1" type="MeshInstance3D" parent="." unique_id=1462505744]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.33749998, 0)
-mesh = ExtResource("2_p705o")
-
-[node name="Link2" type="MeshInstance3D" parent="." unique_id=1146646753]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5625, 0)
-mesh = ExtResource("2_p705o")
-
-[node name="Link3" type="MeshInstance3D" parent="." unique_id=1375640040]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.7875, 0)
-mesh = ExtResource("2_p705o")
-
-[node name="Link4" type="MeshInstance3D" parent="." unique_id=1973569847]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0125, 0)
-mesh = ExtResource("2_p705o")
-
-[node name="Link5" type="MeshInstance3D" parent="." unique_id=2055708422]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -1.2375, 0)
-mesh = ExtResource("2_p705o")
-
-[node name="Link6" type="MeshInstance3D" parent="." unique_id=186801379]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.4625001, 0)
-mesh = ExtResource("2_p705o")
-
-[node name="Link7" type="MeshInstance3D" parent="." unique_id=1605131357]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -1.6875, 0)
-mesh = ExtResource("2_p705o")
-
-[node name="Link8" type="MeshInstance3D" parent="." unique_id=235991053]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9125, 0)
-mesh = ExtResource("2_p705o")
-
-[node name="Link9" type="MeshInstance3D" parent="." unique_id=1903639649]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -2.1375, 0)
-mesh = ExtResource("2_p705o")
+shape = SubResource("BoxShape3D_hi5wi")

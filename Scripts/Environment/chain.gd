@@ -34,7 +34,6 @@ var _link_count: int = 10
 @export var angular_velocity: float = 0.0
 
 # --- Chain Geometry ---
-#@onready var chain_mesh = $ChainMesh
 @onready var grabbable_area = $GrabbableArea
 @onready var grabbable_shape = $GrabbableArea/GrabbableShape
 
@@ -47,8 +46,7 @@ var grab_position: float
 var _angle: float = 0.0
 
 # --- Chain System ---
-#var chain_link_mesh: Mesh = preload("res://Assets/3D/Objects/chain_link.res")
-const chain_link_mesh : Mesh = preload("uid://dwkxg4rigpq0d")
+const link_scene: PackedScene = preload("uid://mc7fntx8byk1")
 
 class ChainPoint:
 	var position: Vector3
@@ -56,7 +54,7 @@ class ChainPoint:
 	var locked: bool
 
 var points: Array[ChainPoint] = []
-var link_mesh_instances: Array[MeshInstance3D] = []
+var links: Array[Link] = []
 
 func _ready():
 	if grabbable_area != null:
@@ -123,25 +121,31 @@ func derive_angle() -> float:
 ## ROPE GEOMETRY
 ## --------------------------------------------------------
 func sync_link_count(count: int):
-	var existing: Array[MeshInstance3D] = []
+	var existing: Array[Link] = []
 	for child in get_children():
-		var mi = child as MeshInstance3D
-		if mi != null: # and mi != chain_mesh:
-			existing.append(mi)
+		var link = child as Link
+		if link != null:
+			existing.append(link)
+		else:
+			var mi = child as MeshInstance3D
+			if mi != null and mi.name.begins_with("Link"):
+				remove_child(mi)
+				mi.queue_free()
 
-	link_mesh_instances.clear()
+	links.clear()
 	for i in range(count):
 		if i < existing.size():
-			var mi = existing[i]
-			mi.name = "Link%d" % i
-			link_mesh_instances.append(mi)
+			var link = existing[i]
+			link.name = "Link%d" % i
+			link.setup(points[i], points[i + 1], i)
+			links.append(link)
 		else:
-			var mi = MeshInstance3D.new()
-			mi.mesh = chain_link_mesh
-			mi.name = "Link%d" % i
-			#mi.owner = self
-			add_child(mi)
-			link_mesh_instances.append(mi)
+			var link = link_scene.instantiate() as Link
+			link.name = "Link%d" % i
+			link.setup(points[i], points[i + 1], i)
+			add_child(link)
+			link.owner = self;
+			links.append(link)
 
 	for i in range(count, existing.size()):
 		remove_child(existing[i])
@@ -169,18 +173,10 @@ func update_chain_geometry():
 	if grabbable_area != null:
 		grabbable_area.position = Vector3(0, -(_link_count * link_spacing + 0.5) / 2, 0)
 
-	#if chain_mesh != null:
-		#chain_mesh.visible = false
 
 func update_link_transforms():
-	for i in range(link_mesh_instances.size()):
-		var p1 = points[i]
-		var p2 = points[i + 1]
-		var mid = (p1.position + p2.position) * 0.5
-
-		var mi = link_mesh_instances[i]
-		mi.position = mid
-		mi.rotation.y = deg_to_rad(90) if i % 2 == 1 else 0.0
+	for link in links:
+		link.update_link()
 
 func update_chain_angle():
 	rotation = Vector3(rotation.x, rotation.y, _angle)

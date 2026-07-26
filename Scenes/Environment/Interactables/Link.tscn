@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://mc7fntx8byk1"]
+
+[ext_resource type="Script" uid="uid://c72ojfqg4ficr" path="res://Scripts/Environment/link.gd" id="1_1hdp8"]
+[ext_resource type="ArrayMesh" uid="uid://dwkxg4rigpq0d" path="res://Assets/3D/Objects/chain_link.res" id="2_ysgha"]
+
+[node name="Link" type="Node3D" unique_id=308217292]
+script = ExtResource("1_1hdp8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=435619052]
+mesh = ExtResource("2_ysgha")
