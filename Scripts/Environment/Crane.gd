@@ -15,6 +15,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	axis_input();
 	if(!control_arm):
 		return;
 	if(Player.instance and !Player.instance.is_controlling_arm(control_arm)):
@@ -35,10 +36,12 @@ func _physics_process(delta: float) -> void:
 		for crate in crates:
 			crate.constant_force = Vector3(0, 0, 0)
 			crate.constant_torque = Vector3(0, 0, 0)
+	
 	move_and_slide()
 	pass
-	
-func _input(event: InputEvent) -> void:
+
+
+func axis_input() -> void:
 	if !control: return;
 	var x_input_dir := Input.get_axis("Player_Move_Left", "Player_Move_Right");
 	if x_input_dir:
@@ -50,7 +53,12 @@ func _input(event: InputEvent) -> void:
 		velocity.y = y_input_dir * 5;
 	else:
 		velocity.y = 0
-		
+
+
+#func _input(event: InputEvent) -> void:
+	#pass
+
+
 func on_activated_by_arm(arm: BodyPart) -> void:
 	control = true
 	control_arm = arm;

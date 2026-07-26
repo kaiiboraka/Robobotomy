@@ -43,11 +43,11 @@ const AIM_RAISE : float = 0.3;
 
 var _aim_dir : Vector3 = Vector3.RIGHT;
 var _aim_speed : float = 40.0;
-var _aim_theta : float = 0.0;
-var _aim_dir_x : float = 1.0;
+#var _aim_theta : float = 0.0;
+#var _aim_dir_x : float = 1.0;
 var _has_aim : bool = false;
 
-enum movement_modes {DEFAULT, ROPE, LEDGE_LEFT, LEDGE_RIGHT, CONTROL_PANEL}
+enum movement_modes {DEFAULT, CHAIN, LEDGE_LEFT, LEDGE_RIGHT, CONTROL_PANEL}
 var _movement_mode: movement_modes = movement_modes.DEFAULT;
 
 var control_panels : Dictionary[BodyPart, ControlPanel] = {
@@ -55,7 +55,7 @@ var control_panels : Dictionary[BodyPart, ControlPanel] = {
 	l_arm: null,
 }
 
-var attached_rope: Rope;
+var attached_chain: Chain;
 
 var limb_sockets := {
 	"Head": Vector3(0, 2.9366379, 0),
@@ -171,7 +171,7 @@ func _physics_process(delta: float) -> void:
 		if not selected_limb.is_detached:
 			if _has_aim:
 				selected_limb.throw(_aim_dir * _aim_speed);
-				if(selected_limb is Arm and get_movement_mode() == movement_modes.ROPE):
+				if(selected_limb is Arm and get_movement_mode() == movement_modes.CHAIN):
 					set_movement_mode(movement_modes.DEFAULT);
 			else:
 				# Throw without aiming just drops the limb back into the world
@@ -185,7 +185,7 @@ func _physics_process(delta: float) -> void:
 			drop_all_limbs();
 		elif selected_limb != null and not selected_limb.is_detached:
 			drop_limb(selected_limb);
-			if(selected_limb is Arm and get_movement_mode()==movement_modes.ROPE):
+			if(selected_limb is Arm and get_movement_mode()==movement_modes.CHAIN):
 				set_movement_mode(movement_modes.DEFAULT);
 
 	if Input.is_action_just_pressed("Player_Recall") and get_movement_mode() != movement_modes.CONTROL_PANEL:
@@ -212,21 +212,21 @@ func _physics_process(delta: float) -> void:
 	# Process movement inputs only if we are controlling the core
 	if is_controlling_core:
 		match get_movement_mode():
-			movement_modes.ROPE:
-				position = attached_rope.get_grab_point() + (global_position - get_grab_location())
+			movement_modes.CHAIN:
+				position = attached_chain.get_grab_point() + (global_position - get_grab_location())
 				velocity.x = 0;
 				velocity.y = 0;
 				if(Input.is_action_pressed("Player_Move_Up")):
-					attached_rope.climb(Vector3(0, -1, 0), 0.02)
+					attached_chain.climb(Vector3(0, -1, 0), 0.02)
 				elif (Input.is_action_pressed("Player_Move_Down")):
-					attached_rope.climb(Vector3(0, 1, 0), 0.02)
+					attached_chain.climb(Vector3(0, 1, 0), 0.02)
 				if(Input.is_action_pressed("Player_Move_Left")):
-					attached_rope.push(Vector3(-1, 0, 0), 0.2)
+					attached_chain.push(Vector3(-1, 0, 0), 0.2)
 				elif(Input.is_action_pressed("Player_Move_Right")):
-					attached_rope.push(Vector3(1, 0, 0), 0.2)
+					attached_chain.push(Vector3(1, 0, 0), 0.2)
 				
 				if(Input.is_action_just_pressed("Player_Jump")):
-					velocity = attached_rope.jump_off();
+					velocity = attached_chain.jump_off();
 					velocity.y += current_jump_velocity
 					set_movement_mode(movement_modes.DEFAULT);
 			movement_modes.LEDGE_LEFT:
@@ -292,9 +292,9 @@ func should_grab_ledge_right() -> bool:
 func should_grab_ledge_left() -> bool:
 	return wall_detection_left.is_colliding() and not ledge_detection_left.is_colliding() and velocity.y < 0
 	
-func grab_rope(rope: Rope) -> void:
-	attached_rope = rope;
-	set_movement_mode(movement_modes.ROPE);
+func grab_chain(chain: Chain) -> void:
+	attached_chain = chain;
+	set_movement_mode(movement_modes.CHAIN);
 	
 func get_grab_location() -> Vector3:
 	if(!l_arm and !r_arm and l_arm.is_detached and r_arm.is_detached):

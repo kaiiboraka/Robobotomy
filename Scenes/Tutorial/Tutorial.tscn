@@ -30,9 +30,8 @@
 [ext_resource type="PackedScene" uid="uid://i2hkf7f1n6kf" path="res://Scenes/Environment/Catapult.tscn" id="22_xl8r8"]
 [ext_resource type="PackedScene" uid="uid://dmrf146qrbqun" path="res://Scenes/Environment/Interactables/ControlPanel2.tscn" id="23_2otw2"]
 [ext_resource type="PackedScene" uid="uid://dgt8nrv3iluhe" path="res://Scenes/Environment/Interactables/rope2.tscn" id="23_dmal2"]
-[ext_resource type="PackedScene" uid="uid://d031edjsrylll" path="res://Scenes/Environment/Interactables/rope.tscn" id="26_2otw2"]
+[ext_resource type="PackedScene" uid="uid://td56vu1l1xka" path="res://Scenes/Environment/Interactables/Chain.tscn" id="26_gbpfp"]
 [ext_resource type="PackedScene" uid="uid://dlk6oxkqswup1" path="res://Scenes/Environment/door.tscn" id="27_6ey6l"]
-[ext_resource type="ArrayMesh" uid="uid://cdqecoar4bba" path="res://Assets/3D/Objects/chain_link.res" id="27_gbpfp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0yr2e"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -995,12 +994,11 @@ transform = Transform3D(0.321, 0, 0, 0, 50, 0, 0, 0, 0.726, 361.20142, 54.866135
 mesh = SubResource("CylinderMesh_2kgik")
 skeleton = NodePath("../..")
 
-[node name="Rope" parent="Ropes" unique_id=19588440 instance=ExtResource("26_2otw2")]
-transform = Transform3D(0.321, 0, 0, 0, 6.4843655, 0, 0, 0, 0.726, 407.8192, 100.68182, 0.03298569)
+[node name="Node3D" type="Node3D" parent="Ropes" unique_id=1628290219]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 407.8192, 100.68182, 0.03298569)
 
-[node name="ChainLink" type="MeshInstance3D" parent="Ropes" unique_id=566416037]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 404.71494, 81.06824, -0.9139404)
-mesh = ExtResource("27_gbpfp")
+[node name="Chain" parent="Ropes/Node3D" unique_id=2016857665 instance=ExtResource("26_gbpfp")]
+length = 45
 
 [node name="Head" type="MeshInstance3D" parent="." unique_id=910629086]
 transform = Transform3D(76.16809, -27.610252, 58.61822, 25.277353, 95.96059, 12.353983, -59.66136, 5.407343, 80.070496, -46.931637, 0.98298377, -0.09438473)
