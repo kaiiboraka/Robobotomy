@@ -34,14 +34,14 @@ func _ready() -> void:
 	# Hard-coded node names
 	mesh_node = get_node_or_null("BoxMesh");
 	shape_node = get_node_or_null("BoxShape");
-
+	
 	_sync_sizes();
-
+	
 	# Connect to Resource signals for the 'reverse' update in editor
 	if mesh_node and mesh_node.mesh:
 		if not mesh_node.mesh.changed.is_connected(_on_resource_changed):
 			mesh_node.mesh.changed.connect(_on_resource_changed);
-
+	
 	if shape_node and shape_node.shape:
 		if not shape_node.shape.changed.is_connected(_on_resource_changed):
 			shape_node.shape.changed.connect(_on_resource_changed);

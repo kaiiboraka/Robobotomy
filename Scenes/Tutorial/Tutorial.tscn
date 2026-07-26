@@ -121,7 +121,8 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=64555096 instance=ExtResource("17_1e0ns")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 399.22095, 88.94963, -1.5258789e-05)
-jump_velocity = 32.0
+speed = 7.0
+jump_velocity = 20.0
 gravity_multiplier = 4.0
 
 [node name="RightArm" parent="Player" unique_id=904546073 instance=ExtResource("14_vxw4a")]
