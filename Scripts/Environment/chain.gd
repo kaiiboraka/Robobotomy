@@ -137,12 +137,12 @@ func sync_link_count(count: int):
 		if i < existing.size():
 			var link = existing[i]
 			link.name = "Link%d" % i
-			link.setup(points[i], points[i + 1], i)
+			link.setup(points[i], points[i + 1], i, link_spacing)
 			links.append(link)
 		else:
 			var link = link_scene.instantiate() as Link
 			link.name = "Link%d" % i
-			link.setup(points[i], points[i + 1], i)
+			link.setup(points[i], points[i + 1], i, link_spacing)
 			add_child(link)
 			link.owner = self;
 			links.append(link)
