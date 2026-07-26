@@ -8,6 +8,8 @@ signal hit_ground;
 @export var acceleration: float = 20.0;
 @export var jump_velocity: float = 5.0;
 @export_range(0, 3, 1) var weight: int = 1;
+enum LimbType { UNSET, HEAD, TORSO, LEFT_ARM, RIGHT_ARM, LEFT_LEG, RIGHT_LEG }
+@export var limb_type: LimbType = LimbType.UNSET;
 @onready var notifier: VisibleOnScreenNotifier3D = $VisibleOnScreenNotifier3D;
 var is_part_enabled: bool = true;
 ## When false, this part ignores player move/jump (still simulates if enabled and unfrozen).
@@ -32,6 +34,9 @@ func _ready() -> void:
 	contact_monitor = true;
 	max_contacts_reported = 4;
 
+	if limb_type == LimbType.UNSET:
+		limb_type = _infer_limb_type_from_name();
+
 
 	if not is_connected:
 		_setup_unconnected_state();
@@ -39,6 +44,26 @@ func _ready() -> void:
 		enable_part();
 	else:
 		disable_part();
+
+
+## Infer LimbType from the node name as a fallback when the export is unset.
+## Covers the standard names (Head, Torso, LeftArm, RightArm, LeftLeg, RightLeg)
+## and their prefixed/mangled variants.
+func _infer_limb_type_from_name() -> int:
+	var n := name.to_lower();
+	if n.contains("head"):
+		return LimbType.HEAD;
+	if n.contains("torso"):
+		return LimbType.TORSO;
+	if n.contains("left") and n.contains("arm"):
+		return LimbType.LEFT_ARM;
+	if n.contains("right") and n.contains("arm"):
+		return LimbType.RIGHT_ARM;
+	if n.contains("left") and n.contains("leg"):
+		return LimbType.LEFT_LEG;
+	if n.contains("right") and n.contains("leg"):
+		return LimbType.RIGHT_LEG;
+	return LimbType.UNSET;
 
 
 ## Configure a limb that starts disconnected: detach it, enable physics,
@@ -57,17 +82,41 @@ func _setup_unconnected_state() -> void:
 
 ## When a player body enters this detached limb's pickup area,
 ## register it back to that player (only works for unconnected limbs).
+##
+## TODO: This is a temporary bandaid. If the player already occupies this limb
+## slot (same name, connected), the redundant limb is destroyed instead of
+## picked up. A proper pickup/inventory system for extra limbs should be
+## designed later.
 func _on_pickup_area_body_entered(body: Node) -> void:
 	if is_connected:
 		return;
 
 	# If the body is a BodyPart and is connected, it can pick us up
 	var other_limb := body as BodyPart;
-	if other_limb and other_limb.is_connected and other_limb.core:
-		connect_to_player(other_limb.core);
-	elif body is CharacterBody3D and body.has_method("register_limb"):
-		# Also allow direct player contact
-		connect_to_player(body);
+	var core = other_limb.core if other_limb and other_limb.is_connected else body;
+
+	if core == null or not core.has_method("register_limb"):
+		return;
+
+	if _is_redundant(core):
+		queue_free();
+		return;
+
+	connect_to_player(core);
+
+
+## Returns true if the core already has a connected limb of the same LimbType.
+## Skips UNSET limbs to avoid false positives when the type couldn't be inferred.
+## TODO: Temporary bandaid — see _on_pickup_area_body_entered.
+func _is_redundant(core: Node) -> bool:
+	if not "limbs" in core:
+		return false;
+	if self.limb_type == LimbType.UNSET:
+		return false;
+	for limb in core.limbs:
+		if limb.limb_type == self.limb_type and limb.is_connected:
+			return true;
+	return false;
 
 
 ## Attach this limb to a new core (player) node. Reparents the limb

@@ -1,7 +1,8 @@
 class_name Player
 extends CharacterBody3D;
 
-enum movement_modes {
+enum movement_modes \
+{
 	DEFAULT,
 	CHAIN,
 	LEDGE_LEFT,
@@ -297,16 +298,22 @@ func register_limb(limb: BodyPart) -> void:
 	match limb.name:
 		"Head":
 			head = limb;
+			limb.limb_type = BodyPart.LimbType.HEAD;
 		"LeftArm":
 			l_arm = limb;
+			limb.limb_type = BodyPart.LimbType.LEFT_ARM;
 		"RightArm":
 			r_arm = limb;
+			limb.limb_type = BodyPart.LimbType.RIGHT_ARM;
 		"LeftLeg":
 			l_leg = limb;
+			limb.limb_type = BodyPart.LimbType.LEFT_LEG;
 		"RightLeg":
 			r_leg = limb;
+			limb.limb_type = BodyPart.LimbType.RIGHT_LEG;
 		"Torso":
 			torso = limb;
+			limb.limb_type = BodyPart.LimbType.TORSO;
 
 	if not limb in limbs:
 		limbs.append(limb);

@@ -203,7 +203,8 @@ def process_file(filepath: str) -> bool:
         if trimmed.endswith(";"):
             nosemi = trimmed[:-1].strip()
             if (nosemi == '@tool' or nosemi.startswith('class_name ') or
-                re.match(r'^@export_(group|subgroup|category|tool_button)\s*\(', nosemi)):
+                re.match(r'^@export_(group|subgroup|category|tool_button)\s*\(', nosemi) or
+                nosemi.endswith("\\")):
                 trailing_ws = code_part[len(code_trimmed):]
                 new_line = trimmed[:-1] + trailing_ws + comment_part
                 new_lines.append(new_line)
@@ -229,8 +230,8 @@ def process_file(filepath: str) -> bool:
         elif code_trimmed.endswith(":"):
             should_add = False
 
-        # Always skip: { } ( [ ,
-        elif code_trimmed.endswith(("{", "}", "(", "[", ",")):
+        # Always skip: { } ( [ , \  (backslash = GDScript line continuation)
+        elif code_trimmed.endswith(("{", "}", "(", "[", ",", "\\")):
             should_add = False
 
         # Skip ) or ] when they close something opened on a PREVIOUS line

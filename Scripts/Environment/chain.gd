@@ -188,6 +188,8 @@ func interact_with(player: Player):
 	print("Interacting");
 	if not player.r_arm or player.r_arm.is_detached or not player.l_arm or player.l_arm.is_detached:
 		return;
+	if player.attached_chain == self:
+		return;
 
 	player.grab_chain(self);
 
