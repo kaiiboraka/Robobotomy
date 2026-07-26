@@ -36,7 +36,6 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=87878868]
-physics_interpolation_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 15)
 fov = 45.0
 near = 0.005
@@ -52,13 +51,12 @@ transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0.0115174055, 0)
 
 [node name="Player" parent="." unique_id=64555096 instance=ExtResource("6_6bp64")]
 
-[node name="Player_PhantomCamera3D" type="Node3D" parent="." unique_id=500713316 node_paths=PackedStringArray("follow_target")]
+[node name="Player_PhantomCamera3D" type="Node3D" parent="." unique_id=500713316]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 15)
 top_level = true
 script = ExtResource("5_6bp64")
 priority = 1
 follow_mode = 2
-follow_target = NodePath("")
 tween_resource = SubResource("Resource_hptm8")
 camera_3d_resource = ExtResource("7_ynf5e")
 follow_offset = Vector3(0, 3.75, 15)

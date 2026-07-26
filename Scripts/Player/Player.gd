@@ -4,6 +4,8 @@ class_name Player extends CharacterBody3D
 @export var handicapped_speed : float = 3;
 @export var jump_velocity : float = 6;
 @export var handicapped_jump_velocity : float = 5;
+@export var gravity_multiplier : float = 1.0;
+
 @onready var torso : BodyPart = $Torso;
 @onready var head : BodyPart = $Head;
 @onready var l_arm : BodyPart = $LeftArm;
@@ -208,7 +210,7 @@ func _physics_process(delta: float) -> void:
 
 	# Add the gravity.
 	if not is_on_floor() and (get_movement_mode() == movement_modes.DEFAULT or get_movement_mode() == movement_modes.CONTROL_PANEL):
-		velocity.y -= gravity * delta;
+		velocity.y -= gravity * delta * gravity_multiplier;
 
 	# Process movement inputs only if we are controlling the core
 	if is_controlling_core:
