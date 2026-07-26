@@ -56,6 +56,7 @@ var control_panels : Dictionary[BodyPart, ControlPanel] = {
 }
 
 var attached_chain: Chain;
+var chain_grab_offset: Vector3
 
 var limb_sockets := {
 	"Head": Vector3(0, 2.9366379, 0),
@@ -213,7 +214,7 @@ func _physics_process(delta: float) -> void:
 	if is_controlling_core:
 		match get_movement_mode():
 			movement_modes.CHAIN:
-				position = attached_chain.get_grab_point() + (global_position - get_grab_location())
+				position = attached_chain.get_grab_point() + chain_grab_offset
 				velocity.x = 0;
 				velocity.y = 0;
 				if(Input.is_action_pressed("Player_Move_Up")):
@@ -294,10 +295,11 @@ func should_grab_ledge_left() -> bool:
 	
 func grab_chain(chain: Chain) -> void:
 	attached_chain = chain;
+	chain_grab_offset = global_position - get_grab_location()
 	set_movement_mode(movement_modes.CHAIN);
 	
 func get_grab_location() -> Vector3:
-	if(!l_arm and !r_arm and l_arm.is_detached and r_arm.is_detached):
+	if l_arm == null or r_arm == null or (l_arm.is_detached and r_arm.is_detached):
 		return global_position
 	else:
 		return Vector3(global_position.x, l_arm.global_position.y, 0)
