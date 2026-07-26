@@ -49,7 +49,7 @@ func _ready() -> void:
 ## Infer LimbType from the node name as a fallback when the export is unset.
 ## Covers the standard names (Head, Torso, LeftArm, RightArm, LeftLeg, RightLeg)
 ## and their prefixed/mangled variants.
-func _infer_limb_type_from_name() -> int:
+func _infer_limb_type_from_name() -> LimbType:
 	var n := name.to_lower();
 	if n.contains("head"):
 		return LimbType.HEAD;

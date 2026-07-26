@@ -50,9 +50,9 @@ func draw_aim():
 	# ThrowArc is parented to the Player, so its transform is applied to the
 	# mesh at render time. Convert the world-space trajectory into the node's
 	# local space so the arc lands where it should (e.g. the player's head).
-	var to_local = global_transform.affine_inverse();
+	var localized = global_transform.affine_inverse();
 	for i in points.size():
-		points[i] = to_local * points[i];
+		points[i] = localized * points[i];
 
 	if points.size() >= 2:
 		var line_mesh = build_trajectory_mesh(points);

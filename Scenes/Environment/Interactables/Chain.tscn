@@ -7,6 +7,10 @@ size = Vector3(1.5, 0.5, 1)
 
 [node name="Chain" type="Node3D" unique_id=2016857665]
 script = ExtResource("1_hi5wi")
+link_spacing = 0.3
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="." unique_id=1241051203]
+aabb = AABB(-0.75, -0.5, -0.5, 1.5, 0.5, 1)
 
 [node name="GrabbableArea" type="Area3D" parent="." unique_id=1055664422]
 unique_name_in_owner = true

@@ -13,11 +13,6 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	if not is_part_enabled or not accepts_player_input:
 		return;
 
-	# Instantly frictionless on the frame the jump fires so wall-sliding
-	# is active from the first upward tick, not delayed by one frame.
-	if Input.is_action_just_pressed("Player_Jump"):
-		_set_frictionless();
-
 	# Unified movement and jumping
 	handle_movement(state);
 	handle_jump(state);
@@ -34,10 +29,15 @@ func _clear_friction_override() -> void:
 	physics_material_override = null;
 
 
-## Switch between frictionless (airborne) and default friction (grounded)
-## based on a conservative groundedness check.
+## Switch between frictionless and default friction.
+## Frictionless while rising (mid-jump) or airborne; normal friction only
+## when definitively grounded and not moving upward.
+## The jump-triggered catch + velocity.y check together ensure the very first
+## upward frame is covered even when the impulse applies on the next tick.
 func _update_friction_mode(state: PhysicsDirectBodyState3D) -> void:
-	if _is_definitely_grounded(state):
+	if state.linear_velocity.y > 0.1 or Input.is_action_just_pressed("Player_Jump"):
+		_set_frictionless();
+	elif _is_definitely_grounded(state):
 		_clear_friction_override();
 	else:
 		_set_frictionless();

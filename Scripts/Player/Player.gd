@@ -225,6 +225,8 @@ func _physics_process(delta: float) -> void:
 				if (Input.is_action_just_pressed("Player_Jump")):
 					velocity = attached_chain.jump_off();
 					velocity.y += current_jump_velocity;
+					attached_chain.stop_interaction(self);
+					attached_chain = null;
 					set_movement_mode(movement_modes.DEFAULT);
 			## LEDGE_LEFT: snap player Y to the left ledge collision point.
 			movement_modes.LEDGE_LEFT:

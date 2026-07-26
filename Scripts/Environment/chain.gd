@@ -10,11 +10,20 @@ class ChainPoint:
 # --- Chain System ---
 const LinkScene: PackedScene = preload("uid://mc7fntx8byk1");
 
+@export_group("Chain Shape")
+@export_range(0, 500, 1) var length: int = 0:
+	get:
+		return _link_count;
+	set(value):
+		_link_count = max(value, 0);
+		if Engine.is_editor_hint():
+			update_chain_geometry();
 @export var link_spacing: float = 0.225:
 	set(value):
 		link_spacing = max(value, 0.01);
 		if Engine.is_editor_hint():
 			update_chain_geometry();
+
 
 # --- Physics Parameters ---
 @export_group("Physics Parameters")
@@ -32,15 +41,6 @@ const LinkScene: PackedScene = preload("uid://mc7fntx8byk1");
 @export var slide_speed: float = 5.0;
 @export var lower_climb_limit: float = 1.0;
 @export var upper_climb_limit: float = 1.0;
-
-@export_group("Chain Shape")
-@export_range(0, 100, 1) var length: int = 0:
-	get:
-		return _link_count;
-	set(value):
-		_link_count = max(value, 0);
-		if Engine.is_editor_hint():
-			update_chain_geometry();
 @export_range(0, 3) var push_force: float = 1.0;
 var grab_position: float;
 var grab_link_idx: int = -1;
@@ -54,6 +54,7 @@ var _angle: float = 0.0;
 # --- Chain Geometry ---
 @onready var grabbable_area = $GrabbableArea;
 @onready var grabbable_shape = $GrabbableArea/GrabbableShape;
+@onready var visible_enabler = $VisibleOnScreenEnabler3D;
 
 
 ## Connect the grabbable area signal and build the initial chain links.
@@ -159,6 +160,13 @@ func update_chain_geometry():
 
 	if grabbable_area != null:
 		grabbable_area.position = Vector3(0, -(_link_count * link_spacing + 0.5) / 2, 0);
+
+	if visible_enabler != null and grabbable_shape != null and grabbable_shape.shape != null:
+		var box := grabbable_shape.shape as BoxShape3D;
+		visible_enabler.aabb = AABB(
+			Vector3(-box.size.x / 2, -(_link_count * link_spacing + 0.5), -box.size.z / 2),
+			Vector3(box.size.x, _link_count * link_spacing + 0.5, box.size.z),
+		);
 
 
 ## Call update_visual on every link to sync mesh transforms to the simulated points.

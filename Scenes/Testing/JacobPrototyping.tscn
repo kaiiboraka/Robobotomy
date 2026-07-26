@@ -13,14 +13,14 @@
 [ext_resource type="PackedScene" uid="uid://dxubgecu6o687" path="res://Scenes/Characters/Limbs/Head.tscn" id="8_8un3r"]
 [ext_resource type="PackedScene" uid="uid://f0oommypkm0i" path="res://Scenes/Characters/Limbs/LeftLeg.tscn" id="8_yj7wf"]
 [ext_resource type="PackedScene" uid="uid://ep2c8eoh0i32" path="res://Scenes/Characters/Limbs/RightLeg.tscn" id="9_yj7wf"]
-[ext_resource type="PackedScene" uid="uid://dgt8nrv3iluhe" path="res://Scenes/Environment/Interactables/rope2.tscn" id="14_17pk7"]
+[ext_resource type="PackedScene" uid="uid://td56vu1l1xka" path="res://Scenes/Environment/Interactables/Chain.tscn" id="14_17pk7"]
 [ext_resource type="PackedScene" uid="uid://m1ilgdhf1lia" path="res://Scenes/Environment/Buttons/Weighted_Button.tscn" id="15_ksac6"]
 [ext_resource type="PackedScene" uid="uid://dbj2mxqdg7prw" path="res://Scenes/Environment/Crane.tscn" id="15_lauej"]
-[ext_resource type="PackedScene" uid="uid://6lte8385sjbm" path="res://Scenes/Environment/Interactables/Crate.tscn" id="16_yp1hl"]
+[ext_resource type="PackedScene" path="res://Scenes/Environment/Interactables/Crate.tscn" id="16_yp1hl"]
 [ext_resource type="PackedScene" uid="uid://bfxbhhtip1gba" path="res://Scenes/Environment/Terrain/MovableExtendableWall.tscn" id="18_4ftp5"]
 [ext_resource type="PackedScene" uid="uid://dyki3kr5ucgg7" path="res://Scenes/Environment/Doors/Activated_PathFollower.tscn" id="18_l0g40"]
-[ext_resource type="PackedScene" uid="uid://dg3q8c1rvpj7c" path="res://Scenes/Environment/CraneBoundary.tscn" id="20_bwhe6"]
-[ext_resource type="PackedScene" uid="uid://ck4xyle2xn27e" path="res://Scenes/Environment/Interactables/rope3.tscn" id="21_jkqt3"]
+[ext_resource type="PackedScene" path="res://Scenes/Environment/CraneBoundary.tscn" id="20_bwhe6"]
+[ext_resource type="PackedScene" uid="uid://td56vu1l1xka" path="res://Scenes/Environment/Interactables/Chain.tscn" id="21_jkqt3"]
 
 [sub_resource type="Resource" id="Resource_lpy3h"]
 script = ExtResource("5_gw4p4")

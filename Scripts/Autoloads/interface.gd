@@ -12,7 +12,6 @@ func _get_radial_menu() -> RadialMenu:
 		add_child(new_menu);
 		radial_menu = new_menu;
 	return radial_menu;
-	pass;
 
 
 func show_radial_menu() -> void:
