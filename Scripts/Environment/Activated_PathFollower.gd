@@ -1,10 +1,10 @@
-@tool class_name Activated_PathFollower
-extends Path3D
+@tool class_name Activated_PathFollower;
+extends Path3D;
 
 ## Must not be a StaticBody3D (recommended AnimatableBody3D for collisions). Easiest to orient when it is placed as a child of this node.
 @export var target_follower : Node3D :
 	set(val):
-		target_follower = val
+		target_follower = val;
 		if is_node_ready() and remote_transform_3d:
 			_set_remote_path();
 
@@ -18,8 +18,8 @@ extends Path3D
 @export_range(.01,50) var moveSpeedForward : float = 1;
 @export_range(.01,50) var moveSpeedBackward : float = 1;
 
-@onready var path_follow_3d : PathFollow3D = $PathFollow3D
-@onready var remote_transform_3d : RemoteTransform3D = $PathFollow3D/RemoteTransform3D
+@onready var path_follow_3d : PathFollow3D = $PathFollow3D;
+@onready var remote_transform_3d : RemoteTransform3D = $PathFollow3D/RemoteTransform3D;
 
 var activated : bool = false;
 
@@ -48,10 +48,10 @@ func on_button_deactivated() -> void:
 
 func _set_remote_path() -> void:
 	if not remote_transform_3d:
-		printerr("remote transform is null")
+		printerr("remote transform is null");
 		return;
 	if not target_follower:
-		printerr("target follower is null")
+		printerr("target follower is null");
 		return;
 	
 	remote_transform_3d.remote_path = target_follower.get_path();

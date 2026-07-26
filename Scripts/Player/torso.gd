@@ -1,4 +1,4 @@
-extends RollingBodyPart
+extends RollingBodyPart;
 
 var limbs_attached: int = 0;
 
