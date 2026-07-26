@@ -58,3 +58,27 @@ func _fix_scale() -> void:
 	size.y *= scale.y;
 	size.z *= scale.z;
 	scale = Vector3.ONE;
+
+@export_tool_button("Swap X Y", "3D")
+var swap_xy_button : Callable = _swap_xy
+func _swap_xy() -> void:
+	var tmp = size.x
+	size.x = size.y
+	size.y = tmp
+	_sync_sizes()
+
+@export_tool_button("Swap Y Z", "3D")
+var swap_yz_button : Callable = _swap_yz
+func _swap_yz() -> void:
+	var tmp = size.y
+	size.y = size.z
+	size.z = tmp
+	_sync_sizes()
+
+@export_tool_button("Swap X Z", "3D")
+var swap_xz_button : Callable = _swap_xz
+func _swap_xz() -> void:
+	var tmp = size.x
+	size.x = size.z
+	size.z = tmp
+	_sync_sizes()
