@@ -3,3 +3,52 @@
 [ext_resource type="PackedScene" uid="uid://caj74qdlqfqfr" path="res://Assets/3D/Character/NamelessV07.fbx" id="1_hv1w6"]
 
 [node name="NamelessV07" unique_id=296770905 instance=ExtResource("1_hv1w6")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+
+[node name="Head_New" parent="Full_Nameless/Top_Half" parent_id_path=PackedInt32Array(120621171) index="0" unique_id=264285010]
+transform = Transform3D(1, 0, 0, 0, 0.91325265, -0.40739363, 0, 0.40739363, 0.91325265, 2.3841857e-09, 0.002369892, -0.010958214)
+
+[node name="Hair_tuft" parent="Full_Nameless/Top_Half/Head_New" index="2" unique_id=770730232]
+transform = Transform3D(1, 0, 0, 0, 0.8938221, 0.44842184, 0, -0.44842184, 0.8938221, -0.0015077518, 0.031921774, -0.002143373)
+
+[node name="ArmR" parent="Full_Nameless/Top_Half" parent_id_path=PackedInt32Array(120621171) index="3" unique_id=1616618456]
+transform = Transform3D(0.1489715, -0.98884153, 0, 0.98884153, 0.1489715, 0, 0, 0, 1, 0.022158876, 0.021949094, -2.8518855e-17)
+
+[node name="Upper_Arm" parent="Full_Nameless/Top_Half/ArmR" index="0" unique_id=465547510]
+transform = Transform3D(0.9953151, 0.07476617, 0.061301358, -0.07490704, 0.99719054, 0, -0.061129134, -0.0045919036, 0.9981193, -0.0013379614, 0.024167737, 2.7755575e-19)
+
+[node name="ForeArm" parent="Full_Nameless/Top_Half/ArmR" index="1" unique_id=450988562]
+transform = Transform3D(1, 0, 0, 0, 0.8682124, -0.4961927, 0, 0.4961927, 0.8682124, 0.0006258368, 0.0036914002, -0.011145213)
+
+[node name="ArmL" parent="Full_Nameless/Top_Half" parent_id_path=PackedInt32Array(120621171) index="4" unique_id=2119984105]
+transform = Transform3D(0.30548117, 0.9521981, 0, -0.9521981, 0.30548117, 0, 0, 0, 1, -0.021438204, 0.01825536, 2.3841857e-09)
+
+[node name="Upper_Arm2" parent="Full_Nameless/Top_Half/ArmL" index="0" unique_id=32101835]
+transform = Transform3D(0.99692446, 0.07836843, 0, -0.07836843, 0.99692446, 0, 0, 0, 1, 0.001580543, 0.02412392, 2.7755575e-19)
+
+[node name="ForeArm2" parent="Full_Nameless/Top_Half/ArmL" index="1" unique_id=785248431]
+transform = Transform3D(0.983949, 0.17844991, 0, -0.17844991, 0.983949, 0, 0, 0, 1, -0.004171542, 0.0012704518, -1.3322676e-17)
+
+[node name="LBow_Light2" parent="Full_Nameless/Top_Half/ArmL/ForeArm2" index="0" unique_id=1423000656]
+transform = Transform3D(1, 0, 0, 0, 0.7558488, -0.6547462, 0, 0.6547462, 0.7558488, 0.007014289, 0.024735056, 0.000540367)
+
+[node name="Wrist2" parent="Full_Nameless/Top_Half/ArmL/ForeArm2" index="1" unique_id=1352987815]
+transform = Transform3D(1, 0, 0, 0, 0.7558488, -0.6547462, 0, 0.6547462, 0.7558488, 0.0070650084, 0.024120685, -3.614781e-06)
+
+[node name="Wrist_Light2" parent="Full_Nameless/Top_Half/ArmL/ForeArm2" index="2" unique_id=1066121523]
+transform = Transform3D(1, 0, 0, 0, 0.7558488, -0.6547462, 0, 0.6547462, 0.7558488, 0.013463338, 0.024823966, 0.000540367)
+
+[node name="Hand2" parent="Full_Nameless/Top_Half/ArmL/ForeArm2" index="3" unique_id=783174377]
+transform = Transform3D(1, 0, 0, 0, 0.6547431, -0.7558515, 0, 0.7558515, 0.6547431, 0.013730387, 0.024115149, 4.5646875e-06)
+
+[node name="Armor_Bit" parent="Full_Nameless/Bottom_Half/LegL/LowerLeg" parent_id_path=PackedInt32Array(246430347) index="2" unique_id=664735627]
+transform = Transform3D(1, 0, 0, 0, 0.9857697, -0.16810147, 0, 0.16810147, 0.9857697, 0.0020702789, 0.0009966794, -0.0004812638)
+
+[node name="Foot" parent="Full_Nameless/Bottom_Half/LegL/LowerLeg" parent_id_path=PackedInt32Array(246430347) index="4" unique_id=1899934467]
+transform = Transform3D(0.97880477, 0.19551148, -0.060963295, -0.14043336, 0.42409372, -0.89466363, -0.14906286, 0.8842623, 0.44256127, 0.0021165865, 0.001005177, -0.00045623328)
+
+[node name="Armor_Bit2" parent="Full_Nameless/Bottom_Half/LegR/LowerLeg2" parent_id_path=PackedInt32Array(695953308) index="2" unique_id=196344338]
+transform = Transform3D(1, 0, 0, 0, 0.99998116, 0.0061483905, 0, -0.0061483905, 0.99998116, -0.0020703247, 0.0009966794, -0.0004812638)
+
+[node name="Foot2" parent="Full_Nameless/Bottom_Half/LegR/LowerLeg2" parent_id_path=PackedInt32Array(695953308) index="4" unique_id=173242170]
+transform = Transform3D(1, 0, 0, 0, 0.4828503, -0.875703, 0, 0.875703, 0.4828503, -0.0021166322, 0.001005177, -0.00045623328)
