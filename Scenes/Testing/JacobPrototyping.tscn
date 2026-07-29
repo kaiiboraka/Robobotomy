@@ -1,25 +1,20 @@
 [gd_scene format=3 uid="uid://dkigtorft18w6"]
 
-[ext_resource type="PackedScene" uid="uid://dmrf146qrbqun" path="res://Scenes/Environment/Interactables/ControlPanel2.tscn" id="1_pypk4"]
 [ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/Terrain/ExtendableWall.tscn" id="2_bd11y"]
 [ext_resource type="PackedScene" uid="uid://npjp2dyv4vbu" path="res://Scenes/Characters/Player.tscn" id="3_at6gv"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_xev5s"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_gkkn6"]
 [ext_resource type="PackedScene" uid="uid://0nxi375snik3" path="res://Scenes/Characters/Limbs/RightArm.tscn" id="5_8un3r"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_gw4p4"]
-[ext_resource type="PackedScene" uid="uid://i2hkf7f1n6kf" path="res://Scenes/Environment/Catapult.tscn" id="6_kefid"]
 [ext_resource type="Resource" uid="uid://odcgk1h80sk0" path="res://Assets/Resources/Camera3DSettings.tres" id="7_8un3r"]
 [ext_resource type="PackedScene" uid="uid://clesw0vcam4s2" path="res://Scenes/Characters/Limbs/LeftArm.tscn" id="7_lxvf2"]
 [ext_resource type="PackedScene" uid="uid://dxubgecu6o687" path="res://Scenes/Characters/Limbs/Head.tscn" id="8_8un3r"]
 [ext_resource type="PackedScene" uid="uid://f0oommypkm0i" path="res://Scenes/Characters/Limbs/LeftLeg.tscn" id="8_yj7wf"]
 [ext_resource type="PackedScene" uid="uid://ep2c8eoh0i32" path="res://Scenes/Characters/Limbs/RightLeg.tscn" id="9_yj7wf"]
-[ext_resource type="PackedScene" uid="uid://td56vu1l1xka" path="res://Scenes/Environment/Interactables/Chain.tscn" id="14_17pk7"]
 [ext_resource type="PackedScene" uid="uid://m1ilgdhf1lia" path="res://Scenes/Environment/Buttons/Weighted_Button.tscn" id="15_ksac6"]
-[ext_resource type="PackedScene" uid="uid://dbj2mxqdg7prw" path="res://Scenes/Environment/Crane.tscn" id="15_lauej"]
-[ext_resource type="PackedScene" path="res://Scenes/Environment/Interactables/Crate.tscn" id="16_yp1hl"]
 [ext_resource type="PackedScene" uid="uid://bfxbhhtip1gba" path="res://Scenes/Environment/Terrain/MovableExtendableWall.tscn" id="18_4ftp5"]
+[ext_resource type="PackedScene" uid="uid://c6qviaeewwus1" path="res://Scenes/Environment/Interactables/monkey_bar.tscn" id="18_bwhe6"]
 [ext_resource type="PackedScene" uid="uid://dyki3kr5ucgg7" path="res://Scenes/Environment/Doors/Activated_PathFollower.tscn" id="18_l0g40"]
-[ext_resource type="PackedScene" path="res://Scenes/Environment/CraneBoundary.tscn" id="20_bwhe6"]
 [ext_resource type="PackedScene" uid="uid://td56vu1l1xka" path="res://Scenes/Environment/Interactables/Chain.tscn" id="21_jkqt3"]
 
 [sub_resource type="Resource" id="Resource_lpy3h"]
@@ -28,25 +23,24 @@ transition = 7
 
 [sub_resource type="Curve3D" id="Curve3D_bwhe6"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10.403, 0),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11.647, 0, 0),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
 
 [node name="JacobPrototyping" type="Node3D" unique_id=947964362]
 
-[node name="ControlPanel2" parent="." unique_id=843480281 node_paths=PackedStringArray("activation_targets") instance=ExtResource("1_pypk4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4472904, -0.41478252, 0)
-activation_targets = [NodePath("../Catapult")]
-activation_mode = 1
-
 [node name="ExtendableWall" parent="." unique_id=1149585584 instance=ExtResource("2_bd11y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.886856, -1.1713285, 0)
-size = Vector3(37.266, 2.37, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5902824, -1.1713285, 0)
+size = Vector3(12.316, 2.37, 5)
+
+[node name="ExtendableWall5" parent="." unique_id=1201527970 instance=ExtResource("2_bd11y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.825224, -1.1713285, 0)
+size = Vector3(15.366, 2.37, 5)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1898504763]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.989332, 3.75, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.304917, 3.75, 15)
 fov = 45.0
 near = 0.005
 
@@ -57,7 +51,7 @@ script = ExtResource("3_xev5s")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=64555096 instance=ExtResource("3_at6gv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.989332, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.304917, 0, 0)
 
 [node name="RightArm" parent="Player" unique_id=904546073 instance=ExtResource("5_8un3r")]
 
@@ -71,7 +65,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8653183, 0)
 [node name="RightLeg" parent="Player" unique_id=1985177356 instance=ExtResource("9_yj7wf")]
 
 [node name="Player_PhantomCamera3D" type="Node3D" parent="." unique_id=1936159958 node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.989332, 3.75, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.304917, 3.75, 15)
 top_level = true
 script = ExtResource("4_gkkn6")
 priority = 1
@@ -89,9 +83,6 @@ show_viewfinder_in_play = true
 spring_length = 15.0
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="Catapult" parent="." unique_id=1907050325 instance=ExtResource("6_kefid")]
-transform = Transform3D(0.93292844, 0.36006194, 0, -0.36006194, 0.93292844, 0, 0, 0, 1, 8.761453, -1.8223767, 0)
-
 [node name="ExtendableWall2" parent="." unique_id=1349869339 instance=ExtResource("2_bd11y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.186741, 0, 0)
 size = Vector3(5.975, 18.38, 5)
@@ -104,43 +95,27 @@ size = Vector3(5.975, 18.38, 5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.059802, 21.241299, 0)
 size = Vector3(29.91, 1, 5)
 
-[node name="Rope2" parent="." unique_id=2093183878 instance=ExtResource("14_17pk7")]
+[node name="Rope2" parent="." unique_id=2093183878 instance=ExtResource("21_jkqt3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.213333, 12.8517065, 0)
-
-[node name="ControlPanel3" parent="." unique_id=1421412609 node_paths=PackedStringArray("activation_targets") instance=ExtResource("1_pypk4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.117533, -0.14271402, 0)
-activation_targets = [NodePath("../Crane")]
-activation_mode = 0
-
-[node name="Crane" parent="." unique_id=950805602 instance=ExtResource("15_lauej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.835043, 8.889433, 0)
-
-[node name="Crate" parent="." unique_id=1252600604 instance=ExtResource("16_yp1hl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.764574, 1.5770297, 0.26120472)
+length = 10
 
 [node name="WeightedButton" parent="." unique_id=1151652390 node_paths=PackedStringArray("activation_targets") instance=ExtResource("15_ksac6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4154029, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.47586, 0, 0)
 trigger_weight = 3
 activation_targets = [NodePath("../Activated_PathFollower")]
 
 [node name="Activated_PathFollower" parent="." unique_id=41623911 node_paths=PackedStringArray("target_follower") instance=ExtResource("18_l0g40")]
-transform = Transform3D(1, 0, 0, 0, 0.57467306, 0, 0, 0, 1, -4.679035, 1.6196971, -0.20007515)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.101, 2.7373333, 0)
 curve = SubResource("Curve3D_bwhe6")
-target_follower = NodePath("../MovingExtendableWall2")
+target_follower = NodePath("../MovingExtendableWall")
 moveSpeedBackward = 2.0
 
-[node name="MovingExtendableWall2" parent="." unique_id=1141331836 instance=ExtResource("18_4ftp5")]
-transform = Transform3D(0.9999994, 0, 0, 0, 0.5746721, 0, 0, 0, 0.9999985, -4.679035, 1.6196971, -0.20007515)
-size = Vector3(1.215, 3.0927777, 5)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1732502036]
-transform = Transform3D(1, 0, 0, 0, 0.06662385, 0.9977782, 0, -0.9977782, 0.06662385, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.06662385, 0.9977782, 0, -0.9977782, 0.06662385, 0, -1.9201674, 0)
 
-[node name="CraneBoundary" parent="." unique_id=1320913317 instance=ExtResource("20_bwhe6")]
-transform = Transform3D(1, 0, 0, 0, 2.0830538, 0, 0, 0, 1, -20.064476, 7.486333, 0)
+[node name="MovingExtendableWall" parent="." unique_id=1141331836 instance=ExtResource("18_4ftp5")]
+transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, -10.101, 2.7373333, 0)
+size = Vector3(5, 2, 1)
 
-[node name="CraneBoundary2" parent="." unique_id=1762849661 instance=ExtResource("20_bwhe6")]
-transform = Transform3D(0.40585855, 1.8020645, 0, -0.9139359, 0.80025667, 0, 0, 0, 1, -12.724903, 18.248943, 0)
-
-[node name="Rope3" parent="." unique_id=427248552 instance=ExtResource("21_jkqt3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.271143, 11.246677, 0)
+[node name="MonkeyBar" parent="MovingExtendableWall" unique_id=1647589204 instance=ExtResource("18_bwhe6")]
+transform = Transform3D(1.0000006, 0, 0, 0, 1.0000015, 0, 0, 0, 1.0000013, 0.00038719177, -0.91831684, -0.20007543)
