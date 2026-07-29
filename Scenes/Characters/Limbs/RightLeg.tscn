@@ -257,11 +257,12 @@ freeze = true
 freeze_mode = 1
 continuous_cd = true
 contact_monitor = true
-max_contacts_reported = 2
+max_contacts_reported = 6
 script = ExtResource("1_pckun")
 is_connected = false
 throw_force = 20.0
 jump_velocity = 10.0
+limb_type = 6
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=2014330834]
 

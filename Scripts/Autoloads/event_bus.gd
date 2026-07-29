@@ -1,13 +1,13 @@
-extends Node
+extends Node;
 ## An event handler for signals
 
 ## Emits when a limb is selected
-signal limb_selected(slot: int)
+signal limb_selected(slot: int);
 
 ## Ids for the limbs go in the order (from 0-5):
 ## Torso, Head, Left Arm, Left Leg, Right Leg, Right Arm
 ## The array contain the corresponding player limb id
-var ui_limb_ids = [2, 0, 1, 4, 5, 3]
+var ui_limb_ids = [2, 0, 1, 4, 5, 3];
 
 ## Emits the limb_selected signal when called 
 ##
@@ -15,8 +15,8 @@ var ui_limb_ids = [2, 0, 1, 4, 5, 3]
 ## which limb is selected for throwing.
 func emit_limb_selected(slot: int):
 	# Slot goes from -1 - 4, so we add 1
-	var correct_slot = ui_limb_ids[slot + 1]
-	limb_selected.emit(correct_slot)
+	var correct_slot = ui_limb_ids[slot + 1];
+	limb_selected.emit(correct_slot);
 
 
 #region

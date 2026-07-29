@@ -73,8 +73,10 @@ axis_lock_angular_x = true
 axis_lock_angular_y = true
 platform_floor_layers = 4294959308
 script = ExtResource("1_qkgjm")
-jump_velocity = 8.0
-handicapped_jump_velocity = 4.0
+speed = 7.0
+jump_velocity = 20.0
+handicapped_jump_velocity = 12.0
+gravity_multiplier = 4.0
 
 [node name="Limb_PhantomCamera3D" type="Node3D" parent="." unique_id=1704350181]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.0686836, 21.244757)

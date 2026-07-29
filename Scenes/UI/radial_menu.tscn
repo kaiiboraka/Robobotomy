@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cuamrmgx12j3s" path="res://Assets/UI/Pixel Art/Nam_Arm.png" id="5_4cf1o"]
 [ext_resource type="Texture2D" uid="uid://c7cvs44ojokq5" path="res://Assets/UI/Pixel Art/Nam_leg.png" id="6_4cf1o"]
 [ext_resource type="Texture2D" uid="uid://dlb3oiwmbycxe" path="res://Assets/UI/Pixel Art/Pixel Perfect ROBOBOTOMY.png" id="7_s2vpv"]
-[ext_resource type="Shader" uid="uid://etiydx1sh5bj" path="res://Assets/UI/shaders/CRT.gdshader" id="8_ohs8s"]
+[ext_resource type="Shader" uid="uid://etiydx1sh5bj" path="res://Assets/UI/shaders/crt.gdshader" id="8_ohs8s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sgy6j"]
 shader = ExtResource("8_ohs8s")
@@ -47,8 +47,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4gvu6")
 select_action_name = "ui_select"
+action_released = true
 auto_sizing = false
 first_in_center = true
+controller_enabled = true
+focus_action_name = "Player_RadialMenu"
+move_forward_action_name = "Player_Aim_Up"
+move_left_action_name = "Player_Aim_Left"
+move_back_action_name = "Player_Aim_Down"
+move_right_action_name = "Player_Aim_Right"
 circle_radius = 294
 arc_color = Color(1, 1, 1, 0)
 arc_inner_radius = 99.666
@@ -131,14 +138,14 @@ texture_filter = 1
 position = Vector2(960, 540)
 texture = ExtResource("7_s2vpv")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1770615014]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=920025334]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=920025334]
 material = SubResource("ShaderMaterial_sgy6j")
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="slot_selected" from="RadialMenuAdvanced" to="." method="_on_radial_menu_advanced_slot_selected"]

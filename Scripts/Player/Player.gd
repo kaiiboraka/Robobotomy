@@ -1,58 +1,41 @@
-class_name Player extends CharacterBody3D
+class_name Player
+extends CharacterBody3D;
 
-@export var speed : float = 5.0;
-@export var handicapped_speed : float = 3;
-@export var jump_velocity : float = 6;
-@export var handicapped_jump_velocity : float = 5;
-@onready var torso : BodyPart = $Torso;
-@onready var head : BodyPart = $Head;
-@onready var l_arm : BodyPart = $LeftArm;
-@onready var r_arm : BodyPart = $RightArm;
-@onready var l_leg : BodyPart = $LeftLeg;
-@onready var r_leg : BodyPart = $RightLeg;
-@onready var phantom_camera : PhantomCamera3D = $Limb_PhantomCamera3D;
-@onready var selection_label : Label3D = $Label3D;
-@onready var neck : MeshInstance3D = $Neck;
-@onready var tall_collider : CollisionShape3D = $Tall_CollisionShape3D;
-@onready var short_collider : CollisionShape3D = $Short_CollisionShape3D;
-@onready var throw_arc : ThrowArc = $ThrowArc;
-@onready var holding_spot : Node3D = $Holding_Spot;
+enum movement_modes \
+{
+	DEFAULT,
+	CHAIN,
+	LEDGE_LEFT,
+	LEDGE_RIGHT,
+	CONTROL_PANEL,
+}
 
-@onready var wall_detection_right: RayCast3D = $WallDetectionRight
-@onready var ledge_detection_right: RayCast3D = $LedgeDetectionRight
-@onready var floor_height_detection_right: RayCast3D = $FloorHeightDetectionRight
-@onready var wall_detection_left: RayCast3D = $WallDetectionLeft
-@onready var ledge_detection_left: RayCast3D = $LedgeDetectionLeft
-@onready var floor_height_detection_left: RayCast3D = $FloorHeightDetectionLeft
+const AIM_DEADZONE: float = 0.2;
+const AIM_MAX: float = 0.9;
+const AIM_RAISE: float = 0.3;
+
+static var instance: Player;
+
+@export var speed: float = 5.0;
+@export var handicapped_speed: float = 3;
+@export var jump_velocity: float = 6;
+@export var handicapped_jump_velocity: float = 5;
+@export var gravity_multiplier: float = 1.0;
+
+@export var throw_speed_min: float = 6.0;
+@export var throw_speed_max: float = 14.0;
 
 var limbs: Array = [];
 var selected_limb: BodyPart = null;
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity");
 var is_controlling_core: bool = true;
-var weight : int = 0;
-var current_jump_velocity : float = 4.5;
+var weight: int = 0;
+var current_jump_velocity: float = 4.5;
 
-@export var throw_speed_min : float = 6.0;
-@export var throw_speed_max : float = 14.0;
-const AIM_DEADZONE : float = 0.2;
-const AIM_MAX : float = 0.9;
-const AIM_RAISE : float = 0.3;
+var control_panels: Dictionary[BodyPart, ControlPanel] = { r_arm: null, l_arm: null }
 
-var _aim_dir : Vector3 = Vector3.RIGHT;
-var _aim_speed : float = 40.0;
-var _aim_theta : float = 0.0;
-var _aim_dir_x : float = 1.0;
-var _has_aim : bool = false;
-
-enum movement_modes {DEFAULT, ROPE, LEDGE_LEFT, LEDGE_RIGHT, CONTROL_PANEL}
-var _movement_mode: movement_modes = movement_modes.DEFAULT;
-
-var control_panels : Dictionary[BodyPart, ControlPanel] = {
-	r_arm: null,
-	l_arm: null,
-}
-
-var attached_rope: Rope;
+var attached_chain: Chain;
+var chain_grab_offset: Vector3;
 
 var limb_sockets := {
 	"Head": Vector3(0, 2.9366379, 0),
@@ -60,26 +43,53 @@ var limb_sockets := {
 	"LeftArm": Vector3(0.86595744, 2.4061642, 0),
 	"RightArm": Vector3(-0.8641265, 2.4061642, 0),
 	"LeftLeg": Vector3(0.223, 0.89, 0),
-	"RightLeg": Vector3(-0.223, 0.89, 0)
-};
+	"RightLeg": Vector3(-0.223, 0.89, 0),
+}
+var _aim_dir: Vector3 = Vector3.RIGHT;
+var _aim_speed: float = 40.0;
+var _has_aim: bool = false;
+var _movement_mode: movement_modes = movement_modes.DEFAULT;
 
-static var instance: Player
+@onready var torso: BodyPart = $Torso;
+@onready var head: BodyPart = $Head;
+@onready var l_arm: BodyPart = $LeftArm;
+@onready var r_arm: BodyPart = $RightArm;
+@onready var l_leg: BodyPart = $LeftLeg;
+@onready var r_leg: BodyPart = $RightLeg;
+@onready var phantom_camera: PhantomCamera3D = $Limb_PhantomCamera3D;
+@onready var selection_label: Label3D = $Label3D;
+@onready var neck: MeshInstance3D = $Neck;
+@onready var tall_collider: CollisionShape3D = $Tall_CollisionShape3D;
+@onready var short_collider: CollisionShape3D = $Short_CollisionShape3D;
+@onready var throw_arc: ThrowArc = $ThrowArc;
+@onready var holding_spot: Node3D = $Holding_Spot;
 
+@onready var wall_detection_right: RayCast3D = $WallDetectionRight;
+@onready var ledge_detection_right: RayCast3D = $LedgeDetectionRight;
+@onready var floor_height_detection_right: RayCast3D = $FloorHeightDetectionRight;
+@onready var wall_detection_left: RayCast3D = $WallDetectionLeft;
+@onready var ledge_detection_left: RayCast3D = $LedgeDetectionLeft;
+@onready var floor_height_detection_left: RayCast3D = $FloorHeightDetectionLeft;
+
+
+## Register limbs that start connected, assign socket positions, apply cel shader,
+## and select the torso as the default active limb.
 func _ready() -> void:
 	if Engine.is_editor_hint():
-		return; # This is for lighting. I just dont want it to run while in the editor. You can delete it, but beware j
-		
-	if(instance == null):
-		instance = self
+		return;
+		# This is for lighting. I just dont want it to run while in the editor. You can delete it, but beware j;
+
+	if (instance == null):
+		instance = self;
 	else:
-		queue_free()
-		
+		queue_free();
+
 	axis_lock_linear_z = true;
-	
+
 	# Only register limbs that start connected
 	var possible_limbs = [torso, head, l_arm, r_arm, l_leg, r_leg];
 	limbs = [];
-	
+
 	for limb in possible_limbs:
 		if limb:
 			if limb.is_connected:
@@ -94,45 +104,23 @@ func _ready() -> void:
 			if limb.name in limb_sockets:
 				limb.starting_position = limb_sockets[limb.name];
 				limb.starting_rotation = Vector3.ZERO;
-				
-	apply_cell_shader_file()
+
+	apply_cell_shader_file();
 	# Start with torso selected if available
 	if torso and torso.is_connected:
 		check_torso_activation();
 		select_limb(torso);
 
 
-func _init_limb(limb: BodyPart) -> void:
-	limb.core = self;
-	limb.disable_part();
-	if not limb.hit_ground.is_connected(_on_limb_hit_ground):
-		limb.hit_ground.connect(_on_limb_hit_ground.bind(limb));
-
-
-func register_limb(limb: BodyPart) -> void:
-	match limb.name:
-		"Head": head = limb;
-		"LeftArm": l_arm = limb;
-		"RightArm": r_arm = limb;
-		"LeftLeg": l_leg = limb;
-		"RightLeg": r_leg = limb;
-		"Torso": torso = limb;
-
-	if not limb in limbs:
-		limbs.append(limb);
-	
-	# Ensure starting positions are set if it was picked up from the world
-	if limb.name in limb_sockets:
-		limb.starting_position = limb_sockets[limb.name];
-		limb.starting_rotation = Vector3.ZERO;
-		
-	_init_limb(limb);
-	check_torso_activation();
-	update_weight();
-	_update_selection_hud();
-
-
+## Process input, limb selection, aiming, movement modes, gravity, and camera
+## tracking every physics frame. This is the main control loop for the player.
 func _physics_process(delta: float) -> void:
+	if Input.is_action_pressed("Player_RadialMenu"):
+		Interface.show_radial_menu();
+		pass;
+	elif Input.is_action_just_released("Player_RadialMenu"):
+		Interface.hide_radial_menu();
+
 	# just_pressed avoids re-running select_limb every frame while a limb key is held
 	if Input.is_action_just_pressed("Player_SelectLimb0_Torso") and torso and torso.is_connected:
 		select_limb(torso);
@@ -150,18 +138,20 @@ func _physics_process(delta: float) -> void:
 		_cycle_limb(1);
 	elif Input.is_action_just_pressed("Player_CycleLimb_Backward"):
 		_cycle_limb(-1);
-
 	_update_aim();
 
 	_position_held_limb();
 
 	_refresh_follow_target();
 
-	if Input.is_action_just_pressed("Player_Throw_Limb") and selected_limb and selected_limb != torso and get_movement_mode() != movement_modes.CONTROL_PANEL:
+	if (
+		Input.is_action_just_pressed("Player_Throw_Limb") and selected_limb
+		and selected_limb != torso and get_movement_mode() != movement_modes.CONTROL_PANEL
+	):
 		if not selected_limb.is_detached:
 			if _has_aim:
 				selected_limb.throw(_aim_dir * _aim_speed);
-				if(selected_limb is Arm and get_movement_mode() == movement_modes.ROPE):
+				if (selected_limb is Arm and get_movement_mode() == movement_modes.CHAIN):
 					set_movement_mode(movement_modes.DEFAULT);
 			else:
 				# Throw without aiming just drops the limb back into the world
@@ -169,16 +159,22 @@ func _physics_process(delta: float) -> void:
 			# Update camera to follow the thrown/dropped limb
 			_set_follow_target(selected_limb, 2);
 			check_torso_activation();
-			
-	if Input.is_action_just_pressed("Player_Drop_Limb") and get_movement_mode() != movement_modes.CONTROL_PANEL:
+
+	if (
+		Input.is_action_just_pressed("Player_Drop_Limb")
+		and get_movement_mode() != movement_modes.CONTROL_PANEL
+	):
 		if selected_limb == torso:
 			drop_all_limbs();
 		elif selected_limb != null and not selected_limb.is_detached:
 			drop_limb(selected_limb);
-			if(selected_limb is Arm and get_movement_mode()==movement_modes.ROPE):
+			if (selected_limb is Arm and get_movement_mode() == movement_modes.CHAIN):
 				set_movement_mode(movement_modes.DEFAULT);
 
-	if Input.is_action_just_pressed("Player_Recall") and get_movement_mode() != movement_modes.CONTROL_PANEL:
+	if (
+		Input.is_action_just_pressed("Player_Recall")
+		and get_movement_mode() != movement_modes.CONTROL_PANEL
+	):
 		if torso and torso.is_connected and torso.is_part_enabled:
 			sync_core_to_torso();
 		if selected_limb == torso:
@@ -187,7 +183,10 @@ func _physics_process(delta: float) -> void:
 				if limb and limb != torso and limb.is_detached and !limb.is_busy:
 					var tween = limb.retract();
 					tween.finished.connect(_on_limb_returned.bind(limb));
-		elif selected_limb and selected_limb != torso and selected_limb.is_detached and !selected_limb.is_busy:
+		elif (
+			selected_limb and selected_limb != torso
+			and selected_limb.is_detached and !selected_limb.is_busy
+		):
 			is_controlling_core = true;
 			var tween := selected_limb.retract();
 			tween.finished.connect(select_limb.bind(torso));
@@ -196,50 +195,63 @@ func _physics_process(delta: float) -> void:
 		_update_selection_hud();
 
 	# Add the gravity.
-	if not is_on_floor() and (get_movement_mode() == movement_modes.DEFAULT or get_movement_mode() == movement_modes.CONTROL_PANEL):
-		velocity.y -= gravity * delta;
+	if (
+		not is_on_floor()
+		and (
+			get_movement_mode() == movement_modes.DEFAULT
+			or get_movement_mode() == movement_modes.CONTROL_PANEL
+		)
+	):
+		velocity.y -= gravity * delta * gravity_multiplier;
 
 	# Process movement inputs only if we are controlling the core
 	if is_controlling_core:
 		match get_movement_mode():
-			movement_modes.ROPE:
-				position = attached_rope.get_grab_point() + (global_position - get_grab_location())
+			## CHAIN: position player at the stored offset from the chain grab point,
+			## handle climb and push inputs, and jump-off to detach.
+			movement_modes.CHAIN:
+				position = attached_chain.get_grab_point() + chain_grab_offset;
 				velocity.x = 0;
 				velocity.y = 0;
-				if(Input.is_action_pressed("Player_Move_Up")):
-					attached_rope.climb(Vector3(0, -1, 0), 0.02)
+				if (Input.is_action_pressed("Player_Move_Up")):
+					attached_chain.climb(Vector3(0, -1, 0), 0.02);
 				elif (Input.is_action_pressed("Player_Move_Down")):
-					attached_rope.climb(Vector3(0, 1, 0), 0.02)
-				if(Input.is_action_pressed("Player_Move_Left")):
-					attached_rope.push(Vector3(-1, 0, 0), 0.2)
-				elif(Input.is_action_pressed("Player_Move_Right")):
-					attached_rope.push(Vector3(1, 0, 0), 0.2)
-				
-				if(Input.is_action_just_pressed("Player_Jump")):
-					velocity = attached_rope.jump_off();
-					velocity.y += current_jump_velocity
+					attached_chain.climb(Vector3(0, 1, 0), 0.02);
+				if (Input.is_action_pressed("Player_Move_Left")):
+					attached_chain.push(Vector3(-1, 0, 0), 0.2);
+				elif (Input.is_action_pressed("Player_Move_Right")):
+					attached_chain.push(Vector3(1, 0, 0), 0.2);
+
+				if (Input.is_action_just_pressed("Player_Jump")):
+					velocity = attached_chain.jump_off();
+					velocity.y += current_jump_velocity;
+					attached_chain.stop_interaction(self);
 					set_movement_mode(movement_modes.DEFAULT);
+			## LEDGE_LEFT: snap player Y to the left ledge collision point.
 			movement_modes.LEDGE_LEFT:
-				velocity.x=0
-				velocity.y=0
-				position.y = floor_height_detection_left.get_collision_point().y - 2.5
-				if(Input.is_action_just_pressed("Player_Jump")):
-					velocity.y = current_jump_velocity
+				velocity.x = 0;
+				velocity.y = 0;
+				position.y = floor_height_detection_left.get_collision_point().y - 2.5;
+				if (Input.is_action_just_pressed("Player_Jump")):
+					velocity.y = current_jump_velocity;
 					set_movement_mode(movement_modes.DEFAULT);
-					if(Input.is_action_just_pressed("Player_Move_Down")):
-						set_movement_mode(movement_modes.DEFAULT)
+					if (Input.is_action_just_pressed("Player_Move_Down")):
+						set_movement_mode(movement_modes.DEFAULT);
+			## LEDGE_RIGHT: snap player Y to the right ledge collision point.
 			movement_modes.LEDGE_RIGHT:
-				velocity.x = 0
+				velocity.x = 0;
 				velocity.y = 0;
-				position.y = floor_height_detection_right.get_collision_point().y - 2.5
-				if(Input.is_action_just_pressed("Player_Jump")):
-					velocity.y = current_jump_velocity
+				position.y = floor_height_detection_right.get_collision_point().y - 2.5;
+				if (Input.is_action_just_pressed("Player_Jump")):
+					velocity.y = current_jump_velocity;
 					set_movement_mode(movement_modes.DEFAULT);
-				if(Input.is_action_just_pressed("Player_Move_Down")):
-					set_movement_mode(movement_modes.DEFAULT)
+				if (Input.is_action_just_pressed("Player_Move_Down")):
+					set_movement_mode(movement_modes.DEFAULT);
+			## CONTROL_PANEL: freeze all player movement.
 			movement_modes.CONTROL_PANEL:
-				velocity.x = 0
+				velocity.x = 0;
 				velocity.y = 0;
+			## DEFAULT: standard platformer movement with ledge-grab detection.
 			movement_modes.DEFAULT:
 				# Handle Jump.
 				if Input.is_action_just_pressed("Player_Jump") and is_on_floor():
@@ -247,18 +259,18 @@ func _physics_process(delta: float) -> void:
 
 				# Get the input direction and handle the movement/deceleration.
 				var input_dir := Input.get_axis("Player_Move_Left", "Player_Move_Right");
-				var move_speed : float = _get_movement_speed();
+				var move_speed: float = _get_movement_speed();
 
 				if input_dir:
 					velocity.x = input_dir * move_speed;
-					
+
 					if should_grab_ledge_right():
-						set_movement_mode(movement_modes.LEDGE_RIGHT)
+						set_movement_mode(movement_modes.LEDGE_RIGHT);
 					elif should_grab_ledge_left():
-						set_movement_mode(movement_modes.LEDGE_LEFT)
+						set_movement_mode(movement_modes.LEDGE_LEFT);
 				else:
 					velocity.x = move_toward(velocity.x, 0, move_speed);
-				
+
 	else:
 		# Decelerate naturally when not under control
 		velocity.x = move_toward(velocity.x, 0, speed * delta);
@@ -266,66 +278,144 @@ func _physics_process(delta: float) -> void:
 	if _hud_needs_periodic_update():
 		_update_selection_hud();
 
-	var show_arc := selected_limb != null and selected_limb != torso and not selected_limb.is_detached and _has_aim
+	var show_arc := (
+		selected_limb != null and selected_limb != torso
+		and not selected_limb.is_detached and _has_aim
+	)
 	if throw_arc != null:
 		if show_arc:
-			throw_arc.aim_origin = _get_throw_origin()
-			throw_arc.aim_direction = _aim_dir
-			throw_arc.aim_speed = _aim_speed
-			throw_arc.aim_collision_mask = selected_limb.collision_mask
-		throw_arc.toggle_aim(show_arc)
+			throw_arc.aim_origin = _get_throw_origin();
+			throw_arc.aim_direction = _aim_dir;
+			throw_arc.aim_speed = _aim_speed;
+			throw_arc.aim_collision_mask = selected_limb.collision_mask;
+		throw_arc.toggle_aim(show_arc);
 
 	move_and_slide();
 
-func should_grab_ledge_right() -> bool:
-	return wall_detection_right.is_colliding() and not ledge_detection_right.is_colliding() and velocity.y < 0
-func should_grab_ledge_left() -> bool:
-	return wall_detection_left.is_colliding() and not ledge_detection_left.is_colliding() and velocity.y < 0
-	
-func grab_rope(rope: Rope) -> void:
-	attached_rope = rope;
-	set_movement_mode(movement_modes.ROPE);
-	
-func get_grab_location() -> Vector3:
-	if(!l_arm and !r_arm and l_arm.is_detached and r_arm.is_detached):
-		return global_position
-	else:
-		return Vector3(global_position.x, l_arm.global_position.y, 0)
+	if attached_chain != null and get_movement_mode() != movement_modes.CHAIN:
+		if is_on_floor() or Input.is_action_just_pressed("Player_Interact"):
+			attached_chain.release_chain();
+			attached_chain = null;
 
+
+## Add a newly picked-up or spawned limb to the player's tracking arrays,
+## assign its socket position, and update activation/weight/HUD.
+func register_limb(limb: BodyPart) -> void:
+	match limb.name:
+		"Head":
+			head = limb;
+			limb.limb_type = BodyPart.LimbType.HEAD;
+		"LeftArm":
+			l_arm = limb;
+			limb.limb_type = BodyPart.LimbType.LEFT_ARM;
+		"RightArm":
+			r_arm = limb;
+			limb.limb_type = BodyPart.LimbType.RIGHT_ARM;
+		"LeftLeg":
+			l_leg = limb;
+			limb.limb_type = BodyPart.LimbType.LEFT_LEG;
+		"RightLeg":
+			r_leg = limb;
+			limb.limb_type = BodyPart.LimbType.RIGHT_LEG;
+		"Torso":
+			torso = limb;
+			limb.limb_type = BodyPart.LimbType.TORSO;
+
+	if not limb in limbs:
+		limbs.append(limb);
+
+	# Ensure starting positions are set if it was picked up from the world
+	if limb.name in limb_sockets:
+		limb.starting_position = limb_sockets[limb.name];
+		limb.starting_rotation = Vector3.ZERO;
+
+	_init_limb(limb);
+	check_torso_activation();
+	update_weight();
+	_update_selection_hud();
+
+
+## Returns true if the right wall ray hits and the right ledge ray does not,
+## meaning the player can grab the right edge of a platform.
+func should_grab_ledge_right() -> bool:
+	return (
+		wall_detection_right.is_colliding()
+		and not ledge_detection_right.is_colliding() and velocity.y < 0
+	)
+
+
+## Returns true if the left wall ray hits and the left ledge ray does not,
+## meaning the player can grab the left edge of a platform.
+func should_grab_ledge_left() -> bool:
+	return (
+		wall_detection_left.is_colliding()
+		and not ledge_detection_left.is_colliding() and velocity.y < 0
+	)
+
+
+## Attach the player to a chain, store the body-to-hand offset for stable
+## positioning, and switch to CHAIN movement mode.
+func grab_chain(chain: Chain) -> void:
+	attached_chain = chain;
+	chain_grab_offset = global_position - get_grab_location();
+	set_movement_mode(movement_modes.CHAIN);
+
+
+## Return the world position of the player's hand (used as the grab origin).
+## Falls back to the player center when both arms are detached or missing.
+func get_grab_location() -> Vector3:
+	if l_arm == null or r_arm == null or (l_arm.is_detached and r_arm.is_detached):
+		return global_position;
+	else:
+		return Vector3(global_position.x, l_arm.global_position.y, 0);
+
+
+## Returns true if the given arm is either selected directly or being
+## controlled through the torso while still attached.
 func is_controlling_arm(arm: BodyPart) -> bool:
-	if(selected_limb == arm): # arm is selected
+	if (selected_limb == arm): # arm is selected;
 		return true;
-	elif(is_controlling_core and not arm.is_detached): # arm is being controlled through the torso
-		return true
-	return false
-	
+	elif (is_controlling_core and not arm.is_detached): # arm is being controlled through the torso;
+		return true;
+	return false;
+
+
+## Enter control-panel mode with the given arm. Detaches the arm and snaps
+## it to the panel if it was loose, otherwise just switches the movement mode.
 func start_controlling_panel(arm: BodyPart, panel: ControlPanel) -> void:
 	# should check to see what limb is being controlled and disable that selectively
 	control_panels[arm] = panel;
-	if(arm.is_detached):
-		arm.set_accepts_player_input(false)
+	if (arm.is_detached):
+		arm.set_accepts_player_input(false);
 		arm.is_busy = true;
 		arm.position = panel.get_snap_location();
-		arm.linear_velocity = Vector3(0, 0, 0)
+		arm.linear_velocity = Vector3(0, 0, 0);
 	else:
-		set_movement_mode(movement_modes.CONTROL_PANEL)
-	return
-	
+		set_movement_mode(movement_modes.CONTROL_PANEL);
+	return;
+
+
+## Leave control-panel mode for the given arm, re-enabling input and
+## returning to DEFAULT movement if no other panel is active.
 func stop_controlling_panel(arm: BodyPart) -> void:
 	control_panels[arm] = null;
-	if(arm.is_detached):
+	if (arm.is_detached):
 		arm.is_busy = false;
-		arm.set_accepts_player_input(true)
+		arm.set_accepts_player_input(true);
 	else:
-		set_movement_mode(movement_modes.DEFAULT)
-	return
-	
+		set_movement_mode(movement_modes.DEFAULT);
+	return;
+
+
+## Snap the CharacterBody3D to the torso's current world position,
+## reattach the torso (disable rolling), and resume core control.
 func sync_core_to_torso() -> void:
-	if not torso: return;
-	
+	if not torso:
+		return;
+
 	# Snap CharacterBody3D to Torso's current location
 	global_position = torso.global_position - global_transform.basis * torso.starting_position;
-	
+
 	# Reattach torso before resetting local transform.
 	# If top_level is still true here, setting position writes world-space and can launch torso away.
 	torso.is_detached = false;
@@ -335,14 +425,16 @@ func sync_core_to_torso() -> void:
 	torso.rotation = torso.starting_rotation;
 	torso.linear_velocity = Vector3.ZERO;
 	torso.angular_velocity = Vector3.ZERO;
-	
+
 	is_controlling_core = true;
 	_update_selection_hud();
 
 
+## Sum the weight of all attached limbs and update the collider/neck
+## visibility based on which limbs are connected.
 func update_weight() -> void:
-	var total : int = 0;
-	var attached_count : int = 0;
+	var total: int = 0;
+	var attached_count: int = 0;
 	# Torso only contributes to core weight if it isn't "detached" (lone/rolling)
 	if torso and not torso.is_detached:
 		total += torso.weight;
@@ -358,51 +450,19 @@ func update_weight() -> void:
 	_update_colliders();
 
 
-func _get_movement_speed() -> float:
-	var leg_count : int = 0;
-	if l_leg and not l_leg.is_detached:
-		leg_count += 1;
-	if r_leg and not r_leg.is_detached:
-		leg_count += 1;
-
-	if leg_count == 2:
-		return speed;
-	elif leg_count == 1:
-		return handicapped_speed;
-	return speed;
-
-
-func _update_colliders() -> void:
-	var leg_count : int = 0;
-	if l_leg and not l_leg.is_detached:
-		leg_count += 1;
-	if r_leg and not r_leg.is_detached:
-		leg_count += 1;
-
-	if leg_count > 0:
-		tall_collider.disabled = false;
-		short_collider.disabled = true;
-	else:
-		tall_collider.disabled = true;
-		short_collider.disabled = false;
-	
-	match leg_count:
-		2:
-			current_jump_velocity = jump_velocity;
-		1:
-			current_jump_velocity = handicapped_jump_velocity;
-		0:
-			current_jump_velocity = handicapped_jump_velocity / 5;
-
-
+## Determine whether the torso should behave as a rolling detached part
+## (all other limbs detached) or stay attached to the player body.
+## Also syncs is_controlling_core and updates weight/HUD.
 func check_torso_activation() -> void:
 	if not torso or not torso.is_connected:
-		is_controlling_core = (selected_limb and selected_limb.is_detached and selected_limb.is_part_enabled);
+		is_controlling_core = (
+			selected_limb and selected_limb.is_detached and selected_limb.is_part_enabled
+		)
 		update_weight();
 		_update_selection_hud();
 		return;
 
-	var all_others_detached : bool = true;
+	var all_others_detached: bool = true;
 	for limb in limbs:
 		# A limb mid-retract has already flipped is_detached=false at the START
 		# of its tween, well before it's actually back home. Treat retracting
@@ -419,15 +479,21 @@ func check_torso_activation() -> void:
 		torso.disable_part();
 
 	# Synchronize core control state based on activation
-	is_controlling_core = not (torso.is_detached or 
-		(selected_limb and selected_limb.is_detached and selected_limb.is_part_enabled));
+	is_controlling_core = not (
+		torso.is_detached
+		or (selected_limb and selected_limb.is_detached and selected_limb.is_part_enabled)
+	)
 
-	update_weight(); # weight depends on is_detached status
+	update_weight();
+	# weight depends on is_detached status;
 	_update_selection_hud();
 
 
+## Switch the active limb. Returns the previous limb to its socket, disables
+## all non-selected limbs, and updates the camera follow target.
 func select_limb(limb: BodyPart) -> void:
-	if not limb: return;
+	if not limb:
+		return;
 	if selected_limb == limb:
 		# Re-tap while thrown but not yet control-enabled (e.g. missed hit_ground): wake if already on solid.
 		if limb.is_detached and not limb.is_part_enabled and _limb_has_valid_ground_contact(limb):
@@ -469,7 +535,9 @@ func select_limb(limb: BodyPart) -> void:
 
 	# Update camera target and priority
 	if phantom_camera:
-		var should_follow : bool = (selected_limb.is_detached or (selected_limb == torso and not _any_limb_still_socketed()));
+		var should_follow: bool = (
+			selected_limb.is_detached or (selected_limb == torso and not _any_limb_still_socketed())
+		)
 		if should_follow:
 			_set_follow_target(selected_limb, 2);
 		else:
@@ -485,13 +553,22 @@ func select_limb(limb: BodyPart) -> void:
 
 	_update_selection_hud();
 
+
+## Returns the current movement mode.
 func get_movement_mode() -> movement_modes:
 	return _movement_mode;
+
+
+## Sets the current movement mode.
 func set_movement_mode(val: movement_modes) -> void:
 	_movement_mode = val;
-		
+
+
+## Detach a limb from the player body, position it at its socket's world
+## coordinates, put it in free-fall, and update torso activation.
 func drop_limb(limb: BodyPart) -> void:
-	if not limb or limb == torso or limb.is_detached: return;
+	if not limb or limb == torso or limb.is_detached:
+		return;
 
 	limb.global_position = global_position + global_transform.basis * limb.starting_position;
 	limb.global_rotation = global_rotation + limb.starting_rotation;
@@ -502,10 +579,12 @@ func drop_limb(limb: BodyPart) -> void:
 
 	check_torso_activation();
 
+
+## Detach every limb (including torso) and select the torso or first available limb.
 func drop_all_limbs() -> void:
 	for limb in limbs:
 		drop_limb(limb);
-	
+
 	if torso and torso.is_connected:
 		_set_follow_target(torso, 2);
 		select_limb(torso);
@@ -514,6 +593,97 @@ func drop_all_limbs() -> void:
 		select_limb(limbs[0]);
 
 
+## Resolve the camera target when a limb is busy in a control panel.
+## Iterates through control panels to find one with a camera target.
+func get_forwarded_camera_target(limb: BodyPart) -> Node3D:
+	if !control_panels.has(limb):
+		# THIS DOES NOT WORK. If the Torso is selected, the target will update to the other object as it should, but the camera won't move. Giving up on this for now since we have bigger fish to fry.
+		if control_panels.get(l_arm):
+			var target = control_panels.get(l_arm).get_camera_target();
+			return target;
+		elif control_panels.get(r_arm):
+			var target = control_panels.get(r_arm).get_camera_target();
+			return target;
+		else:
+			return null;
+	if (control_panels.get(limb)):
+		return control_panels.get(limb).get_camera_target();
+	return null;
+
+
+## Teleport the player to the given position and reset velocity.
+func spawn_at(target_position: Vector3) -> void:
+	global_position = target_position;
+	velocity = Vector3.ZERO;
+
+
+#	for lighting
+## Apply the cel shader to the player's neck mesh and all tracked limbs.
+func apply_cell_shader_file():
+	var cel_shader = preload("res://Scripts/Lighting/cell_shader.gdshader");
+
+	if neck:
+		_inject_shader_preserving_texture(neck, cel_shader);
+
+	# Process every tracking limb entry
+	for limb in limbs:
+		if not limb:
+			continue;
+
+		if limb.has_method("enable_part") or "is_detached" in limb:
+			_apply_material_recursively(limb, cel_shader);
+
+
+## Set up a limb's reference back to this player and connect its hit_ground signal.
+func _init_limb(limb: BodyPart) -> void:
+	limb.core = self;
+	limb.disable_part();
+	if not limb.hit_ground.is_connected(_on_limb_hit_ground):
+		limb.hit_ground.connect(_on_limb_hit_ground.bind(limb));
+
+
+## Return the walk speed based on how many legs are currently attached
+## (0 legs = full speed, 1 leg = handicapped, 2 legs = full speed).
+func _get_movement_speed() -> float:
+	var leg_count: int = 0;
+	if l_leg and not l_leg.is_detached:
+		leg_count += 1;
+	if r_leg and not r_leg.is_detached:
+		leg_count += 1;
+
+	if leg_count == 2:
+		return speed;
+	elif leg_count == 1:
+		return handicapped_speed;
+	return speed;
+
+
+## Toggle tall/short collider and adjust jump velocity based on
+## how many legs are attached (0 = very weak jump, 1 = handicapped, 2 = full).
+func _update_colliders() -> void:
+	var leg_count: int = 0;
+	if l_leg and not l_leg.is_detached:
+		leg_count += 1;
+	if r_leg and not r_leg.is_detached:
+		leg_count += 1;
+
+	if leg_count > 0:
+		tall_collider.disabled = false;
+		short_collider.disabled = true;
+	else:
+		tall_collider.disabled = true;
+		short_collider.disabled = false;
+
+	match leg_count:
+		2:
+			current_jump_velocity = jump_velocity;
+		1:
+			current_jump_velocity = handicapped_jump_velocity;
+		0:
+			current_jump_velocity = handicapped_jump_velocity / 5;
+
+
+## Returns true if any non-torso limb is still attached to the player.
 func _any_limb_still_socketed() -> bool:
 	for limb in limbs:
 		if limb and limb != torso and not limb.is_detached:
@@ -521,6 +691,8 @@ func _any_limb_still_socketed() -> bool:
 	return false;
 
 
+## Set the PhantomCamera to follow the given limb (or the player if null).
+## Updates priority when provided. Handles camera forwarding for control panels.
 func _set_follow_target(limb: Node3D, newPriority: int = -1) -> void:
 	if not phantom_camera:
 		return;
@@ -532,12 +704,14 @@ func _set_follow_target(limb: Node3D, newPriority: int = -1) -> void:
 	# array. An empty array resolves the follow point to the world origin, so we
 	# ALWAYS keep exactly one target: the given limb, or the player (self) when
 	# null. This keeps the camera framed on something valid at all times.
-	var target : Node3D = limb if is_instance_valid(limb) else self;
+	var target: Node3D = limb if is_instance_valid(limb) else self;
 	if (limb and limb.is_busy) or get_movement_mode() == movement_modes.CONTROL_PANEL:
-		target = get_forwarded_camera_target(limb)
+		target = get_forwarded_camera_target(limb);
 	phantom_camera.follow_targets = [target];
 
 
+## Re-assert the correct camera follow target every physics frame so any
+## stray frame where the PhantomCamera drops its target corrects immediately.
 func _refresh_follow_target() -> void:
 	# Safety net: the phantom_camera addon can drop `_should_follow` to false
 	# for a stray frame (e.g. mid-retract), and when that happens it snaps its
@@ -548,30 +722,20 @@ func _refresh_follow_target() -> void:
 	# instead of being visible for the whole tween.
 	if not phantom_camera or not selected_limb:
 		return;
-	var should_follow : bool = (selected_limb.is_detached or (selected_limb == torso and not _any_limb_still_socketed()));
-	var target : Node3D = selected_limb if should_follow else self;
-	
-	if(selected_limb.is_busy or get_movement_mode() == movement_modes.CONTROL_PANEL):
-		target = get_forwarded_camera_target(selected_limb)
-		
+	var should_follow: bool = (
+		selected_limb.is_detached or (selected_limb == torso and not _any_limb_still_socketed())
+	)
+	var target: Node3D = selected_limb if should_follow else self;
+
+	if (selected_limb.is_busy or get_movement_mode() == movement_modes.CONTROL_PANEL):
+		target = get_forwarded_camera_target(selected_limb);
+
 	if phantom_camera.follow_targets.size() != 1 or phantom_camera.follow_targets[0] != target:
 		phantom_camera.follow_targets = [target];
 
-func get_forwarded_camera_target(limb: BodyPart) -> Node3D:
-	if !control_panels.has(limb):
-		# THIS DOES NOT WORK. If the Torso is selected, the target will update to the other object as it should, but the camera won't move. Giving up on this for now since we have bigger fish to fry.
-		if control_panels.get(l_arm):
-			var target = control_panels.get(l_arm).get_camera_target()
-			return target
-		elif control_panels.get(r_arm):
-			var target = control_panels.get(r_arm).get_camera_target()
-			return target
-		else:
-			return null
-	if(control_panels.get(limb)):
-		return control_panels.get(limb).get_camera_target()
-	return null
 
+## Returns true if any limb is currently retracting (tween in progress) or
+## a detached limb hasn't yet been enabled — HUD needs periodic refresh.
 func _hud_needs_periodic_update() -> bool:
 	for limb in limbs:
 		if limb and limb.is_retracting:
@@ -581,6 +745,8 @@ func _hud_needs_periodic_update() -> bool:
 	return false;
 
 
+## Generate a one-line status string for the HUD describing the
+## current limb/control state.
 func _hud_selection_subline() -> String:
 	for limb in limbs:
 		if limb and limb.is_retracting:
@@ -598,6 +764,8 @@ func _hud_selection_subline() -> String:
 	return "";
 
 
+## Update the 3D label above the player showing the selected limb name
+## and the current state subline.
 func _update_selection_hud() -> void:
 	if selection_label == null:
 		return;
@@ -609,6 +777,8 @@ func _update_selection_hud() -> void:
 		selection_label.text = "%s\n%s" % [title, sub];
 
 
+## Check whether a thrown/fallen limb has valid ground contact via
+## collision bodies or a dedicated RayCast3D child.
 func _limb_has_valid_ground_contact(limb: BodyPart) -> bool:
 	for body in limb.get_colliding_bodies():
 		if limb.counts_as_ground_for_limb(body):
@@ -621,6 +791,8 @@ func _limb_has_valid_ground_contact(limb: BodyPart) -> bool:
 	return false;
 
 
+## Called when a thrown limb hits the ground — enables control for it
+## if it was the selected limb.
 func _on_limb_hit_ground(limb: BodyPart) -> void:
 	if selected_limb == limb:
 		# Ensure control is active once it hits ground
@@ -629,78 +801,73 @@ func _on_limb_hit_ground(limb: BodyPart) -> void:
 	_update_selection_hud();
 
 
+## Called when a limb finishes retracting — re-checks torso activation
+## since the limb is now back at its socket.
 func _on_limb_returned(_limb: BodyPart) -> void:
 	check_torso_activation();
 
-func spawn_at(target_position : Vector3) -> void:
-	global_position = target_position;
-	velocity = Vector3.ZERO;
-	
-#	for lighting
-
-func apply_cell_shader_file():
-	var cel_shader = preload("res://Scripts/Lighting/cell_shader.gdshader")
-	
-	if neck:
-		_inject_shader_preserving_texture(neck, cel_shader)
-
-	# Process every tracking limb entry
-	for limb in limbs:
-		if not limb:
-			continue
-			
-		if limb.has_method("enable_part") or "is_detached" in limb:
-			_apply_material_recursively(limb, cel_shader)
 
 # Walks down the scene sub-tree to touch every mesh in player
 func _apply_material_recursively(node: Node, shader_file: Shader) -> void:
-	if node != torso and node != head and node != l_arm and node != r_arm and node != l_leg and node != r_leg:
+	if (
+		node != torso and node != head and node != l_arm
+		and node != r_arm and node != l_leg and node != r_leg
+	):
 		if node.get_script() != null:
-			return
+			return;
 
 	if node is MeshInstance3D:
-		_inject_shader_preserving_texture(node, shader_file)
-		
+		_inject_shader_preserving_texture(node, shader_file);
+
 	for child in node.get_children():
-		_apply_material_recursively(child, shader_file)
+		_apply_material_recursively(child, shader_file);
 
 
+## Replace a MeshInstance3D's material with a cel shader while preserving
+## the original albedo texture.
 func _inject_shader_preserving_texture(mesh: MeshInstance3D, shader_file: Shader) -> void:
 	if mesh.mesh == null or mesh.mesh.get_surface_count() == 0:
-		return
+		return;
 
 	if mesh.material_override is ShaderMaterial and mesh.material_override.shader == shader_file:
-		return
+		return;
 
-	var existing_texture: Texture2D = null
-	
+	var existing_texture: Texture2D = null;
+
 	if mesh.material_override is BaseMaterial3D and mesh.material_override.albedo_texture:
-		existing_texture = mesh.material_override.albedo_texture
+		existing_texture = mesh.material_override.albedo_texture;
 	elif mesh.get_active_material(0) is BaseMaterial3D:
-		var active_mat = mesh.get_active_material(0) as BaseMaterial3D
+		var active_mat = mesh.get_active_material(0) as BaseMaterial3D;
 		if active_mat and active_mat.albedo_texture:
-			existing_texture = active_mat.albedo_texture
+			existing_texture = active_mat.albedo_texture;
 
-	var new_cel_mat := ShaderMaterial.new()
-	new_cel_mat.shader = shader_file
-	
-	new_cel_mat.set_shader_parameter("albedo_color", Color.WHITE)
-	new_cel_mat.set_shader_parameter("steps", 3.0)
-	
+	var new_cel_mat := ShaderMaterial.new();
+	new_cel_mat.shader = shader_file;
+
+	new_cel_mat.set_shader_parameter("albedo_color", Color.WHITE);
+	new_cel_mat.set_shader_parameter("steps", 3.0);
+
 	if existing_texture:
-		new_cel_mat.set_shader_parameter("main_texture", existing_texture)
-		
-	mesh.material_override = new_cel_mat
+		new_cel_mat.set_shader_parameter("main_texture", existing_texture);
+
+	mesh.material_override = new_cel_mat;
 
 
+## Read aim input from the stick (controller) or fall back to mouse aim.
 func _update_aim() -> void:
-	var stick := Input.get_vector("Player_Aim_Left", "Player_Aim_Right", "Player_Aim_Down", "Player_Aim_Up");
+	var stick := Input.get_vector(
+		"Player_Aim_Left",
+		"Player_Aim_Right",
+		"Player_Aim_Down",
+		"Player_Aim_Up",
+	)
 	if stick.length() >= AIM_DEADZONE:
 		_compute_aim(stick.x, stick.y);
 	else:
 		_compute_aim_from_mouse();
 
 
+## Set aim direction and speed from controller stick input.
 func _compute_aim(ax: float, ay: float) -> void:
 	var mag := Vector2(ax, ay).length();
 	var effective: float = min(AIM_MAX, mag) / AIM_MAX;
@@ -709,6 +876,7 @@ func _compute_aim(ax: float, ay: float) -> void:
 	_has_aim = true;
 
 
+## Set aim direction and speed from mouse position relative to the player.
 func _compute_aim_from_mouse() -> void:
 	var camera := get_viewport().get_camera_3d();
 	if not camera:
@@ -724,6 +892,8 @@ func _compute_aim_from_mouse() -> void:
 	_has_aim = true;
 
 
+## Return the world position where a thrown limb should originate —
+## the holding spot (raised while aiming) or the head socket position.
 func _get_throw_origin() -> Vector3:
 	# The player holds the limb up by their head/centre area when aiming a throw.
 	if selected_limb and selected_limb != torso and not selected_limb.is_detached and holding_spot:
@@ -734,6 +904,8 @@ func _get_throw_origin() -> Vector3:
 	return global_transform * limb_sockets["Head"];
 
 
+## Keep a socketed, selected limb positioned at the holding spot each frame,
+## raised slightly while the player is aiming.
 func _position_held_limb() -> void:
 	# Keep a socketed, selected limb at the holding spot; raise it while aiming.
 	if not holding_spot:
@@ -746,6 +918,7 @@ func _position_held_limb() -> void:
 		selected_limb.rotation = Vector3.ZERO;
 
 
+## Cycle the selected limb forward or backward through the connected limbs.
 func _cycle_limb(dir: int) -> void:
 	# Cycle selection through connected limbs in the numeric-select order
 	# (Head=1, LArm=2, RArm=3, LLeg=4, RLeg=5), wrapping back to Torso.

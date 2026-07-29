@@ -151,6 +151,7 @@ stabilize_threshold = 1.0
 stabilize_delay = 8.0
 jump_velocity = 3.75
 weight = 3
+limb_type = 2
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=559717037]
 aabb = AABB(-0.31877425, -0.6121777, -0.45757043, 0.6375485, 1.2243555, 0.91514087)
