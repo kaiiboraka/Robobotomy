@@ -11,22 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://dxubgecu6o687" path="res://Scenes/Characters/Limbs/Head.tscn" id="8_8un3r"]
 [ext_resource type="PackedScene" uid="uid://f0oommypkm0i" path="res://Scenes/Characters/Limbs/LeftLeg.tscn" id="8_yj7wf"]
 [ext_resource type="PackedScene" uid="uid://ep2c8eoh0i32" path="res://Scenes/Characters/Limbs/RightLeg.tscn" id="9_yj7wf"]
-[ext_resource type="PackedScene" uid="uid://m1ilgdhf1lia" path="res://Scenes/Environment/Buttons/Weighted_Button.tscn" id="15_ksac6"]
-[ext_resource type="PackedScene" uid="uid://bfxbhhtip1gba" path="res://Scenes/Environment/Terrain/MovableExtendableWall.tscn" id="18_4ftp5"]
-[ext_resource type="PackedScene" uid="uid://c6qviaeewwus1" path="res://Scenes/Environment/Interactables/monkey_bar.tscn" id="18_bwhe6"]
-[ext_resource type="PackedScene" uid="uid://dyki3kr5ucgg7" path="res://Scenes/Environment/Doors/Activated_PathFollower.tscn" id="18_l0g40"]
 [ext_resource type="PackedScene" uid="uid://td56vu1l1xka" path="res://Scenes/Environment/Interactables/Chain.tscn" id="21_jkqt3"]
 
 [sub_resource type="Resource" id="Resource_lpy3h"]
 script = ExtResource("5_gw4p4")
 transition = 7
-
-[sub_resource type="Curve3D" id="Curve3D_bwhe6"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11.647, 0, 0),
-"tilts": PackedFloat32Array(0, 0)
-}
-point_count = 2
 
 [node name="JacobPrototyping" type="Node3D" unique_id=947964362]
 
@@ -99,23 +88,5 @@ size = Vector3(29.91, 1, 5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.213333, 12.8517065, 0)
 length = 10
 
-[node name="WeightedButton" parent="." unique_id=1151652390 node_paths=PackedStringArray("activation_targets") instance=ExtResource("15_ksac6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.47586, 0, 0)
-trigger_weight = 3
-activation_targets = [NodePath("../Activated_PathFollower")]
-
-[node name="Activated_PathFollower" parent="." unique_id=41623911 node_paths=PackedStringArray("target_follower") instance=ExtResource("18_l0g40")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.101, 2.7373333, 0)
-curve = SubResource("Curve3D_bwhe6")
-target_follower = NodePath("../MovingExtendableWall")
-moveSpeedBackward = 2.0
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1732502036]
 transform = Transform3D(1, 0, 0, 0, 0.06662385, 0.9977782, 0, -0.9977782, 0.06662385, 0, -1.9201674, 0)
-
-[node name="MovingExtendableWall" parent="." unique_id=1141331836 instance=ExtResource("18_4ftp5")]
-transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, -10.101, 2.7373333, 0)
-size = Vector3(5, 2, 1)
-
-[node name="MonkeyBar" parent="MovingExtendableWall" unique_id=1647589204 instance=ExtResource("18_bwhe6")]
-transform = Transform3D(1.0000006, 0, 0, 0, 1.0000015, 0, 0, 0, 1.0000013, 0.00038719177, -0.91831684, -0.20007543)

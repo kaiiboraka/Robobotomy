@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cu1xs6wktcy0b"]
+
+[ext_resource type="Script" uid="uid://c1t6gvla10cg1" path="res://Scripts/Environment/lever.gd" id="1_4u3q8"]
+[ext_resource type="ArrayMesh" uid="uid://bw43rtwbo6wcp" path="res://Assets/3D/Objects/lever.res" id="1_evyaq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4gvqi"]
+size = Vector3(3.1660156, 3.2541504, 1)
+
+[node name="Lever" type="Node3D" unique_id=1689423163]
+script = ExtResource("1_4u3q8")
+
+[node name="Lever" type="MeshInstance3D" parent="." unique_id=1168972518]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5462236, 0)
+mesh = ExtResource("1_evyaq")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=504379135]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=736693244]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.625, 1.6090088, 0)
+shape = SubResource("BoxShape3D_4gvqi")
