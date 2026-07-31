@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bjomw33g5cf1w"]
 
-[ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Assets/3D/Objects/scaffold.res" id="2_2hr8o"]
+[ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Assets/3D/Objects/MISC/scaffold.res" id="2_2hr8o"]
 [ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Assets/3D/Objects/Pipes/pipe1_long.res" id="4_fsugp"]
-[ext_resource type="ArrayMesh" uid="uid://bw43rtwbo6wcp" path="res://Assets/3D/Objects/lever.res" id="7_0rd7g"]
+[ext_resource type="ArrayMesh" uid="uid://bw43rtwbo6wcp" path="res://Assets/3D/Objects/MISC/lever.res" id="7_0rd7g"]
 [ext_resource type="ArrayMesh" uid="uid://c3erlqmxt2uo2" path="res://Assets/3D/Objects/Gears/gear_worm.res" id="9_vwof3"]
 [ext_resource type="ArrayMesh" uid="uid://d0ad87y13yuta" path="res://Assets/3D/Objects/Gears/gear_spiralbevelsmall.res" id="11_htc0b"]
 [ext_resource type="ArrayMesh" uid="uid://cjkcmukmea2h2" path="res://Assets/3D/Objects/Gears/gear_helicalwithholes.res" id="12_pngnc"]
