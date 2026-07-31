@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ep2c8eoh0i32" path="res://Scenes/Characters/Limbs/RightLeg.tscn" id="9_yj7wf"]
 [ext_resource type="PackedScene" uid="uid://cu1xs6wktcy0b" path="res://Scenes/Environment/Interactables/Lever.tscn" id="13_kefid"]
 [ext_resource type="PackedScene" uid="uid://dlk6oxkqswup1" path="res://Scenes/Environment/door.tscn" id="14_17pk7"]
+[ext_resource type="PackedScene" uid="uid://b5wn6cwilqjxe" path="res://Scenes/Environment/handle_crate.tscn" id="14_lauej"]
 [ext_resource type="PackedScene" uid="uid://td56vu1l1xka" path="res://Scenes/Environment/Interactables/Chain.tscn" id="21_jkqt3"]
 
 [sub_resource type="Resource" id="Resource_lpy3h"]
@@ -26,12 +27,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5902824, -1.1713285, 0)
 size = Vector3(12.316, 2.37, 5)
 
 [node name="ExtendableWall5" parent="." unique_id=1201527970 instance=ExtResource("2_bd11y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.825224, -1.1713285, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.803055, -1.1713285, 0)
 size = Vector3(15.366, 2.37, 5)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1898504763]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.304917, 3.75, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.543896, 5.219513, 14.999999)
 fov = 45.0
 near = 0.005
 
@@ -42,7 +43,7 @@ script = ExtResource("3_xev5s")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=64555096 instance=ExtResource("3_at6gv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.304917, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.543896, 1.4695129, -9.536743e-07)
 
 [node name="RightArm" parent="Player" unique_id=904546073 instance=ExtResource("5_8un3r")]
 
@@ -56,7 +57,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8653183, 0)
 [node name="RightLeg" parent="Player" unique_id=1985177356 instance=ExtResource("9_yj7wf")]
 
 [node name="Player_PhantomCamera3D" type="Node3D" parent="." unique_id=1936159958 node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.304917, 3.75, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.543896, 5.219513, 14.999999)
 top_level = true
 script = ExtResource("4_gkkn6")
 priority = 1
@@ -94,8 +95,11 @@ length = 10
 transform = Transform3D(1, 0, 0, 0, 0.06662385, 0.9977782, 0, -0.9977782, 0.06662385, 0, -1.9201674, 0)
 
 [node name="Lever" parent="." unique_id=1689423163 node_paths=PackedStringArray("activation_targets") instance=ExtResource("13_kefid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.047088, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.197299, 0, 0)
 activation_targets = [NodePath("../Door")]
 
+[node name="handle_crate" parent="Lever" unique_id=1550150326 instance=ExtResource("14_lauej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.513414, 2.8101158, 9.536743e-07)
+
 [node name="Door" parent="." unique_id=1709040343 instance=ExtResource("14_17pk7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.729845, 0, 0.08155155)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5145416, 0, 0.08155155)

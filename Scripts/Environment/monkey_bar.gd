@@ -38,17 +38,14 @@ func _input(event: InputEvent) -> void:
 			return;
 			
 func _physics_process(delta: float) -> void:
-	print(arms_in_range)
 	if(!is_activated or !attached_arm):
 		return
 	attached_arm.global_position = snap_location.global_position;
 	
 func on_activate():
-	print("grabbing monkey bar")
 	is_activated = true
 	
 func on_deactivate():
-	print("releasing monkey bar")
 	is_activated = false
 	
 func _on_area_3d_body_entered(body: Node3D) -> void:

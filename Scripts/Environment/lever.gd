@@ -22,8 +22,8 @@ func _input(event: InputEvent) -> void:
 		return;
 	if(not player_in_range):
 		return;
-	if(player.l_arm.is_detached or player.r_arm.is_detached):
-		return;
+	if(!player.has_all_arms_legs()):
+		return
 	on_activate();
 		
 func on_activate() -> void:
@@ -35,7 +35,6 @@ func on_activate() -> void:
 	
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if(body is Player):
-		# don't need to check type because the arms have their own collision layer
 		player_in_range = true;
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
