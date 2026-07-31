@@ -40,7 +40,6 @@ var _aim_theta : float = 0.0;
 var _aim_dir_x : float = 2.0;
 var _has_aim : bool = false;
 
-#enum movement_modes {DEFAULT, ROPE, LEDGE_LEFT, LEDGE_RIGHT}
 var _movement_mode: movement_modes = movement_modes.DEFAULT;
 var attached_chain: Chain;
 var chain_grab_offset: Vector3;
@@ -53,10 +52,6 @@ var limb_sockets := {
 	"LeftLeg": Vector3(0.223, 0.89, 0),
 	"RightLeg": Vector3(-0.223, 0.89, 0),
 }
-#var _aim_dir: Vector3 = Vector3.RIGHT;
-#var _aim_speed: float = 40.0;
-#var _has_aim: bool = false;
-#var _movement_mode: movement_modes = movement_modes.DEFAULT;
 
 @onready var torso: BodyPart = $Torso;
 @onready var head: BodyPart = $Head;
@@ -600,6 +595,13 @@ func drop_all_limbs() -> void:
 		# If no torso, maybe select the first available limb?
 		select_limb(limbs[0]);
 
+func has_all_arms_legs() -> bool:
+	return(
+	l_arm and !l_arm.is_detached and 
+	r_arm and !r_arm.is_detached and 
+	l_leg and !l_leg.is_detached and 
+	r_leg and !r_leg.is_detached
+	)
 
 ## Resolve the camera target when a limb is busy in a control panel.
 ## Iterates through control panels to find one with a camera target.
