@@ -2,6 +2,7 @@ class_name Player extends CharacterBody3D
 
 @export var speed : float = 5.0;
 @export var handicapped_speed : float = 2.5;
+@export var oneleg_speed : float = 4.0;
 @export var jump_velocity : float = 4.5;
 @export var handicapped_jump_velocity : float = 2.5;
 
@@ -225,7 +226,7 @@ func _get_movement_speed() -> float:
 	if leg_count == 2:
 		return speed;
 	elif leg_count == 1:
-		return handicapped_speed;
+		return oneleg_speed;
 	return speed;
 
 
