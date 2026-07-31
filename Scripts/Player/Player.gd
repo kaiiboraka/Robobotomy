@@ -40,7 +40,7 @@ var _aim_theta : float = 0.0;
 var _aim_dir_x : float = 2.0;
 var _has_aim : bool = false;
 
-enum movement_modes {DEFAULT, ROPE, LEDGE_LEFT, LEDGE_RIGHT}
+#enum movement_modes {DEFAULT, ROPE, LEDGE_LEFT, LEDGE_RIGHT}
 var _movement_mode: movement_modes = movement_modes.DEFAULT;
 var attached_chain: Chain;
 var chain_grab_offset: Vector3;
@@ -53,10 +53,10 @@ var limb_sockets := {
 	"LeftLeg": Vector3(0.223, 0.89, 0),
 	"RightLeg": Vector3(-0.223, 0.89, 0),
 }
-var _aim_dir: Vector3 = Vector3.RIGHT;
-var _aim_speed: float = 40.0;
-var _has_aim: bool = false;
-var _movement_mode: movement_modes = movement_modes.DEFAULT;
+#var _aim_dir: Vector3 = Vector3.RIGHT;
+#var _aim_speed: float = 40.0;
+#var _has_aim: bool = false;
+#var _movement_mode: movement_modes = movement_modes.DEFAULT;
 
 @onready var torso: BodyPart = $Torso;
 @onready var head: BodyPart = $Head;

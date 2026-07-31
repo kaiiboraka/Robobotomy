@@ -1,5 +1,5 @@
 @tool
-extends StaticBody3D;
+extends AnimatableBody3D;
 
 @export_range(1, 9) var trigger_weight: int = 1:
 	set(val):
