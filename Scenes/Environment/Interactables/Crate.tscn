@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://6lte8385sjbm"]
+
+[ext_resource type="Script" uid="uid://bw3ilbdq2mkuw" path="res://Scripts/Environment/Crate.gd" id="1_2p0wi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3eh2l"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2p0wi"]
+
+[node name="Crate" type="RigidBody3D" unique_id=1252600604]
+collision_layer = 4097
+collision_mask = 141
+axis_lock_linear_z = true
+script = ExtResource("1_2p0wi")
+weight = 4
+
+[node name="Collision Shape" type="CollisionShape3D" parent="." unique_id=496738194]
+shape = SubResource("BoxShape3D_3eh2l")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=155248020]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("BoxMesh_2p0wi")

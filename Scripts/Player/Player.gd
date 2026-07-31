@@ -600,6 +600,13 @@ func drop_all_limbs() -> void:
 		# If no torso, maybe select the first available limb?
 		select_limb(limbs[0]);
 
+func has_all_arms_legs() -> bool:
+	return(
+	l_arm and !l_arm.is_detached and 
+	r_arm and !r_arm.is_detached and 
+	l_leg and !l_leg.is_detached and 
+	r_leg and !r_leg.is_detached
+	)
 
 ## Resolve the camera target when a limb is busy in a control panel.
 ## Iterates through control panels to find one with a camera target.

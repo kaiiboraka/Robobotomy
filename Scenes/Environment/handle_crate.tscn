@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://b5wn6cwilqjxe"]
+
+[ext_resource type="Script" uid="uid://1f6ee4jeyjnk" path="res://Scripts/Environment/handle_crate.gd" id="1_4dbpq"]
+[ext_resource type="ArrayMesh" uid="uid://c0ojvrv4euw0g" path="res://Assets/3D/Objects/monkeybar_med1.res" id="2_4dbpq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4gvqi"]
+size = Vector3(3, 3, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4gvqi"]
+size = Vector3(3, 3, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ov5jo"]
+size = Vector3(1.1674805, 2.9915771, 2.9326172)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tjth6"]
+size = Vector3(1.1674805, 2.9915771, 2.9658203)
+
+[node name="HandleCrate" type="RigidBody3D" unique_id=2061762979]
+collision_layer = 4
+collision_mask = 4
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource("1_4dbpq")
+
+[node name="BoxCollision" type="CollisionShape3D" parent="." unique_id=1743077344]
+shape = SubResource("BoxShape3D_4gvqi")
+
+[node name="BoxMesh" type="MeshInstance3D" parent="." unique_id=1800739726]
+mesh = SubResource("BoxMesh_4gvqi")
+skeleton = NodePath("../..")
+
+[node name="LeftHandleMesh" type="MeshInstance3D" parent="." unique_id=1220248798]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -1.73, 0.98410404, 0)
+mesh = ExtResource("2_4dbpq")
+skeleton = NodePath("../..")
+
+[node name="RightHandleMesh" type="MeshInstance3D" parent="." unique_id=642327475]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 1.7339745, 0.98410404, 0)
+mesh = ExtResource("2_4dbpq")
+skeleton = NodePath("../..")
+
+[node name="LeftHandleArea" type="Area3D" parent="." unique_id=1564005355]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.044607, 0, 0)
+collision_layer = 0
+
+[node name="LeftHandleCollision" type="CollisionShape3D" parent="LeftHandleArea" unique_id=927240422]
+shape = SubResource("BoxShape3D_ov5jo")
+
+[node name="RightHandleArea" type="Area3D" parent="." unique_id=612663837]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9860258, 0, 0)
+collision_layer = 0
+
+[node name="RightHandleCollision" type="CollisionShape3D" parent="RightHandleArea" unique_id=663842980]
+shape = SubResource("BoxShape3D_tjth6")
+
+[node name="LeftSnapLocation" type="Marker3D" parent="." unique_id=1438913093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, -1.5, 0)
+
+[node name="RightSnapLocation" type="Marker3D" parent="." unique_id=838925721]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, -1.5, 0)
+
+[connection signal="body_entered" from="LeftHandleArea" to="." method="_on_left_area_entered"]
+[connection signal="body_exited" from="LeftHandleArea" to="." method="_on_left_area_exited"]
+[connection signal="body_entered" from="RightHandleArea" to="." method="_on_right_area_entered"]
+[connection signal="body_exited" from="RightHandleArea" to="." method="_on_right_area_exited"]
