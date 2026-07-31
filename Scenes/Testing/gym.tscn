@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dbk24fe7ef7m3" path="res://Scenes/Environment/Terrain/platform_plane.tscn" id="1_nwv8u"]
 [ext_resource type="PackedScene" uid="uid://gl5j7l3w6avc" path="res://Scenes/Environment/Interactables/SimpleBox.tscn" id="2_uk5sn"]
-[ext_resource type="PackedScene" uid="uid://d031edjsrylll" path="res://Scenes/Environment/Interactables/rope.tscn" id="3_vr2ic"]
+[ext_resource type="Script" uid="uid://coq8l10sf1x08" path="res://Scripts/Environment/chain.gd" id="3_hfmfs"]
 [ext_resource type="PackedScene" uid="uid://bmswce2kxaau0" path="res://Scenes/Environment/Doors/hinge_simple.tscn" id="4_040rw"]
 [ext_resource type="PackedScene" uid="uid://pvwqjhr7eu4p" path="res://Scenes/Environment/seesaw.tscn" id="5_hfmfs"]
 
@@ -21,10 +21,9 @@ text = "Gym"
 font_size = 64
 outline_size = 19
 
-[node name="Ropes Label" type="Label3D" parent="." unique_id=155881223]
+[node name="Chains Label" type="Label3D" parent="." unique_id=155881223]
 transform = Transform3D(1, 0, 0, 0, 0.7009342, 0.71322596, 0, -0.71322596, 0.7009342, -6.563844, 0.36260664, 2.5304399)
-text = "Ropes
-"
+text = "Chains"
 font_size = 64
 outline_size = 19
 
@@ -66,8 +65,11 @@ mesh = SubResource("BoxMesh_uk5sn")
 transform = Transform3D(6.7898083, -17.705639, -8.030751, 3.2141747, 53.888638, 2.4430346, 3.0052981, -17.632067, 15.530876, -57.82998, 0, -49.801003)
 mesh = SubResource("BoxMesh_uk5sn")
 
-[node name="Rope" parent="." unique_id=711893260 instance=ExtResource("3_vr2ic")]
+[node name="Chain" type="Node3D" parent="." unique_id=1803552366]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6133633, 10.616564, 0)
+script = ExtResource("3_hfmfs")
+length = 35
+metadata/_custom_type_script = "uid://coq8l10sf1x08"
 
 [node name="HingeSimple" parent="." unique_id=1852264278 instance=ExtResource("4_040rw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.582546, 0.38615036, 0)

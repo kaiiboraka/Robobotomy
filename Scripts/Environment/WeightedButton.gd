@@ -1,5 +1,5 @@
 @tool
-extends StaticBody3D
+extends StaticBody3D;
 
 @export_range(1, 9) var trigger_weight: int = 1:
 	set(val):
@@ -14,9 +14,10 @@ extends StaticBody3D
 
 var _was_active: bool = false;
 ## Bodies already contributing weight (avoids double-count on repeated body_entered).
-var _counted_bodies: Dictionary = {}; # Node3D -> int
+var _counted_bodies: Dictionary = {}; # Node3D -> int;
 
 
+## Connect the trigger area signals and initialize weight display.
 func _ready() -> void:
 	if lights:
 		lights.weight = trigger_weight;
@@ -27,6 +28,9 @@ func _ready() -> void:
 	trigger_area.body_exited.connect(_on_body_exited);
 
 
+## Recalculate total weight each physics frame by polling the weight
+## property of every counted body. Triggers activation/deactivation
+## when the weight crosses the threshold.
 func _physics_process(_delta: float) -> void:
 	if Engine.is_editor_hint() or not lights or _counted_bodies.is_empty():
 		return;
@@ -57,6 +61,9 @@ func _physics_process(_delta: float) -> void:
 		_check_trigger();
 
 
+## Add a body's weight to the total when it enters the trigger area.
+## Skips attached limbs (the Player core reports their combined weight).
+## Disables stabilization on rolling bodies so they don't lock upright.
 func _on_body_entered(body: Node3D) -> void:
 	# Ignore attached limbs; the Player core will report their combined weight.
 	if body is BodyPart and not body.is_detached:
@@ -83,6 +90,8 @@ func _on_body_entered(body: Node3D) -> void:
 			#anim_player.play("Bounce");
 
 
+## Subtract a body's weight when it exits the trigger area.
+## Re-enables stabilization for rolling bodies.
 func _on_body_exited(body: Node3D) -> void:
 	# Clean up any body that was previously counted.
 	if not _counted_bodies.has(body):
@@ -103,6 +112,8 @@ func _on_body_exited(body: Node3D) -> void:
 		#anim_player.play("Bounce");
 
 
+## Compare current total weight against trigger_weight. Activates or
+## deactivates targets and plays the corresponding button animation.
 func _check_trigger() -> void:
 	var current: int = lights.current_weight if lights else 0;
 	var is_active: bool = current >= trigger_weight;

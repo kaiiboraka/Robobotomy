@@ -4,7 +4,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cvfblncoo4d8b" path="res://Assets/3D/Character/Head_and_Hair.res" id="2_7q76k"]
 [ext_resource type="Texture2D" uid="uid://c1nop2pjviawq" path="res://Assets/2D/Character/Head_SG_Base_color.png" id="3_gp127"]
 [ext_resource type="ArrayMesh" uid="uid://c8sncvty2tomo" path="res://Assets/3D/Character/Hair_tuft.res" id="3_rtqub"]
-[ext_resource type="ArrayMesh" uid="uid://cvwp4y8hbos0h" path="res://Assets/3D/Character/Eye_Left.res" id="4_a61vf"]
+[ext_resource type="ArrayMesh" uid="uid://y18hqjy53fa" path="res://Assets/3D/Character/Eye_Left.res" id="4_a61vf"]
 [ext_resource type="ArrayMesh" uid="uid://cm1bktxxcjj1k" path="res://Assets/3D/Character/Eye_Right.res" id="6_afrce"]
 [ext_resource type="Texture2D" uid="uid://db5vktfkqfh2n" path="res://Assets/2D/Character/Face Shapes/Eye Shapes/Eye(3).PNG" id="6_eovao"]
 [ext_resource type="ArrayMesh" uid="uid://bvyeyi24xm0e" path="res://Assets/3D/Character/Mouth.res" id="8_xy461"]
@@ -70,6 +70,7 @@ speed = 4.0
 acceleration = 5.0
 jump_velocity = 4.0
 weight = 2
+limb_type = 1
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=677304792]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010208338, 0.021868803, 1.3411045e-05)

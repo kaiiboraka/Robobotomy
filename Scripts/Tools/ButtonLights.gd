@@ -1,5 +1,5 @@
 @tool
-extends Node3D
+extends Node3D;
 
 enum LightState { OFF, ERROR, PARTIAL, FULL }
 
@@ -25,7 +25,7 @@ enum LightState { OFF, ERROR, PARTIAL, FULL }
 			update_lights();
 			update_materials();
 
-@export var state_materials: Dictionary[LightState, StandardMaterial3D]
+@export var state_materials: Dictionary[LightState, StandardMaterial3D];
 
 @onready var hub_mesh: MeshInstance3D = $Hub_MeshInstance3D;
 

@@ -1,2 +1,2 @@
-extends State
+extends State;
 class_name OneLegWalkState

@@ -7,4 +7,4 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 
 	# Unified movement and jumping
 	handle_movement(state);
-	handle_jump();
+	handle_jump(state);

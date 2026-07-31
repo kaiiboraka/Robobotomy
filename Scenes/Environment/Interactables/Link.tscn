@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://mc7fntx8byk1"]
+
+[ext_resource type="Script" uid="uid://c72ojfqg4ficr" path="res://Scripts/Environment/link.gd" id="1_1hdp8"]
+[ext_resource type="ArrayMesh" uid="uid://dwkxg4rigpq0d" path="res://Assets/3D/Objects/chain_link.res" id="2_ysgha"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hgq32"]
+size = Vector3(0.21000004, 0.36, 0.06999999)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_au2ky"]
+size = Vector3(1.25, 0.75, 1.25)
+
+[node name="Link" type="RigidBody3D" unique_id=1732380006]
+collision_layer = 0
+collision_mask = 2700
+mass = 0.1
+continuous_cd = true
+script = ExtResource("1_1hdp8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=435619052]
+mesh = ExtResource("2_ysgha")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=298148684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7881393e-07, 0)
+shape = SubResource("BoxShape3D_hgq32")
+debug_color = Color(0.57989645, 0.552441, 1.92523e-07, 0.41960785)
+
+[node name="GrabbableArea" type="Area3D" parent="." unique_id=725451324]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 3
+
+[node name="GrabbableShape" type="CollisionShape3D" parent="GrabbableArea" unique_id=1222441327]
+shape = SubResource("BoxShape3D_au2ky")
