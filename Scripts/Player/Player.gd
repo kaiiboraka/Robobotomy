@@ -34,6 +34,14 @@ var current_jump_velocity: float = 4.5;
 
 var control_panels: Dictionary[BodyPart, ControlPanel] = { r_arm: null, l_arm: null }
 
+var _aim_dir : Vector3 = Vector3.RIGHT;
+var _aim_speed : float = 40.0;
+var _aim_theta : float = 0.0;
+var _aim_dir_x : float = 2.0;
+var _has_aim : bool = false;
+
+enum movement_modes {DEFAULT, ROPE, LEDGE_LEFT, LEDGE_RIGHT}
+var _movement_mode: movement_modes = movement_modes.DEFAULT;
 var attached_chain: Chain;
 var chain_grab_offset: Vector3;
 

@@ -5,17 +5,17 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_qtg0g"]
 resource_local_to_scene = true
-size = Vector3(35, 1, 5)
+size = Vector3(4.0191784, 1.6458272, 3.627739)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_45ei3"]
 resource_local_to_scene = true
-size = Vector3(35, 1, 5)
+size = Vector3(4.0191784, 1.6458272, 3.627739)
 
 [node name="MovingExtendableWall" type="AnimatableBody3D" unique_id=1141331836]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_mv7rg")
-size = Vector3(35, 1, 5)
+size = Vector3(4.0191784, 1.6458272, 3.627739)
 
 [node name="BoxMesh" type="MeshInstance3D" parent="." unique_id=872639880]
 unique_name_in_owner = true

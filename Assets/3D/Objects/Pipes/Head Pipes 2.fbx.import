@@ -39,7 +39,91 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"meshes": {
+"End": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/3D/Objects/Pipes/HeadPipe.res",
+"save_to_file/path": "uid://biqe8u1bxf710"
+},
+"Staight_midle_end": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/3D/Objects/Pipes/HeadPipe.res",
+"save_to_file/path": "uid://m1sa1eh5wuia"
+},
+"Straight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/3D/Objects/Pipes/HeadPipe.res",
+"save_to_file/path": "uid://di5shf26wa1ya"
+},
+"Straight_end": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/3D/Objects/Pipes/HeadPipe.res",
+"save_to_file/path": "uid://1dj3w5acmpnb"
+},
+"Straight_endx2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/3D/Objects/Pipes/HeadPipe.res",
+"save_to_file/path": "uid://dgx6svc6qycr8"
+},
+"Straight_midle_endx2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/3D/Objects/Pipes/HeadPipe.res",
+"save_to_file/path": "uid://lr83fm7q64im"
+},
+"T": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/3D/Objects/Pipes/T.res",
+"save_to_file/path": "uid://dbifn3yv26rs3"
+},
+"Turn90": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/3D/Objects/Pipes/HeadPipe.res",
+"save_to_file/path": "uid://sr0itxwje3n7"
+},
+"X": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/3D/Objects/Pipes/X.res",
+"save_to_file/path": "uid://sko7thl0r16j"
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

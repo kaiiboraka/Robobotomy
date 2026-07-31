@@ -78,11 +78,11 @@
 [ext_resource type="ArrayMesh" uid="uid://b02gmyrgfwjek" path="res://Assets/3D/Objects/Ladders/ladder_rung.res" id="73_nameg"]
 [ext_resource type="ArrayMesh" uid="uid://c86kbccnj7c1s" path="res://Assets/3D/Objects/Ladders/ladder_top1.res" id="74_fl8kt"]
 [ext_resource type="ArrayMesh" uid="uid://cy54skeqlwy3g" path="res://Assets/3D/Objects/Ladders/ladder_top2.res" id="75_ip7kf"]
-[ext_resource type="ArrayMesh" uid="uid://bw43rtwbo6wcp" path="res://Assets/3D/Objects/lever.res" id="76_yidho"]
-[ext_resource type="ArrayMesh" uid="uid://c28ymrrtw8mgw" path="res://Assets/3D/Objects/monkeybar_large.res" id="77_sve0w"]
-[ext_resource type="ArrayMesh" uid="uid://c0ojvrv4euw0g" path="res://Assets/3D/Objects/monkeybar_med1.res" id="78_vt4f0"]
-[ext_resource type="ArrayMesh" uid="uid://cxyp3leppa31i" path="res://Assets/3D/Objects/monkeybar_med2.res" id="79_dineu"]
-[ext_resource type="ArrayMesh" uid="uid://ce6wt4x1cmihc" path="res://Assets/3D/Objects/monkeybar_small.res" id="80_mmmjb"]
+[ext_resource type="ArrayMesh" uid="uid://bw43rtwbo6wcp" path="res://Assets/3D/Objects/MISC/lever.res" id="76_yidho"]
+[ext_resource type="ArrayMesh" uid="uid://c28ymrrtw8mgw" path="res://Assets/3D/Objects/MISC/monkeybar_large.res" id="77_sve0w"]
+[ext_resource type="ArrayMesh" uid="uid://c0ojvrv4euw0g" path="res://Assets/3D/Objects/MISC/monkeybar_med1.res" id="78_vt4f0"]
+[ext_resource type="ArrayMesh" uid="uid://cxyp3leppa31i" path="res://Assets/3D/Objects/MISC/monkeybar_med2.res" id="79_dineu"]
+[ext_resource type="ArrayMesh" uid="uid://ce6wt4x1cmihc" path="res://Assets/3D/Objects/MISC/monkeybar_small.res" id="80_mmmjb"]
 [ext_resource type="ArrayMesh" uid="uid://cvc5ryofaht3y" path="res://Assets/3D/Objects/PowerCable/powercable_angle1.res" id="81_h1y2m"]
 [ext_resource type="ArrayMesh" uid="uid://cfafp67comdru" path="res://Assets/3D/Objects/PowerCable/powercable_angle2.res" id="82_vse7a"]
 [ext_resource type="ArrayMesh" uid="uid://bdviyighm5kn8" path="res://Assets/3D/Objects/PowerCable/powercable_curve1.res" id="83_psdkg"]
@@ -91,8 +91,8 @@
 [ext_resource type="ArrayMesh" uid="uid://h144fwo12pjh" path="res://Assets/3D/Objects/PowerCable/powercable_med.res" id="86_1rmuy"]
 [ext_resource type="ArrayMesh" uid="uid://dnq8hgwyg8cj0" path="res://Assets/3D/Objects/PowerCable/powercable_small.res" id="87_yoqlr"]
 [ext_resource type="ArrayMesh" uid="uid://b2g4xvdkvetdd" path="res://Assets/3D/Objects/PowerCable/powercable_tee.res" id="88_r5u0n"]
-[ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Assets/3D/Objects/scaffold.res" id="89_4pi8g"]
-[ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Assets/3D/Objects/terminal.res" id="90_5i7sb"]
+[ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Assets/3D/Objects/MISC/scaffold.res" id="89_4pi8g"]
+[ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Assets/3D/Objects/MISC/terminal.res" id="90_5i7sb"]
 [ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Assets/3D/Objects/Pipes/pipe1_long.res" id="91_0v81c"]
 [ext_resource type="Texture2D" uid="uid://d2djqd8vqwn38" path="res://Assets/Materials/Shaders/Metal/Metal_metallic.png" id="93_fnn60"]
 [ext_resource type="Texture2D" uid="uid://bvtq6v2ixvrsh" path="res://Assets/Materials/Shaders/Metal/Metal_normal.png" id="94_nruv6"]
@@ -110,12 +110,12 @@
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
-[sub_resource type="Sky" id="Sky_fhxa0"]
+[sub_resource type="Sky" id="Sky_penhn"]
 sky_material = SubResource("ProceduralSkyMaterial_clgom")
 
 [sub_resource type="Environment" id="Environment_kegy0"]
 background_mode = 2
-sky = SubResource("Sky_fhxa0")
+sky = SubResource("Sky_penhn")
 tonemap_mode = 2
 glow_enabled = true
 fog_enabled = true
@@ -511,7 +511,7 @@ material = SubResource("StandardMaterial3D_30kme")
 environment = SubResource("Environment_kegy0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1148795049]
-transform = Transform3D(-0.783648, -0.527156, 0.3286373, 0.33128887, 0.092874326, 0.9389473, -0.5254937, 0.844678, 0.101860136, -13.639377, 0, 0)
+transform = Transform3D(-0.8355232, -0.44033927, 0.3286373, 0.33932042, 0.05691757, 0.93894726, -0.43216056, 0.89602554, 0.101860136, -13.639377, 0, 0)
 shadow_enabled = true
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1896190263]
