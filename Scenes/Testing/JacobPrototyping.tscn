@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://dxubgecu6o687" path="res://Scenes/Characters/Limbs/Head.tscn" id="8_8un3r"]
 [ext_resource type="PackedScene" uid="uid://f0oommypkm0i" path="res://Scenes/Characters/Limbs/LeftLeg.tscn" id="8_yj7wf"]
 [ext_resource type="PackedScene" uid="uid://ep2c8eoh0i32" path="res://Scenes/Characters/Limbs/RightLeg.tscn" id="9_yj7wf"]
+[ext_resource type="PackedScene" uid="uid://cu1xs6wktcy0b" path="res://Scenes/Environment/Interactables/Lever.tscn" id="13_kefid"]
+[ext_resource type="PackedScene" uid="uid://dlk6oxkqswup1" path="res://Scenes/Environment/door.tscn" id="14_17pk7"]
 [ext_resource type="PackedScene" uid="uid://td56vu1l1xka" path="res://Scenes/Environment/Interactables/Chain.tscn" id="21_jkqt3"]
 
 [sub_resource type="Resource" id="Resource_lpy3h"]
@@ -90,3 +92,10 @@ length = 10
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1732502036]
 transform = Transform3D(1, 0, 0, 0, 0.06662385, 0.9977782, 0, -0.9977782, 0.06662385, 0, -1.9201674, 0)
+
+[node name="Lever" parent="." unique_id=1689423163 node_paths=PackedStringArray("activation_targets") instance=ExtResource("13_kefid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.047088, 0, 0)
+activation_targets = [NodePath("../Door")]
+
+[node name="Door" parent="." unique_id=1709040343 instance=ExtResource("14_17pk7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.729845, 0, 0.08155155)
