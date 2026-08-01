@@ -33,6 +33,7 @@ var weight: int = 0;
 var current_jump_velocity: float = 4.5;
 
 var control_panels: Dictionary[BodyPart, ControlPanel] = { r_arm: null, l_arm: null }
+var camera_zoom_areas: Dictionary[BodyPart, CameraZoomArea] = {r_arm: null, l_arm: null, r_leg: null, l_leg: null, head: null, torso: null}
 
 var _aim_dir : Vector3 = Vector3.RIGHT;
 var _aim_speed : float = 40.0;
@@ -373,12 +374,12 @@ func get_grab_location() -> Vector3:
 		return Vector3(global_position.x, l_arm.global_position.y, 0);
 
 
-## Returns true if the given arm is either selected directly or being
+## Returns true if the given limb is either selected directly or being
 ## controlled through the torso while still attached.
-func is_controlling_arm(arm: BodyPart) -> bool:
-	if (selected_limb == arm): # arm is selected;
+func is_controlling_limb(limb: BodyPart) -> bool:
+	if (selected_limb == limb): # arm is selected;
 		return true;
-	elif (is_controlling_core and not arm.is_detached): # arm is being controlled through the torso;
+	elif (is_controlling_core and not limb.is_detached): # limb is being controlled through the torso;
 		return true;
 	return false;
 
@@ -409,6 +410,8 @@ func stop_controlling_panel(arm: BodyPart) -> void:
 		set_movement_mode(movement_modes.DEFAULT);
 	return;
 
+func focus_on_area(camera_zoom_area: CameraZoomArea):
+	phantom_camera.set_follow_targets([camera_zoom_area])
 
 ## Snap the CharacterBody3D to the torso's current world position,
 ## reattach the torso (disable rolling), and resume core control.
@@ -542,12 +545,17 @@ func select_limb(limb: BodyPart) -> void:
 			selected_limb.is_detached or (selected_limb == torso and not _any_limb_still_socketed())
 		)
 		if should_follow:
-			_set_follow_target(selected_limb, 2);
+				_set_follow_target(selected_limb, 2);
 		else:
 			# Follow the core (player) by default — never leave the group empty,
 			# or the PhantomCamera resolves the (empty) target to the world origin.
 			_set_follow_target(null, 0);
-
+	if(camera_zoom_areas.get(selected_limb)):
+		var camera_zoom_area: CameraZoomArea = camera_zoom_areas.get(selected_limb);
+		camera_zoom_area.select()
+	else:
+		for area: CameraZoomArea in camera_zoom_areas.values():
+			if area: area.deselect();
 	# Control logic
 	is_controlling_core = (selected_limb == torso and not torso.is_detached);
 
@@ -607,7 +615,7 @@ func has_all_arms_legs() -> bool:
 ## Iterates through control panels to find one with a camera target.
 func get_forwarded_camera_target(limb: BodyPart) -> Node3D:
 	if !control_panels.has(limb):
-		# THIS DOES NOT WORK. If the Torso is selected, the target will update to the other object as it should, but the camera won't move. Giving up on this for now since we have bigger fish to fry.
+		# THIS DOES NOT FULLY WORK. If the Torso is selected, the target will update to the other object as it should, but the camera won't move. Giving up on this for now since we have bigger fish to fry.
 		if control_panels.get(l_arm):
 			var target = control_panels.get(l_arm).get_camera_target();
 			return target;
@@ -619,6 +627,14 @@ func get_forwarded_camera_target(limb: BodyPart) -> Node3D:
 	if (control_panels.get(limb)):
 		return control_panels.get(limb).get_camera_target();
 	return null;
+	
+func add_camera_zoom_area(body_part: BodyPart, camera_zoom_area: CameraZoomArea):
+	camera_zoom_areas.set(body_part, camera_zoom_area)
+	print(camera_zoom_areas)
+
+func remove_camera_zoom_area(body_part: BodyPart):
+	camera_zoom_areas.set(body_part, null)
+	pass
 
 
 ## Teleport the player to the given position and reset velocity.

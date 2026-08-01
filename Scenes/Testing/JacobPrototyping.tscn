@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cu1xs6wktcy0b" path="res://Scenes/Environment/Interactables/Lever.tscn" id="13_kefid"]
 [ext_resource type="PackedScene" uid="uid://dlk6oxkqswup1" path="res://Scenes/Environment/door.tscn" id="14_17pk7"]
 [ext_resource type="PackedScene" uid="uid://b5wn6cwilqjxe" path="res://Scenes/Environment/handle_crate.tscn" id="14_lauej"]
+[ext_resource type="PackedScene" uid="uid://b5ig0xakcpv03" path="res://Scenes/Environment/camera_zoom_area.tscn" id="16_yp1hl"]
 [ext_resource type="PackedScene" uid="uid://td56vu1l1xka" path="res://Scenes/Environment/Interactables/Chain.tscn" id="21_jkqt3"]
 
 [sub_resource type="Resource" id="Resource_lpy3h"]
@@ -32,7 +33,7 @@ size = Vector3(15.366, 2.37, 5)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1898504763]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.543896, 5.219513, 14.999999)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.543896, 6.9276214, 14.999999)
 fov = 45.0
 near = 0.005
 
@@ -43,7 +44,7 @@ script = ExtResource("3_xev5s")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=64555096 instance=ExtResource("3_at6gv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.543896, 1.4695129, -9.536743e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.543896, 3.1776214, -9.536743e-07)
 
 [node name="RightArm" parent="Player" unique_id=904546073 instance=ExtResource("5_8un3r")]
 
@@ -57,7 +58,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8653183, 0)
 [node name="RightLeg" parent="Player" unique_id=1985177356 instance=ExtResource("9_yj7wf")]
 
 [node name="Player_PhantomCamera3D" type="Node3D" parent="." unique_id=1936159958 node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.543896, 5.219513, 14.999999)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.543896, 6.9276214, 14.999999)
 top_level = true
 script = ExtResource("4_gkkn6")
 priority = 1
@@ -103,3 +104,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.513414, 2.8101158, 9.53674
 
 [node name="Door" parent="." unique_id=1709040343 instance=ExtResource("14_17pk7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5145416, 0, 0.08155155)
+
+[node name="CameraZoomArea" parent="." unique_id=1921989334 instance=ExtResource("16_yp1hl")]
+transform = Transform3D(8.996826, 0, 0, 0, 6.915495, 0, 0, 0, 1.0000012, -17.162678, 2.0978997, 0)
+camera_distance = 50.0
