@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://dlyx5ptbnnpex" path="res://Scripts/Player/Arm.gd" id="1_fy5t7"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_kslal"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_wx4t2"]
-[ext_resource type="ArrayMesh" uid="uid://br8plfjqjuhb4" path="res://Assets/Robobotomy Art/3D/Character/R_Upper_Arm.res" id="5_2poe3"]
+[ext_resource type="ArrayMesh" uid="uid://br8plfjqjuhb4" path="res://Assets/3D/Character/R_Upper_Arm.res" id="5_2poe3"]
 [ext_resource type="Resource" uid="uid://odcgk1h80sk0" path="res://Assets/Resources/Camera3DSettings.tres" id="5_fy5t7"]
-[ext_resource type="ArrayMesh" uid="uid://bv0aaj288gro1" path="res://Assets/Robobotomy Art/3D/Character/R_Arm_LBow_Light.res" id="6_8chnf"]
-[ext_resource type="ArrayMesh" uid="uid://begyt7pqtjqs" path="res://Assets/Robobotomy Art/3D/Character/R_Arm_Wrist.res" id="7_f4unv"]
-[ext_resource type="ArrayMesh" uid="uid://b72tq2yep1cyi" path="res://Assets/Robobotomy Art/3D/Character/R_Arm_Wrist_Light.res" id="8_2aixd"]
-[ext_resource type="ArrayMesh" uid="uid://c75ww8ko5ejhv" path="res://Assets/Robobotomy Art/3D/Character/R_Arm_Hand.res" id="9_qxeld"]
-[ext_resource type="PackedScene" uid="uid://dyt6q5nx8gy67" path="res://Assets/Robobotomy Art/3D/Character/Nam_FBX/Left_Rigged_Leg.fbx" id="12_8chnf"]
+[ext_resource type="ArrayMesh" uid="uid://bv0aaj288gro1" path="res://Assets/3D/Character/R_Arm_LBow_Light.res" id="6_8chnf"]
+[ext_resource type="ArrayMesh" uid="uid://begyt7pqtjqs" path="res://Assets/3D/Character/R_Arm_Wrist.res" id="7_f4unv"]
+[ext_resource type="ArrayMesh" uid="uid://b72tq2yep1cyi" path="res://Assets/3D/Character/R_Arm_Wrist_Light.res" id="8_2aixd"]
+[ext_resource type="ArrayMesh" uid="uid://c75ww8ko5ejhv" path="res://Assets/3D/Character/R_Arm_Hand.res" id="9_qxeld"]
+[ext_resource type="PackedScene" uid="uid://dyt6q5nx8gy67" path="res://Assets/3D/Character/Nam_FBX/Left_Rigged_Leg.fbx" id="12_8chnf"]
 
 [sub_resource type="Resource" id="Resource_bcp5y"]
 script = ExtResource("4_wx4t2")
@@ -264,7 +264,7 @@ height = 1.5945282
 radius = 1.0
 
 [node name="RightArm" type="RigidBody3D" unique_id=904546073]
-collision_layer = 4099
+collision_layer = 4131
 collision_mask = 2956
 axis_lock_linear_z = true
 axis_lock_angular_x = true
@@ -280,6 +280,7 @@ throw_force = 30.0
 speed = 4.0
 acceleration = 5.0
 jump_velocity = 2.0
+limb_type = 4
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=135821873]
 

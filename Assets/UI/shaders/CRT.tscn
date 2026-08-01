@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cyx5cvh4by755"]
+
+[ext_resource type="Shader" uid="uid://dey0nui56gjow" path="res://Assets/UI/shaders/CRT.gdshader" id="1_fjmsv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7bd5n"]
+shader = ExtResource("1_fjmsv")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 1.0
+shader_parameter/warp_amount = 0.1
+shader_parameter/noise_amount = 0.03
+shader_parameter/interference_amount = 0.2
+shader_parameter/grille_amount = 0.1
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.6
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/aberation_amount = 0.5
+shader_parameter/roll_line_amount = 0.3
+shader_parameter/roll_speed = 1.0
+shader_parameter/scan_line_strength = -8.0
+shader_parameter/pixel_strength = -2.0
+
+[node name="Node" type="Node" unique_id=229110423]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1132729964]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=747245690]
+material = SubResource("ShaderMaterial_7bd5n")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

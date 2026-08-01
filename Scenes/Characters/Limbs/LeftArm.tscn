@@ -4,11 +4,11 @@
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_7lajw"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_rk8tc"]
 [ext_resource type="Resource" uid="uid://odcgk1h80sk0" path="res://Assets/Resources/Camera3DSettings.tres" id="5_my4g3"]
-[ext_resource type="ArrayMesh" uid="uid://bpsx6vulg4eyv" path="res://Assets/Robobotomy Art/3D/Character/L_Upper_Arm.res" id="6_alcg4"]
-[ext_resource type="ArrayMesh" uid="uid://bdphv2o8v68ts" path="res://Assets/Robobotomy Art/3D/Character/L_LBow_Light.res" id="7_8gh72"]
-[ext_resource type="ArrayMesh" uid="uid://ccei3bewlii6h" path="res://Assets/Robobotomy Art/3D/Character/L_Forearm.res" id="8_sxwaa"]
-[ext_resource type="ArrayMesh" uid="uid://bftenaut1l6rb" path="res://Assets/Robobotomy Art/3D/Character/L_Wrist_Light.res" id="9_jp8hg"]
-[ext_resource type="ArrayMesh" uid="uid://cpr57twbtopif" path="res://Assets/Robobotomy Art/3D/Character/L_Hand.res" id="10_ncync"]
+[ext_resource type="ArrayMesh" uid="uid://bpsx6vulg4eyv" path="res://Assets/3D/Character/L_Upper_Arm.res" id="6_alcg4"]
+[ext_resource type="ArrayMesh" uid="uid://bdphv2o8v68ts" path="res://Assets/3D/Character/L_LBow_Light.res" id="7_8gh72"]
+[ext_resource type="ArrayMesh" uid="uid://ccei3bewlii6h" path="res://Assets/3D/Character/L_Forearm.res" id="8_sxwaa"]
+[ext_resource type="ArrayMesh" uid="uid://bftenaut1l6rb" path="res://Assets/3D/Character/L_Wrist_Light.res" id="9_jp8hg"]
+[ext_resource type="ArrayMesh" uid="uid://cpr57twbtopif" path="res://Assets/3D/Character/L_Hand.res" id="10_ncync"]
 
 [sub_resource type="Resource" id="Resource_bcp5y"]
 script = ExtResource("3_rk8tc")
@@ -263,7 +263,7 @@ height = 1.5945282
 radius = 1.0
 
 [node name="LeftArm" type="RigidBody3D" unique_id=1281946609]
-collision_layer = 4099
+collision_layer = 4131
 collision_mask = 2956
 axis_lock_linear_z = true
 axis_lock_angular_x = true
@@ -279,6 +279,7 @@ throw_force = 30.0
 speed = 4.0
 acceleration = 5.0
 jump_velocity = 2.0
+limb_type = 3
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=307488596]
 

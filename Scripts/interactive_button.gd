@@ -1,4 +1,4 @@
-extends Area3D
+extends Area3D;
 ## An intractive button.
 ##
 ## @deprecated: Use [WeightedButton] instead.

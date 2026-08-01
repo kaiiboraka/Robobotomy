@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://td56vu1l1xka"]
+
+[ext_resource type="Script" uid="uid://coq8l10sf1x08" path="res://Scripts/Environment/chain.gd" id="1_hi5wi"]
+
+[node name="Chain" type="Node3D" unique_id=2016857665]
+script = ExtResource("1_hi5wi")
+link_spacing = 0.3
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="." unique_id=1241051203]
+aabb = AABB(-0.625, -0.5, -0.5, 1.25, 0.5, 1)

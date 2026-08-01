@@ -3,8 +3,6 @@
 [resource]
 resource_name = "lambert1"
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.34117648, 0.67058825, 0.69803923, 0.5058824)
 metallic_specular = 1.0
-roughness = 0.15
-emission_enabled = true
+emission = Color(1, 0.905, 0.7, 1)
 emission_energy_multiplier = 0.0

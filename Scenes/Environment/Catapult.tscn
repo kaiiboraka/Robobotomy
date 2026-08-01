@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://i2hkf7f1n6kf"]
 
-[ext_resource type="Script" uid="uid://kwbom811birx" path="res://Scripts/Environment/Cannon.gd" id="1_jj57d"]
+[ext_resource type="Script" path="res://Scripts/Environment/Catapult.gd" id="1_jj57d"]
 [ext_resource type="PackedScene" uid="uid://bfxbhhtip1gba" path="res://Scenes/Environment/Terrain/MovableExtendableWall.tscn" id="1_scqxb"]
 [ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/Terrain/ExtendableWall.tscn" id="2_jv0fh"]
 

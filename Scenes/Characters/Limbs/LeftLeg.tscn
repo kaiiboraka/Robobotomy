@@ -1,15 +1,16 @@
 [gd_scene format=3 uid="uid://f0oommypkm0i"]
 
 [ext_resource type="Script" uid="uid://5r2o3glyvoiu" path="res://Scripts/Player/Leg.gd" id="1_kafv1"]
+[ext_resource type="PhysicsMaterial" uid="uid://dk162vpoy6b84" path="res://Assets/Materials/Physics/frictionless_physmat.tres" id="1_tpfkj"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_euprb"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_nclh8"]
 [ext_resource type="Resource" uid="uid://odcgk1h80sk0" path="res://Assets/Resources/Camera3DSettings.tres" id="5_kafv1"]
-[ext_resource type="ArrayMesh" uid="uid://b43njnkce7d1h" path="res://Assets/Robobotomy Art/3D/Character/L_Shin.res" id="6_b7363"]
-[ext_resource type="ArrayMesh" uid="uid://junqlj1trmor" path="res://Assets/Robobotomy Art/3D/Character/Upper_Leg.res" id="6_tpfkj"]
-[ext_resource type="ArrayMesh" uid="uid://bhliblp7mh5xo" path="res://Assets/Robobotomy Art/3D/Character/L_KneeCap.res" id="7_aers5"]
-[ext_resource type="ArrayMesh" uid="uid://bym6mt1b2kl01" path="res://Assets/Robobotomy Art/3D/Character/L_AnkleGuard.res" id="8_jvx81"]
-[ext_resource type="ArrayMesh" uid="uid://73wdlqd1r7m5" path="res://Assets/Robobotomy Art/3D/Character/L_AnkleHinge.res" id="9_q2tcg"]
-[ext_resource type="ArrayMesh" uid="uid://bnwq3lmq643n1" path="res://Assets/Robobotomy Art/3D/Character/L_Foot.res" id="10_lotoj"]
+[ext_resource type="ArrayMesh" uid="uid://b43njnkce7d1h" path="res://Assets/3D/Character/L_Shin.res" id="6_b7363"]
+[ext_resource type="ArrayMesh" uid="uid://junqlj1trmor" path="res://Assets/3D/Character/Upper_Leg.res" id="6_tpfkj"]
+[ext_resource type="ArrayMesh" uid="uid://bhliblp7mh5xo" path="res://Assets/3D/Character/L_KneeCap.res" id="7_aers5"]
+[ext_resource type="ArrayMesh" uid="uid://bym6mt1b2kl01" path="res://Assets/3D/Character/L_AnkleGuard.res" id="8_jvx81"]
+[ext_resource type="ArrayMesh" uid="uid://73wdlqd1r7m5" path="res://Assets/3D/Character/L_AnkleHinge.res" id="9_q2tcg"]
+[ext_resource type="ArrayMesh" uid="uid://bnwq3lmq643n1" path="res://Assets/3D/Character/L_Foot.res" id="10_lotoj"]
 
 [sub_resource type="Resource" id="Resource_bcp5y"]
 script = ExtResource("4_nclh8")
@@ -248,17 +249,19 @@ radius = 1.0
 [node name="LeftLeg" type="RigidBody3D" unique_id=925113335]
 collision_layer = 4099
 collision_mask = 2956
+physics_material_override = ExtResource("1_tpfkj")
 gravity_scale = 2.0
 lock_rotation = true
 freeze = true
 freeze_mode = 1
 continuous_cd = true
 contact_monitor = true
-max_contacts_reported = 2
+max_contacts_reported = 6
 script = ExtResource("1_kafv1")
 is_connected = false
 throw_force = 20.0
 jump_velocity = 10.0
+limb_type = 5
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=1295578004]
 

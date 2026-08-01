@@ -2,12 +2,13 @@
 
 [ext_resource type="Script" uid="uid://vjfl7xev4i4c" path="res://Scripts/Player/Player.gd" id="1_qkgjm"]
 [ext_resource type="PackedScene" uid="uid://dgoqhuaqsm30g" path="res://Scenes/Characters/Limbs/torso.tscn" id="3_b4kmf"]
-[ext_resource type="ArrayMesh" uid="uid://dcwobn8idii7l" path="res://Assets/Robobotomy Art/3D/Character/Neck.res" id="5_b4kmf"]
-[ext_resource type="Material" uid="uid://dwsuv2g2x10i0" path="res://Assets/Materials/Nameless/Neck.tres" id="6_5kd0c"]
+[ext_resource type="ArrayMesh" uid="uid://dcwobn8idii7l" path="res://Assets/3D/Character/Neck.res" id="5_b4kmf"]
+[ext_resource type="Material" uid="uid://dwsuv2g2x10i0" path="res://Assets/Materials/Character/Neck.tres" id="6_5kd0c"]
+[ext_resource type="Script" uid="uid://co6u66denqovn" path="res://Scripts/Player/throw_arc.gd" id="9_meglp"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="9_shd1k"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="10_5kd0c"]
 [ext_resource type="Resource" uid="uid://odcgk1h80sk0" path="res://Assets/Resources/Camera3DSettings.tres" id="11_aal88"]
-[ext_resource type="PackedScene" uid="uid://c8f7ehdv85hnd" path="res://Assets/Robobotomy Art/3D/Character/Namless_V21.fbx" id="13_aal88"]
+[ext_resource type="PackedScene" uid="uid://c8f7ehdv85hnd" path="res://Assets/3D/Character/Namless_V21.fbx" id="13_aal88"]
 
 [sub_resource type="Resource" id="Resource_4opfx"]
 script = ExtResource("10_5kd0c")
@@ -65,21 +66,23 @@ bind/13/bone = -1
 bind/13/pose = Transform3D(-0.4163696, 0.7045103, -0.5747188, -0.80973077, 0.00014001912, 0.5868016, 0.4134882, 0.7096938, 0.5704053, -1.881118, 0.20224452, -1.750822)
 
 [node name="Player" type="CharacterBody3D" unique_id=64555096]
-collision_layer = 3
+collision_layer = 4099
 collision_mask = 652
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 platform_floor_layers = 4294959308
 script = ExtResource("1_qkgjm")
-jump_velocity = 8.0
-handicapped_jump_velocity = 4.0
+speed = 7.0
+jump_velocity = 20.0
+handicapped_jump_velocity = 12.0
+gravity_multiplier = 4.0
 
 [node name="Limb_PhantomCamera3D" type="Node3D" parent="." unique_id=1704350181]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.0686836, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.069, 15)
 top_level = true
 script = ExtResource("9_shd1k")
-follow_mode = 2
+follow_mode = 3
 tween_resource = SubResource("Resource_4opfx")
 camera_3d_resource = ExtResource("11_aal88")
 follow_offset = Vector3(0, 3, 15)
@@ -106,6 +109,10 @@ surface_material_override/0 = ExtResource("6_5kd0c")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0686834, 0)
 max_angular_velocity = 8.0
 
+[node name="Holding_Spot" type="Node3D" parent="." unique_id=1781082980]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7269216, 0.5)
+
 [node name="Label3D" type="Label3D" parent="." unique_id=1353181972]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2005348, 0.88159037)
 pixel_size = 0.001
@@ -115,5 +122,42 @@ text = "Torso"
 font_size = 16
 outline_size = 8
 
-[node name="NamelessModel" parent="." unique_id=1098268189 instance=ExtResource("13_aal88")]
+[node name="NamelessModel" parent="." unique_id=970368239 instance=ExtResource("13_aal88")]
 visible = false
+
+[node name="WallDetectionRight" type="RayCast3D" parent="." unique_id=986729766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31705523, 2.4144897, 0)
+target_position = Vector3(0.5, 0, 0)
+collision_mask = 524
+hit_back_faces = false
+
+[node name="LedgeDetectionRight" type="RayCast3D" parent="." unique_id=922015342]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3145085, 2.8891838, 0)
+target_position = Vector3(0.5, 0, 0)
+collision_mask = 524
+hit_back_faces = false
+
+[node name="FloorHeightDetectionRight" type="RayCast3D" parent="." unique_id=1098459888]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8161014, 2.8951912, 0)
+target_position = Vector3(0, -0.5, 0)
+collision_mask = 524
+
+[node name="WallDetectionLeft" type="RayCast3D" parent="." unique_id=1709804661]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.317, 2.414, 0)
+target_position = Vector3(-0.5, 0, 0)
+collision_mask = 524
+hit_back_faces = false
+
+[node name="LedgeDetectionLeft" type="RayCast3D" parent="." unique_id=1403711697]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.315, 2.889, 0)
+target_position = Vector3(-0.5, 0, 0)
+collision_mask = 524
+hit_back_faces = false
+
+[node name="FloorHeightDetectionLeft" type="RayCast3D" parent="." unique_id=56589675]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.816, 2.895, 0)
+target_position = Vector3(0, -0.5, 0)
+collision_mask = 524
+
+[node name="ThrowArc" type="MeshInstance3D" parent="." unique_id=589643538]
+script = ExtResource("9_meglp")
