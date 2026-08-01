@@ -26,13 +26,13 @@ func _input(event: InputEvent) -> void:
 		
 	if(is_activated):
 		# deactivating
-		if(!player.is_controlling_arm(attached_arm)):
+		if(!player.is_controlling_limb(attached_arm)):
 			return;
 		on_deactivate();
 		return;
 	# activating
 	for arm in arms_in_range:
-		if(player.is_controlling_arm(arm)):
+		if(player.is_controlling_limb(arm)):
 			attached_arm = arm;
 			on_activate();
 			return;

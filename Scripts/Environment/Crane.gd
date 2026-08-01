@@ -22,7 +22,7 @@ func _physics_process(_delta : float) -> void:
 	axis_input();
 	if (!control_arm):
 		return;
-	if (Player.instance and !Player.instance.is_controlling_arm(control_arm)):
+	if (Player.instance and !Player.instance.is_controlling_limb(control_arm)):
 		return;
 	if (Input.is_action_pressed("Player_Jump")):
 		magnetized = true;

@@ -11,6 +11,8 @@ signal hit_ground;
 enum LimbType { UNSET, HEAD, TORSO, LEFT_ARM, RIGHT_ARM, LEFT_LEG, RIGHT_LEG }
 @export var limb_type: LimbType = LimbType.UNSET;
 @onready var notifier: VisibleOnScreenNotifier3D = $VisibleOnScreenNotifier3D;
+
+var phantom_camera: PhantomCamera3D;
 var is_part_enabled: bool = true;
 ## When false, this part ignores player move/jump (still simulates if enabled and unfrozen).
 var accepts_player_input: bool = true;
