@@ -642,8 +642,8 @@ metadata/_custom_type_script = "uid://bw716w626y8t7"
 
 [node name="Chain_Long" parent="Level10" unique_id=2016857665 instance=ExtResource("26_gbpfp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 360.78708, 88.33172, 0)
-length = 280
 link_spacing = 0.29
+length = 280
 gravity = -10.0
 launch_force = 20.0
 constraint_iterations = 15
