@@ -290,6 +290,7 @@ _data = {
 [node name="WeightedButton" type="AnimatableBody3D" unique_id=1695769787]
 collision_layer = 4
 collision_mask = 0
+sync_to_physics = false
 script = ExtResource("1_yigyg")
 trigger_weight = 4
 
@@ -353,13 +354,13 @@ skeleton = NodePath("../..")
 
 [node name="Pad_AnimatableBody3D" type="AnimatableBody3D" parent="ButtonShell" unique_id=452429123]
 transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, 0, 0.1485067, 0)
-visible = false
 collision_layer = 8
 collision_mask = 0
 
 [node name="Pad_ConcaveCollisionShape3D" type="CollisionShape3D" parent="ButtonShell/Pad_AnimatableBody3D" unique_id=1920508634]
 transform = Transform3D(-0.8660253, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, -0.8660253, 0, -0.13611265, 0)
 shape = SubResource("ConcavePolygonShape3D_xw1qm")
+disabled = true
 
 [node name="Pad_ConvexCollisionShape3D" type="CollisionShape3D" parent="ButtonShell/Pad_AnimatableBody3D" unique_id=796794241]
 process_mode = 4
