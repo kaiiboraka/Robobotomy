@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dbj2mxqdg7prw"]
 
 [ext_resource type="Script" uid="uid://c344rsjyqu3mk" path="res://Scripts/Environment/Crane.gd" id="1_ncg6t"]
+[ext_resource type="PackedScene" uid="uid://clb33ret2075d" path="res://Assets/3D/Objects/Crane/Crane.fbx" id="2_ncg6t"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_2kgik"]
 
@@ -8,43 +9,49 @@
 size = Vector3(4.498047, 1.6019897, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ur1bl"]
-size = Vector3(5.9658203, 0.3980713, 2.9453125)
-
-[sub_resource type="BoxMesh" id="BoxMesh_4gvqi"]
-size = Vector3(5.958008, 0.40563965, 1)
+size = Vector3(2.393921, 0.3980713, 2.9453125)
 
 [node name="Crane" type="CharacterBody3D" unique_id=1842645089]
 collision_layer = 8
 collision_mask = 580
 script = ExtResource("1_ncg6t")
 
+[node name="Crane" parent="." unique_id=740053302 instance=ExtResource("2_ncg6t")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 5.062134, 0)
+
 [node name="rope2" type="MeshInstance3D" parent="." unique_id=1887511809]
 transform = Transform3D(0.321, 0, 0, 0, 3.2855546, 0, 0, 0, 0.726, 0, 3.06, 0.033)
+visible = false
 mesh = SubResource("CylinderMesh_2kgik")
 skeleton = NodePath("../../..")
 
 [node name="rope3" type="MeshInstance3D" parent="." unique_id=2074141600]
 transform = Transform3D(0.7822982, 0, 0, 0, 0.78101206, 0, 0, 0, 0.726, 0, 0.269, 0.033)
+visible = false
 mesh = SubResource("CylinderMesh_2kgik")
 skeleton = NodePath("../../..")
 
 [node name="rope4" type="MeshInstance3D" parent="." unique_id=602298525]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 2.4586248, 0.024421215, 0.03298569)
+visible = false
 mesh = SubResource("CylinderMesh_2kgik")
 skeleton = NodePath("../../..")
 
 [node name="rope5" type="MeshInstance3D" parent="." unique_id=2011530]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -2.5137684, 0.024117082, 0.033)
+visible = false
 mesh = SubResource("CylinderMesh_2kgik")
 skeleton = NodePath("../../..")
 
 [node name="rope6" type="MeshInstance3D" parent="." unique_id=1680749578]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.51, 4.961, 0.033)
+visible = false
 mesh = SubResource("CylinderMesh_2kgik")
 skeleton = NodePath("../../..")
 
 [node name="rope7" type="MeshInstance3D" parent="." unique_id=2012867017]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.5101881, 4.9613094, 0.03298569)
+visible = false
 mesh = SubResource("CylinderMesh_2kgik")
 skeleton = NodePath("../../..")
 
@@ -59,13 +66,8 @@ shape = SubResource("BoxShape3D_4gvqi")
 debug_color = Color(0, 0.6511522, 0.062128857, 0.41960785)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2010997872]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008148193, -0.3355713, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0027770996, -0.3355713, 0)
 shape = SubResource("BoxShape3D_ur1bl")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=419417276]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008148193, -0.33498013, 0)
-mesh = SubResource("BoxMesh_4gvqi")
-skeleton = NodePath("")
 
 [connection signal="body_entered" from="StickyArea" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="StickyArea" to="." method="_on_area_3d_body_exited"]
