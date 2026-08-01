@@ -27,10 +27,8 @@
 [ext_resource type="ArrayMesh" uid="uid://dq0ogr20mo8rg" path="res://Assets/3D/Objects/Buttons/buttons_3x3.res" id="22_2gsj1"]
 [ext_resource type="PackedScene" uid="uid://i2hkf7f1n6kf" path="res://Scenes/Environment/Catapult.tscn" id="23_egq61"]
 [ext_resource type="PackedScene" uid="uid://dmrf146qrbqun" path="res://Scenes/Environment/Interactables/ControlPanel2.tscn" id="25_j1ys4"]
-[ext_resource type="PackedScene" uid="uid://td56vu1l1xka" path="res://Scenes/Environment/Interactables/Chain.tscn" id="25_u7nal"]
 [ext_resource type="ArrayMesh" uid="uid://dtcymlg0tneoo" path="res://Assets/3D/Objects/Crane/Beam.res" id="26_oha5w"]
 [ext_resource type="ArrayMesh" uid="uid://c8kdmnehigaay" path="res://Assets/3D/Character/Head.res" id="26_qjcgg"]
-[ext_resource type="PackedScene" uid="uid://cu1xs6wktcy0b" path="res://Scenes/Environment/Interactables/Lever.tscn" id="26_u7nal"]
 [ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Assets/3D/Objects/MISC/terminal.res" id="27_kb3nv"]
 [ext_resource type="ArrayMesh" uid="uid://c0ojvrv4euw0g" path="res://Assets/3D/Objects/MISC/monkeybar_med1.res" id="28_r13ih"]
 [ext_resource type="ArrayMesh" uid="uid://bw43rtwbo6wcp" path="res://Assets/3D/Objects/MISC/lever.res" id="29_cuk8f"]
@@ -67,13 +65,6 @@ point_count = 2
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_wspkt"]
 height = 2.3450413
-
-[sub_resource type="Curve3D" id="Curve3D_2gh2o"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.326, 0, 0, 0, 0, 0, 0, 0, 0, 19.392548, -1.9073486e-06, 0),
-"tilts": PackedFloat32Array(0, 0)
-}
-point_count = 2
 
 [sub_resource type="Curve3D" id="Curve3D_b7sev"]
 _data = {
@@ -2486,10 +2477,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.301361, 22.2215, 0.2022466
 trigger_weight = 3
 activation_targets = [NodePath("../Right Piston Path"), NodePath("../Right Piston Path2")]
 
-[node name="Right Piston Path" parent="Level3_head/Level3_Node3D" unique_id=370955587 node_paths=PackedStringArray("target_follower") instance=ExtResource("13_qu6t7")]
+[node name="Right Piston Path" parent="Level3_head/Level3_Node3D" unique_id=370955587 instance=ExtResource("13_qu6t7")]
 transform = Transform3D(-0.4354739, 6.1975676e-08, 0, -3.8070336e-08, -0.7089191, 0, 0, 0, 1, 6.874878, 33.13131, -9.536743e-07)
 curve = SubResource("Curve3D_b7sev")
-target_follower = NodePath("Piston1")
 moveSpeedForward = 30.0
 moveSpeedBackward = 5.0
 
@@ -2547,16 +2537,15 @@ curve = SubResource("Curve3D_7sy1d")
 moveSpeedForward = 20.0
 moveSpeedBackward = 5.0
 
-[node name="Left Piston Path2" parent="Level3_head/Level3_Node3D" unique_id=821324475 node_paths=PackedStringArray("target_follower") instance=ExtResource("13_qu6t7")]
-transform = Transform3D(-0.43547362, 6.197558e-08, 0, -3.8070315e-08, -0.708918, 0, 0, 0, 0.9999985, -9.579773, 29.812664, -9.536743e-07)
-curve = SubResource("Curve3D_7sy1d")
-target_follower = NodePath("Piston3")
-moveSpeedForward = 10.0
-moveSpeedBackward = 5.0
-
 [node name="Piston3" parent="Level3_head/Level3_Node3D/Left Piston Path2" unique_id=978978394 instance=ExtResource("14_ixj62")]
 transform = Transform3D(0.99999946, 0, 0, 7.1054274e-15, 0.9999985, 0, 0, 0, 0.99999857, 8.521973, 0, 0)
 size = Vector3(16.661129, 1.7484683, 1)
+
+[node name="Left Piston Path3" parent="Level3_head/Level3_Node3D" unique_id=821324475 instance=ExtResource("13_qu6t7")]
+transform = Transform3D(-0.43547362, 6.197558e-08, 0, -3.8070315e-08, -0.708918, 0, 0, 0, 0.9999985, -9.579773, 29.812664, -9.536743e-07)
+curve = SubResource("Curve3D_7sy1d")
+moveSpeedForward = 10.0
+moveSpeedBackward = 5.0
 
 [node name="Level4_head" type="Node" parent="." unique_id=1293161474]
 
@@ -3056,23 +3045,23 @@ transform = Transform3D(1.2835464, 0, 0, 0, -8.476959e-08, -1.3702362, 0, 1.9393
 mesh = SubResource("CylinderMesh_wspkt")
 skeleton = NodePath("../../..")
 
-[node name="Chain" parent="Level10-12/Level10_Node" unique_id=2016857665 instance=ExtResource("25_u7nal")]
+[node name="Chain" parent="Level10-12/Level10_Node" unique_id=2016857665 instance=ExtResource("33_2gh2o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 365.47662, 81.470184, -7.6293945e-06)
 length = 210
 
-[node name="Chain2" parent="Level10-12/Level10_Node" unique_id=1592576592 instance=ExtResource("25_u7nal")]
+[node name="Chain2" parent="Level10-12/Level10_Node" unique_id=1592576592 instance=ExtResource("33_2gh2o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 357.68204, 81.470184, -7.6293945e-06)
 length = 35
 
-[node name="Chain3" parent="Level10-12/Level10_Node" unique_id=85746755 instance=ExtResource("25_u7nal")]
+[node name="Chain3" parent="Level10-12/Level10_Node" unique_id=85746755 instance=ExtResource("33_2gh2o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 347.83954, 81.470184, -7.6293945e-06)
 length = 25
 
-[node name="Chain4" parent="Level10-12/Level10_Node" unique_id=758547863 instance=ExtResource("25_u7nal")]
+[node name="Chain4" parent="Level10-12/Level10_Node" unique_id=758547863 instance=ExtResource("33_2gh2o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 325.3573, 95.343315, -7.6293945e-06)
 length = 60
 
-[node name="Chain5" parent="Level10-12/Level10_Node" unique_id=1891136026 instance=ExtResource("25_u7nal")]
+[node name="Chain5" parent="Level10-12/Level10_Node" unique_id=1891136026 instance=ExtResource("33_2gh2o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 395.2613, 118.579605, -7.6293945e-06)
 length = 67
 
@@ -3292,16 +3281,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -259.568, 83.744095, -0.12268
 mesh = ExtResource("29_cuk8f")
 skeleton = NodePath("../../..")
 
-[node name="Lever2" type="MeshInstance3D" parent="Level10_Last/LevelLast_Node3D" unique_id=705406077]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -294.98535, -0.08251095, -0.122686386)
-mesh = ExtResource("29_cuk8f")
-skeleton = NodePath("../../..")
-
-[node name="Lever3" type="MeshInstance3D" parent="Level10_Last/LevelLast_Node3D" unique_id=1631810680]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -172.66821, 114.34795, -0.122680664)
-mesh = ExtResource("29_cuk8f")
-skeleton = NodePath("../../..")
-
 [node name="rope14" type="MeshInstance3D" parent="Level13_Last/LevelLast_Node3D" unique_id=1230468539]
 transform = Transform3D(0.321, 0, 0, 0, 9.307538, 0, 0, 0, 0.27629793, -214.22021, 142.91708, -0.30798054)
 mesh = SubResource("CylinderMesh_b7sev")
@@ -3351,9 +3330,6 @@ skeleton = NodePath("")
 transform = Transform3D(13.599161, 0, 0, 0, -9.663066e-07, -13.599167, 0, 22.10652, -5.944385e-07, -146.54517, 183.11333, -51.146748)
 mesh = ExtResource("11_2gh2o")
 skeleton = NodePath("")
-
-[node name="ControlPanel2" parent="Level10_Last/LevelLast_Node3D" unique_id=843480281 instance=ExtResource("25_j1ys4")]
-transform = Transform3D(1, 0, -1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -204.51077, 105.45549, -5.558133e-06)
 
 [node name="13" type="Label3D" parent="Level13_Last/LevelLast_Node3D" unique_id=221924412]
 transform = Transform3D(10.000001, 0, 0, 0, 10.000001, 0, 0, 0, 9.999999, -212.52744, 114.47751, 0.7822803)
@@ -3450,6 +3426,19 @@ transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -1
 
 [node name="Old Final Puzzle" type="Node3D" parent="Level13_Last/LevelLast_Node3D" unique_id=34459449]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -161.55551, 54.386696, 0)
+
+[node name="Level10_Last_LevelLast_Node3D#Lever2" type="MeshInstance3D" parent="." unique_id=705406077]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -294.98535, -0.08251095, -0.122686386)
+mesh = ExtResource("29_cuk8f")
+skeleton = NodePath("../../..")
+
+[node name="Level10_Last_LevelLast_Node3D#Lever3" type="MeshInstance3D" parent="." unique_id=1631810680]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -172.66821, 114.34795, -0.122680664)
+mesh = ExtResource("29_cuk8f")
+skeleton = NodePath("../../..")
+
+[node name="Level10_Last_LevelLast_Node3D#ControlPanel2" parent="." unique_id=410845867 instance=ExtResource("25_j1ys4")]
+transform = Transform3D(1, 0, -1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -204.51077, 105.45549, -5.558133e-06)
 
 [node name="Pipes" type="Node" parent="." unique_id=552854617]
 
