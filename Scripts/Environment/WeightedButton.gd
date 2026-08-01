@@ -1,5 +1,5 @@
 @tool
-extends StaticBody3D;
+extends AnimatableBody3D;
 
 @export_range(1, 9) var trigger_weight: int = 1:
 	set(val):
@@ -84,7 +84,8 @@ func _on_body_entered(body: Node3D) -> void:
 	if lights:
 		lights.current_weight += weight_val;
 		_check_trigger();
-
+		
+	$Base_CollisionShape3D.set_deferred("disabled", false)
 		# Play bounce for the impact of this NEW body entering
 		#if not _was_active:
 			#anim_player.play("Bounce");
@@ -106,7 +107,9 @@ func _on_body_exited(body: Node3D) -> void:
 	if lights:
 		lights.current_weight -= weight_val;
 		_check_trigger();
-
+		
+	$Base_CollisionShape3D.set_deferred("disabled", true)
+	print("Signal Emitted")
 	# Bounce on exit if we are now below threshold
 	#if not _was_active:
 		#anim_player.play("Bounce");
