@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bx22m5n37k7e5"
-path="res://.godot/imported/Chain_Link.blend-65460b0b065ace57ad74df4dc5b95795.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/3D/Objects/Chain_Link.blend"
-dest_files=["res://.godot/imported/Chain_Link.blend-65460b0b065ace57ad74df4dc5b95795.scn"]
 
 [params]
 

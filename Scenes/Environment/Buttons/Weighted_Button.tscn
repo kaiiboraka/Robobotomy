@@ -287,9 +287,10 @@ _data = {
 &"Unpressed": SubResource("Animation_5hisi")
 }
 
-[node name="WeightedButton" type="StaticBody3D" unique_id=1151652390]
+[node name="WeightedButton" type="AnimatableBody3D" unique_id=1695769787]
 collision_layer = 4
 collision_mask = 0
+sync_to_physics = false
 script = ExtResource("1_yigyg")
 trigger_weight = 4
 
@@ -317,22 +318,22 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.3
 weight = 4
 current_weight = 0
 
-[node name="Generated_Light_1" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=495400427]
+[node name="Generated_Light_1" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=1788294988]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8086581, -0.13553238)
 mesh = ExtResource("3_dfgrj")
 surface_material_override/1 = ExtResource("4_xw1qm")
 
-[node name="Generated_Light_2" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=836764099]
+[node name="Generated_Light_2" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=511553147]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8086581, 0.08446762)
 mesh = ExtResource("3_dfgrj")
 surface_material_override/1 = ExtResource("4_xw1qm")
 
-[node name="Generated_Light_3" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=2048803430]
+[node name="Generated_Light_3" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=315804694]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0286582, -0.13553238)
 mesh = ExtResource("3_dfgrj")
 surface_material_override/1 = ExtResource("4_xw1qm")
 
-[node name="Generated_Light_4" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=122387718]
+[node name="Generated_Light_4" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=39677326]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0286582, 0.08446762)
 mesh = ExtResource("3_dfgrj")
 surface_material_override/1 = ExtResource("4_xw1qm")
@@ -353,13 +354,13 @@ skeleton = NodePath("../..")
 
 [node name="Pad_AnimatableBody3D" type="AnimatableBody3D" parent="ButtonShell" unique_id=452429123]
 transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, 0, 0.1485067, 0)
-visible = false
 collision_layer = 8
 collision_mask = 0
 
 [node name="Pad_ConcaveCollisionShape3D" type="CollisionShape3D" parent="ButtonShell/Pad_AnimatableBody3D" unique_id=1920508634]
 transform = Transform3D(-0.8660253, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, -0.8660253, 0, -0.13611265, 0)
 shape = SubResource("ConcavePolygonShape3D_xw1qm")
+disabled = true
 
 [node name="Pad_ConvexCollisionShape3D" type="CollisionShape3D" parent="ButtonShell/Pad_AnimatableBody3D" unique_id=796794241]
 process_mode = 4

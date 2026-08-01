@@ -22,8 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://0nxi375snik3" path="res://Scenes/Characters/Limbs/RightArm.tscn" id="14_vxw4a"]
 [ext_resource type="ArrayMesh" uid="uid://bw43rtwbo6wcp" path="res://Assets/3D/Objects/MISC/lever.res" id="15_7y28h"]
 [ext_resource type="PackedScene" uid="uid://cuc1pbmga6imc" path="res://Scenes/Environment/Terrain/cube_static.tscn" id="16_2kgik"]
-[ext_resource type="Script" uid="uid://dtahhowrgytm7" path="res://Scripts/HeadTutorialSlice/teleportal.gd" id="16_6ey6l"]
 [ext_resource type="PackedScene" uid="uid://dbj2mxqdg7prw" path="res://Scenes/Environment/Crane.tscn" id="16_44la1"]
+[ext_resource type="Script" uid="uid://bnbmpgkb1h20f" path="res://Scenes/Tutorial/path_follow_3d.gd" id="16_bdygh"]
 [ext_resource type="PackedScene" uid="uid://npjp2dyv4vbu" path="res://Scenes/Characters/Player.tscn" id="17_1e0ns"]
 [ext_resource type="PackedScene" uid="uid://f0oommypkm0i" path="res://Scenes/Characters/Limbs/LeftLeg.tscn" id="17_v3e2r"]
 [ext_resource type="PackedScene" uid="uid://ep2c8eoh0i32" path="res://Scenes/Characters/Limbs/RightLeg.tscn" id="19_bdygh"]
@@ -92,8 +92,15 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_dmal2"]
-size = Vector3(1.5551758, 2.1846924, 1)
+[sub_resource type="Curve3D" id="Curve3D_6ey6l"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.022328854, -0.020877838, -0.019841678, 0, 0, 0, 0, 0, 0, -0.0037755966, 3.972103, -0.019841678),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6ey6l"]
+size = Vector3(1, 0.23266602, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_tdvt8"]
 top_radius = 2.392
@@ -411,6 +418,28 @@ transform = Transform3D(4.0594554, -0.060978264, 0, 0.10848975, 2.281677, 0, 0, 
 mesh = ExtResource("6_tq6py")
 skeleton = NodePath("../..")
 
+[node name="Path3D" type="Path3D" parent="Level6_leg/Pipe1Long18" unique_id=191943730]
+transform = Transform3D(1, -1.8626451e-09, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+curve = SubResource("Curve3D_6ey6l")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Level6_leg/Pipe1Long18/Path3D" unique_id=2115113599]
+transform = Transform3D(1.1923937e-08, 0.9999893, -0.004632174, -4.0495757e-10, -0.0046321745, -0.9999892, -1, 1.1925685e-08, 3.4971942e-10, -0.022328854, -0.020877838, -0.019841678)
+script = ExtResource("16_bdygh")
+
+[node name="PipeEnter" type="Area3D" parent="Level6_leg/Pipe1Long18" unique_id=292765588]
+transform = Transform3D(1, -5.5879354e-09, 0, 0, 1, 0, 0, 0, 0.99999976, 0.109553814, 3.8473358, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level6_leg/Pipe1Long18/PipeEnter" unique_id=973969639]
+transform = Transform3D(1, -2.2351742e-08, 0, 0, 1, 0, 0, 0, 0.99999976, -9.536743e-07, 0.047496796, 0)
+shape = SubResource("BoxShape3D_6ey6l")
+
+[node name="PipeExit" type="Area3D" parent="Level6_leg/Pipe1Long18" unique_id=1670288861]
+transform = Transform3D(1, -1.8626451e-09, 0, 0, 1, 0, 0, 0, 0.99999994, 0.0011386871, 0.040000916, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level6_leg/Pipe1Long18/PipeExit" unique_id=392955006]
+transform = Transform3D(1, -2.2351742e-08, 0, 0, 1, 0, 0, 0, 0.99999976, -9.536743e-07, 0.047496796, 0)
+shape = SubResource("BoxShape3D_6ey6l")
+
 [node name="6" type="Label3D" parent="Level6_leg" unique_id=567179960]
 transform = Transform3D(10.000001, 0, 0, 0, 10.000001, 0, 0, 0, 9.999999, 215.80579, -2.8494482, 0.7822784)
 text = "6"
@@ -613,8 +642,8 @@ metadata/_custom_type_script = "uid://bw716w626y8t7"
 
 [node name="Chain_Long" parent="Level10" unique_id=2016857665 instance=ExtResource("26_gbpfp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 360.78708, 88.33172, 0)
-length = 280
 link_spacing = 0.29
+length = 280
 gravity = -10.0
 launch_force = 20.0
 constraint_iterations = 15
@@ -1311,3 +1340,6 @@ size = Vector3(10.01, 1.382, 5)
 
 [node name="CubeStatic" parent="Walls" unique_id=727227781 instance=ExtResource("16_2kgik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.56414, 0, 21.082575)
+
+[connection signal="body_entered" from="Level6_leg/Pipe1Long18/PipeEnter" to="Level6_leg/Pipe1Long18/Path3D/PathFollow3D" method="_on_pipe_enter_body_entered"]
+[connection signal="body_entered" from="Level6_leg/Pipe1Long18/PipeExit" to="Level6_leg/Pipe1Long18/Path3D/PathFollow3D" method="_on_pipe_exit_body_entered"]

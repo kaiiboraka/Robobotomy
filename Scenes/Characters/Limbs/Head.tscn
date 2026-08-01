@@ -48,7 +48,7 @@ radius = 0.32475948
 [sub_resource type="SphereShape3D" id="SphereShape3D_rtqub"]
 radius = 1.0
 
-[node name="Head" type="RigidBody3D" unique_id=2035200198]
+[node name="Head" type="RigidBody3D" unique_id=2035200198 groups=["head"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.937, 0)
 collision_layer = 4099
 collision_mask = 2956

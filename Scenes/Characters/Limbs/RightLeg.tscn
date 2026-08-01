@@ -251,6 +251,9 @@ radius = 1.0
 [node name="RightLeg" type="RigidBody3D" unique_id=1985177356]
 collision_layer = 4099
 collision_mask = 2956
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
 gravity_scale = 2.0
 lock_rotation = true
 freeze = true
