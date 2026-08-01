@@ -264,7 +264,7 @@ compositor = SubResource("Compositor_bdbf6")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1483892784]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 244.43471, 10.815922, 30.000004)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 212.45517, 10.815922, 30.000004)
 fov = 45.0
 near = 0.005
 
@@ -275,7 +275,7 @@ script = ExtResource("1_xygev")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player_PhantomCamera3D" type="Node3D" parent="." unique_id=1540863412 node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 244.43471, 10.815922, 30.000004)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 212.45517, 10.815922, 30.000004)
 top_level = true
 script = ExtResource("8_pupa5")
 priority = 1
@@ -294,7 +294,7 @@ spring_length = 15.0
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Player" parent="." unique_id=64555096 instance=ExtResource("2_jh6g6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 244.43471, 7.065922, 2.861023e-06)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 212.45517, 7.065922, 2.861023e-06)
 wall_min_slide_angle = 0.96865773
 
 [node name="LeftLeg" parent="Player" unique_id=925113335 instance=ExtResource("6_oha5w")]
@@ -2560,7 +2560,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03590393, -0.44832468, 0)
 shape = SubResource("BoxShape3D_dmal2")
 
 [node name="TeleportalDest" type="Node3D" parent="Level6_leg/Level6_Node" unique_id=1776091255]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 231.12788, 14.165735, -2.861023e-06)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 229.7545, 14.165735, -2.861023e-06)
 
 [node name="Teleportal2" type="Area3D" parent="Level6_leg/Level6_Node" unique_id=1278990158 node_paths=PackedStringArray("output_location")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 227.031, 5.1604404, 9.536743e-07)
@@ -2572,6 +2572,7 @@ output_location = NodePath("../TeleportalDest2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level6_leg/Level6_Node/Teleportal2" unique_id=4621730]
 transform = Transform3D(0.011755377, -0.9999309, 0, 0.9999309, 0.011755377, 0, 0, 0, 1, -0.1281603, -0.05066073, 0.74413466)
 shape = SubResource("BoxShape3D_dmal2")
+disabled = true
 
 [node name="TeleportalDest2" type="Node3D" parent="Level6_leg/Level6_Node" unique_id=1229441957]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 212.8893, -4.2043037, 0)
