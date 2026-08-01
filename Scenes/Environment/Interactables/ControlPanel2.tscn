@@ -11,7 +11,6 @@ radius = 2.8048344
 
 [node name="ControlPanel2" type="Node3D" unique_id=843480281]
 script = ExtResource("1_871ct")
-activation_mode = null
 
 [node name="Terminal" type="MeshInstance3D" parent="." unique_id=390636032]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92127883, 0)

@@ -287,12 +287,17 @@ _data = {
 &"Unpressed": SubResource("Animation_5hisi")
 }
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tk8l7"]
+radius = 0.96533203
+
 [node name="WeightedButton" type="AnimatableBody3D" unique_id=1695769787]
 collision_layer = 4
 collision_mask = 0
 sync_to_physics = false
 script = ExtResource("1_yigyg")
 trigger_weight = 4
+deactivation_delay = null
+delay_time = null
 
 [node name="Base_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=431874188]
 physics_interpolation_mode = 2
@@ -318,22 +323,22 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.3
 weight = 4
 current_weight = 0
 
-[node name="Generated_Light_1" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=1788294988]
+[node name="Generated_Light_1" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=2108593683]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8086581, -0.13553238)
 mesh = ExtResource("3_dfgrj")
 surface_material_override/1 = ExtResource("4_xw1qm")
 
-[node name="Generated_Light_2" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=511553147]
+[node name="Generated_Light_2" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=2037410028]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8086581, 0.08446762)
 mesh = ExtResource("3_dfgrj")
 surface_material_override/1 = ExtResource("4_xw1qm")
 
-[node name="Generated_Light_3" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=315804694]
+[node name="Generated_Light_3" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=1520784766]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0286582, -0.13553238)
 mesh = ExtResource("3_dfgrj")
 surface_material_override/1 = ExtResource("4_xw1qm")
 
-[node name="Generated_Light_4" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=39677326]
+[node name="Generated_Light_4" type="MeshInstance3D" parent="Cable/Button_Lights" unique_id=1848945081]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0286582, 0.08446762)
 mesh = ExtResource("3_dfgrj")
 surface_material_override/1 = ExtResource("4_xw1qm")
@@ -372,3 +377,16 @@ disabled = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ButtonShell" unique_id=1454709930]
 libraries/ = SubResource("AnimationLibrary_orm8i")
 autoplay = &"Unpressed"
+
+[node name="Timer" type="Timer" parent="." unique_id=823234576]
+one_shot = true
+
+[node name="ElevatorShape" type="Area3D" parent="." unique_id=1886213590]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ElevatorShape" unique_id=903287403]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3156223, 0)
+shape = SubResource("CylinderShape3D_tk8l7")
+debug_color = Color(0.6429214, 0.5214638, 0.13534662, 0.41960785)
+
+[connection signal="body_entered" from="ElevatorShape" to="." method="_on_elevator_shape_body_entered"]
+[connection signal="body_exited" from="ElevatorShape" to="." method="_on_elevator_shape_body_exited"]

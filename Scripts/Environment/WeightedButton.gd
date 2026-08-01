@@ -7,6 +7,7 @@ extends AnimatableBody3D;
 		if is_node_ready():
 			lights.weight = val;
 @export var activation_targets: Array[Node] = [];
+@export var elevator: bool = false
 
 @onready var anim_player: AnimationPlayer = $ButtonShell/AnimationPlayer;
 @onready var lights: Node3D = %Button_Lights;
@@ -16,6 +17,7 @@ var _was_active: bool = false;
 ## Bodies already contributing weight (avoids double-count on repeated body_entered).
 var _counted_bodies: Dictionary = {}; # Node3D -> int;
 
+var _in_elevator_footprint: bool = false;
 
 ## Connect the trigger area signals and initialize weight display.
 func _ready() -> void:
@@ -26,7 +28,7 @@ func _ready() -> void:
 	set_physics_process(true);
 	trigger_area.body_entered.connect(_on_body_entered);
 	trigger_area.body_exited.connect(_on_body_exited);
-
+	
 
 ## Recalculate total weight each physics frame by polling the weight
 ## property of every counted body. Triggers activation/deactivation
@@ -85,7 +87,7 @@ func _on_body_entered(body: Node3D) -> void:
 		lights.current_weight += weight_val;
 		_check_trigger();
 		
-	$Base_CollisionShape3D.set_deferred("disabled", false)
+	#$Base_CollisionShape3D.set_deferred("disabled", false)
 		# Play bounce for the impact of this NEW body entering
 		#if not _was_active:
 			#anim_player.play("Bounce");
@@ -95,6 +97,9 @@ func _on_body_entered(body: Node3D) -> void:
 ## Re-enables stabilization for rolling bodies.
 func _on_body_exited(body: Node3D) -> void:
 	# Clean up any body that was previously counted.
+	if elevator and _in_elevator_footprint:
+		return;
+	
 	if not _counted_bodies.has(body):
 		return;
 
@@ -108,8 +113,7 @@ func _on_body_exited(body: Node3D) -> void:
 		lights.current_weight -= weight_val;
 		_check_trigger();
 		
-	$Base_CollisionShape3D.set_deferred("disabled", true)
-	print("Signal Emitted")
+
 	# Bounce on exit if we are now below threshold
 	#if not _was_active:
 		#anim_player.play("Bounce");
@@ -143,3 +147,13 @@ func _check_trigger() -> void:
 	elif not is_active and not _was_active:
 		# Just update visuals/bounce if needed
 		pass;
+
+
+func _on_elevator_shape_body_entered(body: Node3D) -> void:
+	_in_elevator_footprint = true;
+	_on_body_entered(body);
+
+
+func _on_elevator_shape_body_exited(body: Node3D) -> void:
+	_in_elevator_footprint = false;
+	_on_body_exited(body);

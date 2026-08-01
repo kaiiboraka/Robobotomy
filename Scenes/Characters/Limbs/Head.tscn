@@ -12,7 +12,7 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0kli6"]
 rough = true
-bounce = 0.15
+bounce = 0.05
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dpq14"]
 albedo_texture = ExtResource("3_gp127")
