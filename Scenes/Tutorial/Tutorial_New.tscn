@@ -282,7 +282,7 @@ compositor = SubResource("Compositor_bdbf6")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1483892784]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 212.45517, 10.815922, 30.000004)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.509155, 10.815922, 30.000004)
 fov = 45.0
 near = 0.005
 
@@ -293,7 +293,7 @@ script = ExtResource("1_xygev")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player_PhantomCamera3D" type="Node3D" parent="." unique_id=1540863412 node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 212.45517, 10.815922, 30.000004)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.509155, 10.815922, 30.000004)
 top_level = true
 script = ExtResource("8_pupa5")
 priority = 1
@@ -312,12 +312,8 @@ spring_length = 15.0
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Player" parent="." unique_id=64555096 instance=ExtResource("2_jh6g6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 212.45517, 7.065922, 2.861023e-06)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.509155, 7.065922, 2.861023e-06)
 wall_min_slide_angle = 0.96865773
-
-[node name="LeftLeg" parent="Player" unique_id=925113335 instance=ExtResource("6_oha5w")]
-
-[node name="RightLeg" parent="Player" unique_id=1985177356 instance=ExtResource("7_u7nal")]
 
 [node name="Head" parent="Player" unique_id=2035200198 instance=ExtResource("5_eyu3q")]
 
