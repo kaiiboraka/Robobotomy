@@ -82,8 +82,7 @@ func update_lights():
 		# Apply procedural position relative to parent: Spread on Z (columns) and Y (rows)
 		mi.position = Vector3(base_pos.x, base_pos.y + (p.y * spacing), base_pos.z + (p.x * spacing));
 		add_child(mi);
-		if Engine.is_editor_hint():
-			mi.owner = get_tree().edited_scene_root if get_tree() else owner;
+		mi.owner = null;
 
 	update_materials();
 
