@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://crmxvcuhng03u"]
+[gd_scene format=3 uid="uid://rmw2ocv6ulf8"]
 
-[ext_resource type="Script" uid="uid://c7hg4wn52f8y2" path="res://Scripts/Environment/Killzone.gd" id="1_btfrd"]
+[ext_resource type="Script" uid="uid://c7hg4wn52f8y2" path="res://world/hazards/killzone.gd" id="1_btfrd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0djdp"]
 resource_local_to_scene = true

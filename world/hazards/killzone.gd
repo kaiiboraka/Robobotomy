@@ -1,5 +1,6 @@
 @tool
-class_name Killzone extends Area3D
+extends Area3D
+class_name Killzone
 
 @export var size: Vector3 = Vector3(1, 1, 1):
 	set(val):
