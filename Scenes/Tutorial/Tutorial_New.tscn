@@ -2738,7 +2738,7 @@ target_follower = NodePath("WeightedButton4")
 moveSpeedBackward = 1.0
 
 [node name="WeightedButton4" parent="Level7_leg/Level7_Node3D/Elevator Path2" unique_id=364328165 node_paths=PackedStringArray("activation_targets") instance=ExtResource("12_h5n57")]
-transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 0, 0, 0)
+transform = Transform3D(0.9999994, 0, 0, 0, 0.99999833, 0, 0, 0, 0.99999845, 0, 0, 0)
 trigger_weight = 6
 activation_targets = [NodePath(".."), NodePath("../../Elevator Path")]
 elevator = true
