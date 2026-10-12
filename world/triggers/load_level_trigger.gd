@@ -16,8 +16,8 @@ var loading_finished := true
 var triggered := false
 @onready var collision: CollisionShape3D = $CollisionShape3D
 
-## If loading has been queued but not finished
-## then, each process will check if loading has
+## If loading has been queued but not finished,
+## then each process will check if loading has
 ## finished. This way the level loads when it is 
 ## ready.
 func _process(_delta: float) -> void:

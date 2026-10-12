@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://cwv2pvibqhcjf"]
 
-[ext_resource type="PackedScene" uid="uid://datnpjbne2ab8" path="res://Scenes/Environment/Triggers/unload_level_trigger.tscn" id="1_2audx"]
+[ext_resource type="PackedScene" uid="uid://datnpjbne2ab8" path="res://world/triggers/unload_level_trigger.tscn" id="1_2audx"]
 [ext_resource type="Script" uid="uid://dq5u3iv60kcox" path="res://Scripts/base_level.gd" id="1_2fuuy"]
-[ext_resource type="PackedScene" uid="uid://cyjrmdno75g7n" path="res://Scenes/Environment/Triggers/load_level_trigger.tscn" id="2_w5au1"]
+[ext_resource type="PackedScene" uid="uid://cyjrmdno75g7n" path="res://world/triggers/load_level_trigger.tscn" id="2_w5au1"]
+[ext_resource type="PackedScene" uid="uid://dgoqhuaqsm30g" path="res://Scenes/Characters/Limbs/torso.tscn" id="4_eyc5o"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_2fuuy"]
 
@@ -11,6 +12,8 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_hy3d1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bmw2g"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vf4q7"]
 
 [node name="Sb3" type="Node3D" unique_id=797824464 node_paths=PackedStringArray("start_marker", "end_marker")]
 script = ExtResource("1_2fuuy")
@@ -49,3 +52,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.556942, 0, 0)
 
 [node name="EndMarker" type="Marker3D" parent="." unique_id=418769906]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.580109, 0, 0)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="." unique_id=1647179592]
+transform = Transform3D(100.01553, 0, 0, 0, 0.036518812, 0, 0, 0, 46.23058, 0, -2.4553938, 0)
+use_collision = true
+collision_layer = 525
+mesh = SubResource("BoxMesh_vf4q7")
+
+[node name="Torso" parent="." unique_id=381647224 instance=ExtResource("4_eyc5o")]
+
+[node name="Camera3D" type="Camera3D" parent="Torso" unique_id=724211179]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.887369)
