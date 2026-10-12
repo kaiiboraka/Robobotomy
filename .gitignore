@@ -51,3 +51,7 @@ godot_ai/
 
 /addons/script-ide
 /addons/moderntitlebar
+
+
+#VSCode specific ignores
+.vscode/

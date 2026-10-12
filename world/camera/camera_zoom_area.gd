@@ -1,8 +1,9 @@
-class_name CameraZoomArea extends Area3D
+extends Area3D
+class_name CameraZoomArea
 
-var bodyParts: Array[BodyPart]
 @export var camera_distance: float = 100
 @onready var phantom_camera: PhantomCamera3D = $PhantomCamera3D
+var bodyParts: Array[BodyPart]
 var _cached_player: Player;
 var player: Player :
 	get:
@@ -13,10 +14,6 @@ var player: Player :
 func _ready():
 	player= Player.instance;
 	phantom_camera.position = Vector3(0, 0, camera_distance)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func select():
 	phantom_camera.set_priority(3)
