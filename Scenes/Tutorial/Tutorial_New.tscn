@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://dbj2mxqdg7prw" path="res://Scenes/Environment/Crane.tscn" id="21_2gh2o"]
 [ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Assets/3D/Objects/Buttons/button.res" id="21_vuywy"]
 [ext_resource type="ArrayMesh" uid="uid://dq0ogr20mo8rg" path="res://Assets/3D/Objects/Buttons/buttons_3x3.res" id="22_2gsj1"]
-[ext_resource type="PackedScene" uid="uid://i2hkf7f1n6kf" path="res://Scenes/Environment/Catapult.tscn" id="23_egq61"]
+[ext_resource type="PackedScene" uid="uid://i2hkf7f1n6kf" path="res://world/catapults/catapult.tscn" id="23_egq61"]
 [ext_resource type="PackedScene" uid="uid://dmrf146qrbqun" path="res://Scenes/Environment/Interactables/ControlPanel2.tscn" id="25_j1ys4"]
 [ext_resource type="ArrayMesh" uid="uid://dtcymlg0tneoo" path="res://Assets/3D/Objects/Crane/Beam.res" id="26_oha5w"]
 [ext_resource type="ArrayMesh" uid="uid://c8kdmnehigaay" path="res://Assets/3D/Character/Head.res" id="26_qjcgg"]

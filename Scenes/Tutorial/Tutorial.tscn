@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://npjp2dyv4vbu" path="res://Scenes/Characters/Player.tscn" id="17_1e0ns"]
 [ext_resource type="PackedScene" uid="uid://f0oommypkm0i" path="res://Scenes/Characters/Limbs/LeftLeg.tscn" id="17_v3e2r"]
 [ext_resource type="PackedScene" uid="uid://ep2c8eoh0i32" path="res://Scenes/Characters/Limbs/RightLeg.tscn" id="19_bdygh"]
-[ext_resource type="PackedScene" uid="uid://i2hkf7f1n6kf" path="res://Scenes/Environment/Catapult.tscn" id="22_xl8r8"]
+[ext_resource type="PackedScene" uid="uid://i2hkf7f1n6kf" path="res://world/catapults/catapult.tscn" id="22_xl8r8"]
 [ext_resource type="PackedScene" uid="uid://dmrf146qrbqun" path="res://Scenes/Environment/Interactables/ControlPanel2.tscn" id="23_2otw2"]
 [ext_resource type="PackedScene" uid="uid://td56vu1l1xka" path="res://Scenes/Environment/Interactables/Chain.tscn" id="26_gbpfp"]
 [ext_resource type="PackedScene" uid="uid://dlk6oxkqswup1" path="res://Scenes/Environment/door.tscn" id="27_6ey6l"]
