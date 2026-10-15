@@ -78,7 +78,7 @@
 [ext_resource type="ArrayMesh" uid="uid://b02gmyrgfwjek" path="res://Assets/3D/Objects/Ladders/ladder_rung.res" id="73_nameg"]
 [ext_resource type="ArrayMesh" uid="uid://c86kbccnj7c1s" path="res://Assets/3D/Objects/Ladders/ladder_top1.res" id="74_fl8kt"]
 [ext_resource type="ArrayMesh" uid="uid://cy54skeqlwy3g" path="res://Assets/3D/Objects/Ladders/ladder_top2.res" id="75_ip7kf"]
-[ext_resource type="ArrayMesh" uid="uid://bw43rtwbo6wcp" path="res://Assets/3D/Objects/MISC/lever.res" id="76_yidho"]
+[ext_resource type="ArrayMesh" uid="uid://bw43rtwbo6wcp" path="res://world/levers/lever.res" id="76_yidho"]
 [ext_resource type="ArrayMesh" uid="uid://c28ymrrtw8mgw" path="res://Assets/3D/Objects/MISC/monkeybar_large.res" id="77_sve0w"]
 [ext_resource type="ArrayMesh" uid="uid://c0ojvrv4euw0g" path="res://Assets/3D/Objects/MISC/monkeybar_med1.res" id="78_vt4f0"]
 [ext_resource type="ArrayMesh" uid="uid://cxyp3leppa31i" path="res://Assets/3D/Objects/MISC/monkeybar_med2.res" id="79_dineu"]

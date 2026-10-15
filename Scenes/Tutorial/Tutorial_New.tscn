@@ -31,7 +31,7 @@
 [ext_resource type="ArrayMesh" uid="uid://c8kdmnehigaay" path="res://Assets/3D/Character/Head.res" id="26_qjcgg"]
 [ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Assets/3D/Objects/MISC/terminal.res" id="27_kb3nv"]
 [ext_resource type="ArrayMesh" uid="uid://c0ojvrv4euw0g" path="res://Assets/3D/Objects/MISC/monkeybar_med1.res" id="28_r13ih"]
-[ext_resource type="ArrayMesh" uid="uid://bw43rtwbo6wcp" path="res://Assets/3D/Objects/MISC/lever.res" id="29_cuk8f"]
+[ext_resource type="ArrayMesh" uid="uid://bw43rtwbo6wcp" path="res://world/levers/lever.res" id="29_cuk8f"]
 [ext_resource type="ArrayMesh" uid="uid://c30g2pc1dcs7o" path="res://Assets/3D/Objects/Buttons/cableconnector.res" id="31_jh6g6"]
 [ext_resource type="ArrayMesh" uid="uid://pt55dusfqfr0" path="res://Assets/3D/Objects/Buttons/bigwire.res" id="32_dfk8b"]
 [ext_resource type="ArrayMesh" uid="uid://cjkcmukmea2h2" path="res://Assets/3D/Objects/Gears/gear_helicalwithholes.res" id="32_oha5w"]
@@ -3273,7 +3273,7 @@ mesh = SubResource("ArrayMesh_u7nal")
 skeleton = NodePath("../../../Level9_Arm/Level9_Node")
 
 [node name="Lever" type="MeshInstance3D" parent="Level13_Last/LevelLast_Node3D" unique_id=1691968366]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -259.568, 83.744095, -0.12268591)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -259.568, 83.744095, 1.4640641)
 mesh = ExtResource("29_cuk8f")
 skeleton = NodePath("../../..")
 
