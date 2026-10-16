@@ -16,12 +16,12 @@ const LinkScene: PackedScene = preload("uid://mc7fntx8byk1");
 		return _link_count;
 	set(value):
 		_link_count = max(value, 0);
-		if Engine.is_editor_hint():
+		if Engine.is_editor_hint() and is_node_ready():
 			update_chain_geometry();
 @export var link_spacing: float = 0.225:
 	set(value):
 		link_spacing = max(value, 0.01);
-		if Engine.is_editor_hint():
+		if Engine.is_editor_hint() and is_node_ready():
 			update_chain_geometry();
 
 
@@ -118,6 +118,7 @@ func sync_link_count(count: int):
 	for i in range(count):
 		if i < existing.size():
 			var link = existing[i];
+			link.owner = null;
 			link.name = "Link%d" % i;
 			link.setup(points[i], points[i + 1], i, link_spacing);
 			_connect_link_signals(link);
@@ -127,7 +128,8 @@ func sync_link_count(count: int):
 			link.name = "Link%d" % i;
 			link.setup(points[i], points[i + 1], i, link_spacing);
 			add_child(link);
-			link.owner = self;
+			# Generated links are previews/runtime objects, not saved scene content.
+			link.owner = null;
 			_connect_link_signals(link);
 			links.append(link);
 
@@ -156,6 +158,9 @@ func _set_link_areas_enabled(enabled: bool) -> void:
 ## Rebuild all chain points from scratch, sync link children,
 ## and resize the grabbable collision shape to match the chain.
 func update_chain_geometry():
+	# Export setters can run before the scene has finished loading.
+	if not is_node_ready():
+		return;
 	points.clear();
 
 	var count = _link_count;
