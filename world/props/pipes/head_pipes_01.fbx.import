@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cqoo5pdrpftt2"
-path="res://.godot/imported/Head Pipes Grables.fbx-a84f2e3879ff0561e1af8f1da196008f.scn"
+uid="uid://cm25ac4a1w6vt"
+path="res://.godot/imported/head_pipes_01.fbx-aaaac43b538b857ea9f31262a7ff6623.scn"
 
 [deps]
 
-source_file="res://Assets/3D/Objects/Pipes/Head Pipes Grables.fbx"
-dest_files=["res://.godot/imported/Head Pipes Grables.fbx-a84f2e3879ff0561e1af8f1da196008f.scn"]
+source_file="res://world/props/pipes/head_pipes_01.fbx"
+dest_files=["res://.godot/imported/head_pipes_01.fbx-aaaac43b538b857ea9f31262a7ff6623.scn"]
 
 [params]
 

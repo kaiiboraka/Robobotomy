@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://rhm4e2m1rxkp"
-path="res://.godot/imported/pipes.fbx-82d282bbd73a881ba832de00a6b70d92.scn"
+path="res://.godot/imported/pipes.fbx-d5d088aea0afad267db4acd7e30852ce.scn"
 
 [deps]
 
-source_file="res://Assets/3D/Objects/Pipes/pipes.fbx"
-dest_files=["res://.godot/imported/pipes.fbx-82d282bbd73a881ba832de00a6b70d92.scn"]
+source_file="res://world/props/pipes/pipes.fbx"
+dest_files=["res://.godot/imported/pipes.fbx-d5d088aea0afad267db4acd7e30852ce.scn"]
 
 [params]
 
@@ -47,7 +47,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Pipes/pipe1_long.res",
+"save_to_file/fallback_path": "res://world/props/pipes/pipe1_long.res",
 "save_to_file/path": "uid://dodoyqd473sd0"
 },
 "pipe1_medium": {
@@ -56,7 +56,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Pipes/pipe1_medium.res",
+"save_to_file/fallback_path": "res://world/props/pipes/pipe1_medium.res",
 "save_to_file/path": "uid://d1iqktciv7tc8"
 },
 "pipe1_short": {
@@ -65,7 +65,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Pipes/pipe1_short.res",
+"save_to_file/fallback_path": "res://world/props/pipes/pipe1_short.res",
 "save_to_file/path": "uid://bs7mr6pntvtby"
 }
 }

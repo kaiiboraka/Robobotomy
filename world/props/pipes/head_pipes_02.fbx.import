@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://g0v3th7stns1"
-path="res://.godot/imported/Head Pipes 2.fbx-7cc2ce1a6f038e4c511d8ebc1a0b331f.scn"
+path="res://.godot/imported/head_pipes_02.fbx-aad352401a95544701251a7c2e8fc941.scn"
 
 [deps]
 
-source_file="res://Assets/3D/Objects/Pipes/Head Pipes 2.fbx"
-dest_files=["res://.godot/imported/Head Pipes 2.fbx-7cc2ce1a6f038e4c511d8ebc1a0b331f.scn"]
+source_file="res://world/props/pipes/head_pipes_02.fbx"
+dest_files=["res://.godot/imported/head_pipes_02.fbx-aad352401a95544701251a7c2e8fc941.scn"]
 
 [params]
 
@@ -47,7 +47,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Pipes/HeadPipe.res",
+"save_to_file/fallback_path": "res://world/props/pipes/head_pipe.res",
 "save_to_file/path": "uid://biqe8u1bxf710"
 },
 "Staight_midle_end": {
@@ -101,7 +101,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Pipes/T.res",
+"save_to_file/fallback_path": "res://world/props/pipes/T.res",
 "save_to_file/path": "uid://dbifn3yv26rs3"
 },
 "Turn90": {
@@ -110,7 +110,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Pipes/HeadPipe.res",
+"save_to_file/fallback_path": "res://world/props/pipes/HeadPipe.res",
 "save_to_file/path": "uid://sr0itxwje3n7"
 },
 "X": {
@@ -119,7 +119,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Pipes/X.res",
+"save_to_file/fallback_path": "res://world/props/pipes/X.res",
 "save_to_file/path": "uid://sko7thl0r16j"
 }
 }

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bjomw33g5cf1w"]
 
 [ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Assets/3D/Objects/MISC/scaffold.res" id="2_2hr8o"]
-[ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Assets/3D/Objects/Pipes/pipe1_long.res" id="4_fsugp"]
+[ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://world/props/pipes/pipe_long.res" id="4_fsugp"]
 [ext_resource type="ArrayMesh" uid="uid://bw43rtwbo6wcp" path="res://world/levers/lever.res" id="7_0rd7g"]
 [ext_resource type="ArrayMesh" uid="uid://c3erlqmxt2uo2" path="res://Assets/3D/Objects/Gears/gear_worm.res" id="9_vwof3"]
 [ext_resource type="ArrayMesh" uid="uid://d0ad87y13yuta" path="res://Assets/3D/Objects/Gears/gear_spiralbevelsmall.res" id="11_htc0b"]
@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://b1cgavnnkjlug" path="res://world/decorations/chains/sprites/chain_03.png" id="17_fsugp"]
 [ext_resource type="Texture2D" uid="uid://7ytgnfxaumtr" path="res://Assets/2D/Dust/Dust (13).png" id="18_stjdh"]
 [ext_resource type="Texture2D" uid="uid://dt0q3m2pg70u6" path="res://Assets/2D/Dust/Dust (4).png" id="19_017vt"]
-[ext_resource type="ArrayMesh" uid="uid://bs7mr6pntvtby" path="res://Assets/3D/Objects/Pipes/pipe1_short.res" id="19_hr8tt"]
+[ext_resource type="ArrayMesh" uid="uid://bs7mr6pntvtby" path="res://world/props/pipes/pipe_short.res" id="19_hr8tt"]
 [ext_resource type="Texture2D" uid="uid://dcltywe85vcvt" path="res://Assets/2D/Dust/Dust (7).png" id="20_0rd7g"]
 [ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scenes/_Deprecated/character.tscn" id="20_2hr8o"]
 [ext_resource type="ArrayMesh" uid="uid://bwotwyj54b6aw" path="res://Assets/3D/Objects/Gears/gear_keyway1.res" id="20_ep28j"]
