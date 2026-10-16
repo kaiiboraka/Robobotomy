@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dnvljxhvihm88"
-path="res://.godot/imported/Kitbash_combined1.fbx-feebf62621d3dc17c9b12a862784a167.scn"
+path="res://.godot/imported/combined_assets_01.fbx-447340e39e6b287c586a4c0d630bbac2.scn"
 
 [deps]
 
-source_file="res://Assets/3D/Objects/MISC/Kitbash_combined1.fbx"
-dest_files=["res://.godot/imported/Kitbash_combined1.fbx-feebf62621d3dc17c9b12a862784a167.scn"]
+source_file="res://world/decorations/combined_assets_01.fbx"
+dest_files=["res://.godot/imported/combined_assets_01.fbx-447340e39e6b287c586a4c0d630bbac2.scn"]
 
 [params]
 
@@ -47,7 +47,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Buttons/bigwire.res",
+"save_to_file/fallback_path": "res://world/decorations/wires/big_wire.res",
 "save_to_file/path": "uid://pt55dusfqfr0"
 },
 "button": {
@@ -56,7 +56,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Buttons/button.res",
+"save_to_file/fallback_path": "res://world/buttons/models/components/button.res",
 "save_to_file/path": "uid://u21du2joicp5"
 },
 "buttons_1x1": {
@@ -65,7 +65,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Buttons/buttons_1x1.res",
+"save_to_file/fallback_path": "res://world/buttons/models/components/buttons_1x1.res",
 "save_to_file/path": "uid://doxh8d0va3v1k"
 },
 "buttons_1x2": {
@@ -74,7 +74,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Buttons/buttons_1x2.res",
+"save_to_file/fallback_path": "res://world/buttons/models/components/buttons_1x2.res",
 "save_to_file/path": "uid://cxeu82e0qsgql"
 },
 "buttons_1x3": {
@@ -83,7 +83,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Buttons/buttons_1x3.res",
+"save_to_file/fallback_path": "res://world/buttons/models/components/buttons_1x3.res",
 "save_to_file/path": "uid://cvo0no0vpvcvy"
 },
 "buttons_2x3": {
@@ -92,7 +92,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Buttons/buttons_2x3.res",
+"save_to_file/fallback_path": "res://world/buttons/models/components/buttons_2x3.res",
 "save_to_file/path": "uid://3opr7stj4wlh"
 },
 "buttons_3x3": {
@@ -101,7 +101,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Buttons/buttons_3x3.res",
+"save_to_file/fallback_path": "res://world/buttons/models/components/buttons_3x3.res",
 "save_to_file/path": "uid://dq0ogr20mo8rg"
 },
 "cableconnector": {
@@ -110,7 +110,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Buttons/cableconnector.res",
+"save_to_file/fallback_path": "res://world/decorations/buttons/cable_connector.res",
 "save_to_file/path": "uid://c30g2pc1dcs7o"
 },
 "gear_helical1": {
@@ -119,7 +119,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Gears/gear_helical1.res",
+"save_to_file/fallback_path": "res://world/decorations/gears/gear_helical_01.res",
 "save_to_file/path": "uid://cux0e83pq4xyq"
 },
 "gear_helical2": {
@@ -128,7 +128,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Gears/gear_helical2.res",
+"save_to_file/fallback_path": "res://world/decorations/gears/gear_helical_02.res",
 "save_to_file/path": "uid://cdb0ivhnbqid5"
 },
 "gear_helicalwithholes": {
@@ -137,7 +137,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Gears/gear_helicalwithholes.res",
+"save_to_file/fallback_path": "res://world/decorations/gears/gear_helical_with_holes.res",
 "save_to_file/path": "uid://cjkcmukmea2h2"
 },
 "gear_internal": {
@@ -146,7 +146,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Gears/gear_internal.res",
+"save_to_file/fallback_path": "res://world/decorations/gears/gear_internal.res",
 "save_to_file/path": "uid://b80lj2w7reslv"
 },
 "gear_keyway1": {
@@ -155,7 +155,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Gears/gear_keyway1.res",
+"save_to_file/fallback_path": "res://world/decorations/gears/gear_keyway_01.res",
 "save_to_file/path": "uid://bwotwyj54b6aw"
 },
 "gear_keyway2": {
@@ -164,7 +164,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Gears/gear_keyway2.res",
+"save_to_file/fallback_path": "res://world/decorations/gears/gear_keyway_02.res",
 "save_to_file/path": "uid://c6l4lrgihrl7k"
 },
 "gear_nobore": {
@@ -173,7 +173,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Gears/gear_nobore.res",
+"save_to_file/fallback_path": "res://world/decorations/gears/gear_no_bore.res",
 "save_to_file/path": "uid://j3iceav5dwbr"
 },
 "gear_rack": {
@@ -182,7 +182,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Gears/gear_rack.res",
+"save_to_file/fallback_path": "res://world/decorations/gears/gear_rack.res",
 "save_to_file/path": "uid://ctmqsm1xmvia"
 },
 "gear_spiralbevellarge": {
@@ -191,7 +191,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Gears/gear_spiralbevellarge.res",
+"save_to_file/fallback_path": "res://world/decorations/gears/gear_spiral_bevel_large.res",
 "save_to_file/path": "uid://cl8ddskukauua"
 },
 "gear_spiralbevelsmall": {
@@ -200,7 +200,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Gears/gear_spiralbevelsmall.res",
+"save_to_file/fallback_path": "res://world/decorations/gears/gear_spiral_bevel_small.res",
 "save_to_file/path": "uid://d0ad87y13yuta"
 },
 "gear_spur1": {
@@ -209,7 +209,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Gears/gear_spur1.res",
+"save_to_file/fallback_path": "res://world/decorations/gears/gear_spur_01.res",
 "save_to_file/path": "uid://dtfu8lm3bxlny"
 },
 "gear_spur2": {
@@ -218,7 +218,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Gears/gear_spur2.res",
+"save_to_file/fallback_path": "res://world/decorations/gears/gear_spur_02.res",
 "save_to_file/path": "uid://be1g7qe7fjvr0"
 },
 "gear_spur3": {
@@ -227,7 +227,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Gears/gear_spur3.res",
+"save_to_file/fallback_path": "res://world/decorations/gears/gear_spur_03.res",
 "save_to_file/path": "uid://bxn60oqa572lh"
 },
 "gear_spur4": {
@@ -236,7 +236,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Gears/gear_spur4.res",
+"save_to_file/fallback_path": "res://world/decorations/gears/gear_spur_04.res",
 "save_to_file/path": "uid://jr6eb5v2ixld"
 },
 "gear_spur5": {
@@ -245,7 +245,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Gears/gear_spur5.res",
+"save_to_file/fallback_path": "res://world/decorations/gears/gear_spur_05.res",
 "save_to_file/path": "uid://cgvxdv3x4vtr3"
 },
 "gear_spurlargebore": {
@@ -254,7 +254,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Gears/gear_spurlargebore.res",
+"save_to_file/fallback_path": "res://world/decorations/gears/gear_spur_large_bore.res",
 "save_to_file/path": "uid://c7la0fp3apuk0"
 },
 "gear_spurwithspokes": {
@@ -263,7 +263,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Gears/gear_spurwithspokes.res",
+"save_to_file/fallback_path": "res://world/decorations/gears/gear_spur_with_spokes.res",
 "save_to_file/path": "uid://c33fijy56uwom"
 },
 "gear_worm": {
@@ -272,7 +272,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Gears/gear_worm.res",
+"save_to_file/fallback_path": "res://world/decorations/gears/gear_worm.res",
 "save_to_file/path": "uid://c3erlqmxt2uo2"
 },
 "ladder_base": {
@@ -281,7 +281,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Ladders/ladder_base.res",
+"save_to_file/fallback_path": "res://world/climbing/ladders/models/ladder_base.res",
 "save_to_file/path": "uid://ytojh4ald4hx"
 },
 "ladder_large": {
@@ -290,7 +290,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Ladders/ladder_large.res",
+"save_to_file/fallback_path": "res://world/climbing/ladders/models/ladder_large.res",
 "save_to_file/path": "uid://bpc4opx2sgqfq"
 },
 "ladder_mid": {
@@ -299,7 +299,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Ladders/ladder_mid.res",
+"save_to_file/fallback_path": "res://world/climbing/ladders/models/ladder_mid.res",
 "save_to_file/path": "uid://bmqng3sw3pnya"
 },
 "ladder_rung": {
@@ -308,7 +308,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Ladders/ladder_rung.res",
+"save_to_file/fallback_path": "res://world/climbing/ladders/models/ladder_rung.res",
 "save_to_file/path": "uid://b02gmyrgfwjek"
 },
 "ladder_top1": {
@@ -317,7 +317,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Ladders/ladder_top1.res",
+"save_to_file/fallback_path": "res://world/climbing/ladders/models/ladder_top_01.res",
 "save_to_file/path": "uid://c86kbccnj7c1s"
 },
 "ladder_top2": {
@@ -326,7 +326,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Ladders/ladder_top2.res",
+"save_to_file/fallback_path": "res://world/climbing/ladders/models/ladder_top_02.res",
 "save_to_file/path": "uid://cy54skeqlwy3g"
 },
 "lever": {
@@ -335,7 +335,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/MISC/lever.res",
+"save_to_file/fallback_path": "res://world/levers/lever.res",
 "save_to_file/path": "uid://bw43rtwbo6wcp"
 },
 "monkeybar_large": {
@@ -344,7 +344,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/MISC/monkeybar_large.res",
+"save_to_file/fallback_path": "res://world/climbing/monkey_bars/models/monkeybar_large.res",
 "save_to_file/path": "uid://c28ymrrtw8mgw"
 },
 "monkeybar_med1": {
@@ -353,7 +353,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/MISC/monkeybar_med1.res",
+"save_to_file/fallback_path": "res://world/climbing/monkey_bars/models/monkeybar_medium_01.res",
 "save_to_file/path": "uid://c0ojvrv4euw0g"
 },
 "monkeybar_med2": {
@@ -362,7 +362,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/MISC/monkeybar_med2.res",
+"save_to_file/fallback_path": "res://world/climbing/monkey_bars/models/monkeybar_medium_02.res",
 "save_to_file/path": "uid://cxyp3leppa31i"
 },
 "monkeybar_small": {
@@ -371,7 +371,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/MISC/monkeybar_small.res",
+"save_to_file/fallback_path": "res://world/climbing/monkey_bars/models/monkeybar_small.res",
 "save_to_file/path": "uid://ce6wt4x1cmihc"
 },
 "powercable_angle1": {
@@ -380,7 +380,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/PowerCable/powercable_angle1.res",
+"save_to_file/fallback_path": "res://world/decorations/power_cables/power_cable_angle_01.res",
 "save_to_file/path": "uid://cvc5ryofaht3y"
 },
 "powercable_angle2": {
@@ -389,7 +389,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/PowerCable/powercable_angle2.res",
+"save_to_file/fallback_path": "res://world/decorations/power_cables/power_cable_angle_02.res",
 "save_to_file/path": "uid://cfafp67comdru"
 },
 "powercable_curve1": {
@@ -398,7 +398,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/PowerCable/powercable_curve1.res",
+"save_to_file/fallback_path": "res://world/decorations/power_cables/power_cable_curve_01.res",
 "save_to_file/path": "uid://bdviyighm5kn8"
 },
 "powercable_curve2": {
@@ -407,7 +407,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/PowerCable/powercable_curve2.res",
+"save_to_file/fallback_path": "res://world/decorations/power_cables/power_cable_curve2.res",
 "save_to_file/path": "uid://cykmd4un63dvw"
 },
 "powercable_large": {
@@ -416,7 +416,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/PowerCable/powercable_large.res",
+"save_to_file/fallback_path": "res://world/decorations/power_cables/power_cable_large.res",
 "save_to_file/path": "uid://ce8uysa742syr"
 },
 "powercable_med": {
@@ -425,7 +425,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/PowerCable/powercable_med.res",
+"save_to_file/fallback_path": "res://world/decorations/power_cables/power_cable_med.res",
 "save_to_file/path": "uid://h144fwo12pjh"
 },
 "powercable_small": {
@@ -434,7 +434,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/PowerCable/powercable_small.res",
+"save_to_file/fallback_path": "res://world/decorations/power_cables/power_cable_small.res",
 "save_to_file/path": "uid://dnq8hgwyg8cj0"
 },
 "powercable_tee": {
@@ -443,7 +443,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/PowerCable/powercable_tee.res",
+"save_to_file/fallback_path": "res://world/decorations/power_cables/power_cable_tee.res",
 "save_to_file/path": "uid://b2g4xvdkvetdd"
 },
 "scaffold": {
@@ -461,7 +461,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/MISC/terminal.res",
+"save_to_file/fallback_path": "res://world/control_panels/terminal.res",
 "save_to_file/path": "uid://kbrrejogl5g4"
 }
 }

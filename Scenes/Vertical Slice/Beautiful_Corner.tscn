@@ -91,7 +91,7 @@
 [ext_resource type="ArrayMesh" uid="uid://h144fwo12pjh" path="res://world/decorations/power_cables/power_cable_med.res" id="86_1rmuy"]
 [ext_resource type="ArrayMesh" uid="uid://dnq8hgwyg8cj0" path="res://world/decorations/power_cables/power_cable_small.res" id="87_yoqlr"]
 [ext_resource type="ArrayMesh" uid="uid://b2g4xvdkvetdd" path="res://world/decorations/power_cables/power_cable_tee.res" id="88_r5u0n"]
-[ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Assets/3D/Objects/MISC/scaffold.res" id="89_4pi8g"]
+[ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://world/decorations/scaffolds/scaffold.res" id="89_4pi8g"]
 [ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://world/control_panels/terminal.res" id="90_5i7sb"]
 [ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://world/decorations/pipes/models/pipe_long.res" id="91_0v81c"]
 [ext_resource type="Texture2D" uid="uid://d2djqd8vqwn38" path="res://Assets/Materials/Shaders/Metal/Metal_metallic.png" id="93_fnn60"]

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dyjk1o3t7yynh"
-path="res://.godot/imported/robobotomyassetts_1.fbx-25776eef7311e66195adbe7b753275a9.scn"
+path="res://.godot/imported/combined_assets_02.fbx-ad9cd5c623c20ec1824915c400e3a93b.scn"
 
 [deps]
 
-source_file="res://Assets/3D/Objects/MISC/robobotomyassetts_1.fbx"
-dest_files=["res://.godot/imported/robobotomyassetts_1.fbx-25776eef7311e66195adbe7b753275a9.scn"]
+source_file="res://world/decorations/combined_assets_02.fbx"
+dest_files=["res://.godot/imported/combined_assets_02.fbx-ad9cd5c623c20ec1824915c400e3a93b.scn"]
 
 [params]
 

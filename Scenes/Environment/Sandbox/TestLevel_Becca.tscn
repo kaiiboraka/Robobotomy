@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bjomw33g5cf1w"]
 
-[ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Assets/3D/Objects/MISC/scaffold.res" id="2_2hr8o"]
+[ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://world/decorations/scaffolds/scaffold.res" id="2_2hr8o"]
 [ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://world/decorations/pipes/models/pipe_long.res" id="4_fsugp"]
 [ext_resource type="ArrayMesh" uid="uid://bw43rtwbo6wcp" path="res://world/levers/lever.res" id="7_0rd7g"]
 [ext_resource type="ArrayMesh" uid="uid://c3erlqmxt2uo2" path="res://world/decorations/gears/gear_worm.res" id="9_vwof3"]
