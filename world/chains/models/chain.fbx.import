@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bdgtqd836i72d"
-path="res://.godot/imported/Chain.fbx-0bfbdd8fb2df9e91dc0c88b1432d5b9b.scn"
+path="res://.godot/imported/chain.fbx-4783605aa423e2912c906f090fb4061e.scn"
 
 [deps]
 
-source_file="res://Assets/3D/Objects/MISC/Chain.fbx"
-dest_files=["res://.godot/imported/Chain.fbx-0bfbdd8fb2df9e91dc0c88b1432d5b9b.scn"]
+source_file="res://world/chains/models/chain.fbx"
+dest_files=["res://.godot/imported/chain.fbx-4783605aa423e2912c906f090fb4061e.scn"]
 
 [params]
 
@@ -47,7 +47,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/chain_link.res",
+"save_to_file/fallback_path": "res://world/chains/models/chain_link.res",
 "save_to_file/path": "uid://dwkxg4rigpq0d"
 }
 }

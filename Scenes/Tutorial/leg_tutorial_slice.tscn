@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="11_gs0w6"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="12_06lq0"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="13_3hgsh"]
-[ext_resource type="Resource" uid="uid://odcgk1h80sk0" path="res://Assets/Resources/Camera3DSettings.tres" id="14_135h1"]
+[ext_resource type="Resource" uid="uid://odcgk1h80sk0" path="res://world/camera/camera_3d_settings.tres" id="14_135h1"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_x4o0j"]
 

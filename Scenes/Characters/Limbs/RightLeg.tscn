@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_hsfiv"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_i6q28"]
 [ext_resource type="ArrayMesh" uid="uid://dh1ucl7jt7tcm" path="res://Assets/3D/Character/R_UpperLeg.res" id="5_hh6m4"]
-[ext_resource type="Resource" uid="uid://odcgk1h80sk0" path="res://Assets/Resources/Camera3DSettings.tres" id="5_pckun"]
+[ext_resource type="Resource" uid="uid://odcgk1h80sk0" path="res://world/camera/camera_3d_settings.tres" id="5_pckun"]
 [ext_resource type="ArrayMesh" uid="uid://bkdtearu4q2y6" path="res://Assets/3D/Character/R_Shin.res" id="6_jtu2u"]
 [ext_resource type="ArrayMesh" uid="uid://cgicvb75gndhc" path="res://Assets/3D/Character/R_Kneecap.res" id="7_w4nx6"]
 [ext_resource type="ArrayMesh" uid="uid://dvo86rlc21x2j" path="res://Assets/3D/Character/R_AnkleGuard.res" id="8_pahpc"]
