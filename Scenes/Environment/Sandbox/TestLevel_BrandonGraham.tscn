@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://i4qiyrnp6fqq"]
 
-[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/Terrain/ExtendableWall.tscn" id="1_l4fje"]
+[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://world/terrain/extendable_wall.tscn" id="1_l4fje"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_45ei3"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_sr37p"]
 [ext_resource type="PackedScene" uid="uid://npjp2dyv4vbu" path="res://Scenes/Characters/Player.tscn" id="3_l4fje"]

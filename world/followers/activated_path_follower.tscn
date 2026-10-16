@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dyki3kr5ucgg7"]
 
-[ext_resource type="Script" uid="uid://em4mouur2y8r" path="res://Scripts/Environment/Activated_PathFollower.gd" id="1_14mk3"]
+[ext_resource type="Script" uid="uid://em4mouur2y8r" path="res://world/followers/activated_path_follower.gd" id="1_14mk3"]
 
 [sub_resource type="Curve3D" id="Curve3D_2kgik"]
 _data = {

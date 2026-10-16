@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://drwah2sboa1qm" path="res://world/decorations/dusts/dust_10.png" id="16_81fdy"]
 [ext_resource type="ArrayMesh" uid="uid://cy54skeqlwy3g" path="res://world/climbing/ladders/models/ladder_top_02.res" id="16_obs03"]
 [ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://world/buttons/models/components/button.res" id="17_2hr8o"]
-[ext_resource type="PackedScene" uid="uid://cuc1pbmga6imc" path="res://Scenes/Environment/Terrain/cube_static.tscn" id="17_3vdpc"]
+[ext_resource type="PackedScene" uid="uid://cuc1pbmga6imc" path="res://world/terrain/cube_static.tscn" id="17_3vdpc"]
 [ext_resource type="Texture2D" uid="uid://b1cgavnnkjlug" path="res://world/decorations/chains/sprites/chain_03.png" id="17_fsugp"]
 [ext_resource type="Texture2D" uid="uid://7ytgnfxaumtr" path="res://world/decorations/dusts/dust_14.png" id="18_stjdh"]
 [ext_resource type="Texture2D" uid="uid://dt0q3m2pg70u6" path="res://world/decorations/dusts/dust_05.png" id="19_017vt"]

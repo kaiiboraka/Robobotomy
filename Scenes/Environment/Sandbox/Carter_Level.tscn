@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://u10bwhglglnu"]
 
-[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/Terrain/ExtendableWall.tscn" id="2_v1i2c"]
+[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://world/terrain/extendable_wall.tscn" id="2_v1i2c"]
 [ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://world/buttons/models/components/button.res" id="4_wm86n"]
 [ext_resource type="ArrayMesh" uid="uid://doxh8d0va3v1k" path="res://world/buttons/models/components/buttons_1x1.res" id="5_suoqg"]
 [ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scenes/_Deprecated/character.tscn" id="5_wm86n"]

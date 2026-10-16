@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://brny4d7lnny58"]
 
-[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/Terrain/ExtendableWall.tscn" id="1_1acot"]
+[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://world/terrain/extendable_wall.tscn" id="1_1acot"]
 [ext_resource type="Script" path="res://Scenes/Environment/Sandbox/testCharacter_Brandon.gd" id="2_fs2tq"]
 [ext_resource type="PackedScene" path="res://Scenes/Environment/Interactables/rope.tscn" id="3_8frum"]
 [ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://world/control_panels/terminal.res" id="4_juitu"]

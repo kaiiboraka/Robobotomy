@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://i2hkf7f1n6kf"]
 
 [ext_resource type="Script" uid="uid://kwbom811birx" path="res://world/catapults/catapult.gd" id="1_jj57d"]
-[ext_resource type="PackedScene" uid="uid://bfxbhhtip1gba" path="res://Scenes/Environment/Terrain/MovableExtendableWall.tscn" id="1_scqxb"]
-[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/Terrain/ExtendableWall.tscn" id="2_jv0fh"]
+[ext_resource type="PackedScene" uid="uid://bfxbhhtip1gba" path="res://world/terrain/movable_extendable_wall.tscn" id="1_scqxb"]
+[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://world/terrain/extendable_wall.tscn" id="2_jv0fh"]
 
 [sub_resource type="Animation" id="Animation_scqxb"]
 length = 0.001

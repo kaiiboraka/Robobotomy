@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c5y3ww34o7a4m"]
 
-[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/Terrain/ExtendableWall.tscn" id="2_7rw42"]
+[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://world/terrain/extendable_wall.tscn" id="2_7rw42"]
 [ext_resource type="PackedScene" uid="uid://gl5j7l3w6avc" path="res://world/crates/simple_box.tscn" id="3_vuikh"]
 [ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://world/buttons/models/components/button.res" id="4_bde0f"]
 [ext_resource type="Material" uid="uid://cjjlgffq2ycbp" path="res://Assets/Materials/Basic Colors/Violet.tres" id="5_j7jpj"]
