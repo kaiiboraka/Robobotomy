@@ -646,7 +646,7 @@ func spawn_at(target_position: Vector3) -> void:
 #	for lighting
 ## Apply the cel shader to the player's neck mesh and all tracked limbs.
 func apply_cell_shader_file():
-	var cel_shader = preload("res://Scripts/Lighting/cell_shader.gdshader");
+	var cel_shader = preload("res://shared/shaders/cell_shader.gdshader");
 
 	if neck:
 		_inject_shader_preserving_texture(neck, cel_shader);
