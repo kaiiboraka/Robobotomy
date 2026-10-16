@@ -3,9 +3,9 @@
 [ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Assets/3D/Objects/MISC/scaffold.res" id="2_2hr8o"]
 [ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://world/decorations/pipes/models/pipe_long.res" id="4_fsugp"]
 [ext_resource type="ArrayMesh" uid="uid://bw43rtwbo6wcp" path="res://world/levers/lever.res" id="7_0rd7g"]
-[ext_resource type="ArrayMesh" uid="uid://c3erlqmxt2uo2" path="res://Assets/3D/Objects/Gears/gear_worm.res" id="9_vwof3"]
-[ext_resource type="ArrayMesh" uid="uid://d0ad87y13yuta" path="res://Assets/3D/Objects/Gears/gear_spiralbevelsmall.res" id="11_htc0b"]
-[ext_resource type="ArrayMesh" uid="uid://cjkcmukmea2h2" path="res://Assets/3D/Objects/Gears/gear_helicalwithholes.res" id="12_pngnc"]
+[ext_resource type="ArrayMesh" uid="uid://c3erlqmxt2uo2" path="res://world/decorations/gears/gear_worm.res" id="9_vwof3"]
+[ext_resource type="ArrayMesh" uid="uid://d0ad87y13yuta" path="res://world/decorations/gears/gear_spiral_bevel_small.res" id="11_htc0b"]
+[ext_resource type="ArrayMesh" uid="uid://cjkcmukmea2h2" path="res://world/decorations/gears/gear_helical_with_holes.res" id="12_pngnc"]
 [ext_resource type="ArrayMesh" uid="uid://c86kbccnj7c1s" path="res://world/climbing/ladders/models/ladder_top_01.res" id="14_dn1iq"]
 [ext_resource type="Texture2D" uid="uid://ncv7m20chadh" path="res://world/decorations/dusts/dust_03.png" id="15_2hr8o"]
 [ext_resource type="ArrayMesh" uid="uid://ytojh4ald4hx" path="res://world/climbing/ladders/models/ladder_base.res" id="15_cgauj"]
@@ -19,7 +19,7 @@
 [ext_resource type="ArrayMesh" uid="uid://bs7mr6pntvtby" path="res://world/decorations/pipes/models/pipe_short.res" id="19_hr8tt"]
 [ext_resource type="Texture2D" uid="uid://dcltywe85vcvt" path="res://world/decorations/dusts/dust_08.png" id="20_0rd7g"]
 [ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scenes/_Deprecated/character.tscn" id="20_2hr8o"]
-[ext_resource type="ArrayMesh" uid="uid://bwotwyj54b6aw" path="res://Assets/3D/Objects/Gears/gear_keyway1.res" id="20_ep28j"]
+[ext_resource type="ArrayMesh" uid="uid://bwotwyj54b6aw" path="res://world/decorations/gears/gear_keyway_01.res" id="20_ep28j"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_3dqiu"]
 size = Vector3(40, 1.5, 5)

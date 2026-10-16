@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d0xp14b4ir2eq"
-path="res://.godot/imported/Gear3.fbx-7a7198ae7f5433b97667b106f3bdd17c.scn"
+uid="uid://dvhdja1v5jtr8"
+path="res://.godot/imported/gear_10.fbx-5ebc7f26a91225f944441189a1e31ace.scn"
 
 [deps]
 
-source_file="res://Assets/3D/Objects/Gears/Gear3.fbx"
-dest_files=["res://.godot/imported/Gear3.fbx-7a7198ae7f5433b97667b106f3bdd17c.scn"]
+source_file="res://world/decorations/gears/gear_10.fbx"
+dest_files=["res://.godot/imported/gear_10.fbx-5ebc7f26a91225f944441189a1e31ace.scn"]
 
 [params]
 
