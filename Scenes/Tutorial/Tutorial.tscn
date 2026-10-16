@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://d03e0k81wu3w7" path="res://world/hazards/killzone.tscn" id="10_7sy1d"]
 [ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://world/control_panels/terminal.res" id="11_we8fy"]
 [ext_resource type="PackedScene" uid="uid://clesw0vcam4s2" path="res://Scenes/Characters/Limbs/LeftArm.tscn" id="12_vxw4a"]
-[ext_resource type="ArrayMesh" uid="uid://c0ojvrv4euw0g" path="res://Assets/3D/Objects/MISC/monkeybar_med1.res" id="13_7y28h"]
+[ext_resource type="ArrayMesh" uid="uid://c0ojvrv4euw0g" path="res://world/climbing/monkey_bars/models/monkeybar_medium_01.res" id="13_7y28h"]
 [ext_resource type="PackedScene" uid="uid://dxubgecu6o687" path="res://Scenes/Characters/Limbs/Head.tscn" id="13_ps4sb"]
 [ext_resource type="Script" uid="uid://bw716w626y8t7" path="res://Scripts/Environment/trigger_predicate.gd" id="14_m7cns"]
 [ext_resource type="PackedScene" uid="uid://0nxi375snik3" path="res://Scenes/Characters/Limbs/RightArm.tscn" id="14_vxw4a"]

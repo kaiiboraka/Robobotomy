@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c6qviaeewwus1"]
 
-[ext_resource type="Script" uid="uid://bxbxy1w072wre" path="res://Scripts/Environment/monkey_bar.gd" id="1_b1oa1"]
-[ext_resource type="ArrayMesh" uid="uid://cxyp3leppa31i" path="res://Assets/3D/Objects/monkeybar_med2.res" id="1_g5mys"]
+[ext_resource type="Script" uid="uid://bxbxy1w072wre" path="res://world/climbing/monkey_bars/monkey_bar.gd" id="1_b1oa1"]
+[ext_resource type="ArrayMesh" uid="uid://cxyp3leppa31i" path="res://world/climbing/monkey_bars/models/monkeybar_medium_02.res" id="1_g5mys"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4gvqi"]
 size = Vector3(1.6330566, 2.056034, 0.48242188)
