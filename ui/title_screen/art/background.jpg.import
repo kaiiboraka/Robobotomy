@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlb3oiwmbycxe"
-path="res://.godot/imported/Pixel Perfect ROBOBOTOMY.png-5bb5165570facd156cfb31fe0e8f45c0.ctex"
+uid="uid://ddagsld40ed68"
+path="res://.godot/imported/background.jpg-5b39d40fe4293cd2641e909b49433cb2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Pixel Art/Pixel Perfect ROBOBOTOMY.png"
-dest_files=["res://.godot/imported/Pixel Perfect ROBOBOTOMY.png-5bb5165570facd156cfb31fe0e8f45c0.ctex"]
+source_file="res://ui/title_screen/art/background.jpg"
+dest_files=["res://.godot/imported/background.jpg-5b39d40fe4293cd2641e909b49433cb2.ctex"]
 
 [params]
 

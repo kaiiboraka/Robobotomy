@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m4pxuo4kpaxe"
-path="res://.godot/imported/RobobotomyTitle1.png-25cfd80e322df9299e8b7e4ba696a119.ctex"
+uid="uid://6xpteysrwody"
+path="res://.godot/imported/nameless.jpg-f1f8523acccd63838281eb9453d10071.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Pixel Art/RobobotomyTitle1.png"
-dest_files=["res://.godot/imported/RobobotomyTitle1.png-25cfd80e322df9299e8b7e4ba696a119.ctex"]
+source_file="res://shared/branding/nameless.jpg"
+dest_files=["res://.godot/imported/nameless.jpg-f1f8523acccd63838281eb9453d10071.ctex"]
 
 [params]
 

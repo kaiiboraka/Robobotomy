@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wlvqkc1fyj40"
-path="res://.godot/imported/icon_smaller.jpg-30fad5191d08ca6d3a3479c9322cfe35.ctex"
+uid="uid://m4pxuo4kpaxe"
+path="res://.godot/imported/robobotomy_title_01.png-8feddc82bcf9bf00e4a8213327896e3c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/icon_smaller.jpg"
-dest_files=["res://.godot/imported/icon_smaller.jpg-30fad5191d08ca6d3a3479c9322cfe35.ctex"]
+source_file="res://ui/title_screen/art/robobotomy_title_01.png"
+dest_files=["res://.godot/imported/robobotomy_title_01.png-8feddc82bcf9bf00e4a8213327896e3c.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bnmmm7p4xdi3o"
-path="res://.godot/imported/Robobotoy Old Title.png-a368bd33646867f3c784cd68553b6118.ctex"
+path="res://.godot/imported/robobotomy_title_old.png-23aa6dae21dd517326550408d535d4b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Robobotoy Old Title.png"
-dest_files=["res://.godot/imported/Robobotoy Old Title.png-a368bd33646867f3c784cd68553b6118.ctex"]
+source_file="res://ui/title_screen/art/robobotomy_title_old.png"
+dest_files=["res://.godot/imported/robobotomy_title_old.png-23aa6dae21dd517326550408d535d4b0.ctex"]
 
 [params]
 

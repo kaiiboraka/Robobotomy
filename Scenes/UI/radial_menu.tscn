@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://s0h7bj8yn7rd" path="res://Assets/UI/Pixel Art/Nam_Head.png" id="4_b6mux"]
 [ext_resource type="Texture2D" uid="uid://cuamrmgx12j3s" path="res://Assets/UI/Pixel Art/Nam_Arm.png" id="5_4cf1o"]
 [ext_resource type="Texture2D" uid="uid://c7cvs44ojokq5" path="res://Assets/UI/Pixel Art/Nam_leg.png" id="6_4cf1o"]
-[ext_resource type="Texture2D" uid="uid://dlb3oiwmbycxe" path="res://Assets/UI/Pixel Art/Pixel Perfect ROBOBOTOMY.png" id="7_s2vpv"]
+[ext_resource type="Texture2D" uid="uid://dlb3oiwmbycxe" path="res://shared/branding/pixel_perfect_robobotomy.png" id="7_s2vpv"]
 [ext_resource type="Shader" uid="uid://etiydx1sh5bj" path="res://Assets/UI/shaders/crt.gdshader" id="8_ohs8s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sgy6j"]
