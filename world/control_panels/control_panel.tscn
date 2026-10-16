@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dmrf146qrbqun"]
 
-[ext_resource type="Script" uid="uid://dg10ptkw0ri1" path="res://Scripts/Environment/ControlPanel.gd" id="1_871ct"]
-[ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Assets/3D/Objects/MISC/terminal.res" id="1_eteoh"]
+[ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://world/control_panels/terminal.res" id="1_eteoh"]
+[ext_resource type="Script" uid="uid://dg10ptkw0ri1" path="res://world/control_panels/control_panel.gd" id="1_fwgjo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eteoh"]
 size = Vector3(0.78686523, 1.5756836, 1)
@@ -10,7 +10,7 @@ size = Vector3(0.78686523, 1.5756836, 1)
 radius = 2.8048344
 
 [node name="ControlPanel2" type="Node3D" unique_id=843480281]
-script = ExtResource("1_871ct")
+script = ExtResource("1_fwgjo")
 
 [node name="Terminal" type="MeshInstance3D" parent="." unique_id=390636032]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92127883, 0)

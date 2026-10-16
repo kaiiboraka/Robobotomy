@@ -92,7 +92,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dnq8hgwyg8cj0" path="res://Assets/3D/Objects/PowerCable/powercable_small.res" id="87_yoqlr"]
 [ext_resource type="ArrayMesh" uid="uid://b2g4xvdkvetdd" path="res://Assets/3D/Objects/PowerCable/powercable_tee.res" id="88_r5u0n"]
 [ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://Assets/3D/Objects/MISC/scaffold.res" id="89_4pi8g"]
-[ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://Assets/3D/Objects/MISC/terminal.res" id="90_5i7sb"]
+[ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://world/control_panels/terminal.res" id="90_5i7sb"]
 [ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Assets/3D/Objects/Pipes/pipe1_long.res" id="91_0v81c"]
 [ext_resource type="Texture2D" uid="uid://d2djqd8vqwn38" path="res://Assets/Materials/Shaders/Metal/Metal_metallic.png" id="93_fnn60"]
 [ext_resource type="Texture2D" uid="uid://bvtq6v2ixvrsh" path="res://Assets/Materials/Shaders/Metal/Metal_normal.png" id="94_nruv6"]

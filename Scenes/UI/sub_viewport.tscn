@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://ffedw0ijwbsa"]
+[gd_scene format=3 uid="uid://ffedw0ijwbsa"]
 
-[ext_resource type="PackedScene" uid="uid://dr2x4uthy0krk" path="res://Scenes/UI/control_test.tscn" id="1_cfnhm"]
+[ext_resource type="PackedScene" uid="uid://dr2x4uthy0krk" path="res://world/control_panels/control_test.tscn" id="1_cfnhm"]
 
 [node name="SubViewport" type="SubViewport"]
 size = Vector2i(140, 40)
