@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d0it8xbtafj5s"
-path="res://.godot/imported/Ladder4.fbx-863553fa4107434d8d14ce54bdcfc17d.scn"
+path="res://.godot/imported/ladder_05.fbx-7977b6659a3f8f54b23a52a6e0a91552.scn"
 
 [deps]
 
-source_file="res://Assets/3D/Objects/Ladders/Ladder4.fbx"
-dest_files=["res://.godot/imported/Ladder4.fbx-863553fa4107434d8d14ce54bdcfc17d.scn"]
+source_file="res://world/climbing/ladders/models/ladder_05.fbx"
+dest_files=["res://.godot/imported/ladder_05.fbx-7977b6659a3f8f54b23a52a6e0a91552.scn"]
 
 [params]
 

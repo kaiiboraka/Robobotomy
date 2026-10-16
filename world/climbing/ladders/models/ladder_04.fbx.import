@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cq5qqlxvmghkg"
-path="res://.godot/imported/Ladder1.fbx-9d6564067fd344969414b7f046a0122e.scn"
+uid="uid://0ogmufxuckiv"
+path="res://.godot/imported/ladder_04.fbx-3576a77460724969b37c2bd86a260ec0.scn"
 
 [deps]
 
-source_file="res://Assets/3D/Objects/Ladders/Ladder1.fbx"
-dest_files=["res://.godot/imported/Ladder1.fbx-9d6564067fd344969414b7f046a0122e.scn"]
+source_file="res://world/climbing/ladders/models/ladder_04.fbx"
+dest_files=["res://.godot/imported/ladder_04.fbx-3576a77460724969b37c2bd86a260ec0.scn"]
 
 [params]
 
