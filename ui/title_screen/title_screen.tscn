@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://m7rqg5aha0v1" path="res://ui/title_screen/title_screen.gd" id="1_xsyet"]
 [ext_resource type="Texture2D" uid="uid://ddagsld40ed68" path="res://ui/title_screen/art/background.jpg" id="2_dnytt"]
-[ext_resource type="Shader" uid="uid://etiydx1sh5bj" path="res://Assets/UI/shaders/crt.gdshader" id="2_wv540"]
+[ext_resource type="Shader" uid="uid://etiydx1sh5bj" path="res://ui/crt/crt.gdshader" id="2_wv540"]
 [ext_resource type="FontFile" uid="uid://7uu10pqkn1mk" path="res://shared/fonts/pixel.ttf" id="3_bnqst"]
 [ext_resource type="Texture2D" uid="uid://dlb3oiwmbycxe" path="res://shared/branding/pixel_perfect_robobotomy.png" id="3_wv540"]
 [ext_resource type="Texture2D" uid="uid://m4pxuo4kpaxe" path="res://ui/title_screen/art/robobotomy_title_01.png" id="4_2br5b"]
