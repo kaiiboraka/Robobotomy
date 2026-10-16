@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://06qptvgr4tni"]
 
-[ext_resource type="PackedScene" uid="uid://dlk6oxkqswup1" path="res://Scenes/Environment/door.tscn" id="1_57sin"]
+[ext_resource type="PackedScene" uid="uid://dlk6oxkqswup1" path="res://world/doors/door.tscn" id="1_57sin"]
 
 [sub_resource type="GDScript" id="GDScript_57sin"]
 resource_name = "chase_door_test"

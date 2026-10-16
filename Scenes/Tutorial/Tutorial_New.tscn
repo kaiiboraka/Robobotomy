@@ -21,7 +21,7 @@
 [ext_resource type="Script" uid="uid://dtahhowrgytm7" path="res://Scripts/HeadTutorialSlice/teleportal.gd" id="19_msps1"]
 [ext_resource type="PackedScene" uid="uid://c6qviaeewwus1" path="res://world/climbing/monkey_bars/monkey_bar.tscn" id="19_pupa5"]
 [ext_resource type="PackedScene" uid="uid://dg3q8c1rvpj7c" path="res://world/cranes/crane_boundary.tscn" id="20_0ryt1"]
-[ext_resource type="PackedScene" uid="uid://dlk6oxkqswup1" path="res://Scenes/Environment/door.tscn" id="20_7qmmh"]
+[ext_resource type="PackedScene" uid="uid://dlk6oxkqswup1" path="res://world/doors/door.tscn" id="20_7qmmh"]
 [ext_resource type="PackedScene" uid="uid://dbj2mxqdg7prw" path="res://world/cranes/crane.tscn" id="21_2gh2o"]
 [ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://world/buttons/models/components/button.res" id="21_vuywy"]
 [ext_resource type="ArrayMesh" uid="uid://dq0ogr20mo8rg" path="res://world/buttons/models/components/buttons_3x3.res" id="22_2gsj1"]

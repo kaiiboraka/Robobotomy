@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://gl5j7l3w6avc" path="res://world/crates/simple_box.tscn" id="2_7aweu"]
 [ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://Scenes/Environment/Terrain/ExtendableWall.tscn" id="2_mhkff"]
 [ext_resource type="PackedScene" uid="uid://m1ilgdhf1lia" path="res://world/buttons/weighted_button.tscn" id="2_wrvru"]
-[ext_resource type="PackedScene" uid="uid://dlk6oxkqswup1" path="res://Scenes/Environment/door.tscn" id="3_2r5sy"]
+[ext_resource type="PackedScene" uid="uid://dlk6oxkqswup1" path="res://world/doors/door.tscn" id="3_2r5sy"]
 [ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Assets/3D/Objects/Pipes/pipe1_long.res" id="6_ypd0c"]
 [ext_resource type="ArrayMesh" uid="uid://d1rjejthugc4a" path="res://Assets/3D/Character/Leg Left.res" id="7_ll8jm"]
 [ext_resource type="Script" uid="uid://dtahhowrgytm7" path="res://Scripts/HeadTutorialSlice/teleportal.gd" id="9_qr5jy"]

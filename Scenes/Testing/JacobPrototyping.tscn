@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://f0oommypkm0i" path="res://Scenes/Characters/Limbs/LeftLeg.tscn" id="8_yj7wf"]
 [ext_resource type="PackedScene" uid="uid://ep2c8eoh0i32" path="res://Scenes/Characters/Limbs/RightLeg.tscn" id="9_yj7wf"]
 [ext_resource type="PackedScene" uid="uid://cu1xs6wktcy0b" path="res://world/levers/lever.tscn" id="13_kefid"]
-[ext_resource type="PackedScene" uid="uid://dlk6oxkqswup1" path="res://Scenes/Environment/door.tscn" id="14_17pk7"]
+[ext_resource type="PackedScene" uid="uid://dlk6oxkqswup1" path="res://world/doors/door.tscn" id="14_17pk7"]
 [ext_resource type="PackedScene" uid="uid://b5wn6cwilqjxe" path="res://world/crates/pullable/handle_crate.tscn" id="14_lauej"]
 [ext_resource type="PackedScene" uid="uid://b5ig0xakcpv03" path="res://world/camera/camera_zoom_area.tscn" id="16_yp1hl"]
 [ext_resource type="PackedScene" uid="uid://td56vu1l1xka" path="res://world/climbing/chains/chain.tscn" id="21_jkqt3"]
