@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://f0oommypkm0i"]
 
-[ext_resource type="Script" uid="uid://5r2o3glyvoiu" path="res://Scripts/Player/Leg.gd" id="1_kafv1"]
+[ext_resource type="Script" uid="uid://5r2o3glyvoiu" path="res://player/body_parts/leg.gd" id="1_kafv1"]
 [ext_resource type="PhysicsMaterial" uid="uid://dk162vpoy6b84" path="res://Assets/Materials/Physics/frictionless_physmat.tres" id="1_tpfkj"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_euprb"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_nclh8"]
