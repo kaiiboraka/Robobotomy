@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dp6y06mg72ynw"]
 
-[ext_resource type="PackedScene" uid="uid://c8f7ehdv85hnd" path="res://Assets/3D/Character/Namless_V21.fbx" id="1_7wxt1"]
-[ext_resource type="AnimationLibrary" uid="uid://brq0eyq7g4yy0" path="res://Assets/Animation/Anim Library's/Full Body.res" id="2_3ugd1"]
+[ext_resource type="PackedScene" uid="uid://c8f7ehdv85hnd" path="res://player/visuals/models/full_body/nameless_v21.fbx" id="1_aodmu"]
+[ext_resource type="AnimationLibrary" uid="uid://brq0eyq7g4yy0" path="res://Assets/Animation/Anim Library's/Full Body.res" id="2_jmrbn"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jccmt"]
 animation = &"New Anim/Idle"
@@ -31,10 +31,10 @@ nodes/Blend2/position = Vector2(453.33334, 213.33333)
 "nodes/Blend2 2/position" = Vector2(653.3333, 213.33333)
 node_connections = [&"output", 0, &"Blend2 2", &"Blend2", 0, &"Anim Idle", &"Blend2", 1, &"Anim Looking Arround", &"Blend2 2", 0, &"Blend2", &"Blend2 2", 1, &"Anim Walk"]
 
-[node name="NamelessModel" unique_id=695104485 instance=ExtResource("1_7wxt1")]
+[node name="NamelessModel" unique_id=695104485 instance=ExtResource("1_aodmu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6290786, 0)
 
-[node name="Skeleton3D" parent="Nam_Rig" parent_id_path=PackedInt32Array(39263268) index="0" unique_id=514939280]
+[node name="Skeleton3D" parent="Nam_Rig" parent_id_path=PackedInt32Array(1841080708) index="0" unique_id=872395118]
 bones/0/position = Vector3(0, -1.629, 0)
 bones/1/position = Vector3(0.016430259, 0, -4.3509484e-05)
 bones/1/rotation = Quaternion(-9.466337e-30, 0.0010710959, 6.558571e-20, 0.9999994)
@@ -91,8 +91,8 @@ bones/100/rotation = Quaternion(0.006509024, 0.00069016573, 0.12805782, 0.991745
 bones/101/rotation = Quaternion(0.005607996, 0.00094358856, -0.034833524, 0.99937695)
 bones/103/rotation = Quaternion(0.010810658, 0.023408126, 0.44672155, 0.89430153)
 
-[node name="AnimationPlayer" parent="." index="1" unique_id=32569882]
-"libraries/Full Body" = ExtResource("2_3ugd1")
+[node name="AnimationPlayer" parent="." index="1" unique_id=1749137611]
+"libraries/Full Body" = ExtResource("2_jmrbn")
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2" unique_id=535223255]
 tree_root = SubResource("AnimationNodeBlendTree_hkhon")

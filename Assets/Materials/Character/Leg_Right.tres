@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://bms4wd1cudk6p"]
 
-[ext_resource type="Texture2D" uid="uid://bdrxquapkh0ac" path="res://player/visuals/textures/lower_right_leg_base_color.png" id="1_sjlc7"]
+[ext_resource type="Texture2D" uid="uid://bdrxquapkh0ac" path="res://player/visuals/textures/legs/lower_right_leg_base_color.png" id="1_sjlc7"]
 
 [resource]
 resource_name = "R_LegModel_FixedUVs:Nameless_20_Updated_UVs:RLeg"

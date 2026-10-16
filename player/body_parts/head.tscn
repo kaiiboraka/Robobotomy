@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://dxubgecu6o687"]
 
 [ext_resource type="Script" uid="uid://ddj23htttt0ys" path="res://player/body_parts/head.gd" id="1_rtqub"]
-[ext_resource type="ArrayMesh" uid="uid://cvfblncoo4d8b" path="res://Assets/3D/Character/Head_and_Hair.res" id="2_7q76k"]
+[ext_resource type="ArrayMesh" uid="uid://cvfblncoo4d8b" path="res://player/visuals/models/head/head_and_hair.res" id="2_7q76k"]
 [ext_resource type="Texture2D" uid="uid://c1nop2pjviawq" path="res://player/visuals/textures/head_base_color.png" id="3_gp127"]
-[ext_resource type="ArrayMesh" uid="uid://c8sncvty2tomo" path="res://Assets/3D/Character/Hair_tuft.res" id="3_rtqub"]
-[ext_resource type="ArrayMesh" uid="uid://y18hqjy53fa" path="res://Assets/3D/Character/Eye_Left.res" id="4_a61vf"]
-[ext_resource type="ArrayMesh" uid="uid://cm1bktxxcjj1k" path="res://Assets/3D/Character/Eye_Right.res" id="6_afrce"]
+[ext_resource type="ArrayMesh" uid="uid://c8sncvty2tomo" path="res://player/visuals/models/head/hair_tuft.res" id="3_rtqub"]
+[ext_resource type="ArrayMesh" uid="uid://y18hqjy53fa" path="res://player/visuals/models/head/left_eye.res" id="4_a61vf"]
+[ext_resource type="ArrayMesh" uid="uid://cm1bktxxcjj1k" path="res://player/visuals/models/head/right_eye.res" id="6_afrce"]
 [ext_resource type="Texture2D" uid="uid://db5vktfkqfh2n" path="res://player/visuals/textures/face_shapes/eyes/eye_03.PNG" id="6_eovao"]
-[ext_resource type="ArrayMesh" uid="uid://bvyeyi24xm0e" path="res://Assets/3D/Character/Mouth.res" id="8_xy461"]
+[ext_resource type="ArrayMesh" uid="uid://bvyeyi24xm0e" path="res://player/visuals/models/head/mouth.res" id="8_xy461"]
 [ext_resource type="Texture2D" uid="uid://c37dn2tdbm4x4" path="res://player/visuals/textures/face_shapes/mouths/yay.PNG" id="9_rrvcf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0kli6"]

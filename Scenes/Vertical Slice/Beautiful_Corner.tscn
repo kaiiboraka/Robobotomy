@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bpgupq5guqtyk"]
 
-[ext_resource type="PackedScene" uid="uid://caj74qdlqfqfr" path="res://Assets/3D/Character/NamelessV07.fbx" id="2_1o705"]
+[ext_resource type="PackedScene" uid="uid://caj74qdlqfqfr" path="res://player/visuals/models/full_body/nameless_v07.fbx" id="2_1o705"]
 [ext_resource type="Texture2D" uid="uid://ctybxaop6jxrr" path="res://Assets/Materials/Shaders/Concrete/Concrete_basecolor.png" id="2_2dqvl"]
 [ext_resource type="Shader" uid="uid://bduc6p20m0xim" path="res://Assets/Materials/Shaders/Testing/celTest.tres" id="2_jlcko"]
 [ext_resource type="ArrayMesh" uid="uid://d1iqktciv7tc8" path="res://world/decorations/pipes/models/pipe_medium.res" id="3_iv5s1"]

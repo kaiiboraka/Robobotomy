@@ -28,7 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://i2hkf7f1n6kf" path="res://world/catapults/catapult.tscn" id="23_egq61"]
 [ext_resource type="PackedScene" uid="uid://dmrf146qrbqun" path="res://world/control_panels/control_panel.tscn" id="25_j1ys4"]
 [ext_resource type="ArrayMesh" uid="uid://dtcymlg0tneoo" path="res://world/cranes/beam.res" id="26_oha5w"]
-[ext_resource type="ArrayMesh" uid="uid://c8kdmnehigaay" path="res://Assets/3D/Character/Head.res" id="26_qjcgg"]
+[ext_resource type="ArrayMesh" uid="uid://c8kdmnehigaay" path="res://player/visuals/models/head/head.res" id="26_qjcgg"]
 [ext_resource type="ArrayMesh" uid="uid://kbrrejogl5g4" path="res://world/control_panels/terminal.res" id="27_kb3nv"]
 [ext_resource type="ArrayMesh" uid="uid://c0ojvrv4euw0g" path="res://world/climbing/monkey_bars/models/monkeybar_medium_01.res" id="28_r13ih"]
 [ext_resource type="ArrayMesh" uid="uid://bw43rtwbo6wcp" path="res://world/levers/lever.res" id="29_cuk8f"]

@@ -1,0 +1,94 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://wm1ogylqjeol"
+path="res://.godot/imported/left_arm.fbx-2d3025bff845e6fdd983b7b734f9da2d.scn"
+
+[deps]
+
+source_file="res://player/visuals/models/arms/left_arm/left_arm.fbx"
+dest_files=["res://.godot/imported/left_arm.fbx-2d3025bff845e6fdd983b7b734f9da2d.scn"]
+
+[params]
+
+nodes/root_type="CharacterBody3D"
+nodes/root_name="Nameless"
+nodes/root_script=Resource("uid://dinm6607n8npe", "res://Scripts/_Deprecated/StateMachine/character.gd")
+mesh_library/use_node_names_as_mesh_names=false
+array_mesh/deduplicate_surfaces=true
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=true
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"meshes": {
+"Hand": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://player/visuals/models/arms/hand_01.res",
+"save_to_file/path": "uid://dq1lvn0kiyrnt"
+},
+"LBow_Light": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://player/visuals/models/legs/left_leg/left_bow_light_01.res",
+"save_to_file/path": "uid://balad6i5dlvnf"
+},
+"Upper_Arm": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://player/visuals/models/arms/upper_arm_01.res",
+"save_to_file/path": "uid://bbjwd1fk7oqfl"
+},
+"Wrist": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://player/visuals/models/arms/wrist_01.res",
+"save_to_file/path": "uid://ytcmfdiagb24"
+},
+"Wrist_Light": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://player/visuals/models/arms/wrist_light_01.res",
+"save_to_file/path": "uid://c2fijiv16bssc"
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
+fbx/naming_version=2

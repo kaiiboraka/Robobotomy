@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://rwrmbrxuh3cl"]
 
-[ext_resource type="Texture2D" uid="uid://ciqs8abcid5yo" path="res://player/visuals/textures/lower_right_arm_base_color.png" id="1_2nouc"]
+[ext_resource type="Texture2D" uid="uid://ciqs8abcid5yo" path="res://player/visuals/textures/arms/lower_right_arm_base_color.png" id="1_2nouc"]
 
 [resource]
 resource_name = "R_Arm_FixedUVsModel:Nameless_20_Updated_UVs:RArm"

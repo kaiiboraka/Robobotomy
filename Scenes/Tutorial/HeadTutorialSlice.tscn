@@ -7,7 +7,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://world/decorations/pipes/models/pipe_long.res" id="4_3u1ho"]
 [ext_resource type="ArrayMesh" uid="uid://26n2k1a75nxn" path="res://world/decorations/scaffolds/scaffold.res" id="5_1lny6"]
 [ext_resource type="Script" uid="uid://b26n1tg25oibu" path="res://world/cranes/crane_old.gd" id="6_3u1ho"]
-[ext_resource type="ArrayMesh" uid="uid://c8kdmnehigaay" path="res://Assets/3D/Character/Head.res" id="6_3x4w6"]
+[ext_resource type="ArrayMesh" uid="uid://c8kdmnehigaay" path="res://player/visuals/models/head/head.res" id="6_3x4w6"]
 [ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scenes/_Deprecated/character.tscn" id="9_jsw4j"]
 [ext_resource type="Script" uid="uid://dtahhowrgytm7" path="res://world/teleporters/teleportal.gd" id="11_1lny6"]
 
