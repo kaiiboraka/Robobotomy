@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://c1rbsib2mw5h6"]
 
-[ext_resource type="ArrayMesh" uid="uid://db67rv3vsoiy2" path="res://Assets/3D/Objects/PowerCable/Power_Cable_Conector.res" id="1_ldtxy"]
-[ext_resource type="ArrayMesh" uid="uid://c8dw7f5xr672t" path="res://Assets/3D/Objects/PowerCable/PowerCable1.res" id="2_m2gc4"]
-[ext_resource type="ArrayMesh" uid="uid://do555h70mdig6" path="res://Assets/3D/Objects/PowerCable/PowerCable2.res" id="3_nedun"]
-[ext_resource type="ArrayMesh" uid="uid://cppjk6rqxluxs" path="res://Assets/3D/Objects/PowerCable/PowerCable3.res" id="4_hgp4s"]
-[ext_resource type="ArrayMesh" uid="uid://dwwiv30orj2ha" path="res://Assets/3D/Objects/PowerCable/PowerCable4.res" id="5_4tohr"]
-[ext_resource type="ArrayMesh" uid="uid://cj4sapo10ptq4" path="res://Assets/3D/Objects/PowerCable/PowerCable5.res" id="6_xwm0e"]
-[ext_resource type="ArrayMesh" uid="uid://buyq5gc534ohr" path="res://Assets/3D/Objects/PowerCable/PowerCable6.res" id="7_65nl2"]
-[ext_resource type="ArrayMesh" uid="uid://dt2eovfn1xc5t" path="res://Assets/3D/Objects/PowerCable/PowerCable7.res" id="8_whyyo"]
-[ext_resource type="ArrayMesh" uid="uid://cwg8qdh7v2ym" path="res://Assets/3D/Objects/PowerCable/PowerCable8.res" id="9_tdo33"]
+[ext_resource type="ArrayMesh" uid="uid://db67rv3vsoiy2" path="res://world/decorations/power_cables/Power_Cable_Conector.res" id="1_ldtxy"]
+[ext_resource type="ArrayMesh" uid="uid://c8dw7f5xr672t" path="res://world/decorations/power_cables/power_cable_01.res" id="2_m2gc4"]
+[ext_resource type="ArrayMesh" uid="uid://do555h70mdig6" path="res://world/decorations/power_cables/power_cable_02.res" id="3_nedun"]
+[ext_resource type="ArrayMesh" uid="uid://cppjk6rqxluxs" path="res://world/decorations/power_cables/power_cable_03.res" id="4_hgp4s"]
+[ext_resource type="ArrayMesh" uid="uid://dwwiv30orj2ha" path="res://world/decorations/power_cables/power_cable_04.res" id="5_4tohr"]
+[ext_resource type="ArrayMesh" uid="uid://cj4sapo10ptq4" path="res://world/decorations/power_cables/power_cable_05.res" id="6_xwm0e"]
+[ext_resource type="ArrayMesh" uid="uid://buyq5gc534ohr" path="res://world/decorations/power_cables/power_cable_06.res" id="7_65nl2"]
+[ext_resource type="ArrayMesh" uid="uid://dt2eovfn1xc5t" path="res://world/decorations/power_cables/power_cable_07.res" id="8_whyyo"]
+[ext_resource type="ArrayMesh" uid="uid://cwg8qdh7v2ym" path="res://world/decorations/power_cables/power_cable_08.res" id="9_tdo33"]
 
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ldtxy"]
