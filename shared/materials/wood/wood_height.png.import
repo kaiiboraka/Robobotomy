@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b33v0h512jtjv"
-path.s3tc="res://.godot/imported/Wood_metallic.png-26a6745e24724b3cabe6066f7abcaaca.s3tc.ctex"
+uid="uid://748vq4m6wjdt"
+path.s3tc="res://.godot/imported/wood_height.png-2aaa2a13c0fc1be066debc10abb3059b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Materials/Shaders/Wood/Wood_metallic.png"
-dest_files=["res://.godot/imported/Wood_metallic.png-26a6745e24724b3cabe6066f7abcaaca.s3tc.ctex"]
+source_file="res://shared/materials/wood/wood_height.png"
+dest_files=["res://.godot/imported/wood_height.png-2aaa2a13c0fc1be066debc10abb3059b.s3tc.ctex"]
 
 [params]
 

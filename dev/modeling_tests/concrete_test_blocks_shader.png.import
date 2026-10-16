@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4dws0iremkoi"
-path="res://.godot/imported/RustedMetal_height.png-e21e52b642c825bfba1c7a0e5dfcbe36.ctex"
+uid="uid://c38lpsix4qsq2"
+path="res://.godot/imported/concrete_test_blocks_shader.png-5075d40cc5e243b9c0881039d9a40131.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Materials/Shaders/Testing/Rusted Maps/RustedMetal_height.png"
-dest_files=["res://.godot/imported/RustedMetal_height.png-e21e52b642c825bfba1c7a0e5dfcbe36.ctex"]
+source_file="res://dev/modeling_tests/concrete_test_blocks_shader.png"
+dest_files=["res://.godot/imported/concrete_test_blocks_shader.png-5075d40cc5e243b9c0881039d9a40131.ctex"]
 
 [params]
 

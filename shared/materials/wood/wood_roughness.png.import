@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8fu1o08kxoar"
-path.s3tc="res://.godot/imported/Metal_roughness.png-785e22e0d66b0ec4f9fd54b96c860121.s3tc.ctex"
+uid="uid://pqiwsjy3mbv2"
+path.s3tc="res://.godot/imported/wood_roughness.png-c97374eb0e14b6d7a50ff15e9c20e8fa.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Materials/Shaders/Metal/Metal_roughness.png"
-dest_files=["res://.godot/imported/Metal_roughness.png-785e22e0d66b0ec4f9fd54b96c860121.s3tc.ctex"]
+source_file="res://shared/materials/wood/wood_roughness.png"
+dest_files=["res://.godot/imported/wood_roughness.png-c97374eb0e14b6d7a50ff15e9c20e8fa.s3tc.ctex"]
 
 [params]
 

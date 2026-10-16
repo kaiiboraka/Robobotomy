@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://748vq4m6wjdt"
-path.s3tc="res://.godot/imported/Wood_height.png-c4f2037c9912953c108458090850037d.s3tc.ctex"
+uid="uid://c4yd4xbrrbct8"
+path="res://.godot/imported/rusted_metal_metallic.png-85026db117d55d642075cf194be933de.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Materials/Shaders/Wood/Wood_height.png"
-dest_files=["res://.godot/imported/Wood_height.png-c4f2037c9912953c108458090850037d.s3tc.ctex"]
+source_file="res://shared/materials/rust/rusted_metal_metallic.png"
+dest_files=["res://.godot/imported/rusted_metal_metallic.png-85026db117d55d642075cf194be933de.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -38,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
