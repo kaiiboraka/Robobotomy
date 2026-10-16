@@ -11,7 +11,7 @@
 [ext_resource type="ArrayMesh" uid="uid://ytojh4ald4hx" path="res://world/climbing/ladders/models/ladder_base.res" id="15_cgauj"]
 [ext_resource type="Texture2D" uid="uid://drwah2sboa1qm" path="res://Assets/2D/Dust/Dust (9).png" id="16_81fdy"]
 [ext_resource type="ArrayMesh" uid="uid://cy54skeqlwy3g" path="res://world/climbing/ladders/models/ladder_top_02.res" id="16_obs03"]
-[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Assets/3D/Objects/Buttons/button.res" id="17_2hr8o"]
+[ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://world/buttons/models/components/button.res" id="17_2hr8o"]
 [ext_resource type="PackedScene" uid="uid://cuc1pbmga6imc" path="res://Scenes/Environment/Terrain/cube_static.tscn" id="17_3vdpc"]
 [ext_resource type="Texture2D" uid="uid://b1cgavnnkjlug" path="res://world/decorations/chains/sprites/chain_03.png" id="17_fsugp"]
 [ext_resource type="Texture2D" uid="uid://7ytgnfxaumtr" path="res://Assets/2D/Dust/Dust (13).png" id="18_stjdh"]

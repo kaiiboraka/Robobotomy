@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cgmrgpxrjris8"
-path="res://.godot/imported/button_shell.fbx-7e4687a047cd2901ea7b99a5403704cd.scn"
+uid="uid://c7r7qab6sorj5"
+path="res://.godot/imported/button_collision.fbx-7e7f77fb1110cce1ba52cfb84c8ca479.scn"
 
 [deps]
 
-source_file="res://Assets/3D/Objects/Buttons/button_shell.fbx"
-dest_files=["res://.godot/imported/button_shell.fbx-7e4687a047cd2901ea7b99a5403704cd.scn"]
+source_file="res://world/buttons/models/components/button_collision.fbx"
+dest_files=["res://.godot/imported/button_collision.fbx-7e7f77fb1110cce1ba52cfb84c8ca479.scn"]
 
 [params]
 
@@ -40,22 +40,15 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
-"materials": {
-"openPBR_shader1": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/Materials/button_metal.tres",
-"use_external/path": "uid://de1fjsxc1ap5h"
-}
-},
 "meshes": {
-"button_shell": {
+"button_collision_mesh": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Buttons/button_shell.res",
-"save_to_file/path": "uid://didpkp2pe7wrd"
+"save_to_file/fallback_path": "res://world/buttons/models/components/button_collision_mesh.res",
+"save_to_file/path": "uid://dh1h84vk0hkp4"
 }
 }
 }

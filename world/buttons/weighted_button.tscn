@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://m1ilgdhf1lia"]
 
-[ext_resource type="Script" uid="uid://c30rcncaojuya" path="res://Scripts/Environment/WeightedButton.gd" id="1_yigyg"]
-[ext_resource type="PackedScene" uid="uid://cugb2qlx8ju8w" path="res://Scenes/Environment/Buttons/Button_Lights.tscn" id="2_v2ty4"]
-[ext_resource type="ArrayMesh" uid="uid://doxh8d0va3v1k" path="res://Assets/3D/Objects/Buttons/buttons_1x1.res" id="3_dfgrj"]
-[ext_resource type="Material" uid="uid://ckajioojx2cvk" path="res://Assets/Materials/button_light_unlit.tres" id="4_xw1qm"]
+[ext_resource type="Script" uid="uid://c30rcncaojuya" path="res://world/buttons/weighted_button.gd" id="1_yigyg"]
+[ext_resource type="PackedScene" uid="uid://cugb2qlx8ju8w" path="res://world/buttons/button_lights.tscn" id="2_v2ty4"]
 [ext_resource type="ArrayMesh" uid="uid://pt55dusfqfr0" path="res://Assets/3D/Objects/Buttons/bigwire.res" id="5_u8eeh"]
-[ext_resource type="ArrayMesh" uid="uid://c7hjplbtbetcf" path="res://Assets/3D/Objects/Buttons/button_pad.res" id="7_yigyg"]
-[ext_resource type="ArrayMesh" uid="uid://didpkp2pe7wrd" path="res://Assets/3D/Objects/Buttons/button_shell.res" id="8_5hisi"]
+[ext_resource type="ArrayMesh" uid="uid://c7hjplbtbetcf" path="res://world/buttons/models/components/button_pad.res" id="7_yigyg"]
+[ext_resource type="ArrayMesh" uid="uid://didpkp2pe7wrd" path="res://world/buttons/models/components/button_shell.res" id="8_5hisi"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ijvk1"]
 points = PackedVector3Array(-1.1486206, -0.0015105009, -1.4401456, -1.4401459, -0.0015105009, -1.1486205, -0.72007287, 0.2916593, -0.90276945, 1.1483389, -0.0015105009, -1.4401456, -1.4401459, -0.0015105009, 1.1483384, -0.9027695, 0.2916593, -0.7200728, 0.7197913, 0.2916593, -0.90276945, 1.4398643, -0.0015105009, -1.1486205, -1.1486206, -0.0015105009, 1.4401456, -0.9027695, 0.2916593, 0.7197908, 0.9024879, 0.2916593, -0.7200728, 1.4401461, -0.0015105009, 1.1483384, -0.72007287, 0.2916593, 0.9024874, 1.1483389, -0.0015105009, 1.4398636, 0.7197913, 0.2916593, 0.9024874, 0.9024879, 0.2916593, 0.7197908)
@@ -296,8 +294,6 @@ collision_mask = 0
 sync_to_physics = false
 script = ExtResource("1_yigyg")
 trigger_weight = 4
-deactivation_delay = null
-delay_time = null
 
 [node name="Base_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=431874188]
 physics_interpolation_mode = 2
