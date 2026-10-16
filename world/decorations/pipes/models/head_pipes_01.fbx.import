@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cqoo5pdrpftt2"
-path="res://.godot/imported/head_pipe_assembly.fbx-79845fea8b22ae391584d0a2c306f33e.scn"
+uid="uid://cm25ac4a1w6vt"
+path="res://.godot/imported/head_pipes_01.fbx-b61e6c5095e3fbb99a5fc31120b088c4.scn"
 
 [deps]
 
-source_file="res://world/props/pipes/head_pipe_assembly.fbx"
-dest_files=["res://.godot/imported/head_pipe_assembly.fbx-79845fea8b22ae391584d0a2c306f33e.scn"]
+source_file="res://world/decorations/pipes/models/head_pipes_01.fbx"
+dest_files=["res://.godot/imported/head_pipes_01.fbx-b61e6c5095e3fbb99a5fc31120b088c4.scn"]
 
 [params]
 

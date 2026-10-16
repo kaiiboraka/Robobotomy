@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://odcgk1h80sk0" path="res://world/camera/camera_3d_settings.tres" id="5_7sy1d"]
 [ext_resource type="ArrayMesh" uid="uid://c7la0fp3apuk0" path="res://Assets/3D/Objects/Gears/gear_spurlargebore.res" id="5_q5gud"]
 [ext_resource type="PackedScene" uid="uid://m1ilgdhf1lia" path="res://world/buttons/weighted_button.tscn" id="6_44la1"]
-[ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://world/props/pipes/pipe_long.res" id="6_tq6py"]
+[ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://world/decorations/pipes/models/pipe_long.res" id="6_tq6py"]
 [ext_resource type="ArrayMesh" uid="uid://c8kdmnehigaay" path="res://Assets/3D/Character/Head.res" id="7_7ovnm"]
 [ext_resource type="ArrayMesh" uid="uid://dq0ogr20mo8rg" path="res://world/buttons/models/components/buttons_3x3.res" id="7_bdygh"]
 [ext_resource type="PackedScene" uid="uid://dyki3kr5ucgg7" path="res://Scenes/Environment/Doors/Activated_PathFollower.tscn" id="7_upwis"]
