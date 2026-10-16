@@ -13,7 +13,7 @@
 [ext_resource type="Material" uid="uid://xnjpm2xc6shj" path="res://player/visuals/materials/left_thigh.tres" id="11_mdnjr"]
 [ext_resource type="Material" uid="uid://bms4wd1cudk6p" path="res://player/visuals/materials/right_leg.tres" id="12_kr2p2"]
 [ext_resource type="Material" uid="uid://dl20ytvc2r1ww" path="res://player/visuals/materials/right_thigh.tres" id="13_lsevh"]
-[ext_resource type="AnimationLibrary" uid="uid://brq0eyq7g4yy0" path="res://Assets/Animation/Anim Library's/Full Body.res" id="14_eua6p"]
+[ext_resource type="AnimationLibrary" uid="uid://brq0eyq7g4yy0" path="res://player/animations/libraries/Full Body.res" id="14_eua6p"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_x5q8l"]
 resource_name = "Hair_tuft"

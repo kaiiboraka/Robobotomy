@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dp6y06mg72ynw"]
 
 [ext_resource type="PackedScene" uid="uid://c8f7ehdv85hnd" path="res://player/visuals/models/full_body/nameless_v21.fbx" id="1_aodmu"]
-[ext_resource type="AnimationLibrary" uid="uid://brq0eyq7g4yy0" path="res://Assets/Animation/Anim Library's/Full Body.res" id="2_jmrbn"]
+[ext_resource type="AnimationLibrary" uid="uid://brq0eyq7g4yy0" path="res://player/animations/libraries/Full Body.res" id="2_jmrbn"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jccmt"]
 animation = &"New Anim/Idle"

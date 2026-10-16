@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c5o11wbkm8ehq"
-path="res://.godot/imported/WalkCycle.fbx-7e83066406a03a80ebef14e215b3f604.scn"
+uid="uid://c6wvhi7cbmgvg"
+path="res://.godot/imported/full_body_pushing_box_walk_cycle.fbx-053994a9d98d181fb6f0e9a45f54f787.scn"
 
 [deps]
 
-source_file="res://Assets/Animation/WalkCycle.fbx"
-dest_files=["res://.godot/imported/WalkCycle.fbx-7e83066406a03a80ebef14e215b3f604.scn"]
+source_file="res://player/animations/full_body_pushing_box_walk_cycle.fbx"
+dest_files=["res://.godot/imported/full_body_pushing_box_walk_cycle.fbx-053994a9d98d181fb6f0e9a45f54f787.scn"]
 
 [params]
 
@@ -41,11 +41,11 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "animations": {
-"Full_Body_WalkCycle": {
+"Full_Body_pushingBox_Walkcycle": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Animation/Anim.res/Walk.res",
+"save_to_file/fallback_path": "res://player/animations/Pushing Box.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "uid://cm615iq3ysusg",
+"save_to_file/path": "uid://gwauqumcxqfv",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
