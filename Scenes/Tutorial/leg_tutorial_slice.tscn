@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cqa5c7yb7ekhv"]
 
-[ext_resource type="PackedScene" uid="uid://npjp2dyv4vbu" path="res://Scenes/Characters/Player.tscn" id="1_x4o0j"]
+[ext_resource type="PackedScene" uid="uid://npjp2dyv4vbu" path="res://player/player.tscn" id="1_x4o0j"]
 [ext_resource type="PackedScene" uid="uid://gl5j7l3w6avc" path="res://world/crates/simple_box.tscn" id="2_7aweu"]
 [ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://world/terrain/extendable_wall.tscn" id="2_mhkff"]
 [ext_resource type="PackedScene" uid="uid://m1ilgdhf1lia" path="res://world/buttons/weighted_button.tscn" id="2_wrvru"]
