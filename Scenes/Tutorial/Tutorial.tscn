@@ -29,7 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://ep2c8eoh0i32" path="res://Scenes/Characters/Limbs/RightLeg.tscn" id="19_bdygh"]
 [ext_resource type="PackedScene" uid="uid://i2hkf7f1n6kf" path="res://world/catapults/catapult.tscn" id="22_xl8r8"]
 [ext_resource type="PackedScene" uid="uid://dmrf146qrbqun" path="res://world/control_panels/control_panel.tscn" id="23_2otw2"]
-[ext_resource type="PackedScene" uid="uid://td56vu1l1xka" path="res://world/chains/chain.tscn" id="26_gbpfp"]
+[ext_resource type="PackedScene" uid="uid://td56vu1l1xka" path="res://world/climbing/chains/chain.tscn" id="26_gbpfp"]
 [ext_resource type="PackedScene" uid="uid://dlk6oxkqswup1" path="res://Scenes/Environment/door.tscn" id="27_6ey6l"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dmal2"]

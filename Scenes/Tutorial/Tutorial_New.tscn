@@ -35,7 +35,7 @@
 [ext_resource type="ArrayMesh" uid="uid://c30g2pc1dcs7o" path="res://Assets/3D/Objects/Buttons/cableconnector.res" id="31_jh6g6"]
 [ext_resource type="ArrayMesh" uid="uid://pt55dusfqfr0" path="res://Assets/3D/Objects/Buttons/bigwire.res" id="32_dfk8b"]
 [ext_resource type="ArrayMesh" uid="uid://cjkcmukmea2h2" path="res://Assets/3D/Objects/Gears/gear_helicalwithholes.res" id="32_oha5w"]
-[ext_resource type="PackedScene" uid="uid://td56vu1l1xka" path="res://world/chains/chain.tscn" id="33_2gh2o"]
+[ext_resource type="PackedScene" uid="uid://td56vu1l1xka" path="res://world/climbing/chains/chain.tscn" id="33_2gh2o"]
 [ext_resource type="PackedScene" uid="uid://cqoo5pdrpftt2" path="res://Assets/3D/Objects/Pipes/Head Pipes Grables.fbx" id="33_b7sev"]
 [ext_resource type="ArrayMesh" uid="uid://biqe8u1bxf710" path="res://Assets/3D/Objects/Pipes/HeadPipe.res" id="34_eyu3q"]
 [ext_resource type="PackedScene" uid="uid://cswjjtc0va6ao" path="res://Scenes/Testing/Character Tests/NamelessV07.tscn" id="37_u7nal"]

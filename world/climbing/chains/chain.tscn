@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://td56vu1l1xka"]
 
-[ext_resource type="Script" uid="uid://coq8l10sf1x08" path="res://world/chains/chain.gd" id="1_hi5wi"]
+[ext_resource type="Script" uid="uid://coq8l10sf1x08" path="res://world/climbing/chains/chain.gd" id="1_hi5wi"]
 
 [node name="Chain" type="Node3D" unique_id=2016857665]
 script = ExtResource("1_hi5wi")

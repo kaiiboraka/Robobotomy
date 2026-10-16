@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dn2o72o1l4ru8"
-path.s3tc="res://.godot/imported/chain_05.png-3413822e051c3514dc0d7034eaf35d28.s3tc.ctex"
+uid="uid://dcho4md82yryf"
+path.s3tc="res://.godot/imported/chain_04.png-769098930fde2c34a9db41a66658e3f3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://world/chains/sprites/chain_05.png"
-dest_files=["res://.godot/imported/chain_05.png-3413822e051c3514dc0d7034eaf35d28.s3tc.ctex"]
+source_file="res://world/decorations/chains/sprites/chain_04.png"
+dest_files=["res://.godot/imported/chain_04.png-769098930fde2c34a9db41a66658e3f3.s3tc.ctex"]
 
 [params]
 

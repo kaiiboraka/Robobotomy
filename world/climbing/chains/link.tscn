@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://mc7fntx8byk1"]
 
-[ext_resource type="Script" uid="uid://c72ojfqg4ficr" path="res://world/chains/link.gd" id="1_ic2w0"]
-[ext_resource type="ArrayMesh" uid="uid://dwkxg4rigpq0d" path="res://world/chains/models/chain_link.res" id="2_bg4cn"]
+[ext_resource type="Script" uid="uid://c72ojfqg4ficr" path="res://world/climbing/chains/link.gd" id="1_ic2w0"]
+[ext_resource type="ArrayMesh" uid="uid://dwkxg4rigpq0d" path="res://world/climbing/chains/models/chain_link.res" id="2_bg4cn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hgq32"]
 size = Vector3(0.21000004, 0.36, 0.06999999)

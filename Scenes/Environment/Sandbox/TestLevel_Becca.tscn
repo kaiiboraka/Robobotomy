@@ -13,7 +13,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cy54skeqlwy3g" path="res://world/climbing/ladders/models/ladder_top_02.res" id="16_obs03"]
 [ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://Assets/3D/Objects/Buttons/button.res" id="17_2hr8o"]
 [ext_resource type="PackedScene" uid="uid://cuc1pbmga6imc" path="res://Scenes/Environment/Terrain/cube_static.tscn" id="17_3vdpc"]
-[ext_resource type="Texture2D" uid="uid://b1cgavnnkjlug" path="res://world/chains/sprites/chain_03.png" id="17_fsugp"]
+[ext_resource type="Texture2D" uid="uid://b1cgavnnkjlug" path="res://world/decorations/chains/sprites/chain_03.png" id="17_fsugp"]
 [ext_resource type="Texture2D" uid="uid://7ytgnfxaumtr" path="res://Assets/2D/Dust/Dust (13).png" id="18_stjdh"]
 [ext_resource type="Texture2D" uid="uid://dt0q3m2pg70u6" path="res://Assets/2D/Dust/Dust (4).png" id="19_017vt"]
 [ext_resource type="ArrayMesh" uid="uid://bs7mr6pntvtby" path="res://Assets/3D/Objects/Pipes/pipe1_short.res" id="19_hr8tt"]

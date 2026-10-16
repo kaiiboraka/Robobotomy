@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dlk6oxkqswup1" path="res://Scenes/Environment/door.tscn" id="14_17pk7"]
 [ext_resource type="PackedScene" uid="uid://b5wn6cwilqjxe" path="res://Scenes/Environment/handle_crate.tscn" id="14_lauej"]
 [ext_resource type="PackedScene" uid="uid://b5ig0xakcpv03" path="res://world/camera/camera_zoom_area.tscn" id="16_yp1hl"]
-[ext_resource type="PackedScene" uid="uid://td56vu1l1xka" path="res://world/chains/chain.tscn" id="21_jkqt3"]
+[ext_resource type="PackedScene" uid="uid://td56vu1l1xka" path="res://world/climbing/chains/chain.tscn" id="21_jkqt3"]
 
 [sub_resource type="Resource" id="Resource_lpy3h"]
 script = ExtResource("5_gw4p4")
