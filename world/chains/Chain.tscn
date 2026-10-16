@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://td56vu1l1xka"]
+
+[ext_resource type="Script" uid="uid://coq8l10sf1x08" path="res://world/chains/chain.gd" id="1_yfls1"]
+[ext_resource type="PackedScene" uid="uid://mc7fntx8byk1" path="res://world/chains/Link.tscn" id="2_gopt5"]
+[ext_resource type="Script" uid="uid://c72ojfqg4ficr" path="res://world/chains/link.gd" id="3_y3mhn"]
+
+[node name="Chain" type="Node3D" unique_id=2016857665]
+script = ExtResource("1_yfls1")
+length = 10
+link_spacing = 0.3
+
+[node name="Link0" type="RigidBody3D" parent="." unique_id=1732380006 instance=ExtResource("2_gopt5")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0, -0.15, 0)
+collision_layer = 0
+collision_mask = 2700
+mass = 0.1
+continuous_cd = true
+script = ExtResource("3_y3mhn")
+
+[node name="Link1" type="RigidBody3D" parent="." unique_id=1681512632 instance=ExtResource("2_gopt5")]
+transform = Transform3D(1, 0, 4.371139e-08, 0, 1, 0, -4.371139e-08, 0, 1, 0, -0.45000002, 0)
+collision_layer = 0
+collision_mask = 2700
+mass = 0.1
+continuous_cd = true
+script = ExtResource("3_y3mhn")
+
+[node name="Link2" type="RigidBody3D" parent="." unique_id=1009188049 instance=ExtResource("2_gopt5")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0, -0.75, 0)
+collision_layer = 0
+collision_mask = 2700
+mass = 0.1
+continuous_cd = true
+script = ExtResource("3_y3mhn")
+
+[node name="Link3" type="RigidBody3D" parent="." unique_id=1210426099 instance=ExtResource("2_gopt5")]
+transform = Transform3D(1, 0, 4.371139e-08, 0, 1, 0, -4.371139e-08, 0, 1, 0, -1.05, 0)
+collision_layer = 0
+collision_mask = 2700
+mass = 0.1
+continuous_cd = true
+script = ExtResource("3_y3mhn")
+
+[node name="Link4" type="RigidBody3D" parent="." unique_id=567905148 instance=ExtResource("2_gopt5")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0, -1.35, 0)
+collision_layer = 0
+collision_mask = 2700
+mass = 0.1
+continuous_cd = true
+script = ExtResource("3_y3mhn")
+
+[node name="Link5" type="RigidBody3D" parent="." unique_id=85927062 instance=ExtResource("2_gopt5")]
+transform = Transform3D(1, 0, 4.371139e-08, 0, 1, 0, -4.371139e-08, 0, 1, 0, -1.65, 0)
+collision_layer = 0
+collision_mask = 2700
+mass = 0.1
+continuous_cd = true
+script = ExtResource("3_y3mhn")
+
+[node name="Link6" type="RigidBody3D" parent="." unique_id=1804447653 instance=ExtResource("2_gopt5")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0, -1.9499999, 0)
+collision_layer = 0
+collision_mask = 2700
+mass = 0.1
+continuous_cd = true
+script = ExtResource("3_y3mhn")
+
+[node name="Link7" type="RigidBody3D" parent="." unique_id=1048160045 instance=ExtResource("2_gopt5")]
+transform = Transform3D(1, 0, 4.371139e-08, 0, 1, 0, -4.371139e-08, 0, 1, 0, -2.25, 0)
+collision_layer = 0
+collision_mask = 2700
+mass = 0.1
+continuous_cd = true
+script = ExtResource("3_y3mhn")
+
+[node name="Link8" type="RigidBody3D" parent="." unique_id=1196416323 instance=ExtResource("2_gopt5")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0, -2.5500002, 0)
+collision_layer = 0
+collision_mask = 2700
+mass = 0.1
+continuous_cd = true
+script = ExtResource("3_y3mhn")
+
+[node name="Link9" type="RigidBody3D" parent="." unique_id=1571686707 instance=ExtResource("2_gopt5")]
+transform = Transform3D(1, 0, 4.371139e-08, 0, 1, 0, -4.371139e-08, 0, 1, 0, -2.85, 0)
+collision_layer = 0
+collision_mask = 2700
+mass = 0.1
+continuous_cd = true
+script = ExtResource("3_y3mhn")
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="." unique_id=1241051203]
+aabb = AABB(-0.625, -3.5, -0.5, 1.25, 3.5, 1)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://mc7fntx8byk1"]
 
-[ext_resource type="Script" uid="uid://c72ojfqg4ficr" path="res://Scripts/Environment/link.gd" id="1_1hdp8"]
-[ext_resource type="ArrayMesh" uid="uid://dwkxg4rigpq0d" path="res://Assets/3D/Objects/chain_link.res" id="2_ysgha"]
+[ext_resource type="Script" uid="uid://c72ojfqg4ficr" path="res://world/chains/link.gd" id="1_yy601"]
+[ext_resource type="ArrayMesh" uid="uid://dwkxg4rigpq0d" path="res://Assets/3D/Objects/chain_link.res" id="2_ws8m7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hgq32"]
 size = Vector3(0.21000004, 0.36, 0.06999999)
@@ -14,10 +14,10 @@ collision_layer = 0
 collision_mask = 2700
 mass = 0.1
 continuous_cd = true
-script = ExtResource("1_1hdp8")
+script = ExtResource("1_yy601")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=435619052]
-mesh = ExtResource("2_ysgha")
+mesh = ExtResource("2_ws8m7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=298148684]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7881393e-07, 0)
