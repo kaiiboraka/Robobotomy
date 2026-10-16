@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://gl5j7l3w6avc" path="res://Scenes/Environment/Interactables/SimpleBox.tscn" id="2_uk5sn"]
 [ext_resource type="Script" uid="uid://coq8l10sf1x08" path="res://world/chains/chain.gd" id="3_hfmfs"]
 [ext_resource type="PackedScene" uid="uid://bmswce2kxaau0" path="res://Scenes/Environment/Doors/hinge_simple.tscn" id="4_040rw"]
-[ext_resource type="PackedScene" uid="uid://pvwqjhr7eu4p" path="res://Scenes/Environment/seesaw.tscn" id="5_hfmfs"]
+[ext_resource type="PackedScene" uid="uid://pvwqjhr7eu4p" path="res://world/seesaws/seesaw.tscn" id="5_hfmfs"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_uk5sn"]
 
