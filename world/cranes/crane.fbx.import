@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://clb33ret2075d"
-path="res://.godot/imported/Crane.fbx-8d0789a1da0d78cc1a08e32d9466605e.scn"
+path="res://.godot/imported/crane.fbx-465f51936f92c8c65ca563f7c20fde0c.scn"
 
 [deps]
 
-source_file="res://Assets/3D/Objects/Crane/Crane.fbx"
-dest_files=["res://.godot/imported/Crane.fbx-8d0789a1da0d78cc1a08e32d9466605e.scn"]
+source_file="res://world/cranes/crane.fbx"
+dest_files=["res://.godot/imported/crane.fbx-465f51936f92c8c65ca563f7c20fde0c.scn"]
 
 [params]
 
@@ -47,7 +47,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/3D/Objects/Crane/Beam.res",
+"save_to_file/fallback_path": "res://world/cranes/Beam.res",
 "save_to_file/path": "uid://dtcymlg0tneoo"
 }
 },

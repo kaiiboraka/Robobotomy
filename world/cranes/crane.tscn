@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dbj2mxqdg7prw"]
 
-[ext_resource type="Script" uid="uid://c344rsjyqu3mk" path="res://Scripts/Environment/Crane.gd" id="1_ncg6t"]
-[ext_resource type="PackedScene" uid="uid://clb33ret2075d" path="res://Assets/3D/Objects/Crane/Crane.fbx" id="2_ncg6t"]
+[ext_resource type="Script" uid="uid://c344rsjyqu3mk" path="res://world/cranes/crane.gd" id="1_ncg6t"]
+[ext_resource type="PackedScene" uid="uid://clb33ret2075d" path="res://world/cranes/crane.fbx" id="2_ncg6t"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_2kgik"]
 
