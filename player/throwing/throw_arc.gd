@@ -23,7 +23,8 @@ var aim_speed := 10.0;
 var aim_collision_mask := 1 << 0;
 
 
-const SHADER = preload("res://Scripts/Player/throw_arc.gdshader");
+const SHADER = preload("res://player/throwing/throw_arc.gdshader");
+
 
 func _ready() -> void:
 	setup_line_material();

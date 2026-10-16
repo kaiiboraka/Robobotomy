@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyuxsg2ydb1gm"
-path.s3tc="res://.godot/imported/Eye(1).PNG-cfdc5a4e7c7a112937d190016ac938af.s3tc.ctex"
+uid="uid://bgmjdqwcxp28a"
+path.s3tc="res://.godot/imported/stressed.PNG-470569898a1d704588ff3433e1503b2f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/2D/Character/Face Shapes/Eye Shapes/Eye(1).PNG"
-dest_files=["res://.godot/imported/Eye(1).PNG-cfdc5a4e7c7a112937d190016ac938af.s3tc.ctex"]
+source_file="res://player/visuals/textures/face_shapes/mouths/stressed.PNG"
+dest_files=["res://.godot/imported/stressed.PNG-470569898a1d704588ff3433e1503b2f.s3tc.ctex"]
 
 [params]
 

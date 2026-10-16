@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bfxbhhtip1gba"]
 
-[ext_resource type="Script" uid="uid://0dxneikdkrts" path="res://Scripts/Tools/extendable_wall.gd" id="1_mv7rg"]
+[ext_resource type="Script" uid="uid://0dxneikdkrts" path="res://world/terrain/extendable_wall.gd" id="1_mv7rg"]
 [ext_resource type="Material" uid="uid://cct38rv0tpch7" path="res://world/crates/box_mesh.tres" id="2_pv3fl"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qtg0g"]
