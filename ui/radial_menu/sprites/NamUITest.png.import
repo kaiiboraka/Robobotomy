@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s0h7bj8yn7rd"
-path="res://.godot/imported/Nam_Head.png-3b4d3cb507837d3889be3ca984d381fb.ctex"
+uid="uid://mkpu42xvutx3"
+path="res://.godot/imported/NamUITest.png-b1db2c89d4842f2e4371a8f248c18481.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Pixel Art/Nam_Head.png"
-dest_files=["res://.godot/imported/Nam_Head.png-3b4d3cb507837d3889be3ca984d381fb.ctex"]
+source_file="res://ui/radial_menu/sprites/NamUITest.png"
+dest_files=["res://.godot/imported/NamUITest.png-b1db2c89d4842f2e4371a8f248c18481.ctex"]
 
 [params]
 
