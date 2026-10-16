@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfjrt8dug1bxi"
-path.s3tc="res://.godot/imported/Leg_L_Foot_Base_color.png-79f76b5d10b836006e151e37f45fa03d.s3tc.ctex"
+uid="uid://b841t6v6sawd8"
+path.s3tc="res://.godot/imported/lower_left_arm_base_color.png-e255a9691029196572f254c34c78cd05.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/2D/Character/Leg_L_Foot_Base_color.png"
-dest_files=["res://.godot/imported/Leg_L_Foot_Base_color.png-79f76b5d10b836006e151e37f45fa03d.s3tc.ctex"]
+source_file="res://player/visuals/textures/lower_left_arm_base_color.png"
+dest_files=["res://.godot/imported/lower_left_arm_base_color.png-e255a9691029196572f254c34c78cd05.s3tc.ctex"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brpt5gikrst7w"
-path.s3tc="res://.godot/imported/Lights_SG_Base_color.png-adf31eb5ba969c9f0370b7963496a21b.s3tc.ctex"
+uid="uid://b61dwnpquqwgy"
+path.s3tc="res://.godot/imported/torso_base_color.png-7cfd66d8328b0f1b596990a8f012efff.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/2D/Character/Lights_SG_Base_color.png"
-dest_files=["res://.godot/imported/Lights_SG_Base_color.png-adf31eb5ba969c9f0370b7963496a21b.s3tc.ctex"]
+source_file="res://player/visuals/textures/torso_base_color.png"
+dest_files=["res://.godot/imported/torso_base_color.png-7cfd66d8328b0f1b596990a8f012efff.s3tc.ctex"]
 
 [params]
 

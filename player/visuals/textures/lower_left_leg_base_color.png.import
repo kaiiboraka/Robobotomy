@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw5e5wgmy5i5g"
-path.s3tc="res://.godot/imported/Neck_SG_Base_color.png-157f226fb43289b25cfc69ef423df53c.s3tc.ctex"
+uid="uid://dfjrt8dug1bxi"
+path.s3tc="res://.godot/imported/lower_left_leg_base_color.png-916606dce994bceaf908f90611100c1f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/2D/Character/Neck_SG_Base_color.png"
-dest_files=["res://.godot/imported/Neck_SG_Base_color.png-157f226fb43289b25cfc69ef423df53c.s3tc.ctex"]
+source_file="res://player/visuals/textures/lower_left_leg_base_color.png"
+dest_files=["res://.godot/imported/lower_left_leg_base_color.png-916606dce994bceaf908f90611100c1f.s3tc.ctex"]
 
 [params]
 
