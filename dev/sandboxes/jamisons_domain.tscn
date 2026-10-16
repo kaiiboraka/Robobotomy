@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/Environment/Interactables/rope.tscn" id="5_jdgyy"]
 [ext_resource type="PackedScene" uid="uid://dar6lwdrgm17r" path="res://world/climbing/ladders/ladder.tscn" id="6_mfg41"]
 [ext_resource type="PackedScene" uid="uid://cuc1pbmga6imc" path="res://world/terrain/cube_static.tscn" id="7_kmi27"]
-[ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://Scenes/_Deprecated/character.tscn" id="7_nbr5m"]
+[ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://dev/sandboxes/character/character.tscn" id="7_nbr5m"]
 
 [node name="EnvironmentTest" type="Node3D" unique_id=2122381212]
 
