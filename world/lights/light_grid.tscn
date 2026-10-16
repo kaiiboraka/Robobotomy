@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cyh3q0j5km2bb"]
 
-[ext_resource type="Script" uid="uid://bqp8t5b7o1rrf" path="res://Scripts/_Deprecated/light_grid.gd" id="1_l5lym"]
+[ext_resource type="Script" uid="uid://bqp8t5b7o1rrf" path="res://world/lights/light_grid.gd" id="1_l5lym"]
 [ext_resource type="Material" uid="uid://cct38rv0tpch7" path="res://world/crates/box_mesh.tres" id="1_ww0rk"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ww0rk"]

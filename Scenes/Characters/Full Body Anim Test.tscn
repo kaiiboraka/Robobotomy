@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://dkdk3van8wolx" path="res://Assets/Materials/Character/Head.tres" id="2_6ej1g"]
 [ext_resource type="Material" uid="uid://dwsuv2g2x10i0" path="res://Assets/Materials/Character/Neck.tres" id="3_511na"]
 [ext_resource type="Material" uid="uid://da6pkppw6wnv4" path="res://Assets/Materials/Character/Arm_Right_Shoulder.tres" id="4_6dcfs"]
-[ext_resource type="Material" uid="uid://brmdpc1wwlqhg" path="res://Assets/Materials/Character/Lights.tres" id="5_aftqo"]
+[ext_resource type="Material" uid="uid://brmdpc1wwlqhg" path="res://world/lights/materials/lights.tres" id="5_aftqo"]
 [ext_resource type="Material" uid="uid://rwrmbrxuh3cl" path="res://Assets/Materials/Character/Arm_Right.tres" id="6_u7sa5"]
 [ext_resource type="Material" uid="uid://cq63vdc6ubh1g" path="res://Assets/Materials/Character/Arm_Left_Shoulder.tres" id="7_kxleg"]
 [ext_resource type="Material" uid="uid://dvb3m65shniap" path="res://Assets/Materials/Character/Arm_Left.tres" id="8_06vmv"]

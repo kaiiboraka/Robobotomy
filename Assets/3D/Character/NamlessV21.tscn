@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://dkdk3van8wolx" path="res://Assets/Materials/Character/Head.tres" id="1_nharm"]
 [ext_resource type="Material" uid="uid://dwsuv2g2x10i0" path="res://Assets/Materials/Character/Neck.tres" id="2_lkllm"]
-[ext_resource type="Material" uid="uid://brmdpc1wwlqhg" path="res://Assets/Materials/Character/Lights.tres" id="3_6giem"]
+[ext_resource type="Material" uid="uid://brmdpc1wwlqhg" path="res://world/lights/materials/lights.tres" id="3_6giem"]
 [ext_resource type="Material" uid="uid://rwrmbrxuh3cl" path="res://Assets/Materials/Character/Arm_Right.tres" id="4_r1wro"]
 [ext_resource type="Material" uid="uid://da6pkppw6wnv4" path="res://Assets/Materials/Character/Arm_Right_Shoulder.tres" id="5_ncplg"]
 [ext_resource type="Material" uid="uid://cq63vdc6ubh1g" path="res://Assets/Materials/Character/Arm_Left_Shoulder.tres" id="6_6lpwi"]
@@ -15,7 +15,7 @@
 [ext_resource type="Animation" uid="uid://doxnwwdhvlo0v" path="res://Assets/Animation/Anim.res/Idle.res" id="13_dxwdh"]
 [ext_resource type="Animation" uid="uid://clhantv363i7t" path="res://Assets/Animation/Anim.res/Looking Around.res" id="14_rqumr"]
 [ext_resource type="Animation" uid="uid://cm615iq3ysusg" path="res://Assets/Animation/Anim.res/Walk.res" id="15_lyvql"]
-[ext_resource type="Animation" uid="uid://cevubylmxe27g" path="res://Assets/Animation/Anim.res/Pushing Box.res" id="15_rqumr"]
+[ext_resource type="Animation" uid="uid://gwauqumcxqfv" path="res://Assets/Animation/Anim.res/Pushing Box.res" id="15_rqumr"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_cet83"]
 resource_name = "Head_and_Hair"
