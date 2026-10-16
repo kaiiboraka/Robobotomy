@@ -38,7 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://td56vu1l1xka" path="res://world/climbing/chains/chain.tscn" id="33_2gh2o"]
 [ext_resource type="PackedScene" uid="uid://cqoo5pdrpftt2" path="res://world/decorations/pipes/models/head_pipe_assembly.fbx" id="33_b7sev"]
 [ext_resource type="ArrayMesh" uid="uid://biqe8u1bxf710" path="res://world/decorations/pipes/models/head_pipe_01.res" id="34_eyu3q"]
-[ext_resource type="PackedScene" uid="uid://cswjjtc0va6ao" path="res://Scenes/Testing/Character Tests/NamelessV07.tscn" id="37_u7nal"]
+[ext_resource type="PackedScene" uid="uid://cswjjtc0va6ao" path="res://dev/character_tests/nameless_v07.tscn" id="37_u7nal"]
 [ext_resource type="PackedScene" uid="uid://6lte8385sjbm" path="res://world/crates/crate.tscn" id="40_h5n57"]
 
 [sub_resource type="Environment" id="Environment_3442d"]
