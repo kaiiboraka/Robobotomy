@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f60lyn2b6nsx"
-path.s3tc="res://.godot/imported/Big_Wires (7).png-6c87058299ba73f8c331c51cd16a627d.s3tc.ctex"
+uid="uid://c8iieo5ohyn7w"
+path.s3tc="res://.godot/imported/wire_connector_05.png-e520998aed81d5ac794a0c77b4903e89.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/2D/Wires/Big_Wires (7).png"
-dest_files=["res://.godot/imported/Big_Wires (7).png-6c87058299ba73f8c331c51cd16a627d.s3tc.ctex"]
+source_file="res://world/decorations/wires/sprites/wire_connector_05.png"
+dest_files=["res://.godot/imported/wire_connector_05.png-e520998aed81d5ac794a0c77b4903e89.s3tc.ctex"]
 
 [params]
 
