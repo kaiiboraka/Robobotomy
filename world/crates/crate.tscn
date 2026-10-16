@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://6lte8385sjbm"]
 
-[ext_resource type="Script" uid="uid://bw3ilbdq2mkuw" path="res://Scripts/Environment/Crate.gd" id="1_2p0wi"]
+[ext_resource type="Script" uid="uid://bw3ilbdq2mkuw" path="res://world/crates/crate.gd" id="1_2p0wi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3eh2l"]
 size = Vector3(2, 2, 2)
