@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://mgfaqbwixsqj"]
 
-[ext_resource type="Script" uid="uid://svp8dyuwan4v" path="res://Scripts/Environment/Doors/HingeComplex.cs" id="1_qp1ya"]
+[ext_resource type="Script" uid="uid://svp8dyuwan4v" path="res://world/hinges/HingeComplex.cs" id="1_qp1ya"]
 [ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://Assets/3D/Objects/Pipes/pipe1_long.res" id="2_rh1ys"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_mgp4v"]
