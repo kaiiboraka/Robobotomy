@@ -1,4 +1,5 @@
-extends Node;
+class_name LevelManagerType
+extends Node
 ## A scene manager to load and unload level scenes
 ##
 ## Loads new level scenes and unloads old level scenes
@@ -44,9 +45,11 @@ extends Node;
 
 # Currently undefined, but should be the root
 # node in the main scene
-var main_scene: Main;
+## Main scene object
+var main_scene: Main
 # Currently undefined, but is a level scene
-var loaded_levels: Array[Node3D] = [];
+## Array of levels loaded into the game
+var loaded_levels: Array[Node3D] = []
 
 ## Loads the given level [br]
 ## 
@@ -54,14 +57,13 @@ var loaded_levels: Array[Node3D] = [];
 ## in the game to load the level
 ## @deprecated: Use load_threaded_level instead
 func load_level(scene_path: String) -> void:
-	var new_level: Node3D = load(scene_path).instantiate();
-	loaded_levels.append(new_level);
-	main_scene.add_child(new_level);
+	var new_level: Node3D = load(scene_path).instantiate()
+	loaded_levels.append(new_level)
+	main_scene.add_child(new_level)
 
-
+## Queue loading a scene on a separate thread
 func queue_threaded_load(scene_path: String) -> void:
-	ResourceLoader.load_threaded_request(scene_path);
-
+	ResourceLoader.load_threaded_request(scene_path)
 
 ## Returns the status of a threaded loading scene at the given path
 ## [br][br]
@@ -71,18 +73,17 @@ func queue_threaded_load(scene_path: String) -> void:
 ## the loading process and return false.
 func get_threaded_status(scene_path: String) -> bool:
 	## An integer value representing the status of the thread
-	var status: int = ResourceLoader.load_threaded_get_status(scene_path);
+	var status: int = ResourceLoader.load_threaded_get_status(scene_path)
 	if status == ResourceLoader.THREAD_LOAD_LOADED:
-		return true;
+		return true
 	elif status == ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
 	# Indicates that the level wants to be loaded but hasn't 
 	# started the process yet, call queue_threaded_load() method
 	# WARNING: This may indicate that the scene_path is invalid
-		queue_threaded_load(scene_path);
-		return false;
+		queue_threaded_load(scene_path)
+		return false
 	else:
-		return false;
-
+		return false
 
 ## Returns a floating-point number of the progress of a scene
 ## being loaded in a separate thread. 
@@ -90,22 +91,25 @@ func get_threaded_status(scene_path: String) -> bool:
 ## Useful for UI progress bars to display the progress of loading
 ## a scene/level 
 func get_threaded_progress(scene_path: String) -> float:
-	var progress: Array = [];
-	ResourceLoader.load_threaded_get_status(scene_path, progress);
-	return progress[0];
+	var _progress: Array = []
+	ResourceLoader.load_threaded_get_status(scene_path, _progress)
+	return _progress[0]
 
-
+## Load the target level (that should have been loaded by now)
+## into the main scene
 func load_threaded_level(scene_path: String) -> void:
-	var new_level: Node3D = ResourceLoader.load_threaded_get(scene_path).instantiate();
-	loaded_levels.append(new_level);
-	main_scene.add_child(new_level);
+	var _new_level: Node3D = ResourceLoader \
+		.load_threaded_get(scene_path) \
+		.instantiate()
+	loaded_levels.append(_new_level)
+	main_scene.add_child(_new_level)
 
-
+## Unload the oldest level from the tree
 func unload_level() -> void:
 	# To avoid errors, check if a previous level exists/is loaded
 	if len(loaded_levels) > 1:
-		loaded_levels[0].queue_free();
-		loaded_levels.pop_front();
+		loaded_levels[0].queue_free()
+		loaded_levels.pop_front()
 
 ## Returns a Vector3 of the ending location of the oldest scene
 ##[br][br]
@@ -113,6 +117,6 @@ func unload_level() -> void:
 ## [code]Vector3(0, 0, 0)[/code] if there is none.
 func get_previous_end() -> Vector3:
 	if len(loaded_levels) > 1:
-		return loaded_levels[-2].end_location;
+		return loaded_levels[-2].end_location
 	else:
-		return Vector3(0, 0, 0);
+		return Vector3(0, 0, 0)

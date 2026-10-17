@@ -1,8 +1,7 @@
-extends Node
 class_name Main
+extends Node
+## Defines the main scene for the game to run
 
 
 func _ready() -> void:
-	# Load main into LevelManager so it knows where to load
-	# new levels
 	LevelManager.main_scene = self
