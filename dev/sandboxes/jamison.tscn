@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://gl5j7l3w6avc" path="res://world/crates/simple_box.tscn" id="3_vuikh"]
 [ext_resource type="ArrayMesh" uid="uid://u21du2joicp5" path="res://world/buttons/models/components/button.res" id="4_bde0f"]
 [ext_resource type="Material" uid="uid://cjjlgffq2ycbp" path="res://shared/materials/basic_colors/violet.tres" id="5_j7jpj"]
-[ext_resource type="PackedScene" path="res://Scenes/Environment/Interactables/rope.tscn" id="6_330lm"]
 [ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://dev/sandboxes/character/character.tscn" id="7_330lm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vrgj1"]
@@ -98,59 +97,45 @@ fov = 35.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, -0.9226837)
 
 [node name="ExtendableWall" parent="Walls" unique_id=1149585584 instance=ExtResource("2_7rw42")]
-length = 60.0
 
 [node name="ExtendableWall2" parent="Walls" unique_id=1461174123 instance=ExtResource("2_7rw42")]
 transform = Transform3D(-4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0, 1, -29.33265, 19.834017, 0)
-length = 30.0
 
 [node name="ExtendableWall3" parent="Walls" unique_id=522891116 instance=ExtResource("2_7rw42")]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 29.569008, 12.025597, 0)
-length = 25.0
 
 [node name="ExtendableWall4" parent="Walls" unique_id=962597131 instance=ExtResource("2_7rw42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 33.75346, 0)
-length = 60.0
 
 [node name="ExtendableWall5" parent="Walls" unique_id=1873289712 instance=ExtResource("2_7rw42")]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 29.569008, 32.302773, 0)
-length = 5.0
 
 [node name="ExtendableWall6" parent="Walls" unique_id=590750437 instance=ExtResource("2_7rw42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8012, 8.086137, 0)
-length = 25.0
 
 [node name="ExtendableWall12" parent="Walls" unique_id=1322903234 instance=ExtResource("2_7rw42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.410152, 16.48228, 0)
-length = 29.0
 
 [node name="ExtendableWall13" parent="Walls" unique_id=407306691 instance=ExtResource("2_7rw42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.32257, 24.185163, 0)
-length = 25.0
 
 [node name="ExtendableWall9" parent="Walls" unique_id=1330119458 instance=ExtResource("2_7rw42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.717297, 16.48228, 0)
-length = 15.0
 
 [node name="ExtendableWall14" parent="Walls" unique_id=402024162 instance=ExtResource("2_7rw42")]
 transform = Transform3D(0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 0, 0, 0, 1, -13.180847, 24.339222, 0)
-length = 12.0
 
 [node name="ExtendableWall7" parent="Walls" unique_id=435918059 instance=ExtResource("2_7rw42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.490566, 8.086137, 0)
-length = 20.0
 
 [node name="ExtendableWall8" parent="Walls" unique_id=1665601789 instance=ExtResource("2_7rw42")]
 transform = Transform3D(0.93969256, -0.3420201, 0, 0.3420201, 0.93969256, 0, 0, 0, 1, 7.6467247, 7.2608337, 0)
-length = 5.0
 
 [node name="ExtendableWall10" parent="Walls" unique_id=574191923 instance=ExtResource("2_7rw42")]
 transform = Transform3D(0.8660253, -0.49999997, 0, 0.49999997, 0.8660253, 0, 0, 0, 1, -20.699879, 15.425888, 0)
-length = 5.0
 
 [node name="ExtendableWall11" parent="Walls" unique_id=1439355766 instance=ExtResource("2_7rw42")]
 transform = Transform3D(0.713605, 0.70054805, 0, -0.70054805, 0.713605, 0, 0, 0, 1, -26.72228, 10.608456, 0)
-length = 5.0
 
 [node name="Simple Box" parent="." unique_id=616651277 instance=ExtResource("3_vuikh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0106125, 1.6463299, 0)
@@ -181,7 +166,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.165009, 8.755113, 0)
 mesh = ExtResource("4_bde0f")
 surface_material_override/0 = ExtResource("5_j7jpj")
 
-[node name="Simple Box2" parent="." unique_id=229453500 instance=ExtResource("3_vuikh")]
+[node name="SimpleBox2" parent="." unique_id=229453500 instance=ExtResource("3_vuikh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.909853, 18.273376, 0)
 mass = 2.0
 sizePreset = 1
@@ -189,7 +174,7 @@ boxSize = Vector3(2, 2, 2)
 weight = 2.0
 leftHandle = true
 
-[node name="Simple Box3" parent="." unique_id=940481163 instance=ExtResource("3_vuikh")]
+[node name="SimpleBox3" parent="." unique_id=940481163 instance=ExtResource("3_vuikh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.979627, 19.68847, 0)
 mass = 3.0
 sizePreset = 2
@@ -246,9 +231,6 @@ mesh = SubResource("BoxMesh_3rvjj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Door4" unique_id=791451785]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.502495, 27.240719, -0.8776089)
 shape = SubResource("BoxShape3D_j2v7l")
-
-[node name="Rope" parent="." unique_id=1690729286 instance=ExtResource("6_330lm")]
-transform = Transform3D(1, 0, 0, 0, 1.3607776, 0, 0, 0, 1, -21.38831, 33.349, 0)
 
 [node name="HeadPipe" type="MeshInstance3D" parent="." unique_id=867515465]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.322868, 14.159034, 0)

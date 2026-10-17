@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://dev/sandboxes/character/character.tscn" id="5_wm86n"]
 [ext_resource type="PackedScene" uid="uid://gl5j7l3w6avc" path="res://world/crates/simple_box.tscn" id="6_suoqg"]
 
-[node name="Node3D" type="Node3D" unique_id=1010345093]
+[node name="TestLevel" type="Node3D" unique_id=1010345093]
 
 [node name="ExtendableWall" parent="." unique_id=1149585584 instance=ExtResource("2_v1i2c")]
 transform = Transform3D(0.8793546, 0, 0, 0, 5.422315, 0, 0, 0, 0.93352544, 34.94561, -2.3297462, -0.0873971)

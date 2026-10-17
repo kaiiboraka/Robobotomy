@@ -32,7 +32,7 @@ transform = Transform3D(0.71129036, -0.012095565, 0.70279425, -0.64727503, 0.378
 
 [node name="Player" parent="." unique_id=64555096 instance=ExtResource("1_de7ma")]
 
-[node name="ExtendableWall" parent="." unique_id=1149585584 instance=ExtResource("2_huhxs")]
+[node name="Floor" parent="." unique_id=1149585584 instance=ExtResource("2_huhxs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5015848, -1.1290178, -0.07102585)
 
 [node name="MovingObjectPath" type="Path3D" parent="." unique_id=2116635611]
@@ -59,29 +59,29 @@ shape = SubResource("BoxShape3D_huhxs")
 transform = Transform3D(1, 8.881784e-16, 0, 0, 1, -6.8604454e-16, 0, -6.8605434e-16, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_de7ma")
 
-[node name="button" type="StaticBody3D" parent="." unique_id=966761711]
+[node name="Button" type="StaticBody3D" parent="." unique_id=966761711]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8200026, -0.52343607, 0)
 collision_layer = 4
 collision_mask = 0
 
-[node name="buttonmesh" type="MeshInstance3D" parent="button" unique_id=1593184632]
+[node name="ButtonMesh" type="MeshInstance3D" parent="Button" unique_id=1593184632]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24720168, 0)
 mesh = ExtResource("4_wdhy1")
 skeleton = NodePath("")
 
-[node name="ButtonTriggerArea" type="Area3D" parent="button" unique_id=229953665]
+[node name="ButtonTriggerArea" type="Area3D" parent="Button" unique_id=229953665]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24720168, 0)
 collision_layer = 2048
 
-[node name="triggercollider" type="CollisionShape3D" parent="button/ButtonTriggerArea" unique_id=389102320]
+[node name="TriggerCollider" type="CollisionShape3D" parent="Button/ButtonTriggerArea" unique_id=389102320]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023345947, 0.35498047, -0.103637695)
 shape = SubResource("BoxShape3D_lkw2u")
 debug_color = Color(0, 1.3930205, 1.6095817, 1)
 
-[node name="blockingcollider" type="CollisionShape3D" parent="button" unique_id=1961318067]
+[node name="BlockingCollider" type="CollisionShape3D" parent="Button" unique_id=1961318067]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24720168, 0)
 visible = false
 shape = SubResource("ConcavePolygonShape3D_u2ftd")
 
-[connection signal="body_entered" from="button/ButtonTriggerArea" to="MovingObjectPath" method="_on_activated"]
-[connection signal="body_exited" from="button/ButtonTriggerArea" to="MovingObjectPath" method="_on_deactivated"]
+[connection signal="body_entered" from="Button/ButtonTriggerArea" to="MovingObjectPath" method="_on_activated"]
+[connection signal="body_exited" from="Button/ButtonTriggerArea" to="MovingObjectPath" method="_on_deactivated"]

@@ -23,11 +23,11 @@ transition = 7
 
 [node name="JacobPrototyping" type="Node3D" unique_id=947964362]
 
-[node name="ExtendableWall" parent="." unique_id=1149585584 instance=ExtResource("2_bd11y")]
+[node name="RightFloor" parent="." unique_id=1149585584 instance=ExtResource("2_bd11y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5902824, -1.1713285, 0)
 size = Vector3(12.316, 2.37, 5)
 
-[node name="ExtendableWall5" parent="." unique_id=1201527970 instance=ExtResource("2_bd11y")]
+[node name="LeftFloor" parent="." unique_id=1201527970 instance=ExtResource("2_bd11y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.803055, -1.1713285, 0)
 size = Vector3(15.366, 2.37, 5)
 
@@ -76,21 +76,20 @@ show_viewfinder_in_play = true
 spring_length = 15.0
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="ExtendableWall2" parent="." unique_id=1349869339 instance=ExtResource("2_bd11y")]
+[node name="Wall" parent="." unique_id=1349869339 instance=ExtResource("2_bd11y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.186741, 0, 0)
 size = Vector3(5.975, 18.38, 5)
 
-[node name="ExtendableWall3" parent="." unique_id=494915183 instance=ExtResource("2_bd11y")]
+[node name="UpperWall" parent="." unique_id=494915183 instance=ExtResource("2_bd11y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.314072, 13.517267, 0)
 size = Vector3(5.975, 18.38, 5)
 
-[node name="ExtendableWall4" parent="." unique_id=1015948822 instance=ExtResource("2_bd11y")]
+[node name="Ceiling" parent="." unique_id=1015948822 instance=ExtResource("2_bd11y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.059802, 21.241299, 0)
 size = Vector3(29.91, 1, 5)
 
-[node name="Rope2" parent="." unique_id=2093183878 instance=ExtResource("21_jkqt3")]
+[node name="Chain" parent="." unique_id=2093183878 instance=ExtResource("21_jkqt3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.213333, 12.8517065, 0)
-length = 10
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1732502036]
 transform = Transform3D(1, 0, 0, 0, 0.06662385, 0.9977782, 0, -0.9977782, 0.06662385, 0, -1.9201674, 0)

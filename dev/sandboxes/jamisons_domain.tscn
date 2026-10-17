@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://dbk24fe7ef7m3" path="res://world/terrain/platform_plane.tscn" id="1_4r85m"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_kmi27"]
 [ext_resource type="PackedScene" uid="uid://gl5j7l3w6avc" path="res://world/crates/simple_box.tscn" id="4_nbr5m"]
-[ext_resource type="PackedScene" path="res://Scenes/Environment/Interactables/rope.tscn" id="5_jdgyy"]
 [ext_resource type="PackedScene" uid="uid://dar6lwdrgm17r" path="res://world/climbing/ladders/ladder.tscn" id="6_mfg41"]
 [ext_resource type="PackedScene" uid="uid://cuc1pbmga6imc" path="res://world/terrain/cube_static.tscn" id="7_kmi27"]
 [ext_resource type="PackedScene" uid="uid://bns61k02jrmoo" path="res://dev/sandboxes/character/character.tscn" id="7_nbr5m"]
@@ -23,13 +22,13 @@ process_physics_priority = 300
 script = ExtResource("3_kmi27")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="Simple Box" parent="." unique_id=1855565409 instance=ExtResource("4_nbr5m")]
+[node name="SimpleBox" parent="." unique_id=1855565409 instance=ExtResource("4_nbr5m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.51278996, 0)
 
-[node name="Simple Box2" parent="." unique_id=209827968 instance=ExtResource("4_nbr5m")]
+[node name="SimpleBox2" parent="." unique_id=209827968 instance=ExtResource("4_nbr5m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.51278996, 0)
 
-[node name="Simple Box3" parent="." unique_id=1184924920 instance=ExtResource("4_nbr5m")]
+[node name="SimpleBox3" parent="." unique_id=1184924920 instance=ExtResource("4_nbr5m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.4526241, 0)
 axis_lock_linear_x = true
 axis_lock_angular_x = true
@@ -38,7 +37,7 @@ staticBox = true
 leftHandle = true
 rightHandle = true
 
-[node name="Simple Box5" parent="." unique_id=561765258 instance=ExtResource("4_nbr5m")]
+[node name="SimpleBox5" parent="." unique_id=561765258 instance=ExtResource("4_nbr5m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.276139, 3.3810737, 0.044650078)
 axis_lock_linear_x = true
 axis_lock_angular_x = true
@@ -51,7 +50,7 @@ staticBox = true
 leftHandle = true
 rightHandle = true
 
-[node name="Simple Box4" parent="." unique_id=2021529579 instance=ExtResource("4_nbr5m")]
+[node name="SimpleBox4" parent="." unique_id=2021529579 instance=ExtResource("4_nbr5m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.153195, 0.9836917, 0)
 axis_lock_linear_x = true
 axis_lock_angular_x = true
@@ -62,13 +61,6 @@ boxSize = Vector3(2, 2, 2)
 weight = 2.0
 staticBox = true
 rightHandle = true
-
-[node name="Rope" parent="." unique_id=1838530454 instance=ExtResource("5_jdgyy")]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 7, 12.748899, 0)
-_length = 9.6
-
-[node name="Rope2" parent="." unique_id=174193566 instance=ExtResource("5_jdgyy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.095756, 10.100558, 0)
 
 [node name="Ladder" parent="." unique_id=1400433852 instance=ExtResource("6_mfg41")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0709267, 0, -0.00047683716)

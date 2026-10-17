@@ -12,28 +12,28 @@
 
 [node name="PlatformStatic" parent="." unique_id=1076647956 instance=ExtResource("1_nwv8u")]
 
-[node name="Simple Box" parent="." unique_id=721998183 instance=ExtResource("2_uk5sn")]
+[node name="SimpleBox" parent="." unique_id=721998183 instance=ExtResource("2_uk5sn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6014295, 0.74538517, 0)
 
-[node name="Gym Welcome" type="Label3D" parent="." unique_id=1525466051]
+[node name="GymWelcome" type="Label3D" parent="." unique_id=1525466051]
 transform = Transform3D(1, 0, 0, 0, 0.7009342, 0.71322596, 0, -0.71322596, 0.7009342, 0.051551342, 0.36260664, 2.5304399)
 text = "Gym"
 font_size = 64
 outline_size = 19
 
-[node name="Chains Label" type="Label3D" parent="." unique_id=155881223]
+[node name="ChainsLabel" type="Label3D" parent="." unique_id=155881223]
 transform = Transform3D(1, 0, 0, 0, 0.7009342, 0.71322596, 0, -0.71322596, 0.7009342, -6.563844, 0.36260664, 2.5304399)
 text = "Chains"
 font_size = 64
 outline_size = 19
 
-[node name="Hinge Door Label" type="Label3D" parent="." unique_id=180099318]
+[node name="HingeDoorLabel" type="Label3D" parent="." unique_id=180099318]
 transform = Transform3D(1, 0, 0, 0, 0.7009342, 0.71322596, 0, -0.71322596, 0.7009342, -24.32957, 0.36260664, 2.5304399)
 text = "Hinge Doors"
 font_size = 64
 outline_size = 19
 
-[node name="SeeSaw Label" type="Label3D" parent="." unique_id=443643724]
+[node name="SeeSawLabel" type="Label3D" parent="." unique_id=443643724]
 transform = Transform3D(1, 0, 0, 0, 0.7009342, 0.71322596, 0, -0.71322596, 0.7009342, -38.672684, 0.36260664, 2.5304399)
 text = "SeeSaws"
 font_size = 64

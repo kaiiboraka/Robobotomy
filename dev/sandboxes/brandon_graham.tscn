@@ -25,7 +25,7 @@ glow_enabled = true
 script = ExtResource("3_t1lel")
 transition = 7
 
-[node name="Node3D" type="Node3D" unique_id=368627856]
+[node name="TestScene" type="Node3D" unique_id=368627856]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1145315526]
 environment = SubResource("Environment_sr37p")
@@ -34,19 +34,19 @@ environment = SubResource("Environment_sr37p")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="ExtendableWall" parent="." unique_id=1149585584 instance=ExtResource("1_l4fje")]
+[node name="Floor" parent="." unique_id=1149585584 instance=ExtResource("1_l4fje")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.137, 0)
 size = Vector3(35, 15, 5)
 
-[node name="ExtendableWall2" parent="." unique_id=702952417 instance=ExtResource("1_l4fje")]
+[node name="Ceiling" parent="." unique_id=702952417 instance=ExtResource("1_l4fje")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.58579, 0)
 size = Vector3(35, 10, 5)
 
-[node name="ExtendableWall3" parent="." unique_id=2117104684 instance=ExtResource("1_l4fje")]
+[node name="RightWall" parent="." unique_id=2117104684 instance=ExtResource("1_l4fje")]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 20.501936, 2.9082685, 0)
 size = Vector3(20, 6.265, 5)
 
-[node name="ExtendableWall4" parent="." unique_id=822918072 instance=ExtResource("1_l4fje")]
+[node name="LeftWall" parent="." unique_id=822918072 instance=ExtResource("1_l4fje")]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -20.389067, 7.6944013, 0)
 size = Vector3(40, 6.265, 5)
 

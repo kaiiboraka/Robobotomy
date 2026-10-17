@@ -21,7 +21,7 @@ process_physics_priority = 300
 script = ExtResource("3_1mdn6")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="Simple Box" parent="." unique_id=1702358804 instance=ExtResource("4_1u2ve")]
+[node name="SimpleBox" parent="." unique_id=1702358804 instance=ExtResource("4_1u2ve")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
 
 [node name="HingeSimple" parent="." unique_id=1315568489 instance=ExtResource("5_v23sh")]
