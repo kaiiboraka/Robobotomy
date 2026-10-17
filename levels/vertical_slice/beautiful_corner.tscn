@@ -98,7 +98,6 @@
 [ext_resource type="Texture2D" uid="uid://bvtq6v2ixvrsh" path="res://shared/materials/metal/metal_normal.png" id="94_nruv6"]
 [ext_resource type="PackedScene" uid="uid://cm25ac4a1w6vt" path="res://world/decorations/pipes/models/head_pipes_01.fbx" id="95_1f8lv"]
 [ext_resource type="Texture2D" uid="uid://8fu1o08kxoar" path="res://shared/materials/metal/metal_roughness.png" id="95_1o705"]
-[ext_resource type="PackedScene" uid="uid://g0v3th7stns1" path="res://world/decorations/pipes/models/head_pipes_02.fbx" id="96_ymajn"]
 [ext_resource type="PackedScene" uid="uid://cqoo5pdrpftt2" path="res://world/decorations/pipes/models/head_pipe_assembly.fbx" id="97_uhx7f"]
 [ext_resource type="Shader" uid="uid://cwfjfvridlcyp" path="res://shared/materials/proc_shader.tres" id="99_d08y4"]
 [ext_resource type="Texture2D" uid="uid://cg76upv0jtajq" path="res://shared/materials/metal/metal_base_color.png" id="100_lp33q"]
@@ -531,8 +530,6 @@ size = Vector3(2.7104778, 1, 6.6793365)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.455235, 1.696732, 6.628353)
 fov = 50.0
 script = ExtResource("5_t2hkb")
-moveSpeed = 0.05
-wheelSpeed = 0.05
 
 [node name="MeshInstance3D46" type="MeshInstance3D" parent="Camera3D" unique_id=224790565]
 transform = Transform3D(-1.0927847e-06, 0, 25, 0, 25.000002, 0, -25.000002, 0, -1.0927848e-06, -1.4539434, -1.0860994, -6.5793)
@@ -1479,7 +1476,7 @@ mesh = ExtResource("68_30kme")
 [node name="Head Pipes" parent="." unique_id=246424363 instance=ExtResource("95_1f8lv")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 16.089724, 4.4872513, -1.7067604)
 
-[node name="Head Pipes 2" parent="." unique_id=43129330 instance=ExtResource("96_ymajn")]
+[node name="Head Pipes 2" parent="." unique_id=43129330]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 24.771696, 4.498307, -2.1045551)
 
 [node name="Head Pipes Grables" parent="." unique_id=832287388 instance=ExtResource("97_uhx7f")]
