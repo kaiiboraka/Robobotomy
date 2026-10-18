@@ -1,5 +1,5 @@
-extends Area3D
 class_name LoadLevelTrigger
+extends Area3D
 ## An Area3D trigger to start loading new levels
 ##
 ## When the player passes through this trigger

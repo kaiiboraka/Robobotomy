@@ -1,5 +1,7 @@
 @tool
+class_name ExtendableWall
 extends AnimatableBody3D;
+## Placeholder wall type for whiteboxing
 
 @export var size: Vector3 = Vector3(1, 1, 1):
 	set(val):
@@ -46,7 +48,7 @@ func _ready() -> void:
 		if not shape_node.shape.changed.is_connected(_on_resource_changed):
 			shape_node.shape.changed.connect(_on_resource_changed);
 
-
+## Updates the mesh when the scene is changed
 func _on_resource_changed() -> void:
 	# If you change the BoxMesh size in the inspector, this updates the parent 'size'
 	var new_size := size;
@@ -59,35 +61,35 @@ func _on_resource_changed() -> void:
 		size = new_size;
 		# Triggers setter to update the other child;
 
-
+## Sync the sizes of the mesh and shape
 func _sync_sizes() -> void:
 	if mesh_node and mesh_node.mesh:
 		mesh_node.mesh.size = size;
 	if shape_node and shape_node.shape:
 		shape_node.shape.size = size;
 
-
+## Fix scaling
 func _fix_scale() -> void:
 	size.x *= scale.x;
 	size.y *= scale.y;
 	size.z *= scale.z;
 	scale = Vector3.ONE;
 
-
+## Swap x and y axis
 func _swap_xy() -> void:
 	var tmp = size.x;
 	size.x = size.y;
 	size.y = tmp;
 	_sync_sizes();
 
-
+## Swap y and z axis
 func _swap_yz() -> void:
 	var tmp = size.y;
 	size.y = size.z;
 	size.z = tmp;
 	_sync_sizes();
 
-
+## Swap x and z axis
 func _swap_xz() -> void:
 	var tmp = size.x;
 	size.x = size.z;

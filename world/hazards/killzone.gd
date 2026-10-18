@@ -1,11 +1,14 @@
 @tool
 extends Area3D
 class_name Killzone
+## In game area that 'kills' the player when touched
 
+## Size of the killzone, syncs the parent node when changed
 @export var size: Vector3 = Vector3(1, 1, 1):
 	set(val):
 		size = val;
 		_sync_size();
+## Target reset location
 @export var checkpoint: Marker3D;
 @onready var shape_node: CollisionShape3D = $CollisionShape3D;
 
@@ -25,7 +28,7 @@ func _on_body_entered(body: Node3D) -> void:
 	if checkpoint and body.has_method("spawn_at"):
 		body.spawn_at(checkpoint.global_position);
 
-
+## Updates the parent when this resource is changed
 func _on_resource_changed() -> void:
 	# If you change the collision size in the inspector, this updates the parent 'size'
 	var new_size := size;

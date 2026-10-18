@@ -1,5 +1,5 @@
-extends Area3D
 class_name UnloadLevelTrigger
+extends Area3D
 ## An Area3D trigger to unload old levels
 ##
 ## When the player passes through this trigger

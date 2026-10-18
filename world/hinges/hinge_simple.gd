@@ -1,6 +1,7 @@
 @tool
 class_name HingeSimple
 extends Node3D;
+## Simple hinge scene for a rotating hinge
 
 @export_group("Hinge Parameters")
 @export var lower_angle: float = 0;

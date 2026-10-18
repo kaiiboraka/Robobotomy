@@ -1,10 +1,12 @@
-extends Area3D;
+class_name Teleportal
+extends Area3D
 
-@export var output_location: Node;
+## Where the player is teleported to
+@export var output_location: Node
 
 func _ready() -> void:
-	body_entered.connect(_on_body_entered);
+	body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("head"):
-		body.position = output_location.position;
+		body.position = output_location.position

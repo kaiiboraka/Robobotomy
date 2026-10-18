@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://pvwqjhr7eu4p"]
+[gd_scene format=3 uid="uid://pvwqjhr7eu4p"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_omntx"]
 rough = true
@@ -14,34 +14,34 @@ size = Vector3(8, 0.3, 1)
 height = 1.33
 radius = 0.38
 
-[node name="Seesaw" type="Node3D"]
+[node name="Seesaw" type="Node3D" unique_id=50232581]
 
-[node name="Platform" type="RigidBody3D" parent="."]
+[node name="Platform" type="RigidBody3D" parent="." unique_id=157438800]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15148546, 0)
 collision_layer = 72
 collision_mask = 101
 physics_material_override = SubResource("PhysicsMaterial_omntx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform" unique_id=1546235869]
 shape = SubResource("BoxShape3D_2dscc")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Platform"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platform" unique_id=1130259524]
 transform = Transform3D(8, 0, 0, 0, 0.3, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_238e2")
 skeleton = NodePath("../CollisionShape3D")
 
-[node name="Fulcrum" type="StaticBody3D" parent="."]
+[node name="Fulcrum" type="StaticBody3D" parent="." unique_id=1502004015]
 transform = Transform3D(0.75, 0, 0, 0, -3.278354e-08, -0.75, 0, 0.75, -3.278354e-08, 0, -0.27957785, 0)
 collision_layer = 516
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Fulcrum"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Fulcrum" unique_id=1278872663]
 transform = Transform3D(0.75, 0, 0, 0, 0.66541255, 0, 0, 7.1054274e-15, 0.75, 0, 0, 0)
 mesh = SubResource("CylinderMesh_omntx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Fulcrum"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fulcrum" unique_id=1351377427]
 shape = SubResource("CylinderShape3D_238e2")
 
-[node name="HingeJoint3D" type="HingeJoint3D" parent="."]
+[node name="HingeJoint3D" type="HingeJoint3D" parent="." unique_id=1767223368]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.004334286, 0)
 node_a = NodePath("../Fulcrum")
 node_b = NodePath("../Platform")

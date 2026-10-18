@@ -1,14 +1,17 @@
 @tool
 class_name LightSource
 extends MeshInstance3D
+## A light source object to add to the game (invisible by default)
 
 #invisible by default 
 #MeshInstance3D has a location, so dont change it to anything else
 
+## The color of the light source
 @export var color: Color = Color.WHITE:
 	set(value):
 		color = value
 		update_material_color()
+	
 	
 func _ready() -> void:
 	if Engine.is_editor_hint():
@@ -29,9 +32,7 @@ func _ready() -> void:
 		# game runs, make it completely invisible
 		visible = false
 
-func _process(_delta: float) -> void:
-	pass
-
+## Update the color of the light material
 func update_material_color() -> void:
 	if material_override:
 		material_override.albedo_color = color
