@@ -81,12 +81,12 @@ mesh = SubResource("BoxMesh_huync")
 transform = Transform3D(87.70958, 0, 0, 0, 19.763, 0, 0, 0, 4.549, 92.48117, 24.812605, 0)
 mesh = SubResource("BoxMesh_huync")
 
-[node name="gear" type="MeshInstance3D" parent="." unique_id=446958646]
+[node name="Gear" type="MeshInstance3D" parent="." unique_id=446958646]
 transform = Transform3D(4.175421, -0.0045112846, 0.062295247, 0.062458377, 0.30158487, -4.1645155, 0, 4.1649814, 0.30161864, -27.040665, 10.385968, 0.6456435)
 mesh = ExtResource("2_vkmec")
 skeleton = NodePath("../Cube7")
 
-[node name="gear2" type="MeshInstance3D" parent="." unique_id=1393077558]
+[node name="Gear2" type="MeshInstance3D" parent="." unique_id=1393077558]
 transform = Transform3D(3.0056603, -0.0060255607, 0.044842985, 0.044960413, 0.40281606, -2.99781, 0, 5.5630155, 0.21711898, -9.171341, 8.851579, 0.07663784)
 mesh = ExtResource("2_vkmec")
 skeleton = NodePath("../Cube7")
@@ -155,7 +155,7 @@ mesh = ExtResource("4_3u1ho")
 transform = Transform3D(-0.048849728, 0, -0.9988061, 0, 1, 0, 0.9988061, 0, -0.048849728, -17.569092, 4.436444, -0.22558281)
 collision_layer = 8
 
-[node name="scafolding" type="MeshInstance3D" parent="StaticBody3D" unique_id=1652140710]
+[node name="Scaffolding" type="MeshInstance3D" parent="StaticBody3D" unique_id=1652140710]
 transform = Transform3D(0.9999992, 0, 0, 0, 1.5380726, 0, 0, 0, 1.3786103, 0, 0, 0)
 mesh = ExtResource("5_1lny6")
 skeleton = NodePath("../Cylindar4")
@@ -172,7 +172,7 @@ shape = SubResource("BoxShape3D_3u1ho")
 transform = Transform3D(-0.048849694, 0, -1.3769643, 0, 1.5380726, 0, 0.9988054, 0, -0.06734473, -17.569092, 4.436444, -0.22558281)
 collision_layer = 8
 
-[node name="scafolding5" type="MeshInstance3D" parent="StaticBody3D2" unique_id=381559]
+[node name="Scaffolding5" type="MeshInstance3D" parent="StaticBody3D2" unique_id=381559]
 transform = Transform3D(0.9999999, 0, -7.450581e-09, 0, 0.9999999, 0, 0, 0, 0.9999999, 1.1920929e-07, -2.4943817, -4.664036)
 mesh = ExtResource("5_1lny6")
 skeleton = NodePath("../Cylindar4")
@@ -323,7 +323,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.947084, 15.608429, 0)
 collision_layer = 0
 collision_mask = 3
 script = ExtResource("11_1lny6")
-output_location = NodePath("../TP_Location1")
+output_location = NodePath("../TPLocation1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Teleportal" unique_id=1602097442]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2775879, -0.070251465, 0)
@@ -334,7 +334,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -184.40569, 1.891654, 0)
 collision_layer = 0
 collision_mask = 3
 script = ExtResource("11_1lny6")
-output_location = NodePath("../TP_Location2")
+output_location = NodePath("../TPLocation2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Teleportal2" unique_id=1034819517]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2775879, -0.070251465, 0)
@@ -345,7 +345,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -207.57419, 1.891654, 0)
 collision_layer = 0
 collision_mask = 3
 script = ExtResource("11_1lny6")
-output_location = NodePath("../TP_Location3")
+output_location = NodePath("../TPLocation3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Teleportal3" unique_id=2118129122]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2775879, -0.070251465, 0)
@@ -407,13 +407,13 @@ text = "Seecret head puzzle"
 transform = Transform3D(76.16809, -27.610252, 58.61822, 25.277353, 95.96059, 12.353983, -59.66136, 5.407343, 80.070496, -204.40715, 0.98298377, -0.09438473)
 mesh = ExtResource("6_3x4w6")
 
-[node name="TP_Location1" type="Node3D" parent="." unique_id=235897032]
+[node name="TPLocation1" type="Node3D" parent="." unique_id=235897032]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -156.38829, 16.094002, -0.2215867)
 
-[node name="TP_Location2" type="Node3D" parent="." unique_id=844418488]
+[node name="TPLocation2" type="Node3D" parent="." unique_id=844418488]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -193.2101, 2.1365058, 0.010622263)
 
-[node name="TP_Location3" type="Node3D" parent="." unique_id=1961865197]
+[node name="TPLocation3" type="Node3D" parent="." unique_id=1961865197]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.566425, 19.182293, 0.05531931)
 
 [connection signal="body_entered" from="Area3D2" to="Crane" method="_on_area_3d_body_entered"]

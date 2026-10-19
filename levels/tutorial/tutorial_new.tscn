@@ -2380,81 +2380,81 @@ size = Vector3(6.0402427, 0.70219326, 17.228725)
 transform = Transform3D(0.88534737, 0.4649302, 0, -0.4649302, 0.88534737, 0, 0, 0, 1, 390.55872, 29.935669, -4.2077756)
 size = Vector3(3.28322, 0.9776799, 17.228725)
 
-[node name="Level1_torso1" type="Node" parent="." unique_id=1495617470]
+[node name="Level1Torso1" type="Node" parent="." unique_id=1495617470]
 
-[node name="Level1_Node3D" type="Node3D" parent="Level1_torso1" unique_id=1805398624]
+[node name="Level1Node3D" type="Node3D" parent="Level1Torso1" unique_id=1805398624]
 transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 52.048332, 3.876201, -0.13367605)
 
-[node name="Label_1" type="Label3D" parent="Level1_torso1/Level1_Node3D" unique_id=900863137]
+[node name="Label1" type="Label3D" parent="Level1Torso1/Level1Node3D" unique_id=900863137]
 transform = Transform3D(10.000007, 0, 0, 0, 10.000015, 0, 0, 0, 10.000012, 2.9696617, 5.883284, 0.7822814)
 text = "1"
 
-[node name="InteractiveButton2" parent="Level1_torso1/Level1_Node3D" unique_id=1151652390 node_paths=PackedStringArray("activation_targets") instance=ExtResource("12_h5n57")]
+[node name="InteractiveButton2" parent="Level1Torso1/Level1Node3D" unique_id=1151652390 node_paths=PackedStringArray("activation_targets") instance=ExtResource("12_h5n57")]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.3641207, -2.8923843, 0)
 trigger_weight = 3
 activation_targets = [NodePath("../DoorPath")]
 
-[node name="DoorPath" parent="Level1_torso1/Level1_Node3D" unique_id=41623911 node_paths=PackedStringArray("target_follower") instance=ExtResource("13_qu6t7")]
+[node name="DoorPath" parent="Level1Torso1/Level1Node3D" unique_id=41623911 node_paths=PackedStringArray("target_follower") instance=ExtResource("13_qu6t7")]
 transform = Transform3D(1.0000006, 0, 0, 0, 1.0000015, 0, 0, 0, 1.0000014, 11.551668, 9.553212, -0.07102595)
 target_follower = NodePath("../MovingExtendableWall")
 
-[node name="MovingExtendableWall" parent="Level1_torso1/Level1_Node3D" unique_id=1141331836 instance=ExtResource("14_ixj62")]
+[node name="MovingExtendableWall" parent="Level1Torso1/Level1Node3D" unique_id=1141331836 instance=ExtResource("14_ixj62")]
 transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 11.55167, 9.553211, -0.07102595)
 size = Vector3(5.687926, 21, 6.685104)
 
-[node name="Checkpoint_1" type="Marker3D" parent="Level1_torso1/Level1_Node3D" unique_id=1969394367]
+[node name="Checkpoint1" type="Marker3D" parent="Level1Torso1/Level1Node3D" unique_id=1969394367]
 transform = Transform3D(1.0000006, 0, 0, 0, 1.0000015, 0, 0, 0, 1.0000014, -5.3892097, 1.0866532, 0)
 
-[node name="Killzone_1" parent="Level1_torso1/Level1_Node3D" unique_id=718205558 node_paths=PackedStringArray("checkpoint") instance=ExtResource("15_btnpb")]
+[node name="Killzone1" parent="Level1Torso1/Level1Node3D" unique_id=718205558 node_paths=PackedStringArray("checkpoint") instance=ExtResource("15_btnpb")]
 transform = Transform3D(1.3672686, 0, 0, 0, 1.0000015, 0, 0, 0, 0.8605756, 11.569913, -2.1029599, 1.1914861)
-checkpoint = NodePath("../Checkpoint_1")
+checkpoint = NodePath("../Checkpoint1")
 
-[node name="Level2_torso2" type="Node" parent="." unique_id=691256337]
+[node name="Level2Torso2" type="Node" parent="." unique_id=691256337]
 
-[node name="Level2_Node3D" type="Node3D" parent="Level2_torso2" unique_id=497248191]
+[node name="Level2_Node3D" type="Node3D" parent="Level2Torso2" unique_id=497248191]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.91288, 0.17830276, 0.0663681)
 
-[node name="Label_2" type="Label3D" parent="Level2_torso2/Level2_Node3D" unique_id=1818890876]
+[node name="Label_2" type="Label3D" parent="Level2Torso2/Level2_Node3D" unique_id=1818890876]
 transform = Transform3D(10.000001, 0, 0, 0, 10.000001, 0, 0, 0, 9.999999, 6.219887, 7.1230626, 0.5822052)
 text = "2"
 
-[node name="InteractiveButton" parent="Level2_torso2/Level2_Node3D" unique_id=568250522 node_paths=PackedStringArray("activation_targets") instance=ExtResource("12_h5n57")]
+[node name="InteractiveButton" parent="Level2Torso2/Level2_Node3D" unique_id=568250522 node_paths=PackedStringArray("activation_targets") instance=ExtResource("12_h5n57")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.029869, 3.7473187, 0)
 trigger_weight = 3
 activation_targets = [NodePath("../CranePath"), NodePath("../CranePath2")]
 
-[node name="CranePath" parent="Level2_torso2/Level2_Node3D" unique_id=206372 node_paths=PackedStringArray("target_follower") instance=ExtResource("13_qu6t7")]
+[node name="CranePath" parent="Level2Torso2/Level2_Node3D" unique_id=206372 node_paths=PackedStringArray("target_follower") instance=ExtResource("13_qu6t7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.128876, 11.996073, -0.071422815)
 curve = SubResource("Curve3D_upwis")
 target_follower = NodePath("AnimatableBody3D")
 moveSpeedBackward = 1.0
 
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Level2_torso2/Level2_Node3D/CranePath" unique_id=197505201]
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Level2Torso2/Level2_Node3D/CranePath" unique_id=197505201]
 transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 0, 0, 0)
 collision_layer = 4
 
-[node name="Cylinder" type="MeshInstance3D" parent="Level2_torso2/Level2_Node3D/CranePath/AnimatableBody3D" unique_id=1949246632]
+[node name="Cylinder" type="MeshInstance3D" parent="Level2Torso2/Level2_Node3D/CranePath/AnimatableBody3D" unique_id=1949246632]
 transform = Transform3D(0.443, 0, 0, 0, 13.999731, 0, 0, 0, 0.44299158, -2.859558, 16.47168, -1.2829993)
 mesh = SubResource("CylinderMesh_wspkt")
 
-[node name="Cylinder2" type="MeshInstance3D" parent="Level2_torso2/Level2_Node3D/CranePath/AnimatableBody3D" unique_id=1693599265]
+[node name="Cylinder2" type="MeshInstance3D" parent="Level2Torso2/Level2_Node3D/CranePath/AnimatableBody3D" unique_id=1693599265]
 transform = Transform3D(0.443, 0, 0, 0, 13.999939, 0, 0, 0, 0.44299814, 2.8881302, 16.590437, -1.2829996)
 mesh = SubResource("CylinderMesh_wspkt")
 
-[node name="CranePath2" parent="Level2_torso2/Level2_Node3D" unique_id=1284623474 node_paths=PackedStringArray("target_follower") instance=ExtResource("13_qu6t7")]
+[node name="CranePath2" parent="Level2Torso2/Level2_Node3D" unique_id=1284623474 node_paths=PackedStringArray("target_follower") instance=ExtResource("13_qu6t7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.128876, 11.996073, -0.071422815)
 curve = SubResource("Curve3D_upwis")
 target_follower = NodePath("ExtendableWall")
 moveSpeedBackward = 1.0
 
-[node name="ExtendableWall" parent="Level2_torso2/Level2_Node3D/CranePath2" unique_id=568943409 instance=ExtResource("16_kwvi4")]
+[node name="ExtendableWall" parent="Level2Torso2/Level2_Node3D/CranePath2" unique_id=568943409 instance=ExtResource("16_kwvi4")]
 transform = Transform3D(0.9999994, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999985, 0, 0, 0)
 size = Vector3(6.1482186, 0.5054261, 3.537424)
 
-[node name="Checkpoint_2" type="Marker3D" parent="Level2_torso2/Level2_Node3D" unique_id=1921539978]
+[node name="Checkpoint_2" type="Marker3D" parent="Level2Torso2/Level2_Node3D" unique_id=1921539978]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7544174, 4.7022114, -0.20007515)
 
-[node name="Killzone_2" parent="Level2_torso2/Level2_Node3D" unique_id=293835072 node_paths=PackedStringArray("checkpoint") instance=ExtResource("15_btnpb")]
+[node name="Killzone_2" parent="Level2Torso2/Level2_Node3D" unique_id=293835072 node_paths=PackedStringArray("checkpoint") instance=ExtResource("15_btnpb")]
 transform = Transform3D(0.6181704, 0, 0, 0, 1, 0, 0, 0, 1, 1.7045441, -10.437858, 0.29345512)
 size = Vector3(108.96, 4, 5)
 checkpoint = NodePath("../Checkpoint_2")
@@ -4019,95 +4019,95 @@ transform = Transform3D(0.321, 0, 0, 0, 17.358072, 0, 0, 0, 0.27629793, 248.0976
 mesh = SubResource("CylinderMesh_2kgik")
 skeleton = NodePath("../../..")
 
-[node name="MISC_Node" type="Node3D" parent="." unique_id=779409570]
+[node name="MISCNode" type="Node3D" parent="." unique_id=779409570]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7527618, 7.220398, -0.13370514)
 
-[node name="Head" type="MeshInstance3D" parent="MISC_Node" unique_id=910629086]
+[node name="Head" type="MeshInstance3D" parent="MISCNode" unique_id=910629086]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100.00001, -34.148563, 15.507429, 0.3240888)
 mesh = ExtResource("26_qjcgg")
 skeleton = NodePath("../..")
 
-[node name="Hinge" type="Node3D" parent="MISC_Node" unique_id=6738442]
+[node name="Hinge" type="Node3D" parent="MISCNode" unique_id=6738442]
 transform = Transform3D(2.6087296, 0, 0, 0, -2.578666, 1.5642844e-07, 0, -1.5642841e-07, -0.9999997, 476.6896, 105.86369, 0.032999042)
 
-[node name="HingeBase" type="StaticBody3D" parent="MISC_Node/Hinge" unique_id=948151665]
+[node name="HingeBase" type="StaticBody3D" parent="MISCNode/Hinge" unique_id=948151665]
 
-[node name="HingeArm" type="RigidBody3D" parent="MISC_Node/Hinge" unique_id=1576785631]
+[node name="HingeArm" type="RigidBody3D" parent="MISCNode/Hinge" unique_id=1576785631]
 
-[node name="Cylinder3" type="MeshInstance3D" parent="MISC_Node" unique_id=1804994534]
+[node name="Cylinder3" type="MeshInstance3D" parent="MISCNode" unique_id=1804994534]
 transform = Transform3D(2.4944754, 0, 0, 0, -0.12685908, 2.6576397, 0, -2.0057542, -0.16808927, 87.00838, 10.328966, 0.8268507)
 mesh = SubResource("CylinderMesh_wspkt")
 skeleton = NodePath("../..")
 
-[node name="Cylinder4" type="MeshInstance3D" parent="MISC_Node" unique_id=269791014]
+[node name="Cylinder4" type="MeshInstance3D" parent="MISCNode" unique_id=269791014]
 transform = Transform3D(2.4944754, 0, 0, 0, -0.12685908, 2.6576397, 0, -2.0057542, -0.16808927, 94.55444, 10.328966, 0.8268507)
 mesh = SubResource("CylinderMesh_wspkt")
 skeleton = NodePath("../..")
 
-[node name="Cylinder5" type="MeshInstance3D" parent="MISC_Node" unique_id=1805604595]
+[node name="Cylinder5" type="MeshInstance3D" parent="MISCNode" unique_id=1805604595]
 transform = Transform3D(2.4944754, 0, 0, 0, -0.12685908, 2.6576397, 0, -2.0057542, -0.16808927, 86.8529, 37.053772, -0.4544886)
 mesh = SubResource("CylinderMesh_wspkt")
 skeleton = NodePath("../..")
 
-[node name="Cylinder6" type="MeshInstance3D" parent="MISC_Node" unique_id=1859506991]
+[node name="Cylinder6" type="MeshInstance3D" parent="MISCNode" unique_id=1859506991]
 transform = Transform3D(2.4944754, 0, 0, 0, -0.12685908, 2.6576397, 0, -2.0057542, -0.16808927, 94.398964, 37.053772, -0.4544886)
 mesh = SubResource("CylinderMesh_wspkt")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="MISC_Node" unique_id=946238609]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MISCNode" unique_id=946238609]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 296.68597, 45.029324, 0)
 mesh = ExtResource("27_kb3nv")
 skeleton = NodePath("../..")
 
-[node name="gears" type="Node3D" parent="MISC_Node" unique_id=1940945556]
+[node name="Gears" type="Node3D" parent="MISCNode" unique_id=1940945556]
 transform = Transform3D(4.175421, -0.0045112846, 0.062295247, 0.062458377, 0.30158487, -4.1645155, 0, 4.1649814, 0.30161864, 129.74611, 10.385968, 0.6456435)
 
-[node name="GearHelicalwithholes" type="MeshInstance3D" parent="MISC_Node/gears" unique_id=1812480520]
+[node name="GearHelicalWithHoles" type="MeshInstance3D" parent="MISCNode/Gears" unique_id=1812480520]
 transform = Transform3D(6.0176787, 1.2747448e-09, -7.729143e-09, -4.5265125e-10, -15.489479, -5.662441e-07, -1.493394e-08, 1.1920929e-06, -6.0176806, 76.486145, -9.929144, -24.637934)
 mesh = ExtResource("32_oha5w")
 skeleton = NodePath("../../..")
 
-[node name="GearHelicalwithholes2" type="MeshInstance3D" parent="MISC_Node/gears" unique_id=1790908448]
+[node name="GearHelicalWithHoles2" type="MeshInstance3D" parent="MISCNode/Gears" unique_id=1790908448]
 transform = Transform3D(5.243651, -2.4568436e-10, -2.427322e-10, -8.790111e-10, -13.497135, -4.7683716e-07, -2.993342e-08, 1.1920929e-06, -5.2436533, 76.48955, -0.4452626, -24.40385)
 mesh = ExtResource("32_oha5w")
 skeleton = NodePath("../../..")
 
-[node name="gear" type="MeshInstance3D" parent="MISC_Node/gears" unique_id=1405587186]
+[node name="Gear" type="MeshInstance3D" parent="MISCNode/Gears" unique_id=1405587186]
 transform = Transform3D(1.0000001, -5.927564e-11, 4.6290614e-11, 0, 1.0000001, 7.450581e-09, -1.8626451e-09, 0, 1.0000001, 1.0426304, 0.2077379, -0.33051446)
 mesh = ExtResource("11_2gh2o")
 skeleton = NodePath("")
 
-[node name="gear5" type="MeshInstance3D" parent="MISC_Node/gears" unique_id=1401516440]
+[node name="Gear5" type="MeshInstance3D" parent="MISCNode/Gears" unique_id=1401516440]
 transform = Transform3D(0.7126227, -6.834899e-11, 3.298774e-11, -3.7415522e-11, 0.71262264, 7.450581e-09, -1.86957e-09, -7.450581e-09, 0.7126227, 1.1591053, 0.20773801, 1.1335533)
 mesh = ExtResource("11_2gh2o")
 skeleton = NodePath("")
 
-[node name="gear6" type="MeshInstance3D" parent="MISC_Node/gears" unique_id=611293289]
+[node name="Gear6" type="MeshInstance3D" parent="MISCNode/Gears" unique_id=611293289]
 transform = Transform3D(0.7126227, -6.834899e-11, 3.298774e-11, -3.7415522e-11, 0.71262264, 7.450581e-09, -1.86957e-09, -7.450581e-09, 0.7126227, 4.387292, 0.20773801, 1.1335533)
 mesh = ExtResource("11_2gh2o")
 skeleton = NodePath("")
 
-[node name="gear8" type="MeshInstance3D" parent="MISC_Node/gears" unique_id=597423034]
+[node name="Gear8" type="MeshInstance3D" parent="MISCNode/Gears" unique_id=597423034]
 transform = Transform3D(1.1479208, 0, 0, 0, 1.147921, 0, 0, 0, 1.1479211, 20.318262, 0.11439798, 3.9185357)
 mesh = ExtResource("11_2gh2o")
 skeleton = NodePath("")
 
-[node name="gear10" type="MeshInstance3D" parent="MISC_Node/gears" unique_id=277476173]
+[node name="Gear10" type="MeshInstance3D" parent="MISCNode/Gears" unique_id=277476173]
 transform = Transform3D(1.1479208, 5.681675e-10, 3.7054753e-09, -1.6049458e-10, 1.1410683, -0.12524249, -3.7453436e-09, 0.12524247, 1.1410685, 20.318262, -1.8104277, 3.8872187)
 mesh = ExtResource("11_2gh2o")
 skeleton = NodePath("")
 
-[node name="gear11" type="MeshInstance3D" parent="MISC_Node/gears" unique_id=1538724198]
+[node name="Gear11" type="MeshInstance3D" parent="MISCNode/Gears" unique_id=1538724198]
 transform = Transform3D(1.1479208, 5.681675e-10, 3.7054753e-09, -1.6049458e-10, 1.1410683, -0.12524249, -3.7453436e-09, 0.12524247, 1.1410685, 20.318262, -3.840437, 3.664407)
 mesh = ExtResource("11_2gh2o")
 skeleton = NodePath("")
 
-[node name="gear12" type="MeshInstance3D" parent="MISC_Node/gears" unique_id=1068861821]
+[node name="Gear12" type="MeshInstance3D" parent="MISCNode/Gears" unique_id=1068861821]
 transform = Transform3D(1.1479208, 5.681675e-10, 3.7054753e-09, -1.6049458e-10, 1.1410683, -0.12524249, -3.7453436e-09, 0.12524247, 1.1410685, 20.318262, -6.1443644, 3.4115303)
 mesh = ExtResource("11_2gh2o")
 skeleton = NodePath("")
 
-[node name="gear7" type="MeshInstance3D" parent="MISC_Node/gears" unique_id=418329224]
+[node name="Gear7" type="MeshInstance3D" parent="MISCNode/Gears" unique_id=418329224]
 transform = Transform3D(0.7126227, -6.834899e-11, 3.298774e-11, -3.7415522e-11, 0.71262264, 7.450581e-09, -1.86957e-09, -7.450581e-09, 0.7126227, 4.391445, 0.207738, 0.37460864)
 mesh = ExtResource("11_2gh2o")
 skeleton = NodePath("")
@@ -4142,64 +4142,64 @@ mesh = ExtResource("22_2gsj1")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.91829914, -0.14284536, -0.9639509)
 mesh = ExtResource("32_dfk8b")
 
-[node name="Head Pipes Grables" parent="Items" unique_id=1608134829 instance=ExtResource("33_b7sev")]
+[node name="HeadPipesGrables" parent="Items" unique_id=1608134829 instance=ExtResource("33_b7sev")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -16.39905, 1.420861, 2.071742)
 
 [node name="HeadPipe" type="MeshInstance3D" parent="Items" unique_id=1958198577]
 transform = Transform3D(-99.906654, -4.3198576, 0, 4.3198576, -99.906654, 0, 0, 0, 100, -12.383772, 0.9792539, 3.6476536)
 mesh = ExtResource("34_eyu3q")
 
-[node name="Robot Hooks" type="Node" parent="." unique_id=1138960674]
+[node name="RobotHooks" type="Node" parent="." unique_id=1138960674]
 
-[node name="Robot Hooks Node" type="Node3D" parent="Robot Hooks" unique_id=1958739934]
+[node name="RobotHooksNode" type="Node3D" parent="RobotHooks" unique_id=1958739934]
 
-[node name="NamelessV07" parent="Robot Hooks/Robot Hooks Node" unique_id=296770905 instance=ExtResource("37_u7nal")]
+[node name="NamelessV07" parent="RobotHooks/RobotHooksNode" unique_id=296770905 instance=ExtResource("37_u7nal")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 540.8111, 153.73492, -36.81881)
 
-[node name="NamelessV15" parent="Robot Hooks/Robot Hooks Node" unique_id=1664261568 instance=ExtResource("37_u7nal")]
+[node name="NamelessV15" parent="RobotHooks/RobotHooksNode" unique_id=1664261568 instance=ExtResource("37_u7nal")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 542.49457, 152.52364, -57.77616)
 
-[node name="NamelessV16" parent="Robot Hooks/Robot Hooks Node" unique_id=48693588 instance=ExtResource("37_u7nal")]
+[node name="NamelessV16" parent="RobotHooks/RobotHooksNode" unique_id=48693588 instance=ExtResource("37_u7nal")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 553.1071, 152.52364, -57.77616)
 
-[node name="NamelessV17" parent="Robot Hooks/Robot Hooks Node" unique_id=67531559 instance=ExtResource("37_u7nal")]
+[node name="NamelessV17" parent="RobotHooks/RobotHooksNode" unique_id=67531559 instance=ExtResource("37_u7nal")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 563.0675, 152.52364, -57.77616)
 
-[node name="NamelessV18" parent="Robot Hooks/Robot Hooks Node" unique_id=1598933659 instance=ExtResource("37_u7nal")]
+[node name="NamelessV18" parent="RobotHooks/RobotHooksNode" unique_id=1598933659 instance=ExtResource("37_u7nal")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 572.8729, 152.52364, -57.77616)
 
-[node name="NamelessV19" parent="Robot Hooks/Robot Hooks Node" unique_id=2099576713 instance=ExtResource("37_u7nal")]
+[node name="NamelessV19" parent="RobotHooks/RobotHooksNode" unique_id=2099576713 instance=ExtResource("37_u7nal")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 582.8278, 152.52364, -57.77616)
 
-[node name="NamelessV20" parent="Robot Hooks/Robot Hooks Node" unique_id=717846010 instance=ExtResource("37_u7nal")]
+[node name="NamelessV20" parent="RobotHooks/RobotHooksNode" unique_id=717846010 instance=ExtResource("37_u7nal")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 590.33344, 152.52364, -57.77616)
 
-[node name="NamelessV21" parent="Robot Hooks/Robot Hooks Node" unique_id=96619600 instance=ExtResource("37_u7nal")]
+[node name="NamelessV21" parent="RobotHooks/RobotHooksNode" unique_id=96619600 instance=ExtResource("37_u7nal")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 599.11035, 152.52364, -57.77616)
 
-[node name="NamelessV22" parent="Robot Hooks/Robot Hooks Node" unique_id=429379613 instance=ExtResource("37_u7nal")]
+[node name="NamelessV22" parent="RobotHooks/RobotHooksNode" unique_id=429379613 instance=ExtResource("37_u7nal")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 609.70953, 152.52364, -57.77616)
 
-[node name="NamelessV23" parent="Robot Hooks/Robot Hooks Node" unique_id=248817512 instance=ExtResource("37_u7nal")]
+[node name="NamelessV23" parent="RobotHooks/RobotHooksNode" unique_id=248817512 instance=ExtResource("37_u7nal")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 621.26556, 152.52364, -57.77616)
 
-[node name="NamelessV08" parent="Robot Hooks/Robot Hooks Node" unique_id=879904659 instance=ExtResource("37_u7nal")]
+[node name="NamelessV08" parent="RobotHooks/RobotHooksNode" unique_id=879904659 instance=ExtResource("37_u7nal")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 540.8111, 153.73492, -18.95374)
 
-[node name="NamelessV09" parent="Robot Hooks/Robot Hooks Node" unique_id=1743360970 instance=ExtResource("37_u7nal")]
+[node name="NamelessV09" parent="RobotHooks/RobotHooksNode" unique_id=1743360970 instance=ExtResource("37_u7nal")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 555.1035, 153.73492, -36.81881)
 
-[node name="NamelessV10" parent="Robot Hooks/Robot Hooks Node" unique_id=1690277987 instance=ExtResource("37_u7nal")]
+[node name="NamelessV10" parent="RobotHooks/RobotHooksNode" unique_id=1690277987 instance=ExtResource("37_u7nal")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 555.1035, 153.73492, -18.95374)
 
-[node name="NamelessV11" parent="Robot Hooks/Robot Hooks Node" unique_id=120885750 instance=ExtResource("37_u7nal")]
+[node name="NamelessV11" parent="RobotHooks/RobotHooksNode" unique_id=120885750 instance=ExtResource("37_u7nal")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 569.2738, 153.73492, -36.81881)
 
-[node name="NamelessV12" parent="Robot Hooks/Robot Hooks Node" unique_id=1966645078 instance=ExtResource("37_u7nal")]
+[node name="NamelessV12" parent="RobotHooks/RobotHooksNode" unique_id=1966645078 instance=ExtResource("37_u7nal")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 569.2738, 153.73492, -18.95374)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Robot Hooks/Robot Hooks Node" unique_id=1391137870]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RobotHooks/RobotHooksNode" unique_id=1391137870]
 libraries/ = SubResource("AnimationLibrary_v3ous")
 
-[node name="NamelessV150" parent="Robot Hooks/Robot Hooks Node/AnimationPlayer" unique_id=1087020849 instance=ExtResource("37_u7nal")]
+[node name="NamelessV150" parent="RobotHooks/RobotHooksNode/AnimationPlayer" unique_id=1087020849 instance=ExtResource("37_u7nal")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 584.0245, 153.73492, -36.81881)
