@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://m1ilgdhf1lia" path="res://world/buttons/weighted_button.tscn" id="12_h5n57"]
 [ext_resource type="PackedScene" uid="uid://dyki3kr5ucgg7" path="res://world/followers/activated_path_follower.tscn" id="13_qu6t7"]
 [ext_resource type="PackedScene" uid="uid://bfxbhhtip1gba" path="res://world/terrain/movable_extendable_wall.tscn" id="14_ixj62"]
-[ext_resource type="PackedScene" uid="uid://h8hvkqrk8fe4" path="res://world/hazards/killzone.tscn" id="15_btnpb"]
+[ext_resource type="PackedScene" uid="uid://5vmgophpgyax" path="res://world/hazards/killzone.tscn" id="15_btnpb"]
 [ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://world/terrain/extendable_wall.tscn" id="16_kwvi4"]
 [ext_resource type="Script" uid="uid://bw716w626y8t7" path="res://world/triggers/trigger_predicate.gd" id="17_jioii"]
 [ext_resource type="ArrayMesh" uid="uid://dodoyqd473sd0" path="res://world/decorations/pipes/models/pipe_long.res" id="18_07f6l"]
