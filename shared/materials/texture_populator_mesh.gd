@@ -1,21 +1,21 @@
-#extends Node
+class_name TexturePopulatorMesh
 extends MeshInstance3D
+## A mesh that is populated with various textures
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Grab all the right shader and params files to populate
-	var parentDir := "res://Assets/Materials/Shaders/"
+	var parentDir := "res://shared/materials/"
 	#var dirs = ["Wood", "Metal", "Concrete"]
 	#var dirs = ["Wood"]
 	#for dir in dirs:
-	var path = parentDir + "Wood"
+	var path = parentDir + "wood"
 	var folder := DirAccess.open(path)
-	var mesh = self.mesh
+	var _mesh = self.mesh
 	var i := 0
 	var params
 	var mat := ShaderMaterial.new()
 	var baseColor
-	var height
+	var _height
 	var metallic
 	var normal
 	var roughness
@@ -23,7 +23,7 @@ func _ready() -> void:
 		if i == 0: params = FileAccess.open(path + "/" + file, FileAccess.READ)
 		elif i == 1: mat.shader = load(path + "/" + file)
 		elif i == 2: baseColor = load(path + "/" + file)
-		elif i == 3: height = load(path + "/" + file)
+		elif i == 3: _height = load(path + "/" + file)
 		elif i == 4: metallic = load(path + "/" + file)
 		elif i == 5: normal = load(path + "/" + file)
 		elif i == 6: roughness = load(path + "/" + file)
@@ -51,23 +51,3 @@ func _ready() -> void:
 	mat.set_shader_parameter("Roughness", roughness)
 	
 	self.set_surface_override_material(0, mat)
-		
-	#var dir := DirAccess.open(parentDir)
-	#var shaders := []
-	#var shaderRegex = RegEx.new()
-	#shaderRegex.compile("\b(?:wood|metal|concrete)Shader.tres\b")
-	#var params := []
-	#var paramsRegex = RegEx.new()
-	#paramsRegex.compile("")
-	#for file in dir.get_files():
-		#if shaderRegex.search(file):
-			#shaders.append(load(parentDir + "/" + file))
-		#elif paramsRegex.search(file):
-			#params.append(load(parentDir + "/" + file))
-	
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

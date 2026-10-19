@@ -1,42 +1,26 @@
-#extends Node3D
-#extends MeshInstance3D
+class_name WoodPopulator
 extends GeometryInstance3D
+## Makes the wood texture work across the game, populates a mesh with the texture
 
-var shader: Shader = preload("res://Assets/Materials/Shaders/procShader.tres")
-var baseColor := preload("res://Assets/Materials/Shaders/Wood/Wood_basecolor.png")
-var height := preload("res://Assets/Materials/Shaders/Wood/Wood_height.png")
-var metallic := preload("res://Assets/Materials/Shaders/Wood/Wood_metallic.png")
-var normal := preload("res://Assets/Materials/Shaders/Wood/Wood_normal.png")
-var roughness := preload("res://Assets/Materials/Shaders/Wood/Wood_roughness.png")
+var shader: Shader = preload("res://shared/materials/proc_shader.tres")
+var base_color := preload("res://shared/materials/wood/wood_basecolor.png")
+var height := preload("res://shared/materials/wood/wood_height.png")
+var metallic := preload("res://shared/materials/wood/wood_metallic.png")
+var normal := preload("res://shared/materials/wood/wood_normal.png")
+var roughness := preload("res://shared/materials/wood/wood_roughness.png")
 #var params := FileAccess.open("res://Assets/Materials/Shaders/Wood/woodParams.txt", FileAccess.READ)
 
-func populateShader(dir: String) -> ShaderMaterial:
-	var path := "res://Assets/Materials/Shaders/" + dir
-	var folder := DirAccess.open(path)
+
+func populate_shader(dir: String) -> ShaderMaterial:
+	var path := "res://shared/materials" + dir
+	var _folder := DirAccess.open(path)
 	
 	#var params = load("res://Assets/Materials/Shaders/Wood/woodParams.txt")
-	var params := FileAccess.open("res://Assets/Materials/Shaders/Wood/woodParams.txt", FileAccess.READ)
+	var params := FileAccess.open("res://shared/materials/wood/wood_parameters.txt", FileAccess.READ)
 	var mat := ShaderMaterial.new()
 	mat.shader = shader
-	#var baseColor
-	#var height
-	#var metallic
-	#var normal
-	#var roughness
-	
-	#var i = 0
-	#
-	#for file in folder.get_files():
-		#if i == 0: params = FileAccess.open(path + "/" + file, FileAccess.READ)
-		#elif i == 1: mat.shader = load(path + "/" + file)
-		#elif i == 2: baseColor = load(path + "/" + file)
-		#elif i == 3: height = load(path + "/" + file)
-		#elif i == 4: metallic = load(path + "/" + file)
-		#elif i == 5: normal = load(path + "/" + file)
-		#elif i == 6: roughness = load(path + "/" + file)
-		#i += 1
 		
-	mat.set_shader_parameter("Base_Color", baseColor)
+	mat.set_shader_parameter("Base_Color", base_color)
 	mat.set_shader_parameter("Metallic", metallic)
 	mat.set_shader_parameter("Edge_Map", normal)
 	mat.set_shader_parameter("Roughness", roughness)
@@ -84,23 +68,16 @@ func populateShader(dir: String) -> ShaderMaterial:
 	
 	return mat
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	#var mesh_instance: GeometryInstance3D = $MeshInstance3D
 
 	#var mesh = self.mesh
 	
-	var mat = populateShader("Wood")
+	var mat = populate_shader("Wood")
 	
 	self.material_override = mat
 	
 	print(mat.shader)
 	
 	#self.set_surface_override_material(0, mat)
-	
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
