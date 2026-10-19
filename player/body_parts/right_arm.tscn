@@ -294,23 +294,23 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 [node name="Node3D" type="Node3D" parent="." unique_id=85055363]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.844, -2.377, 0)
 
-[node name="R_Upper_Arm" type="MeshInstance3D" parent="Node3D" unique_id=854536740]
+[node name="RightUpperArm" type="MeshInstance3D" parent="Node3D" unique_id=854536740]
 mesh = ExtResource("5_2poe3")
 skin = SubResource("Skin_56ymr")
 
-[node name="R_Arm_LBow_Light" type="MeshInstance3D" parent="Node3D" unique_id=1882182040]
+[node name="RightArmElbowLight" type="MeshInstance3D" parent="Node3D" unique_id=1882182040]
 mesh = ExtResource("6_8chnf")
 skin = SubResource("Skin_p6ptp")
 
-[node name="R_Arm_Wrist" type="MeshInstance3D" parent="Node3D" unique_id=1790784494]
+[node name="RightArmWrist" type="MeshInstance3D" parent="Node3D" unique_id=1790784494]
 mesh = ExtResource("7_f4unv")
 skin = SubResource("Skin_1ofjq")
 
-[node name="R_Arm_Wrist_Light" type="MeshInstance3D" parent="Node3D" unique_id=1018230909]
+[node name="RightArmWristLight" type="MeshInstance3D" parent="Node3D" unique_id=1018230909]
 mesh = ExtResource("8_2aixd")
 skin = SubResource("Skin_w5eyk")
 
-[node name="R_Arm_Hand" type="MeshInstance3D" parent="Node3D" unique_id=512204100]
+[node name="RightArmHand" type="MeshInstance3D" parent="Node3D" unique_id=512204100]
 mesh = ExtResource("9_qxeld")
 skin = SubResource("Skin_5mdu5")
 
@@ -318,7 +318,7 @@ skin = SubResource("Skin_5mdu5")
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.027053833, 0.07662338, 0)
 shape = SubResource("CapsuleShape3D_8y70x")
 
-[node name="Left_Rigged_Leg" parent="." unique_id=232852266 instance=ExtResource("12_8chnf")]
+[node name="LeftRiggedLeg" parent="." unique_id=232852266 instance=ExtResource("12_8chnf")]
 
 [node name="PickupArea" type="Area3D" parent="." unique_id=1907021545]
 collision_layer = 0

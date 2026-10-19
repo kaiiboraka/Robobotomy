@@ -69,33 +69,33 @@ retract_speed = 7.5
 speed = 4.0
 acceleration = 5.0
 jump_velocity = 4.0
-weight = 2
 limb_type = 1
+weight = 2
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=677304792]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010208338, 0.021868803, 1.3411045e-05)
 aabb = AABB(-0.61507565, -0.6314556, -1, 1.2301513, 1.2629112, 2)
 
-[node name="Head_and_Hair" type="MeshInstance3D" parent="." unique_id=1005155060]
+[node name="HeadAndHair" type="MeshInstance3D" parent="." unique_id=1005155060]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, -2.9404614, 0)
 mesh = ExtResource("2_7q76k")
 surface_material_override/0 = SubResource("StandardMaterial3D_dpq14")
 
-[node name="Hair_tuft" type="MeshInstance3D" parent="Head_and_Hair" unique_id=1533871352]
+[node name="Hair_tuft" type="MeshInstance3D" parent="HeadAndHair" unique_id=1533871352]
 mesh = ExtResource("3_rtqub")
 surface_material_override/0 = SubResource("StandardMaterial3D_g2fgj")
 
-[node name="EyeLeft" type="MeshInstance3D" parent="Head_and_Hair/Hair_tuft" unique_id=1858294727]
+[node name="EyeLeft" type="MeshInstance3D" parent="HeadAndHair/Hair_tuft" unique_id=1858294727]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0012198878, 0.029019233, 0.0021308425)
 mesh = ExtResource("4_a61vf")
 surface_material_override/0 = SubResource("StandardMaterial3D_eovao")
 
-[node name="EyeRight" type="MeshInstance3D" parent="Head_and_Hair/Hair_tuft" unique_id=1078893662]
+[node name="EyeRight" type="MeshInstance3D" parent="HeadAndHair/Hair_tuft" unique_id=1078893662]
 transform = Transform3D(1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, -0.0012137627, 0.02901994, 0.0021328684)
 mesh = ExtResource("6_afrce")
 surface_material_override/0 = SubResource("StandardMaterial3D_rrvcf")
 
-[node name="Mouth" type="MeshInstance3D" parent="Head_and_Hair/Hair_tuft" unique_id=935888736]
+[node name="Mouth" type="MeshInstance3D" parent="HeadAndHair/Hair_tuft" unique_id=935888736]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.026951464, 0.002061392)
 mesh = ExtResource("8_xy461")
 surface_material_override/0 = SubResource("StandardMaterial3D_hv47r")

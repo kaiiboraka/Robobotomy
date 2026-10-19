@@ -78,7 +78,7 @@ jump_velocity = 20.0
 handicapped_jump_velocity = 12.0
 gravity_multiplier = 4.0
 
-[node name="Limb_PhantomCamera3D" type="Node3D" parent="." unique_id=1704350181]
+[node name="LimbPhantomCamera3D" type="Node3D" parent="." unique_id=1704350181]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.069, 15)
 top_level = true
 script = ExtResource("9_shd1k")
@@ -90,11 +90,11 @@ follow_damping = true
 follow_axis_lock = 3
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="Tall_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=289070969]
+[node name="TallCollisionShape3D" type="CollisionShape3D" parent="." unique_id=289070969]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6246948, 0)
 shape = SubResource("CapsuleShape3D_player")
 
-[node name="Short_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=629034834]
+[node name="ShortCollisionShape3D" type="CollisionShape3D" parent="." unique_id=629034834]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4144897, 0)
 shape = SubResource("CapsuleShape3D_b4kmf")
 disabled = true
@@ -109,7 +109,7 @@ surface_material_override/0 = ExtResource("6_5kd0c")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0686834, 0)
 max_angular_velocity = 8.0
 
-[node name="Holding_Spot" type="Node3D" parent="." unique_id=1781082980]
+[node name="HoldingSpot" type="Node3D" parent="." unique_id=1781082980]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7269216, 0.5)
 

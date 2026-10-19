@@ -279,27 +279,27 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 [node name="Meshes" type="Node3D" parent="." unique_id=203430883]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0.191, -0.897, 0)
 
-[node name="R_UpperLeg" type="MeshInstance3D" parent="Meshes" unique_id=1440080633]
+[node name="RightUpperLeg" type="MeshInstance3D" parent="Meshes" unique_id=1440080633]
 mesh = ExtResource("5_hh6m4")
 skin = SubResource("Skin_qkl3i")
 
-[node name="R_Shin" type="MeshInstance3D" parent="Meshes" unique_id=52596360]
+[node name="RightShin" type="MeshInstance3D" parent="Meshes" unique_id=52596360]
 mesh = ExtResource("6_jtu2u")
 skin = SubResource("Skin_y0j7o")
 
-[node name="R_Kneecap" type="MeshInstance3D" parent="Meshes" unique_id=1677654880]
+[node name="RightKneecap" type="MeshInstance3D" parent="Meshes" unique_id=1677654880]
 mesh = ExtResource("7_w4nx6")
 skin = SubResource("Skin_4urwc")
 
-[node name="R_AnkleGuard" type="MeshInstance3D" parent="Meshes" unique_id=1804108659]
+[node name="RightAnkleGuard" type="MeshInstance3D" parent="Meshes" unique_id=1804108659]
 mesh = ExtResource("8_pahpc")
 skin = SubResource("Skin_lqp06")
 
-[node name="R_AnkleHinge" type="MeshInstance3D" parent="Meshes" unique_id=320477931]
+[node name="RightAnkleHinge" type="MeshInstance3D" parent="Meshes" unique_id=320477931]
 mesh = ExtResource("9_agmls")
 skin = SubResource("Skin_djke7")
 
-[node name="R_Foot" type="MeshInstance3D" parent="Meshes" unique_id=1405762482]
+[node name="RightFoot" type="MeshInstance3D" parent="Meshes" unique_id=1405762482]
 mesh = ExtResource("10_kaetx")
 skin = SubResource("Skin_vm6j3")
 
