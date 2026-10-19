@@ -15,21 +15,21 @@ size = Vector3(0.8, 0.8, 0.8)
 [node name="Handle" type="Node3D" unique_id=1881152046]
 script = ExtResource("1_mq273")
 
-[node name="Handle Mesh" type="MeshInstance3D" parent="." unique_id=1091664225]
+[node name="HandleMesh" type="MeshInstance3D" parent="." unique_id=1091664225]
 mesh = SubResource("BoxMesh_deme2")
 
-[node name="Grabbable Area" type="Area3D" parent="." unique_id=1401291318]
+[node name="GrabbableArea" type="Area3D" parent="." unique_id=1401291318]
 collision_layer = 64
 collision_mask = 32
 
-[node name="Grabbable Shape" type="CollisionShape3D" parent="Grabbable Area" unique_id=2098761966]
+[node name="GrabbableShape" type="CollisionShape3D" parent="GrabbableArea" unique_id=2098761966]
 shape = SubResource("BoxShape3D_1ys03")
 
-[node name="Grab Joint" type="Generic6DOFJoint3D" parent="." unique_id=1120783557]
+[node name="GrabJoint" type="Generic6DOFJoint3D" parent="." unique_id=1120783557]
 linear_limit_x/upper_distance = 0.1
 linear_limit_x/lower_distance = 0.02
 linear_limit_y/enabled = false
 linear_limit_z/enabled = false
 
-[connection signal="area_entered" from="Grabbable Area" to="." method="OnInteractionAreaEntered"]
-[connection signal="area_exited" from="Grabbable Area" to="." method="OnInteractionAreaExited"]
+[connection signal="area_entered" from="GrabbableArea" to="." method="OnInteractionAreaEntered"]
+[connection signal="area_exited" from="GrabbableArea" to="." method="OnInteractionAreaExited"]

@@ -1,4 +1,6 @@
+class_name PathFollow3DType
 extends PathFollow3D
+## Helper class for the head moving through a pipe
 
 @export var move_speed := 0.5
 
@@ -7,7 +9,7 @@ var previous_parent: Node
 var inside_pipe := false
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if !inside_pipe:
 		return
 	var input = Input.get_axis("Player_Move_Left", "Player_Move_Right")
@@ -16,6 +18,7 @@ func _physics_process(delta):
 	player.global_rotation = global_rotation
 	print(progress)
 	
+## Called when the head enters the pipe entrance
 func _on_pipe_enter_body_entered(body: Node3D) -> void:
 	if body.name != "Head":
 		return
@@ -35,6 +38,7 @@ func _on_pipe_enter_body_entered(body: Node3D) -> void:
 		print("Pipe length:", get_parent().curve.get_baked_length())
 		print("Starting progress:", progress)
 
+## Called when the head enters the pipe exit
 func _on_pipe_exit_body_entered(body: Node3D) -> void:
 	if body.name != "Head":
 		return

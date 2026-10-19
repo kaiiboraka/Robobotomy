@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://ck2aty1s5xess" path="res://world/crates/Box.cs" id="1_55m6e"]
 [ext_resource type="PackedScene" uid="uid://lipiostj341j" path="res://world/crates/pullable/handle.tscn" id="2_1jswo"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_810t0"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_50c3r"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_y20ck"]
+[sub_resource type="BoxMesh" id="BoxMesh_4jh3q"]
 
-[node name="Simple Box" type="RigidBody3D" unique_id=1082349094]
+[node name="SimpleBox" type="RigidBody3D" unique_id=1082349094]
 collision_layer = 4
 collision_mask = 141
 axis_lock_linear_z = true
@@ -16,29 +16,29 @@ can_sleep = false
 script = ExtResource("1_55m6e")
 
 [node name="Collision Shape" type="CollisionShape3D" parent="." unique_id=1754790299]
-shape = SubResource("BoxShape3D_810t0")
+shape = SubResource("BoxShape3D_50c3r")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1071714189]
-mesh = SubResource("BoxMesh_y20ck")
+mesh = SubResource("BoxMesh_4jh3q")
 
 [node name="Handles" type="Node3D" parent="." unique_id=860135684]
 
-[node name="Left Handle" parent="Handles" unique_id=383665710 instance=ExtResource("2_1jswo")]
+[node name="LeftHandle" parent="Handles" unique_id=383665710 instance=ExtResource("2_1jswo")]
 process_mode = 4
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -1.75, 0, 0)
 visible = false
 
-[node name="Right Handle" parent="Handles" unique_id=1579072576 instance=ExtResource("2_1jswo")]
+[node name="RightHandle" parent="Handles" unique_id=1579072576 instance=ExtResource("2_1jswo")]
 process_mode = 4
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.75, 0, 0)
 visible = false
 
-[node name="Top Handle" parent="Handles" unique_id=1779232600 instance=ExtResource("2_1jswo")]
+[node name="TopHandle" parent="Handles" unique_id=1779232600 instance=ExtResource("2_1jswo")]
 process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
 visible = false
 
-[node name="Bottom Handle" parent="Handles" unique_id=173776934 instance=ExtResource("2_1jswo")]
+[node name="BottomHandle" parent="Handles" unique_id=173776934 instance=ExtResource("2_1jswo")]
 process_mode = 4
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, -0.75, 0)
 visible = false
