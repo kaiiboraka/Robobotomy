@@ -1,10 +1,11 @@
-extends Control
-
 class_name TitleScreen
+extends Control
+## Object for the title screen
+
+const TUTORIAL = "uid://07360tmuyddg"
 
 @export_file("*.tscn") var default_scene = "uid://07360tmuyddg"
 
-const TUTORIAL = "uid://07360tmuyddg"
 
 func _on_button_pressed() -> void:
 	var level_to_load = %SceneToLoad.text
@@ -20,7 +21,7 @@ func _on_new_game_button_pressed() -> void:
 	self.hide()
 	disable_buttons()
 
-
+## Disables the loading game buttons
 func disable_buttons() -> void:
-	%NewGame_Button.disabled = true
-	%LoadGame_Button.disabled = true
+	%NewGameButton.disabled = true
+	%LoadGameButton.disabled = true

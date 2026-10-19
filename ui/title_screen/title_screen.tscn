@@ -76,7 +76,7 @@ texture_filter = 1
 position = Vector2(51, 7)
 texture = ExtResource("4_2br5b")
 
-[node name="NewGame_Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=521361936]
+[node name="NewGameButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=521361936]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
@@ -86,7 +86,7 @@ theme_override_fonts/font = ExtResource("3_bnqst")
 theme_override_font_sizes/font_size = 13
 text = "New Game "
 
-[node name="LoadGame_Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=440715355]
+[node name="LoadGameButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=440715355]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
@@ -121,5 +121,5 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/NewGame_Button" to="." method="_on_new_game_button_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/LoadGame_Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/LoadGameButton" to="." method="_on_button_pressed"]

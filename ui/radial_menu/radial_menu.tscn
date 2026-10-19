@@ -87,7 +87,7 @@ scale = Vector2(0.6, 0.6)
 pivot_offset = Vector2(110, 95)
 texture = ExtResource("4_b6mux")
 
-[node name="Left Arm" type="TextureRect" parent="RadialMenuAdvanced" unique_id=1180951296]
+[node name="LeftArm" type="TextureRect" parent="RadialMenuAdvanced" unique_id=1180951296]
 texture_filter = 3
 layout_mode = 0
 offset_left = 285.30072
@@ -98,7 +98,7 @@ scale = Vector2(0.6, 0.6)
 pivot_offset = Vector2(110, 70)
 texture = ExtResource("5_4cf1o")
 
-[node name="Left Leg" type="TextureRect" parent="RadialMenuAdvanced" unique_id=1419109198]
+[node name="LeftLeg" type="TextureRect" parent="RadialMenuAdvanced" unique_id=1419109198]
 texture_filter = 1
 layout_mode = 0
 offset_left = 361.8045
@@ -109,7 +109,7 @@ scale = Vector2(0.6, 0.6)
 pivot_offset = Vector2(105, 140)
 texture = ExtResource("6_4cf1o")
 
-[node name="Right Leg" type="TextureRect" parent="RadialMenuAdvanced" unique_id=1142089909]
+[node name="RightLeg" type="TextureRect" parent="RadialMenuAdvanced" unique_id=1142089909]
 texture_filter = 1
 layout_mode = 0
 offset_left = 593.1955
@@ -120,7 +120,7 @@ scale = Vector2(-0.6, 0.6)
 pivot_offset = Vector2(105, 140)
 texture = ExtResource("6_4cf1o")
 
-[node name="Right Arm" type="TextureRect" parent="RadialMenuAdvanced" unique_id=514849934]
+[node name="RightArm" type="TextureRect" parent="RadialMenuAdvanced" unique_id=514849934]
 texture_filter = 3
 layout_mode = 0
 offset_left = 659.69934

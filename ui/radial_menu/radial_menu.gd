@@ -1,19 +1,27 @@
 class_name RadialMenu
 extends Control
+# Radial menu for selecting a limb
+
+signal activated
+signal deactivated
 
 @export var menu: Control
 
 var menu_visible: bool = false
 
-signal activated
-signal deactivated
 
+func _ready() -> void:
+	_set_active(false)
+
+## Called to activate or reveal the radial menu
 func activate() -> void:
-	_set_active(true);
-	
-func deactivate() -> void:
-	_set_active(false);
+	_set_active(true)
 
+## Called to deactivate or hide the radial menu 
+func deactivate() -> void:
+	_set_active(false)
+
+## Makes the radial menu visible
 func _set_active(enabled: bool) -> void:
 	menu.set_process(enabled)
 	menu.set_process_input(enabled)
@@ -25,19 +33,7 @@ func _set_active(enabled: bool) -> void:
 		hide()
 		deactivated.emit()
 
-
-func _ready() -> void:
-	_set_active(false)
-
-
+## Called when a radial menu slot is selected
 func _on_radial_menu_advanced_slot_selected(_slot: Control, index: int) -> void:
 	EventBus.emit_limb_selected(index)
 	_set_active(false)
-
-
-#func _unhandled_input(event: InputEvent) -> void:
-	#var radial_menu_pressed = event.is_action_pressed("Player_RadialMenu")
-	#if radial_menu_pressed and not menu_visible:
-		#_set_active(true)
-	#elif radial_menu_pressed and menu_visible:
-		#_set_active(false)
