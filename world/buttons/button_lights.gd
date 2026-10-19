@@ -29,7 +29,7 @@ enum LightState { OFF, ERROR, PARTIAL, FULL }
 
 @export var state_materials: Dictionary[LightState, StandardMaterial3D]
 
-@onready var hub_mesh: MeshInstance3D = $Hub_MeshInstance3D
+@onready var hub_mesh: MeshInstance3D = $HubMeshInstance3D
 
 
 func _ready():
@@ -97,7 +97,7 @@ func update_materials():
 	var is_partial = current_weight > 0 and current_weight < total_required
 
 	# Find hub mesh reliably
-	var hub = get_node_or_null("Hub_MeshInstance3D")
+	var hub = get_node_or_null("HubMeshInstance3D")
 
 	# Determine Hub Material
 	var hub_mat = state_materials.get(LightState.OFF)

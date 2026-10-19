@@ -12,7 +12,7 @@ extends AnimatableBody3D
 @export var elevator: bool = false
 
 @onready var anim_player: AnimationPlayer = $ButtonShell/AnimationPlayer
-@onready var lights: Node3D = %Button_Lights
+@onready var lights: Node3D = %ButtonLights
 @onready var trigger_area: Area3D = $Area3D
 
 var _was_active: bool = false
