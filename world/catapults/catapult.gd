@@ -1,7 +1,9 @@
-extends Node3D;
+class_name Catapult
+extends Node3D
+## Catapult class to launch the player head
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer;
-@export var launch_speed: float = 1.0;
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@export var launch_speed: float = 1.0
 
 # known bugs:
 # - registers as floor so the player sticks to it
@@ -9,5 +11,5 @@ extends Node3D;
 ## Called by a WeightedButton activation target. Plays the "launch" animation
 ## at the configured launch_speed multiplier.
 func on_button_activated():
-	print("launching");
-	animation_player.play("launch", -1, launch_speed);
+	print("launching")
+	animation_player.play("launch", -1, launch_speed)
