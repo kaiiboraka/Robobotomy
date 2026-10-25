@@ -1421,7 +1421,7 @@ transform = Transform3D(0.9942998, 0.10661987, 0, -0.10661987, 0.9942998, 0, 0, 
 size = Vector3(8.231161, 52.187553, 43.002705)
 
 [node name="ExtendableWall116" parent="Walls" unique_id=950219831 instance=ExtResource("16_kwvi4")]
-transform = Transform3D(1.0005634, 0, 0, 0, 1.0005634, 0, 0, 0, 1.0005634, 141.8552, 26.701534, -2.8665726)
+transform = Transform3D(1.0005634, 0, 0, 0, 1.0005634, 0, 0, 0, 1.0005634, 141.8552, 26.677727, -2.8658326)
 size = Vector3(35.4909, 42.827854, 3.0109901)
 
 [node name="ExtendableWall51" parent="Walls" unique_id=1774038344 instance=ExtResource("16_kwvi4")]
