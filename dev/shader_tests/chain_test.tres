@@ -7,10 +7,8 @@ parameter_name = "texture_albedo"
 parameter_name = "fresnel_gradient"
 
 [sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_hhlj7"]
-size = Vector2(1200, 340)
+size = Vector2(1600, 1420)
 expression = "// pow((1.0 - clamp(dot(normalize(normal), normalize(view)), 0.0, 1.0), amount);
-
-albedo = source_color;
 
 float basic_fresnel = pow((1.0 - clamp(dot(normalize(NORMAL), normalize(VIEW)), 0.0, 1.0)), 4.0);
 
@@ -47,13 +45,11 @@ nodes/fragment/2/position = Vector2(-1480, 260)
 nodes/fragment/3/node = SubResource("VisualShaderNodeTexture2DParameter_l4esa")
 nodes/fragment/3/position = Vector2(-1420, -180)
 nodes/fragment/4/node = SubResource("VisualShaderNodeExpression_hhlj7")
-nodes/fragment/4/position = Vector2(-1020, 140)
-nodes/fragment/4/size = Vector2(1200, 340)
+nodes/fragment/4/position = Vector2(-1000, 0)
+nodes/fragment/4/size = Vector2(1600, 1420)
 nodes/fragment/4/input_ports = "0,8,fresnel_gradient;1,8,texture_albedo;2,5,albedo;"
 nodes/fragment/4/output_ports = "0,4,output;"
 nodes/fragment/4/expression = "// pow((1.0 - clamp(dot(normalize(normal), normalize(view)), 0.0, 1.0), amount);
-
-albedo = source_color;
 
 float basic_fresnel = pow((1.0 - clamp(dot(normalize(NORMAL), normalize(VIEW)), 0.0, 1.0)), 4.0);
 
