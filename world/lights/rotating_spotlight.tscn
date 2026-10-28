@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dti4gnxwdtm3y"]
+
+[ext_resource type="Script" uid="uid://bledahrwikdls" path="res://world/lights/rotating_light.gd" id="1_8dho2"]
+
+[node name="RotatingSpot" type="SpotLight3D" unique_id=1906181569]
+transform = Transform3D(-0.31491482, 0.39348105, -0.8637137, 0, 0.91001534, 0.41457462, 0.9491199, 0.13055569, -0.2865773, 0, 0, 0)
+light_color = Color(1, 0, 1, 1)
+spot_range = 6.132
+spot_attenuation = 0.5
+spot_angle = 83.18
+spot_angle_attenuation = 2.9281673
+script = ExtResource("1_8dho2")
+orbitDistance = 1.525
+towardsSource = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=35530425]
+transform = Transform3D(1, 0, 0, -7.450581e-09, 1, 1.4901161e-08, 0, 1.4901161e-08, 1, 13.9465275, 1.9184072, -4.211015)

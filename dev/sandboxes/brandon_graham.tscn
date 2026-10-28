@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://i4qiyrnp6fqq"]
+
+[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://world/terrain/extendable_wall.tscn" id="1_l4fje"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_45ei3"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_sr37p"]
+[ext_resource type="PackedScene" uid="uid://npjp2dyv4vbu" path="res://player/player.tscn" id="3_l4fje"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_t1lel"]
+[ext_resource type="Resource" uid="uid://odcgk1h80sk0" path="res://world/camera/camera_3d_settings.tres" id="4_t1lel"]
+[ext_resource type="PackedScene" uid="uid://m1ilgdhf1lia" path="res://world/buttons/weighted_button.tscn" id="7_t1lel"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jadot"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_l4fje"]
+sky_material = SubResource("ProceduralSkyMaterial_jadot")
+
+[sub_resource type="Environment" id="Environment_sr37p"]
+background_mode = 2
+sky = SubResource("Sky_l4fje")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Resource" id="Resource_t1lel"]
+script = ExtResource("3_t1lel")
+transition = 7
+
+[node name="TestScene" type="Node3D" unique_id=368627856]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1145315526]
+environment = SubResource("Environment_sr37p")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1356625324]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Floor" parent="." unique_id=1149585584 instance=ExtResource("1_l4fje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.137, 0)
+size = Vector3(35, 15, 5)
+
+[node name="Ceiling" parent="." unique_id=702952417 instance=ExtResource("1_l4fje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.58579, 0)
+size = Vector3(35, 10, 5)
+
+[node name="RightWall" parent="." unique_id=2117104684 instance=ExtResource("1_l4fje")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 20.501936, 2.9082685, 0)
+size = Vector3(20, 6.265, 5)
+
+[node name="LeftWall" parent="." unique_id=822918072 instance=ExtResource("1_l4fje")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -20.389067, 7.6944013, 0)
+size = Vector3(40, 6.265, 5)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2074898256]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 15)
+fov = 45.0
+near = 0.005
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=854467191]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_sr37p")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="InteractiveButton" parent="." unique_id=1151652390 instance=ExtResource("7_t1lel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.173436, -1.6359935, 0)
+trigger_weight = 9
+
+[node name="Player" parent="." unique_id=64555096 instance=ExtResource("3_l4fje")]
+
+[node name="Player_PhantomCamera3D" type="Node3D" parent="." unique_id=2020620233 node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 15)
+top_level = true
+script = ExtResource("2_45ei3")
+priority = 1
+follow_mode = 2
+follow_target = NodePath("../Player")
+tween_resource = SubResource("Resource_t1lel")
+camera_3d_resource = ExtResource("4_t1lel")
+follow_offset = Vector3(0, 3.75, 15)
+follow_damping = true
+follow_axis_lock = 3
+follow_distance = 15.0
+dead_zone_width = 0.2
+dead_zone_height = 0.593
+show_viewfinder_in_play = true
+spring_length = 15.0
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"

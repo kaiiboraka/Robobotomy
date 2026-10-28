@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://dkigtorft18w6"]
+
+[ext_resource type="PackedScene" uid="uid://xskqf03ju65p" path="res://world/terrain/extendable_wall.tscn" id="2_bd11y"]
+[ext_resource type="PackedScene" uid="uid://npjp2dyv4vbu" path="res://player/player.tscn" id="3_at6gv"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_xev5s"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_gkkn6"]
+[ext_resource type="PackedScene" uid="uid://0nxi375snik3" path="res://player/body_parts/right_arm.tscn" id="5_8un3r"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_gw4p4"]
+[ext_resource type="Resource" uid="uid://odcgk1h80sk0" path="res://world/camera/camera_3d_settings.tres" id="7_8un3r"]
+[ext_resource type="PackedScene" uid="uid://clesw0vcam4s2" path="res://player/body_parts/left_arm.tscn" id="7_lxvf2"]
+[ext_resource type="PackedScene" uid="uid://dxubgecu6o687" path="res://player/body_parts/head.tscn" id="8_8un3r"]
+[ext_resource type="PackedScene" uid="uid://f0oommypkm0i" path="res://player/body_parts/left_leg.tscn" id="8_yj7wf"]
+[ext_resource type="PackedScene" uid="uid://ep2c8eoh0i32" path="res://player/body_parts/right_leg.tscn" id="9_yj7wf"]
+[ext_resource type="PackedScene" uid="uid://cu1xs6wktcy0b" path="res://world/levers/lever.tscn" id="13_kefid"]
+[ext_resource type="PackedScene" uid="uid://dlk6oxkqswup1" path="res://world/doors/door.tscn" id="14_17pk7"]
+[ext_resource type="PackedScene" uid="uid://b5wn6cwilqjxe" path="res://world/crates/pullable/handle_crate.tscn" id="14_lauej"]
+[ext_resource type="PackedScene" uid="uid://b5ig0xakcpv03" path="res://world/camera/camera_zoom_area.tscn" id="16_yp1hl"]
+[ext_resource type="PackedScene" uid="uid://td56vu1l1xka" path="res://world/climbing/chains/chain.tscn" id="21_jkqt3"]
+
+[sub_resource type="Resource" id="Resource_lpy3h"]
+script = ExtResource("5_gw4p4")
+transition = 7
+
+[node name="JacobPrototyping" type="Node3D" unique_id=947964362]
+
+[node name="RightFloor" parent="." unique_id=1149585584 instance=ExtResource("2_bd11y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5902824, -1.1713285, 0)
+size = Vector3(12.316, 2.37, 5)
+
+[node name="LeftFloor" parent="." unique_id=1201527970 instance=ExtResource("2_bd11y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.803055, -1.1713285, 0)
+size = Vector3(15.366, 2.37, 5)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1898504763]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.543896, 6.9276214, 14.999999)
+fov = 45.0
+near = 0.005
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=873592538]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("3_xev5s")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="Player" parent="." unique_id=64555096 instance=ExtResource("3_at6gv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.543896, 3.1776214, -9.536743e-07)
+
+[node name="RightArm" parent="Player" unique_id=904546073 instance=ExtResource("5_8un3r")]
+
+[node name="Head" parent="Player" unique_id=2035200198 instance=ExtResource("8_8un3r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8653183, 0)
+
+[node name="LeftArm" parent="Player" unique_id=1281946609 instance=ExtResource("7_lxvf2")]
+
+[node name="LeftLeg" parent="Player" unique_id=925113335 instance=ExtResource("8_yj7wf")]
+
+[node name="RightLeg" parent="Player" unique_id=1985177356 instance=ExtResource("9_yj7wf")]
+
+[node name="Player_PhantomCamera3D" type="Node3D" parent="." unique_id=1936159958 node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.543896, 6.9276214, 14.999999)
+top_level = true
+script = ExtResource("4_gkkn6")
+priority = 1
+follow_mode = 2
+follow_target = NodePath("../Player")
+tween_resource = SubResource("Resource_lpy3h")
+camera_3d_resource = ExtResource("7_8un3r")
+follow_offset = Vector3(0, 3.75, 15)
+follow_damping = true
+follow_axis_lock = 3
+follow_distance = 15.0
+dead_zone_width = 0.2
+dead_zone_height = 0.593
+show_viewfinder_in_play = true
+spring_length = 15.0
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Wall" parent="." unique_id=1349869339 instance=ExtResource("2_bd11y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.186741, 0, 0)
+size = Vector3(5.975, 18.38, 5)
+
+[node name="UpperWall" parent="." unique_id=494915183 instance=ExtResource("2_bd11y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.314072, 13.517267, 0)
+size = Vector3(5.975, 18.38, 5)
+
+[node name="Ceiling" parent="." unique_id=1015948822 instance=ExtResource("2_bd11y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.059802, 21.241299, 0)
+size = Vector3(29.91, 1, 5)
+
+[node name="Chain" parent="." unique_id=2093183878 instance=ExtResource("21_jkqt3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.213333, 12.8517065, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1732502036]
+transform = Transform3D(1, 0, 0, 0, 0.06662385, 0.9977782, 0, -0.9977782, 0.06662385, 0, -1.9201674, 0)
+
+[node name="Lever" parent="." unique_id=1689423163 node_paths=PackedStringArray("activation_targets") instance=ExtResource("13_kefid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.197299, 0, 0)
+activation_targets = [NodePath("../Door")]
+
+[node name="handle_crate" parent="Lever" unique_id=1550150326 instance=ExtResource("14_lauej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.513414, 2.8101158, 9.536743e-07)
+
+[node name="Door" parent="." unique_id=1709040343 instance=ExtResource("14_17pk7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5145416, 0, 0.08155155)
+
+[node name="CameraZoomArea" parent="." unique_id=1921989334 instance=ExtResource("16_yp1hl")]
+transform = Transform3D(8.996826, 0, 0, 0, 6.915495, 0, 0, 0, 1.0000012, -17.162678, 2.0978997, 0)
+camera_distance = 50.0

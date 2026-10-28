@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://lou08fxeuu73"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4gvqi"]
+
+[node name="Magnet" type="Node3D" unique_id=1172318129]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=254136526]
+transform = Transform3D(3.452155, 0, 0, 0, 0.050420225, 0, 0, 0, 3.452155, 0, 0, 0)
+mesh = SubResource("CylinderMesh_4gvqi")
