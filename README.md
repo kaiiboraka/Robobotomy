@@ -1,4 +1,11 @@
 # Robobotomy
+Robobotomy: Version 1.0.0
+
+LATEST CHANGES:
+
+ - **Reorganize file system completely**. A few of the most recent commits were lost in the progress, but little has changed in the last few month and in the last few commits.
+ - **Remove bugs causing over 1000 errors**. There are now 0 errors upon loading the project as well as upon loading tutorial_new.tscn.
+ - **Enforced a single naming convention**. All files (excluding C# files) are now in snake_case.
 
 ## Current Project Focus
 
