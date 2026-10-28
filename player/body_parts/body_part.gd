@@ -1,0 +1,375 @@
+@abstract class_name BodyPart 
+extends RigidBody3D
+## Body part class for the whole body
+
+signal hit_ground
+
+enum LimbType { UNSET, HEAD, TORSO, LEFT_ARM, RIGHT_ARM, LEFT_LEG, RIGHT_LEG }
+
+@export var is_connected: bool = true
+@export var retract_speed: float = 10.0
+@export var throw_force: float = 40.0
+@export var speed: float = 5.0
+@export var acceleration: float = 20.0
+@export var jump_velocity: float = 5.0
+@export var limb_type: LimbType = LimbType.UNSET
+@export_range(0, 3, 1) var weight: int = 1
+
+var phantom_camera: PhantomCamera3D
+var is_part_enabled: bool = true
+## When false, this part ignores player move/jump (still simulates if enabled and unfrozen).
+var accepts_player_input: bool = true
+var is_detached: bool = false
+var is_retracting: bool = false
+var is_busy: bool = false
+var starting_position: Vector3
+var starting_rotation: Vector3
+var starting_transform: Transform3D
+var core: Node3D
+
+@onready var notifier: VisibleOnScreenNotifier3D = $VisibleOnScreenNotifier3D
+
+
+## Snapshot the starting local position/rotation/transform for later recall.
+## Enable contact monitoring for hit_ground detection, then configure
+## the initial connection state (unconnected vs attached vs rolling).
+func _ready() -> void:
+	starting_position = position
+	starting_rotation = rotation
+	starting_transform = transform
+	# Ensure we can detect collisions for the hit_ground signal
+	contact_monitor = true
+	max_contacts_reported = 4
+
+	if limb_type == LimbType.UNSET:
+		limb_type = _infer_limb_type_from_name()
+
+
+	if not is_connected:
+		_setup_unconnected_state()
+	elif is_part_enabled:
+		enable_part()
+	else:
+		disable_part()
+
+
+## Infer LimbType from the node name as a fallback when the export is unset.
+## Covers the standard names (Head, Torso, LeftArm, RightArm, LeftLeg, RightLeg)
+## and their prefixed/mangled variants.
+func _infer_limb_type_from_name() -> LimbType:
+	var n := name.to_lower()
+	if n.contains("head"):
+		return LimbType.HEAD
+	if n.contains("torso"):
+		return LimbType.TORSO
+	if n.contains("left") and n.contains("arm"):
+		return LimbType.LEFT_ARM
+	if n.contains("right") and n.contains("arm"):
+		return LimbType.RIGHT_ARM
+	if n.contains("left") and n.contains("leg"):
+		return LimbType.LEFT_LEG
+	if n.contains("right") and n.contains("leg"):
+		return LimbType.RIGHT_LEG
+	return LimbType.UNSET
+
+
+## Configure a limb that starts disconnected: detach it, enable physics,
+## and connect its pickup area so the player can grab it later.
+func _setup_unconnected_state() -> void:
+	is_part_enabled = false
+	is_detached = true
+	freeze = false
+	# Allow it to be moved/pushed in the world
+
+	var pickup_area = get_node_or_null("PickupArea") as Area3D
+	if pickup_area:
+		if not pickup_area.body_entered.is_connected(_on_pickup_area_body_entered):
+			pickup_area.body_entered.connect(_on_pickup_area_body_entered)
+
+
+## When a player body enters this detached limb's pickup area,
+## register it back to that player (only works for unconnected limbs).
+##
+## TODO: This is a temporary bandaid. If the player already occupies this limb
+## slot (same name, connected), the redundant limb is destroyed instead of
+## picked up. A proper pickup/inventory system for extra limbs should be
+## designed later.
+func _on_pickup_area_body_entered(body: Node) -> void:
+	if is_connected:
+		return
+
+	# If the body is a BodyPart and is connected, it can pick us up
+	var other_limb := body as BodyPart
+	var core = other_limb.core if other_limb and other_limb.is_connected else body
+
+	if core == null or not core.has_method("register_limb"):
+		return
+
+	if _is_redundant(core):
+		queue_free()
+		return
+
+	connect_to_player(core)
+
+
+## Returns true if the core already has a connected limb of the same LimbType.
+## Skips UNSET limbs to avoid false positives when the type couldn't be inferred.
+## TODO: Temporary bandaid — see _on_pickup_area_body_entered.
+func _is_redundant(core: Node) -> bool:
+	if not "limbs" in core:
+		return false
+	if self.limb_type == LimbType.UNSET:
+		return false
+	for limb in core.limbs:
+		if limb.limb_type == self.limb_type and limb.is_connected:
+			return true
+	return false
+
+
+## Attach this limb to a new core (player) node. Reparents the limb
+## under the core if needed, registers it, and removes the pickup area.
+func connect_to_player(new_core: Node3D) -> void:
+	if is_connected:
+		return
+
+	is_connected = true
+	core = new_core
+
+
+	# Reparent to player if found in the level
+	if get_parent() != core:
+		var old_global_transform = global_transform
+		get_parent().remove_child(self)
+		core.add_child(self)
+		global_transform = old_global_transform
+
+	if core.has_method("register_limb"):
+		core.call("register_limb", self)
+
+	var pickup_area = get_node_or_null("PickupArea") as Area3D
+	if pickup_area:
+		pickup_area.queue_free()
+
+
+## Emit hit_ground the first frame a detached, non-rolling limb touches
+## the ground. The core listens to this to enable rolling control.
+func _physics_process(_delta: float) -> void:
+	if is_detached and not is_part_enabled:
+		if is_grounded():
+			hit_ground.emit()
+
+
+## Called when this limb becomes the active selection. Override for visuals.
+func on_select() -> void:
+	pass
+
+
+## Called when this limb is no longer the selected limb. Override for visuals.
+func deselect() -> void:
+	pass
+
+
+## Activate rolling control: enable physics processing, top_level, and
+## player input. The part now simulates independently.
+func enable_part() -> void:
+	is_part_enabled = true
+	top_level = true
+	freeze = false
+	can_sleep = true
+	set_process(true)
+	set_physics_process(true)
+	set_accepts_player_input(true)
+
+
+## Deactivate rolling control. Freezes the part if attached (keeps world
+## position if detached). Stops input and process but keeps physics for
+## gravity/collision on detached parts.
+func disable_part() -> void:
+	is_part_enabled = false
+	# During retract, stay top_level until the tween finishes (caller keeps global_position valid).
+	if not is_retracting:
+		top_level = is_detached
+		# Keep world space if detached
+
+	freeze = true if not is_detached else false
+	# don't move if attached
+	set_process(false)
+	set_physics_process(true)
+	# Keep physics for gravity/collision if detached
+	set_accepts_player_input(false)
+
+
+## Launch this limb with the given impulse vector. Marks it detached,
+## sets top_level, prevents sleeping until it lands, and applies the impulse.
+func throw(impulse: Vector3) -> void:
+	is_detached = true
+	freeze = false
+	top_level = true
+	# Sleeping bodies often stop populating get_colliding_bodies() stay awake until we land.
+	can_sleep = false
+	set_physics_process(true)
+	apply_central_impulse(impulse)
+
+
+## Release this limb into free-fall. Same as throw but without an impulse —
+## the limb drops at its current velocity.
+func drop() -> void:
+	is_detached = true
+	freeze = false
+	top_level = true
+	can_sleep = false
+	set_physics_process(true)
+
+
+## Tween this limb back to its socket on the core, tracking the core's
+## dynamic position and rotation over the retract duration. Returns the
+## Tween so the caller can connect to its finished signal.
+func retract() -> Tween:
+	is_retracting = true
+	var initial_global_pos = global_position
+	var initial_quat = global_transform.basis.get_rotation_quaternion()
+	var original_scale = global_transform.basis.get_scale()
+
+
+	# Mark attached before disable_part so freeze stays on during the tween.
+	is_detached = false
+	disable_part()
+	top_level = true
+	# Keep in world space during flight
+
+	var target_world_pos = core.global_transform * starting_position
+	var dist = initial_global_pos.distance_to(target_world_pos)
+	var duration = .5
+	# dist / retract_speed
+	if duration <= 0:
+		duration = 0.01
+
+	var move_tween = create_tween()
+	move_tween.set_parallel(true)
+	move_tween.set_ease(Tween.EASE_OUT)
+	move_tween.set_trans(Tween.TRANS_CUBIC)
+	move_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
+
+
+	# Position tween (dynamic tracking of moving core)
+	move_tween.tween_method(
+		func(t):
+			if not is_instance_valid(core):
+				return
+			var current_target = core.global_transform * starting_position
+			global_position = initial_global_pos.lerp(current_target, t),
+		0.0,
+		1.0,
+		duration,
+	)
+
+
+	# Rotation tween (dynamic tracking of core rotation)
+	move_tween.tween_method(
+		func(t):
+			if not is_instance_valid(core):
+				return
+			var parent_quat = core.global_transform.basis.get_rotation_quaternion()
+			var target_quat = parent_quat * Quaternion.from_euler(starting_rotation)
+			global_transform.basis = Basis(initial_quat.slerp(target_quat, t)).scaled(
+				original_scale
+			),
+		0.0,
+		1.0,
+		duration,
+	)
+
+
+	move_tween.finished.connect(
+		func():
+			top_level = false
+			linear_velocity = Vector3.ZERO
+			angular_velocity = Vector3.ZERO
+			position = starting_position
+			rotation = starting_rotation
+			freeze = true
+			set_physics_process(false)
+			is_retracting = false
+	)
+
+
+	return move_tween
+
+
+## Apply horizontal movement input as velocity on this limb.
+## Called from _integrate_forces in rolling parts.
+func handle_movement(state: PhysicsDirectBodyState3D) -> void:
+	var input_dir := Input.get_axis("Player_Move_Left", "Player_Move_Right")
+	if input_dir != 0:
+		wake_up()
+
+	var target_vel := input_dir * speed
+	state.linear_velocity.x = lerp(state.linear_velocity.x, target_vel, state.step * acceleration)
+
+
+## Apply a jump impulse when the jump button is pressed and the limb is grounded.
+## Pass [param state] when calling from _integrate_forces for accurate contact detection.
+func handle_jump(state: PhysicsDirectBodyState3D = null) -> void:
+	if Input.is_action_just_pressed("Player_Jump") and is_grounded(state):
+		wake_up()
+		apply_central_impulse(Vector3.UP * jump_velocity)
+
+
+## Wake this rigid body so it responds to physics again.
+func wake_up() -> void:
+	sleeping = false
+
+
+## Returns true if this limb is resting on something that counts as ground
+## (StaticBody, AnimatableBody, GridMap, or a frozen RigidBody).
+## Uses contact normals to ignore wall contacts — only surfaces below the
+## limb (normal.y > 0.3) are considered ground.
+## Pass [param state] from _integrate_forces for accurate contact-based detection
+## without state, falls back to RayCast3D.
+func is_grounded(state: PhysicsDirectBodyState3D = null) -> bool:
+	if state:
+		for i in range(state.get_contact_count()):
+			var normal := state.get_contact_local_normal(i)
+			if normal.y <= 0.3:
+				continue
+			var collider_id = state.get_contact_collider_id(i)
+			var collider = instance_from_id(collider_id) if collider_id else null
+			if collider and counts_as_ground_for_limb(collider):
+				return true
+
+	var ray := get_node_or_null("RayCast3D") as RayCast3D
+	if ray and ray.is_colliding():
+		if counts_as_ground_for_limb(ray.get_collider()):
+			return true
+
+	return false
+
+
+## Enable or disable player input on this limb. Wakes the limb when enabled.
+## Has no effect if the limb is busy (e.g. attached to a control panel).
+func set_accepts_player_input(enabled: bool) -> void:
+	if (is_busy):
+		return
+	accepts_player_input = enabled
+	set_process_input(enabled)
+	if enabled:
+		wake_up()
+
+
+## Returns true if the given body is considered ground for this limb
+## (StaticBody, AnimatableBody, GridMap, or frozen RigidBody).
+func counts_as_ground_for_limb(body: Node) -> bool:
+	if body == null or not is_instance_valid(body):
+		return false
+	if body is StaticBody3D or body is AnimatableBody3D or body is GridMap:
+		return true
+	if body is RigidBody3D:
+		return (body as RigidBody3D).freeze
+	return false
+
+
+## Teleport this limb to a world position and zero its velocity.
+func spawn_at(target_position: Vector3) -> void:
+	global_position = target_position
+	linear_velocity = Vector3.ZERO
+	angular_velocity = Vector3.ZERO

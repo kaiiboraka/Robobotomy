@@ -39,8 +39,6 @@ godot_ai/
 .gemini/
 .godot/uid_cache.bin
 .godot/mono/metadata/ide_messaging_meta.txt
-.godot/imported/NamelessV01.fbx-549d2d72777c3aa2dd6049c8229c1512.scn
-.godot/imported/NamelessV01.fbx-549d2d72777c3aa2dd6049c8229c1512.md5
 .godot/editor/recent_dirs
 .godot/editor/quick_open_dialog_cache.cfg
 .godot/editor/project_metadata.cfg
@@ -53,3 +51,7 @@ godot_ai/
 
 /addons/script-ide
 /addons/moderntitlebar
+
+
+#VSCode specific ignores
+.vscode/
